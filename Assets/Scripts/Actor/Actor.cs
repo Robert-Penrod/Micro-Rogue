@@ -1,16 +1,23 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Actor : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Rigidbody2D Body { get; private set; }
+    public Vector2 MoveInput { get; private set; }
+
+    private void Awake()
     {
-        
+        Body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Move(Vector2 move)
     {
-        
+        MoveInput = move;
+    }
+
+    private void FixedUpdate()
+    {
+        Body.AddForce(3f * MoveInput * Body.linearDamping);
     }
 }
