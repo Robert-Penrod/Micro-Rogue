@@ -48,7 +48,7 @@ public class Portal : MonoBehaviour
 
         // Add player
         _grabbedPlayers.Add(player);
-        player.Actor.SetInContainer(true);
+        player.Actor.SetInPortal(true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -62,7 +62,7 @@ public class Portal : MonoBehaviour
             if (_leaveLog.ContainsKey(player)) _leaveLog[player] = Time.time;
             else _leaveLog.Add(player, Time.time);
 
-            player.Actor.SetInContainer(false);
+            player.Actor.SetInPortal(false);
 
             // Kick
             Vector2 kickVector = ((Vector2)(player.Actor.transform.position - transform.position)).normalized;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1666114238219334236}
   - component: {fileID: 3390990635394206715}
   m_Layer: 0
-  m_Name: Player Manager
+  m_Name: = Player Manager =
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_MaxPlayerCount: 32
   m_AllowJoining: 1
   m_JoinBehavior: 1
@@ -89,3 +89,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8c88800415dd347a0fa3cc7c981681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerList: []

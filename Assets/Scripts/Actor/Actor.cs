@@ -72,15 +72,15 @@ public class Actor : MonoBehaviour
     #endregion
 
     #region Container
-    bool _inContainer;
-    public void SetInContainer(bool inContainer)
+    bool _inPortal;
+    public void SetInPortal(bool inPortal)
     {
-        this._inContainer = inContainer;
+        this._inPortal = inPortal;
     }
     void HandleContainerUpdate()
     {
         float targetS = _initScale;
-        if (_inContainer) targetS *= 0.5f;
+        if (_inPortal) targetS *= 0.5f;
 
         float lerpS = Mathf.Lerp(transform.localScale.x, targetS, 12f * Time.deltaTime);
         transform.localScale = lerpS * Vector3.one;
