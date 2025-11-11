@@ -1,0 +1,5967 @@
+fileFormatVersion: 2
+guid: 73b3d44eb7a842347b62ab8e0d1f687d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2842091425285453429
+    second: Spherical Square Gradient_0
+  - first:
+      213: -1321475813278075699
+    second: Spherical Square Gradient_1
+  - first:
+      213: -8879743865219347795
+    second: Spherical Square Gradient_2
+  - first:
+      213: -6079509888242300511
+    second: Spherical Square Gradient_3
+  - first:
+      213: 35708961267006847
+    second: Spherical Square Gradient_4
+  - first:
+      213: -5372219969109753219
+    second: Spherical Square Gradient_5
+  - first:
+      213: -2024366205201963755
+    second: Spherical Square Gradient_6
+  - first:
+      213: 1851425256233080388
+    second: Spherical Square Gradient_7
+  - first:
+      213: -948402017573313741
+    second: Spherical Square Gradient_8
+  - first:
+      213: -4696704186437311145
+    second: Spherical Square Gradient_9
+  - first:
+      213: -3731866944044050807
+    second: Spherical Square Gradient_10
+  - first:
+      213: 6271764663596180922
+    second: Spherical Square Gradient_11
+  - first:
+      213: 3506898743609218805
+    second: Spherical Square Gradient_12
+  - first:
+      213: 6073487539517112137
+    second: Spherical Square Gradient_13
+  - first:
+      213: -7906714994747892982
+    second: Spherical Square Gradient_14
+  - first:
+      213: -2864858545229725482
+    second: Spherical Square Gradient_15
+  - first:
+      213: -5282066313173226111
+    second: Spherical Square Gradient_16
+  - first:
+      213: 8391002909431903763
+    second: Spherical Square Gradient_17
+  - first:
+      213: 8138567659172299219
+    second: Spherical Square Gradient_18
+  - first:
+      213: 6946949696798106911
+    second: Spherical Square Gradient_19
+  - first:
+      213: 6642762362078462828
+    second: Spherical Square Gradient_20
+  - first:
+      213: -8590406612479702417
+    second: Spherical Square Gradient_21
+  - first:
+      213: 4013451052609707792
+    second: Spherical Square Gradient_22
+  - first:
+      213: -3535590535512444539
+    second: Spherical Square Gradient_23
+  - first:
+      213: 3742717977528925695
+    second: Spherical Square Gradient_24
+  - first:
+      213: -2687827161725961235
+    second: Spherical Square Gradient_25
+  - first:
+      213: -7015828851457173667
+    second: Spherical Square Gradient_26
+  - first:
+      213: -7704968935821853965
+    second: Spherical Square Gradient_27
+  - first:
+      213: 2546295395659314196
+    second: Spherical Square Gradient_28
+  - first:
+      213: -8363345716460711668
+    second: Spherical Square Gradient_29
+  - first:
+      213: 8229953357583265933
+    second: Spherical Square Gradient_30
+  - first:
+      213: -3455457059305186993
+    second: Spherical Square Gradient_31
+  - first:
+      213: 2256583624628682095
+    second: Spherical Square Gradient_32
+  - first:
+      213: 4191232556511569115
+    second: Spherical Square Gradient_33
+  - first:
+      213: 3941783418666913391
+    second: Spherical Square Gradient_34
+  - first:
+      213: -4313597132590396234
+    second: Spherical Square Gradient_35
+  - first:
+      213: 250541001606728940
+    second: Spherical Square Gradient_36
+  - first:
+      213: -7405844274298132685
+    second: Spherical Square Gradient_37
+  - first:
+      213: -458618036954816018
+    second: Spherical Square Gradient_38
+  - first:
+      213: 3828557870908975842
+    second: Spherical Square Gradient_39
+  - first:
+      213: -1465200271732893747
+    second: Spherical Square Gradient_40
+  - first:
+      213: -6989461284422450468
+    second: Spherical Square Gradient_41
+  - first:
+      213: 3862058943907090081
+    second: Spherical Square Gradient_42
+  - first:
+      213: -7733095762840780850
+    second: Spherical Square Gradient_43
+  - first:
+      213: 1876371899376908795
+    second: Spherical Square Gradient_44
+  - first:
+      213: 4970923932129548294
+    second: Spherical Square Gradient_45
+  - first:
+      213: -4206927479194421250
+    second: Spherical Square Gradient_46
+  - first:
+      213: -4119644125482506613
+    second: Spherical Square Gradient_47
+  - first:
+      213: 4761611598002609000
+    second: Spherical Square Gradient_48
+  - first:
+      213: -3865246056500928426
+    second: Spherical Square Gradient_49
+  - first:
+      213: -2282577741148511850
+    second: Spherical Square Gradient_50
+  - first:
+      213: 8328029226588780303
+    second: Spherical Square Gradient_51
+  - first:
+      213: 3917430340815137943
+    second: Spherical Square Gradient_52
+  - first:
+      213: 1220101857663991369
+    second: Spherical Square Gradient_53
+  - first:
+      213: -8740527606287226520
+    second: Spherical Square Gradient_54
+  - first:
+      213: -7756229389618721961
+    second: Spherical Square Gradient_55
+  - first:
+      213: 5488620217397658739
+    second: Spherical Square Gradient_56
+  - first:
+      213: -8732239285214951286
+    second: Spherical Square Gradient_57
+  - first:
+      213: 2659845544010338755
+    second: Spherical Square Gradient_58
+  - first:
+      213: 8138226386061468952
+    second: Spherical Square Gradient_59
+  - first:
+      213: 1206747338995600910
+    second: Spherical Square Gradient_60
+  - first:
+      213: -714098265400747409
+    second: Spherical Square Gradient_61
+  - first:
+      213: 1325399663256201013
+    second: Spherical Square Gradient_62
+  - first:
+      213: 2956738987950341730
+    second: Spherical Square Gradient_63
+  - first:
+      213: 9219502881932220476
+    second: Spherical Square Gradient_64
+  - first:
+      213: 2893272566783157836
+    second: Spherical Square Gradient_65
+  - first:
+      213: 3426227712980868080
+    second: Spherical Square Gradient_66
+  - first:
+      213: 6343680977608203978
+    second: Spherical Square Gradient_67
+  - first:
+      213: -6053006886319913828
+    second: Spherical Square Gradient_68
+  - first:
+      213: 8276364521737295641
+    second: Spherical Square Gradient_69
+  - first:
+      213: -7836439605895958571
+    second: Spherical Square Gradient_70
+  - first:
+      213: -6398300973497042512
+    second: Spherical Square Gradient_71
+  - first:
+      213: 3912947817312053097
+    second: Spherical Square Gradient_72
+  - first:
+      213: -1363886394460552203
+    second: Spherical Square Gradient_73
+  - first:
+      213: 7911512522282296256
+    second: Spherical Square Gradient_74
+  - first:
+      213: -1027001024107152034
+    second: Spherical Square Gradient_75
+  - first:
+      213: -4810735941549135387
+    second: Spherical Square Gradient_76
+  - first:
+      213: -1165831784148736312
+    second: Spherical Square Gradient_77
+  - first:
+      213: 2196218788858289727
+    second: Spherical Square Gradient_78
+  - first:
+      213: 196023737533498775
+    second: Spherical Square Gradient_79
+  - first:
+      213: -8352161485866223444
+    second: Spherical Square Gradient_80
+  - first:
+      213: -2326174770802588975
+    second: Spherical Square Gradient_81
+  - first:
+      213: -7613135224118421543
+    second: Spherical Square Gradient_82
+  - first:
+      213: 5143316605181355255
+    second: Spherical Square Gradient_83
+  - first:
+      213: -5619242483570294147
+    second: Spherical Square Gradient_84
+  - first:
+      213: -986155318509128966
+    second: Spherical Square Gradient_85
+  - first:
+      213: -8170811307650077926
+    second: Spherical Square Gradient_86
+  - first:
+      213: -698153540971581193
+    second: Spherical Square Gradient_87
+  - first:
+      213: 6472895680295975282
+    second: Spherical Square Gradient_88
+  - first:
+      213: 765862432523970310
+    second: Spherical Square Gradient_89
+  - first:
+      213: -7461434207196440385
+    second: Spherical Square Gradient_90
+  - first:
+      213: -913739209233207348
+    second: Spherical Square Gradient_91
+  - first:
+      213: -6689714051679975979
+    second: Spherical Square Gradient_92
+  - first:
+      213: 8596947040002446566
+    second: Spherical Square Gradient_93
+  - first:
+      213: -3810302690085648053
+    second: Spherical Square Gradient_94
+  - first:
+      213: -3563404526442071162
+    second: Spherical Square Gradient_95
+  - first:
+      213: 1277928717983885522
+    second: Spherical Square Gradient_96
+  - first:
+      213: 5887656752201747171
+    second: Spherical Square Gradient_97
+  - first:
+      213: -192987475209335215
+    second: Spherical Square Gradient_98
+  - first:
+      213: 1380945756161227225
+    second: Spherical Square Gradient_99
+  - first:
+      213: 7755306562541349570
+    second: Spherical Square Gradient_100
+  - first:
+      213: -634275628926070766
+    second: Spherical Square Gradient_101
+  - first:
+      213: -5360457056462736550
+    second: Spherical Square Gradient_102
+  - first:
+      213: 9072089732532286576
+    second: Spherical Square Gradient_103
+  - first:
+      213: 8013402686153027108
+    second: Spherical Square Gradient_104
+  - first:
+      213: -7825431903784512144
+    second: Spherical Square Gradient_105
+  - first:
+      213: -2232364079445248664
+    second: Spherical Square Gradient_106
+  - first:
+      213: -516719899351430567
+    second: Spherical Square Gradient_107
+  - first:
+      213: -40088638799010280
+    second: Spherical Square Gradient_108
+  - first:
+      213: -839301355163181987
+    second: Spherical Square Gradient_109
+  - first:
+      213: -9222553727247991722
+    second: Spherical Square Gradient_110
+  - first:
+      213: 3607289091684239887
+    second: Spherical Square Gradient_111
+  - first:
+      213: 2818607321413205102
+    second: Spherical Square Gradient_112
+  - first:
+      213: -5543316633719197325
+    second: Spherical Square Gradient_113
+  - first:
+      213: -7302370583250338331
+    second: Spherical Square Gradient_114
+  - first:
+      213: -538083684674684979
+    second: Spherical Square Gradient_115
+  - first:
+      213: -8769532940407741146
+    second: Spherical Square Gradient_116
+  - first:
+      213: -1846828490497288749
+    second: Spherical Square Gradient_117
+  - first:
+      213: 1298282349395624781
+    second: Spherical Square Gradient_118
+  - first:
+      213: -4138755015760269627
+    second: Spherical Square Gradient_119
+  - first:
+      213: 4545536256054965295
+    second: Spherical Square Gradient_120
+  - first:
+      213: 4810245528788859699
+    second: Spherical Square Gradient_121
+  - first:
+      213: 5798495359968790438
+    second: Spherical Square Gradient_122
+  - first:
+      213: 7432731953788570062
+    second: Spherical Square Gradient_123
+  - first:
+      213: 5447832348593423280
+    second: Spherical Square Gradient_124
+  - first:
+      213: 2059285452882075688
+    second: Spherical Square Gradient_125
+  - first:
+      213: -8820908327039172818
+    second: Spherical Square Gradient_126
+  - first:
+      213: -2578371985099290816
+    second: Spherical Square Gradient_127
+  - first:
+      213: 5112899170687238957
+    second: Spherical Square Gradient_128
+  - first:
+      213: -6634363561563822843
+    second: Spherical Square Gradient_129
+  - first:
+      213: -1484362889189661135
+    second: Spherical Square Gradient_130
+  - first:
+      213: -2617860257672540421
+    second: Spherical Square Gradient_131
+  - first:
+      213: -6965436954074169903
+    second: Spherical Square Gradient_132
+  - first:
+      213: 4002635506936356810
+    second: Spherical Square Gradient_133
+  - first:
+      213: 5027509998162710246
+    second: Spherical Square Gradient_134
+  - first:
+      213: 6279097990122691153
+    second: Spherical Square Gradient_135
+  - first:
+      213: -3979226317637762244
+    second: Spherical Square Gradient_136
+  - first:
+      213: -8885674928528769403
+    second: Spherical Square Gradient_137
+  - first:
+      213: -8437712219814366366
+    second: Spherical Square Gradient_138
+  - first:
+      213: -3274700393956072168
+    second: Spherical Square Gradient_139
+  - first:
+      213: -5692648822352574050
+    second: Spherical Square Gradient_140
+  - first:
+      213: -4736555109786353419
+    second: Spherical Square Gradient_141
+  - first:
+      213: -7671155615671288965
+    second: Spherical Square Gradient_142
+  - first:
+      213: -9104087054114838250
+    second: Spherical Square Gradient_143
+  - first:
+      213: -5472839534510072865
+    second: Spherical Square Gradient_144
+  - first:
+      213: -143264583483183322
+    second: Spherical Square Gradient_145
+  - first:
+      213: -6548870062397534299
+    second: Spherical Square Gradient_146
+  - first:
+      213: -595316658975379062
+    second: Spherical Square Gradient_147
+  - first:
+      213: 5102893535870151424
+    second: Spherical Square Gradient_148
+  - first:
+      213: 6592031085032764598
+    second: Spherical Square Gradient_149
+  - first:
+      213: 6113250584928781130
+    second: Spherical Square Gradient_150
+  - first:
+      213: 1689725279991058900
+    second: Spherical Square Gradient_151
+  - first:
+      213: 1809604118018898464
+    second: Spherical Square Gradient_152
+  - first:
+      213: -6940589797094032430
+    second: Spherical Square Gradient_153
+  - first:
+      213: -3851553388394942185
+    second: Spherical Square Gradient_154
+  - first:
+      213: -1311819848345691078
+    second: Spherical Square Gradient_155
+  - first:
+      213: 3578988086032188430
+    second: Spherical Square Gradient_156
+  - first:
+      213: -5421098111122330130
+    second: Spherical Square Gradient_157
+  - first:
+      213: 1175867695304579050
+    second: Spherical Square Gradient_158
+  - first:
+      213: -4689900641237741848
+    second: Spherical Square Gradient_159
+  - first:
+      213: -5998311385116588029
+    second: Spherical Square Gradient_160
+  - first:
+      213: 7288658572554010223
+    second: Spherical Square Gradient_161
+  - first:
+      213: -1725366325811023999
+    second: Spherical Square Gradient_162
+  - first:
+      213: -4352493924223298715
+    second: Spherical Square Gradient_163
+  - first:
+      213: -5172116885325037818
+    second: Spherical Square Gradient_164
+  - first:
+      213: -2958287095765830600
+    second: Spherical Square Gradient_165
+  - first:
+      213: -6081899557341613404
+    second: Spherical Square Gradient_166
+  - first:
+      213: 4965790156567004472
+    second: Spherical Square Gradient_167
+  - first:
+      213: -8747412486708251709
+    second: Spherical Square Gradient_168
+  - first:
+      213: 421774945875874749
+    second: Spherical Square Gradient_169
+  - first:
+      213: -3428560402460425885
+    second: Spherical Square Gradient_170
+  - first:
+      213: -7105837776903041367
+    second: Spherical Square Gradient_171
+  - first:
+      213: 2025054425827430448
+    second: Spherical Square Gradient_172
+  - first:
+      213: 624283693760173109
+    second: Spherical Square Gradient_173
+  - first:
+      213: -8541990067878514724
+    second: Spherical Square Gradient_174
+  - first:
+      213: 4480556250912031417
+    second: Spherical Square Gradient_175
+  - first:
+      213: 7026181159972343364
+    second: Spherical Square Gradient_176
+  - first:
+      213: 5262046276447156210
+    second: Spherical Square Gradient_177
+  - first:
+      213: -978241697522781617
+    second: Spherical Square Gradient_178
+  - first:
+      213: -6494863191901006804
+    second: Spherical Square Gradient_179
+  - first:
+      213: 3825192425801515187
+    second: Spherical Square Gradient_180
+  - first:
+      213: -9217665556883146774
+    second: Spherical Square Gradient_181
+  - first:
+      213: 4772521249599778236
+    second: Spherical Square Gradient_182
+  - first:
+      213: 6665335867216782933
+    second: Spherical Square Gradient_183
+  - first:
+      213: -4453803442440027989
+    second: Spherical Square Gradient_184
+  - first:
+      213: 6631563671841509683
+    second: Spherical Square Gradient_185
+  - first:
+      213: 5470850120957002848
+    second: Spherical Square Gradient_186
+  - first:
+      213: 1161084595559495587
+    second: Spherical Square Gradient_187
+  - first:
+      213: 8222956610353132466
+    second: Spherical Square Gradient_188
+  - first:
+      213: -3892604292602951880
+    second: Spherical Square Gradient_189
+  - first:
+      213: 1176088119518201272
+    second: Spherical Square Gradient_190
+  - first:
+      213: -4653659020621881386
+    second: Spherical Square Gradient_191
+  - first:
+      213: 4174250477229921534
+    second: Spherical Square Gradient_192
+  - first:
+      213: 1319100937179301756
+    second: Spherical Square Gradient_193
+  - first:
+      213: 1465107313829241949
+    second: Spherical Square Gradient_194
+  - first:
+      213: 4639548966684057717
+    second: Spherical Square Gradient_195
+  - first:
+      213: -7746638702996877029
+    second: Spherical Square Gradient_196
+  - first:
+      213: 3042357030461216423
+    second: Spherical Square Gradient_197
+  - first:
+      213: -4902276040358423487
+    second: Spherical Square Gradient_198
+  - first:
+      213: 7879898777990064684
+    second: Spherical Square Gradient_199
+  - first:
+      213: -1566276215307881200
+    second: Spherical Square Gradient_200
+  - first:
+      213: 3345410292294252588
+    second: Spherical Square Gradient_201
+  - first:
+      213: 5901202137731906360
+    second: Spherical Square Gradient_202
+  - first:
+      213: 2067485687322214564
+    second: Spherical Square Gradient_203
+  - first:
+      213: -7050840656592815244
+    second: Spherical Square Gradient_204
+  - first:
+      213: -8548247372360397030
+    second: Spherical Square Gradient_205
+  - first:
+      213: -625737922361004617
+    second: Spherical Square Gradient_206
+  - first:
+      213: -4531560079199717979
+    second: Spherical Square Gradient_207
+  - first:
+      213: 2434778651993943011
+    second: Spherical Square Gradient_208
+  - first:
+      213: -6528479434987659757
+    second: Spherical Square Gradient_209
+  - first:
+      213: -3239732837336928915
+    second: Spherical Square Gradient_210
+  - first:
+      213: 7184649669595346442
+    second: Spherical Square Gradient_211
+  - first:
+      213: 288695704206724112
+    second: Spherical Square Gradient_212
+  - first:
+      213: -8363464372077056566
+    second: Spherical Square Gradient_213
+  - first:
+      213: 8689318880901317831
+    second: Spherical Square Gradient_214
+  - first:
+      213: 5838802168472191404
+    second: Spherical Square Gradient_215
+  - first:
+      213: 9149682770604538738
+    second: Spherical Square Gradient_216
+  - first:
+      213: -9089327023868096256
+    second: Spherical Square Gradient_217
+  - first:
+      213: -281571102975628795
+    second: Spherical Square Gradient_218
+  - first:
+      213: -7608943374952161011
+    second: Spherical Square Gradient_219
+  - first:
+      213: 7790142445523275982
+    second: Spherical Square Gradient_220
+  - first:
+      213: 2346435350971247219
+    second: Spherical Square Gradient_221
+  - first:
+      213: 2938581940274094744
+    second: Spherical Square Gradient_222
+  - first:
+      213: -5517334901039674311
+    second: Spherical Square Gradient_223
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.25}
+  spritePixelsToUnits: 1920
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Spherical Square Gradient_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1920
+        height: 1920
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 576b25fd713217720800000000000000
+      internalID: 2842091425285453429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1880
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc43a42dfbc29ade0800000000000000
+      internalID: -1321475813278075699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_2
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 1888
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa85216000d4c480800000000000000
+      internalID: -8879743865219347795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_3
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 1876
+        width: 6
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9c7de97fd31aba0800000000000000
+      internalID: -6079509888242300511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_4
+      rect:
+        serializedVersion: 2
+        x: 1585
+        y: 1884
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d3e9f6c1dde7000800000000000000
+      internalID: 35708961267006847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_5
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 1873
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7204fdb66a0275b0800000000000000
+      internalID: -5372219969109753219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_6
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1875
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 515a1a379a108e3e0800000000000000
+      internalID: -2024366205201963755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_7
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1874
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44695f5167591b910800000000000000
+      internalID: 1851425256233080388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_8
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1879
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 333674ec36996d2f0800000000000000
+      internalID: -948402017573313741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_9
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 1876
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75560583d64f1deb0800000000000000
+      internalID: -4696704186437311145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_10
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1880
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9865b3369ceb53cc0800000000000000
+      internalID: -3731866944044050807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_11
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1880
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab56f787bb8c90750800000000000000
+      internalID: 6271764663596180922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_12
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 1874
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f65714b3d10ba030800000000000000
+      internalID: 3506898743609218805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1878
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94fbdac0dbc594450800000000000000
+      internalID: 6073487539517112137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_14
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 1874
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b1cc59a94b54290800000000000000
+      internalID: -7906714994747892982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_15
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 1873
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d007dfe45afd38d0800000000000000
+      internalID: -2864858545229725482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_16
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 1868
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18da04b7ca452b6b0800000000000000
+      internalID: -5282066313173226111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_17
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 1880
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31635fd40b4d27470800000000000000
+      internalID: 8391002909431903763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_18
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 1875
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d182718a2002f070800000000000000
+      internalID: 8138567659172299219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_19
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 1875
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15a82651f5886060800000000000000
+      internalID: 6946949696798106911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_20
+      rect:
+        serializedVersion: 2
+        x: 1453
+        y: 1874
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6385076c25df2c50800000000000000
+      internalID: 6642762362078462828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_21
+      rect:
+        serializedVersion: 2
+        x: 1508
+        y: 1867
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6a0bfa23beb8c880800000000000000
+      internalID: -8590406612479702417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_22
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 1870
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01f183ad774a2b730800000000000000
+      internalID: 4013451052609707792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_23
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 1874
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5813c8be32f0feec0800000000000000
+      internalID: -3535590535512444539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_24
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 1880
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd7419bb2ec0f330800000000000000
+      internalID: 3742717977528925695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_25
+      rect:
+        serializedVersion: 2
+        x: 1814
+        y: 1877
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb7da7ef6be2bad0800000000000000
+      internalID: -2687827161725961235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_26
+      rect:
+        serializedVersion: 2
+        x: 1837
+        y: 1881
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5755ffb4d4c2ae90800000000000000
+      internalID: -7015828851457173667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_27
+      rect:
+        serializedVersion: 2
+        x: 1843
+        y: 1880
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa3be65393721590800000000000000
+      internalID: -7704968935821853965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_28
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 1873
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4147c77eb22465320800000000000000
+      internalID: 2546295395659314196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_29
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1874
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c01139cb16d6feb80800000000000000
+      internalID: -8363345716460711668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_30
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1873
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d80b8cc79faa63270800000000000000
+      internalID: 8229953357583265933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_31
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 1874
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f499f73cc10cb00d0800000000000000
+      internalID: -3455457059305186993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_32
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 1819
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6db4f7c9def05f10800000000000000
+      internalID: 2256583624628682095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_33
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 1824
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd4ace5ddcf3a2a30800000000000000
+      internalID: 4191232556511569115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_34
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1801
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6e8a23822704b630800000000000000
+      internalID: 3941783418666913391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_35
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1776
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bc4ec723460324c0800000000000000
+      internalID: -4313597132590396234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_36
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 1750
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec807aa6b91a7300800000000000000
+      internalID: 250541001606728940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_37
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1745
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3376990ded7293990800000000000000
+      internalID: -7405844274298132685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_38
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1728
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee1a8b34359a2a9f0800000000000000
+      internalID: -458618036954816018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_39
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1726
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea2e895915c12530800000000000000
+      internalID: 3828557870908975842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_40
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 1731
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc71e86ad109aabe0800000000000000
+      internalID: -1465200271732893747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_41
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1720
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd287aa5ef1700f90800000000000000
+      internalID: -6989461284422450468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_42
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1698
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aec33db52ac89530800000000000000
+      internalID: 3862058943907090081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_43
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1673
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecffbc910668ea490800000000000000
+      internalID: -7733095762840780850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_44
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1671
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf9b2e01d463a0a10800000000000000
+      internalID: 1876371899376908795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_45
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1665
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608d11caaf44cf440800000000000000
+      internalID: 4970923932129548294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_46
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 1659
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef779c63fbdfd95c0800000000000000
+      internalID: -4206927479194421250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_47
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 1638
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b862793ae7514d6c0800000000000000
+      internalID: -4119644125482506613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_48
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 1623
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86b53513584a41240800000000000000
+      internalID: 4761611598002609000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_49
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1607
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65068c8c033eb5ac0800000000000000
+      internalID: -3865246056500928426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_50
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1574
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69121a653a7a250e0800000000000000
+      internalID: -2282577741148511850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_51
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 1573
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0735e1357a139370800000000000000
+      internalID: 8328029226588780303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_52
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1562
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79caf98b3228d5630800000000000000
+      internalID: 3917430340815137943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_53
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1553
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94e3bd7dc2caee010800000000000000
+      internalID: 1220101857663991369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_54
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1551
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86921cd837863b680800000000000000
+      internalID: -8740527606287226520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_55
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1544
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75bc453e6765c5490800000000000000
+      internalID: -7756229389618721961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_56
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1531
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 374c30df10f7b2c40800000000000000
+      internalID: 5488620217397658739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_57
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1526
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a884d0fa2aad0d680800000000000000
+      internalID: -8732239285214951286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_58
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 1530
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c154280e6ba9e420800000000000000
+      internalID: 2659845544010338755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_59
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1508
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 815a7eaa7c9c0f070800000000000000
+      internalID: 8138226386061468952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_60
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1507
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0e0b7aaf4a3fb010800000000000000
+      internalID: 1206747338995600910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_61
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 1512
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ad01c39630716f0800000000000000
+      internalID: -714098265400747409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_62
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 1493
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 537eec1b8f3c46210800000000000000
+      internalID: 1325399663256201013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_63
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1485
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26ef35ea172780920800000000000000
+      internalID: 2956738987950341730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_64
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 1483
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38924b260142ff70800000000000000
+      internalID: 9219502881932220476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_65
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 1448
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c462e7df118f62820800000000000000
+      internalID: 2893272566783157836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_66
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1447
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fbd2d7b3f76c8f20800000000000000
+      internalID: 3426227712980868080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_67
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 1443
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace5db62d38490850800000000000000
+      internalID: 6343680977608203978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_68
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1434
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9488ed9e466ffba0800000000000000
+      internalID: -6053006886319913828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_69
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 1434
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9171cc5bead8bd270800000000000000
+      internalID: 8276364521737295641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_70
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 1424
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfe4ca92bf5f3390800000000000000
+      internalID: -7836439605895958571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_71
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1413
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b93cac0a2ba437a0800000000000000
+      internalID: -6398300973497042512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_72
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1351
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9676683ee459d4630800000000000000
+      internalID: 3912947817312053097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_73
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 1358
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3c038ec80821de0800000000000000
+      internalID: -1363886394460552203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_74
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1346
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c3e0b6d8b65bcd60800000000000000
+      internalID: 7911512522282296256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_75
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1336
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5d7126820c5fb1f0800000000000000
+      internalID: -1027001024107152034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_76
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1324
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e962c74625dc3db0800000000000000
+      internalID: -4810735941549135387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_77
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 1313
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c664fd4b2222dfe0800000000000000
+      internalID: -1165831784148736312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_78
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1299
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3edfe63a598a7e10800000000000000
+      internalID: 2196218788858289727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_79
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1301
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7958a3bfc8a68b200800000000000000
+      internalID: 196023737533498775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_80
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 1291
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca8be385169271c80800000000000000
+      internalID: -8352161485866223444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_81
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1287
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d206dcde54c7bfd0800000000000000
+      internalID: -2326174770802588975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_82
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 1288
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d7586b89d5b85690800000000000000
+      internalID: -7613135224118421543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_83
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 1273
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f4e333b33bb06740800000000000000
+      internalID: 5143316605181355255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_84
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1270
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d724204bbb07402b0800000000000000
+      internalID: -5619242483570294147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_85
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 1239
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af2b6e276f87052f0800000000000000
+      internalID: -986155318509128966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_86
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 1202
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ba5c018627b9e80800000000000000
+      internalID: -8170811307650077926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_87
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 1208
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f035bfad09af46f0800000000000000
+      internalID: -698153540971581193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_88
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1206
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279b33c835854d950800000000000000
+      internalID: 6472895680295975282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_89
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1191
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607686d13d3e0aa00800000000000000
+      internalID: 765862432523970310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_90
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1201
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb89b15fe19a37890800000000000000
+      internalID: -7461434207196440385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_91
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 1181
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccfee48c70fb153f0800000000000000
+      internalID: -913739209233207348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_92
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 1188
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d50dac738c5923a0800000000000000
+      internalID: -6689714051679975979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_93
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 1170
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e41138c8cd7e4770800000000000000
+      internalID: 8596947040002446566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_94
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 1138
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49cab624e51f1bc0800000000000000
+      internalID: -3810302690085648053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_95
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 1129
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68bb662867e3c8ec0800000000000000
+      internalID: -3563404526442071162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_96
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1113
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d823b3f56d1cb110800000000000000
+      internalID: 1277928717983885522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_97
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 1091
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea4a6a3f9825b150800000000000000
+      internalID: 5887656752201747171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_98
+      rect:
+        serializedVersion: 2
+        x: 1880
+        y: 1076
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e4c0ee9ee525df0800000000000000
+      internalID: -192987475209335215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_99
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1059
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d9b21249da1a2310800000000000000
+      internalID: 1380945756161227225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_100
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 1058
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ca6880ba3260ab60800000000000000
+      internalID: 7755306562541349570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_101
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1039
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2109c201da99237f0800000000000000
+      internalID: -634275628926070766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_102
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1004
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a537dc345b4db95b0800000000000000
+      internalID: -5360457056462736550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_103
+      rect:
+        serializedVersion: 2
+        x: 1883
+        y: 1010
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0743e06bb8986ed70800000000000000
+      internalID: 9072089732532286576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_104
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 991
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42eef464943553f60800000000000000
+      internalID: 8013402686153027108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_105
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 981
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0755ae8f42b766390800000000000000
+      internalID: -7825431903784512144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_106
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 969
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865f25382bc0501e0800000000000000
+      internalID: -2232364079445248664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_107
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 956
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a48ce3dfd34d8f0800000000000000
+      internalID: -516719899351430567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_108
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 955
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8162bdc6893917ff0800000000000000
+      internalID: -40088638799010280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_109
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 930
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5c9ef14dd33a54f0800000000000000
+      internalID: -839301355163181987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_110
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 918
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cbd6d8f38e20080800000000000000
+      internalID: -9222553727247991722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_111
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 913
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a0bff015aaf0230800000000000000
+      internalID: 3607289091684239887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_112
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 919
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6c362adc64bd1720800000000000000
+      internalID: 2818607321413205102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_113
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 887
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37137a134ee2213b0800000000000000
+      internalID: -5543316633719197325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_114
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 892
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5edf917e4a4c8aa90800000000000000
+      internalID: -7302370583250338331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_115
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 869
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc7388b5db75888f0800000000000000
+      internalID: -538083684674684979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_116
+      rect:
+        serializedVersion: 2
+        x: 1881
+        y: 864
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 625e8e0f04c5c4680800000000000000
+      internalID: -8769532940407741146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_117
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 798
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d596d6d54fbe56e0800000000000000
+      internalID: -1846828490497288749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_118
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 797
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d43c2ed0bec640210800000000000000
+      internalID: 1298282349395624781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_119
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 789
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ce2e31cd303096c0800000000000000
+      internalID: -4138755015760269627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_120
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 775
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f24b0df342df41f30800000000000000
+      internalID: 4545536256054965295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_121
+      rect:
+        serializedVersion: 2
+        x: 1875
+        y: 780
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33bfed992dc61c240800000000000000
+      internalID: 4810245528788859699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_122
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 761
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a7c0b2eec4687050800000000000000
+      internalID: 5798495359968790438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_123
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 752
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec94348e45e562760800000000000000
+      internalID: 7432731953788570062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_124
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 747
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b30bcd38a69a9b40800000000000000
+      internalID: 5447832348593423280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_125
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 740
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8206a26753d049c10800000000000000
+      internalID: 2059285452882075688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_126
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 738
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f7b8a9c96d59580800000000000000
+      internalID: -8820908327039172818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_127
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 737
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04786512758c73cd0800000000000000
+      internalID: -2578371985099290816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_128
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 724
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23c339d4baa4f640800000000000000
+      internalID: 5112899170687238957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_129
+      rect:
+        serializedVersion: 2
+        x: 1878
+        y: 717
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 505613abd710ee3a0800000000000000
+      internalID: -6634363561563822843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_130
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 703
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 136e31811db766be0800000000000000
+      internalID: -1484362889189661135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_131
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 709
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfec0d537fd7babd0800000000000000
+      internalID: -2617860257672540421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_132
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 706
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ddb707aefbc55f90800000000000000
+      internalID: -6965436954074169903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_133
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 697
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf9e4469c73c8730800000000000000
+      internalID: 4002635506936356810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_134
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 687
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee8639d4bd45c540800000000000000
+      internalID: 5027509998162710246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_135
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 666
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15ad12b9a56d32750800000000000000
+      internalID: 6279097990122691153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_136
+      rect:
+        serializedVersion: 2
+        x: 1876
+        y: 664
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c33c0583fb2f6c8c0800000000000000
+      internalID: -3979226317637762244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_137
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 661
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58eb2771bbdbfa480800000000000000
+      internalID: -8885674928528769403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_138
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 651
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 263fdf4e07937ea80800000000000000
+      internalID: -8437712219814366366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_139
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 604
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 815aa60875ded82d0800000000000000
+      internalID: -3274700393956072168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_140
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 597
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9901a89e06aff0b0800000000000000
+      internalID: -5692648822352574050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_141
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 587
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f08f161930644eb0800000000000000
+      internalID: -4736555109786353419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_142
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 582
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b7b2f6c949a8590800000000000000
+      internalID: -7671155615671288965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_143
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 577
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 619a04f4f09c7a180800000000000000
+      internalID: -9104087054114838250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_144
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 569
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdb10d090719c04b0800000000000000
+      internalID: -5472839534510072865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_145
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 576
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f2790de95030ef0800000000000000
+      internalID: -143264583483183322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_146
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 562
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5afca9a206dbd15a0800000000000000
+      internalID: -6548870062397534299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_147
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 566
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8176ec17a20db7f0800000000000000
+      internalID: -595316658975379062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_148
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 552
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00b6d2472ae11d640800000000000000
+      internalID: 5102893535870151424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_149
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 534
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b4f5b388599b7b50800000000000000
+      internalID: 6592031085032764598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_150
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 520
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4301a18401a6d450800000000000000
+      internalID: 6113250584928781130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_151
+      rect:
+        serializedVersion: 2
+        x: 1879
+        y: 501
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d15dd9803c137710800000000000000
+      internalID: 1689725279991058900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_152
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 482
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ab99e8b510d1910800000000000000
+      internalID: 1809604118018898464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_153
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 479
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db72843a521eaf90800000000000000
+      internalID: -6940589797094032430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_154
+      rect:
+        serializedVersion: 2
+        x: 1874
+        y: 485
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711744389988c8ac0800000000000000
+      internalID: -3851553388394942185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_155
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 468
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c5c0a5cca7bcde0800000000000000
+      internalID: -1311819848345691078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_156
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 468
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e04cd43b3be1ba130800000000000000
+      internalID: 3578988086032188430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_157
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 457
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eed230a7df364c4b0800000000000000
+      internalID: -5421098111122330130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_158
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 455
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae79c795075815010800000000000000
+      internalID: 1175867695304579050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_159
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 442
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eec52707302aeeb0800000000000000
+      internalID: -4689900641237741848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_160
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 442
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308c1fd5397b1cca0800000000000000
+      internalID: -5998311385116588029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_161
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 434
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6eff22da54862560800000000000000
+      internalID: 7288658572554010223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_162
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 377
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fec92d7744e08e0800000000000000
+      internalID: -1725366325811023999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_163
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 369
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 563df9f16d5d893c0800000000000000
+      internalID: -4352493924223298715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_164
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 361
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60fb6698813f838b0800000000000000
+      internalID: -5172116885325037818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_165
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 336
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83471416f8d02f6d0800000000000000
+      internalID: -2958287095765830600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_166
+      rect:
+        serializedVersion: 2
+        x: 1868
+        y: 342
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a23c0d6390c89ba0800000000000000
+      internalID: -6081899557341613404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_167
+      rect:
+        serializedVersion: 2
+        x: 1877
+        y: 304
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835ce4766d70ae440800000000000000
+      internalID: 4965790156567004472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_168
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 237
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c330f960b2fa9680800000000000000
+      internalID: -8747412486708251709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_169
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 205
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3571024127ad500800000000000000
+      internalID: 421774945875874749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_170
+      rect:
+        serializedVersion: 2
+        x: 1873
+        y: 195
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3614060ba7e4b60d0800000000000000
+      internalID: -3428560402460425885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_171
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 175
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ae8424b03ef26d90800000000000000
+      internalID: -7105837776903041367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_172
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 164
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 030d64665407a1c10800000000000000
+      internalID: 2025054425827430448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_173
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 121
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534d4ad36b6e9a800800000000000000
+      internalID: 624283693760173109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_174
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 104
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdfaf296a41c47980800000000000000
+      internalID: -8541990067878514724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_175
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 100
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b284c3db222e2e30800000000000000
+      internalID: 4480556250912031417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_176
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 60
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e81b7e982028160800000000000000
+      internalID: 7026181159972343364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_177
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 36
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f7bc4b753b860940800000000000000
+      internalID: 5262046276447156210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_178
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 37
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42fdaaeb569c62f0800000000000000
+      internalID: -978241697522781617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_179
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 35
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c241bf5965c9dd5a0800000000000000
+      internalID: -6494863191901006804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_180
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 34
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b00a699e30d51530800000000000000
+      internalID: 3825192425801515187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_181
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 37
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae770a76306441080800000000000000
+      internalID: -9217665556883146774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_182
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 41
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbde5656ac66b3240800000000000000
+      internalID: 4772521249599778236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_183
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 31
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 556602228a7008c50800000000000000
+      internalID: 6665335867216782933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_184
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 35
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba043f9cd59e032c0800000000000000
+      internalID: -4453803442440027989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_185
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 36
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3319f75260c080c50800000000000000
+      internalID: 6631563671841509683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_186
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 34
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0648b0ff23d5ceb40800000000000000
+      internalID: 5470850120957002848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_187
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 26
+        width: 16
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a77088b9400d1010800000000000000
+      internalID: 1161084595559495587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_188
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 41
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b37c83587fcd1270800000000000000
+      internalID: 8222956610353132466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_189
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 34
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8378d301501baf9c0800000000000000
+      internalID: -3892604292602951880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_190
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 36
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5807cd9ed425010800000000000000
+      internalID: 1176088119518201272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_191
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 37
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df5a02e6c1ea6fb0800000000000000
+      internalID: -4653659020621881386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_192
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 37
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef45bc261baede930800000000000000
+      internalID: 4174250477229921534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_193
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 31
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c77057f30536e4210800000000000000
+      internalID: 1319100937179301756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_194
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 41
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d546e96e65b155410800000000000000
+      internalID: 1465107313829241949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_195
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 38
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 570eb3d243df26040800000000000000
+      internalID: 4639548966684057717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_196
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 34
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b111490a4296e7490800000000000000
+      internalID: -7746638702996877029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_197
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 40
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a69d80a99f983a20800000000000000
+      internalID: 3042357030461216423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_198
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 34
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14417872aed97fbb0800000000000000
+      internalID: -4902276040358423487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_199
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 41
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ae12860360b5d60800000000000000
+      internalID: 7879898777990064684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_200
+      rect:
+        serializedVersion: 2
+        x: 1240
+        y: 29
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0153e66a418734ae0800000000000000
+      internalID: -1566276215307881200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_201
+      rect:
+        serializedVersion: 2
+        x: 1255
+        y: 38
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c287224afe84d6e20800000000000000
+      internalID: 3345410292294252588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_202
+      rect:
+        serializedVersion: 2
+        x: 1287
+        y: 41
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83b394f041845e150800000000000000
+      internalID: 5901202137731906360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_203
+      rect:
+        serializedVersion: 2
+        x: 1323
+        y: 36
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a08b03574f21bc10800000000000000
+      internalID: 2067485687322214564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_204
+      rect:
+        serializedVersion: 2
+        x: 1392
+        y: 34
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b37ef97c1662e90800000000000000
+      internalID: -7050840656592815244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_205
+      rect:
+        serializedVersion: 2
+        x: 1404
+        y: 39
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1fca4e2e468e5980800000000000000
+      internalID: -8548247372360397030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_206
+      rect:
+        serializedVersion: 2
+        x: 1459
+        y: 40
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd6e27ccaee057f0800000000000000
+      internalID: -625737922361004617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_207
+      rect:
+        serializedVersion: 2
+        x: 1479
+        y: 36
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a5b5f00e1aac11c0800000000000000
+      internalID: -4531560079199717979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_208
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ebadc2b8421ac120800000000000000
+      internalID: 2434778651993943011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_209
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 35
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31e1e121b8e2665a0800000000000000
+      internalID: -6528479434987659757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_210
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 26
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6d2d5736282a03d0800000000000000
+      internalID: -3239732837336928915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_211
+      rect:
+        serializedVersion: 2
+        x: 1561
+        y: 37
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06bbdffec005b360800000000000000
+      internalID: 7184649669595346442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_212
+      rect:
+        serializedVersion: 2
+        x: 1601
+        y: 36
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c4c61a637a10400800000000000000
+      internalID: 288695704206724112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_213
+      rect:
+        serializedVersion: 2
+        x: 1614
+        y: 29
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd26b217710feb80800000000000000
+      internalID: -8363464372077056566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_214
+      rect:
+        serializedVersion: 2
+        x: 1830
+        y: 33
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c4c734fb79a69870800000000000000
+      internalID: 8689318880901317831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_215
+      rect:
+        serializedVersion: 2
+        x: 1838
+        y: 32
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca1c09d03a7970150800000000000000
+      internalID: 5838802168472191404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_216
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 28
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27b3565b0043afe70800000000000000
+      internalID: 9149682770604538738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_217
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 28
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001dbf6aa393cd180800000000000000
+      internalID: -9089327023868096256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_218
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 31
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a6f1cd298a71cf0800000000000000
+      internalID: -281571102975628795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_219
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 28
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d012aeb705a976690800000000000000
+      internalID: -7608943374952161011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_220
+      rect:
+        serializedVersion: 2
+        x: 1405
+        y: 30
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec09b1fb7452c1c60800000000000000
+      internalID: 7790142445523275982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_221
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 33
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37a6f0f0586309020800000000000000
+      internalID: 2346435350971247219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_222
+      rect:
+        serializedVersion: 2
+        x: 1866
+        y: 29
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8926a6594b0f7c820800000000000000
+      internalID: 2938581940274094744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spherical Square Gradient_223
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 25
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93c4aacb32d7e63b0800000000000000
+      internalID: -5517334901039674311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Spherical Square Gradient_0: 2842091425285453429
+      Spherical Square Gradient_1: -1321475813278075699
+      Spherical Square Gradient_10: -3731866944044050807
+      Spherical Square Gradient_100: 7755306562541349570
+      Spherical Square Gradient_101: -634275628926070766
+      Spherical Square Gradient_102: -5360457056462736550
+      Spherical Square Gradient_103: 9072089732532286576
+      Spherical Square Gradient_104: 8013402686153027108
+      Spherical Square Gradient_105: -7825431903784512144
+      Spherical Square Gradient_106: -2232364079445248664
+      Spherical Square Gradient_107: -516719899351430567
+      Spherical Square Gradient_108: -40088638799010280
+      Spherical Square Gradient_109: -839301355163181987
+      Spherical Square Gradient_11: 6271764663596180922
+      Spherical Square Gradient_110: -9222553727247991722
+      Spherical Square Gradient_111: 3607289091684239887
+      Spherical Square Gradient_112: 2818607321413205102
+      Spherical Square Gradient_113: -5543316633719197325
+      Spherical Square Gradient_114: -7302370583250338331
+      Spherical Square Gradient_115: -538083684674684979
+      Spherical Square Gradient_116: -8769532940407741146
+      Spherical Square Gradient_117: -1846828490497288749
+      Spherical Square Gradient_118: 1298282349395624781
+      Spherical Square Gradient_119: -4138755015760269627
+      Spherical Square Gradient_12: 3506898743609218805
+      Spherical Square Gradient_120: 4545536256054965295
+      Spherical Square Gradient_121: 4810245528788859699
+      Spherical Square Gradient_122: 5798495359968790438
+      Spherical Square Gradient_123: 7432731953788570062
+      Spherical Square Gradient_124: 5447832348593423280
+      Spherical Square Gradient_125: 2059285452882075688
+      Spherical Square Gradient_126: -8820908327039172818
+      Spherical Square Gradient_127: -2578371985099290816
+      Spherical Square Gradient_128: 5112899170687238957
+      Spherical Square Gradient_129: -6634363561563822843
+      Spherical Square Gradient_13: 6073487539517112137
+      Spherical Square Gradient_130: -1484362889189661135
+      Spherical Square Gradient_131: -2617860257672540421
+      Spherical Square Gradient_132: -6965436954074169903
+      Spherical Square Gradient_133: 4002635506936356810
+      Spherical Square Gradient_134: 5027509998162710246
+      Spherical Square Gradient_135: 6279097990122691153
+      Spherical Square Gradient_136: -3979226317637762244
+      Spherical Square Gradient_137: -8885674928528769403
+      Spherical Square Gradient_138: -8437712219814366366
+      Spherical Square Gradient_139: -3274700393956072168
+      Spherical Square Gradient_14: -7906714994747892982
+      Spherical Square Gradient_140: -5692648822352574050
+      Spherical Square Gradient_141: -4736555109786353419
+      Spherical Square Gradient_142: -7671155615671288965
+      Spherical Square Gradient_143: -9104087054114838250
+      Spherical Square Gradient_144: -5472839534510072865
+      Spherical Square Gradient_145: -143264583483183322
+      Spherical Square Gradient_146: -6548870062397534299
+      Spherical Square Gradient_147: -595316658975379062
+      Spherical Square Gradient_148: 5102893535870151424
+      Spherical Square Gradient_149: 6592031085032764598
+      Spherical Square Gradient_15: -2864858545229725482
+      Spherical Square Gradient_150: 6113250584928781130
+      Spherical Square Gradient_151: 1689725279991058900
+      Spherical Square Gradient_152: 1809604118018898464
+      Spherical Square Gradient_153: -6940589797094032430
+      Spherical Square Gradient_154: -3851553388394942185
+      Spherical Square Gradient_155: -1311819848345691078
+      Spherical Square Gradient_156: 3578988086032188430
+      Spherical Square Gradient_157: -5421098111122330130
+      Spherical Square Gradient_158: 1175867695304579050
+      Spherical Square Gradient_159: -4689900641237741848
+      Spherical Square Gradient_16: -5282066313173226111
+      Spherical Square Gradient_160: -5998311385116588029
+      Spherical Square Gradient_161: 7288658572554010223
+      Spherical Square Gradient_162: -1725366325811023999
+      Spherical Square Gradient_163: -4352493924223298715
+      Spherical Square Gradient_164: -5172116885325037818
+      Spherical Square Gradient_165: -2958287095765830600
+      Spherical Square Gradient_166: -6081899557341613404
+      Spherical Square Gradient_167: 4965790156567004472
+      Spherical Square Gradient_168: -8747412486708251709
+      Spherical Square Gradient_169: 421774945875874749
+      Spherical Square Gradient_17: 8391002909431903763
+      Spherical Square Gradient_170: -3428560402460425885
+      Spherical Square Gradient_171: -7105837776903041367
+      Spherical Square Gradient_172: 2025054425827430448
+      Spherical Square Gradient_173: 624283693760173109
+      Spherical Square Gradient_174: -8541990067878514724
+      Spherical Square Gradient_175: 4480556250912031417
+      Spherical Square Gradient_176: 7026181159972343364
+      Spherical Square Gradient_177: 5262046276447156210
+      Spherical Square Gradient_178: -978241697522781617
+      Spherical Square Gradient_179: -6494863191901006804
+      Spherical Square Gradient_18: 8138567659172299219
+      Spherical Square Gradient_180: 3825192425801515187
+      Spherical Square Gradient_181: -9217665556883146774
+      Spherical Square Gradient_182: 4772521249599778236
+      Spherical Square Gradient_183: 6665335867216782933
+      Spherical Square Gradient_184: -4453803442440027989
+      Spherical Square Gradient_185: 6631563671841509683
+      Spherical Square Gradient_186: 5470850120957002848
+      Spherical Square Gradient_187: 1161084595559495587
+      Spherical Square Gradient_188: 8222956610353132466
+      Spherical Square Gradient_189: -3892604292602951880
+      Spherical Square Gradient_19: 6946949696798106911
+      Spherical Square Gradient_190: 1176088119518201272
+      Spherical Square Gradient_191: -4653659020621881386
+      Spherical Square Gradient_192: 4174250477229921534
+      Spherical Square Gradient_193: 1319100937179301756
+      Spherical Square Gradient_194: 1465107313829241949
+      Spherical Square Gradient_195: 4639548966684057717
+      Spherical Square Gradient_196: -7746638702996877029
+      Spherical Square Gradient_197: 3042357030461216423
+      Spherical Square Gradient_198: -4902276040358423487
+      Spherical Square Gradient_199: 7879898777990064684
+      Spherical Square Gradient_2: -8879743865219347795
+      Spherical Square Gradient_20: 6642762362078462828
+      Spherical Square Gradient_200: -1566276215307881200
+      Spherical Square Gradient_201: 3345410292294252588
+      Spherical Square Gradient_202: 5901202137731906360
+      Spherical Square Gradient_203: 2067485687322214564
+      Spherical Square Gradient_204: -7050840656592815244
+      Spherical Square Gradient_205: -8548247372360397030
+      Spherical Square Gradient_206: -625737922361004617
+      Spherical Square Gradient_207: -4531560079199717979
+      Spherical Square Gradient_208: 2434778651993943011
+      Spherical Square Gradient_209: -6528479434987659757
+      Spherical Square Gradient_21: -8590406612479702417
+      Spherical Square Gradient_210: -3239732837336928915
+      Spherical Square Gradient_211: 7184649669595346442
+      Spherical Square Gradient_212: 288695704206724112
+      Spherical Square Gradient_213: -8363464372077056566
+      Spherical Square Gradient_214: 8689318880901317831
+      Spherical Square Gradient_215: 5838802168472191404
+      Spherical Square Gradient_216: 9149682770604538738
+      Spherical Square Gradient_217: -9089327023868096256
+      Spherical Square Gradient_218: -281571102975628795
+      Spherical Square Gradient_219: -7608943374952161011
+      Spherical Square Gradient_22: 4013451052609707792
+      Spherical Square Gradient_220: 7790142445523275982
+      Spherical Square Gradient_221: 2346435350971247219
+      Spherical Square Gradient_222: 2938581940274094744
+      Spherical Square Gradient_223: -5517334901039674311
+      Spherical Square Gradient_23: -3535590535512444539
+      Spherical Square Gradient_24: 3742717977528925695
+      Spherical Square Gradient_25: -2687827161725961235
+      Spherical Square Gradient_26: -7015828851457173667
+      Spherical Square Gradient_27: -7704968935821853965
+      Spherical Square Gradient_28: 2546295395659314196
+      Spherical Square Gradient_29: -8363345716460711668
+      Spherical Square Gradient_3: -6079509888242300511
+      Spherical Square Gradient_30: 8229953357583265933
+      Spherical Square Gradient_31: -3455457059305186993
+      Spherical Square Gradient_32: 2256583624628682095
+      Spherical Square Gradient_33: 4191232556511569115
+      Spherical Square Gradient_34: 3941783418666913391
+      Spherical Square Gradient_35: -4313597132590396234
+      Spherical Square Gradient_36: 250541001606728940
+      Spherical Square Gradient_37: -7405844274298132685
+      Spherical Square Gradient_38: -458618036954816018
+      Spherical Square Gradient_39: 3828557870908975842
+      Spherical Square Gradient_4: 35708961267006847
+      Spherical Square Gradient_40: -1465200271732893747
+      Spherical Square Gradient_41: -6989461284422450468
+      Spherical Square Gradient_42: 3862058943907090081
+      Spherical Square Gradient_43: -7733095762840780850
+      Spherical Square Gradient_44: 1876371899376908795
+      Spherical Square Gradient_45: 4970923932129548294
+      Spherical Square Gradient_46: -4206927479194421250
+      Spherical Square Gradient_47: -4119644125482506613
+      Spherical Square Gradient_48: 4761611598002609000
+      Spherical Square Gradient_49: -3865246056500928426
+      Spherical Square Gradient_5: -5372219969109753219
+      Spherical Square Gradient_50: -2282577741148511850
+      Spherical Square Gradient_51: 8328029226588780303
+      Spherical Square Gradient_52: 3917430340815137943
+      Spherical Square Gradient_53: 1220101857663991369
+      Spherical Square Gradient_54: -8740527606287226520
+      Spherical Square Gradient_55: -7756229389618721961
+      Spherical Square Gradient_56: 5488620217397658739
+      Spherical Square Gradient_57: -8732239285214951286
+      Spherical Square Gradient_58: 2659845544010338755
+      Spherical Square Gradient_59: 8138226386061468952
+      Spherical Square Gradient_6: -2024366205201963755
+      Spherical Square Gradient_60: 1206747338995600910
+      Spherical Square Gradient_61: -714098265400747409
+      Spherical Square Gradient_62: 1325399663256201013
+      Spherical Square Gradient_63: 2956738987950341730
+      Spherical Square Gradient_64: 9219502881932220476
+      Spherical Square Gradient_65: 2893272566783157836
+      Spherical Square Gradient_66: 3426227712980868080
+      Spherical Square Gradient_67: 6343680977608203978
+      Spherical Square Gradient_68: -6053006886319913828
+      Spherical Square Gradient_69: 8276364521737295641
+      Spherical Square Gradient_7: 1851425256233080388
+      Spherical Square Gradient_70: -7836439605895958571
+      Spherical Square Gradient_71: -6398300973497042512
+      Spherical Square Gradient_72: 3912947817312053097
+      Spherical Square Gradient_73: -1363886394460552203
+      Spherical Square Gradient_74: 7911512522282296256
+      Spherical Square Gradient_75: -1027001024107152034
+      Spherical Square Gradient_76: -4810735941549135387
+      Spherical Square Gradient_77: -1165831784148736312
+      Spherical Square Gradient_78: 2196218788858289727
+      Spherical Square Gradient_79: 196023737533498775
+      Spherical Square Gradient_8: -948402017573313741
+      Spherical Square Gradient_80: -8352161485866223444
+      Spherical Square Gradient_81: -2326174770802588975
+      Spherical Square Gradient_82: -7613135224118421543
+      Spherical Square Gradient_83: 5143316605181355255
+      Spherical Square Gradient_84: -5619242483570294147
+      Spherical Square Gradient_85: -986155318509128966
+      Spherical Square Gradient_86: -8170811307650077926
+      Spherical Square Gradient_87: -698153540971581193
+      Spherical Square Gradient_88: 6472895680295975282
+      Spherical Square Gradient_89: 765862432523970310
+      Spherical Square Gradient_9: -4696704186437311145
+      Spherical Square Gradient_90: -7461434207196440385
+      Spherical Square Gradient_91: -913739209233207348
+      Spherical Square Gradient_92: -6689714051679975979
+      Spherical Square Gradient_93: 8596947040002446566
+      Spherical Square Gradient_94: -3810302690085648053
+      Spherical Square Gradient_95: -3563404526442071162
+      Spherical Square Gradient_96: 1277928717983885522
+      Spherical Square Gradient_97: 5887656752201747171
+      Spherical Square Gradient_98: -192987475209335215
+      Spherical Square Gradient_99: 1380945756161227225
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

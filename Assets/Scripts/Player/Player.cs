@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     PlayerInput _playerInput;
     private InputAction _leave;
 
-    Actor _actor;
+    public Actor Actor { get; private set; }
 
     private void Awake()
     {
@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
         _leave = _playerInput.actions.FindAction("Leave", false);
         if(_leave != null) _leave.performed += Disconnect;
 
-        _actor = GetComponentInChildren<Actor>();
+        Actor = GetComponentInChildren<Actor>();
     }
 
     private void FixedUpdate()
     {
-        _actor.Move(_playerInput.actions.FindAction("Move").ReadValue<Vector2>());
+        Actor.Move(_playerInput.actions.FindAction("Move").ReadValue<Vector2>());
     }
 
     void OnDestroy()

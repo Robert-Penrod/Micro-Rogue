@@ -300,7 +300,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -378,10 +378,10 @@ TextureImporter:
       name: Spirals_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 59
-        width: 11
-        height: 12
+        x: 10
+        y: 70
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,7 +400,7 @@ TextureImporter:
       name: Spirals_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 30
         y: 70
         width: 10
         height: 10
@@ -422,10 +422,10 @@ TextureImporter:
       name: Spirals_2
       rect:
         serializedVersion: 2
-        x: 19
-        y: 59
-        width: 12
-        height: 12
+        x: 50
+        y: 70
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -444,7 +444,7 @@ TextureImporter:
       name: Spirals_3
       rect:
         serializedVersion: 2
-        x: 30
+        x: 70
         y: 70
         width: 10
         height: 10
@@ -466,10 +466,10 @@ TextureImporter:
       name: Spirals_4
       rect:
         serializedVersion: 2
-        x: 39
-        y: 59
-        width: 12
-        height: 12
+        x: 90
+        y: 70
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -488,7 +488,7 @@ TextureImporter:
       name: Spirals_5
       rect:
         serializedVersion: 2
-        x: 50
+        x: 110
         y: 70
         width: 10
         height: 10
@@ -510,10 +510,10 @@ TextureImporter:
       name: Spirals_6
       rect:
         serializedVersion: 2
-        x: 59
-        y: 59
-        width: 12
-        height: 12
+        x: 0
+        y: 60
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -532,10 +532,10 @@ TextureImporter:
       name: Spirals_7
       rect:
         serializedVersion: 2
-        x: 69
-        y: 69
-        width: 12
-        height: 11
+        x: 20
+        y: 60
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -554,10 +554,10 @@ TextureImporter:
       name: Spirals_8
       rect:
         serializedVersion: 2
-        x: 79
-        y: 63
-        width: 6
-        height: 7
+        x: 40
+        y: 60
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -576,10 +576,10 @@ TextureImporter:
       name: Spirals_9
       rect:
         serializedVersion: 2
-        x: 83
-        y: 65
-        width: 7
-        height: 6
+        x: 60
+        y: 60
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -598,8 +598,8 @@ TextureImporter:
       name: Spirals_10
       rect:
         serializedVersion: 2
-        x: 90
-        y: 70
+        x: 80
+        y: 60
         width: 10
         height: 10
       alignment: 0
@@ -620,10 +620,10 @@ TextureImporter:
       name: Spirals_11
       rect:
         serializedVersion: 2
-        x: 99
-        y: 53
-        width: 15
-        height: 18
+        x: 100
+        y: 60
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -642,10 +642,10 @@ TextureImporter:
       name: Spirals_12
       rect:
         serializedVersion: 2
-        x: 109
-        y: 63
-        width: 17
-        height: 17
+        x: 120
+        y: 60
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -664,10 +664,10 @@ TextureImporter:
       name: Spirals_13
       rect:
         serializedVersion: 2
-        x: 123
-        y: 64
-        width: 7
-        height: 7
+        x: 10
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -686,10 +686,10 @@ TextureImporter:
       name: Spirals_14
       rect:
         serializedVersion: 2
-        x: 9
-        y: 49
-        width: 12
-        height: 12
+        x: 30
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -708,10 +708,10 @@ TextureImporter:
       name: Spirals_15
       rect:
         serializedVersion: 2
-        x: 29
-        y: 49
-        width: 12
-        height: 12
+        x: 50
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -730,10 +730,10 @@ TextureImporter:
       name: Spirals_16
       rect:
         serializedVersion: 2
-        x: 49
-        y: 49
-        width: 12
-        height: 12
+        x: 70
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -752,10 +752,10 @@ TextureImporter:
       name: Spirals_17
       rect:
         serializedVersion: 2
-        x: 69
-        y: 49
-        width: 12
-        height: 12
+        x: 90
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -774,10 +774,10 @@ TextureImporter:
       name: Spirals_18
       rect:
         serializedVersion: 2
-        x: 80
-        y: 59
-        width: 7
-        height: 6
+        x: 110
+        y: 50
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -796,10 +796,10 @@ TextureImporter:
       name: Spirals_19
       rect:
         serializedVersion: 2
-        x: 85
-        y: 60
-        width: 6
-        height: 7
+        x: 0
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -818,10 +818,10 @@ TextureImporter:
       name: Spirals_20
       rect:
         serializedVersion: 2
-        x: 89
-        y: 52
-        width: 6
-        height: 8
+        x: 20
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -840,10 +840,10 @@ TextureImporter:
       name: Spirals_21
       rect:
         serializedVersion: 2
-        x: 92
-        y: 55
-        width: 8
-        height: 6
+        x: 40
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -862,10 +862,10 @@ TextureImporter:
       name: Spirals_22
       rect:
         serializedVersion: 2
-        x: 110
-        y: 49
-        width: 17
-        height: 17
+        x: 60
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -884,10 +884,10 @@ TextureImporter:
       name: Spirals_23
       rect:
         serializedVersion: 2
-        x: 124
-        y: 60
-        width: 6
-        height: 7
+        x: 80
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -906,10 +906,10 @@ TextureImporter:
       name: Spirals_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 29
-        width: 17
-        height: 22
+        x: 100
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -928,10 +928,10 @@ TextureImporter:
       name: Spirals_25
       rect:
         serializedVersion: 2
-        x: 13
-        y: 29
-        width: 18
-        height: 22
+        x: 120
+        y: 40
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -950,10 +950,10 @@ TextureImporter:
       name: Spirals_26
       rect:
         serializedVersion: 2
-        x: 39
-        y: 39
-        width: 12
-        height: 12
+        x: 10
+        y: 30
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -972,10 +972,10 @@ TextureImporter:
       name: Spirals_27
       rect:
         serializedVersion: 2
-        x: 59
-        y: 39
-        width: 12
-        height: 12
+        x: 30
+        y: 30
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -994,10 +994,10 @@ TextureImporter:
       name: Spirals_28
       rect:
         serializedVersion: 2
-        x: 79
-        y: 39
-        width: 12
-        height: 12
+        x: 50
+        y: 30
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1016,10 +1016,10 @@ TextureImporter:
       name: Spirals_29
       rect:
         serializedVersion: 2
-        x: 90
-        y: 49
-        width: 8
-        height: 6
+        x: 70
+        y: 30
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1038,10 +1038,10 @@ TextureImporter:
       name: Spirals_30
       rect:
         serializedVersion: 2
-        x: 95
-        y: 50
-        width: 6
-        height: 8
+        x: 90
+        y: 30
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1060,10 +1060,10 @@ TextureImporter:
       name: Spirals_31
       rect:
         serializedVersion: 2
-        x: 100
-        y: 45
-        width: 7
-        height: 6
+        x: 110
+        y: 30
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1082,10 +1082,10 @@ TextureImporter:
       name: Spirals_32
       rect:
         serializedVersion: 2
-        x: 105
-        y: 43
-        width: 6
-        height: 7
+        x: 0
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1104,10 +1104,10 @@ TextureImporter:
       name: Spirals_33
       rect:
         serializedVersion: 2
-        x: 119
-        y: 39
-        width: 11
-        height: 12
+        x: 20
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1126,10 +1126,10 @@ TextureImporter:
       name: Spirals_34
       rect:
         serializedVersion: 2
-        x: 29
-        y: 29
-        width: 12
-        height: 12
+        x: 40
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1148,10 +1148,10 @@ TextureImporter:
       name: Spirals_35
       rect:
         serializedVersion: 2
-        x: 49
-        y: 29
-        width: 12
-        height: 12
+        x: 60
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1170,10 +1170,10 @@ TextureImporter:
       name: Spirals_36
       rect:
         serializedVersion: 2
-        x: 69
-        y: 29
-        width: 12
-        height: 12
+        x: 80
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1192,10 +1192,10 @@ TextureImporter:
       name: Spirals_37
       rect:
         serializedVersion: 2
-        x: 90
-        y: 34
-        width: 6
-        height: 7
+        x: 100
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1214,10 +1214,10 @@ TextureImporter:
       name: Spirals_38
       rect:
         serializedVersion: 2
-        x: 94
-        y: 34
-        width: 7
-        height: 6
+        x: 120
+        y: 20
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1236,10 +1236,10 @@ TextureImporter:
       name: Spirals_39
       rect:
         serializedVersion: 2
-        x: 99
-        y: 40
-        width: 6
-        height: 7
+        x: 10
+        y: 10
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1258,10 +1258,10 @@ TextureImporter:
       name: Spirals_40
       rect:
         serializedVersion: 2
-        x: 103
-        y: 39
-        width: 7
-        height: 8
+        x: 30
+        y: 10
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1280,10 +1280,10 @@ TextureImporter:
       name: Spirals_41
       rect:
         serializedVersion: 2
-        x: 109
-        y: 35
-        width: 7
-        height: 6
+        x: 50
+        y: 10
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1302,10 +1302,10 @@ TextureImporter:
       name: Spirals_42
       rect:
         serializedVersion: 2
-        x: 115
-        y: 34
-        width: 6
-        height: 7
+        x: 70
+        y: 10
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1324,10 +1324,10 @@ TextureImporter:
       name: Spirals_43
       rect:
         serializedVersion: 2
-        x: 89
-        y: 30
-        width: 7
-        height: 6
+        x: 90
+        y: 10
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1346,10 +1346,10 @@ TextureImporter:
       name: Spirals_44
       rect:
         serializedVersion: 2
-        x: 94
-        y: 29
-        width: 6
-        height: 7
+        x: 110
+        y: 10
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1368,10 +1368,10 @@ TextureImporter:
       name: Spirals_45
       rect:
         serializedVersion: 2
-        x: 109
-        y: 29
-        width: 6
-        height: 7
+        x: 0
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1390,10 +1390,10 @@ TextureImporter:
       name: Spirals_46
       rect:
         serializedVersion: 2
-        x: 112
-        y: 32
-        width: 6
-        height: 6
+        x: 20
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1412,10 +1412,10 @@ TextureImporter:
       name: Spirals_47
       rect:
         serializedVersion: 2
-        x: 114
-        y: 29
-        width: 7
-        height: 6
+        x: 40
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1434,10 +1434,10 @@ TextureImporter:
       name: Spirals_48
       rect:
         serializedVersion: 2
-        x: 0
-        y: 19
-        width: 11
-        height: 12
+        x: 60
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1456,10 +1456,10 @@ TextureImporter:
       name: Spirals_49
       rect:
         serializedVersion: 2
-        x: 3
-        y: 9
-        width: 21
-        height: 18
+        x: 80
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1478,10 +1478,10 @@ TextureImporter:
       name: Spirals_50
       rect:
         serializedVersion: 2
-        x: 19
-        y: 22
-        width: 12
-        height: 9
+        x: 100
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1500,10 +1500,10 @@ TextureImporter:
       name: Spirals_51
       rect:
         serializedVersion: 2
-        x: 39
-        y: 19
-        width: 12
-        height: 12
+        x: 120
+        y: 0
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1518,715 +1518,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Spirals_52
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 19
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 451c0adc35527dcc0800000000000000
-      internalID: -3686436728117083820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_53
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 20
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 22c3716c7da87c0e0800000000000000
-      internalID: -2249676829502260190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_54
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 25
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0fbd75fba66a17420800000000000000
-      internalID: 2626063035140660208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_55
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 19
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a7457e405fa546620800000000000000
-      internalID: 2766436079508083834
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_56
-      rect:
-        serializedVersion: 2
-        x: 85
-        y: 23
-        width: 6
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e3f663f4fa7b8d960800000000000000
-      internalID: 7627047932528062270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_57
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 20
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e93b3e2001640e080800000000000000
-      internalID: -9160244607489690722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_58
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 23
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2d6a5b91d22cd8850800000000000000
-      internalID: 6380969746014512850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_59
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 23
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1986af4a4eb23960800000000000000
-      internalID: 7580330349191137564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_60
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 19
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef6d2cb0d37f605a0800000000000000
-      internalID: -6555280366028794114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_61
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 19
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e63ac433c28f94750800000000000000
-      internalID: 6289831223322518382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_62
-      rect:
-        serializedVersion: 2
-        x: 23
-        y: 9
-        width: 18
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5547f947809354d90800000000000000
-      internalID: -7114217327882701739
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_63
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 0
-        width: 31
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 906119c92f6e47f30800000000000000
-      internalID: 4572533451371124233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_64
-      rect:
-        serializedVersion: 2
-        x: 66
-        y: 6
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bf3ad65af336353c0800000000000000
-      internalID: -4372041688237104133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_65
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 14
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 70f9cb198461fbe20800000000000000
-      internalID: 3368435547234934535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_66
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 9
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3d034307458528b70800000000000000
-      internalID: 8899772933320487123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_67
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 13
-        width: 7
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8a85a9d9cd2237160800000000000000
-      internalID: 7021994574933022888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_68
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb7afe5fe17f39680800000000000000
-      internalID: -8749377938703538242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_69
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 15
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ae6591f4e4bd24be0800000000000000
-      internalID: -1494390996952590614
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_70
-      rect:
-        serializedVersion: 2
-        x: 92
-        y: 12
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1bde031090576b210800000000000000
-      internalID: 1348393819979181489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_71
-      rect:
-        serializedVersion: 2
-        x: 94
-        y: 9
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f57875ced51b1a10800000000000000
-      internalID: 1881121315897243128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_72
-      rect:
-        serializedVersion: 2
-        x: 95
-        y: 14
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0b02696e4dd2488a0800000000000000
-      internalID: -6303863185986936656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_73
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 10
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9032d1f1388782cf0800000000000000
-      internalID: -276838872525233399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_74
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 15
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bedd16f6d03a807b0800000000000000
-      internalID: -5257773286856466965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_75
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 9
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c053712fab453b080800000000000000
-      internalID: -9172894854121310964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_76
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 14
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dea7a59b32e8c9230800000000000000
-      internalID: 3646946082347973357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_77
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ebcc4112368d68d20800000000000000
-      internalID: 3280547298854358206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_78
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 0
-        width: 12
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6fd568618c190db20800000000000000
-      internalID: 3157183627344109046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_79
-      rect:
-        serializedVersion: 2
-        x: 99
-        y: 0
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e8788a4987565f380800000000000000
-      internalID: -8938126316882327666
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_80
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 4
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a046ff791eb4522f0800000000000000
-      internalID: -998308310102875126
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_81
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 0
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b3f9a6dbe8d759db0800000000000000
-      internalID: -4785780976994574533
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_82
-      rect:
-        serializedVersion: 2
-        x: 104
-        y: 2
-        width: 7
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 124099d1e86d2ce70800000000000000
-      internalID: 9134098900131054625
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spirals_83
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 0
-        width: 11
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39a7d48c117310ab0800000000000000
-      internalID: -5043689558163752301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c59dda3bad29cd34ba2c0ed36451888f
     internalID: 0
     vertices: []
     indices: 
@@ -2284,41 +1580,9 @@ TextureImporter:
       Spirals_5: 2718323445016501328
       Spirals_50: 957036747637954083
       Spirals_51: -6882603342658392025
-      Spirals_52: -3686436728117083820
-      Spirals_53: -2249676829502260190
-      Spirals_54: 2626063035140660208
-      Spirals_55: 2766436079508083834
-      Spirals_56: 7627047932528062270
-      Spirals_57: -9160244607489690722
-      Spirals_58: 6380969746014512850
-      Spirals_59: 7580330349191137564
       Spirals_6: -8257156705362923590
-      Spirals_60: -6555280366028794114
-      Spirals_61: 6289831223322518382
-      Spirals_62: -7114217327882701739
-      Spirals_63: 4572533451371124233
-      Spirals_64: -4372041688237104133
-      Spirals_65: 3368435547234934535
-      Spirals_66: 8899772933320487123
-      Spirals_67: 7021994574933022888
-      Spirals_68: -8749377938703538242
-      Spirals_69: -1494390996952590614
       Spirals_7: 8884480352349111540
-      Spirals_70: 1348393819979181489
-      Spirals_71: 1881121315897243128
-      Spirals_72: -6303863185986936656
-      Spirals_73: -276838872525233399
-      Spirals_74: -5257773286856466965
-      Spirals_75: -9172894854121310964
-      Spirals_76: 3646946082347973357
-      Spirals_77: 3280547298854358206
-      Spirals_78: 3157183627344109046
-      Spirals_79: -8938126316882327666
       Spirals_8: 7745980810739880403
-      Spirals_80: -998308310102875126
-      Spirals_81: -4785780976994574533
-      Spirals_82: 9134098900131054625
-      Spirals_83: -5043689558163752301
       Spirals_9: 4995232154396360986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

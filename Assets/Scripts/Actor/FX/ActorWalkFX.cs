@@ -14,6 +14,8 @@ public class ActorWalkFX : MonoBehaviour
     public float Height = 0.175f;
     public AudioClip WalkSound;
 
+    float _initY;
+
     //MoveController _moveController;
     Rigidbody2D _rb;
     float _t;
@@ -32,6 +34,8 @@ public class ActorWalkFX : MonoBehaviour
         //_moveController = GetComponentInParent<MoveController>();
         _rb = GetComponentInParent<Rigidbody2D>();
         _actor = GetComponentInParent<Actor>();
+
+        _initY = transform.localPosition.y;
     }
 
     private void Update()
@@ -85,7 +89,7 @@ public class ActorWalkFX : MonoBehaviour
             targetY = Height * Mathf.Cos(_t*2f);
             if (targetY < 0f) targetY = 0f;
         }
-        float lerpY = Mathf.Lerp(currentY, targetY, LerpSpeed * Time.deltaTime);
+        float lerpY = Mathf.Lerp(currentY, _initY + targetY, LerpSpeed * Time.deltaTime);
         Vector3 p = transform.localPosition;
         transform.localPosition = new Vector3(p.x, lerpY, p.z);
 
@@ -143,9 +147,10 @@ public class ActorWalkFX : MonoBehaviour
 
     void PlayWalkSound()
     {
-        float basePitch = _actor.Body.linearVelocity.magnitude;
+        float basePitch = _actor.Body.linearVelocity.magnitude.Remap(0f, 3f, 0.75f, 1.25f);
         float vol = 0.04f * Random.Range(0.8f, 1.2f);
-        vol *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 3f, false);
+        vol *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 2f, false);
+        basePitch *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 0.5f, false);
         AudioSpawner.PlayAudioWithRandPitch(WalkSound, 0.2f, basePitch, vol, transform.position).spatialBlend = 0.5f;
     }
 }
