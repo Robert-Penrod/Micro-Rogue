@@ -7,17 +7,20 @@ using Random = UnityEngine.Random;
 public class PlayerSpriteSetter : MonoBehaviour
 {
     [SerializeField] List<Sprite> _spriteList;
-    [SerializeField] List<Color> _spriteColors;
 
     SpriteRenderer _spriteRend;
     Player _player;
 
-    static float _randSeed = -1f;
+    static int _colorOffset = -1;
 
     private void Awake()
     {
         _spriteRend = GetComponent<SpriteRenderer>();
         _player = GetComponentInParent<Player>();
+
+        Random.InitState(DateTime.Now.GetHashCode());
+        if (_colorOffset < 0) _colorOffset = Random.Range(0, _spriteList.Count);
+        _colorOffset++;
     }
 
     private void Start()
@@ -27,17 +30,12 @@ public class PlayerSpriteSetter : MonoBehaviour
 
     void InitSprite()
     {
-        // Seed
-        if (_randSeed < 0)
-        {
-            _randSeed = ((100f * DateTime.Now.Ticks) % 100) / 100f;
-        }
+        Random.InitState(DateTime.Now.GetHashCode());
 
         // Sprite
         _spriteRend.sprite = _spriteList.GetRandomElement();
 
         // Color
-        Debug.Log(_player.Index);
-        _spriteRend.color = _spriteColors[(int)((_player.Index + _randSeed * _spriteColors.Count) % _spriteColors.Count)];
+        _spriteRend.color = _player.Data.Color;
     }
 }

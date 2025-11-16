@@ -4,6 +4,13 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
+    [System.Serializable]
+    public class PlayerData
+    {
+        public Color Color;
+    }
+    public PlayerData Data;
+
     public int Index { get; private set; }
 
     PlayerInput _playerInput;
@@ -23,6 +30,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Index = PlayerManager.I?.PlayerList.IndexOf(this) ?? -1;
+        Data.Color = PlayerManager.I.GetPlayerColor(Index);
     }
 
     private void FixedUpdate()

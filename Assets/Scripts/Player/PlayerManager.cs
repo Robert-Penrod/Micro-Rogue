@@ -14,29 +14,49 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
 
     PlayerInputManager _playerInputManager;
 
+    List<Color> _playerColors = new();
+
     protected override void Awake()
     {
         // Init
         base.Awake();
         _playerInputManager = GetComponent<PlayerInputManager>();
 
-        // Player Joined
-        _playerInputManager.onPlayerJoined += (PlayerInput playerInput) =>
+        // Shuffle Colors
+        Random.InitState(DateTime.Now.GetHashCode());
+        _playerColors.Add(Color.HSVToRGB(0f, 0.5f, 1f));
+        _playerColors.Add(Color.HSVToRGB(1/4f, 0.5f, 1f));
+        _playerColors.Add(Color.HSVToRGB(2/4f, 0.5f, 1f));
+        _playerColors.Add(Color.HSVToRGB(3 / 4f, 0.5f, 1f));
+        for (int i = 0; i < _playerColors.Count; i++)
         {
-            Player player = playerInput.GetComponentInParent<Player>();
-            if (player == null || PlayerList.Contains(player)) return;
-            PlayerList.Add(player);
-        };
+            float h = _playerColors[i].GetHue();
+            h = h.Lerp(Color.HSVToRGB(2 / 4f, 0.5f, 1f).GetHue(), 0.5f);
+            h += 0.01f * Random.Range(-1f, 1f);
+            _playerColors[i] = Color.HSVToRGB(h, 0.5f, 1f);
+        }
+        _playerColors.Shuffle();
 
-        // Player Left
-        _playerInputManager.onPlayerLeft += (PlayerInput playerInput) =>
-        {
-            Player player = playerInput.GetComponentInParent<Player>();
-            if (player == null || !PlayerList.Contains(player)) return;
-            PlayerList.Remove(player);
-        };
-
+        // Player Join/Leave
+        _playerInputManager.onPlayerJoined += OnPlayerJoined;
+        _playerInputManager.onPlayerLeft += OnPlayerLeft;
         UpdateCanJoin();
+    }
+
+    public Color GetPlayerColor(int index) => _playerColors[index];
+
+    void OnPlayerJoined(PlayerInput playerInput)
+    {
+        Player player = playerInput.GetComponentInParent<Player>();
+        if (player == null || PlayerList.Contains(player)) return;
+        PlayerList.Add(player);
+    }
+
+    void OnPlayerLeft(PlayerInput playerInput)
+    {
+        Player player = playerInput.GetComponentInParent<Player>();
+        if (player == null || !PlayerList.Contains(player)) return;
+        PlayerList.Remove(player);
     }
 
     private void OnLevelWasLoaded(int level)

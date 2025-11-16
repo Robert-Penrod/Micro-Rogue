@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DungeonManager : MonoBehaviour
+public class DungeonManager : PersistantSingleton<DungeonManager>
 {
     public void GenerateLevel()
     {
