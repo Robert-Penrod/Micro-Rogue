@@ -2,6 +2,11 @@ using UnityEngine;
 
 public static class Constants
 {
+    public static class DungeonStats
+    {
+        public static float PortalTime = 1.5f;
+    }
+
     public static class ActorStats
     {
         public static class MoveSpeed

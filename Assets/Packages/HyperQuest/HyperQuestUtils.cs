@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -655,6 +656,15 @@ public static class TypeExtensions
     #endregion
 
     #region IEnumerator Extensions
+    public static T Rand<T>(this IEnumerable<T> source)
+    {
+        var list = source as IList<T> ?? source.ToList();
+
+        if (list.Count == 0)
+            throw new InvalidOperationException("Sequence contains no elements");
+
+        return list[Random.Range(0, list.Count)];
+    }
     public static Coroutine StartCoroutine(this IEnumerator iEnum, MonoBehaviour mono)
     {
         return mono.StartCoroutine(iEnum);

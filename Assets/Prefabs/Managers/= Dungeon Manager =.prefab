@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1ccbdb3119f3f4bb0b488b693eafd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _roomGeneratorPrefab: {fileID: 2854186638405631178, guid: 3697898c1a6b8334a94d62523c77d27d, type: 3}
+  _encounterGeneratorPrefab: {fileID: 7529052086710301278, guid: bf3228c70a03c6e408693a2d71d5abe5, type: 3}
+  Data:
+    Seed: 0
+    RoomNumber: 0

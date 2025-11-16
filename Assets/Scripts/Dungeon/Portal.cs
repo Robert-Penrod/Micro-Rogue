@@ -49,6 +49,8 @@ public class Portal : MonoBehaviour
         // Add player
         _grabbedPlayers.Add(player);
         player.Actor.SetInPortal(true);
+
+        HandlePlayerEnter(player);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -69,6 +71,18 @@ public class Portal : MonoBehaviour
             kickVector *= 0.125f * _grabForce;
             player.Actor.Body.AddForce(kickVector * player.Actor.Body.linearDamping, ForceMode2D.Impulse);
             Debug.DrawLine(transform.position, transform.position + (Vector3)kickVector, Color.green, 1f);
+
+            HandlePlayerExit(player);
         }
+    }
+
+    void HandlePlayerEnter(Player player)
+    {
+        player.SelectedPortal = this;
+    }
+
+    void HandlePlayerExit(Player player)
+    {
+        player.SelectedPortal = null;
     }
 }

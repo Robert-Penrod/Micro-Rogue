@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     public Actor Actor { get; private set; }
 
+    public Portal SelectedPortal;
+
     private void Awake()
     {
         _playerInput = GetComponent<PlayerInput>();
