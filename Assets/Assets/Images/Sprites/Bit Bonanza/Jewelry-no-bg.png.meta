@@ -1,0 +1,2293 @@
+fileFormatVersion: 2
+guid: 2e95bc0a3a0525d469d1d8c85306b629
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -483039972244312702
+    second: Jewelry-no-bg_0
+  - first:
+      213: 6900730407104109761
+    second: Jewelry-no-bg_1
+  - first:
+      213: 2166520899311120865
+    second: Jewelry-no-bg_2
+  - first:
+      213: -8888805527184866320
+    second: Jewelry-no-bg_3
+  - first:
+      213: -8406030167864699544
+    second: Jewelry-no-bg_4
+  - first:
+      213: -292263264569914619
+    second: Jewelry-no-bg_5
+  - first:
+      213: -6711601374646144899
+    second: Jewelry-no-bg_6
+  - first:
+      213: -7288191183199247312
+    second: Jewelry-no-bg_7
+  - first:
+      213: -8853358168520797943
+    second: Jewelry-no-bg_8
+  - first:
+      213: -4805284680542531853
+    second: Jewelry-no-bg_9
+  - first:
+      213: -8122254623612690527
+    second: Jewelry-no-bg_10
+  - first:
+      213: -2593446662489422644
+    second: Jewelry-no-bg_11
+  - first:
+      213: 948347898783624099
+    second: Jewelry-no-bg_12
+  - first:
+      213: -5387148212026700972
+    second: Jewelry-no-bg_13
+  - first:
+      213: 5061399688726699744
+    second: Jewelry-no-bg_14
+  - first:
+      213: -6914592527379552878
+    second: Jewelry-no-bg_15
+  - first:
+      213: 6212679431452065389
+    second: Jewelry-no-bg_16
+  - first:
+      213: 7374468873288534297
+    second: Jewelry-no-bg_17
+  - first:
+      213: 528811156246313107
+    second: Jewelry-no-bg_18
+  - first:
+      213: 7158275951095888148
+    second: Jewelry-no-bg_19
+  - first:
+      213: 7327536995561424689
+    second: Jewelry-no-bg_20
+  - first:
+      213: -6117622831634335827
+    second: Jewelry-no-bg_21
+  - first:
+      213: 6957287351253676478
+    second: Jewelry-no-bg_22
+  - first:
+      213: -4434607325008042484
+    second: Jewelry-no-bg_23
+  - first:
+      213: -5661232607968824902
+    second: Jewelry-no-bg_24
+  - first:
+      213: -1979440365991031160
+    second: Jewelry-no-bg_25
+  - first:
+      213: 6676483271360936816
+    second: Jewelry-no-bg_26
+  - first:
+      213: -4607917582872317172
+    second: Jewelry-no-bg_27
+  - first:
+      213: -1265443305546028153
+    second: Jewelry-no-bg_28
+  - first:
+      213: -4682706327016591491
+    second: Jewelry-no-bg_29
+  - first:
+      213: -7558188546138417063
+    second: Jewelry-no-bg_30
+  - first:
+      213: 1483982012609092502
+    second: Jewelry-no-bg_31
+  - first:
+      213: 7902837197325548642
+    second: Jewelry-no-bg_32
+  - first:
+      213: -2205996255086393373
+    second: Jewelry-no-bg_33
+  - first:
+      213: 4772678076204538522
+    second: Jewelry-no-bg_34
+  - first:
+      213: 828518866061078359
+    second: Jewelry-no-bg_35
+  - first:
+      213: 2349154341096999973
+    second: Jewelry-no-bg_36
+  - first:
+      213: -7087365959787122405
+    second: Jewelry-no-bg_37
+  - first:
+      213: 3556529847268820456
+    second: Jewelry-no-bg_38
+  - first:
+      213: 4529435982810139692
+    second: Jewelry-no-bg_39
+  - first:
+      213: -5262764685977911075
+    second: Jewelry-no-bg_40
+  - first:
+      213: -1980075180385301554
+    second: Jewelry-no-bg_41
+  - first:
+      213: -4735350273233081940
+    second: Jewelry-no-bg_42
+  - first:
+      213: -2060685144775950752
+    second: Jewelry-no-bg_43
+  - first:
+      213: 7962563492584428870
+    second: Jewelry-no-bg_44
+  - first:
+      213: -2652462278719247158
+    second: Jewelry-no-bg_45
+  - first:
+      213: 4039537330582201719
+    second: Jewelry-no-bg_46
+  - first:
+      213: -7092980356366062852
+    second: Jewelry-no-bg_47
+  - first:
+      213: 9028573375863197173
+    second: Jewelry-no-bg_48
+  - first:
+      213: 1656577296495030436
+    second: Jewelry-no-bg_49
+  - first:
+      213: 1399297236127960025
+    second: Jewelry-no-bg_50
+  - first:
+      213: 6226742227902982784
+    second: Jewelry-no-bg_51
+  - first:
+      213: -6623024647323567518
+    second: Jewelry-no-bg_52
+  - first:
+      213: 4961161419496051373
+    second: Jewelry-no-bg_53
+  - first:
+      213: -6585037346892649769
+    second: Jewelry-no-bg_54
+  - first:
+      213: 4134510029404204571
+    second: Jewelry-no-bg_55
+  - first:
+      213: -7083023059159211993
+    second: Jewelry-no-bg_56
+  - first:
+      213: 1059602695164155051
+    second: Jewelry-no-bg_57
+  - first:
+      213: -6506296061751422261
+    second: Jewelry-no-bg_58
+  - first:
+      213: -8145932851898598575
+    second: Jewelry-no-bg_59
+  - first:
+      213: -1288043862601490544
+    second: Jewelry-no-bg_60
+  - first:
+      213: -8826046692819259074
+    second: Jewelry-no-bg_61
+  - first:
+      213: -1573214573428526898
+    second: Jewelry-no-bg_62
+  - first:
+      213: 2684625271050014092
+    second: Jewelry-no-bg_63
+  - first:
+      213: 1569504357496778431
+    second: Jewelry-no-bg_64
+  - first:
+      213: -4254919225673038657
+    second: Jewelry-no-bg_65
+  - first:
+      213: 8812170633984744178
+    second: Jewelry-no-bg_66
+  - first:
+      213: 5345886279084564353
+    second: Jewelry-no-bg_67
+  - first:
+      213: -6608247255395137025
+    second: Jewelry-no-bg_68
+  - first:
+      213: 3424008222771373251
+    second: Jewelry-no-bg_69
+  - first:
+      213: -8386544353701953160
+    second: Jewelry-no-bg_70
+  - first:
+      213: 6707201792493771442
+    second: Jewelry-no-bg_71
+  - first:
+      213: -3633121439844650055
+    second: Jewelry-no-bg_72
+  - first:
+      213: 3650997865700251838
+    second: Jewelry-no-bg_73
+  - first:
+      213: -4880964677095194414
+    second: Jewelry-no-bg_74
+  - first:
+      213: 9062416187227292670
+    second: Jewelry-no-bg_75
+  - first:
+      213: -6479627153870145623
+    second: Jewelry-no-bg_76
+  - first:
+      213: 3521830101248752177
+    second: Jewelry-no-bg_77
+  - first:
+      213: 4403914792539551759
+    second: Jewelry-no-bg_78
+  - first:
+      213: -7373189727942594911
+    second: Jewelry-no-bg_79
+  - first:
+      213: 3350524952439889914
+    second: Jewelry-no-bg_80
+  - first:
+      213: 7773571363588867700
+    second: Jewelry-no-bg_81
+  - first:
+      213: -4631362502661914786
+    second: Jewelry-no-bg_82
+  - first:
+      213: 3684596740785493366
+    second: Jewelry-no-bg_83
+  - first:
+      213: 4629289147007228639
+    second: Jewelry-no-bg_84
+  - first:
+      213: -3191607937325007141
+    second: Jewelry-no-bg_85
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Jewelry-no-bg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28d201a54b5eb49f0800000000000000
+      internalID: -483039972244312702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc5d2e5eb154cf50800000000000000
+      internalID: 6900730407104109761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e136e97747011e10800000000000000
+      internalID: 2166520899311120865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f30e9ac77e94a480800000000000000
+      internalID: -8888805527184866320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_4
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86515317918c75b80800000000000000
+      internalID: -8406030167864699544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_5
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 99
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b0a6efb1ca1fbf0800000000000000
+      internalID: -292263264569914619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 80
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d70713efb1a9bd2a0800000000000000
+      internalID: -6711601374646144899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_7
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 59
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034664ebbb42bda90800000000000000
+      internalID: -7288191183199247312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 901d30027ad822580800000000000000
+      internalID: -8853358168520797943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_9
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 99
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fec2a3ea03305db0800000000000000
+      internalID: -4805284680542531853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_10
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 80
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af9a401474f74f80800000000000000
+      internalID: -8122254623612690527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_11
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 59
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc4456a400a320cd0800000000000000
+      internalID: -2593446662489422644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ab6c7ea365392d00800000000000000
+      internalID: 948347898783624099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_13
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 99
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b84c55e310d35b0800000000000000
+      internalID: -5387148212026700972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_14
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 80
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eed3d05334bd3640800000000000000
+      internalID: 5061399688726699744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_15
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 59
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 295a8fe3bbe6a00a0800000000000000
+      internalID: -6914592527379552878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_16
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e7317d60fd73650800000000000000
+      internalID: 6212679431452065389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_17
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 99
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 919c98f5e50675660800000000000000
+      internalID: 7374468873288534297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_18
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 80
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3983351e1f6b65700800000000000000
+      internalID: 528811156246313107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_19
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 59
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419ba452d0e475360800000000000000
+      internalID: 7158275951095888148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_20
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137c8f21314a0b560800000000000000
+      internalID: 7327536995561424689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_21
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 99
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da7bd9a7276d91ba0800000000000000
+      internalID: -6117622831634335827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_22
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 80
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb13bc31cff3d8060800000000000000
+      internalID: 6957287351253676478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_23
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 59
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06ec8a222c1572c0800000000000000
+      internalID: -4434607325008042484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_24
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1f82300f24f61b0800000000000000
+      internalID: -5661232607968824902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_25
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 99
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e0903897d9784e0800000000000000
+      internalID: -1979440365991031160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_26
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 80
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b7e4a6922a7ac50800000000000000
+      internalID: 6676483271360936816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_27
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 59
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c037e964f536d00c0800000000000000
+      internalID: -4607917582872317172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_28
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 120
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b6889a40e307ee0800000000000000
+      internalID: -1265443305546028153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_29
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 99
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7fa3b6d76fa30fb0800000000000000
+      internalID: -4682706327016591491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_30
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 80
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9585ef1ff8beb1790800000000000000
+      internalID: -7558188546138417063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_31
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 59
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69b52aa27c9289410800000000000000
+      internalID: 1483982012609092502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_32
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 121
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c35585f848cad60800000000000000
+      internalID: 7902837197325548642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_33
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 60
+        width: 20
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e7cbb7081ab261e0800000000000000
+      internalID: -2205996255086393373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_34
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 60
+        width: 59
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9a577f6c65fb3240800000000000000
+      internalID: 4772678076204538522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 100
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75fa74dd48d7f7b00800000000000000
+      internalID: 828518866061078359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_36
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 80
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52c47a74d6fd99020800000000000000
+      internalID: 2349154341096999973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_37
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 59
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1171b5c53e94ad90800000000000000
+      internalID: -7087365959787122405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e548838d055b5130800000000000000
+      internalID: 3556529847268820456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_39
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c4544470acbde30800000000000000
+      internalID: 4529435982810139692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_40
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd001d3c667e6f6b0800000000000000
+      internalID: -5262764685977911075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_41
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb01944d1c5584e0800000000000000
+      internalID: -1980075180385301554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_42
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9a4e4f308a84eb0800000000000000
+      internalID: -4735350273233081940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_43
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06e74bf57c9f663e0800000000000000
+      internalID: -2060685144775950752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_44
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6451dfc1f45b08e60800000000000000
+      internalID: 7962563492584428870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_45
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 39
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acce0d06c9f803bd0800000000000000
+      internalID: -2652462278719247158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_46
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 42
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775284ebcc15f0830800000000000000
+      internalID: 4039537330582201719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_47
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfa2af332fba09d90800000000000000
+      internalID: -7092980356366062852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_48
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd00e066afeb4d70800000000000000
+      internalID: 9028573375863197173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_49
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0309436485df610800000000000000
+      internalID: 1656577296495030436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_50
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dbc7962c6d4b6310800000000000000
+      internalID: 1399297236127960025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_51
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08ae41ac015d96650800000000000000
+      internalID: 6226742227902982784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_52
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a3f9d6c2a4614a0800000000000000
+      internalID: -6623024647323567518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 39
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da25f62960699d440800000000000000
+      internalID: 4961161419496051373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7da68c90c6f3d94a0800000000000000
+      internalID: -6585037346892649769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_55
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 20
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e6de657fab06930800000000000000
+      internalID: 4134510029404204571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_56
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 20
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7202aee1e0c04bd90800000000000000
+      internalID: -7083023059159211993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_57
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 20
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba45e48890774be00800000000000000
+      internalID: 1059602695164155051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_58
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 19
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc298c3243ef4b5a0800000000000000
+      internalID: -6506296061751422261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_59
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 20
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b366eea35d3fe80800000000000000
+      internalID: -8145932851898598575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_60
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 19
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f148a6ee2ff1ee0800000000000000
+      internalID: -1288043862601490544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_61
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 19
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e313f779b45938580800000000000000
+      internalID: -8826046692819259074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_62
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 20
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec033534ea1da2ae0800000000000000
+      internalID: -1573214573428526898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_63
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 20
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8d09f3d574b14520800000000000000
+      internalID: 2684625271050014092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_64
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 20
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbee506c5eff7c510800000000000000
+      internalID: 1569504357496778431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_65
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 20
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb447cdf18d73f4c0800000000000000
+      internalID: -4254919225673038657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_66
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa1ac2b08e1b4a70800000000000000
+      internalID: 8812170633984744178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_67
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 20
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18f58724f37603a40800000000000000
+      internalID: 5345886279084564353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_68
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff9093a122aca44a0800000000000000
+      internalID: -6608247255395137025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_69
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 19
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4ed426655848f20800000000000000
+      internalID: 3424008222771373251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871898818520d9b80800000000000000
+      internalID: -8386544353701953160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_71
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ba54767e74c41d50800000000000000
+      internalID: 6707201792493771442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_72
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b33430bc4f849dc0800000000000000
+      internalID: -3633121439844650055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_73
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb8d5cc0733faa230800000000000000
+      internalID: 3650997865700251838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_74
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d003849c74534cb0800000000000000
+      internalID: -4880964677095194414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_75
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3ce6ee18b24cd70800000000000000
+      internalID: 9062416187227292670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_76
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a738902f6db316a0800000000000000
+      internalID: -6479627153870145623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_77
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ab53051dd00e030800000000000000
+      internalID: 3521830101248752177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_78
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08786ebb29dd1d30800000000000000
+      internalID: 4403914792539551759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_79
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ae2c6cd10b2da990800000000000000
+      internalID: -7373189727942594911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_80
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aff134141b47f7e20800000000000000
+      internalID: 3350524952439889914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_81
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4760dd218f541eb60800000000000000
+      internalID: 7773571363588867700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_82
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5fb5c287581abfb0800000000000000
+      internalID: -4631362502661914786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_83
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 675d413c631522330800000000000000
+      internalID: 3684596740785493366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_84
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdadfe1c3f98e3040800000000000000
+      internalID: 4629289147007228639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jewelry-no-bg_85
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdefc69ad7125b3d0800000000000000
+      internalID: -3191607937325007141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

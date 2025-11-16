@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 3
   m_MaxPlayerCount: 32
-  m_AllowJoining: 1
+  m_AllowJoining: 0
   m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
@@ -89,4 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8c88800415dd347a0fa3cc7c981681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _joinSceneNames:
+  - Hub
+  - Test Scene
   PlayerList: []

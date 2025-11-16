@@ -1,0 +1,6393 @@
+fileFormatVersion: 2
+guid: 928fd5d12fa42844d9efb9e8d319fcfe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2573445399216789716
+    second: 16x16_arrows_pointers_aim_0
+  - first:
+      213: 227960512888741671
+    second: 16x16_arrows_pointers_aim_1
+  - first:
+      213: -1819895656418564491
+    second: 16x16_arrows_pointers_aim_2
+  - first:
+      213: -3394211665981381294
+    second: 16x16_arrows_pointers_aim_3
+  - first:
+      213: 1992406110065504414
+    second: 16x16_arrows_pointers_aim_4
+  - first:
+      213: -6445095756424687289
+    second: 16x16_arrows_pointers_aim_5
+  - first:
+      213: 6055420219687526705
+    second: 16x16_arrows_pointers_aim_6
+  - first:
+      213: -2521995121875816987
+    second: 16x16_arrows_pointers_aim_7
+  - first:
+      213: -1166950998729271445
+    second: 16x16_arrows_pointers_aim_8
+  - first:
+      213: -929750124614672841
+    second: 16x16_arrows_pointers_aim_9
+  - first:
+      213: 1619626823669496195
+    second: 16x16_arrows_pointers_aim_10
+  - first:
+      213: -2751124561635008906
+    second: 16x16_arrows_pointers_aim_11
+  - first:
+      213: 3170838478706499940
+    second: 16x16_arrows_pointers_aim_12
+  - first:
+      213: 676535315998498503
+    second: 16x16_arrows_pointers_aim_13
+  - first:
+      213: 2900454541431772042
+    second: 16x16_arrows_pointers_aim_14
+  - first:
+      213: 3808579737719441916
+    second: 16x16_arrows_pointers_aim_15
+  - first:
+      213: 2556843721580704103
+    second: 16x16_arrows_pointers_aim_16
+  - first:
+      213: 6016097911096201254
+    second: 16x16_arrows_pointers_aim_17
+  - first:
+      213: 7785238757049688990
+    second: 16x16_arrows_pointers_aim_18
+  - first:
+      213: -7802786196131499732
+    second: 16x16_arrows_pointers_aim_19
+  - first:
+      213: -5340741551810958005
+    second: 16x16_arrows_pointers_aim_20
+  - first:
+      213: -3763150718618181730
+    second: 16x16_arrows_pointers_aim_21
+  - first:
+      213: 4357404784861869428
+    second: 16x16_arrows_pointers_aim_22
+  - first:
+      213: -179159310472602818
+    second: 16x16_arrows_pointers_aim_23
+  - first:
+      213: -2900254984615202620
+    second: 16x16_arrows_pointers_aim_24
+  - first:
+      213: -285259845228627280
+    second: 16x16_arrows_pointers_aim_25
+  - first:
+      213: -2755755250845771722
+    second: 16x16_arrows_pointers_aim_26
+  - first:
+      213: -253500340587814977
+    second: 16x16_arrows_pointers_aim_27
+  - first:
+      213: 3879331799792992143
+    second: 16x16_arrows_pointers_aim_28
+  - first:
+      213: -3610841818311337236
+    second: 16x16_arrows_pointers_aim_29
+  - first:
+      213: 9208427437100325294
+    second: 16x16_arrows_pointers_aim_30
+  - first:
+      213: 3150194340093350263
+    second: 16x16_arrows_pointers_aim_31
+  - first:
+      213: 6406149480833971672
+    second: 16x16_arrows_pointers_aim_32
+  - first:
+      213: -7153476801812919934
+    second: 16x16_arrows_pointers_aim_33
+  - first:
+      213: 4990115192363737791
+    second: 16x16_arrows_pointers_aim_34
+  - first:
+      213: 1343850285579046058
+    second: 16x16_arrows_pointers_aim_35
+  - first:
+      213: 2097494912264035630
+    second: 16x16_arrows_pointers_aim_36
+  - first:
+      213: -7858401841450352884
+    second: 16x16_arrows_pointers_aim_37
+  - first:
+      213: -684499069418935048
+    second: 16x16_arrows_pointers_aim_38
+  - first:
+      213: 4388873820658506464
+    second: 16x16_arrows_pointers_aim_39
+  - first:
+      213: 4243036286993100961
+    second: 16x16_arrows_pointers_aim_40
+  - first:
+      213: 3124888863481094985
+    second: 16x16_arrows_pointers_aim_41
+  - first:
+      213: 7331346817244092868
+    second: 16x16_arrows_pointers_aim_42
+  - first:
+      213: 886344328427747868
+    second: 16x16_arrows_pointers_aim_43
+  - first:
+      213: 493820146197550991
+    second: 16x16_arrows_pointers_aim_44
+  - first:
+      213: 7521878580472350066
+    second: 16x16_arrows_pointers_aim_45
+  - first:
+      213: -3483406191860567913
+    second: 16x16_arrows_pointers_aim_46
+  - first:
+      213: 9169719472650763608
+    second: 16x16_arrows_pointers_aim_47
+  - first:
+      213: -7427873839837974004
+    second: 16x16_arrows_pointers_aim_48
+  - first:
+      213: -8492359024842854592
+    second: 16x16_arrows_pointers_aim_49
+  - first:
+      213: -1445053993940472002
+    second: 16x16_arrows_pointers_aim_50
+  - first:
+      213: -6732359935914438980
+    second: 16x16_arrows_pointers_aim_51
+  - first:
+      213: -1937712309583849246
+    second: 16x16_arrows_pointers_aim_52
+  - first:
+      213: -156071198582613618
+    second: 16x16_arrows_pointers_aim_53
+  - first:
+      213: 6854822907392506334
+    second: 16x16_arrows_pointers_aim_54
+  - first:
+      213: 3450815769948201459
+    second: 16x16_arrows_pointers_aim_55
+  - first:
+      213: -5729231402611287354
+    second: 16x16_arrows_pointers_aim_56
+  - first:
+      213: 4022362329058236535
+    second: 16x16_arrows_pointers_aim_57
+  - first:
+      213: 4348957730134002957
+    second: 16x16_arrows_pointers_aim_58
+  - first:
+      213: -1073390081840067751
+    second: 16x16_arrows_pointers_aim_59
+  - first:
+      213: -5134310011594698532
+    second: 16x16_arrows_pointers_aim_60
+  - first:
+      213: -5098748520985952365
+    second: 16x16_arrows_pointers_aim_61
+  - first:
+      213: -7742712653352149159
+    second: 16x16_arrows_pointers_aim_62
+  - first:
+      213: -6895432801792891132
+    second: 16x16_arrows_pointers_aim_63
+  - first:
+      213: 7388906565701129055
+    second: 16x16_arrows_pointers_aim_64
+  - first:
+      213: -2981019973170324839
+    second: 16x16_arrows_pointers_aim_65
+  - first:
+      213: -3076802273996177309
+    second: 16x16_arrows_pointers_aim_66
+  - first:
+      213: 7587231100572701772
+    second: 16x16_arrows_pointers_aim_67
+  - first:
+      213: -2976136889904200609
+    second: 16x16_arrows_pointers_aim_68
+  - first:
+      213: 5089224645032051351
+    second: 16x16_arrows_pointers_aim_69
+  - first:
+      213: -7673767374604637587
+    second: 16x16_arrows_pointers_aim_70
+  - first:
+      213: -2089135090301417938
+    second: 16x16_arrows_pointers_aim_71
+  - first:
+      213: 8744840358830570336
+    second: 16x16_arrows_pointers_aim_72
+  - first:
+      213: -5641547272943995407
+    second: 16x16_arrows_pointers_aim_73
+  - first:
+      213: 549446371622908106
+    second: 16x16_arrows_pointers_aim_74
+  - first:
+      213: 8486914886836908656
+    second: 16x16_arrows_pointers_aim_75
+  - first:
+      213: 9165656608053124934
+    second: 16x16_arrows_pointers_aim_76
+  - first:
+      213: -6087614949057615617
+    second: 16x16_arrows_pointers_aim_77
+  - first:
+      213: -3837506138603092523
+    second: 16x16_arrows_pointers_aim_78
+  - first:
+      213: -5613417244221397474
+    second: 16x16_arrows_pointers_aim_79
+  - first:
+      213: 5879686419461449278
+    second: 16x16_arrows_pointers_aim_80
+  - first:
+      213: 1692967704130437097
+    second: 16x16_arrows_pointers_aim_81
+  - first:
+      213: -6474023810443879097
+    second: 16x16_arrows_pointers_aim_82
+  - first:
+      213: -8712842476231432038
+    second: 16x16_arrows_pointers_aim_83
+  - first:
+      213: -5497043164964868971
+    second: 16x16_arrows_pointers_aim_84
+  - first:
+      213: -5460674062324286828
+    second: 16x16_arrows_pointers_aim_85
+  - first:
+      213: -8067883723300891843
+    second: 16x16_arrows_pointers_aim_86
+  - first:
+      213: -45552202083478003
+    second: 16x16_arrows_pointers_aim_87
+  - first:
+      213: -2227970377765847368
+    second: 16x16_arrows_pointers_aim_88
+  - first:
+      213: 2619543972272022154
+    second: 16x16_arrows_pointers_aim_89
+  - first:
+      213: 5227980324128651750
+    second: 16x16_arrows_pointers_aim_90
+  - first:
+      213: -5551589020754880159
+    second: 16x16_arrows_pointers_aim_91
+  - first:
+      213: -6296406864967624020
+    second: 16x16_arrows_pointers_aim_92
+  - first:
+      213: -4060391494771192554
+    second: 16x16_arrows_pointers_aim_93
+  - first:
+      213: 8800758441623923217
+    second: 16x16_arrows_pointers_aim_94
+  - first:
+      213: 3319420747024746715
+    second: 16x16_arrows_pointers_aim_95
+  - first:
+      213: -8358824190198883878
+    second: 16x16_arrows_pointers_aim_96
+  - first:
+      213: 2762639764058874363
+    second: 16x16_arrows_pointers_aim_97
+  - first:
+      213: 353843703713176255
+    second: 16x16_arrows_pointers_aim_98
+  - first:
+      213: 8818186861041446472
+    second: 16x16_arrows_pointers_aim_99
+  - first:
+      213: 2618632009208291824
+    second: 16x16_arrows_pointers_aim_100
+  - first:
+      213: 4964879493483806744
+    second: 16x16_arrows_pointers_aim_101
+  - first:
+      213: -5416683715741207854
+    second: 16x16_arrows_pointers_aim_102
+  - first:
+      213: 728398843794934307
+    second: 16x16_arrows_pointers_aim_103
+  - first:
+      213: -3245289130653086273
+    second: 16x16_arrows_pointers_aim_104
+  - first:
+      213: 8888468753845167941
+    second: 16x16_arrows_pointers_aim_105
+  - first:
+      213: -2976271438029724991
+    second: 16x16_arrows_pointers_aim_106
+  - first:
+      213: -1247277865130490066
+    second: 16x16_arrows_pointers_aim_107
+  - first:
+      213: 3986801295124072746
+    second: 16x16_arrows_pointers_aim_108
+  - first:
+      213: 2843579535099934775
+    second: 16x16_arrows_pointers_aim_109
+  - first:
+      213: -1852090646496305256
+    second: 16x16_arrows_pointers_aim_110
+  - first:
+      213: 6033329374553749710
+    second: 16x16_arrows_pointers_aim_111
+  - first:
+      213: 7857874053646528306
+    second: 16x16_arrows_pointers_aim_112
+  - first:
+      213: 3702652534348361080
+    second: 16x16_arrows_pointers_aim_113
+  - first:
+      213: 5165825483289614868
+    second: 16x16_arrows_pointers_aim_114
+  - first:
+      213: 1456060912761198408
+    second: 16x16_arrows_pointers_aim_115
+  - first:
+      213: 7275525126607240336
+    second: 16x16_arrows_pointers_aim_116
+  - first:
+      213: 3203025527663301619
+    second: 16x16_arrows_pointers_aim_117
+  - first:
+      213: 1059192021265653368
+    second: 16x16_arrows_pointers_aim_118
+  - first:
+      213: 8999455343171225003
+    second: 16x16_arrows_pointers_aim_119
+  - first:
+      213: 7148048457644444961
+    second: 16x16_arrows_pointers_aim_120
+  - first:
+      213: -4956291704497915286
+    second: 16x16_arrows_pointers_aim_121
+  - first:
+      213: 6390424207077472577
+    second: 16x16_arrows_pointers_aim_122
+  - first:
+      213: -637585490252591301
+    second: 16x16_arrows_pointers_aim_123
+  - first:
+      213: -1232703430526459598
+    second: 16x16_arrows_pointers_aim_124
+  - first:
+      213: 6350134096160868353
+    second: 16x16_arrows_pointers_aim_125
+  - first:
+      213: 5831525097698207802
+    second: 16x16_arrows_pointers_aim_126
+  - first:
+      213: 2383848190347062867
+    second: 16x16_arrows_pointers_aim_127
+  - first:
+      213: 4331985917106972005
+    second: 16x16_arrows_pointers_aim_128
+  - first:
+      213: 6676344344702811195
+    second: 16x16_arrows_pointers_aim_129
+  - first:
+      213: 8462842812104443704
+    second: 16x16_arrows_pointers_aim_130
+  - first:
+      213: 7204521818898989942
+    second: 16x16_arrows_pointers_aim_131
+  - first:
+      213: 3897971434503853431
+    second: 16x16_arrows_pointers_aim_132
+  - first:
+      213: -6259471513434002258
+    second: 16x16_arrows_pointers_aim_133
+  - first:
+      213: -3007301826808070708
+    second: 16x16_arrows_pointers_aim_134
+  - first:
+      213: 1903226414593855438
+    second: 16x16_arrows_pointers_aim_135
+  - first:
+      213: 629150112379995047
+    second: 16x16_arrows_pointers_aim_136
+  - first:
+      213: -6159245068201465315
+    second: 16x16_arrows_pointers_aim_137
+  - first:
+      213: 5452733038048153800
+    second: 16x16_arrows_pointers_aim_138
+  - first:
+      213: 3357788522610173324
+    second: 16x16_arrows_pointers_aim_139
+  - first:
+      213: 7545592355833479231
+    second: 16x16_arrows_pointers_aim_140
+  - first:
+      213: 1739428925987241590
+    second: 16x16_arrows_pointers_aim_141
+  - first:
+      213: -5977553993819264219
+    second: 16x16_arrows_pointers_aim_142
+  - first:
+      213: 1809149176157368651
+    second: 16x16_arrows_pointers_aim_143
+  - first:
+      213: 5288553848946497065
+    second: 16x16_arrows_pointers_aim_144
+  - first:
+      213: 3072629262349308347
+    second: 16x16_arrows_pointers_aim_145
+  - first:
+      213: -8714883261691949712
+    second: 16x16_arrows_pointers_aim_146
+  - first:
+      213: -3656817204354796303
+    second: 16x16_arrows_pointers_aim_147
+  - first:
+      213: 2823014077486858754
+    second: 16x16_arrows_pointers_aim_148
+  - first:
+      213: 1714106473533116291
+    second: 16x16_arrows_pointers_aim_149
+  - first:
+      213: -2411796433808427382
+    second: 16x16_arrows_pointers_aim_150
+  - first:
+      213: 4132306185953016402
+    second: 16x16_arrows_pointers_aim_151
+  - first:
+      213: -4987507305304128488
+    second: 16x16_arrows_pointers_aim_152
+  - first:
+      213: -4950514940928161616
+    second: 16x16_arrows_pointers_aim_153
+  - first:
+      213: -1227453309311325313
+    second: 16x16_arrows_pointers_aim_154
+  - first:
+      213: 8143286646831847241
+    second: 16x16_arrows_pointers_aim_155
+  - first:
+      213: 1409061599895507522
+    second: 16x16_arrows_pointers_aim_156
+  - first:
+      213: 5606668833656708171
+    second: 16x16_arrows_pointers_aim_157
+  - first:
+      213: 4031611078656800911
+    second: 16x16_arrows_pointers_aim_158
+  - first:
+      213: -8082035074164724202
+    second: 16x16_arrows_pointers_aim_159
+  - first:
+      213: 3651303708762581593
+    second: 16x16_arrows_pointers_aim_160
+  - first:
+      213: -8342428229689447815
+    second: 16x16_arrows_pointers_aim_161
+  - first:
+      213: -1333898324648839625
+    second: 16x16_arrows_pointers_aim_162
+  - first:
+      213: -7112757569096339389
+    second: 16x16_arrows_pointers_aim_163
+  - first:
+      213: -4975582837040138375
+    second: 16x16_arrows_pointers_aim_164
+  - first:
+      213: 7313646792759394653
+    second: 16x16_arrows_pointers_aim_165
+  - first:
+      213: -1045643366243675712
+    second: 16x16_arrows_pointers_aim_166
+  - first:
+      213: 4495199198214098253
+    second: 16x16_arrows_pointers_aim_167
+  - first:
+      213: 212038078893051985
+    second: 16x16_arrows_pointers_aim_168
+  - first:
+      213: 5398208320177623858
+    second: 16x16_arrows_pointers_aim_169
+  - first:
+      213: 4731678360793555335
+    second: 16x16_arrows_pointers_aim_170
+  - first:
+      213: -3093426910141274699
+    second: 16x16_arrows_pointers_aim_171
+  - first:
+      213: -5070071498272591112
+    second: 16x16_arrows_pointers_aim_172
+  - first:
+      213: 4658546272829581646
+    second: 16x16_arrows_pointers_aim_173
+  - first:
+      213: 2021650896411833485
+    second: 16x16_arrows_pointers_aim_174
+  - first:
+      213: -4578450967464996926
+    second: 16x16_arrows_pointers_aim_175
+  - first:
+      213: -4554940737428649065
+    second: 16x16_arrows_pointers_aim_176
+  - first:
+      213: -6653603149492170996
+    second: 16x16_arrows_pointers_aim_177
+  - first:
+      213: 309493652283178304
+    second: 16x16_arrows_pointers_aim_178
+  - first:
+      213: 5645315985604642993
+    second: 16x16_arrows_pointers_aim_179
+  - first:
+      213: -232810694572511854
+    second: 16x16_arrows_pointers_aim_180
+  - first:
+      213: 5242893883879511730
+    second: 16x16_arrows_pointers_aim_181
+  - first:
+      213: -4909658518216819332
+    second: 16x16_arrows_pointers_aim_182
+  - first:
+      213: 1862139537074043099
+    second: 16x16_arrows_pointers_aim_183
+  - first:
+      213: 6499898015380143228
+    second: 16x16_arrows_pointers_aim_184
+  - first:
+      213: 1650928890109758665
+    second: 16x16_arrows_pointers_aim_185
+  - first:
+      213: -3771189716433632567
+    second: 16x16_arrows_pointers_aim_186
+  - first:
+      213: 578376825174320639
+    second: 16x16_arrows_pointers_aim_187
+  - first:
+      213: 4230722485026309562
+    second: 16x16_arrows_pointers_aim_188
+  - first:
+      213: -1550540445249311823
+    second: 16x16_arrows_pointers_aim_189
+  - first:
+      213: 7172763387532763776
+    second: 16x16_arrows_pointers_aim_190
+  - first:
+      213: 4493325842930101061
+    second: 16x16_arrows_pointers_aim_191
+  - first:
+      213: 4065154420344322532
+    second: 16x16_arrows_pointers_aim_192
+  - first:
+      213: 7729561413726029266
+    second: 16x16_arrows_pointers_aim_193
+  - first:
+      213: 834708085358235089
+    second: 16x16_arrows_pointers_aim_194
+  - first:
+      213: 1372330748712166302
+    second: 16x16_arrows_pointers_aim_195
+  - first:
+      213: -4791998390591491430
+    second: 16x16_arrows_pointers_aim_196
+  - first:
+      213: -8458403801759081273
+    second: 16x16_arrows_pointers_aim_197
+  - first:
+      213: 7697475429210868149
+    second: 16x16_arrows_pointers_aim_198
+  - first:
+      213: 507992649314961781
+    second: 16x16_arrows_pointers_aim_199
+  - first:
+      213: 1995075365490872931
+    second: 16x16_arrows_pointers_aim_200
+  - first:
+      213: -266056849928818779
+    second: 16x16_arrows_pointers_aim_201
+  - first:
+      213: -7862616127896309384
+    second: 16x16_arrows_pointers_aim_202
+  - first:
+      213: -1148708605679078085
+    second: 16x16_arrows_pointers_aim_203
+  - first:
+      213: 6475504762885843167
+    second: 16x16_arrows_pointers_aim_204
+  - first:
+      213: 3210578644662347222
+    second: 16x16_arrows_pointers_aim_205
+  - first:
+      213: 1398982652162205832
+    second: 16x16_arrows_pointers_aim_206
+  - first:
+      213: -7060077396773368870
+    second: 16x16_arrows_pointers_aim_207
+  - first:
+      213: 2842399372207124714
+    second: 16x16_arrows_pointers_aim_208
+  - first:
+      213: -4824360799696631237
+    second: 16x16_arrows_pointers_aim_209
+  - first:
+      213: -4711165068703022439
+    second: 16x16_arrows_pointers_aim_210
+  - first:
+      213: 7625189571962082227
+    second: 16x16_arrows_pointers_aim_211
+  - first:
+      213: -2517317591288547000
+    second: 16x16_arrows_pointers_aim_212
+  - first:
+      213: 3301836623177863159
+    second: 16x16_arrows_pointers_aim_213
+  - first:
+      213: 7719425191507219311
+    second: 16x16_arrows_pointers_aim_214
+  - first:
+      213: 4159829673260816808
+    second: 16x16_arrows_pointers_aim_215
+  - first:
+      213: -1295393920939643756
+    second: 16x16_arrows_pointers_aim_216
+  - first:
+      213: 3168104941329644239
+    second: 16x16_arrows_pointers_aim_217
+  - first:
+      213: 4277150587683416096
+    second: 16x16_arrows_pointers_aim_218
+  - first:
+      213: -1956430126984401947
+    second: 16x16_arrows_pointers_aim_219
+  - first:
+      213: -8173975359137103124
+    second: 16x16_arrows_pointers_aim_220
+  - first:
+      213: -6723665726817521361
+    second: 16x16_arrows_pointers_aim_221
+  - first:
+      213: 1088485784555067008
+    second: 16x16_arrows_pointers_aim_222
+  - first:
+      213: -6273597083485886342
+    second: 16x16_arrows_pointers_aim_223
+  - first:
+      213: -4052281654861377850
+    second: 16x16_arrows_pointers_aim_224
+  - first:
+      213: 5416685500836484357
+    second: 16x16_arrows_pointers_aim_225
+  - first:
+      213: -2464217665344264553
+    second: 16x16_arrows_pointers_aim_226
+  - first:
+      213: 8959216914291795199
+    second: 16x16_arrows_pointers_aim_227
+  - first:
+      213: -1813580268660272400
+    second: 16x16_arrows_pointers_aim_228
+  - first:
+      213: -7119554826452625089
+    second: 16x16_arrows_pointers_aim_229
+  - first:
+      213: -7231404889927540856
+    second: 16x16_arrows_pointers_aim_230
+  - first:
+      213: -762701934524733223
+    second: 16x16_arrows_pointers_aim_231
+  - first:
+      213: -1569117749098577874
+    second: 16x16_arrows_pointers_aim_232
+  - first:
+      213: -4494361669524139677
+    second: 16x16_arrows_pointers_aim_233
+  - first:
+      213: 6756771858506926686
+    second: 16x16_arrows_pointers_aim_234
+  - first:
+      213: 626813747810504665
+    second: 16x16_arrows_pointers_aim_235
+  - first:
+      213: 2966277133185078477
+    second: 16x16_arrows_pointers_aim_236
+  - first:
+      213: -4984254209488345933
+    second: 16x16_arrows_pointers_aim_237
+  - first:
+      213: -8945892180381294042
+    second: 16x16_arrows_pointers_aim_238
+  - first:
+      213: -5646434303801718396
+    second: 16x16_arrows_pointers_aim_239
+  - first:
+      213: -5622124404422215322
+    second: 16x16_arrows_pointers_aim_240
+  - first:
+      213: 8971059234823458933
+    second: 16x16_arrows_pointers_aim_241
+  - first:
+      213: -3442887253720450190
+    second: 16x16_arrows_pointers_aim_242
+  - first:
+      213: 8304202594063898159
+    second: 16x16_arrows_pointers_aim_243
+  - first:
+      213: 3884575776330486719
+    second: 16x16_arrows_pointers_aim_244
+  - first:
+      213: 8569496895728075235
+    second: 16x16_arrows_pointers_aim_245
+  - first:
+      213: 5241225337426239514
+    second: 16x16_arrows_pointers_aim_246
+  - first:
+      213: 1694769357136394130
+    second: 16x16_arrows_pointers_aim_247
+  - first:
+      213: 6710715930572533917
+    second: 16x16_arrows_pointers_aim_248
+  - first:
+      213: -7957752670192718436
+    second: 16x16_arrows_pointers_aim_249
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27e1da4b09494cd0800000000000000
+      internalID: -2573445399216789716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72f9c81f0e0e92300800000000000000
+      internalID: 227960512888741671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57625eeea8e6eb6e0800000000000000
+      internalID: -1819895656418564491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_3
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25561bc197655e0d0800000000000000
+      internalID: -3394211665981381294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_4
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e90b5c60dc276ab10800000000000000
+      internalID: 1992406110065504414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 741ddee9e8b6e86a0800000000000000
+      internalID: -6445095756424687289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_6
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13161385b9c290450800000000000000
+      internalID: 6055420219687526705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_7
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ede25b7cc2100dd0800000000000000
+      internalID: -2521995121875816987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_8
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b67547adf382ecfe0800000000000000
+      internalID: -1166950998729271445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73e977c003dd813f0800000000000000
+      internalID: -929750124614672841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_10
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 389b385d3021a7610800000000000000
+      internalID: 1619626823669496195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_11
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 244
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e94ea89ca02d9d0800000000000000
+      internalID: -2751124561635008906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_12
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 461e07bebc4110c20800000000000000
+      internalID: 3170838478706499940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_13
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ced8141949836900800000000000000
+      internalID: 676535315998498503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_14
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a839535c90c704820800000000000000
+      internalID: 2900454541431772042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_15
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 245
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf9848db71bcad430800000000000000
+      internalID: 3808579737719441916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_16
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 761710b61dbbb7320800000000000000
+      internalID: 2556843721580704103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 620dbdcec297d7350800000000000000
+      internalID: 6016097911096201254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_18
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93ec8dc669ba0c60800000000000000
+      internalID: 7785238757049688990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c21b249ab4fe6b390800000000000000
+      internalID: -7802786196131499732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_20
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4da327eadfd1e5b0800000000000000
+      internalID: -5340741551810958005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_21
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9fd1840c5a96cbc0800000000000000
+      internalID: -3763150718618181730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_22
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4757748b09c987c30800000000000000
+      internalID: 4357404784861869428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_23
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3b931d6e8f738df0800000000000000
+      internalID: -179159310472602818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_24
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c074fb257930c7d0800000000000000
+      internalID: -2900254984615202620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_25
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0baf670aead8a0cf0800000000000000
+      internalID: -285259845228627280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_26
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6389b61333791c9d0800000000000000
+      internalID: -2755755250845771722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_27
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 222
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbf92d888c26b7cf0800000000000000
+      internalID: -253500340587814977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_28
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8fb984e7b726d530800000000000000
+      internalID: 3879331799792992143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_29
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea5d6f4f76b3edc0800000000000000
+      internalID: -3610841818311337236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_30
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea9535837f7eacf70800000000000000
+      internalID: 9208427437100325294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_31
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 223
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771d5b6df0db7bb20800000000000000
+      internalID: 3150194340093350263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d57927f20737e850800000000000000
+      internalID: 6406149480833971672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_33
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28981fedfbeb9bc90800000000000000
+      internalID: -7153476801812919934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_34
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb2ee152453704540800000000000000
+      internalID: 4990115192363737791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_35
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac0f37f6b056a210800000000000000
+      internalID: 1343850285579046058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_36
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ddfab728ccb1d10800000000000000
+      internalID: 2097494912264035630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_37
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f731a292951f290800000000000000
+      internalID: -7858401841450352884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_38
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fce23619bb2086f0800000000000000
+      internalID: -684499069418935048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_39
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 200
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea9c549c7968ec30800000000000000
+      internalID: 4388873820658506464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_40
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 201
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a0f05fb50b42ea30800000000000000
+      internalID: 4243036286993100961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_41
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 201
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9436d5e6dd5dd5b20800000000000000
+      internalID: 3124888863481094985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_42
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 202
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c9560f461d2eb560800000000000000
+      internalID: 7331346817244092868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_43
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 202
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1a3e9c787dec4c00800000000000000
+      internalID: 886344328427747868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_44
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 202
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87590d7ec66ad600800000000000000
+      internalID: 493820146197550991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_45
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 202
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2758ca067b4136860800000000000000
+      internalID: 7521878580472350066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_46
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 202
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79031cd368478afc0800000000000000
+      internalID: -3483406191860567913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_47
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 202
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85db451f643614f70800000000000000
+      internalID: 9169719472650763608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_48
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c027a04e814eae890800000000000000
+      internalID: -7427873839837974004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_49
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04fa82b1674152a80800000000000000
+      internalID: -8492359024842854592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_50
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f2be97c0322fbe0800000000000000
+      internalID: -1445053993940472002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_51
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbe8fbfce4ad192a0800000000000000
+      internalID: -6732359935914438980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_52
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e85a5ebbecdb15e0800000000000000
+      internalID: -1937712309583849246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_53
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 178
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8950d0621685ddf0800000000000000
+      internalID: -156071198582613618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_54
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed93759ad19312f50800000000000000
+      internalID: 6854822907392506334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_55
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 179
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f12419d8a2c3ef20800000000000000
+      internalID: 3450815769948201459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_56
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 179
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca5753e46ead70b0800000000000000
+      internalID: -5729231402611287354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_57
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 179
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778dd651a3d42d730800000000000000
+      internalID: 4022362329058236535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_58
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 179
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d83d7830a9a5c30800000000000000
+      internalID: 4348957730134002957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_59
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 179
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95bce7a586d8a11f0800000000000000
+      internalID: -1073390081840067751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_60
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 181
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd09a284f344fb8b0800000000000000
+      internalID: -5134310011594698532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_61
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 181
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f75970c3b9d39b0800000000000000
+      internalID: -5098748520985952365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_62
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 181
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fd50b4ddb5c8490800000000000000
+      internalID: -7742712653352149159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_63
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 181
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 407ee8c76608e40a0800000000000000
+      internalID: -6895432801792891132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_64
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f53da279f5baa8660800000000000000
+      internalID: 7388906565701129055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_65
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99a96d6e02a41a6d0800000000000000
+      internalID: -2981019973170324839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_66
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360085622a00d45d0800000000000000
+      internalID: -3076802273996177309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_67
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c449e62bc724b4960800000000000000
+      internalID: 7587231100572701772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_68
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5403525443a2b6d0800000000000000
+      internalID: -2976136889904200609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_69
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 167
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7928c4dc9de80a640800000000000000
+      internalID: 5089224645032051351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_70
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a65bbea3d418590800000000000000
+      internalID: -7673767374604637587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_71
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e26c7ce34b6e103e0800000000000000
+      internalID: -2089135090301417938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_72
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 167
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b789569f9eb5970800000000000000
+      internalID: 8744840358830570336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_73
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5799c35a235b1b0800000000000000
+      internalID: -5641547272943995407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_74
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac0f5bb509600a700800000000000000
+      internalID: 549446371622908106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_75
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 167
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07273ecbf1497c570800000000000000
+      internalID: 8486914886836908656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_76
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64fd7309f14f23f70800000000000000
+      internalID: 9165656608053124934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_77
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff820181572748ba0800000000000000
+      internalID: -6087614949057615617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_78
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 167
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d58e29bf707ebac0800000000000000
+      internalID: -3837506138603092523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_79
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 162
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e16a12ee1c22912b0800000000000000
+      internalID: -5613417244221397474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_80
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3620b685a7d89150800000000000000
+      internalID: 5879686419461449278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_81
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef37ec3821ae7710800000000000000
+      internalID: 1692967704130437097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_82
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d521f25a5a726a0800000000000000
+      internalID: -6474023810443879097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_83
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 156
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a986a443ee3c51780800000000000000
+      internalID: -8712842476231432038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_84
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 158
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59ca745bd5496b3b0800000000000000
+      internalID: -5497043164964868971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_85
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 158
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49ab8f84fd9c734b0800000000000000
+      internalID: -5460674062324286828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_86
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 158
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d339e77cf7e190090800000000000000
+      internalID: -8067883723300891843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_87
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 158
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d06d318738a2e5ff0800000000000000
+      internalID: -45552202083478003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_88
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 157
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8be7c27eeb8a411e0800000000000000
+      internalID: -2227970377765847368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_89
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 157
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a822ac42d5d7a5420800000000000000
+      internalID: 2619543972272022154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_90
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 157
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e97b60e7648d8840800000000000000
+      internalID: 5227980324128651750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_91
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 157
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16952fef23bc4f2b0800000000000000
+      internalID: -5551589020754880159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_92
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 115
+        width: 17
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa164ce05bae98a0800000000000000
+      internalID: -6296406864967624020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_93
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 141
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d4529c27796a7c0800000000000000
+      internalID: -4060391494771192554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_94
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 117
+        width: 14
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11aa30b9c23922a70800000000000000
+      internalID: 8800758441623923217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_95
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 138
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8c8761593f01e20800000000000000
+      internalID: 3319420747024746715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_96
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 138
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad9d04b9fad7ffb80800000000000000
+      internalID: -8358824190198883878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_97
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 135
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf129137a3ed65620800000000000000
+      internalID: 2762639764058874363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_98
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 135
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba15d949fa19e400800000000000000
+      internalID: 353843703713176255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_99
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 138
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84e6467ba3e706a70800000000000000
+      internalID: 8818186861041446472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_100
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 135
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1e35230ff375420800000000000000
+      internalID: 2618632009208291824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_101
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 113
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81049b1289bc6e440800000000000000
+      internalID: 4964879493483806744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_102
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 135
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d23a9efbd214d4b0800000000000000
+      internalID: -5416683715741207854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_103
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 135
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32ac333a3eacb1a00800000000000000
+      internalID: 728398843794934307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_104
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 134
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd8cfddaba66f2d0800000000000000
+      internalID: -3245289130653086273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_105
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 144
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547a91e0d3f2a5b70800000000000000
+      internalID: 8888468753845167941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_106
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 136
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c2e81565e822b6d0800000000000000
+      internalID: -2976271438029724991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_107
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 139
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2780b8d367c0bee0800000000000000
+      internalID: -1247277865130490066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_108
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 134
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2900f9a7a6f35730800000000000000
+      internalID: 3986801295124072746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_109
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 134
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 738b330758c667720800000000000000
+      internalID: 2843579535099934775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_110
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 139
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89f93cbae5d0c46e0800000000000000
+      internalID: -1852090646496305256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_111
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 134
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec8b437a911bab350800000000000000
+      internalID: 6033329374553749710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_112
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 134
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23f2c59a1d6cc0d60800000000000000
+      internalID: 7857874053646528306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_113
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 134
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87da88cccd6726330800000000000000
+      internalID: 3702652534348361080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_114
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 113
+        width: 18
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a532748e2b0b740800000000000000
+      internalID: 5165825483289614868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_115
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 134
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84756748fa7f43410800000000000000
+      internalID: 1456060912761198408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_116
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 119
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09c7ad52e8bd7f460800000000000000
+      internalID: 7275525126607240336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_117
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 114
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f311ee3fbe637c20800000000000000
+      internalID: 3203025527663301619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_118
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 119
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e9770188103be00800000000000000
+      internalID: 1059192021265653368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_119
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 120
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba546b514fc74ec70800000000000000
+      internalID: 8999455343171225003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_120
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 119
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d0d234338f23360800000000000000
+      internalID: 7148048457644444961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_121
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 122
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6abf2e44f6b73bb0800000000000000
+      internalID: -4956291704497915286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_122
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 113
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149f8ea55f85fa850800000000000000
+      internalID: 6390424207077472577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_123
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 113
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f0d8bef57d627f0800000000000000
+      internalID: -637585490252591301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_124
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 122
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231a016d2ce84eee0800000000000000
+      internalID: -1232703430526459598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_125
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 122
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 108c3c5e055302850800000000000000
+      internalID: 6350134096160868353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_126
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 113
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38a31bfd2dbde050800000000000000
+      internalID: 5831525097698207802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_127
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 113
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e28188c41251120800000000000000
+      internalID: 2383848190347062867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_128
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 122
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 565e7216d3e4e1c30800000000000000
+      internalID: 4331985917106972005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_129
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 116
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3cf2380fc327ac50800000000000000
+      internalID: 6676344344702811195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_130
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 119
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 837047513be027570800000000000000
+      internalID: 8462842812104443704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_131
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 112
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67386005c6a9bf360800000000000000
+      internalID: 7204521818898989942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_132
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 113
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775d83a0e50681630800000000000000
+      internalID: 3897971434503853431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_133
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 122
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eace61892d3e129a0800000000000000
+      internalID: -6259471513434002258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_134
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 112
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccdb8b00ceae346d0800000000000000
+      internalID: -3007301826808070708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_135
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 122
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecfc101275e996a10800000000000000
+      internalID: 1903226414593855438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_136
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 123
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a38ece91b03bb800800000000000000
+      internalID: 629150112379995047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_137
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 112
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1a66495e37f58aa0800000000000000
+      internalID: -6159245068201465315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_138
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 123
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c095ebeecffbab40800000000000000
+      internalID: 5452733038048153800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_139
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 123
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c852019fed2499e20800000000000000
+      internalID: 3357788522610173324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_140
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 113
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f308b55f44457b860800000000000000
+      internalID: 7545592355833479231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_141
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 123
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e328d6461b32810800000000000000
+      internalID: 1739428925987241590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_142
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 112
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b6fa420567b0da0800000000000000
+      internalID: -5977553993819264219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_143
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 113
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41fc8627936b1910800000000000000
+      internalID: 1809149176157368651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_144
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 90
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9261bf5a4b7b46940800000000000000
+      internalID: 5288553848946497065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_145
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 90
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb11dccd80c24aa20800000000000000
+      internalID: 3072629262349308347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_146
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 91
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d8adfc8d38e0780800000000000000
+      internalID: -8714883261691949712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_147
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 91
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f435e59020604dc0800000000000000
+      internalID: -3656817204354796303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_148
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 91
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2020884b85c5d2720800000000000000
+      internalID: 2823014077486858754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_149
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 91
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f832681cab9c710800000000000000
+      internalID: 1714106473533116291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_150
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 90
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a867b44fbe3978ed0800000000000000
+      internalID: -2411796433808427382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_151
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 90
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25af0ec0596e85930800000000000000
+      internalID: 4132306185953016402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_152
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 98
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8148ea0e780d8cab0800000000000000
+      internalID: -4987507305304128488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_153
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 94
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b886b2e3ec3c4bb0800000000000000
+      internalID: -4950514940928161616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_154
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 92
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7bee10f7b537fee0800000000000000
+      internalID: -1227453309311325313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_155
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 94
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94718907f04c20170800000000000000
+      internalID: 8143286646831847241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_156
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 96
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2425a604f0efd8310800000000000000
+      internalID: 1409061599895507522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_157
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 94
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c9c5b4993eecd40800000000000000
+      internalID: 5606668833656708171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_158
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 95
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f883ed76ae823f730800000000000000
+      internalID: 4031611078656800911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_159
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 69
+        width: 17
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61ee926abe7d6df80800000000000000
+      internalID: -8082035074164724202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_160
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 93
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95a2cdfa0690ca230800000000000000
+      internalID: 3651303708762581593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_161
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 72
+        width: 13
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97a6b25a9bdb93c80800000000000000
+      internalID: -8342428229689447815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_162
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 69
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73631d08a8a0d7de0800000000000000
+      internalID: -1333898324648839625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_163
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 69
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340ba880da86a4d90800000000000000
+      internalID: -7112757569096339389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_164
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 69
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97731bf75cd23fab0800000000000000
+      internalID: -4975582837040138375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_165
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 69
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d514917320b4f7560800000000000000
+      internalID: 7313646792759394653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_166
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 69
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c15d4106e02d71f0800000000000000
+      internalID: -1045643366243675712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_167
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 69
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d0c2caad7226e30800000000000000
+      internalID: 4495199198214098253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_168
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 68
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 150d643628f41f200800000000000000
+      internalID: 212038078893051985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_169
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 68
+        width: 35
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 233deb3cdd94aea40800000000000000
+      internalID: 5398208320177623858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_170
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 75
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 781a08e466c4aa140800000000000000
+      internalID: 4731678360793555335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_171
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 79
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b5256a6d90f115d0800000000000000
+      internalID: -3093426910141274699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_172
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 75
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f231afa5dc73a9b0800000000000000
+      internalID: -5070071498272591112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_173
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e492ab1372b76a040800000000000000
+      internalID: 4658546272829581646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_174
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 79
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d843a7477c85e0c10800000000000000
+      internalID: 2021650896411833485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_175
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf84be4a131670c0800000000000000
+      internalID: -4578450967464996926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_176
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b0c9c488999c0c0800000000000000
+      internalID: -4554940737428649065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_177
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 79
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f49161037a9a3a0800000000000000
+      internalID: -6653603149492170996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_178
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 69
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04db39446da8b4400800000000000000
+      internalID: 309493652283178304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_179
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b88cce8af0385e40800000000000000
+      internalID: 5645315985604642993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_180
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29de71228e3e4ccf0800000000000000
+      internalID: -232810694572511854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_181
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 79
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6d4b7953082c840800000000000000
+      internalID: 5242893883879511730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_182
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 74
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d373517936ddbb0800000000000000
+      internalID: -4909658518216819332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_183
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 73
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8328dfa06a7d910800000000000000
+      internalID: 1862139537074043099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_184
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 78
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7cfffa9ec6443a50800000000000000
+      internalID: 6499898015380143228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_185
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 73
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cc0c6c141749e610800000000000000
+      internalID: 1650928890109758665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_186
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 71
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c20e5bfeea0aabc0800000000000000
+      internalID: -3771189716433632567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_187
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 69
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff565da78aec60800800000000000000
+      internalID: 578376825174320639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_188
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 69
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab5404f4fab86ba30800000000000000
+      internalID: 4230722485026309562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_189
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 69
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bbe90f1eaf5b7ae0800000000000000
+      internalID: -1550540445249311823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_190
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 51
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08261db4c46ca8360800000000000000
+      internalID: 7172763387532763776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_191
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 51
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b6ee72c008b5e30800000000000000
+      internalID: 4493325842930101061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_192
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e97bbd38645a6830800000000000000
+      internalID: 4065154420344322532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_193
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5c4be172be44b60800000000000000
+      internalID: 7729561413726029266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_194
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 51
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dd8ce6c49a759b00800000000000000
+      internalID: 834708085358235089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_195
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 51
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e93a5578b8f7b0310800000000000000
+      internalID: 1372330748712166302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_196
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 46
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a92fc845ad66f7db0800000000000000
+      internalID: -4791998390591491430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_197
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 47
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc165d8e86bd9a80800000000000000
+      internalID: -8458403801759081273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_198
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 52
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b94961be1de2da60800000000000000
+      internalID: 7697475429210868149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_199
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 56
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5798de28f90cc0700800000000000000
+      internalID: 507992649314961781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_200
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 52
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362573c797eefab10800000000000000
+      internalID: 1995075365490872931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_201
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 51
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5afeee164b6ce4cf0800000000000000
+      internalID: -266056849928818779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_202
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 56
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 871bb732a4062e290800000000000000
+      internalID: -7862616127896309384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_203
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 51
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b357018fb97fe00f0800000000000000
+      internalID: -1148708605679078085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_204
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 51
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8292de54d9dd950800000000000000
+      internalID: 6475504762885843167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_205
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d5ed8654444e8c20800000000000000
+      internalID: 3210578644662347222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_206
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 46
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 888ef0d5f4f2a6310800000000000000
+      internalID: 1398982652162205832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_207
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 51
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb0f867301950e90800000000000000
+      internalID: -7060077396773368870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_208
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 46
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0f23a5b2b327720800000000000000
+      internalID: 2842399372207124714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_209
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 46
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3a43c9c96d6c0db0800000000000000
+      internalID: -4824360799696631237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_210
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 51
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9924ab1b4549e9eb0800000000000000
+      internalID: -4711165068703022439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_211
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 57
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b310d5048d12d960800000000000000
+      internalID: 7625189571962082227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_212
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 46
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8497760fcf0b01dd0800000000000000
+      internalID: -2517317591288547000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_213
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 51
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff44e63aea72dd20800000000000000
+      internalID: 3301836623177863159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_214
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 46
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f635df9ff48e02b60800000000000000
+      internalID: 7719425191507219311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_215
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 46
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a917d05c0faab930800000000000000
+      internalID: 4159829673260816808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_216
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 48
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c213a9716d50ee0800000000000000
+      internalID: -1295393920939643756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_217
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 47
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcafc17a8ae57fb20800000000000000
+      internalID: 3168104941329644239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_218
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 24
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02829b55ccd7b5b30800000000000000
+      internalID: 4277150587683416096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_219
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 24
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ebe8354a2d59d4e0800000000000000
+      internalID: -1956430126984401947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_220
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 24
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce246dbe7b4309e80800000000000000
+      internalID: -8173975359137103124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_221
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 24
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f21b29c15adb0b2a0800000000000000
+      internalID: -6723665726817521361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_222
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 27
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0869773dd041b1f00800000000000000
+      internalID: 1088485784555067008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_223
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 24
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a78a5e601b4bfe8a0800000000000000
+      internalID: -6273597083485886342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_224
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 27
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cec7280e4763c7c0800000000000000
+      internalID: -4052281654861377850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_225
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 24
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5051e51a3ceeb2b40800000000000000
+      internalID: 5416685500836484357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_226
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 25
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796a9efd6175dcdd0800000000000000
+      internalID: -2464217665344264553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_227
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 25
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff4a80ac058855c70800000000000000
+      internalID: 8959216914291795199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_228
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 24
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2d8daba5ed4d6e0800000000000000
+      internalID: -1813580268660272400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_229
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 24
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f399f5a3b92423d90800000000000000
+      internalID: -7119554826452625089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_230
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 25
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88f98d4f093e4ab90800000000000000
+      internalID: -7231404889927540856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_231
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 24
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d8662ba1a65a65f0800000000000000
+      internalID: -762701934524733223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_232
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 29
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e20083288bf593ae0800000000000000
+      internalID: -1569117749098577874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_233
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 29
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 361d1ebafd1d0a1c0800000000000000
+      internalID: -4494361669524139677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_234
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5a49a6d430e4cd50800000000000000
+      internalID: 6756771858506926686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_235
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 2
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df839a58c3e2b800800000000000000
+      internalID: 626813747810504665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_236
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 3
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc45cdc26555a2920800000000000000
+      internalID: 2966277133185078477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_237
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 3
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4a335443f54dab0800000000000000
+      internalID: -4984254209488345933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_238
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 6
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 622ad65957ec9d380800000000000000
+      internalID: -8945892180381294042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_239
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 2
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4898152bae5d3a1b0800000000000000
+      internalID: -5646434303801718396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_240
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 7
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 669fb5734a33af1b0800000000000000
+      internalID: -5622124404422215322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_241
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 3
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 570d3a6e7da9f7c70800000000000000
+      internalID: 8971059234823458933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_242
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 2
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27bb540b8486830d0800000000000000
+      internalID: -3442887253720450190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_243
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f265e0203447e3370800000000000000
+      internalID: 8304202594063898159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_244
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 2
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb314435619c8e530800000000000000
+      internalID: 3884575776330486719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_245
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 2
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e14fa50608fce670800000000000000
+      internalID: 8569496895728075235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_246
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 7
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a106119dca29cb840800000000000000
+      internalID: 5241225337426239514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_247
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 7
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297f45440c7058710800000000000000
+      internalID: 1694769357136394130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_248
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 10
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d90b45e7590412d50800000000000000
+      internalID: 6710715930572533917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 16x16_arrows_pointers_aim_249
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 10
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9d2fb2cb12609190800000000000000
+      internalID: -7957752670192718436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

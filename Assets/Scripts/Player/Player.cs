@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
+    public int Index { get; private set; }
+
     PlayerInput _playerInput;
     private InputAction _leave;
 
@@ -16,6 +18,11 @@ public class Player : MonoBehaviour
         if(_leave != null) _leave.performed += Disconnect;
 
         Actor = GetComponentInChildren<Actor>();
+    }
+
+    private void Start()
+    {
+        Index = PlayerManager.I?.PlayerList.IndexOf(this) ?? -1;
     }
 
     private void FixedUpdate()

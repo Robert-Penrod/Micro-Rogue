@@ -149,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2377403922630341728}
   - component: {fileID: 1548810938185463985}
+  - component: {fileID: 2827241105462430436}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -227,6 +228,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2827241105462430436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6055420970821326873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade3df3518d36a149a500f5860f87c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteList:
+  - {fileID: -4639953882174451204, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -4639953882174451204, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -7186481385182189967, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -7186481385182189967, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 8056775789753859807, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 8056775789753859807, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 334942233478227954, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 1465290131072248173, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 4862574781938699168, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 3191109293548097641, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -7178472944498998698, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -7178472944498998698, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -4237663049480273237, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 3191109293548097641, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -5490161853170219633, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -5490161853170219633, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: -6101374558218216982, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 6436284070312062648, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 956005033536007493, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 956005033536007493, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
+  - {fileID: 956005033536007493, guid: 4ff1922abd39abd439caeac435ebb260, type: 3}
 --- !u!1 &7931514224636784519
 GameObject:
   m_ObjectHideFlags: 0

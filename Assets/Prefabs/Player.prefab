@@ -128,6 +128,86 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[0].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[0].b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[0].g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[0].r
+      value: 0.66666675
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[1].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[1].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[1].g
+      value: 0.8339869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[1].r
+      value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[2].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[2].g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[2].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[3].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[3].b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[3].g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5652993574504558738, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: _spriteColors.Array.data[3].r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949052877210960583, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949052877210960583, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6264706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8949052877210960583, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5019608
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
