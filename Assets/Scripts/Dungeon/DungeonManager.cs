@@ -61,6 +61,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
 
         yield return new WaitForFixedUpdate();
         SpawnPortals();
+        if (Random.value > 0.5) SpawnPortals();
     }
     #endregion
 
@@ -164,7 +165,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
             .Select(g => g.Portal)
             .ToList();
 
-        int seed = Data.GetHashCode();
+        int seed = Data.GetSeed();
         foreach (var portal in topPortals)
         {
             seed = HashCode.Combine(seed, portal.name);  // or any stable property

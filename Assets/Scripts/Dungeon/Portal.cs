@@ -18,7 +18,7 @@ public class Portal : MonoBehaviour
         if (this == DungeonManager.I.SelectedPortal)
         {
             // Scale
-            targetScale *= DungeonManager.I.PortalPercent.RemapPercent(1f, 1.125f); // PortalPercent mult
+            targetScale *= DungeonManager.I.PortalPercent.RemapPercent(1f, 1.375f); // PortalPercent mult
             
             // Rotation
             targetRot = 1.5f * Time.deltaTime * 360f * DungeonManager.I.PortalPercent;
