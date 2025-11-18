@@ -19,13 +19,13 @@ public class Portal : MonoBehaviour
         {
             // Scale
             targetScale *= DungeonManager.I.PortalPercent.RemapPercent(1f, 1.125f); // PortalPercent mult
-            targetScale *= PlayerManager.I.PlayerList.Count > 0 ? ((float)_grabbedPlayers.Count / PlayerManager.I.PlayerList.Count).RemapPercent(1f, 1.375f) : 1;
-
+            
             // Rotation
             targetRot = 1.5f * Time.deltaTime * 360f * DungeonManager.I.PortalPercent;
         }
 
         // Scale
+        targetScale *= PlayerManager.I.PlayerList.Count > 0 ? ((float)_grabbedPlayers.Count / PlayerManager.I.PlayerList.Count).RemapPercent(1f, 1.375f) : 1;
         float lerpScale = transform.localScale.x.Lerp(targetScale, 3f * Time.deltaTime);
         transform.localScale = Vector3.one * lerpScale;
 

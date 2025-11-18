@@ -9,11 +9,12 @@ public class Actor : MonoBehaviour
     {
         Body = GetComponent<Rigidbody2D>();
         _initScale = transform.localScale.x;
+        transform.localScale = Vector3.zero;
     }
     
     private void Update()
     {
-        HandleContainerUpdate();
+        ScaleUpdate();
     }
 
     private void FixedUpdate()
@@ -77,7 +78,7 @@ public class Actor : MonoBehaviour
     {
         this._inPortal = inPortal;
     }
-    void HandleContainerUpdate()
+    void ScaleUpdate()
     {
         float targetS = _initScale;
         if (_inPortal) targetS *= 0.5f;

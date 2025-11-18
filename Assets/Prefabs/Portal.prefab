@@ -972,8 +972,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a765c243e401a84aa25f3088f4f7d7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enterSound: {fileID: 8300000, guid: 1ffd0acb3e80c344b8a88d2116d24098, type: 3}
-  _exitSound: {fileID: 8300000, guid: 1ffd0acb3e80c344b8a88d2116d24098, type: 3}
+  _enterSound: {fileID: 8300000, guid: 09eba0da0b47ffb4cb999b836d1ece18, type: 3}
+  _exitSound: {fileID: 8300000, guid: 95539d3b331ca0c4ea070f86453571e3, type: 3}
 --- !u!1 &4451557765733265294
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraPlayerFollow : MonoBehaviour
+public class CamTarget : MonoBehaviour
 {
     public float Magnitude = 0.5f;
     public float LerpSpeed = 10f;
@@ -13,7 +13,7 @@ public class CameraPlayerFollow : MonoBehaviour
         if (PlayerManager.I.PlayerList.Count > 0)
         {
             Vector2 avgPos = new Vector2();
-            PlayerManager.I.PlayerList.ForEach(x => avgPos += (Vector2)(x.Actor.transform.position));
+            PlayerManager.I.PlayerList.ForEach(player => avgPos += (Vector2)(player.Actor.transform.position));
             avgPos /= PlayerManager.I.PlayerList.Count;
             _targetPos = avgPos;
         }
