@@ -10,6 +10,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
     [SerializeField] Transform _hub;
     [SerializeField] GameObject _roomGeneratorPrefab;
     [SerializeField] GameObject _encounterGeneratorPrefab;
+    [SerializeField] GameObject _portalPrefab;
     
     Transform _dungeonTransform;
     PlayerManager _playerManager;
@@ -28,6 +29,13 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
         public int Seed;
         public int RoomNumber;
 
+        public int GetSeed()
+        {
+            string seed = "";
+            seed += Seed.ToString();
+            seed += RoomNumber.ToString();
+            return seed.GetHashCode();
+        }
     }
     public DungeonData Data;
     #endregion
@@ -46,9 +54,13 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
             Destroy(t.gameObject);
 
         // Generator Instantiations
+        Random.InitState(Data.GetSeed());
         Instantiate(_roomGeneratorPrefab, _dungeonTransform);
-        yield return null;
+        yield return new WaitForFixedUpdate();
         Instantiate(_encounterGeneratorPrefab, _dungeonTransform);
+
+        yield return new WaitForFixedUpdate();
+        SpawnPortals();
     }
     #endregion
 
@@ -58,12 +70,6 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
         base.Awake();
         _playerManager = PlayerManager.I;
         _dungeonTransform = new GameObject("Dungeon").transform;
-        _dungeonTransform.SetParent(this.transform);
-    }
-
-    private void Start()
-    {
-        //GenerateLevel();
     }
     #endregion
 
@@ -93,6 +99,12 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
         }
     }
 
+    void SpawnPortals()
+    {
+        Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1f);
+        Instantiate(_portalPrefab, spawnPos, Quaternion.identity, _dungeonTransform);
+    }
+
     void DoPortal()
     {
         StartCoroutine(Coroutine());
@@ -116,7 +128,9 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
             yield return new WaitForFixedUpdate();
 
             // Teleport Players
-            Random.InitState(Data.GetHashCode());
+            int seed = Data.GetSeed();
+            Debug.Log(seed);
+            Random.InitState(seed);
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(0.25f);
             Debug.DrawLine(spawnPos, (Vector3)spawnPos + Vector3.up * 10f, Color.red, 10000f);
             foreach(var player in _playerManager.PlayerList)

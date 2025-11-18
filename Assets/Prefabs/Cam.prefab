@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971f41323f9ea5c448be64635f526724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Magnitude: 0.2
+  Magnitude: 0.25
   LerpSpeed: 3
 --- !u!1 &6325688712955485188
 GameObject:

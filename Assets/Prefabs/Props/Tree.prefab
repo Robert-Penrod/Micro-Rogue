@@ -353,6 +353,12 @@ MonoBehaviour:
         Frequency: 1
         Phase: 0
         RandomizePhase: 1
+    - Vector: {x: 0, y: 0, z: 1}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 0.5
+        Phase: 0
+        RandomizePhase: 1
   Scale:
     Amp: 0
     Freq: 0

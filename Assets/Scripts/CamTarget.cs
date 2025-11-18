@@ -10,6 +10,8 @@ public class CamTarget : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (PlayerManager.I == null) return;
+
         if (PlayerManager.I.PlayerList.Count > 0)
         {
             Vector2 avgPos = new Vector2();
