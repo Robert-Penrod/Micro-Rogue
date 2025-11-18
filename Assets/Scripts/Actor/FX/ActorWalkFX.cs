@@ -77,7 +77,7 @@ public class ActorWalkFX : MonoBehaviour
         // Lean Angle
         targetAngle += (_actor.Body.linearVelocity.x / 3f) * Lean;
         //
-        float lerpAngle = Mathf.LerpAngle(currentAngle, targetAngle, LerpSpeed * Time.deltaTime);
+        float lerpAngle = Mathf.LerpAngle(currentAngle, targetAngle, 0.5f * LerpSpeed * Time.deltaTime);
         transform.localRotation = Quaternion.Euler(0f, 0f, lerpAngle);
 
         // Y Offset

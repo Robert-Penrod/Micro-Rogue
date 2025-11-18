@@ -12,7 +12,7 @@ public static class Constants
         public static class MoveSpeed
         {
             public static float Fast => Default * 2f;
-            public const float Default = 4f;
+            public const float Default = 4.5f;
             public static float Slow => Default / 2f;
         }
 

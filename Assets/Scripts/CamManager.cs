@@ -15,7 +15,6 @@ public class CamManager : MonoBehaviour
     {
         _playerManager = PlayerManager.I;
         _cinemachineCamera = GetComponentInChildren<CinemachineCamera>();
-        _cinemachineCamera.Target.TrackingTarget = _camTarget;
     }
 
     private void LateUpdate()

@@ -665,6 +665,16 @@ public static class TypeExtensions
 
         return list[Random.Range(0, list.Count)];
     }
+    public static T Rand<T>(this IEnumerable<T> source, int seed)
+    {
+        var list = source as IList<T> ?? source.ToList();
+
+        if (list.Count == 0)
+            throw new InvalidOperationException("Sequence contains no elements");
+
+        Random.InitState(seed);
+        return list[Random.Range(0, list.Count)];
+    }
     public static Coroutine StartCoroutine(this IEnumerator iEnum, MonoBehaviour mono)
     {
         return mono.StartCoroutine(iEnum);
