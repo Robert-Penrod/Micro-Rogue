@@ -12,7 +12,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
     [SerializeField] GameObject _encounterGeneratorPrefab;
     [SerializeField] GameObject _portalPrefab;
     
-    Transform _dungeonTransform;
+    public Transform DungeonTransform { get; private set; }
     PlayerManager _playerManager;
 
     bool _isPortalVoteReady => _playerManager.PlayerList.Count > 0 && !_playerManager.PlayerList.Find(p => p.SelectedPortal == null);
@@ -21,6 +21,10 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
     public float PortalPercent { get; private set; }
 
     [SerializeField] AudioClip _portalFinishSound;
+
+    // Events
+    public Action OnDungeonDataChanged;
+    public Action OnPortalTransitionStart;
 
     #region DungeonData
     [System.Serializable]
@@ -50,18 +54,18 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
     IEnumerator GenerateLevel_Co()
     {
         // Clear Dungeon
-        foreach (Transform t in _dungeonTransform)
+        foreach (Transform t in DungeonTransform)
             Destroy(t.gameObject);
 
         // Generator Instantiations
         Random.InitState(Data.GetSeed());
-        Instantiate(_roomGeneratorPrefab, _dungeonTransform);
+        Instantiate(_roomGeneratorPrefab, DungeonTransform);
         yield return new WaitForFixedUpdate();
-        Instantiate(_encounterGeneratorPrefab, _dungeonTransform);
+        Instantiate(_encounterGeneratorPrefab, DungeonTransform);
 
         yield return new WaitForFixedUpdate();
-        SpawnPortals();
-        if (Random.value > 0.5) SpawnPortals();
+        //SpawnPortals();
+        //if (Random.value > 0.5) SpawnPortals();
     }
     #endregion
 
@@ -70,7 +74,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
     {
         base.Awake();
         _playerManager = PlayerManager.I;
-        _dungeonTransform = new GameObject("Dungeon").transform;
+        DungeonTransform = new GameObject("Dungeon").transform;
     }
     #endregion
 
@@ -87,6 +91,11 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
 
         if (_isPortalVoteReady)
         {
+            if(_portalTick == 0)
+            {
+                OnPortalTransitionStart?.Invoke();
+            }
+
             SelectedPortal = GetPlayerVotePortal();
             _portalTick += Time.deltaTime;
             if(_portalTick >= Constants.DungeonStats.PortalTime)
@@ -103,7 +112,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
     void SpawnPortals()
     {
         Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1f);
-        Instantiate(_portalPrefab, spawnPos, Quaternion.identity, _dungeonTransform);
+        Instantiate(_portalPrefab, spawnPos, Quaternion.identity, DungeonTransform);
     }
 
     void DoPortal()
@@ -142,6 +151,8 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
             // Extra
             Debug.Log("Portaled!");
             AudioSpawner.PlayAudioWithRandPitch(_portalFinishSound, 0.2f, 1f, 1f);
+
+            OnDungeonDataChanged?.Invoke();
         }
     }
 

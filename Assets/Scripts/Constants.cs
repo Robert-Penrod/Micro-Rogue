@@ -9,8 +9,30 @@ public static class Constants
 
     public static class ActorStats
     {
+        public enum FactionType
+        {
+            Player,
+            Enemy
+        }
+
         public static class MoveSpeed
         {
+            public enum Types { Default, Fast, Slow}
+
+            public static float? GetTypeValue(Types type)
+            {
+                switch(type)
+                {
+                    case Types.Fast:
+                        return Fast;
+                    case Types.Default:
+                        return Default;
+                    case Types.Slow:
+                        return Slow;
+                };
+                return null;
+            }
+
             public static float Fast => Default * 2f;
             public const float Default = 4.5f;
             public static float Slow => Default / 2f;
