@@ -1,5 +1,105 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2417166400738795865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9114009300566514700}
+  - component: {fileID: 6022720446568592348}
+  - component: {fileID: 905200824935588451}
+  m_Layer: 0
+  m_Name: Hover
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9114009300566514700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417166400738795865}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5445892865460674892}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6022720446568592348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417166400738795865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb723af6dd563f44baa3955d3b898f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScaledTime: 1
+  Amp: 1
+  Freq: 1
+  Position:
+    Amp: 0.025
+    Freq: 0.25
+    Sines:
+    - Vector: {x: 1, y: 0, z: 0}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 1
+        Phase: 0
+        RandomizePhase: 1
+    - Vector: {x: 0, y: 1, z: 0}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 1
+        Phase: 0
+        RandomizePhase: 1
+  Rotation:
+    Amp: 3
+    Freq: 0.125
+    Sines:
+    - Vector: {x: 0, y: 0, z: 1}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 1
+        Phase: 0
+        RandomizePhase: 1
+    - Vector: {x: 0, y: 0, z: 1}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 0.5
+        Phase: 0
+        RandomizePhase: 1
+  Scale:
+    Amp: 0
+    Freq: 0
+    Sines: []
+--- !u!114 &905200824935588451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2417166400738795865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f3885484e142c94fb8144a855a9163f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BodySpeedMin: 0.5
+  BodySpeedMax: 4
+  FreqMin: 1
+  FreqMax: 3.25
 --- !u!1 &3850617301305948276
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +109,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5445892865460674892}
+  - component: {fileID: 4505362655595531190}
+  - component: {fileID: 3685550267365924128}
   m_Layer: 0
   m_Name: Passive FX
   m_TagString: Untagged
@@ -28,9 +130,35 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.045}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 9114009300566514700}
   m_Father: {fileID: 1339682011722151651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4505362655595531190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850617301305948276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea034f51eba55e47b3b80eba5afc28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3685550267365924128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850617301305948276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03c1ff2058637b4e85b35be9107b099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magnitude: 0.325
 --- !u!1 &6381319461986293207
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,3 +204,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Stats:
+    Size: 1

@@ -1,16 +1,14 @@
+using System;
 using UnityEngine;
 
 public class SkillTrigger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Action OnTrigger;
 
-    // Update is called once per frame
-    void Update()
+    protected Skill _skill;
+
+    private void Awake()
     {
-        
+        _skill = GetComponent<Skill>();
     }
 }

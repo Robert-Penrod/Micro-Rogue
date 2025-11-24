@@ -1,16 +1,13 @@
 using UnityEngine;
 
-public class ST_Cooldown : MonoBehaviour
+public class ST_Cooldown : SkillTrigger
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Update()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(_skill.CooldownPercent >= 1f)
+        {
+            //OnTrigger?.Invoke();
+            //_skill.ResetCooldown();
+        }
     }
 }

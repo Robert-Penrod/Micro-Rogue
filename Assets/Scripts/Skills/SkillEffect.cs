@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class SkillEffect : MonoBehaviour
+public abstract class SkillEffect : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    protected SkillTrigger _skillTrigger;
+    public abstract void Effect();
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        
+        _skillTrigger = GetComponent<SkillTrigger>();
+        _skillTrigger.OnTrigger += () =>
+        {
+            Effect();
+        };
     }
 }
