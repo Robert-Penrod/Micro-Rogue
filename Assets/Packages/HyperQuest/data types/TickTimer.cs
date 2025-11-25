@@ -54,5 +54,5 @@ public class TickTimer
         tick = MaxTime;
     }
 
-    public float GetPercentDone() => Mathf.Clamp01(tick / MaxTime);
+    public float GetPercent() => Mathf.Clamp01(tick / MaxTime);
 }

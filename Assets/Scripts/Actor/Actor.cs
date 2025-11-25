@@ -88,4 +88,8 @@ public class Actor : MonoBehaviour
     }
     #endregion
 
+    public bool IsEnemyOf(Actor otherActor)
+    {
+        return true;
+    }
 }

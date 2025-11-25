@@ -32,5 +32,12 @@ public class SE_Spawn : SkillEffect
         GameObject newObj = PrefabToSpawn.PooledInstantiate();
         newObj.transform.position = transform.position;
         newObj.SetActive(true);
+
+        // Skill Instance
+        var skillInstance = newObj.GetComponent<SkillInstance>();
+        if(skillInstance)
+        {
+            skillInstance.Skill = _skill;
+        }
     }
 }

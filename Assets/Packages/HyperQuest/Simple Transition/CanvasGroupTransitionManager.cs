@@ -4,14 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class CanvasGroupTransitionManager : PersistantSingleton<CanvasGroupTransitionManager>
+public class CanvasGroupTransitionManager : MonoBehaviour
 {
     const float _defaultTransitionTime = 0.1f;
     CanvasGroup _canvasGroup;
 
-    protected override void Awake()
+    public static CanvasGroupTransitionManager I { get; private set; }
+
+    protected virtual void Awake()
     {
-        base.Awake();
+        transform.SetParent(null);
+
+        if (I == null)
+        {
+            I = (CanvasGroupTransitionManager)FindObjectOfType(typeof(CanvasGroupTransitionManager));
+            DontDestroyOnLoad(gameObject);
+            Initialize();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Initialize()
+    {
         _canvasGroup = GetComponent<CanvasGroup>();
         //_canvasGroup.alpha = 0f;
         //SetObjectsActive(false);

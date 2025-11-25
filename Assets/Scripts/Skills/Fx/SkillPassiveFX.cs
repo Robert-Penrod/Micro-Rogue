@@ -46,7 +46,7 @@ public class SkillPassiveFX : MonoBehaviour
             float cooldownPercent = _skill.CooldownPercent;
 
             targetAlpha = cooldownPercent.Remap(0.5f, 1f, 0.35f, 1f);
-            targetScale = cooldownPercent.Remap(0f, 1f, 0.7f, 1.1f);
+            targetScale = cooldownPercent.Remap(0f, 1f, 0.7f, 1.2f);
 
             if(cooldownPercent < 0.9f)
             {

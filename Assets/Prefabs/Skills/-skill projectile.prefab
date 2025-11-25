@@ -186,6 +186,9 @@ GameObject:
   - component: {fileID: 8191357747834812176}
   - component: {fileID: 2210151602627660519}
   - component: {fileID: 5548848231718439703}
+  - component: {fileID: 3881834613653633259}
+  - component: {fileID: 2884552854829205667}
+  - component: {fileID: 1917892742235651665}
   m_Layer: 0
   m_Name: -skill projectile
   m_TagString: Untagged
@@ -285,6 +288,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2e51bbbd45272144aa1ad3eb928e654a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3881834613653633259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551539076389133510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1dc794bc3630a4da0b8e4cb23f7259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2884552854829205667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551539076389133510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3d857841fee4a142a8c8843372a5e60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1917892742235651665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551539076389133510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a733c3684300334fa04470bfcf158b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &9110719337639522280

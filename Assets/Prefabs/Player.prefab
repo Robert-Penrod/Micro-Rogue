@@ -217,9 +217,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2780787924627383234, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5625816127708926790}
-    - targetCorrespondingSourceObject: {fileID: 2780787924627383234, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3536695884351435503}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
 --- !u!4 &280561591396326351 stripped
@@ -231,72 +228,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2780787924627383234, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
   m_PrefabInstance: {fileID: 1727748603136386043}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &4618086564564013557
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3561614828844040249}
-    m_Modifications:
-    - target: {fileID: 328161584011300258, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4258965869915979822, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_Name
-      value: Wand of Magic Missile Variant Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
---- !u!4 &3536695884351435503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8143180376438596378, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-  m_PrefabInstance: {fileID: 4618086564564013557}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8659914925372980908
 PrefabInstance:

@@ -6,8 +6,8 @@ public class ST_Cooldown : SkillTrigger
     {
         if(_skill.CooldownPercent >= 1f)
         {
-            //OnTrigger?.Invoke();
-            //_skill.ResetCooldown();
+            OnTrigger?.Invoke();
+            _skill.ResetCooldown();
         }
     }
 }
