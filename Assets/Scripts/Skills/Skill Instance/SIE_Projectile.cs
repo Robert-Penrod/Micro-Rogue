@@ -31,6 +31,16 @@ public class SIE_Projectile : SIE, IPoolable
         transform.SetParent(null);
         gameObject.SetCollidersEnabled2D(true);
         _rb.bodyType = RigidbodyType2D.Dynamic;
-        _rb.AddForce(_speed * transform.up, ForceMode2D.Impulse);
+
+        Vector2 launchForce = _speed * transform.up;
+
+        var actor = _skillInstance.Skill.Actor;
+        if (actor != null)
+        {
+            Vector2 projectedParentVel = Vector3.Project(actor.Body.linearVelocity, launchForce.normalized);
+            launchForce += projectedParentVel * Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
+        }
+
+        _rb.AddForce(launchForce, ForceMode2D.Impulse);
     }
 }

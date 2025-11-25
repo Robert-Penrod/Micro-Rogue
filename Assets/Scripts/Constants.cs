@@ -51,11 +51,12 @@ public static class Constants
         public static float BaseAlpha = 1f;
         public static float BaseTelegraphTime = 0.2f;
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
+        public static float SIE_ProjectileInheritVelocityMult = 0.5f;
 
         public static class Cooldown
         {
             public const float Short = Default / 2f;
-            public const float Default = 2f;
+            public const float Default = 4f;
             public const float Long = Default * 2f;
         }
 
@@ -68,7 +69,7 @@ public static class Constants
         public static class Speed
         {
             public const float Slow = Default / 2f;
-            public const float Default = 10f;
+            public const float Default = 8f;
             public const float Fast = Default * 2f;
         }
 

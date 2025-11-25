@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1c031545a991d84498d88103b3cc51c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useColor: 1
+  _useColor: 0
   _useAlpha: 1
   SaturationOffset: 1.1
   ValueOffset: 1.1

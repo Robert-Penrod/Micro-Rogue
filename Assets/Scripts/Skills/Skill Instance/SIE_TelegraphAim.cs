@@ -46,7 +46,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
         float distance = Vector2.Distance(transform.position, _target.transform.position);
         if(_targetBody != null)
         {
-            aimPos += (distance/_speed) * 1f * _targetBody.linearVelocity;
+            //aimPos += (distance/_speed) * 1f * _targetBody.linearVelocity;
         }
         Vector2 targetVector = aimPos - (Vector2)transform.position;
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetVector);

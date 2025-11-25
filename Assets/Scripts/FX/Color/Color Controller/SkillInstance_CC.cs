@@ -17,13 +17,13 @@ public class SkillInstance_CC : ColorController, IPoolable
 
     void UpdateColor()
     {
-        Color c = _mainSprite?.color ?? Color.grey;
-        int colorCount = 1;
+        Color baseColor = _mainSprite?.color ?? Color.grey;
 
+        bool isPlayer = true;
+        Color paletteColor = GamePaletteManager.I.Palette.GetColor(isPlayer, 1, 0, 0);
 
+        //paletteColor = paletteColor.Lerp(baseColor, 0.1f);
 
-        c /= colorCount;
-
-        SetColor(c);
+        SetColor(paletteColor);
     }
 }

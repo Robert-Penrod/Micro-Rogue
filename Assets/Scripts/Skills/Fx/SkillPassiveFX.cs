@@ -98,6 +98,9 @@ public class SkillPassiveFX : MonoBehaviour
             passiveColor = Color.black;
         }
 
+        Color skillColor = GamePaletteManager.I.Palette.GetColor(true, 1, 0, 0);
+        passiveColor = passiveColor.Lerp(skillColor, _skill.CooldownPercent.Remap(0.5f, 1f, 0f, 1f));
+
         return passiveColor;
     }
 }
