@@ -31,13 +31,15 @@ public class SE_Spawn : SkillEffect
 
         GameObject newObj = PrefabToSpawn.PooledInstantiate();
         newObj.transform.position = transform.position;
-        newObj.SetActive(true);
 
         // Skill Instance
         var skillInstance = newObj.GetComponent<SkillInstance>();
         if(skillInstance)
         {
+            Debug.Log("Setting [Skill Instance] [Skill] Reference");
             skillInstance.Skill = _skill;
         }
+
+        newObj.SetActive(true);
     }
 }

@@ -7,11 +7,22 @@ public class SIE_E_Fade : SIE, IPoolable
     TickTimer _endTimer = new();
     Rigidbody2D _rb;
 
+    ColorController _colorController;
+
+    float _initAlpha;
+
     protected override void Awake()
     {
         base.Awake();
 
         _rb = GetComponent<Rigidbody2D>();
+        _colorController = GetComponentInParent<ColorController>();
+
+        _skillInstance.OnEnd += () =>
+        {
+            _initAlpha = _colorController.Color.a;
+            if (_rb != null) _rb.linearVelocity *= 0f;
+        };
     }
 
     public void Initialize()
@@ -28,7 +39,8 @@ public class SIE_E_Fade : SIE, IPoolable
         var percent = _endTimer.GetPercent();
 
         // Alpha Fade
-        //var alpha = percent.RemapPercent()
+        var alpha = percent.RemapPercent(_initAlpha, 0f);
+        _colorController.SetAlpha(0.9f * alpha);
 
         // Scale
         transform.localScale = transform.localScale.Lerp(transform.localScale * 0.5f, Time.deltaTime / _endTime);

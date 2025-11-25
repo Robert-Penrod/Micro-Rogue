@@ -106,7 +106,7 @@ namespace HyperQuest.EasyPooling
                 go.transform.position = pos.Value;
             }
 
-            go.SetActive(true);
+            //go.SetActive(true);
 
             return go;
         }
