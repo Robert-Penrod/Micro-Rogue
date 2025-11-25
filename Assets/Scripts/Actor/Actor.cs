@@ -90,6 +90,8 @@ public class Actor : MonoBehaviour
 
     public bool IsEnemyOf(Actor otherActor)
     {
+        if (otherActor == this) return false;
+
         return true;
     }
 }

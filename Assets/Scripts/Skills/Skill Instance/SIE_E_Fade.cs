@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SIE_E_Fade : SIE, IPoolable
 {
-    const float _endTime = 0.2f;
+    float _endTime => Constants.SkillStats.BaseFadeTime;
     TickTimer _endTimer = new();
     Rigidbody2D _rb;
 
@@ -40,7 +40,7 @@ public class SIE_E_Fade : SIE, IPoolable
 
         // Alpha Fade
         var alpha = percent.RemapPercent(_initAlpha, 0f);
-        _colorController.SetAlpha(0.9f * alpha);
+        _colorController.SetAlpha(alpha);
 
         // Scale
         transform.localScale = transform.localScale.Lerp(transform.localScale * 0.5f, Time.deltaTime / _endTime);

@@ -6,13 +6,14 @@ public class SIE_TelegraphAim : SIE, IPoolable
 {
     Transform _target;
     TickTimer _targetTimer = new TickTimer(0.1f);
-    float _aimLerpSpeed = 10f;
+    float _aimLerpSpeed = 6f;
 
     Rigidbody2D _targetBody;
 
     float _speed => 1f; // SkillInstance.GetSkillStat(SkillStats.SkillStatName.Speed).Value;
 
-    
+    float _scanTime => 2f * Constants.SkillStats.BaseTelegraphTime;
+    float _scanTick = 0f;
 
     protected override void Awake()
     {
@@ -27,6 +28,8 @@ public class SIE_TelegraphAim : SIE, IPoolable
         FindTarget();
         if (_target != null) transform.up = transform.VectorTowards2D(_target);
         else transform.up = Random.insideUnitCircle.normalized;
+
+        _scanTick = 0f;
     }
 
     private void Update()
@@ -49,7 +52,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetVector);
 
         float deltaTime = _aimLerpSpeed * Time.deltaTime;
-        deltaTime *= Vector2.Dot(transform.up, targetVector).Remap(-1f, 1f, 0.25f, 1f); // Make changing targets harder with larger rotation
+        deltaTime *= Mathf.DeltaAngle(transform.rotation.eulerAngles.z, targetAngle).Abs().Remap(0f, 180f, 1f, 0.1f);
 
         float lerpAngle = Mathf.LerpAngle(transform.localRotation.eulerAngles.z, targetAngle, deltaTime);
         transform.localRotation = Quaternion.Euler(0f, 0f, lerpAngle);
@@ -57,6 +60,9 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
     void HandleTargetScanning()
     {
+        if (_scanTick >= _scanTime) return;
+        _scanTick += Time.deltaTime;
+
         _targetTimer.Tick(Time.deltaTime);
         if (_targetTimer.IsDone())
         {
@@ -67,8 +73,9 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
     void FindTarget()
     {
-        
-        List<Actor> enemyList = Utils.ComponentScan<Actor>(transform.position, 25f).FindAll(x => x.IsEnemyOf(_skillInstance.Skill.GetComponentInParent<Actor>()));
+        Actor actor = _skillInstance.Skill.Actor;
+        Vector2 pos = (Vector2)transform.position + 0.5f * actor.Body.linearVelocity;
+        List<Actor> enemyList = Utils.ComponentScan<Actor>(pos, 25f).FindAll(x => x.IsEnemyOf(actor));
         if(enemyList.Count > 0)
         {
             if (_target != null && _target != enemyList[0].transform)

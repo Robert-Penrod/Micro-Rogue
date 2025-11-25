@@ -23,7 +23,7 @@ public class SkillInstance : MonoBehaviour, IPoolable
             switch (_state)
             {
                 case SkillInstanceState.Activated:
-                    OnStart?.Invoke();
+                    OnActivated?.Invoke();
                     break;
                 case SkillInstanceState.End:
                     OnEnd?.Invoke();

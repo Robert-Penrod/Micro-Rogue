@@ -36,7 +36,6 @@ public class SE_Spawn : SkillEffect
         var skillInstance = newObj.GetComponent<SkillInstance>();
         if(skillInstance)
         {
-            Debug.Log("Setting [Skill Instance] [Skill] Reference");
             skillInstance.Skill = _skill;
         }
 

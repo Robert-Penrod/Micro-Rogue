@@ -81,7 +81,9 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var player = collision.GetComponentInParent<Player>();
+        var actor = collision.GetComponent<Actor>();
+        if (actor == null) return;
+        var player = actor.GetComponentInParent<Player>();
         if (player != null && _grabbedPlayers.Contains(player))
         {
             _grabbedPlayers.Remove(player);

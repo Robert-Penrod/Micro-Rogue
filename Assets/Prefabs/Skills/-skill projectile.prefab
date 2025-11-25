@@ -224,6 +224,8 @@ GameObject:
   - component: {fileID: 2884552854829205667}
   - component: {fileID: 1917892742235651665}
   - component: {fileID: 7929542095839032771}
+  - component: {fileID: 591538419394188466}
+  - component: {fileID: 7387337185668143039}
   m_Layer: 0
   m_Name: -skill projectile
   m_TagString: Untagged
@@ -376,6 +378,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainSprite: {fileID: 8648085898606072256}
+--- !u!114 &591538419394188466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551539076389133510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f34a52cd35ac86349960ebfe07c460b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7387337185668143039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5551539076389133510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c75f6d683f2f6024fb52617a1b4d493b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9110719337639522280
 GameObject:
   m_ObjectHideFlags: 0

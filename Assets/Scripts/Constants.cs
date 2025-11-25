@@ -48,6 +48,10 @@ public static class Constants
 
     public static class SkillStats
     {
+        public static float BaseAlpha = 1f;
+        public static float BaseTelegraphTime = 0.2f;
+        public static float BaseFadeTime => BaseTelegraphTime / 2f;
+
         public static class Cooldown
         {
             public const float Short = Default / 2f;

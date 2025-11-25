@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
+    public Actor Actor => GetComponentInParent<Actor>();
+
     public SkillStats Stats;
 
     public float CooldownPercent { get; private set; }
