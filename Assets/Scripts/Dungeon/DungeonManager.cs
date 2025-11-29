@@ -109,7 +109,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
         }
     }
 
-    void SpawnPortals()
+    public void SpawnPortals()
     {
         Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1f);
         Instantiate(_portalPrefab, spawnPos, Quaternion.identity, DungeonTransform);

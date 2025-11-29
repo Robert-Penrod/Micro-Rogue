@@ -43,7 +43,7 @@ public class SIE_E_Fade : SIE, IPoolable
         _colorController.SetAlpha(alpha);
 
         // Scale
-        transform.localScale = transform.localScale.Lerp(transform.localScale * 0.5f, Time.deltaTime / _endTime);
+        transform.SetLossyScale(transform.lossyScale.Lerp(transform.lossyScale * 0.5f, Time.deltaTime / _endTime));
 
         // Destroy
         if(percent >= 1f) _skillInstance.gameObject.DestroyOrRecycle();

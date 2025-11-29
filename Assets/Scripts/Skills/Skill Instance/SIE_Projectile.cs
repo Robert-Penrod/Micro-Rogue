@@ -1,22 +1,36 @@
 using HyperQuest.EasyPooling;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SIE_Projectile : SIE, IPoolable
 {
+    [SerializeField] AudioClip _hitClip;
+    [SerializeField] AudioClip _wallHitClip;
+
+    // Stats
     float _speed => _skillInstance.Skill.Stats.Speed;
+    float _hitboxDelay => _skillInstance.Skill.Stats.HitboxDelay;
+    float _knockback => _skillInstance.Skill.Stats.Knockback;
+    int _pierce => (int)_skillInstance.Skill.Stats.Pierce;
+    int _damage => (int)_skillInstance.Skill.Stats.Damage;
+    float _lunge => _skillInstance.Skill.Stats.Lunge;
+
+    float _piercePercent => _pierceCount.Remap(0f, _pierce, 0f, 1f);
+
+    // References
     Rigidbody2D _rb;
+
+    // Data
+    int _pierceCount;
+    Dictionary<Collider2D, float> _colDict = new();
 
     protected override void Awake()
     {
         base.Awake();
-
         _rb = GetComponent<Rigidbody2D>();
-
-        _skillInstance.OnActivated += () =>
-        {
-            Launch();
-        };
+        _skillInstance.OnActivated += Launch;
+        
     }
 
     public void Initialize()
@@ -27,7 +41,7 @@ public class SIE_Projectile : SIE, IPoolable
 
     void Launch()
     {
-        Debug.Log("Launch");
+        //Debug.Log("Launch");
         transform.SetParent(null);
         gameObject.SetCollidersEnabled2D(true);
         _rb.bodyType = RigidbodyType2D.Dynamic;
@@ -42,5 +56,102 @@ public class SIE_Projectile : SIE, IPoolable
         }
 
         _rb.AddForce(launchForce, ForceMode2D.Impulse);
+
+        // Lunge
+        var actorBody = _skillInstance.Skill.Actor.Body;
+        Vector2 lungeForce = transform.up * _lunge;
+        _skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) => HandleCollisionStay(collision.collider, collision);
+    private void OnCollisionStay2D(Collision2D collision) => HandleCollisionStay(collision.collider, collision);
+    private void OnTriggerEnter2D(Collider2D collider) => HandleCollisionStay(collider);
+    private void OnTriggerStay2D(Collider2D collider) => HandleCollisionStay(collider);
+    void HandleCollisionStay(Collider2D col, Collision2D collision = null)
+    {
+        // State
+        if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
+
+        // References
+        var hitActor = col.GetComponentInParent<Actor>();
+        var skillInstance = col.GetComponentInParent<SkillInstance>();
+        var hitBody = col.GetComponent<Rigidbody2D>();
+
+        // Disable [Projectile <-> SkillInstance] Collisions
+        if (skillInstance) return;
+
+        // Hitbox Delay Check
+        if (!PassesHitboxDelay(col)) { return; }
+        bool PassesHitboxDelay(Collider2D c)
+        {
+            float hitboxDelay = _hitboxDelay;
+            if (_colDict.ContainsKey(c) && Time.time - _colDict[c] < hitboxDelay) { return false; }
+            else if (_colDict.ContainsKey(c)) { _colDict.Remove(c); }
+            _colDict.Add(c, Time.time);
+            return true;
+        }
+        //.
+
+        // Hit Wall
+        if (!hitActor && !col.isTrigger)
+        {
+            // Pierce
+            _pierceCount++;
+            SlowProjectile();
+
+            // Audio
+            PlayAudio(_wallHitClip, 0.25f);
+        }
+        // Hit Actor
+        else if(hitActor)
+        {
+            
+
+            // Disable friendly fire
+            if (!hitActor.IsEnemyOf(_skillInstance.Skill.Actor)) return;
+
+            // Damage
+            float damage = (int)_skillInstance.Skill.Stats.Damage;
+            //damage *= _piercePercent.RemapPercent(1f, 0.75f);
+            hitActor.Stats.Health -= (int)damage;
+
+            // Pierce
+            _pierceCount++;
+            SlowProjectile();
+
+            // Hit Stun
+
+            // Popup
+        }
+        //.
+        void SlowProjectile()
+        {
+            if (_rb == null) return;
+            _rb.linearVelocity *= 0.75f;
+            _rb.transform.localScale *= 0.9f;
+        }
+
+        // Knockback
+        if(hitBody != null)
+        {
+            Vector2 knockbackDir = transform.up;
+            Vector2 knockbackForce = knockbackDir * _knockback;
+            knockbackForce *= hitBody.linearDamping;
+            hitBody.AddForce(knockbackForce, ForceMode2D.Impulse);
+            hitBody.transform.localScale *= 0.9f;
+            this.DelayedInvoke(0.02f, () =>
+            {
+                PlayAudio(_hitClip);
+            });
+        }
+        //.
+
+        // Pierce end condition
+        if (_pierceCount > _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
+    }
+
+    void PlayAudio(AudioClip audio, float volMult = 1f)
+    {
+        AudioSpawner.PlayAudioWithRandPitch(audio, 0.2f, 1f, volMult * 0.5f, transform.position);
     }
 }

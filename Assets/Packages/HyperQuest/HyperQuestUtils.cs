@@ -655,6 +655,13 @@ public static class TypeExtensions
     }
     #endregion
 
+    #region RigidBody2D Extensions
+    public static void AddDampForce(this Rigidbody2D rb, Vector2 force, ForceMode2D forceMode)
+    {
+        rb.AddForce(force * rb.linearDamping, forceMode);
+    }
+    #endregion
+
     #region IEnumerator Extensions
     public static T Rand<T>(this IEnumerable<T> source)
     {

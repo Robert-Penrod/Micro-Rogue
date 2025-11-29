@@ -8,8 +8,8 @@ public class SIE_S_Telegraph : SIE, IPoolable
 
     float _telegraphPercent;
 
-    float _cooldownTime => _skillInstance.Skill.Stats.Cooldown;
-    float _size => _skillInstance.Skill.Stats.Size;
+    float _cooldownTime => Constants.SkillStats.Cooldown.Default;
+    float _size => Constants.SkillStats.Size.Default;
     float _baseTelegraphTime => Constants.SkillStats.BaseTelegraphTime;
     float _telegraphTime => (_baseTelegraphTime + _cooldownTime * _baseTelegraphTime);
 
@@ -57,13 +57,13 @@ public class SIE_S_Telegraph : SIE, IPoolable
         _telegraphPercent += Time.deltaTime / _telegraphTime;
 
         // Alpha
-        float alphaPercent = Mathf.Pow(_telegraphPercent.Remap(0f, 0.5f, 0f, 1f), 1.2f);
+        float alphaPercent = Mathf.Pow(_telegraphPercent.Remap(0f, 0.5f, 0f, 1f), 1.25f);
         float alpha = alphaPercent;
         alpha *= _telegraphPercent.Remap(0.9f, 1f, 0.9f, 1f);
         _colorController.SetAlpha(0.9f * Constants.SkillStats.BaseAlpha * alpha);
 
         // Scale
-        transform.localScale = Vector3.one * _telegraphPercent.RemapPercent(0f, _size);
+        transform.SetLossyScale(Vector3.one * _telegraphPercent.RemapPercent(0f, _size));
 
         // Next
         if (_telegraphPercent >= 1) _skillInstance.State++;

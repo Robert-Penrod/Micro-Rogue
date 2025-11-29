@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2386836977710786770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6049858981575060532}
+  m_Layer: 0
+  m_Name: Passive Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6049858981575060532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2386836977710786770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9114009300566514700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2417166400738795865
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +61,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 6049858981575060532}
   m_Father: {fileID: 5445892865460674892}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6022720446568592348
@@ -111,6 +143,7 @@ GameObject:
   - component: {fileID: 5445892865460674892}
   - component: {fileID: 4505362655595531190}
   - component: {fileID: 3685550267365924128}
+  - component: {fileID: 6169584120835131410}
   m_Layer: 0
   m_Name: Passive FX
   m_TagString: Untagged
@@ -146,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea034f51eba55e47b3b80eba5afc28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainTransform: {fileID: 6049858981575060532}
 --- !u!114 &3685550267365924128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +193,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnitude: 0.325
+--- !u!114 &6169584120835131410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3850617301305948276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b180780397b2ac4d809d3a7ac9adc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6381319461986293207
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,4 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats:
+    Str: 0
+    Dex: 0
+    Int: 0
     Size: 1
+    Duration: 0.25
+    Cooldown: 4
+    Speed: 8

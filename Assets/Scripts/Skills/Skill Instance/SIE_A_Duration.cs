@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SIE_A_Duration : SIE, IPoolable
 {
-    float _lifePercent;
+    public float LifePercent { get; private set; }
     ColorController _colorController;
 
     protected override void Awake()
@@ -14,7 +14,7 @@ public class SIE_A_Duration : SIE, IPoolable
 
     public void Initialize()
     {
-        _lifePercent = 0f;
+        LifePercent = 0f;
     }
 
     private void Update()
@@ -28,9 +28,9 @@ public class SIE_A_Duration : SIE, IPoolable
     {
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
 
-        _lifePercent += Time.fixedDeltaTime / _skillInstance.Skill.Stats.Duration;
-        _lifePercent = Mathf.Clamp01(_lifePercent);
+        LifePercent += Time.fixedDeltaTime / _skillInstance.Skill.Stats.Duration;
+        LifePercent = Mathf.Clamp01(LifePercent);
 
-        if (_lifePercent >= 1) _skillInstance.State++;
+        if (LifePercent >= 1) _skillInstance.State++;
     }
 }

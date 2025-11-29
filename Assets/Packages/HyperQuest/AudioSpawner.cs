@@ -156,7 +156,7 @@ public static class AudioSpawner
         // Spatial Audio
         if (position != null)
         {
-            audioSource.spatialBlend = 1f;
+            audioSource.spatialBlend = 0.5f;
             audioSource.transform.position = position.Value;
             audioSource.rolloffMode = AudioRolloffMode.Linear;
             audioSource.minDistance = minDistance;

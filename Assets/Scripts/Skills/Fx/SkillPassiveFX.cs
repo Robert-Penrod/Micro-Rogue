@@ -4,66 +4,55 @@ using UnityEngine;
 
 public class SkillPassiveFX : MonoBehaviour
 {
+    [SerializeField] Transform _mainTransform;
     Skill _skill;
     SpriteRenderer _parentSpriteRend;
-    List<SpriteRenderer> _childSpriteRends = new List<SpriteRenderer>();
+    ColorController _colorController;
     Color _initParentColor;
 
     float _lerpAlpha;
     float _lerpScale;
 
-    Dictionary<SpriteRenderer, float> _initScaleDict = new();
+    bool _isPlayer => _skill.Actor.CompareTag("Player");
 
     private void Start()
     {
         _skill = GetComponentInParent<Skill>();
         Actor parentActor = GetComponentInParent<Actor>();
-        if(parentActor != null) { _parentSpriteRend = GetComponentInParent<Actor>().GetComponentInChildren<SpriteRenderer>(); }       
-        _childSpriteRends.AddRange(GetComponentsInChildren<SpriteRenderer>());
+        if(parentActor != null) { _parentSpriteRend = GetComponentInParent<Actor>().GetComponentInChildren<SpriteRenderer>(); }
+        _colorController = gameObject.GetOrAddComponent<ColorController>();
         UpdateSprites();
 
         _initParentColor = _parentSpriteRend.color;
-
-        _childSpriteRends.ForEach(x =>
-        {
-            _initScaleDict.Add(x, x.transform.localScale.x);
-        });
     }
 
     private void Update()
     {
         UpdateSprites();
-        transform.localScale = Vector3.one * _skill.Stats.Size;
+        transform.SetLossyScale(Vector3.one * _skill.Stats.Size);
     }
 
     void UpdateSprites()
     {
-        if (_childSpriteRends.Count > 0)
+        // Alpha & scale
+        float targetAlpha = 0f;
+        float targetScale = 1f;
+        float cooldownPercent = _skill.CooldownPercent;
+
+        targetAlpha = cooldownPercent.Remap(0.5f, 1f, 0.35f, 1f);
+        targetScale = cooldownPercent.Remap(0f, 1f, 0.7f, 1.2f);
+
+        if (cooldownPercent < 0.9f)
         {
-            // Alpha & scale
-            float targetAlpha = 0f;
-            float targetScale = 1f;
-            float cooldownPercent = _skill.CooldownPercent;
-
-            targetAlpha = cooldownPercent.Remap(0.5f, 1f, 0.35f, 1f);
-            targetScale = cooldownPercent.Remap(0f, 1f, 0.7f, 1.2f);
-
-            if(cooldownPercent < 0.9f)
-            {
-                targetAlpha *= 0.9f;
-                targetScale *= 0.9f;
-            }
-
-            _lerpAlpha = _lerpAlpha.Lerp(targetAlpha, 12f * Time.deltaTime);
-            _lerpScale = _lerpScale.Lerp(targetScale, 12f * Time.deltaTime);
-
-            _childSpriteRends.ForEach(childSpriteRend =>
-            {
-                childSpriteRend.color = CalculatePassiveColor().Alpha(_lerpAlpha);
-                if(_initScaleDict.ContainsKey(childSpriteRend))
-                    childSpriteRend.transform.localScale = _initScaleDict[childSpriteRend] * Vector3.one * _lerpScale;
-            });
+            targetAlpha *= 0.9f;
+            targetScale *= 0.9f;
         }
+
+        _lerpAlpha = _lerpAlpha.Lerp(targetAlpha, 12f * Time.deltaTime);
+        _lerpScale = _lerpScale.Lerp(targetScale, 12f * Time.deltaTime);
+
+        _colorController.SetColor(CalculatePassiveColor().Alpha(_lerpAlpha));
+        _mainTransform.localScale = Vector3.one * _lerpScale;
     }
 
     Color CalculatePassiveColor()
@@ -98,8 +87,8 @@ public class SkillPassiveFX : MonoBehaviour
             passiveColor = Color.black;
         }
 
-        Color skillColor = GamePaletteManager.I.Palette.GetColor(true, 1, 0, 0);
-        passiveColor = passiveColor.Lerp(skillColor, _skill.CooldownPercent.Remap(0.5f, 1f, 0f, 1f));
+        Color skillColor = GamePaletteManager.I.Palette.GetColor(_isPlayer, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
+        passiveColor = passiveColor.Lerp(skillColor, _skill.CooldownPercent.Remap(0.5f, 1f, 0f, 0.75f));
 
         return passiveColor;
     }

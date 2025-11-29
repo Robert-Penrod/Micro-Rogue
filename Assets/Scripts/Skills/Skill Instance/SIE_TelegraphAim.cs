@@ -12,7 +12,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
     float _speed => 1f; // SkillInstance.GetSkillStat(SkillStats.SkillStatName.Speed).Value;
 
-    float _scanTime => 2f * Constants.SkillStats.BaseTelegraphTime;
+    float _scanTime => 3f * Constants.SkillStats.BaseTelegraphTime;
     float _scanTick = 0f;
 
     protected override void Awake()
@@ -46,8 +46,10 @@ public class SIE_TelegraphAim : SIE, IPoolable
         float distance = Vector2.Distance(transform.position, _target.transform.position);
         if(_targetBody != null)
         {
-            //aimPos += (distance/_speed) * 1f * _targetBody.linearVelocity;
+            aimPos += 0.25f * _targetBody.linearVelocity;
         }
+        aimPos -= 0.5f * 0.25f * _skillInstance.Skill.Actor.Body.linearVelocity;
+
         Vector2 targetVector = aimPos - (Vector2)transform.position;
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetVector);
 
@@ -74,7 +76,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     void FindTarget()
     {
         Actor actor = _skillInstance.Skill.Actor;
-        Vector2 pos = (Vector2)transform.position + 0.5f * actor.Body.linearVelocity;
+        Vector2 pos = (Vector2)transform.position + 0.25f * actor.Body.linearVelocity;
         List<Actor> enemyList = Utils.ComponentScan<Actor>(pos, 25f).FindAll(x => x.IsEnemyOf(actor));
         if(enemyList.Count > 0)
         {

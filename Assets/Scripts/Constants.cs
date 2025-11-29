@@ -44,6 +44,11 @@ public static class Constants
             public static float Default => 3 * SkillStats.Damage.Default;
             public static float Low => 3 * SkillStats.Damage.Light;
         }
+
+        public static class DodgeCooldown
+        {
+            public static float Default = 3f;
+        }
     }
 
     public static class SkillStats
@@ -53,10 +58,30 @@ public static class Constants
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
         public static float SIE_ProjectileInheritVelocityMult = 0.5f;
 
+        public static class HitboxDelay
+        {
+            public const float Default = 1f;
+        }
+
+        public static class Knockback
+        {
+            public const float Default = 1f;
+        }
+
+        public static class Lunge
+        {
+            public const float Default = 0.25f;
+        }
+
+        public static class HitStun
+        {
+            public const float Default = 0.1f;
+        }
+
         public static class Cooldown
         {
             public const float Short = Default / 2f;
-            public const float Default = 4f;
+            public const float Default = 3f;
             public const float Long = Default * 2f;
         }
 
@@ -78,6 +103,11 @@ public static class Constants
             public const float Light = 3f;
             public const float Default = 5f;
             public const float High = 7f;
+        }
+
+        public static class Pierce
+        {
+            public const float Default = 1;
         }
 
         public static class Size

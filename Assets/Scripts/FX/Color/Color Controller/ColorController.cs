@@ -20,5 +20,6 @@ public class ColorController : MonoBehaviour
     {
         Color = newColor;
         OnColorChanged?.Invoke(newColor);
+        OnAlphaChanged?.Invoke(newColor.a);
     }
 }

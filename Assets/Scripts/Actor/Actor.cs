@@ -3,13 +3,42 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Actor : MonoBehaviour
 {
-    public Rigidbody2D Body { get; private set; }
+    // Data
+    public bool IsAlive { get; private set; }
+    public ActorStats Stats;
     float _initScale;
+
+    // References
+    [SerializeField] SpriteRenderer _baseSprite;
+    public Rigidbody2D Body { get; private set; }
+
     private void Awake()
     {
         Body = GetComponent<Rigidbody2D>();
+
+        // Init
+        IsAlive = true;
+        Stats.SetHealthPercent(1f);
+
+        // Scale
         _initScale = transform.localScale.x;
         transform.localScale = Vector3.zero;
+
+        // Health Change
+        Stats.OnHealthChanged += (float newHp, float deltaHp) =>
+        {
+            if(newHp <= 0 && IsAlive) Die();
+        };
+    }
+
+    void Die()
+    {
+        gameObject.SetCollidersEnabled2D(false);
+        IsAlive = false;
+        this.DelayedInvoke(Random.Range(0.1f, 0.25f), () => 
+        {
+            Destroy(this.gameObject);
+        });
     }
     
     private void Update()
