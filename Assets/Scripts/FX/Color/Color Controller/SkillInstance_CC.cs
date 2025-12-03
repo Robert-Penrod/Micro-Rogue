@@ -26,7 +26,7 @@ public class SkillInstance_CC : ColorController, IPoolable
     {
         Color baseColor = _mainSprite?.color ?? Color.grey;
 
-        Color paletteColor = GamePaletteManager.I.Palette.GetColor(_isPlayer, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
+        Color paletteColor = GamePaletteManager.I.Palette.GetColor(_skill.Actor, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
 
         //paletteColor = paletteColor.Lerp(baseColor, 0.1f);
 

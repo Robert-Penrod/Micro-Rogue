@@ -57,7 +57,6 @@ public class SpawnOnDestroy : MonoBehaviour
                 // Inherit
                 if (_parentBody != null)
                 {
-                    Debug.Log("Inheriting: " + InheritVelocity * _lerpParentVel);
                     spawnedBody.linearVelocity += InheritVelocity * _lerpParentVel;
                 }
             }

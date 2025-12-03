@@ -40,9 +40,9 @@ public static class Constants
 
         public static class Health
         {
-            public static float High => 3 * SkillStats.Damage.High;
-            public static float Default => 3 * SkillStats.Damage.Default;
-            public static float Low => 3 * SkillStats.Damage.Light;
+            public static float High => 2.5f * SkillStats.Damage.High;
+            public static float Default => 2.5f * SkillStats.Damage.Default;
+            public static float Low => 2.5f * SkillStats.Damage.Light;
         }
 
         public static class DodgeCooldown

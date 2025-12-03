@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SIE_TelegraphAim : SIE, IPoolable
 {
-    Transform _target;
+    List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
+    Actor _target => (_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null;
     TickTimer _targetTimer = new TickTimer(0.1f);
     float _aimLerpSpeed = 6f;
 
@@ -25,8 +26,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     {
         // Aim immediate
         _targetTimer.Reset();
-        FindTarget();
-        if (_target != null) transform.up = transform.VectorTowards2D(_target);
+        if (_target != null) transform.up = transform.VectorTowards2D(_target.transform);
         else transform.up = Random.insideUnitCircle.normalized;
 
         _scanTick = 0f;
@@ -35,12 +35,12 @@ public class SIE_TelegraphAim : SIE, IPoolable
     private void Update()
     {
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
-        HandleTargetScanning();
         Aim();
     }
 
     void Aim()
     {
+        /*
         if (_target == null) return;
         Vector2 aimPos = _target.transform.position;
         float distance = Vector2.Distance(transform.position, _target.transform.position);
@@ -58,39 +58,27 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
         float lerpAngle = Mathf.LerpAngle(transform.localRotation.eulerAngles.z, targetAngle, deltaTime);
         transform.localRotation = Quaternion.Euler(0f, 0f, lerpAngle);
-    }
+        */
 
-    void HandleTargetScanning()
-    {
-        if (_scanTick >= _scanTime) return;
-        _scanTick += Time.deltaTime;
+        // Init
+        if (_target == null) return;
+        Vector2 targetAimPos = _target.transform.position;
 
-        _targetTimer.Tick(Time.deltaTime);
-        if (_targetTimer.IsDone())
+        // Actor Vel Offset
+        targetAimPos -= 0.125f * _skillInstance.Skill.Actor.Body.linearVelocity;
+
+        // Target Vel Offset
+        var targetBody = _target.GetComponent<Rigidbody2D>();
+        if(targetBody != null)
         {
-            _targetTimer.Reset();
-            FindTarget();
+            targetAimPos += 0.25f * targetBody.linearVelocity; // 0.125f
         }
-    }
 
-    void FindTarget()
-    {
-        Actor actor = _skillInstance.Skill.Actor;
-        Vector2 pos = (Vector2)transform.position + 0.25f * actor.Body.linearVelocity;
-        List<Actor> enemyList = Utils.ComponentScan<Actor>(pos, 25f).FindAll(x => x.IsEnemyOf(actor));
-        if(enemyList.Count > 0)
-        {
-            if (_target != null && _target != enemyList[0].transform)
-            {
-                // Establishing new target
-            }
-
-            _target = enemyList[0].transform;
-            _targetBody = enemyList[0].GetComponent<Rigidbody2D>();
-        }
-        else
-        {
-            _target = null;
-        }
+        // Aim
+        Vector2 targetAimDir = targetAimPos - (Vector2)transform.position;
+        float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
+        float currentAngle = transform.rotation.eulerAngles.z;
+        float lerpAngle = Mathf.LerpAngle(currentAngle, targetAngle, _aimLerpSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0f, 0f, lerpAngle);
     }
 }

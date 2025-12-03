@@ -27,11 +27,7 @@ public class Player : MonoBehaviour
         if(_leave != null) _leave.performed += Disconnect;
 
         Actor = GetComponentInChildren<Actor>();
-    }
-
-    private void Start()
-    {
-        Index = PlayerManager.I?.PlayerList.IndexOf(this) ?? -1;
+        Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
         Data.Color = PlayerManager.I.GetPlayerColor(Index);
     }
 

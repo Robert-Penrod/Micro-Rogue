@@ -35,7 +35,6 @@ public class SIE_Projectile : SIE, IPoolable
 
     public void Initialize()
     {
-        gameObject.SetCollidersEnabled2D(false);
         _rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
@@ -97,7 +96,7 @@ public class SIE_Projectile : SIE, IPoolable
         {
             // Pierce
             _pierceCount++;
-            SlowProjectile();
+            SlowProjectile(0.5f);
 
             // Audio
             PlayAudio(_wallHitClip, 0.25f);
@@ -122,13 +121,17 @@ public class SIE_Projectile : SIE, IPoolable
             // Hit Stun
 
             // Popup
+            string colorString = hitActor.IsPlayer() ? "#FF9900" : "#FFFFFF";
+            string popupString = "<color=" + colorString + ">-" + _damage.ToString() + "</color>";
+            Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive? 0.5f : 1f);
+            popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
+            TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
         }
         //.
-        void SlowProjectile()
+        void SlowProjectile(float mult = 1f)
         {
             if (_rb == null) return;
-            _rb.linearVelocity *= 0.75f;
-            _rb.transform.localScale *= 0.9f;
+            _rb.linearVelocity *= mult * 0.75f;
         }
 
         // Knockback

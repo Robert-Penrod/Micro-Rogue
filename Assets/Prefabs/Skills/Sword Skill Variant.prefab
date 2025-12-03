@@ -169,6 +169,14 @@ PrefabInstance:
       value: Sword Skill Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Dex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Int
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Str
       value: 1
       objectReference: {fileID: 0}

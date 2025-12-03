@@ -23,13 +23,15 @@ public class SkillPassiveFX : MonoBehaviour
         _colorController = gameObject.GetOrAddComponent<ColorController>();
         UpdateSprites();
 
-        _initParentColor = _parentSpriteRend.color;
+        this.DelayedInvoke(-1, () =>
+        {
+            _initParentColor = _parentSpriteRend.color;
+        });
     }
 
     private void Update()
     {
         UpdateSprites();
-        transform.SetLossyScale(Vector3.one * _skill.Stats.Size);
     }
 
     void UpdateSprites()
@@ -87,7 +89,7 @@ public class SkillPassiveFX : MonoBehaviour
             passiveColor = Color.black;
         }
 
-        Color skillColor = GamePaletteManager.I.Palette.GetColor(_isPlayer, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
+        Color skillColor = GamePaletteManager.I.Palette.GetColor(_skill.Actor, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
         passiveColor = passiveColor.Lerp(skillColor, _skill.CooldownPercent.Remap(0.5f, 1f, 0f, 0.75f));
 
         return passiveColor;

@@ -20,6 +20,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Faction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Player Actor Variant
@@ -100,7 +104,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7110742264773460228, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

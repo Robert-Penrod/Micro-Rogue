@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    public Actor Actor => GetComponentInParent<Actor>();
+    public Actor Actor;
 
     public SkillStats Stats;
 
@@ -10,18 +11,27 @@ public class Skill : MonoBehaviour
 
     private void OnEnable()
     {
+        Actor = GetComponentInParent<Actor>();
         ShuffleCooldown();
     }
 
     private void FixedUpdate()
     {
+        // Temp Stats
         float skillSpeed = 1f;
         float cooldown = Constants.SkillStats.Cooldown.Default;
 
+        // Cooldown
         if(CooldownPercent < 1f)
         {
             CooldownPercent += (skillSpeed / cooldown) * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.ClampMax(1f);
+        }
+
+        // No Targets
+        if(Actor.Senses.EnemyActors.Count <= 0)
+        {
+            CooldownPercent = CooldownPercent.ClampMax(0.75f);
         }
     }
 

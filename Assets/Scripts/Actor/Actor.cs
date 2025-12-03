@@ -1,23 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ActorSenses))]
 public class Actor : MonoBehaviour
 {
+    [Header("Config")]
+    public FactionType Faction = FactionType.Enemy;
+    public enum FactionType { None, Player, Enemy }
+    public ActorStats Stats;
+
     // Data
     public bool IsAlive { get; private set; }
-    public ActorStats Stats;
     float _initScale;
 
     // References
-    [SerializeField] SpriteRenderer _baseSprite;
     public Rigidbody2D Body { get; private set; }
+    public ActorSenses Senses { get; private set; }
 
     private void Awake()
     {
         Body = GetComponent<Rigidbody2D>();
+        Senses = GetComponent<ActorSenses>();
 
         // Init
         IsAlive = true;
+        Stats.HealthMax.BaseValue = Stats.Health;
         Stats.SetHealthPercent(1f);
 
         // Scale
@@ -27,7 +35,7 @@ public class Actor : MonoBehaviour
         // Health Change
         Stats.OnHealthChanged += (float newHp, float deltaHp) =>
         {
-            if(newHp <= 0 && IsAlive) Die();
+            if (newHp <= 0 && IsAlive) Die();
         };
     }
 
@@ -35,12 +43,13 @@ public class Actor : MonoBehaviour
     {
         gameObject.SetCollidersEnabled2D(false);
         IsAlive = false;
-        this.DelayedInvoke(Random.Range(0.1f, 0.25f), () => 
+
+        this.DelayedInvoke(0.25f * Random.Range(0.9f, 1.1f), () =>
         {
             Destroy(this.gameObject);
         });
     }
-    
+
     private void Update()
     {
         ScaleUpdate();
@@ -51,6 +60,40 @@ public class Actor : MonoBehaviour
         HandleMoveFixedUpdate();
     }
 
+    public bool IsPlayer()
+    {
+        return gameObject.CompareTag("Player");
+    }
+
+    public bool IsEnemyOf(Actor otherActor)
+    {
+        if (Faction == FactionType.None) return false;
+        if (otherActor.Faction == FactionType.None) return false;
+        if (otherActor.Faction == Faction) return false;
+
+        return true;
+    }
+
+    public bool HasLineOfSightOf(Actor otherActor)
+    {
+        Vector2 dir = otherActor.transform.position - transform.position;
+        float dist = dir.magnitude;
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.2f, dir, dist);
+        foreach (RaycastHit2D hit in hits)
+        {
+            bool isTrigger = hit.collider.isTrigger;
+            Actor hitActor = hit.collider.GetComponentInParent<Actor>();
+            bool isActor = hitActor != null;
+            bool isSkill = hit.collider.GetComponentInParent<Skill>() != null;
+
+            if (!isTrigger && !isActor && !isSkill)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     #region Move
     public Vector2 MoveInput { get; private set; }
     float _moveTime;
@@ -58,6 +101,7 @@ public class Actor : MonoBehaviour
     [SerializeField] bool _doMoveTime = true;
     public void Move(Vector2 move)
     {
+        move = Vector2.ClampMagnitude(move, 1f);
         MoveInput = move;
     }
 
@@ -116,11 +160,4 @@ public class Actor : MonoBehaviour
         transform.localScale = lerpS * Vector3.one;
     }
     #endregion
-
-    public bool IsEnemyOf(Actor otherActor)
-    {
-        if (otherActor == this) return false;
-
-        return true;
-    }
 }

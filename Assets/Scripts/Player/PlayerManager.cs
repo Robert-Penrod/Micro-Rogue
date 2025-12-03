@@ -67,7 +67,6 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
     void UpdateCanJoin()
     {
         var sceneName = SceneManager.GetActiveScene().name;
-        Debug.Log(sceneName);
         if (_joinSceneNames.Contains(sceneName))
         {
             _playerInputManager.EnableJoining();

@@ -7,7 +7,7 @@ public class BleedSpriteEffect : MonoBehaviour
 {
     Actor _actor;
     SpriteRenderer _spriteRend;
-    Color _initColor;
+    Color? _initColor = null;
 
     private void Awake()
     {
@@ -25,8 +25,11 @@ public class BleedSpriteEffect : MonoBehaviour
 
     private void Start()
     {
-        _initColor = _spriteRend.color;
-        SetEffectMagnitude(0f);
+        this.DelayedInvoke(-1, () =>
+        {
+            _initColor = _spriteRend.color;
+            SetEffectMagnitude(0f);
+        });
     }
 
     void HurtPulse(float mag = 0.75f)
@@ -36,7 +39,9 @@ public class BleedSpriteEffect : MonoBehaviour
 
     void SetEffectMagnitude(float mag)
     {
-        Color c = _initColor.Lerp(Color.red, mag.Remap(0f, 1f, 0f, 0.75f));
+        if (_initColor == null) return;
+
+        Color c = _initColor.Value.Lerp(Color.red, mag.Remap(0f, 1f, 0f, 0.8f));
         _spriteRend.color = c;
     }
 

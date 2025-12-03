@@ -23,8 +23,8 @@ public class MomentumTracker : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, transform.position + (Vector3)MomentumVector);
+        //Gizmos.color = Color.magenta;
+        //Gizmos.DrawLine(transform.position, transform.position + (Vector3)MomentumVector);
     }
 
     private void Awake()

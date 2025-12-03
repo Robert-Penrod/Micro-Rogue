@@ -13,12 +13,17 @@ public class GamePalette : ScriptableObject
     public Color DexColor;
     public Color IntColor;
 
-    public Color GetColor(bool isPlayer = false, int str = 1, int dex = 1, int intel = 1)
+    public Color GetColor(Actor actor, int str = 1, int dex = 1, int intel = 1)
     {
-        Color actorColor = isPlayer ? PlayerColor : EnemyColor; // Player vs enemy color
+        Color individualPlayerColor = EnemyColor; // Player vs enemy color
+        if(actor.IsPlayer())
+        {
+            individualPlayerColor = actor.GetComponentInParent<Player>().Data.Color;
+            individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0.5f);
+        }
         Color archetypeColor = GetArchetypeColor(str, dex, intel);
 
-        Color color = Color.Lerp(actorColor, archetypeColor, 0.25f);
+        Color color = Color.Lerp(individualPlayerColor, archetypeColor, 0.25f);
         return color;
     }
 

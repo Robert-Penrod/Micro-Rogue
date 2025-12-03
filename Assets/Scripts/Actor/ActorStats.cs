@@ -22,7 +22,7 @@ public class ActorStats
         }
     }
 
-    public Stat HealthMax = new Stat(Constants.ActorStats.Health.Default, "Health Max", true, unit: "hp");
+    [HideInInspector] public Stat HealthMax = new Stat(Constants.ActorStats.Health.Default, "Health Max", true, unit: "hp");
     public Stat MoveSpeed = new Stat(Constants.ActorStats.MoveSpeed.Default, "Move Speed", unit: "m/s");
     public Stat DodgeCooldown = new Stat(Constants.ActorStats.DodgeCooldown.Default, "Dodge Cooldown", positiveDir: -1, unit: "s");
 

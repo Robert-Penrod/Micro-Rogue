@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hitClip: {fileID: 8300000, guid: a2dfef3fcd8b20c48ab3826ac81d4aab, type: 3}
-  _wallHitClip: {fileID: 8300000, guid: 42aacb12d48805c4789441995771f626, type: 3}
+  _wallHitClip: {fileID: 8300000, guid: 8ce36245df0749547bd0061f97491f4f, type: 3}
 --- !u!1 &9110719337639522280
 GameObject:
   m_ObjectHideFlags: 0
