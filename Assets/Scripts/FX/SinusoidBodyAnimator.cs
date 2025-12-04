@@ -1,4 +1,4 @@
-using HyperQuest.SinusoidAnimator;
+using ManaSprite.SinusoidAnimator;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

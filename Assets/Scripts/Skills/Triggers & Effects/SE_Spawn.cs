@@ -1,4 +1,4 @@
-using HyperQuest.EasyPooling;
+using ManaSprite.EasyPooling;
 using System.Collections;
 using UnityEngine;
 

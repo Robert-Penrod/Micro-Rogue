@@ -60,6 +60,11 @@ public class Actor : MonoBehaviour
         HandleMoveFixedUpdate();
     }
 
+    public void Rest()
+    {
+        Stats.Health += (int)(Stats.HealthMax.Value * 0.3f);
+    }
+
     public bool IsPlayer()
     {
         return gameObject.CompareTag("Player");
@@ -74,9 +79,10 @@ public class Actor : MonoBehaviour
         return true;
     }
 
-    public bool HasLineOfSightOf(Actor otherActor)
+    public bool HasLineOfSightOf(Actor otherActor) => HasLineOfSightOf(otherActor.transform.position);
+    public bool HasLineOfSightOf(Vector2 position)
     {
-        Vector2 dir = otherActor.transform.position - transform.position;
+        Vector2 dir = position - (Vector2)transform.position;
         float dist = dir.magnitude;
         RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.2f, dir, dist);
         foreach (RaycastHit2D hit in hits)

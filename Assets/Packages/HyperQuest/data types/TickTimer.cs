@@ -21,10 +21,6 @@ public class TickTimer
     {
         if (IsDone()) return true;
         tick += deltaTime;
-        if(tick > MaxTime)
-        {
-            tick = MaxTime;
-        }
         return false;
     }
 
@@ -55,4 +51,8 @@ public class TickTimer
     }
 
     public float GetPercent() => Mathf.Clamp01(tick / MaxTime);
+    public void SetPercent(float percent)
+    {
+        tick = percent * MaxTime;
+    }
 }

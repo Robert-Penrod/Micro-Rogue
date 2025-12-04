@@ -244,6 +244,160 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &3101874169527826074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3985889187908229739}
+  - component: {fileID: 2713630883562576885}
+  - component: {fileID: 222106523442040456}
+  m_Layer: 0
+  m_Name: Cam Shaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3985889187908229739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101874169527826074}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8176684054760845283}
+  m_Father: {fileID: 7797301005085109235}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2713630883562576885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101874169527826074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb723af6dd563f44baa3955d3b898f3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ScaledTime: 1
+  Amp: 0.15
+  Freq: 1
+  Position:
+    Amp: 1
+    Freq: 1
+    Sines:
+    - Vector: {x: 1, y: 0, z: 0}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 1
+        Phase: 0
+        RandomizePhase: 1
+    - Vector: {x: 0, y: 1, z: 0}
+      Sinusoid:
+        Amplitude: 1
+        Frequency: 1
+        Phase: 0
+        RandomizePhase: 1
+    - Vector: {x: 1, y: 0, z: 0}
+      Sinusoid:
+        Amplitude: 0.5
+        Frequency: 2
+        Phase: 0
+        RandomizePhase: 1
+    - Vector: {x: 0, y: 1, z: 0}
+      Sinusoid:
+        Amplitude: 0.5
+        Frequency: 2
+        Phase: 0
+        RandomizePhase: 1
+  Rotation:
+    Amp: 0
+    Freq: 0
+    Sines: []
+  Scale:
+    Amp: 0
+    Freq: 0
+    Sines: []
+--- !u!114 &222106523442040456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3101874169527826074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a17166fb13a3a84a99a7093b60d2dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  decreaseFactor: 4.5
+--- !u!1 &3729952360004226838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7797301005085109235}
+  - component: {fileID: 4719338304093082998}
+  - component: {fileID: 1966201223271302218}
+  m_Layer: 0
+  m_Name: Cam Follow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7797301005085109235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729952360004226838}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3985889187908229739}
+  m_Father: {fileID: 6461807052147353946}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4719338304093082998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729952360004226838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 971f41323f9ea5c448be64635f526724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magnitude: 0.25
+  LerpSpeed: 3
+--- !u!81 &1966201223271302218
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729952360004226838}
+  m_Enabled: 1
 --- !u!1 &5290637509392691773
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,7 +415,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3112699995519792670
 Transform:
   m_ObjectHideFlags: 0
@@ -310,7 +464,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8176684054760845283}
   - component: {fileID: 8189907534093557583}
-  - component: {fileID: 1735495828103731364}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -331,7 +484,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 6461807052147353946}
+  m_Father: {fileID: 3985889187908229739}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8189907534093557583
 MonoBehaviour:
@@ -376,25 +529,6 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
---- !u!114 &1735495828103731364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6325688712955485188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TrackerSettings:
-    BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
-    AngularDampingMode: 0
-    RotationDamping: {x: 1, y: 1, z: 1}
-    QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 0, z: -100}
 --- !u!1 &7200349087603956016
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +559,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3794676167097572264}
-  - {fileID: 8176684054760845283}
   - {fileID: 3112699995519792670}
+  - {fileID: 7797301005085109235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

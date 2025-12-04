@@ -10376,7 +10376,7 @@ GameObject:
   - component: {fileID: 656978755204930970}
   - component: {fileID: 4258424107530315670}
   - component: {fileID: 7110742264773460228}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Actor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10502,6 +10502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyActors: []
   EnemySkills: []
+  EnemyScentDrop: []
   AllyActors: []
   AllySkills: []
 --- !u!114 &656978755204930970
@@ -10652,6 +10653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4538613254834598302}
+  - component: {fileID: 7122690616447876776}
   m_Layer: 0
   m_Name: Scent System
   m_TagString: Untagged
@@ -10674,6 +10676,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459951883985361305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7122690616447876776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8980996075537391195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1f88de7ccae4948b5dcae3c8db663c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DropTime: 0.25
+  Lifetime: 4
 --- !u!1001 &7515492198193086072
 PrefabInstance:
   m_ObjectHideFlags: 0

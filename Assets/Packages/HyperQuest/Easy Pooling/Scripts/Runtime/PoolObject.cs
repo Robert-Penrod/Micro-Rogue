@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HyperQuest.EasyPooling
+namespace ManaSprite.EasyPooling
 {
     /// <summary>
     /// Manages the lifecycle of a pooled object, handling its initialization and recycling.

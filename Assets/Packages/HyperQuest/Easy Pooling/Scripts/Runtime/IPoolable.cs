@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HyperQuest.EasyPooling
+namespace ManaSprite.EasyPooling
 {
     public interface IPoolable 
     {

@@ -133,11 +133,12 @@ public static class Utils
     }
 
     #region Physics
-    public static List<T> ComponentScan<T>(Vector2 point, float radius, bool sortByDist = true) where T : MonoBehaviour
+    public static List<T> ComponentScan<T>(Vector2 point, float radius, bool sortByDist = true, LayerMask? layerMask = null) where T : MonoBehaviour
     {
         // Scan & Filter for components
         List<T> list = new List<T>();
-        new List<Collider2D>(Physics2D.OverlapCircleAll(point, radius)).ForEach(col =>
+        Collider2D[] results = layerMask == null ? Physics2D.OverlapCircleAll(point, radius) : Physics2D.OverlapCircleAll(point, radius, layerMask.Value);
+        new List<Collider2D>(results).ForEach(col =>
         {
             T component = col.GetComponentInParent<T>();
             if (component != null) { list.Add(component); }

@@ -1,4 +1,4 @@
-using HyperQuest.EasyPooling;
+using ManaSprite.EasyPooling;
 using UnityEngine;
 
 [RequireComponent(typeof(SkillInstance))]

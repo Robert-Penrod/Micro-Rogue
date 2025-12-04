@@ -1,4 +1,4 @@
-using HyperQuest.EasyPooling;
+using ManaSprite.EasyPooling;
 using UnityEngine;
 
 public class SIE_A_Duration : SIE, IPoolable

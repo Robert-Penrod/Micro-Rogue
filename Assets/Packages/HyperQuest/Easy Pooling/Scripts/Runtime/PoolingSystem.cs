@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace HyperQuest.EasyPooling
+namespace ManaSprite.EasyPooling
 {
     /// <summary>
     /// Manages a pool of reusable game objects, optimizing performance by reusing objects instead of instantiating new ones.

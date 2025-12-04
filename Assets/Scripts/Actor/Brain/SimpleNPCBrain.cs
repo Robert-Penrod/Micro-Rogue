@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class SimpleNPCBrain : ActorBrain
 {
-    float _minTargetDist = 1f;
-    float _maxTargetDist = 3f;
-    float _lerpSpeed = 10f;
+    float _minTargetDist = 0.5f;
+    float _maxTargetDist = 2f;
+    float _lerpSpeed = 25f;
     Vector2 _moveDir;
     Vector2 _wanderVector = Vector2.up;
     float _wanderStrength = 0f;
@@ -47,22 +47,35 @@ public class SimpleNPCBrain : ActorBrain
         if(senses.EnemyActors.Count > 0)
         {
             Vector2 enemyVector = Vector2.zero;
+            float minEnemyDist = float.MaxValue;
             foreach (Actor enemy in senses.EnemyActors)
             {
                 if (enemy == null) continue;
                 Vector2 towardsEnemy = enemy.transform.position - transform.position;
                 float enemyDist = towardsEnemy.magnitude;
+                if (enemyDist < minEnemyDist) minEnemyDist = enemyDist;
                 towardsEnemy.Normalize();
                 float desireMag = enemyDist.Remap(_minTargetDist, _maxTargetDist, -1f, 1f);
-                desireMag = desireMag.Sign() * desireMag.Pow(800f).Abs();
+                desireMag = desireMag.Sign() * desireMag.Pow(8f).Abs();
                 enemyVector += desireMag * towardsEnemy;
             }
             enemyVector /= senses.EnemyActors.Count;
             //enemyVector = enemyVector.Lerp(0.125f * _wanderVector, _wanderStrength);
             DebugDrawLine(enemyVector, Color.magenta);
             moveDir += enemyVector;
+            moveMult *= minEnemyDist.Remap(_maxTargetDist, _maxTargetDist * 2f, 1f, 1.1f);
         }
-        // No enemies
+        // Scent
+        else if (senses.EnemyActors.Count == 0 && senses.EnemyScentDrop.Count > 0)
+        {
+            Vector2 scentPos = senses.EnemyScentDrop[0].transform.position;
+            Vector2 scentDir = scentPos - (Vector2)transform.position;
+            scentDir.Normalize();
+            DebugDrawLine(scentDir, Color.red);
+            moveDir += scentDir;
+            moveMult *= 1.1f;
+        }
+        // No enemies or scents
         else
         {
             // Wander logic
@@ -78,31 +91,52 @@ public class SimpleNPCBrain : ActorBrain
 
         // SPATIAL
         // Open Space
+        /*
         Vector2 spatialVector = Vector2.zero;
         Vector2 openSpaceVector = _actor.Senses.WallVMap.ToVector() / 5f;
         if (openSpaceVector.magnitude > 1f) openSpaceVector.Normalize();
         openSpaceVector *= 0.6f;
-        DebugDrawLine(openSpaceVector, Color.cyan);
+        */
+        //DebugDrawLine(openSpaceVector, Color.cyan);
         //moveDir += openSpaceVector;
-        spatialVector += openSpaceVector;
+        //spatialVector += openSpaceVector;
         //
         // Avoid Walls
+        /*
         Vector2Map wallMapClone = _actor.Senses.WallVMap.Clone();
+        float minWallDist = float.MaxValue;
         for (int i = 0; i < wallMapClone.Map.Count; i++)
         {
-            float desireMag = wallMapClone.Map[i].magnitude.Remap(0.5f, 1f, 1f, 0f); // 0.2, 0.75
+            float wallDist = wallMapClone.Map[i].magnitude;
+            if (wallDist < minWallDist) minWallDist = wallDist;
+            float desireMag = wallDist.Remap(0.25f, 0.5f, 1f, 0f); // 0.2, 0.75
+            //desireMag = desireMag.Sign() * desireMag.Pow(2f).Abs();
             wallMapClone.Map[i] = wallMapClone.Map[i].normalized * desireMag;
         }
-        Vector2 avoidWallVector = 1f * -wallMapClone.ToVector().normalized; //0.4f * -wallMapClone.ToVector().normalized;
+        Vector2 avoidWallVector = 0.25f * minWallDist.Remap(0.25f, 0.5f, 1f, 0f).Pow(2f) * -wallMapClone.ToVector().normalized; //0.4f * -wallMapClone.ToVector().normalized;
         DebugDrawLine(avoidWallVector, Color.blue);
         //moveDir += avoidWallVector;
         spatialVector += avoidWallVector;
         //
         DebugDrawLine(spatialVector, Color.Lerp(Color.blue, Color.cyan, 0.5f));
         moveDir += spatialVector;
+        */
+        
+        var wallMap = _actor.Senses.WallVMap;
+        float minWallDist = float.MaxValue;
+        wallMap.Map.ForEach(dir =>
+        {
+            var dist = dir.magnitude;
+            if (dist < minWallDist) minWallDist = dist;
+        });
+        float wallMult = minWallDist.Remap(0.25f, 0.75f, 1f, 0f); 
+        Vector2 avoidWallVector = wallMap.ToVector() * 0.125f * wallMult;
+        DebugDrawLine(avoidWallVector, Color.blue);
+        moveDir += avoidWallVector;
+        
 
         // Avoid allys
-        if(_actor.Senses.AllyActors.Count > 0)
+        if (_actor.Senses.AllyActors.Count > 0)
         {
             List<Vector2> allyDirections = new List<Vector2>();
             _actor.Senses.AllyActors.ForEach(x =>
@@ -115,9 +149,8 @@ public class SimpleNPCBrain : ActorBrain
                 allyDirections.Add(vector);
             });
             Vector2 averageAllyDir = allyDirections.AverageVectors();
-            Vector2 avoidanceVector = averageAllyDir;
-            DebugDrawLine(avoidanceVector, Color.yellow);
-            moveDir += avoidanceVector;
+            DebugDrawLine(averageAllyDir, Color.yellow);
+            moveDir += averageAllyDir;
         }
 
         // Avoid Enemy Skills
@@ -154,15 +187,16 @@ public class SimpleNPCBrain : ActorBrain
 
                 skillAvoidanceVectorList.Add(avoidanceVector);
             });
-            Vector2 skillAvoidanceVector = 0.25f * skillAvoidanceVectorList.AverageVectors(); //2.3
+            Vector2 skillAvoidanceVector = 1.5f * skillAvoidanceVectorList.AverageVectors(); //2.3f
             DebugDrawLine(skillAvoidanceVector, Color.red);
             moveDir += skillAvoidanceVector;
         }
 
         // Lerp & Move
-        _moveDir = _moveDir.Lerp(moveMult * moveDir.normalized, lerpMult * _lerpSpeed * deltaTime);
-        _actor.Move(_moveDir);
-        //DebugDrawLine(_moveDir, Color.green);
+        _moveDir = _moveDir.Lerp(moveDir.normalized, lerpMult * _lerpSpeed * deltaTime);
+        Vector2 moveVector = moveMult * _moveDir.normalized;
+        _actor.Move(moveVector);
+        DebugDrawLine(moveVector, Color.green);
     }
 
     void BrainUpdate2(float deltaTime)

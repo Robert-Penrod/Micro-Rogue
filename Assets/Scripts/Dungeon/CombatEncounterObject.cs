@@ -31,6 +31,10 @@ public class CombatEncounterObject : MonoBehaviour
         {
             IsEncounterOver = true;
             DungeonManager.I.SpawnPortals();
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Actor.Rest();
+            });
         }
     }
 }

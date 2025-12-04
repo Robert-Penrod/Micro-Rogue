@@ -1,4 +1,4 @@
-using HyperQuest.EasyPooling;
+using ManaSprite.EasyPooling;
 using UnityEngine;
 
 public class SIE_S_Telegraph : SIE, IPoolable
@@ -63,7 +63,8 @@ public class SIE_S_Telegraph : SIE, IPoolable
         _colorController.SetAlpha(0.9f * Constants.SkillStats.BaseAlpha * alpha);
 
         // Scale
-        transform.SetLossyScale(Vector3.one * _telegraphPercent.RemapPercent(0f, _size));
+        //transform.SetLossyScale(Vector3.one * _telegraphPercent.RemapPercent(0f, _size));
+        transform.localScale = Vector3.one * _telegraphPercent.RemapPercent(0f, _size);
 
         // Next
         if (_telegraphPercent >= 1) _skillInstance.State++;

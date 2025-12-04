@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace HyperQuest.EasyPooling
+namespace ManaSprite.EasyPooling
 {
     using Path = System.IO.Path;
 

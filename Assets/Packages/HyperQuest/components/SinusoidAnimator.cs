@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HyperQuest.SinusoidAnimator
+namespace ManaSprite.SinusoidAnimator
 {
     public class SinusoidAnimator : MonoBehaviour
     {

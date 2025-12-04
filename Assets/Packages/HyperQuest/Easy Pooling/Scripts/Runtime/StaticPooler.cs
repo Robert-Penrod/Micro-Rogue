@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 #endif
 
-namespace HyperQuest.EasyPooling
+namespace ManaSprite.EasyPooling
 {
     public static class StaticPooler
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using HyperQuest.EasyPooling;
+using ManaSprite.EasyPooling;
 
 [RequireComponent(typeof(TextMeshPro))]
 public class TextPopup : MonoBehaviour, IPoolable

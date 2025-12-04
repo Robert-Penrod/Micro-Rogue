@@ -1,4 +1,4 @@
-using HyperQuest.EasyPooling;
+using ManaSprite.EasyPooling;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -126,6 +126,9 @@ public class SIE_Projectile : SIE, IPoolable
             Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive? 0.5f : 1f);
             popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
             TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
+
+            // Screen Shake
+            CamShaker.Instance.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
         }
         //.
         void SlowProjectile(float mult = 1f)
