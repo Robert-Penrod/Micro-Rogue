@@ -14,9 +14,9 @@ public class BleedSpriteEffect : MonoBehaviour
         _actor = GetComponentInParent<Actor>();
         _spriteRend = GetComponent<SpriteRenderer>();
 
-        _actor.Stats.OnHealthChanged += (float oldHp, float newHp) =>
+        _actor.Stats.OnHealthChanged += (float newHp, float deltaHp) =>
         {
-            if(newHp < oldHp)
+            if(deltaHp < 0)
             {
                 HurtPulse();
             }

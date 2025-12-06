@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,6 +53,97 @@ public static class Utils
         return Physics2D.OverlapCircleAll(GetMouseWorldPos(), radius);
     }
     #endregion
+
+    /// <summary>
+    /// Spring-damped angle smoothing — behaves like SmoothDampAngle but 
+    /// allows overshoot by using an underdamped spring.
+    /// frequency: Hz (stiffness)
+    /// damping:   0 = full overshoot, 1 = critically damped, >1 hard damping
+    /// </summary>
+    public static float SpringDampAngle(
+    float currentAngle,
+    float targetAngle,
+    ref float angularVelocity,
+    float frequency = 2f,
+    float damping = 0.3f,
+    float maxSpeed = Mathf.Infinity,  // deg/sec
+    float maxAccel = Mathf.Infinity)  // deg/sec^2
+    {
+        float dt = Time.deltaTime;
+        if (dt <= 0f)
+            return currentAngle;
+
+        // Signed shortest delta [-180, 180]
+        float delta = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+        // Continuous spring parameters
+        float omega = 2f * Mathf.PI * frequency;
+
+        // θ'' = ω² * delta − 2ζω * θ'
+        float accel = omega * omega * delta - 2f * damping * omega * angularVelocity;
+
+        // Clamp acceleration so we *ease into* motion instead of instantly spiking
+        if (!float.IsInfinity(maxAccel))
+            accel = Mathf.Clamp(accel, -maxAccel, maxAccel);
+
+        // Integrate velocity
+        angularVelocity += accel * dt;
+
+        // Clamp velocity (deg/sec), keeps it from snapping too fast
+        if (!float.IsInfinity(maxSpeed))
+            angularVelocity = Mathf.Clamp(angularVelocity, -maxSpeed, maxSpeed);
+
+        // Integrate angle
+        currentAngle += angularVelocity * dt;
+
+        return currentAngle;
+    }
+
+    /// <summary>
+    /// Inertial motor aim:
+    /// - torque:        max angular accel at full error (deg/sec²)
+    /// - responseAngle: error (deg) where torque reaches full strength
+    /// - drag:          Unity-style linear drag (per second)
+    ///
+    /// angularVel is deg/sec and updated by ref.
+    /// </summary>
+    public static float MotorDampAngle(
+        float currentAngle,
+        float targetAngle,
+        ref float angularVel,
+        float torque,
+        float responseAngle,
+        float drag,
+        float deltaTime)
+    {
+        if (deltaTime <= 0f)
+            return currentAngle;
+
+        // Signed shortest difference [-180, 180]
+        float deltaAngle = Mathf.DeltaAngle(currentAngle, targetAngle);
+
+        // --- Motor falloff: linear near zero, saturates at +/-1 ---
+        float deltaAngleNorm = deltaAngle / responseAngle;
+        deltaAngleNorm = Mathf.Clamp(deltaAngleNorm, -1f, 1f);
+
+        // Motor torque toward target
+        float motorAccel = torque * deltaAngleNorm;
+
+        // Integrate velocity using motor force
+        angularVel += motorAccel * deltaTime;
+
+        // --- Unity-style drag (linear damping) ---
+        // SAME formula Unity uses for Rigidbody.drag:
+        // v *= 1 - drag * dt   (clamped so it never flips)
+        float dragFactor = 1f - drag * deltaTime;
+        if (dragFactor < 0f) dragFactor = 0f;
+        angularVel *= dragFactor;
+
+        // Integrate angle from velocity
+        currentAngle += angularVel * deltaTime;
+
+        return currentAngle;
+    }
 
     public static float GeneratePerlinOctaveNoise(float x, float y, int octaves, Vector2 noiseOffset, float noiseScale, float persistence, float lacunarity)
     {
@@ -657,7 +748,7 @@ public static class TypeExtensions
     #endregion
 
     #region RigidBody2D Extensions
-    public static void AddDampForce(this Rigidbody2D rb, Vector2 force, ForceMode2D forceMode)
+    public static void AddDampForce(this Rigidbody2D rb, Vector2 force, ForceMode2D forceMode = ForceMode2D.Force)
     {
         rb.AddForce(force * rb.linearDamping, forceMode);
     }

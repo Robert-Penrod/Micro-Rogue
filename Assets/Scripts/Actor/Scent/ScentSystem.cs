@@ -44,6 +44,11 @@ public class ScentSystem : MonoBehaviour
         _scentdropTemplate.gameObject.transform.SetParent(this.transform);
     }
 
+    private void OnDestroy()
+    {
+        ClearScentSystem();
+    }
+
     private void Start()
     {
         _dropTick = Random.Range(0f, DropTime);

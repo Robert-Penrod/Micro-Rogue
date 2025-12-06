@@ -3,20 +3,25 @@ using UnityEngine;
 
 public class SimpleNPCBrain : ActorBrain
 {
-    float _minTargetDist = 0.5f;
-    float _maxTargetDist = 2f;
-    float _lerpSpeed = 25f;
+    float _minTargetDist = 1f; // 0.5
+    float _maxTargetDist = 2.5f; // 2
+
+    float _evasion = 0.5f;
+    float _wanderStrength = 0.25f;
+    float _wanderSpeed = 1f;
+
+    float _lerpSpeed = 12f;
+
     Vector2 _moveDir;
     Vector2 _wanderVector = Vector2.up;
-    float _wanderStrength = 0f;
-    float _wanderSpeed = 1f;
+    
     float _randPhase;
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.white.Alpha(0.25f);
         Gizmos.DrawWireSphere(transform.position, 1f);
-        Gizmos.color = Color.green.Alpha(0.25f);
+        Gizmos.color = Color.yellow.Alpha(0.25f);
         Gizmos.DrawWireSphere(transform.position, _maxTargetDist);
         Gizmos.DrawWireSphere(transform.position, _minTargetDist);
     }
@@ -38,10 +43,11 @@ public class SimpleNPCBrain : ActorBrain
         // Init
         Vector2 moveDir = Vector2.zero;
         _wanderVector = _wanderVector.Lerp(Random.insideUnitCircle, _wanderSpeed * deltaTime);
-        //DebugDrawLine(_wanderVector, Color.yellow);
+        DebugDrawLine(_wanderVector, Color.cyan);
         var senses = _actor.Senses;
         float lerpMult = 1f;
         float moveMult = 1f;
+        float sprintMult = 1.01f;
 
         // Enemy
         if(senses.EnemyActors.Count > 0)
@@ -51,7 +57,8 @@ public class SimpleNPCBrain : ActorBrain
             foreach (Actor enemy in senses.EnemyActors)
             {
                 if (enemy == null) continue;
-                Vector2 towardsEnemy = enemy.transform.position - transform.position;
+                Vector2 enemyPoint = (Vector2)enemy.transform.position + 0.25f * enemy.Body.linearVelocity;
+                Vector2 towardsEnemy = enemyPoint - (Vector2)transform.position;
                 float enemyDist = towardsEnemy.magnitude;
                 if (enemyDist < minEnemyDist) minEnemyDist = enemyDist;
                 towardsEnemy.Normalize();
@@ -60,10 +67,10 @@ public class SimpleNPCBrain : ActorBrain
                 enemyVector += desireMag * towardsEnemy;
             }
             enemyVector /= senses.EnemyActors.Count;
-            //enemyVector = enemyVector.Lerp(0.125f * _wanderVector, _wanderStrength);
+            enemyVector = enemyVector.Lerp(_wanderVector.normalized, _wanderStrength);
             DebugDrawLine(enemyVector, Color.magenta);
             moveDir += enemyVector;
-            moveMult *= minEnemyDist.Remap(_maxTargetDist, _maxTargetDist * 2f, 1f, 1.1f);
+            moveMult *= minEnemyDist.Remap(_maxTargetDist, _maxTargetDist * 3f, 1f, sprintMult);
         }
         // Scent
         else if (senses.EnemyActors.Count == 0 && senses.EnemyScentDrop.Count > 0)
@@ -73,7 +80,7 @@ public class SimpleNPCBrain : ActorBrain
             scentDir.Normalize();
             DebugDrawLine(scentDir, Color.red);
             moveDir += scentDir;
-            moveMult *= 1.1f;
+            moveMult *= sprintMult;
         }
         // No enemies or scents
         else
@@ -139,11 +146,14 @@ public class SimpleNPCBrain : ActorBrain
         if (_actor.Senses.AllyActors.Count > 0)
         {
             List<Vector2> allyDirections = new List<Vector2>();
+            float minAllyDist = float.MaxValue;
             _actor.Senses.AllyActors.ForEach(x =>
             {
                 if (x == null) return;
                 var vector = x.transform.position - transform.position;
-                float desire = vector.magnitude.Remap(2f, 8f, -1f, 0f);
+                float dist = vector.magnitude;
+                if (dist < minAllyDist) minAllyDist = dist;
+                float desire = vector.magnitude.Remap(_minTargetDist, _maxTargetDist, -1f, 0f);
                 desire *= 0.5f;
                 vector = desire * vector.normalized;
                 allyDirections.Add(vector);
@@ -187,14 +197,15 @@ public class SimpleNPCBrain : ActorBrain
 
                 skillAvoidanceVectorList.Add(avoidanceVector);
             });
-            Vector2 skillAvoidanceVector = 1.5f * skillAvoidanceVectorList.AverageVectors(); //2.3f
+            Vector2 skillAvoidanceVector = _evasion * skillAvoidanceVectorList.AverageVectors(); //2.3f
             DebugDrawLine(skillAvoidanceVector, Color.red);
             moveDir += skillAvoidanceVector;
         }
 
         // Lerp & Move
-        _moveDir = _moveDir.Lerp(moveDir.normalized, lerpMult * _lerpSpeed * deltaTime);
-        Vector2 moveVector = moveMult * _moveDir.normalized;
+        moveDir = moveDir.magnitude <= 0.01f ? Vector2.zero : moveDir.normalized;
+        _moveDir = _moveDir.Lerp(moveDir, lerpMult * _lerpSpeed * deltaTime);
+        Vector2 moveVector = moveMult * _moveDir;
         _actor.Move(moveVector);
         DebugDrawLine(moveVector, Color.green);
     }

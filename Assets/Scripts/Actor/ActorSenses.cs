@@ -27,14 +27,14 @@ public class ActorSenses : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         // Walls
-        WallVMap.GizmoDraw(transform.position);
+        //WallVMap.GizmoDraw(transform.position);
 
         // Actors
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
         EnemyActors.ForEach(x =>
         {
             if (x == null) return;
-            Gizmos.DrawLine(transform.position, x.transform.position);
+            //Gizmos.DrawLine(transform.position, x.transform.position);
         });
 
         // Scents
@@ -45,7 +45,7 @@ public class ActorSenses : MonoBehaviour
             {
                 var drop = EnemyScentDrop[i];
                 if (drop == null) continue;
-                Gizmos.DrawLine(transform.position, drop.transform.position);
+                //Gizmos.DrawLine(transform.position, drop.transform.position);
             }
         }
 
@@ -54,7 +54,7 @@ public class ActorSenses : MonoBehaviour
         AllyActors.ForEach(x =>
         {
             if (x == null) return;
-            Gizmos.DrawLine(transform.position, x.transform.position);
+            //Gizmos.DrawLine(transform.position, x.transform.position);
         });
     }
 

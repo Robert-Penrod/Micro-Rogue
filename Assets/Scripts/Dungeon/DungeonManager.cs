@@ -75,6 +75,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
         base.Awake();
         _playerManager = PlayerManager.I;
         DungeonTransform = new GameObject("Dungeon").transform;
+        Data.Seed = DateTime.Now.Ticks.GetHashCode();
     }
     #endregion
 
@@ -145,7 +146,19 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
             Debug.DrawLine(spawnPos, (Vector3)spawnPos + Vector3.up * 10f, Color.red, 10000f);
             foreach(var player in _playerManager.PlayerList)
             {
+                // Clear Scent
                 player.Actor.transform.position = spawnPos;// (Vector3)SpawnSystem.GetRandomEmptyPos(spawnPos, 2f) + Vector3.forward * player.Actor.transform.position.z;
+                player.Actor.GetComponentInChildren<ScentSystem>().ClearScentSystem();
+
+                // Health Increase
+                if (Data.RoomNumber > 1)
+                {
+                    
+                    float percent = player.Actor.Stats.HealthPercent;
+                    player.Actor.Stats.HealthMax.BaseValue += 2;
+                    player.Actor.Stats.Health = (int)(percent * player.Actor.Stats.HealthMax.Value);
+                    
+                }
             }
 
             // Extra

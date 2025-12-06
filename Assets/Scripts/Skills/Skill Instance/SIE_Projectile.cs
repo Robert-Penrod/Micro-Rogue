@@ -57,7 +57,6 @@ public class SIE_Projectile : SIE, IPoolable
         _rb.AddForce(launchForce, ForceMode2D.Impulse);
 
         // Lunge
-        var actorBody = _skillInstance.Skill.Actor.Body;
         Vector2 lungeForce = transform.up * _lunge;
         _skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
     }
@@ -143,7 +142,10 @@ public class SIE_Projectile : SIE, IPoolable
             Vector2 knockbackDir = transform.up;
             Vector2 knockbackForce = knockbackDir * _knockback;
             knockbackForce *= hitBody.linearDamping;
+            knockbackForce *= _rb.linearVelocity.magnitude.Remap(0f, 8f, 0f, 1f, false).ClampMin(0f);
+
             hitBody.AddForce(knockbackForce, ForceMode2D.Impulse);
+
             hitBody.transform.localScale *= 0.9f;
             this.DelayedInvoke(0.02f, () =>
             {

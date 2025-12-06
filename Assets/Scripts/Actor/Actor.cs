@@ -13,14 +13,17 @@ public class Actor : MonoBehaviour
     // Data
     public bool IsAlive { get; private set; }
     float _initScale;
+    float _initialLinearDamping;
 
     // References
     public Rigidbody2D Body { get; private set; }
     public ActorSenses Senses { get; private set; }
 
+
     private void Awake()
     {
         Body = GetComponent<Rigidbody2D>();
+        _initialLinearDamping = Body.linearDamping;
         Senses = GetComponent<ActorSenses>();
 
         // Init
@@ -62,7 +65,7 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        Stats.Health += (int)(Stats.HealthMax.Value * 0.3f);
+        Stats.Health += (int)(Stats.HealthMax.Value * 0.2f);
     }
 
     public bool IsPlayer()
