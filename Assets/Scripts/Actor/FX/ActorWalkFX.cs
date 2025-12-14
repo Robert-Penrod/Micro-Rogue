@@ -29,6 +29,8 @@ public class ActorWalkFX : MonoBehaviour
 
     Actor _actor;
 
+    Vector2 _moveInput => _actor.MoveController.MoveDir;
+
     private void Awake()
     {
         //_moveController = GetComponentInParent<MoveController>();
@@ -41,8 +43,8 @@ public class ActorWalkFX : MonoBehaviour
     private void Update()
     {
         // Detect if we are walking & if we have started walking
-        Vector2 moveDir = _actor.MoveInput.normalized;
-        bool isWalking = _actor.MoveInput.magnitude > 0.1f &&  _rb.linearVelocity.magnitude > 0.001f;
+        Vector2 moveDir = _moveInput.normalized;
+        bool isWalking = _moveInput.magnitude > 0.1f &&  _rb.linearVelocity.magnitude > 0.001f;
         bool startedWalkingThisFrame = isWalking && !_wasWalking;
 
         float slideMagnitude = Vector2.Dot(moveDir, _rb.linearVelocity.normalized).Remap(-1f, 1f, 1f, 0f);
@@ -118,7 +120,7 @@ public class ActorWalkFX : MonoBehaviour
     float _flipAnim = 1f;
     void HandleSpriteFlip()
     {
-        Vector2 moveDir = _actor.MoveInput.normalized;
+        Vector2 moveDir = _moveInput.normalized;
 
         // Get dir
         SpriteRenderer spriteRend = ActorSpriteRend;

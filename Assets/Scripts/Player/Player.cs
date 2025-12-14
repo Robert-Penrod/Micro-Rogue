@@ -31,9 +31,14 @@ public class Player : MonoBehaviour
         Data.Color = PlayerManager.I.GetPlayerColor(Index);
     }
 
+    private void Update()
+    {
+        if(_playerInput.actions.FindAction("Dash").IsPressed()) Actor.MoveController.Ctrl_Dodge(Actor.MoveController.MoveDir);
+    }
+
     private void FixedUpdate()
     {
-        Actor.Move(_playerInput.actions.FindAction("Move").ReadValue<Vector2>());
+        Actor.MoveController.Ctrl_Move(_playerInput.actions.FindAction("Move").ReadValue<Vector2>());
     }
 
     void OnDestroy()

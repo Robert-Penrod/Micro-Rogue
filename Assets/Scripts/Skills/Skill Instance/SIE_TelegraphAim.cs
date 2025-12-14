@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class SIE_TelegraphAim : SIE, IPoolable
 {
+    [SerializeField] float _offsetAngle;
+
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
     Actor _cachedTargetEnemy = null;
@@ -11,6 +13,9 @@ public class SIE_TelegraphAim : SIE, IPoolable
     float _speed => Constants.SkillStats.Speed.Default;
 
     float _angularVel;
+    Vector2 _lerpAimPos;
+    Vector2 _averageTargetVel;
+    float _aimAheadRand = 1f;
 
     protected override void Awake()
     {
@@ -26,18 +31,114 @@ public class SIE_TelegraphAim : SIE, IPoolable
         else transform.up = Random.insideUnitCircle.normalized;
     }
 
+    private void OnEnable()
+    {
+        _offsetAngle *= Random.value > 0.5f ? 1 : -1;
+        _aimAheadRand = Random.Range(0.25f, 1f);
+    }
+
     private void Update()
     {
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
+
+        // Targeting
         _targetTimer.Tick(Time.deltaTime);
         if(_targetTimer.IsDone())
         {
             _cachedTargetEnemy = _targetEnemy;
         }
-        Aim();
+
+        //ManyAimAttempts();
+        PrototypeAim();
+        //Aim();
     }
 
     void Aim()
+    {
+        // INIT
+        if (_targetEnemy == null)
+        {
+            _averageTargetVel = Vector2.zero;
+            return;
+        }
+        Vector2 targetAimPos = _targetEnemy.transform.position;
+
+        // PREDICTIVE OFFSET
+        // Actor Vel Offset
+        //targetAimPos -= 0.125f * _skillInstance.Skill.Actor.Body.linearVelocity;
+        //
+        // Target Vel Offset
+        var targetBody = _targetEnemy.GetComponent<Rigidbody2D>();
+        if (targetBody != null)
+        {
+            // Average Vel
+            _averageTargetVel = _averageTargetVel.Lerp(targetBody.linearVelocity, 3f * Time.deltaTime);
+            Debug.DrawLine(targetBody.transform.position, (Vector2)targetBody.transform.position + _averageTargetVel, Color.red.Lerp(Color.white, 0.5f));
+
+            // Aim Ahead
+            float dist = Vector2.Distance(transform.position, targetBody.transform.position);
+            float mult = dist / _speed;
+            float proximityMult = 1f;// dist.Remap(1f, 2f, 0.5f, 1f);
+            float averageVelMult = _averageTargetVel.magnitude.Remap(0f, Constants.ActorStats.MoveSpeed.Default * 0.9f, 0f, 1f);
+            targetAimPos += averageVelMult * proximityMult * mult * targetBody.linearVelocity;
+        }
+
+        Debug.DrawLine(transform.position, targetAimPos, Color.red);
+
+        // AIM
+        float torque = 8f; // 3, 2, 2.5
+        float responseAngle = 180f;
+        float damp = 8f; // 5, 10, 7.5, 8
+        torque *= damp;
+
+        float lerpSpeed = 20f;
+        _lerpAimPos = _lerpAimPos.Lerp(targetAimPos, lerpSpeed * Time.deltaTime);
+        Debug.DrawLine(transform.position, _lerpAimPos, Color.blue.Alpha(1f));
+
+
+        Vector2 targetAimDir = _lerpAimPos - (Vector2)transform.position;
+        float currentAngle = transform.rotation.eulerAngles.z;
+        float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
+        targetAngle += _offsetAngle;
+        Utils.MotorDampAngle(currentAngle, targetAngle, ref _angularVel, torque, responseAngle, damp, Time.deltaTime);
+        transform.Rotate2D(_angularVel);
+    }
+
+    void PrototypeAim()
+    {
+        float AimMult = 1f;
+        float _aimLerp = 8f;
+        if (_targetEnemy == null) return;
+        Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;
+        float targetDist = targetAimDir.magnitude;
+
+        Vector2 actorAimDir = _targetEnemy.transform.position - _skillInstance.Skill.Actor.transform.position;
+        targetAimDir = (targetAimDir.normalized + actorAimDir.normalized * 0.25f).normalized;
+
+        Rigidbody2D targetBody = _targetEnemy.GetComponent<Rigidbody2D>();
+        if (targetBody != null)
+        {
+            _averageTargetVel = _averageTargetVel.Lerp(targetBody.linearVelocity, 3f * Time.deltaTime);
+            float averageVelMult = _averageTargetVel.magnitude.Remap(0f, Constants.ActorStats.MoveSpeed.Default * 0.9f, 0f, 1f);
+            float targetMult = _skillInstance.Skill.Actor.Faction == Actor.FactionType.Enemy ? 0.5f : 0.25f;
+            float distMult = Mathf.Max(1f + ((targetDist - 1f) / 3f), 1f);
+            Vector2 predictiveOffset = targetBody.linearVelocity * averageVelMult * targetMult * distMult;
+            Vector2 predictivePos = (Vector2)_targetEnemy.transform.position + predictiveOffset;
+            Vector2 predictiveAimDir = predictivePos - (Vector2)transform.position;
+
+            // lerp predictive aim based on target dist
+            float t = _aimAheadRand * targetDist.Remap(1f, 3f, 0f, 1f);
+            targetAimDir = Vector2.Lerp(targetAimDir, predictiveAimDir, t);
+        }
+
+        Debug.DrawLine(transform.position, transform.position + (Vector3)targetAimDir * 5f);
+        float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
+        float currentAngle = transform.rotation.eulerAngles.z;
+        float lerpAngle = Mathf.LerpAngle(currentAngle, targetAngle, AimMult * _aimLerp * Time.deltaTime);
+        transform.rotation = Quaternion.Euler(0f, 0f, lerpAngle);
+    }
+
+    void ManyAimAttempts()
     {
         /*
         // 1
@@ -154,24 +255,31 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
         // PREDICTIVE OFFSET
         // Actor Vel Offset
-        targetAimPos -= 0.125f * _skillInstance.Skill.Actor.Body.linearVelocity;
+        //targetAimPos -= 0.125f * _skillInstance.Skill.Actor.Body.linearVelocity;
         //
         // Target Vel Offset
         var targetBody = _targetEnemy.GetComponent<Rigidbody2D>();
         if (targetBody != null)
         {
-            float mult = Vector2.Distance(transform.position, targetBody.transform.position) / _speed;
-            targetAimPos += mult * targetBody.linearVelocity;
+            float dist = Vector2.Distance(transform.position, targetBody.transform.position);
+            float mult = dist / _speed;
+            float proximityMult = dist.Remap(1f, 2f, 0.5f, 1f);
+            targetAimPos += proximityMult * mult * targetBody.linearVelocity;
         }
 
+        Debug.DrawLine(transform.position, targetAimPos, Color.red);
+
         // AIM
-        float torque = 2.5f; // 3, 2
+        float torque = 8f; // 3, 2, 2.5
         float responseAngle = 180f;
-        float damp = 8f; // 5, 10, 7.5
+        float damp = 8f; // 5, 10, 7.5, 8
         torque *= damp;
-        Vector2 targetAimDir = targetAimPos - (Vector2)transform.position;
+        _lerpAimPos = _lerpAimPos.Lerp(targetAimPos, 25f * Time.deltaTime);
+        Debug.DrawLine(transform.position, _lerpAimPos, Color.blue);
+        Vector2 targetAimDir = _lerpAimPos - (Vector2)transform.position;
         float currentAngle = transform.rotation.eulerAngles.z;
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
+        targetAngle += _offsetAngle;
         Utils.MotorDampAngle(currentAngle, targetAngle, ref _angularVel, torque, responseAngle, damp, Time.deltaTime);
         transform.Rotate2D(_angularVel);
     }

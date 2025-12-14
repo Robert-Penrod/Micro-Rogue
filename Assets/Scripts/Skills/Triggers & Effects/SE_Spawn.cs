@@ -36,7 +36,7 @@ public class SE_Spawn : SkillEffect
         var skillInstance = newObj.GetComponent<SkillInstance>();
         if(skillInstance)
         {
-            skillInstance.Skill = _skill;
+            skillInstance.Link(_skill);
         }
 
         newObj.SetActive(true);

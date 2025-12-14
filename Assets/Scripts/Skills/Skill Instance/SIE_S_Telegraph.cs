@@ -4,6 +4,7 @@ using UnityEngine;
 public class SIE_S_Telegraph : SIE, IPoolable
 {
     [Header("Config")]
+    [SerializeField] float _telegraphMult = 1f;
     [SerializeField] bool _isHeld = true;
 
     float _telegraphPercent;
@@ -11,14 +12,17 @@ public class SIE_S_Telegraph : SIE, IPoolable
     float _cooldownTime => Constants.SkillStats.Cooldown.Default;
     float _size => Constants.SkillStats.Size.Default;
     float _baseTelegraphTime => Constants.SkillStats.BaseTelegraphTime;
-    float _telegraphTime => (_baseTelegraphTime + _cooldownTime * _baseTelegraphTime);
+    float _telegraphTime => _telegraphMult * (_baseTelegraphTime + _cooldownTime * _baseTelegraphTime);
 
     ColorController _colorController;
 
     MomentumTrackerEquipmentAnimator _momentumEquipAnim;
 
+    Vector3 _initScale;
+
     protected override void Awake()
     {
+        _initScale = transform.localScale;
         base.Awake();
         _colorController = GetComponentInParent<ColorController>();
 
@@ -54,7 +58,8 @@ public class SIE_S_Telegraph : SIE, IPoolable
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
 
         // Tick
-        _telegraphPercent += Time.deltaTime / _telegraphTime;
+        float dodgeMult = _skillInstance.Skill.Actor.MoveController.IsDodging ? 0f : 1f;
+        _telegraphPercent += dodgeMult * Time.deltaTime / _telegraphTime;
 
         // Alpha
         float alphaPercent = Mathf.Pow(_telegraphPercent.Remap(0f, 0.5f, 0f, 1f), 1.25f);
@@ -64,7 +69,7 @@ public class SIE_S_Telegraph : SIE, IPoolable
 
         // Scale
         //transform.SetLossyScale(Vector3.one * _telegraphPercent.RemapPercent(0f, _size));
-        transform.localScale = Vector3.one * _telegraphPercent.RemapPercent(0f, _size);
+        transform.localScale = _initScale * _telegraphPercent.RemapPercent(0f, _size);
 
         // Next
         if (_telegraphPercent >= 1) _skillInstance.State++;

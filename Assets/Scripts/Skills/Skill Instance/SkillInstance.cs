@@ -32,6 +32,7 @@ public class SkillInstance : MonoBehaviour, IPoolable
                 case SkillInstanceState.End:
                     OnEnd?.Invoke();
                     PlayAudio(_endClip);
+                    if (Skill.SkillInstances.Contains(this)) Skill.SkillInstances.Remove(this);
                     break;
             }
         }
@@ -47,6 +48,12 @@ public class SkillInstance : MonoBehaviour, IPoolable
         _state = SkillInstanceState.Start;
         OnStart?.Invoke();
         PlayAudio(_startClip, 0.5f);
+    }
+
+    public void Link(Skill skill)
+    {
+        this.Skill = skill;
+        if(!skill.SkillInstances.Contains(this)) skill.SkillInstances.Add(this);
     }
 
     void PlayAudio(AudioClip audio, float volMult = 1f)

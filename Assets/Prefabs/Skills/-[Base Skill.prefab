@@ -250,11 +250,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Actor: {fileID: 0}
   Stats:
+    Slot: 0
     Str: 0
     Dex: 0
     Int: 0
-    Size: 1
-    Duration: 0.25
-    Cooldown: 4
-    Speed: 8
+    DamageLabel: 0
+    Pierce: 1
+    DurationLabel: 0
+    SpeedLabel: 0
+    HomingLabel: 0
+  SkillInstances: []

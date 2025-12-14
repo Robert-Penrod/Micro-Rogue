@@ -150,6 +150,12 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
                 player.Actor.transform.position = spawnPos;// (Vector3)SpawnSystem.GetRandomEmptyPos(spawnPos, 2f) + Vector3.forward * player.Actor.transform.position.z;
                 player.Actor.GetComponentInChildren<ScentSystem>().ClearScentSystem();
 
+                // Shuffle Cooldowns
+                new List<Skill>(player.Actor.GetComponentsInChildren<Skill>()).ForEach(playerSkill =>
+                {
+                    playerSkill.ShuffleCooldown();
+                });
+
                 // Health Increase
                 if (Data.RoomNumber > 1)
                 {

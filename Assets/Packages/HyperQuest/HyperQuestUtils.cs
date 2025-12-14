@@ -518,6 +518,10 @@ public static class TypeExtensions
     #endregion
 
     #region Vector Extensions
+    public static Vector2 ClampMagnitude(this Vector2 vector, float magnitude)
+    {
+        return Vector2.ClampMagnitude(vector, magnitude);
+    }
     public static Vector3 VectorTowards(this Vector3 startVector, Vector3 endVector)
     {
         return endVector - startVector;

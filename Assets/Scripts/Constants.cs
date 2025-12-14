@@ -47,7 +47,7 @@ public static class Constants
 
         public static class DodgeCooldown
         {
-            public static float Default = 3f;
+            public static float Default = 2f; // 1.75f
         }
     }
 
@@ -56,7 +56,7 @@ public static class Constants
         public static float BaseAlpha = 1f;
         public static float BaseTelegraphTime = 0.25f;
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
-        public static float SIE_ProjectileInheritVelocityMult = 1f;
+        public static float SIE_ProjectileInheritVelocityMult = 0.75f;
 
         public static class HitboxDelay
         {
@@ -73,6 +73,25 @@ public static class Constants
             public const float Default = 0.25f;
         }
 
+        public static class Homing
+        {
+            public enum Label { Default = 0, Moderate = 1, Strong = 2}
+            public const float Default = 0f;
+            public const float Moderate = 1f;
+            public const float Strong = 2f;
+
+            public static float LabelToStat(Label label)
+            {
+                switch (label)
+                {
+                    case Label.Default: return Default;
+                    case Label.Moderate: return Moderate;
+                    case Label.Strong: return Strong;
+                }
+                throw new System.Exception("No stat label " + label.ToString());
+            }
+        }
+
         public static class HitStun
         {
             public const float Default = 0.1f;
@@ -87,22 +106,56 @@ public static class Constants
 
         public static class Duration
         {
+            public enum Label { Melee = 1, Projectile = 2}
             public const float Melee = 0.25f;
             public const float Projectile = 1f;
+
+            public static float LabelToStat(Label label)
+            {
+                switch (label)
+                {
+                    case Label.Melee: return Melee;
+                    case Label.Projectile: return Projectile;
+                }
+                throw new System.Exception("No stat label " + label.ToString());
+            }
         }
 
         public static class Speed
         {
-            public const float Slow = Default / 2f;
-            public const float Default = 8f;
-            public const float Fast = Default * 2f;
+            public enum Label { Default = 0, Slow = -1, Fast = 1}
+            public const float Slow = 8f;
+            public const float Default = 10f;
+            public const float Fast = 12f;
+            public static float LabelToStat(Label label)
+            {
+                switch (label)
+                {
+                    case Label.Slow: return Slow;
+                    case Label.Default: return Default;
+                    case Label.Fast: return Fast;
+                }
+                throw new System.Exception("No stat label " + label.ToString());
+            }
         }
 
         public static class Damage
         {
+            public enum Label { Default = 0, Light = -1, High = 1 }
             public const float Light = 3f;
             public const float Default = 5f;
             public const float High = 7f;
+
+            public static float LabelToStat(Label label)
+            {
+                switch (label)
+                {
+                    case Label.Light: return Light;
+                    case Label.Default: return Default;
+                    case Label.High: return High;
+                }
+                throw new System.Exception("No stat label " + label.ToString());
+            }
         }
 
         public static class Pierce

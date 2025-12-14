@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1470494072386302118, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -23,6 +27,18 @@ PrefabInstance:
     - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Color.r
       value: 0.34901962
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524650700362861655, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110742264773460228, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _rushMult
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110742264773460228, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _dodgeMult
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name

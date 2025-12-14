@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.3660378
       objectReference: {fileID: 0}
+    - target: {fileID: 6583902198546438058, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Faction
       value: 2

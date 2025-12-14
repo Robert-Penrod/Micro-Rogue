@@ -5,6 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SIE_Projectile : SIE, IPoolable
 {
+    [SerializeField] float _launchMult = 1f;
+    [SerializeField] float _angularVel = 0f;
+
+    List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
+    Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
+    Actor _cachedTargetEnemy = null;
+
     [SerializeField] AudioClip _hitClip;
     [SerializeField] AudioClip _wallHitClip;
 
@@ -15,6 +22,7 @@ public class SIE_Projectile : SIE, IPoolable
     int _pierce => (int)_skillInstance.Skill.Stats.Pierce;
     int _damage => (int)_skillInstance.Skill.Stats.Damage;
     float _lunge => _skillInstance.Skill.Stats.Lunge;
+    float _homing => _skillInstance.Skill.Stats.Homing;
 
     float _piercePercent => _pierceCount.Remap(0f, _pierce, 0f, 1f);
 
@@ -48,17 +56,54 @@ public class SIE_Projectile : SIE, IPoolable
         Vector2 launchForce = _speed * transform.up;
 
         var actor = _skillInstance.Skill.Actor;
+
+        // Actor Speed Inheritance
         if (actor != null)
         {
+            // Launch Force
             Vector2 projectedParentVel = Vector3.Project(actor.Body.linearVelocity, launchForce.normalized);
-            launchForce += projectedParentVel * Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
+            Vector2 inheritVel = projectedParentVel * Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
+            launchForce += inheritVel;
+
+            // Min Launch Force
+            float minLaunchForce = _speed / 2f;
+            if(launchForce.magnitude < minLaunchForce || Vector2.Dot(launchForce, transform.up) < 0)
+            {
+                launchForce = minLaunchForce * transform.up;
+            }
         }
 
-        _rb.AddForce(launchForce, ForceMode2D.Impulse);
+        // Add Force
+        _rb.AddForce(_launchMult * launchForce, ForceMode2D.Impulse);
+        _rb.angularVelocity = -_angularVel * 360f;
 
         // Lunge
         Vector2 lungeForce = transform.up * _lunge;
         _skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
+    }
+
+    private void FixedUpdate()
+    {
+        // Aim
+        if (_rb.linearVelocity.sqrMagnitude > 0.01f)
+        {
+            float targetAngle = Vector2.SignedAngle(Vector2.up, _rb.linearVelocity);
+            float lerpAngle = _rb.rotation.LerpAngle(targetAngle, 12f * Time.deltaTime);
+            //_rb.MoveRotation(lerpAngle);
+
+
+            // Homing
+            if (_cachedTargetEnemy == null) _cachedTargetEnemy = _targetEnemy;
+            if (_targetEnemy == null) return;
+            Vector2 currentDir = _rb.linearVelocity.normalized;
+            Vector2 targetDir = (_targetEnemy.transform.position - transform.position).normalized;
+            float currentAngle = Vector2.SignedAngle(Vector2.up, currentDir);
+            float targetHomingAngle = Vector2.SignedAngle(Vector2.up, targetDir);
+            float lerpHomingAngle = Mathf.LerpAngle(currentAngle, targetHomingAngle, _homing * Time.fixedDeltaTime);
+            Vector2 lerpDir = Quaternion.Euler(0f, 0f, lerpHomingAngle) * Vector2.up;
+            Vector2 newVel = lerpDir * _rb.linearVelocity.magnitude;
+            _rb.linearVelocity = newVel;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision) => HandleCollisionStay(collision.collider, collision);
@@ -111,7 +156,7 @@ public class SIE_Projectile : SIE, IPoolable
             // Damage
             float damage = (int)_skillInstance.Skill.Stats.Damage;
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
-            hitActor.Stats.Health -= (int)damage;
+            int damageTaken = hitActor.TakeDamage((int)damage);
 
             // Pierce
             _pierceCount++;
@@ -120,8 +165,8 @@ public class SIE_Projectile : SIE, IPoolable
             // Hit Stun
 
             // Popup
-            string colorString = hitActor.IsPlayer() ? "#FF9900" : "#FFFFFF";
-            string popupString = "<color=" + colorString + ">-" + _damage.ToString() + "</color>";
+            string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
+            string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
             Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive? 0.5f : 1f);
             popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
             TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
@@ -139,7 +184,7 @@ public class SIE_Projectile : SIE, IPoolable
         // Knockback
         if(hitBody != null)
         {
-            Vector2 knockbackDir = transform.up;
+            Vector2 knockbackDir = _rb.linearVelocity.normalized;
             Vector2 knockbackForce = knockbackDir * _knockback;
             knockbackForce *= hitBody.linearDamping;
             knockbackForce *= _rb.linearVelocity.magnitude.Remap(0f, 8f, 0f, 1f, false).ClampMin(0f);

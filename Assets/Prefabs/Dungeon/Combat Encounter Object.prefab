@@ -44,4 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b379e2291acc0649871a1453b493507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _testEnemyPrefab: {fileID: 6620445320507997368, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
+  _enemyTable:
+    Entries:
+    - Item: {fileID: 6620445320507997368, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
+      Weight: 1
+    - Item: {fileID: 3469973697154441222, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
+      Weight: 1
+    - Item: {fileID: 7901988983867986505, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
+      Weight: 1

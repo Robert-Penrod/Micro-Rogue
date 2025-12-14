@@ -13,13 +13,18 @@ public class GamePalette : ScriptableObject
     public Color DexColor;
     public Color IntColor;
 
-    public Color GetColor(Actor actor, int str = 1, int dex = 1, int intel = 1)
+    public Color GetSkillColor(Skill skill) => GetSkillColor(skill.Actor, skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int);
+    public Color GetSkillColor(Actor actor, int str = 1, int dex = 1, int intel = 1)
     {
         Color individualPlayerColor = EnemyColor; // Player vs enemy color
         if(actor.IsPlayer())
         {
             individualPlayerColor = actor.GetComponentInParent<Player>().Data.Color;
             individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0.5f);
+        }
+        else if(actor.Faction == Actor.FactionType.Player)
+        {
+            individualPlayerColor = PlayerColor;
         }
         Color archetypeColor = GetArchetypeColor(str, dex, intel);
 

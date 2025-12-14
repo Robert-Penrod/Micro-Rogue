@@ -4,17 +4,17 @@ using UnityEngine;
 public class CombatEncounterObject : MonoBehaviour
 {
     public bool IsEncounterOver { get; private set; }
-    [SerializeField] GameObject _testEnemyPrefab;
+    [SerializeField] WeightedList<GameObject> _enemyTable = new();
     List<Actor> _enemyList = new();
 
     private void Start()
     {
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
-        int enemyCount = PlayerManager.I.PlayerList.Count + (DungeonManager.I.Data.RoomNumber-1).ClampMin(0) / 3;
+        int enemyCount = PlayerManager.I.PlayerList.Count + (DungeonManager.I.Data.RoomNumber).ClampMin(0) / 3;
         for(int i = 0; i < enemyCount; i++)
         {
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
-            var actor = Instantiate(_testEnemyPrefab, spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
+            var actor = Instantiate(_enemyTable.SelectItem(), spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
             _enemyList.Add(actor);
         }
         Debug.Log("Enemy Spawn");

@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: Stats.Str
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.DurationLabel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -267,11 +271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191357747834812176, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Size.y
-      value: 1.125
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 8191357747834812176, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Offset.y
-      value: 0.6675
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8579264975035111285, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,0 +1,257 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SimpleNPCBrain : ActorBrain
+{
+    [Header("Dist")]
+    [SerializeField] float _passiveDistMult = 1f;
+    [SerializeField] float _attackDistMult = 0.5f;
+    float _minDistBase = 1f;
+    float _maxDistBase = 2.5f;
+    float _minDistPref => _minDistBase * _distMult; // 0.5,  1f
+    float _maxDistPref => _maxDistBase * _distMult; // 2, 2.5
+    float _distMult => _isAttacking ? _attackDistMult : _passiveDistMult;
+    bool _isAttacking => _actor?.SkillSystem?.IsAttacking() ?? false;
+
+    [Header("Walls")]
+    [SerializeField] float _openSpaceDesire = 0f;
+
+    [Header("Rand")]
+    [SerializeField] float _wander = 0.5f;
+    Vector2 _wanderVector;
+
+    [Header("Evade")]
+    [SerializeField] float _evasion = 0f;
+    [SerializeField] float _dodgeEvade = 0f;
+    float _dodgeEvadeCharge;
+    [SerializeField] float _dodgeSprint = 0f;
+    float _dodgeSprintCharge;
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow.Alpha(_isAttacking? 0.1f : 0.25f);
+        Gizmos.DrawWireSphere(transform.position, + _passiveDistMult * (_minDistBase + _maxDistBase) / 2f);
+        Gizmos.color = Color.red.Alpha(!_isAttacking? 0.1f : 0.25f);
+        Gizmos.DrawWireSphere(transform.position, + _attackDistMult * (_minDistBase + _maxDistBase) / 2f);
+    }
+
+    private void OnEnable()
+    {
+        _dodgeEvadeCharge = Random.Range(0f, 0.5f);
+        _dodgeSprintCharge = Random.Range(0f, 0.5f);
+    }
+
+    private void Update()
+    {
+        //PrototypeBrainUpdate(Time.deltaTime);
+        BrainUpdate(Time.deltaTime);
+    }
+
+    void BrainUpdate(float deltaTime)
+    {
+        // INIT
+        var senses = _actor.Senses;
+        Vector2 moveDir = Vector2.zero;
+        float sprintMult = 1f;
+
+        // UPDATES
+        //
+        // Wander
+        _wanderVector = Vector2.Lerp(_wanderVector.normalized, Random.insideUnitCircle.normalized, 10.5f * deltaTime).normalized;
+        DebugDrawLine(_wanderVector, Color.white);
+        //
+        // Dodge
+        _dodgeEvadeCharge += _dodgeEvade * deltaTime;
+        if (_dodgeEvadeCharge > 1f) _dodgeEvadeCharge = 1f;
+        _dodgeSprintCharge += _dodgeSprint * deltaTime;
+        if (_dodgeSprintCharge > 1f) _dodgeSprintCharge = 1f;
+
+        // CHASE
+        //
+        // Enemy
+        if (senses.EnemyActors.Count > 0)
+        {
+            Vector2 desireVector = Vector2.zero;
+            float averageDistance = 0f;
+            foreach (Actor enemy in senses.EnemyActors)
+            {
+                Vector2 towardsEnemy = enemy.transform.position - transform.position;
+                float desire = towardsEnemy.magnitude.Remap(_minDistPref, _maxDistPref, -1f, 1f);
+                //desire = desire.Sign() * desire.Pow(8f).Abs();
+                desireVector += desire * towardsEnemy.normalized;
+                averageDistance += towardsEnemy.magnitude;
+            }
+            desireVector /= senses.EnemyActors.Count;
+
+            DebugDrawLine(desireVector, Color.red.Lerp(Color.white, 0.5f));
+
+            // desire wander
+            float mag = desireVector.magnitude;
+            desireVector = mag * desireVector.Lerp(_wanderVector, _wander * (_isAttacking? 0.5f : 1f)).normalized;
+
+            DebugDrawLine(desireVector, Color.red);
+            moveDir += desireVector;
+
+            // enemy sprint
+            sprintMult += averageDistance.Remap(_maxDistPref, _maxDistPref * 2f, 0f, 0.05f);
+        }
+        //
+        // Scent
+        else if (senses.EnemyScentDrop.Count > 0)
+        {
+            sprintMult += 0.05f;
+            Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;
+            moveDir += targetDir.normalized;
+            Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir * 5f, Color.green);
+        }
+        //
+        // Idle
+        else
+        {
+            float distFromCenter = transform.position.magnitude;
+            Vector2 towardsCenter = -transform.position.normalized;
+
+            float t = distFromCenter.Remap(7f, 12f, 0f, 1f);
+            Vector2 randomMoveVector = Vector2.Lerp(_wanderVector, towardsCenter, t);
+
+            moveDir += randomMoveVector.normalized;
+        }
+        //===
+
+        // SPATIAL
+        //
+        // Open Space
+        Vector2 openSpaceVector = _actor.Senses.WallVMap.ToVector() / 5f;
+        if (openSpaceVector.magnitude > 1f) openSpaceVector.Normalize();
+        openSpaceVector *= _openSpaceDesire;
+        DebugDrawLine(openSpaceVector, Color.cyan);
+        moveDir += openSpaceVector;
+        //
+        // Avoid Wall
+        var wallMap = _actor.Senses.WallVMap;
+        float minWallDist = float.MaxValue;
+        wallMap.Map.ForEach(dir =>
+        {
+            var dist = dir.magnitude;
+            if (dist < minWallDist) minWallDist = dist;
+        });
+        float wallMult = minWallDist.Remap(0.4f, 0.8f, 1f, 0f);
+        Vector2 avoidWallVector = wallMap.ToVector() * 0.25f * wallMult; // 0.125f
+        DebugDrawLine(avoidWallVector, Color.blue);
+        moveDir += avoidWallVector;
+        //===
+
+        // Avoid Enemy Skills
+        var enemySkills = _actor.Senses.EnemySkills;
+        if (enemySkills.Count > 0)
+        {
+            List<Vector2> skillAvoidanceVectorList = new List<Vector2>();
+            _actor.Senses.EnemySkills.ForEach(x =>
+            {
+                Vector2 toSkillVector = transform.VectorTowards2D(x.transform);
+                float dist = toSkillVector.magnitude;
+
+                Vector2 aimVector = x.transform.up;
+                Rigidbody2D skillBody = x.GetComponent<Rigidbody2D>();
+                if (skillBody != null && skillBody.linearVelocity.sqrMagnitude > 0.1f)
+                {
+                    aimVector = skillBody.linearVelocity.normalized;
+                }
+
+                //DebugDrawLine(aimVector * 10f, Color.yellow);
+
+                Vector2 evadeVector = -toSkillVector.normalized;
+                //DebugDrawLine(evadeVector, Color.green.Lerp(Color.white, 0.5f));
+                evadeVector -= aimVector.normalized * 0.95f;
+                evadeVector = evadeVector.normalized;
+                //DebugDrawLine(evadeVector, Color.green.Lerp(Color.blue, 0.0f));
+                //if (evadeVector.magnitude > 1f) evadeVector = evadeVector.normalized;
+
+                evadeVector = (evadeVector + _actor.Body.linearVelocity.normalized * 0.15f).normalized;
+
+                float avoidancePercent = Mathf.Pow(dist.Remap(0.5f, 7f, 1f, 0f), 2f);
+                //lerpMult += avoidancePercent.Remap(0f, 1f, 0f, 0.01f);
+                Vector2 avoidanceVector = evadeVector.normalized * avoidancePercent;
+
+                skillAvoidanceVectorList.Add(avoidanceVector);
+            });
+            var avoidanceVector = skillAvoidanceVectorList.AverageVectors();
+
+            // Avoidance Dodge
+            if (_dodgeEvadeCharge >= 1f && avoidanceVector.magnitude >= 0.7f && _actor.MoveController.IsDodgeCooledDown)
+            {
+                _dodgeEvadeCharge = 0f;
+                _actor.MoveController.Ctrl_Dodge(avoidanceVector.normalized);
+            }
+
+            // Apply Evasion
+            Vector2 skillAvoidanceVector = _evasion * avoidanceVector; //2.3f
+            DebugDrawLine(skillAvoidanceVector, Color.magenta);
+            moveDir += skillAvoidanceVector;
+        }
+
+        // Sprint Dodge
+        if (_dodgeSprintCharge >= 1f && sprintMult * _dodgeSprint > 1 && _actor.MoveController.IsDodgeCooledDown)
+        {
+            _dodgeSprintCharge = 0f;
+            _actor.MoveController.Ctrl_Dodge(moveDir.normalized);
+        }
+
+        // MOVE
+        moveDir = sprintMult * moveDir.ClampMagnitude(1f);
+        _actor.MoveController.Ctrl_Move(moveDir);
+        Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.red);
+        //===
+    }
+
+    void PrototypeBrainUpdate(float deltaTime)
+    {
+        float _wanderSpeed = 10.5f;
+        float _wanderStrength = 0.5f;
+
+        _wanderVector = Vector2.Lerp(_wanderVector.normalized, Random.insideUnitCircle.normalized, _wanderSpeed * Time.deltaTime).normalized;
+        DebugDrawLine(_wanderVector, Color.white);
+
+        var senses = _actor.Senses;
+        if (senses.EnemyActors.Count == 0)
+        {
+            if (senses.EnemyScentDrop.Count == 0)
+            {
+                // Has no scent or sight
+                float distFromCenter = transform.position.magnitude;
+                Vector2 towardsCenter = -transform.position.normalized;
+
+                float t = distFromCenter.Remap(7f, 12f, 0f, 1f);
+                Vector2 randomMoveVector = Vector2.Lerp(_wanderVector, towardsCenter, t);
+
+                _actor.MoveController.Ctrl_Move(randomMoveVector.normalized);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)_wanderVector * 5f, Color.gray);
+                return;
+            }
+            else
+            {
+                // Has scent but no sight
+                Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;
+                Vector2 moveDir = targetDir;// Vector2.Lerp(targetDir, randomDir, WanderStrength);
+                _actor.MoveController.Ctrl_Move(moveDir.normalized);
+                Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir * 5f, Color.green);
+                return;
+            }
+        }
+        else
+        {
+            // Has sight
+            GameObject targetPlayerObject = senses.EnemyActors[0].gameObject;
+            Vector2 targetDir = targetPlayerObject.transform.position - transform.position;
+            DebugDrawLine(targetDir, Color.red.Lerp(Color.white, 0.5f));
+            Vector2 moveDir = Vector2.Lerp(targetDir, _wanderVector, _wanderStrength);
+            _actor.MoveController.Ctrl_Move(moveDir.normalized);
+            Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.red);
+        }
+    }
+
+    void DebugDrawLine(Vector3 vector, Color c)
+    {
+        Debug.DrawLine(transform.position, transform.position + vector, c);
+    }
+}
