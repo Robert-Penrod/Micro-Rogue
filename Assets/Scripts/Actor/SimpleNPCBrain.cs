@@ -37,8 +37,8 @@ public class SimpleNPCBrain : ActorBrain
 
     private void OnEnable()
     {
-        _dodgeEvadeCharge = Random.Range(0f, 0.5f);
-        _dodgeSprintCharge = Random.Range(0f, 0.5f);
+        _dodgeEvadeCharge = Random.Range(0f, 1f);
+        _dodgeSprintCharge = Random.Range(0f, 1f);
     }
 
     private void Update()

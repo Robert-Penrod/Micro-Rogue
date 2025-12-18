@@ -133,6 +133,15 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
                 Destroy(p.gameObject);
             }
 
+            foreach (var player in _playerManager.PlayerList)
+            {
+                player.Actor.gameObject.SetActive(false);
+            }
+
+            // Upgrade
+            UpgradeManager.I.UpgradePlayers();
+            while (UpgradeManager.I.IsUpgrading) yield return null;
+
             // New Level
             GenerateLevel();
 

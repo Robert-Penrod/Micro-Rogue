@@ -8,6 +8,12 @@ public class DebugTools : MonoBehaviour
 
     private void Update()
     {
+        // Upgrade
+        if(Input.GetKeyDown(KeyCode.U))
+        {
+            UpgradeManager.I.UpgradePlayers();
+        }
+
         // Slowmo Toggle
         if (Input.GetKeyDown(KeyCode.L))
         {
