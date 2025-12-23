@@ -133,6 +133,7 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
                 Destroy(p.gameObject);
             }
 
+            // Deactivate Player Actors
             foreach (var player in _playerManager.PlayerList)
             {
                 player.Actor.gameObject.SetActive(false);
@@ -144,6 +145,12 @@ public class DungeonManager : PersistantSingleton<DungeonManager>
 
             // New Level
             GenerateLevel();
+
+            // Reactivate Players
+            foreach(var player in _playerManager.PlayerList)
+            {
+                player.Actor.gameObject.SetActive(true);
+            }
 
             yield return new WaitForFixedUpdate();
 

@@ -2,13 +2,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler
+public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler
 {
     [SerializeField] AudioClip _selectSound;
     [SerializeField] AudioClip _submitSound;
 
     bool _isSelected;
-    float _lerpSpeed = 12f;
+    float _lerpSpeed = 25f;
     float _submitCharge;
 
     bool _pointerPresenceSelection = true;
@@ -31,6 +31,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
         _isSelected = false;
     }
 
+    public void OnPointerDown(PointerEventData eventData) => OnSubmit(eventData);
     public void OnSubmit(BaseEventData eventData)
     {
         _submitCharge += 1f;

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 3850379180998591336}
   - component: {fileID: 5264746432206743211}
   m_Layer: 0
-  m_Name: Icon (1)
+  m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2341,6 +2341,7 @@ GameObject:
   - component: {fileID: 2644439179135440254}
   - component: {fileID: 5105661758516318500}
   - component: {fileID: -5197477033239657942}
+  - component: {fileID: 8752031783740903159}
   m_Layer: 0
   m_Name: Upgrade Card
   m_TagString: Untagged
@@ -2429,6 +2430,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectSound: {fileID: 8300000, guid: d3d6ec2c28ffa34499fe1f7a7cd0d310, type: 3}
   _submitSound: {fileID: 8300000, guid: e3673d69b204fcf45aa1de15e1904e63, type: 3}
+--- !u!114 &8752031783740903159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989211292460682863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b29b3d14f2c3c874e92526fe5aa891b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 7121683933476250208}
+  _title: {fileID: 8990183034755664848}
+  _level: {fileID: 8583131503270913417}
+  _description: {fileID: 2460763550586700869}
+  _tagHolder: {fileID: 4641683922558154310}
 --- !u!1 &7927808055480747688
 GameObject:
   m_ObjectHideFlags: 0

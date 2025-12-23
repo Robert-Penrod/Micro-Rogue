@@ -708,6 +708,7 @@ GameObject:
   - component: {fileID: 7225036806597872422}
   - component: {fileID: 5185704548203482028}
   - component: {fileID: 9016044144876615625}
+  - component: {fileID: 178267734969749461}
   m_Layer: 0
   m_Name: = Upgrade =
   m_TagString: Untagged
@@ -759,6 +760,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lerpSpeed: 12
   _upgradeBgSprite: {fileID: 8449042003657046270}
+  _upgradeCardList: []
+--- !u!225 &178267734969749461
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5519305737582323354}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5526970103515062091
 GameObject:
   m_ObjectHideFlags: 0
@@ -6659,7 +6673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

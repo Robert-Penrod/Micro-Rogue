@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeManager : PersistantSingleton<UpgradeManager>
@@ -17,5 +18,16 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         IsUpgrading = true;
         Debug.Log("Upgrading Players!");
         UpgradeMenu.I.DoUpgradeMenuFor(playerList[0].Actor);        
+    }
+
+    public void CancelUpgrade()
+    {
+        IsUpgrading = false;
+        UpgradeMenu.I.SetMenuOpen(false);
+    }
+
+    public List<Upgrade> GetUpgradeOptions(Actor actor)
+    {
+        return null; 
     }
 }

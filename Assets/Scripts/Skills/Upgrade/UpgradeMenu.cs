@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
@@ -7,23 +8,54 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     [Header("References")]
     [SerializeField] SpriteRenderer _upgradeBgSprite;
+    CanvasGroup _canvasGroup;
+    [SerializeField] List<UpgradeCardUI> _upgradeCardList = new();
 
     bool _isOpen;
 
+    protected override void Awake()
+    {
+        base.Awake();
+        _canvasGroup = GetComponent<CanvasGroup>();
+        SetMenuOpen(false);
+    }
+
     private void Update()
     {
+        // Dungeon Veil Alpha
         float lerpAlph = _upgradeBgSprite.color.a.Lerp(_isOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
-        //_upgradeBgSprite.color = _upgradeBgSprite.color.Alpha(lerpAlph);
+        _upgradeBgSprite.color = _upgradeBgSprite.color.Alpha(lerpAlph);
+
+        // Canvas Alpha
+        _canvasGroup.alpha = _canvasGroup.alpha.Lerp(_isOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
     }
 
     public void DoUpgradeMenuFor(Actor actor)
     {
         SetMenuOpen(true);
+        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(actor));
     }
 
-    void SetMenuOpen(bool isOpen)
+    public void SetMenuOpen(bool isOpen)
     {
-        CameraManager.Instance.ZoomKnob = isOpen ? 0.75f : 1f;
+        CameraManager.Instance.ZoomKnob = isOpen ? 1.1f : 1f;
+        _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
         _isOpen = isOpen;
+    }
+
+    void SetUpgradeOptions(List<Upgrade> upgradeList)
+    {
+        for(int i = 0; i < _upgradeCardList.Count; i++)
+        {
+            if (upgradeList != null && i < upgradeList.Count)
+            {
+                _upgradeCardList[i].gameObject.SetActive(true);
+                _upgradeCardList[i].LoadUpgradeData(upgradeList[i]);
+            }
+            else
+            {
+                _upgradeCardList[i].gameObject.SetActive(false);
+            }
+        }
     }
 }

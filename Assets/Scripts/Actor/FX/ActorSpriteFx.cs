@@ -49,9 +49,11 @@ public class ActorSpriteFx : MonoBehaviour
 
         // Dodge
         float lerpT = _actor.MoveController.DodgeCooldownPercent;
+        float alpha = 1f;
         if(_actor.MoveController.IsDodging)
         {
             lerpT -= 0.25f;
+            alpha *= 0.5f;
         }
         if(_actor.MoveController.DodgeCooldownPercent < 0.99f)
         {
@@ -59,7 +61,8 @@ public class ActorSpriteFx : MonoBehaviour
         }
         //dodgeLerp = dodgeLerp.Clamp01();
         Color dodgeColor = Color.Lerp(c, Color.black, lerpT.RemapPercent(0.375f, 0f));
-        c = dodgeColor;
+        float lerpAlpha = c.a.Lerp(alpha, 500f * Time.deltaTime);
+        c = dodgeColor.Alpha(lerpAlpha);
 
 
         // Bleed
