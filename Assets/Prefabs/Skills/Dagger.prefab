@@ -281,8 +281,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
-      value: Dagger Variant
+      value: Dagger
       objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: 231128002635548089, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Dex
       value: 1
@@ -290,6 +294,10 @@ PrefabInstance:
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Slot
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Description
+      value: Light thrown weapon.
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Pierce

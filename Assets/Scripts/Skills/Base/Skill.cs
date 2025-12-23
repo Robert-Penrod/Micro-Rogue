@@ -5,13 +5,17 @@ using Random = UnityEngine.Random;
 
 public class Skill : MonoBehaviour
 {
-    public Actor Actor;
+    [Header("Info")]
+    [TextArea] public string Description;
+    public Sprite Icon;
 
+    // Data
+    [HideInInspector] public Actor Actor;
     public SkillStats Stats;
 
+    // State
     public bool IsActive => SkillInstances.Count > 0;
     public List<SkillInstance> SkillInstances = new();
-
     public float CooldownPercent { get; private set; }
 
     private void OnEnable()

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 {
@@ -32,8 +33,8 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     public void DoUpgradeMenuFor(Actor actor)
     {
-        SetMenuOpen(true);
         SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(actor));
+        SetMenuOpen(true);
     }
 
     public void SetMenuOpen(bool isOpen)
@@ -41,6 +42,15 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
         CameraManager.Instance.ZoomKnob = isOpen ? 1.1f : 1f;
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
         _isOpen = isOpen;
+
+        if(!isOpen)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(_upgradeCardList[0].gameObject);
+        }
     }
 
     void SetUpgradeOptions(List<Upgrade> upgradeList)

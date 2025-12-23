@@ -14,7 +14,7 @@ public abstract class Upgrade
     public abstract void ApplyUpgrade();
 
     // Getters
-    public virtual string GetTitle() => _name.Color(GetColor());
+    public virtual string GetTitle() => _name;
     public virtual string GetLevel() => string.Empty;
     public virtual Sprite GetIcon() => _icon;
     public virtual string GetDescription() => _description;

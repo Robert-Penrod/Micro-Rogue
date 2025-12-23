@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ActorSkillSystem : MonoBehaviour
 {
+    [SerializeField] Transform _skillHolder;
+
     Actor _actor;
     List<Skill> _skillList = new();
 
@@ -12,10 +14,16 @@ public class ActorSkillSystem : MonoBehaviour
         RefreshSkillList();
     }
 
+    public void AddSkill(Skill skillPrefab)
+    {
+        var newSkill = Instantiate(skillPrefab, _skillHolder).GetComponent<Skill>();
+        _skillList.Add(newSkill);
+    }
+
     void RefreshSkillList()
     {
         _skillList.Clear();
-        _skillList.AddRange(GetComponentsInChildren<Skill>());
+        _skillList.AddRange(_skillHolder.GetComponentsInChildren<Skill>());
     }
 
     public bool IsAttacking()
@@ -27,6 +35,7 @@ public class ActorSkillSystem : MonoBehaviour
                 // Damaging Skill Instance
                 bool skillStarting = skillInstance.State == SkillInstance.SkillInstanceState.Start;
                 bool skillDoesDamage = skillInstance.Skill.Stats.Damage > 0;
+                
                 if (skillStarting && skillDoesDamage)
                 {
                     return true;

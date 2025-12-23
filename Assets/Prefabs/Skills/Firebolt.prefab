@@ -280,11 +280,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
-      value: Magic Bolt
+      value: Firebolt
       objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: -676534630579512969, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Int
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Description
+      value: Magic fire projectile.
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Pierce

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     bool _pointerPresenceSelection = true;
 
     AudioSource _audioSource;
+
+    public UnityEvent OnSubmitEvent;
 
     private void Awake()
     {
@@ -36,6 +39,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     {
         _submitCharge += 1f;
         PlayAudio(_submitSound);
+        OnSubmitEvent?.Invoke();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

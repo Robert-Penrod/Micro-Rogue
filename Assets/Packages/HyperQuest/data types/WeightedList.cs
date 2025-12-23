@@ -33,7 +33,7 @@ public class WeightedList<T>
         Entries.Add(new WeightedEntry(item, weight));
     }
 
-    public T SelectItem()
+    public WeightedEntry SelectEntry()
     {
         float weightSum = 0f;
         for (int i = 0; i < Entries.Count; i++)
@@ -47,10 +47,31 @@ public class WeightedList<T>
             roll -= Entries[i].Weight;
             if (roll <= 0)
             {
-                return Entries[i].Item;
+                return Entries[i];
             }
         }
 
+        return null;
+    }
+
+    public T SelectItem()
+    {
+        var selectedEntry = SelectEntry();
+        if (selectedEntry != null)
+        {
+            return selectedEntry.Item;
+        }
+        return default(T);
+    }
+
+    public T SelectAndRemoveItem()
+    {
+        var selectedEntry = SelectEntry();
+        if (selectedEntry != null)
+        {
+            this.Entries.Remove(selectedEntry);
+            return selectedEntry.Item;
+        }
         return default(T);
     }
 

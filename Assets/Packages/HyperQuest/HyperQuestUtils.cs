@@ -688,6 +688,12 @@ public static class TypeExtensions
         Color.RGBToHSV(c, out float h, out float s, out float v);
         return h;
     }
+
+    public static float GetValue(this Color c)
+    {
+        Color.RGBToHSV(c, out float h, out float s, out float v);
+        return v;
+    }
     #endregion
 
     #region Transform Extensions

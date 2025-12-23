@@ -17,7 +17,7 @@ public class DebugTools : MonoBehaviour
             }
             else
             {
-                UpgradeManager.I.CancelUpgrade();
+                UpgradeManager.I.FinishUpgrading();
             }
         }
 

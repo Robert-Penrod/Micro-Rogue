@@ -27,7 +27,7 @@ public class Actor : MonoBehaviour
         _initialLinearDamping = Body.linearDamping;
         MoveController = GetComponent<ActorMoveController>();
         Senses = GetComponent<ActorSenses>();
-        SkillSystem = GetComponent<ActorSkillSystem>();
+        SkillSystem = GetComponentInChildren<ActorSkillSystem>();
 
         // Init
         IsAlive = true;
