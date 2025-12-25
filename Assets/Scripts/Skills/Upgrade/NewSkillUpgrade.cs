@@ -14,10 +14,19 @@ public class NewSkillUpgrade : Upgrade
         _description = skillPrefab.Description;
     }
 
-    public override Color GetColor() => GamePaletteManager.I.Palette.GetSkillColor(_skillPrefab);
+    public override Color GetColor()
+    {
+        if (_skillPrefab.SkillColor != Color.clear) return _skillPrefab.SkillColor;
+        return GamePaletteManager.I.Palette.GetSkillColor(_skillPrefab);
+    }
 
     public override void ApplyUpgrade()
     {
         _targetActor.SkillSystem.AddSkill(_skillPrefab);
+    }
+
+    public override string GetSlot()
+    {
+        return _skillPrefab.Stats.Slot.ToString();
     }
 }

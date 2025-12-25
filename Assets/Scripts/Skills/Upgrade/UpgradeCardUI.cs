@@ -12,6 +12,7 @@ public class UpgradeCardUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _title;
     [SerializeField] TextMeshProUGUI _level;
     [SerializeField] TextMeshProUGUI _description;
+    [SerializeField] TextMeshProUGUI _slotText;
     [SerializeField] Transform _tagHolder;
     Upgrade _upgrade;
 
@@ -20,6 +21,10 @@ public class UpgradeCardUI : MonoBehaviour
         // Init
         var upgradeColor = upgrade.GetColor().Lerp(Color.white, 0.25f);
         this._upgrade = upgrade;
+
+        // Card
+        _frame.color = upgradeColor;
+        _bg.color = upgradeColor.SetValue(_bg.color.GetValue());
 
         // Icon
         this._icon.sprite = upgrade.GetIcon();
@@ -30,9 +35,8 @@ public class UpgradeCardUI : MonoBehaviour
         this._title.text = upgrade.GetTitle();
         this._title.color = upgradeColor;
 
-        // Card
-        _frame.color = upgradeColor;
-        _bg.color = upgradeColor.SetValue(_bg.color.GetValue());
+        // Slot
+        this._slotText.text = upgrade.GetSlot();
 
         // Lvl
         this._level.text = "NEW";

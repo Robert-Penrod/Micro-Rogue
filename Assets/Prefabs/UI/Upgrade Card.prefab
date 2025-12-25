@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 1111115564490494638}
   - component: {fileID: 1768191315908623397}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: Slot Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -987,6 +987,7 @@ MonoBehaviour:
   _title: {fileID: 8990183034755664848}
   _level: {fileID: 8583131503270913417}
   _description: {fileID: 2460763550586700869}
+  _slotText: {fileID: 1768191315908623397}
   _tagHolder: {fileID: 4641683922558154310}
 --- !u!1 &8448653347759898036
 GameObject:

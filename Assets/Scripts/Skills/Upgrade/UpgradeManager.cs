@@ -35,7 +35,6 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         List<Upgrade> upgradeList = new();
 
         var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade);
-        Debug.Log("Weighted Entry Count: " + weightedUpgradeList.Entries.Count);
         for(int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
         {
             var selectedItem = weightedUpgradeList.SelectAndRemoveItem();
@@ -50,11 +49,15 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         // Init
         WeightedList<Upgrade> weightedUpgradeList = new();
 
+        var actorSkillCount = actorToUpgrade.SkillSystem.SkillList.Count;
+
         // New Skill Upgrades
-        BaseSkillList.ForEach(x =>
+        BaseSkillList.ForEach(skill =>
         {
-            Debug.Log("Adding Base Skill " + x.gameObject.name);
-            weightedUpgradeList.Add(new NewSkillUpgrade(x, actorToUpgrade), 1f);
+            // If starting skill, must do damage
+            if (actorSkillCount == 0 && skill.Stats.Damage.Value <= 0f) return;
+
+            weightedUpgradeList.Add(new NewSkillUpgrade(skill, actorToUpgrade), 1f);
         });
 
         // Return

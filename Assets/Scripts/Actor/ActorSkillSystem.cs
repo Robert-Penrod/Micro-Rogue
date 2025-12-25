@@ -6,10 +6,11 @@ public class ActorSkillSystem : MonoBehaviour
     [SerializeField] Transform _skillHolder;
 
     Actor _actor;
-    List<Skill> _skillList = new();
+    public List<Skill> SkillList { get; private set; }
 
     private void Awake()
     {
+        SkillList = new();
         _actor = GetComponentInParent<Actor>();
         RefreshSkillList();
     }
@@ -17,24 +18,24 @@ public class ActorSkillSystem : MonoBehaviour
     public void AddSkill(Skill skillPrefab)
     {
         var newSkill = Instantiate(skillPrefab, _skillHolder).GetComponent<Skill>();
-        _skillList.Add(newSkill);
+        SkillList.Add(newSkill);
     }
 
     void RefreshSkillList()
     {
-        _skillList.Clear();
-        _skillList.AddRange(_skillHolder.GetComponentsInChildren<Skill>());
+        SkillList.Clear();
+        SkillList.AddRange(_skillHolder.GetComponentsInChildren<Skill>());
     }
 
     public bool IsAttacking()
     {
-        foreach(Skill skill in _skillList)
+        foreach(Skill skill in SkillList)
         {
             foreach(SkillInstance skillInstance in skill.SkillInstances)
             {
                 // Damaging Skill Instance
                 bool skillStarting = skillInstance.State == SkillInstance.SkillInstanceState.Start;
-                bool skillDoesDamage = skillInstance.Skill.Stats.Damage > 0;
+                bool skillDoesDamage = skillInstance.Skill.Stats.Damage.Value > 0;
                 
                 if (skillStarting && skillDoesDamage)
                 {

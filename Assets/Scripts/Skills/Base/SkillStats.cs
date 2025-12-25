@@ -1,3 +1,4 @@
+using Kryz.Stats;
 using UnityEngine;
 
 [System.Serializable]
@@ -12,6 +13,16 @@ public class SkillStats
     public int Int;
 
     [Header("Stats")]
+    public Stat Damage;
+    public Stat Rate;
+    public Stat Duration;
+    public Stat Speed;
+    public Stat Pierce;
+    public Stat Knockback;
+    public Stat Lunge;
+    public float HitboxDelay => Constants.SkillStats.HitboxDelay;
+
+    /*
     public Constants.SkillStats.Damage.Label DamageLabel;
     public float Damage => Constants.SkillStats.Damage.LabelToStat(DamageLabel);
     public float Pierce = 1;
@@ -28,4 +39,5 @@ public class SkillStats
     public float Lunge => Constants.SkillStats.Lunge.Default;
     public Constants.SkillStats.Homing.Label HomingLabel;
     public float Homing => Constants.SkillStats.Homing.LabelToStat(HomingLabel);
+    */
 }

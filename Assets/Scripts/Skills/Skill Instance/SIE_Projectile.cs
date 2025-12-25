@@ -16,14 +16,12 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] AudioClip _wallHitClip;
 
     // Stats
-    float _speed => _skillInstance.Skill.Stats.Speed;
+    float _speed => _skillInstance.Skill.Stats.Speed.Value;
     float _hitboxDelay => _skillInstance.Skill.Stats.HitboxDelay;
-    float _knockback => _skillInstance.Skill.Stats.Knockback;
-    int _pierce => (int)_skillInstance.Skill.Stats.Pierce;
-    int _damage => (int)_skillInstance.Skill.Stats.Damage;
-    float _lunge => _skillInstance.Skill.Stats.Lunge;
-    float _homing => _skillInstance.Skill.Stats.Homing;
-
+    float _knockback => _skillInstance.Skill.Stats.Knockback.Value;
+    int _pierce => (int)_skillInstance.Skill.Stats.Pierce.Value;
+    int _damage => (int)_skillInstance.Skill.Stats.Damage.Value;
+    float _lunge => _skillInstance.Skill.Stats.Lunge.Value;
     float _piercePercent => _pierceCount.Remap(0f, _pierce, 0f, 1f);
 
     // References
@@ -93,6 +91,7 @@ public class SIE_Projectile : SIE, IPoolable
 
 
             // Homing
+            /*
             if (_cachedTargetEnemy == null) _cachedTargetEnemy = _targetEnemy;
             if (_targetEnemy == null) return;
             Vector2 currentDir = _rb.linearVelocity.normalized;
@@ -103,6 +102,7 @@ public class SIE_Projectile : SIE, IPoolable
             Vector2 lerpDir = Quaternion.Euler(0f, 0f, lerpHomingAngle) * Vector2.up;
             Vector2 newVel = lerpDir * _rb.linearVelocity.magnitude;
             _rb.linearVelocity = newVel;
+            */
         }
     }
 
@@ -154,7 +154,7 @@ public class SIE_Projectile : SIE, IPoolable
             if (!hitActor.IsEnemyOf(_skillInstance.Skill.Actor)) return;
 
             // Damage
-            float damage = (int)_skillInstance.Skill.Stats.Damage;
+            float damage = (int)_skillInstance.Skill.Stats.Damage.Value;
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
             int damageTaken = hitActor.TakeDamage((int)damage);
 

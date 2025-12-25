@@ -13,6 +13,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [SerializeField] List<UpgradeCardUI> _upgradeCardList = new();
 
     bool _isOpen;
+    Actor _actorToUpgrade;
 
     protected override void Awake()
     {
@@ -29,12 +30,24 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
         // Canvas Alpha
         _canvasGroup.alpha = _canvasGroup.alpha.Lerp(_isOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
+
+        // Testing
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            RollUpgradeCards(_actorToUpgrade);
+        }
     }
 
     public void DoUpgradeMenuFor(Actor actor)
     {
-        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(actor));
+        this._actorToUpgrade = actor;
+        RollUpgradeCards(_actorToUpgrade);
         SetMenuOpen(true);
+    }
+
+    void RollUpgradeCards(Actor actor)
+    {
+        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(actor));
     }
 
     public void SetMenuOpen(bool isOpen)

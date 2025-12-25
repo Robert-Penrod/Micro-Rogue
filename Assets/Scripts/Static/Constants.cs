@@ -57,11 +57,7 @@ public static class Constants
         public static float BaseTelegraphTime = 0.25f;
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
         public static float SIE_ProjectileInheritVelocityMult = 0.75f;
-
-        public static class HitboxDelay
-        {
-            public const float Default = 1f;
-        }
+        public static float HitboxDelay = 1f;
 
         public static class Knockback
         {

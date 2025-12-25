@@ -19,4 +19,5 @@ public abstract class Upgrade
     public virtual Sprite GetIcon() => _icon;
     public virtual string GetDescription() => _description;
     public virtual Color GetColor() => Color.white;
+    public virtual string GetSlot() => string.Empty;
 }

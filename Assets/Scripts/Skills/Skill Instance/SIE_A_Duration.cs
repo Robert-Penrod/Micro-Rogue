@@ -28,7 +28,7 @@ public class SIE_A_Duration : SIE, IPoolable
     {
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
 
-        LifePercent += Time.fixedDeltaTime / _skillInstance.Skill.Stats.Duration;
+        LifePercent += Time.fixedDeltaTime / _skillInstance.Skill.Stats.Duration.Value;
         LifePercent = Mathf.Clamp01(LifePercent);
 
         if (LifePercent >= 1) _skillInstance.State++;

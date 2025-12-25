@@ -8,15 +8,25 @@ public class Skill : MonoBehaviour
     [Header("Info")]
     [TextArea] public string Description;
     public Sprite Icon;
+    public Color SkillColor = Color.clear;
+    [SerializeField] float _dps;
+
+    [Header("Stats")]
+    public SkillStats Stats;
 
     // Data
     [HideInInspector] public Actor Actor;
-    public SkillStats Stats;
 
     // State
+    [Header("State")]
     public bool IsActive => SkillInstances.Count > 0;
     public List<SkillInstance> SkillInstances = new();
     public float CooldownPercent { get; private set; }
+
+    private void OnValidate()
+    {
+        _dps = Stats.Damage.Value * Stats.Rate.Value;
+    }
 
     private void OnEnable()
     {
