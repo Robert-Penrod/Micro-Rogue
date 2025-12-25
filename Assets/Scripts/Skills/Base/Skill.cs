@@ -23,6 +23,8 @@ public class Skill : MonoBehaviour
     public List<SkillInstance> SkillInstances = new();
     public float CooldownPercent { get; private set; }
 
+    bool _wasNoTargets = false;
+
     private void OnValidate()
     {
         _dps = Stats.Damage.Value * Stats.Rate.Value;
@@ -41,8 +43,17 @@ public class Skill : MonoBehaviour
         // Temp Stats
         float skillSpeed = 1f;
         float cooldown = Constants.SkillStats.Cooldown.Default;
-        float mainSkillMult = (_tempSkillList.FindAll(skill => skill.Stats.Slot == SkillStats.SlotEnum.Main && skill.IsActive).Count > 0)? 0f : 1f;
-        if (this.Stats.Slot == SkillStats.SlotEnum.Offhand) mainSkillMult.RemapPercent(0.5f, 1f);
+        float mainSkillMult = (_tempSkillList.FindAll(skill => (skill.Stats.Slot == SkillStats.SlotEnum.Main) && skill.IsActive).Count > 0)? 0f : 1f;
+        float offhandSkillMult = (_tempSkillList.FindAll(skill => (skill.Stats.Slot == SkillStats.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? 0.5f : 1f;
+        if (this.Stats.Slot == SkillStats.SlotEnum.Offhand)
+        {
+            //mainSkillMult = 1f;
+        }
+        else if(this.Stats.Slot == SkillStats.SlotEnum.Passive)
+        {
+            mainSkillMult = 1f;
+            offhandSkillMult = 1f;
+        }
 
         float dodgeMult = 1f;
         if (Actor.MoveController != null)
@@ -54,7 +65,7 @@ public class Skill : MonoBehaviour
         // Cooldown
         if(CooldownPercent < 1f)
         {
-            CooldownPercent += dodgeMult * mainSkillMult * (skillSpeed / cooldown) * Time.fixedDeltaTime;
+            CooldownPercent += dodgeMult * offhandSkillMult * mainSkillMult * (skillSpeed / cooldown) * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.ClampMax(1f);
         }
 
@@ -62,6 +73,12 @@ public class Skill : MonoBehaviour
         if(Actor.Senses.EnemyActors.Count <= 0)
         {
             CooldownPercent = CooldownPercent.ClampMax(0.75f);
+            _wasNoTargets = true;
+        }
+        else if(_wasNoTargets)
+        {
+            _wasNoTargets = false;
+            CooldownPercent *= Random.Range(0.5f, 1f);
         }
     }
 

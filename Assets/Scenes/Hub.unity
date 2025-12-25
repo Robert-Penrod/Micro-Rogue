@@ -7727,6 +7727,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: 'BaseSkillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+    - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: 'BaseSkillList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1395792107141309682, guid: 9556361833b76d64f91ef3f5c4ccf30e, type: 3}
+    - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: 'BaseSkillList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8340235622040579611, guid: cd7761de7d7ea19498149e5dcdcf2648, type: 3}
+    - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: 'BaseSkillList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2175483395245361323, guid: 9b1936885428c104bb7d33889623ff87, type: 3}
     - target: {fileID: 7385992505208217961, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

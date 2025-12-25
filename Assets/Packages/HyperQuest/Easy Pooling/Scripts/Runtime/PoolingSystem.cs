@@ -79,12 +79,17 @@ namespace ManaSprite.EasyPooling
         /// <returns>A game object ready for use.</returns>
         public GameObject GetGameObject()
         {
-            if (_poolList.Count == 0)
+            if (_poolList.Count == 0 || _poolList[0] == null)
             {
+                _poolList.RemoveAll(x => x == null);
                 CreateNewPoolObject();
             }
 
-            var poolObject = GetPoolObjectFromPool();
+            //var poolObject = GetPoolObjectFromPool();
+            var poolObject = _poolList[0];
+            _poolList.RemoveAt(0);
+            poolObject.transform.SetParent(null);
+
             //poolObject.SetActive(true);
             return poolObject.gameObject;
         }

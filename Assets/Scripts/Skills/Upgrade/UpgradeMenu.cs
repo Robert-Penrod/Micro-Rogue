@@ -19,6 +19,10 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     {
         base.Awake();
         _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
         SetMenuOpen(false);
     }
 

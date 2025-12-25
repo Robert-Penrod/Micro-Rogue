@@ -97,7 +97,7 @@ public class SimpleNPCBrain : ActorBrain
         }
         //
         // Scent
-        else if (senses.EnemyScentDrop.Count > 0)
+        else if (senses.EnemyScentDrop.Count > 0 && senses.EnemyScentDrop[0] != null)
         {
             sprintMult += 0.05f;
             Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;

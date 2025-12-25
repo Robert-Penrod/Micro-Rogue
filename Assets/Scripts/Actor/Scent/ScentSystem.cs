@@ -9,7 +9,7 @@ public class ScentSystem : MonoBehaviour
     public float Lifetime = 4;
     public Actor Actor { get; private set; }
     List<ScentDrop> _dropList = new();
-    ScentDrop _scentdropTemplate;
+    static ScentDrop _scentdropTemplate;
 
     private void OnDrawGizmos()
     {
@@ -34,14 +34,18 @@ public class ScentSystem : MonoBehaviour
     {
         Actor = GetComponentInParent<Actor>();
 
-        _scentdropTemplate = new GameObject("Scent Drop").AddComponent<ScentDrop>();
-        _scentdropTemplate.gameObject.layer = LayerMask.NameToLayer("Scent");
-        _scentdropTemplate.ScentSystem = this;
-        CircleCollider2D col = _scentdropTemplate.gameObject.AddComponent<CircleCollider2D>();
-        col.isTrigger = true;
-        col.radius = 0.1f;
-        _scentdropTemplate.gameObject.SetActive(false);
-        _scentdropTemplate.gameObject.transform.SetParent(this.transform);
+        if (_scentdropTemplate == null)
+        {
+            _scentdropTemplate = new GameObject("Scent Drop").AddComponent<ScentDrop>();
+            _scentdropTemplate.gameObject.layer = LayerMask.NameToLayer("Scent");
+            _scentdropTemplate.ScentSystem = this;
+            CircleCollider2D col = _scentdropTemplate.gameObject.AddComponent<CircleCollider2D>();
+            col.isTrigger = true;
+            col.radius = 0.1f;
+            _scentdropTemplate.gameObject.SetActive(false);
+            _scentdropTemplate.hideFlags = HideFlags.HideInHierarchy;
+            //_scentdropTemplate.gameObject.transform.SetParent(this.transform);
+        }
     }
 
     private void OnDestroy()
