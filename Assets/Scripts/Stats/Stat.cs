@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -5,11 +6,13 @@ using UnityEngine;
 
 namespace Kryz.Stats
 {
-	[Serializable]
+	[Serializable, InlineProperty, HideReferenceObjectPicker]
 	public class Stat
 	{
 		public string Name { get; private set; }
 
+		[HorizontalGroup("StatGroup", 75)] // Groups with the Value field
+		[HideLabel] // Hides the default label
 		public float BaseValue;
 
 		protected bool isDirty = true;
@@ -38,7 +41,7 @@ namespace Kryz.Stats
 			}
 		}
 
-		[SerializeField] protected List<StatModifier> statModifiers;
+		[HideInInspector] protected List<StatModifier> statModifiers;
 		public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
 		public Action<float, float> OnValueChanged;

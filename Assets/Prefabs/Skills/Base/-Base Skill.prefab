@@ -215,7 +215,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1339682011722151651}
   - component: {fileID: 8176092954707893517}
-  - component: {fileID: 8687881780103042088}
   m_Layer: 0
   m_Name: -Base Skill
   m_TagString: Untagged
@@ -251,48 +250,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Description: 
   Icon: {fileID: 0}
+  Rarity: 0
+  Description: 
+  Slot: 0
   SkillColor: {r: 0, g: 0, b: 0, a: 0}
-  _dps: 1.6665
   Stats:
-    Slot: 0
     Str: 0
     Dex: 0
     Int: 0
     Damage:
       BaseValue: 5
-      statModifiers: []
     Rate:
       BaseValue: 0.3333333
-      statModifiers: []
     Duration:
       BaseValue: 1
-      statModifiers: []
     Speed:
       BaseValue: 8
-      statModifiers: []
+    Size:
+      BaseValue: 1
     Pierce:
       BaseValue: 0
-      statModifiers: []
     Knockback:
       BaseValue: 1
-      statModifiers: []
     Lunge:
       BaseValue: 0.25
-      statModifiers: []
+    Potency:
+      BaseValue: 0
+  _dps: 1.6665
+  UpgradeList: []
   Actor: {fileID: 0}
   SkillInstances: []
---- !u!114 &8687881780103042088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6381319461986293207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8835b29122635ad46b127df1c4e197a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UpgradeList: []

@@ -14,6 +14,7 @@ public class GamePalette : ScriptableObject
     public Color IntColor;
 
     public Color GetSkillColor(Skill skill) => GetArchetypeColor(skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int);
+    public Color GetActorSkillColor(Skill skill) => GetActorSkillColor(skill.Actor, skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int);
     public Color GetActorSkillColor(Actor actor, int str = 1, int dex = 1, int intel = 1)
     {
         Color individualPlayerColor = EnemyColor; // Player vs enemy color

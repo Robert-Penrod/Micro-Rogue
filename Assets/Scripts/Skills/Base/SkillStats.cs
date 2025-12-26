@@ -1,43 +1,26 @@
 using Kryz.Stats;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 [System.Serializable]
 public class SkillStats
 {
-    public enum SlotEnum { Main = 0, Offhand = 1, Passive = 2}
-    public SlotEnum Slot;
+    public enum SkillStatTypes { Damage = 10, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
 
-    [Header("Archetype")]
-    public int Str;
-    public int Dex;
-    public int Int;
+    [HorizontalGroup("Stats")]
+    [VerticalGroup("Stats/Left")] public int Str;
+    [VerticalGroup("Stats/Left")] public int Dex;
+    [VerticalGroup("Stats/Left")] public int Int;
 
-    [Header("Stats")]
-    public Stat Damage;
-    public Stat Rate;
-    public Stat Duration;
-    public Stat Speed;
-    public Stat Pierce;
-    public Stat Knockback;
-    public Stat Lunge;
+    [VerticalGroup("Stats/Right")] public Stat Damage = new("Damage");
+    [VerticalGroup("Stats/Right")] public Stat Rate = new("Rate");
+    [VerticalGroup("Stats/Right")] public Stat Count = new("Count");
+    [VerticalGroup("Stats/Right")] public Stat Duration = new("Duration");
+    [VerticalGroup("Stats/Right")] public Stat Speed = new("Speed");
+    [VerticalGroup("Stats/Right")] public Stat Size = new("Size");
+    [VerticalGroup("Stats/Right")] public Stat Pierce = new("Pierce");
+    [VerticalGroup("Stats/Right")] public Stat Knockback = new("Knockback");
+    [VerticalGroup("Stats/Right")] public Stat Lunge = new("Lunge");
+    [VerticalGroup("Stats/Right")] public Stat Potency = new("Potency");
     public float HitboxDelay => Constants.SkillStats.HitboxDelay;
-
-    /*
-    public Constants.SkillStats.Damage.Label DamageLabel;
-    public float Damage => Constants.SkillStats.Damage.LabelToStat(DamageLabel);
-    public float Pierce = 1;
-    public float Size => Constants.SkillStats.Size.Default;
-    //public float Duration => Constants.SkillStats.Duration.Melee;
-    public Constants.SkillStats.Duration.Label DurationLabel;
-    public float Duration => Constants.SkillStats.Duration.LabelToStat(DurationLabel);
-
-    public float Cooldown => Constants.SkillStats.Cooldown.Default;
-    public Constants.SkillStats.Speed.Label SpeedLabel;
-    public float Speed => Constants.SkillStats.Speed.LabelToStat(SpeedLabel);
-    public float HitboxDelay => Constants.SkillStats.HitboxDelay.Default;
-    public float Knockback => Constants.SkillStats.Knockback.Default;
-    public float Lunge => Constants.SkillStats.Lunge.Default;
-    public Constants.SkillStats.Homing.Label HomingLabel;
-    public float Homing => Constants.SkillStats.Homing.LabelToStat(HomingLabel);
-    */
 }

@@ -27,6 +27,6 @@ public class NewSkillUpgrade : Upgrade
 
     public override string GetSlot()
     {
-        return _skillPrefab.Stats.Slot.ToString();
+        return _skillPrefab.Slot.ToString();
     }
 }

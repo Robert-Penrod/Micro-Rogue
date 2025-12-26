@@ -7,8 +7,9 @@ public abstract class Upgrade
 {
     // Fields
     [SerializeField] protected string _name;
-    [SerializeField] protected Sprite _icon;
-    [SerializeField] protected string _description;
+    [SerializeField] protected Constants.Rarity _rarity;
+    protected Sprite _icon;
+    protected string _description;
 
     // Apply
     public abstract void ApplyUpgrade();

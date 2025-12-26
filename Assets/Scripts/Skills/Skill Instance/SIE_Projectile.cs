@@ -165,7 +165,7 @@ public class SIE_Projectile : SIE, IPoolable
             // Hit Stun
 
             // Popup
-            string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
+            string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
             string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
             Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive? 0.5f : 1f);
             popupPos += 0.25f * (Vector3)Random.insideUnitCircle;

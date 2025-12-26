@@ -49,15 +49,21 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         // Init
         WeightedList<Upgrade> weightedUpgradeList = new();
 
-        var actorSkillCount = actorToUpgrade.SkillSystem.SkillList.Count;
+        var skillSystem = actorToUpgrade.SkillSystem;
+        var actorSkillList = skillSystem.SkillList;
 
         // New Skill Upgrades
-        BaseSkillList.ForEach(skill =>
+        BaseSkillList.ForEach(newSkill =>
         {
-            // If starting skill, must do damage
-            if (actorSkillCount == 0 && skill.Stats.Damage.Value <= 0f) return;
+            // FILTERS
+            //
+            // If starting skill -> must do damage
+            if (actorSkillList.Count == 0 && newSkill.Stats.Damage.Value <= 0f) return;
+            //
+            // Actor cannot already have skill
+            if (skillSystem.HasSkill(newSkill)) return;
 
-            weightedUpgradeList.Add(new NewSkillUpgrade(skill, actorToUpgrade), 1f);
+            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), 1f);
         });
 
         // Return

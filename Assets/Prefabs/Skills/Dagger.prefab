@@ -272,7 +272,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 231128002635548089, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: Slot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: _dps
+      value: 1.6500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: _name
+      value: Dagger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.Dex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
@@ -282,6 +298,14 @@ PrefabInstance:
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Description
       value: Light thrown weapon.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: Stats.Rate.BaseValue
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: Stats.Damage.BaseValue
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

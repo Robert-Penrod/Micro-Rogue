@@ -48,10 +48,10 @@ public class Portal : MonoBehaviour
             _grabbedPlayers[i].Actor.Body.AddForce(grabForceVector * _grabbedPlayers[i].Actor.Body.linearDamping);
 
             // Slide Force
-            _grabbedPlayers[i].Actor.Body.AddForce(0.5f * _grabbedPlayers[i].Actor.Body.linearVelocity * _grabbedPlayers[i].Actor.Body.linearDamping);
+            _grabbedPlayers[i].Actor.Body.AddForce(0.5f * _grabbedPlayers[i].Actor.Body.linearVelocity);
 
             // Dampening
-            _grabbedPlayers[i].Actor.Body.linearVelocity *= 0.5f;
+            _grabbedPlayers[i].Actor.Body.linearVelocity = _grabbedPlayers[i].Actor.Body.linearVelocity * (1f - (2f * Time.fixedDeltaTime));
         }
     }
 

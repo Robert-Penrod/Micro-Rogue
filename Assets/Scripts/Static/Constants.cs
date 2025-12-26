@@ -2,6 +2,8 @@ using UnityEngine;
 
 public static class Constants
 {
+    public enum Rarity { Common, Uncommon, Rare, Epic, Legendary, Secret }
+
     public static class DungeonStats
     {
         public static float PortalTime = 2f;

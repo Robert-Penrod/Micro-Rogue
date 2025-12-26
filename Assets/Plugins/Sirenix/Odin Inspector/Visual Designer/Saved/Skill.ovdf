@@ -1,0 +1,21 @@
+OVDF v1.1
+Skill, Assembly-CSharp
+MetaGuid:f690437afbce4454cadb004767ad4b10
+
+# $Up5b8mUbp3aMD34EjfuK8d
+Position: "Info":1
++ [Sirenix.OdinInspector.ColumnGroupAttribute]
+
+# $JEPxar7hqCamA5v8mMzg29
+Position: $Up5b8mUbp3aMD34EjfuK8d:0
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# $UmE28coeW8E4QeU1KWhCf7
+Position: $Up5b8mUbp3aMD34EjfuK8d:1
++ [Sirenix.OdinInspector.ColumnGroupAttribute+ColumnSubGroupAttribute]
+
+# SkillColor
+Position: $UmE28coeW8E4QeU1KWhCf7:0
+
+# Slot
+Position: $JEPxar7hqCamA5v8mMzg29:0
