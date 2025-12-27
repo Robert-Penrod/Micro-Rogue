@@ -1,8 +1,49 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class Constants
 {
     public enum Rarity { Common, Uncommon, Rare, Epic, Legendary, Secret }
+    public static float RarityToWeight(Rarity rarity)
+    {
+        switch (rarity)
+        {
+            case Rarity.Common:
+                return 1f;
+
+            case Rarity.Uncommon:
+                return 1/2f;
+
+            case Rarity.Rare:
+                return 1/4f;
+
+            case Rarity.Epic:
+                return 1/8f;
+
+            case Rarity.Legendary:
+                return 1/16f;
+
+            case Rarity.Secret:
+                return 1/32f;
+
+            default:
+                return 1f;
+        }
+    }
+    
+    public static string ChangeValueString(float initValue, float newValue, float positiveDir = 1f, string unit = "")
+    {
+        Color initColor = new Color(0.75f, 0.75f, 0.75f);
+        Color positiveColor = Color.green;
+        Color negativeColor = Color.red;
+        bool isPositive = Mathf.Sign(newValue - initValue) == Mathf.Sign(positiveDir);
+        Color c = isPositive ? positiveColor : negativeColor;
+        return ((initValue.ToStatNumString() + unit).Color(initColor) + " → " + (newValue.ToStatNumString() + unit).Color(c)).Bold();
+    }
+
+    public static string ToStatNumString(this float t)
+    {
+        return string.Format("{0:0.#}", t);
+    }
 
     public static class DungeonStats
     {
@@ -11,6 +52,8 @@ public static class Constants
 
     public static class ActorStats
     {
+        public static float HealthGain = 2f;
+
         public enum FactionType
         {
             Player,

@@ -9,8 +9,8 @@ public class SIE_S_Telegraph : SIE, IPoolable
 
     float _telegraphPercent;
 
-    float _cooldownTime => Constants.SkillStats.Cooldown.Default;
-    float _size => Constants.SkillStats.Size.Default;
+    float _cooldownTime => 1f / _skillInstance.Skill.Stats.Rate.Value;
+    float _size => _skillInstance.Skill.Stats.Size.Value;
     float _baseTelegraphTime => Constants.SkillStats.BaseTelegraphTime;
     float _telegraphTime => _telegraphMult * (_baseTelegraphTime + _cooldownTime * _baseTelegraphTime);
 

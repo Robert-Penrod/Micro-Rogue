@@ -18,6 +18,7 @@ public class UpgradeCardUI : MonoBehaviour
 
     public void LoadUpgradeData(Upgrade upgrade)
     {
+        //Debug.Log(" of " + upgrade._sourceSkill.Name);
         // Init
         var upgradeColor = upgrade.GetColor().Lerp(Color.white, 0.25f);
         this._upgrade = upgrade;
@@ -39,7 +40,7 @@ public class UpgradeCardUI : MonoBehaviour
         this._slotText.text = upgrade.GetSlot();
 
         // Lvl
-        this._level.text = "NEW";
+        this._level.text = upgrade.GetLevel();
 
         // Description
         this._description.text = upgrade.GetDescription();

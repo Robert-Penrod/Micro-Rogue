@@ -2749,7 +2749,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861237850}
   m_Enabled: 1
-  m_Alpha: 0
+  m_Alpha: 1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -4469,7 +4469,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 503
 --- !u!114 &1426652909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7729,7 +7729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: BaseSkillList.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: 'BaseSkillList.Array.data[0]'

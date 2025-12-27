@@ -87,7 +87,7 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        Stats.Health += (int)(Stats.HealthMax.Value * 0.2f);
+        Stats.Health += (int)(Stats.HealthMax.Value * 0.3f);
     }
 
     public bool IsPlayer()

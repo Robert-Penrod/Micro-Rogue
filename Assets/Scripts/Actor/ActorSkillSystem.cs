@@ -20,10 +20,11 @@ public class ActorSkillSystem : MonoBehaviour
         return SkillList.Find(skill => skill.Name == skillToCheck.Name);
     }
 
-    public void AddSkill(Skill skillPrefab)
+    public Skill AddSkill(Skill skillPrefab)
     {
         var newSkill = Instantiate(skillPrefab, _skillHolder).GetComponent<Skill>();
         SkillList.Add(newSkill);
+        return newSkill;
     }
 
     void RefreshSkillList()

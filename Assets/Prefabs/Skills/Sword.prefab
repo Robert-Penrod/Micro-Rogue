@@ -641,40 +641,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.data[0]._name
-      value: Sharpen
-      objectReference: {fileID: 0}
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.data[1]._name
-      value: Heavy
-      objectReference: {fileID: 0}
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.data[2]._name
-      value: Light
-      objectReference: {fileID: 0}
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.data[3]._name
-      value: Combo
-      objectReference: {fileID: 0}
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.data[0].ModList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 474490959893358534, guid: 03c459e1030bba2409301de055040d66, type: 3}
-      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].Type
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: Icon
       value: 
       objectReference: {fileID: 7220349086764655618, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: Stats.Str
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
@@ -706,6 +682,26 @@ PrefabInstance:
       value: Combo
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: UpgradeList.Array.data[3].Rarity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: UpgradeList.Array.data[0]._sourceSkill
+      value: 
+      objectReference: {fileID: 3054739362383696392}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: UpgradeList.Array.data[1]._sourceSkill
+      value: 
+      objectReference: {fileID: 3054739362383696392}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: UpgradeList.Array.data[2]._sourceSkill
+      value: 
+      objectReference: {fileID: 3054739362383696392}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: UpgradeList.Array.data[3]._sourceSkill
+      value: 
+      objectReference: {fileID: 3054739362383696392}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: UpgradeList.Array.data[0].Filter.Target
       value: 0
       objectReference: {fileID: 0}
@@ -736,6 +732,10 @@ PrefabInstance:
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].Type
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].StatName
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].StatName
@@ -783,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[2].BalancePoints
-      value: -0.5
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].BalancePoints
@@ -913,6 +913,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3310532487684186074, guid: 03c459e1030bba2409301de055040d66, type: 3}
   m_PrefabInstance: {fileID: 2672878731781618923}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3054739362383696392 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+  m_PrefabInstance: {fileID: 2672878731781618923}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260307485779450578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5297444599509645798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7823795715819128077, guid: 03c459e1030bba2409301de055040d66, type: 3}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class WeightedList<T>
+public class WeightedList<T> : IEnumerable<T>
 {
     [System.Serializable]
     public class WeightedEntry
@@ -19,6 +19,14 @@ public class WeightedList<T>
     }
 
     public List<WeightedEntry> Entries = new List<WeightedEntry>();
+
+    public void AddRange(WeightedList<T> collection)
+    {
+        foreach (var entry in collection.Entries)
+        {
+            Entries.Add(new WeightedEntry(entry.Item, entry.Weight));
+        }
+    }
 
     public void AddRange(List<T> collection, float defaultWeight = 1f)
     {
@@ -84,4 +92,17 @@ public class WeightedList<T>
         });
         return cloneList;
     }
+
+    #region IEnumerable
+    public IEnumerator<T> GetEnumerator()
+    {
+        foreach (var entry in Entries)
+            yield return entry.Item;
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return GetEnumerator();
+    }
+    #endregion
 }

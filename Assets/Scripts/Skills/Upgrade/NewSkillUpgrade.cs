@@ -22,7 +22,9 @@ public class NewSkillUpgrade : Upgrade
 
     public override void ApplyUpgrade()
     {
-        _targetActor.SkillSystem.AddSkill(_skillPrefab);
+        var newSkill = _targetActor.SkillSystem.AddSkill(_skillPrefab);
+        newSkill.Level++;
+        Debug.Log("!!! Applying New Skill UPGRAde");
     }
 
     public override string GetSlot()

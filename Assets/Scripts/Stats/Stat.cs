@@ -46,12 +46,22 @@ namespace Kryz.Stats
 
 		public Action<float, float> OnValueChanged;
 
-		public Stat(string name)
-		{
-			this.Name = name;
+		public Stat()
+        {
 			statModifiers = new List<StatModifier>();
 			StatModifiers = statModifiers.AsReadOnly();
 		}
+
+		public Stat(string name) : this()
+		{
+			this.Name = name;
+		}
+
+		public Stat(string name, string unit) : this()
+        {
+			this.Name = name;
+			this.Unit = unit;
+        }
 
 		public Stat(float baseValue, string name, bool isInt = false, string unit = "", float positiveDir = 1) : this(name)
 		{

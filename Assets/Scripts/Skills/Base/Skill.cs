@@ -7,12 +7,15 @@ using Random = UnityEngine.Random;
 
 public class Skill : MonoBehaviour
 {
-    public string Name => Regex.Replace(this.gameObject.name, @"\s*\(.*$", "");
+    #region Vars
+    public string Name => Regex.Replace(gameObject.name, @"\s*\(.*$", "", RegexOptions.IgnoreCase);
     [BoxGroup("Info")]
     [HorizontalGroup("Info/SkillGroup", 75), VerticalGroup("Info/SkillGroup/Left")]
     [PreviewField(75, ObjectFieldAlignment.Left, FilterMode = FilterMode.Point)]
     [HideLabel]
     public Sprite Icon;
+    [VerticalGroup("Info/SkillGroup/Right", 0.2f)]
+    public int Level = 0;
     [VerticalGroup("Info/SkillGroup/Right", 0.2f)]
     public Constants.Rarity Rarity;
     [VerticalGroup("Info/SkillGroup/Right", 0.2f)]
@@ -40,26 +43,44 @@ public class Skill : MonoBehaviour
     public float CooldownPercent { get; private set; }
 
     bool _wasNoTargets = false;
+    #endregion
 
+    #region Init
     private void OnValidate()
     {
         _dps = Stats.Damage.Value * Stats.Rate.Value;
+
+        // Init Upgrades
+        UpgradeList.ForEach(upgrade =>
+        {
+            upgrade._sourceSkill = this;
+        });
     }
 
     private void OnEnable()
     {
-        Actor = GetComponentInParent<Actor>();
-        ShuffleCooldown();
-        _tempSkillList.Clear(); _tempSkillList.AddRange(new List<Skill>(transform.parent.GetComponentsInChildren<Skill>()));
-    }
-    List<Skill> _tempSkillList = new();
+        // Init Upgrades
+        UpgradeList.ForEach(upgrade =>
+        {
+            upgrade._sourceSkill = this;
+        });
 
+        // References
+        Actor = GetComponentInParent<Actor>();
+
+        // Cooldown
+        ShuffleCooldown();
+    }
+    #endregion
+
+    #region Update / Cooldown
     private void FixedUpdate()
     {
         // Temp Stats
         float activeSkillMult = 1f;
-        float mainSkillMult = (_tempSkillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? 0f : 1f;
-        float offhandSkillMult = (_tempSkillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? 0f : 1f;
+        var skillList = Actor.SkillSystem.SkillList;
+        float mainSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? 0f : 1f;
+        float offhandSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? 0f : 1f;
         switch (this.Slot)
         {
             case SlotEnum.Main:
@@ -110,4 +131,22 @@ public class Skill : MonoBehaviour
         //UnityEngine.Random.InitState(DateTime.Now.Ticks.GetHashCode());
         CooldownPercent = Random.Range(0f, 0.5f);
     }
+    #endregion
+
+    #region Upgrade
+    public WeightedList<Upgrade> GetUpgradeList()
+    {
+        WeightedList<Upgrade> returnList = new();
+
+        UpgradeList.ForEach(upgrade =>
+        {
+            if (upgrade.IsValid())
+            {
+                returnList.Add(upgrade, Constants.RarityToWeight(upgrade.Rarity));
+            }
+        });
+
+        return returnList;
+    }
+    #endregion
 }

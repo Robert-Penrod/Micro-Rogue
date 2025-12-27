@@ -251,6 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
+  Level: 0
   Rarity: 0
   Description: 
   Slot: 0
@@ -263,6 +264,8 @@ MonoBehaviour:
       BaseValue: 5
     Rate:
       BaseValue: 0.3333333
+    Count:
+      BaseValue: 1
     Duration:
       BaseValue: 1
     Speed:
@@ -270,7 +273,7 @@ MonoBehaviour:
     Size:
       BaseValue: 1
     Pierce:
-      BaseValue: 0
+      BaseValue: 0.8
     Knockback:
       BaseValue: 1
     Lunge:

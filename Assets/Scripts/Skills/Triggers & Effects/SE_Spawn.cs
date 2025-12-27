@@ -14,7 +14,7 @@ public class SE_Spawn : SkillEffect
         StartCoroutine(Spawn_Co());
         IEnumerator Spawn_Co()
         {
-            for(int i = 0; i < amount; i++)
+            for (int i = 0; i < amount; i++)
             {
                 DoSpawn();
                 yield return new WaitForSeconds(projectileDelay);
