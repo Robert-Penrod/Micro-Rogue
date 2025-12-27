@@ -60,7 +60,9 @@ public class SIE_Projectile : SIE, IPoolable
         {
             // Launch Force
             Vector2 projectedParentVel = Vector3.Project(actor.Body.linearVelocity, launchForce.normalized);
-            Vector2 inheritVel = projectedParentVel * Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
+            Vector2 inheritVel = projectedParentVel;
+            inheritVel *= Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
+            inheritVel *= Vector2.Dot(actor.Body.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
             launchForce += inheritVel;
 
             // Min Launch Force
