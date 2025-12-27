@@ -99,8 +99,8 @@ public class SkillUpgrade : Upgrade
             }
 
             if (statName == SkillStats.SkillStatTypes.Count && previewStatValue < 1f) return false;
-            if (statName == SkillStats.SkillStatTypes.Rate && previewStatValue < 0.01f) return false;
-            if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.25f) return false;
+            if (statName == SkillStats.SkillStatTypes.Rate && previewStatValue < 0.02f) return false;
+            if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.5f) return false;
         }
             return true;
     }

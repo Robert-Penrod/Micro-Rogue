@@ -277,7 +277,7 @@ MonoBehaviour:
     Knockback:
       BaseValue: 1
     Lunge:
-      BaseValue: 0.25
+      BaseValue: 1
     Potency:
       BaseValue: 0
   _dps: 1.6665

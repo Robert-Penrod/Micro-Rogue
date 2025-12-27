@@ -13,23 +13,29 @@ public class CombatEncounterObject : MonoBehaviour
         float budget = PlayerManager.I.PlayerList.Count + (DungeonManager.I.Data.RoomNumber-1).ClampMin(0);
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
 
-        while(budget > 0f)
+        while(budget >= 1f)
         {
             // Spawn Actor
-            budget--;
+            budget -= 1.5f;
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
             var actor = Instantiate(_enemyTable.SelectItem(), spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
             _enemyList.Add(actor);
 
             // Upgrade Actor
             int upgradeCount = 1 + (int)Random.Range(0, budget + 1);
-            budget++;
             for(int i = 0; i < upgradeCount; i++)
             {
                 var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
                 if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
-                budget--;
+
+                if(i > 0)
+                    budget--;
             }
+
+            // Health
+            float healthGain = 0.5f * (DungeonManager.I.Data.RoomNumber - 1) * Constants.ActorStats.HealthGain;
+            actor.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(healthGain, Kryz.Stats.StatModType.Flat));
+            actor.Stats.SetHealthPercent(1f);
         }
 
 

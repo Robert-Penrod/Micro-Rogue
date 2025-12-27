@@ -31,6 +31,8 @@ public class Skill : MonoBehaviour
 
     [SerializeField] float _dps;
 
+    public float TelegraphTime => Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (1f / Stats.Rate.Value) * Stats.Size.Value;
+
     [BoxGroup("Upgrades")]
     public List<SkillUpgrade> UpgradeList = new();
 

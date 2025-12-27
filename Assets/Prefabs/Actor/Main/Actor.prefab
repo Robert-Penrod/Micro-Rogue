@@ -15306,7 +15306,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 6
+  m_LinearDamping: 12
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -15335,15 +15335,15 @@ MonoBehaviour:
   Faction: 2
   Stats:
     _health: 15
+    Str: 0
+    Dex: 0
+    Int: 0
     HealthMax:
       BaseValue: 15
-      statModifiers: []
     MoveSpeed:
       BaseValue: 4.5
-      statModifiers: []
     DodgeCooldown:
       BaseValue: 3
-      statModifiers: []
 --- !u!114 &4980042708820111086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15426,10 +15426,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _passiveDistMult: 1.25
-  _attackDistMult: 0.5
+  _attackDistMult: 0.25
   _openSpaceDesire: 1
   _wander: 0.4
-  _evasion: 0.5
+  _evasion: 0.4
   _dodgeEvade: 0.05
   _dodgeSprint: 0.05
 --- !u!1 &8092221797262269560
