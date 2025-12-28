@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SIE_Projectile : SIE, IPoolable
 {
+    [SerializeField] bool _attached;
     [SerializeField] float _damageMult = 1f;
     [SerializeField] float _knockbackMult = 1f;
     [SerializeField] float _launchMult = 1f;
@@ -86,6 +87,11 @@ public class SIE_Projectile : SIE, IPoolable
 
     private void FixedUpdate()
     {
+        if (_attached)
+        {
+            _rb.linearVelocity = _skillInstance.Skill.Actor.Body.linearVelocity;
+        }
+
         // Aim
         if (_rb.linearVelocity.sqrMagnitude > 0.01f)
         {
@@ -152,8 +158,6 @@ public class SIE_Projectile : SIE, IPoolable
         // Hit Actor
         else if(hitActor)
         {
-            
-
             // Disable friendly fire
             if (!hitActor.IsEnemyOf(_skillInstance.Skill.Actor)) return;
 

@@ -28,6 +28,7 @@ public class SIE_E_Fade : SIE, IPoolable
     public void Initialize()
     {
         _endTimer.Reset(_endTime);
+        _skillInstance.EndPercent = 0f;
     }
 
     private void Update()
@@ -37,6 +38,7 @@ public class SIE_E_Fade : SIE, IPoolable
         // Tick Timer
         _endTimer.Tick(Time.deltaTime);
         var percent = _endTimer.GetPercent();
+        _skillInstance.EndPercent = percent;
 
         // Alpha Fade
         var alpha = percent.RemapPercent(_initAlpha, 0f);

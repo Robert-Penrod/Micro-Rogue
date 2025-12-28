@@ -67,7 +67,7 @@ public class ProjectileExplosion : SkillPart, IPoolable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((_explosionTick / _explosionTime) > 0.5f) return;
+        if ((_explosionTick / _explosionTime) > 0.25f) return;
 
         if (_colCache.Contains(collision)) return;
         _colCache.Add(collision);

@@ -747,10 +747,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSkillList:
-  - {fileID: 6186832908358600196, guid: d9090888d8de0694d8218242621080af, type: 3}
-  - {fileID: 1343362800686191663, guid: d4bd7513643743141b2506b44bd34045, type: 3}
-  - {fileID: 1360847813362059508, guid: a41c0cf2e06085f40b57a6b9c9ff9fad, type: 3}
-  - {fileID: 4682159562322024313, guid: 91ac1e2a6ac796a4092bf65d06e598ce, type: 3}
+  - {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+  - {fileID: 8340235622040579611, guid: cd7761de7d7ea19498149e5dcdcf2648, type: 3}
 --- !u!114 &9016044144876615625
 MonoBehaviour:
   m_ObjectHideFlags: 0

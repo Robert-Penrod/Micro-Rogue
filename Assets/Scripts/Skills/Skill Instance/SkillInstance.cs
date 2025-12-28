@@ -9,6 +9,10 @@ public class SkillInstance : MonoBehaviour, IPoolable
     [SerializeField] AudioClip _activeClip;
     [SerializeField] AudioClip _endClip;
 
+    public float StartPercent;
+    public float ActivePercent;
+    public float EndPercent;
+
     public enum SkillInstanceState { Start, Activated, End}
 
     public SkillInstanceState State
@@ -48,6 +52,7 @@ public class SkillInstance : MonoBehaviour, IPoolable
         _state = SkillInstanceState.Start;
         OnStart?.Invoke();
         PlayAudio(_startClip, 0.5f);
+        StartPercent = ActivePercent = EndPercent = 0f;
     }
 
     public void Link(Skill skill)

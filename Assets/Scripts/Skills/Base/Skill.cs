@@ -30,8 +30,14 @@ public class Skill : MonoBehaviour
     public SkillStats Stats;
 
     [SerializeField] float _dps;
+    int _dir = 1;
+    public int GetDirection()
+    {
+        _dir *= -1;
+        return _dir;
+    }
 
-    public float TelegraphTime => Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (1f / Stats.Rate.Value) * Stats.Size.Value;
+    public float TelegraphTime => Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * Stats.Size.Value;
 
     [BoxGroup("Upgrades")]
     public List<SkillUpgrade> UpgradeList = new();
@@ -81,17 +87,17 @@ public class Skill : MonoBehaviour
         // Temp Stats
         float activeSkillMult = 1f;
         var skillList = Actor.SkillSystem.SkillList;
-        float mainSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? 0f : 1f;
-        float offhandSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? 0f : 1f;
+        float mainSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? 0.1f : 1f;
+        float offhandSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? 0.1f : 1f;
         switch (this.Slot)
         {
             case SlotEnum.Main:
                 activeSkillMult *= mainSkillMult;
-                activeSkillMult *= offhandSkillMult.RemapPercent(0.5f, 1f);
+                activeSkillMult *= offhandSkillMult.RemapPercent(0.25f, 1f);
                 break;
             case SlotEnum.Offhand:
                 activeSkillMult *= offhandSkillMult;
-                activeSkillMult *= mainSkillMult.RemapPercent(0.5f, 1f);
+                activeSkillMult *= mainSkillMult.RemapPercent(0.25f, 1f);
                 break;
         }
 

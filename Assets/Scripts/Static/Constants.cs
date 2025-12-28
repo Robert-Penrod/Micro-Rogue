@@ -47,7 +47,7 @@ public static class Constants
 
     public static class DungeonStats
     {
-        public static float PortalTime = 1.5f;
+        public static float PortalTime = 1f;
     }
 
     public static class ActorStats
@@ -99,7 +99,7 @@ public static class Constants
     public static class SkillStats
     {
         public static float BaseAlpha = 1f;
-        public static float BaseTelegraphTime = 0.25f;
+        public static float BaseTelegraphTime = 0.375f;
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
         public static float SIE_ProjectileInheritVelocityMult = 0.75f; // 0.75
         public static float HitboxDelay = 1f;
