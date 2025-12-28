@@ -20,7 +20,9 @@ public class UpgradeCardUI : MonoBehaviour
     {
         //Debug.Log(" of " + upgrade._sourceSkill.Name);
         // Init
-        var upgradeColor = upgrade.GetColor().Lerp(Color.white, 0.25f);
+        var skillColor = upgrade.GetColor().Lerp(Color.white, 0.25f);
+        var rarityColor = Constants.RarityToColor(upgrade.Rarity);
+        var upgradeColor = upgrade.Rarity != Constants.Rarity.Common ? rarityColor : skillColor;
         this._upgrade = upgrade;
 
         // Card
@@ -29,8 +31,8 @@ public class UpgradeCardUI : MonoBehaviour
 
         // Icon
         this._icon.sprite = upgrade.GetIcon();
-        this._icon.color = upgradeColor;
-        _iconGlow.color = upgradeColor.Alpha(_iconGlow.color.a);
+        this._icon.color = skillColor;
+        _iconGlow.color = skillColor.Alpha(_iconGlow.color.a);
 
         // Title
         this._title.text = upgrade.GetTitle();

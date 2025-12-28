@@ -12,6 +12,7 @@ public static class BalancePoint
     public static float BP_Skill_Speed = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Count = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Pierce = 2f * BP_PercentDPSGain;
+    public static float BP_Skill_Lunge = 2f * BP_PercentDPSGain;
 
     public static StatModifier BPToStatMod(this float bp, SkillStats.SkillStatTypes stat)
     {
@@ -25,10 +26,10 @@ public static class BalancePoint
             SkillStats.SkillStatTypes.Speed => BP_Skill_Speed,
             SkillStats.SkillStatTypes.Pierce => BP_Skill_Pierce,
             SkillStats.SkillStatTypes.Knockback => BP_Skill_Damage,
-            SkillStats.SkillStatTypes.Lunge => BP_Skill_Damage,
-            SkillStats.SkillStatTypes.Potency => BP_Skill_Damage,
+            SkillStats.SkillStatTypes.Lunge => BP_Skill_Lunge,
+            //SkillStats.SkillStatTypes.Potency => BP_Skill_Damage,
 
-            _ => 0f
+            _ => 1f
         };
 
         float value = bp * multiplier;

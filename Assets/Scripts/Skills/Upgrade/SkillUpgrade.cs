@@ -25,7 +25,7 @@ public class SkillUpgrade : Upgrade
 
     public override string GetDescription()
     {
-        string description = _description + "\n";
+        string description = string.Empty;// _description + "\n";
         ModList.Sort((x, y) => x.StatName > y.StatName ? 1 : -1);
         foreach (SkillUpgradeMod skillUpgradeMod in ModList)
         {
@@ -56,7 +56,7 @@ public class SkillUpgrade : Upgrade
 
             string valueChange = Constants.ChangeValueString(value, previewStatValue, positiveDir, unit);
             if (description.Length > 0) description += "\n";
-            description += (statName + ": ").Color(Color.grey) + valueChange;
+            description += ((statName + ": ").Color("CAD079") + valueChange);
         }
         return description;
     }
@@ -102,6 +102,7 @@ public class SkillUpgrade : Upgrade
             if (statName == SkillStats.SkillStatTypes.Rate && previewStatValue < 0.02f) return false;
             if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.75f) return false;
             if (statName == SkillStats.SkillStatTypes.Duration && previewStatValue < 0.15f) return false;
+            if (statName == SkillStats.SkillStatTypes.Lunge && previewStatValue < -4f) return false;
         }
             return true;
     }

@@ -29,15 +29,36 @@ public static class Constants
                 return 1f;
         }
     }
-    
+    public static Color RarityToColor(Rarity rarity)
+    {
+        switch (rarity)
+        {
+            case Rarity.Common:
+                return Color.clear;
+            case Rarity.Uncommon:
+                return Color.green.SetSaturation(0.7f);
+            case Rarity.Rare:
+                return new Color(.3f, .6f, 1f);
+            case Rarity.Epic:
+                return Color.yellow.SetSaturation(1f);
+            case Rarity.Legendary:
+                return Color.white;
+            case Rarity.Secret:
+                return Color.black;
+
+            default:
+                return Color.clear;
+        }
+    }
+
     public static string ChangeValueString(float initValue, float newValue, float positiveDir = 1f, string unit = "")
     {
         Color initColor = new Color(0.75f, 0.75f, 0.75f);
-        Color positiveColor = Color.green;
-        Color negativeColor = Color.red;
+        Color positiveColor = Color.green.SetSaturation(0.7f);
+        Color negativeColor = Color.red.SetSaturation(0.7f);
         bool isPositive = Mathf.Sign(newValue - initValue) == Mathf.Sign(positiveDir);
         Color c = isPositive ? positiveColor : negativeColor;
-        return ((initValue.ToStatNumString() + unit).Color(initColor) + " → " + (newValue.ToStatNumString() + unit).Color(c)).Bold();
+        return ((initValue.ToStatNumString() + unit).Color(initColor) + " → " + (newValue.ToStatNumString() + unit).Color(c));//.Bold();
     }
 
     public static string ToStatNumString(this float t)

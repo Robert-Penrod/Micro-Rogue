@@ -7849,6 +7849,18 @@ PrefabInstance:
       propertyPath: 'BaseSkillList.Array.data[3]'
       value: 
       objectReference: {fileID: 2175483395245361323, guid: 9b1936885428c104bb7d33889623ff87, type: 3}
+    - target: {fileID: 6255156838659116117, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
+    - target: {fileID: 6255156838659116117, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -35519726058494776, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
+    - target: {fileID: 6255156838659116117, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7385992505208217961, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7944,6 +7956,10 @@ PrefabInstance:
     - target: {fileID: 7707286028774958350, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7809606566603863093, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

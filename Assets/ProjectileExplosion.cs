@@ -27,9 +27,6 @@ public class ProjectileExplosion : SkillPart, IPoolable
 
     private void OnEnable()
     {
-        var main = _pSystem.main;
-        main.startLifetime = _explosionTime;
-
         this.DelayedInvoke(0.1f, () =>
         {
             DoExplosion();
@@ -42,6 +39,9 @@ public class ProjectileExplosion : SkillPart, IPoolable
         var main = _pSystem.main;
         main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(_sourceSkill).Alpha(main.startColor.color.a);
         transform.localScale = _sizeMult * _size * Vector3.one;
+
+        _explosionTime = _sourceSkill.Stats.Duration.Value;
+        main.startLifetime = _explosionTime;
     }
 
     private void Update()

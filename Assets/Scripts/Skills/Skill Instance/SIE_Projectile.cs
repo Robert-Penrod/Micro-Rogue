@@ -86,7 +86,7 @@ public class SIE_Projectile : SIE, IPoolable
 
         // Lunge
         Vector2 lungeForce = transform.up * _lunge;
-        //_skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
+        _skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
     }
 
     private void FixedUpdate()
