@@ -101,6 +101,7 @@ public class SkillUpgrade : Upgrade
             if (statName == SkillStats.SkillStatTypes.Count && previewStatValue < 1f) return false;
             if (statName == SkillStats.SkillStatTypes.Rate && previewStatValue < 0.02f) return false;
             if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.75f) return false;
+            if (statName == SkillStats.SkillStatTypes.Duration && previewStatValue < 0.15f) return false;
         }
             return true;
     }

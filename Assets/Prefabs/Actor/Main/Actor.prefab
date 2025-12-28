@@ -15425,6 +15425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5b1c6d109bafdc40a5a79ff173fc265, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  State: 
   _passiveDistMult: 1.25
   _attackDistMult: 0.25
   _openSpaceDesire: 1
@@ -15564,4 +15565,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropTime: 0.25
-  Lifetime: 3.5
+  Lifetime: 4

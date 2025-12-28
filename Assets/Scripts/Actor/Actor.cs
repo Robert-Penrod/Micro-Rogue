@@ -109,7 +109,7 @@ public class Actor : MonoBehaviour
     {
         Vector2 dir = position - (Vector2)transform.position;
         float dist = dir.magnitude;
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.2f, dir, dist);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, dir, dist);
         foreach (RaycastHit2D hit in hits)
         {
             bool isTrigger = hit.collider.isTrigger;

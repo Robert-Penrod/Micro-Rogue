@@ -124,7 +124,7 @@ public class Skill : MonoBehaviour
         else if(_wasNoTargets)
         {
             _wasNoTargets = false;
-            CooldownPercent *= Random.Range(0.5f, 1f);
+            CooldownPercent *= Random.Range(0.75f, 1f);
         }
     }
 

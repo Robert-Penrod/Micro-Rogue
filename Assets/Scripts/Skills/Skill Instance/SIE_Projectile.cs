@@ -64,16 +64,20 @@ public class SIE_Projectile : SIE, IPoolable
             // Launch Force
             Vector2 projectedParentVel = Vector3.Project(actor.Body.linearVelocity, launchForce.normalized);
             Vector2 inheritVel = projectedParentVel;
-            inheritVel *= Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
-            inheritVel *= Vector2.Dot(actor.Body.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
+            //inheritVel *= Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
+
+            //inheritVel *= Vector2.Dot(actor.Body.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
+
             launchForce += inheritVel;
 
             // Min Launch Force
+            /*
             float minLaunchForce = _speed / 2f;
             if(launchForce.magnitude < minLaunchForce || Vector2.Dot(launchForce, transform.up) < 0)
             {
                 launchForce = minLaunchForce * transform.up;
             }
+            */
         }
 
         // Add Force
@@ -82,7 +86,7 @@ public class SIE_Projectile : SIE, IPoolable
 
         // Lunge
         Vector2 lungeForce = transform.up * _lunge;
-        _skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
+        //_skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
     }
 
     private void FixedUpdate()
@@ -172,14 +176,21 @@ public class SIE_Projectile : SIE, IPoolable
 
             // Hit Stun
 
-            // Popup
+
             if (damageTaken > 0)
             {
+                // Popup
                 string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
                 string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
                 Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive ? 0.5f : 1f);
                 popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
                 TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
+
+                // Audio
+                this.DelayedInvoke(0.02f, () =>
+                {
+                    PlayAudio(_hitClip);
+                });
             }
 
             // Screen Shake
@@ -203,10 +214,6 @@ public class SIE_Projectile : SIE, IPoolable
             hitBody.AddForce(knockbackForce, ForceMode2D.Impulse);
 
             hitBody.transform.localScale *= 0.9f;
-            this.DelayedInvoke(0.02f, () =>
-            {
-                PlayAudio(_hitClip);
-            });
         }
         //.
 

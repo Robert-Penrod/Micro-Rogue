@@ -38,7 +38,7 @@ public class ScentSystem : MonoBehaviour
         {
             _scentdropTemplate = new GameObject("Scent Drop").AddComponent<ScentDrop>();
             _scentdropTemplate.gameObject.layer = LayerMask.NameToLayer("Scent");
-            _scentdropTemplate.ScentSystem = this;
+            //_scentdropTemplate.ScentSystem = this;
             CircleCollider2D col = _scentdropTemplate.gameObject.AddComponent<CircleCollider2D>();
             col.isTrigger = true;
             col.radius = 0.1f;
@@ -73,6 +73,7 @@ public class ScentSystem : MonoBehaviour
         _dropList.RemoveAll(x => x == null || !x.gameObject.activeInHierarchy);
         ScentDrop scentDrop = _scentdropTemplate.gameObject.PooledInstantiate().GetComponent<ScentDrop>();
         scentDrop.transform.position = transform.position;
+        scentDrop.ScentSystem = this;
         scentDrop.gameObject.hideFlags = HideFlags.HideInHierarchy;
         scentDrop.gameObject.SetActive(true);
         _dropList.Insert(0, scentDrop);

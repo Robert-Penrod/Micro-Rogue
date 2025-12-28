@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SIE_SwingPivot : MonoBehaviour
+public class SI_SwingPivot : MonoBehaviour
 {
     float _targetAngle;
     [SerializeField] float _swingAngle = 45f;

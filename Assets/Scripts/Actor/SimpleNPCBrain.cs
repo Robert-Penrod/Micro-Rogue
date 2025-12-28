@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SimpleNPCBrain : ActorBrain
 {
+    public string State;
+
     [Header("Dist")]
     [SerializeField] float _passiveDistMult = 1f;
     [SerializeField] float _attackDistMult = 0.5f;
@@ -71,6 +73,8 @@ public class SimpleNPCBrain : ActorBrain
         // Enemy
         if (senses.EnemyActors.Count > 0)
         {
+            State = _isAttacking? "Attacking Enemy" : "Chasing Enemy";
+
             Vector2 desireVector = Vector2.zero;
             float averageDistance = 0f;
             foreach (Actor enemy in senses.EnemyActors)
@@ -99,6 +103,7 @@ public class SimpleNPCBrain : ActorBrain
         // Scent
         else if (senses.EnemyScentDrop.Count > 0 && senses.EnemyScentDrop[0] != null)
         {
+            State = "Tracking Scent";
             sprintMult += 0.05f;
             Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;
             moveDir += targetDir.normalized;
@@ -108,6 +113,7 @@ public class SimpleNPCBrain : ActorBrain
         // Idle
         else
         {
+            State = "Idle";
             float distFromCenter = transform.position.magnitude;
             Vector2 towardsCenter = -transform.position.normalized;
 

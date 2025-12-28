@@ -108,7 +108,8 @@ public class ProjectileExplosion : SkillPart, IPoolable
             CamShaker.Instance.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
 
             // Audio
-            //AudioSpawner.PlayAudioWithRandPitch(_damageAudio, 0.2f, 1f, 1f);
+            float audioDelay = 0.125f * Random.Range(0.75f, 1.25f);
+            AudioSpawner.PlayAudioWithRandPitch(_damageAudio, 0.2f, 1f, 1f, delay: audioDelay);
         }
     }
 

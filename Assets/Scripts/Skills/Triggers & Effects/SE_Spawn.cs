@@ -9,7 +9,7 @@ public class SE_Spawn : SkillEffect
     public override void Effect()
     {
         int amount = (int)_skill.Stats.Count.Value;
-        float spawnDelay = _skill.TelegraphTime;
+        float spawnDelay = 0.9f * _skill.TelegraphTime;
 
         StartCoroutine(Spawn_Co());
         IEnumerator Spawn_Co()
