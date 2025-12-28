@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 3054811343679036563}
   - component: {fileID: 7769225569498029423}
   - component: {fileID: 383452395039062486}
+  - component: {fileID: 5304071445325640448}
   m_Layer: 8
   m_Name: -skill projectile
   m_TagString: Untagged
@@ -226,8 +227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Skill: {fileID: 0}
   _startClip: {fileID: 0}
-  _activeClip: {fileID: 8300000, guid: 3b5393f5eb0524244a03a946694f4909, type: 3}
-  _endClip: {fileID: 0}
+  _activeClip: {fileID: 8300000, guid: 0bebec1d54c03da449bb5d77ef258f66, type: 3}
+  _endClip: {fileID: 8300000, guid: c5b66908c8350374680446c0da0565dc, type: 3}
 --- !u!114 &2125784924893834886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -304,9 +305,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75f6d683f2f6024fb52617a1b4d493b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damageMult: 0
+  _knockbackMult: 0
   _launchMult: 1
   _angularVel: 0
-  _hitClip: {fileID: 8300000, guid: adc6a337a9c3ad04e9f254ee70d4a9a2, type: 3}
+  _hitClip: {fileID: 8300000, guid: 00c3b2613fef268489da71bcc5307559, type: 3}
   _wallHitClip: {fileID: 8300000, guid: 8ce36245df0749547bd0061f97491f4f, type: 3}
 --- !u!114 &383452395039062486
 MonoBehaviour:
@@ -321,6 +324,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Magnitude: 0.5
+--- !u!114 &5304071445325640448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2011402587253571019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 821c7a69ed79948479cbf2a4022e7641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPrefab: {fileID: 3976000101767700039, guid: 0452b5bc8f4ef7240a231c2baba55cd2, type: 3}
 --- !u!1 &4460761919068176043
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[0]._name

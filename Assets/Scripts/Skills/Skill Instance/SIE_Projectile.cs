@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SIE_Projectile : SIE, IPoolable
 {
+    [SerializeField] float _damageMult = 1f;
+    [SerializeField] float _knockbackMult = 1f;
     [SerializeField] float _launchMult = 1f;
     [SerializeField] float _angularVel = 0f;
 
@@ -18,7 +20,7 @@ public class SIE_Projectile : SIE, IPoolable
     // Stats
     float _speed => _skillInstance.Skill.Stats.Speed.Value;
     float _hitboxDelay => _skillInstance.Skill.Stats.HitboxDelay;
-    float _knockback => _skillInstance.Skill.Stats.Knockback.Value;
+    float _knockback => _knockbackMult * _skillInstance.Skill.Stats.Knockback.Value;
     int _pierce => (int)_skillInstance.Skill.Stats.Pierce.Value;
     int _damage => (int)_skillInstance.Skill.Stats.Damage.Value;
     float _lunge => _skillInstance.Skill.Stats.Lunge.Value;
@@ -156,7 +158,7 @@ public class SIE_Projectile : SIE, IPoolable
             if (!hitActor.IsEnemyOf(_skillInstance.Skill.Actor)) return;
 
             // Damage
-            float damage = (int)_skillInstance.Skill.Stats.Damage.Value;
+            float damage = (int)(_damageMult * _skillInstance.Skill.Stats.Damage.Value);
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
             int damageTaken = hitActor.TakeDamage((int)damage);
 
@@ -167,11 +169,14 @@ public class SIE_Projectile : SIE, IPoolable
             // Hit Stun
 
             // Popup
-            string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
-            string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
-            Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive? 0.5f : 1f);
-            popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
-            TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
+            if (damageTaken > 0)
+            {
+                string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
+                string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
+                Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive ? 0.5f : 1f);
+                popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
+                TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
+            }
 
             // Screen Shake
             CamShaker.Instance.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
