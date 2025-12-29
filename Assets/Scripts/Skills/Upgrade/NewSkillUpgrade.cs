@@ -25,6 +25,8 @@ public class NewSkillUpgrade : Upgrade
         var newSkill = _targetActor.SkillSystem.AddSkill(_skillPrefab);
         newSkill.Level++;
         Debug.Log("!!! Applying New Skill UPGRAde");
+
+        _targetActor.OnUpgrade?.Invoke();
     }
 
     public override string GetSlot()

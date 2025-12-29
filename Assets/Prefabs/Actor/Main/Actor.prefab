@@ -15344,6 +15344,7 @@ MonoBehaviour:
       BaseValue: 4.5
     DodgeCooldown:
       BaseValue: 3
+  _spriteRend: {fileID: 1548810938185463985}
 --- !u!114 &4980042708820111086
 MonoBehaviour:
   m_ObjectHideFlags: 0

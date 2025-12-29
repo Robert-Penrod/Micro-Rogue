@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Actor : MonoBehaviour
@@ -20,6 +22,10 @@ public class Actor : MonoBehaviour
     public ActorSenses Senses { get; private set; }
     public ActorSkillSystem SkillSystem { get; private set; }
 
+    public Action OnUpgrade;
+
+    [SerializeField] SpriteRenderer _spriteRend;
+    public Sprite Sprite => _spriteRend.sprite;
 
     private void Awake()
     {

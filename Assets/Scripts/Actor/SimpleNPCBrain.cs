@@ -21,6 +21,8 @@ public class SimpleNPCBrain : ActorBrain
     [Header("Rand")]
     [SerializeField] float _wander = 0.5f;
     Vector2 _wanderVector;
+    float _idleRestTimer = 0f;
+    float _idleMoveTimer = 0f;
 
     [Header("Evade")]
     [SerializeField] float _evasion = 0f;
@@ -113,14 +115,38 @@ public class SimpleNPCBrain : ActorBrain
         // Idle
         else
         {
+            if(State != "Idle")
+            {
+                _idleRestTimer += Random.Range(0f, 12f);
+            }
             State = "Idle";
-            float distFromCenter = transform.position.magnitude;
-            Vector2 towardsCenter = -transform.position.normalized;
 
-            float t = distFromCenter.Remap(7f, 12f, 0f, 1f);
-            Vector2 randomMoveVector = Vector2.Lerp(_wanderVector, towardsCenter, t);
+            if (_idleMoveTimer > 0f)
+            {
+                _idleMoveTimer -= Time.deltaTime;
+                float distFromCenter = transform.position.magnitude;
+                Vector2 towardsCenter = -transform.position.normalized;
 
-            moveDir += randomMoveVector.normalized;
+                float t = distFromCenter.Remap(7f, 12f, 0f, 1f);
+                Vector2 randomMoveVector = Vector2.Lerp(_wanderVector, towardsCenter, t);
+
+                moveDir += randomMoveVector.normalized;
+
+                if(_idleMoveTimer <= 0f)
+                {
+                    _idleRestTimer += Random.Range(0f, 10f);
+                }
+            }
+            else
+            {
+                _idleRestTimer -= Time.deltaTime;
+                if(_idleRestTimer <= 0f)
+                {
+                    _idleMoveTimer += Random.Range(0f, 10f);
+                }
+                _actor.MoveController.Ctrl_Move(Vector2.zero);
+                return;
+            }
         }
         //===
 

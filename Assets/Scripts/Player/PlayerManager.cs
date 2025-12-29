@@ -16,6 +16,9 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
 
     List<Color> _playerColors = new();
 
+    public Action<Player> OnPlayerJoin;
+    public Action<Player> OnPlayerLeave;
+
     protected override void Awake()
     {
         // Init
@@ -50,6 +53,7 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
         Player player = playerInput.GetComponentInParent<Player>();
         if (player == null || PlayerList.Contains(player)) return;
         PlayerList.Add(player);
+        OnPlayerJoin?.Invoke(player);
     }
 
     void OnPlayerLeft(PlayerInput playerInput)
@@ -57,6 +61,7 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
         Player player = playerInput.GetComponentInParent<Player>();
         if (player == null || !PlayerList.Contains(player)) return;
         PlayerList.Remove(player);
+        OnPlayerLeave?.Invoke(player);
     }
 
     private void OnLevelWasLoaded(int level)

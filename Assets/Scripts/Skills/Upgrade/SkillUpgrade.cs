@@ -79,6 +79,8 @@ public class SkillUpgrade : Upgrade
         _sourceSkill.Actor.Stats.AddArchetypeStats(_sourceSkill.Stats.Str, _sourceSkill.Stats.Dex, _sourceSkill.Stats.Int);
         _sourceSkill.Level++;
         //_skill.ParentActor.AddSkillTags(_skill.Tags);
+
+        _sourceSkill.Actor.OnUpgrade?.Invoke();
     }
 
     internal bool IsValid()
