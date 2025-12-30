@@ -117,7 +117,7 @@ public class SimpleNPCBrain : ActorBrain
         {
             if(State != "Idle")
             {
-                _idleRestTimer += Random.Range(0f, 12f);
+                _idleRestTimer += Random.Range(0f, 3f);
             }
             State = "Idle";
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,33 @@ public class Player : MonoBehaviour
     public class PlayerData
     {
         public Color Color;
+        public int Coin
+        {
+            get
+            {
+                return _coin;
+            }
+            set
+            {
+                _coin = value;
+                OnCoinChange?.Invoke();
+            }
+        }
+        int _coin;
+        public Action OnCoinChange;
+        public static int Gem
+        {
+            get
+            {
+                return _gem;
+            }
+            set
+            {
+                _gem = value;
+                PlayerPrefs.SetInt("Gems", _gem);
+            }
+        }
+        public static int _gem;
     }
     public PlayerData Data;
 
@@ -29,6 +57,8 @@ public class Player : MonoBehaviour
         Actor = GetComponentInChildren<Actor>();
         Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
         Data.Color = PlayerManager.I.GetPlayerColor(Index);
+
+        PlayerData.Gem = PlayerPrefs.GetInt("Gems", 0);
     }
 
     private void Update()

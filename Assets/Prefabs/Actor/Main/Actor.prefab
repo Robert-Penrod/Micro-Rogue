@@ -15233,6 +15233,7 @@ GameObject:
   - component: {fileID: 656978755204930970}
   - component: {fileID: 4258424107530315670}
   - component: {fileID: 6454126194898913322}
+  - component: {fileID: 7109160049825760317}
   m_Layer: 6
   m_Name: Actor
   m_TagString: Untagged
@@ -15434,6 +15435,28 @@ MonoBehaviour:
   _evasion: 0.4
   _dodgeEvade: 0.05
   _dodgeSprint: 0.05
+--- !u!114 &7109160049825760317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931514224636784519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5631552c3de9a4695f1127017786f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _kickForce: 3
+  _angularForce: 1
+  LootPrefabTable:
+    Entries:
+    - Item: {fileID: 7512805904016728388, guid: 94f9aeb1f28f98a42a2416f10c8efd7d, type: 3}
+      Weight: 1
+    - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
+      Weight: 0.1
+    - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
+      Weight: 0.05
 --- !u!1 &8092221797262269560
 GameObject:
   m_ObjectHideFlags: 0

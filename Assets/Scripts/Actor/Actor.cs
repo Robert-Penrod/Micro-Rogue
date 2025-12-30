@@ -22,10 +22,24 @@ public class Actor : MonoBehaviour
     public ActorSenses Senses { get; private set; }
     public ActorSkillSystem SkillSystem { get; private set; }
 
+    // Events
     public Action OnUpgrade;
+    public Action OnDeath;
 
     [SerializeField] SpriteRenderer _spriteRend;
     public Sprite Sprite => _spriteRend.sprite;
+
+    public int GetLevel()
+    {
+        if (SkillSystem == null) return 0;
+
+        int level = 0;
+        SkillSystem.SkillList.ForEach(skill =>
+        {
+            level += skill.Level;
+        });
+        return level;
+    }
 
     private void Awake()
     {
@@ -56,10 +70,19 @@ public class Actor : MonoBehaviour
         gameObject.SetCollidersEnabled2D(false);
         IsAlive = false;
 
-        this.DelayedInvoke(0.25f * Random.Range(0.9f, 1.1f), () =>
+        if (!IsPlayer())
         {
-            Destroy(this.gameObject);
-        });
+            this.DelayedInvoke(0.25f * Random.Range(0.9f, 1.1f), () =>
+            {
+                Destroy(this.gameObject);
+            });
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        OnDeath?.Invoke();
     }
 
     private void Update()

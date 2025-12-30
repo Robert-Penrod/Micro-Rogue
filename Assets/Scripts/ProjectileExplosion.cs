@@ -105,7 +105,7 @@ public class ProjectileExplosion : SkillPart, IPoolable
             TextPopup2DManager.I.CreatePopup(popupPos, popupString, null, hitActor.IsAlive ? hitActor.transform : null);
 
             // Screen Shake
-            CamShaker.Instance.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
+            CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
 
             // Audio
             float audioDelay = 0.125f * Random.Range(0.75f, 1.25f);

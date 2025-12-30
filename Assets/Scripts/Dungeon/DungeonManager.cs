@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class DungeonManager : PersistantSingleton<DungeonManager>
+public class DungeonManager : Singleton<DungeonManager>
 {
     [SerializeField] Transform _hub;
     [SerializeField] GameObject _roomGeneratorPrefab;

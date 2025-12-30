@@ -72,6 +72,7 @@ namespace ManaSprite.EasyPooling
             }
         }
 
+        public static GameObject PooledInstantiate(this GameObject sourceObject, Vector3 pos, Transform parent = null, int? targetCount = null) => PooledInstantiate(sourceObject, parent, pos, targetCount);
         public static GameObject PooledInstantiate(this GameObject sourceObject, Transform parent = null, Vector3? pos = null, int? targetCount = null)
         {
             if(sourceObject == null)

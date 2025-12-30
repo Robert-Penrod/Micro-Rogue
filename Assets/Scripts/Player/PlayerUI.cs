@@ -12,32 +12,28 @@ public class PlayerUI : MonoBehaviour
 
     public Player Player { get; private set; }
 
-    private void Awake()
-    {
-        PlayerManager.I.OnPlayerJoin += (Player player) =>
-        {
-            this.DelayedInvoke(-1, () =>
-            {
-                SetPlayer(player);
-            });
-        };
-    }
-
     public void SetPlayer(Player player)
     {
+        if (this.Player != null) Player.Data.OnCoinChange -= LoadCoins;
+        if (this.Player != null) Player.Actor.OnUpgrade -= LoadData;
         this.Player = player;
-        Player.Actor.OnUpgrade += () =>
-        {
-            LoadData();
-        };
+        if (this.Player != null) Player.Data.OnCoinChange += LoadCoins;
+        if (this.Player != null) Player.Actor.OnUpgrade += LoadData;
         LoadData();
+    }
+
+    void LoadCoins()
+    {
+        _goldText.text = (Player?.Data.Coin ?? 0).ToString();
     }
 
     void LoadData()
     {
         // Avatar
-        _avatar.sprite = Player.Actor.Sprite;
-        _avatar.color = Player.Data.Color;
+        _avatar.sprite = Player?.Actor.Sprite;
+        _avatar.color = Player?.Data.Color ?? Color.black;
+
+        LoadCoins();
 
         // Skills
         var skillSystem = Player.Actor.SkillSystem;

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,16 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
 
         IsUpgrading = true;
         Debug.Log("Upgrading Players!");
-        UpgradeMenu.I.DoUpgradeMenuFor(playerList[0].Actor);        
+        StartCoroutine(UpgradeCoroutine());
+        IEnumerator UpgradeCoroutine()
+        {
+            for(int i = 0; i < playerList.Count; i++)
+            {
+                UpgradeMenu.I.DoUpgradeMenuFor(playerList[i].Actor);
+                while (IsUpgrading) yield return null;
+            }
+            yield return null;
+        }
     }
 
     public void FinishUpgrading()

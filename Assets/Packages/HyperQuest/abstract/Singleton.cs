@@ -6,13 +6,13 @@
 // </summary>
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    public static T Instance { get; private set; }
+    public static T I { get; private set; }
 
     protected virtual void Awake()
     {
-        if (Instance == null)
+        if (I == null)
         {
-            Instance = (T)FindObjectOfType(typeof(T));
+            I = (T)FindObjectOfType(typeof(T));
         }
         else
         {

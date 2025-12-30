@@ -9,7 +9,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
     Actor _cachedTargetEnemy = null;
-    TickTimer _targetTimer = new TickTimer(0.2f);
+    TickTimer _targetTimer = new TickTimer(0.5f);
     float _speed => Constants.SkillStats.Speed.Default;
 
     float _angularVel;

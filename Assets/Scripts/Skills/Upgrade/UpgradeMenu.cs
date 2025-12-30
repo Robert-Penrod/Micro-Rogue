@@ -56,7 +56,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     public void SetMenuOpen(bool isOpen)
     {
-        CameraManager.Instance.ZoomKnob = isOpen ? 1.1f : 1f;
+        CameraManager.I.ZoomKnob = isOpen ? 1.1f : 1f;
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
         _isOpen = isOpen;
 

@@ -36,15 +36,15 @@ public static class Constants
             case Rarity.Common:
                 return Color.clear;
             case Rarity.Uncommon:
-                return Color.green.SetSaturation(0.7f);
-            case Rarity.Rare:
                 return new Color(.3f, .6f, 1f);
-            case Rarity.Epic:
+            case Rarity.Rare:
                 return Color.yellow.SetSaturation(1f);
-            case Rarity.Legendary:
+            case Rarity.Epic:
                 return Color.white;
-            case Rarity.Secret:
+            case Rarity.Legendary:
                 return Color.black;
+            case Rarity.Secret:
+                
 
             default:
                 return Color.clear;

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PlayerInputManager))]
-public class PlayerManager : PersistantSingleton<PlayerManager>
+public class PlayerManager : Singleton<PlayerManager>
 {
     [SerializeField] List<string> _joinSceneNames = new();
     public List<Player> PlayerList = new();
@@ -18,6 +18,19 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
 
     public Action<Player> OnPlayerJoin;
     public Action<Player> OnPlayerLeave;
+
+    public bool AreAllPlayersDead()
+    {
+        if (PlayerList.Count == 0) return false;
+
+        foreach(var player in PlayerList)
+        {
+            if(player?.Actor == null) return false;
+            if (player.Actor.Stats.Health > 0) return false;
+        }
+
+        return true;
+    }
 
     protected override void Awake()
     {

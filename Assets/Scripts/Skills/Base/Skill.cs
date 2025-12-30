@@ -50,7 +50,6 @@ public class Skill : MonoBehaviour
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
     public float CooldownPercent { get; private set; }
 
-    bool _wasNoTargets = false;
     #endregion
 
     #region Init
@@ -107,24 +106,24 @@ public class Skill : MonoBehaviour
             dodgeMult = Actor.MoveController.IsDodging ? 0f : 1f;
         }
 
+        // No Targets
+        float noTargetMult = 1f;
+        if (Actor.Senses.EnemyActors.Count <= 0)
+        {
+            // Leak
+            if (CooldownPercent > 0.5f)
+            {
+                noTargetMult = 0f;
+                CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
+            }
+        }
+
 
         // Cooldown
-        if(CooldownPercent < 1f)
+        if (CooldownPercent < 1f)
         {
-            CooldownPercent += activeSkillMult * dodgeMult * Stats.Rate.Value * Time.fixedDeltaTime;
+            CooldownPercent += noTargetMult * activeSkillMult * dodgeMult * Stats.Rate.Value * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.ClampMax(1f);
-        }
-
-        // No Targets
-        if(Actor.Senses.EnemyActors.Count <= 0)
-        {
-            CooldownPercent = CooldownPercent.ClampMax(0.75f);
-            _wasNoTargets = true;
-        }
-        else if(_wasNoTargets)
-        {
-            _wasNoTargets = false;
-            CooldownPercent *= Random.Range(0.75f, 1f);
         }
     }
 
