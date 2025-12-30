@@ -133,24 +133,12 @@ public class DungeonManager : Singleton<DungeonManager>
                 Destroy(p.gameObject);
             }
 
-            // Deactivate Player Actors
-            foreach (var player in _playerManager.PlayerList)
-            {
-                player.Actor.gameObject.SetActive(false);
-            }
-
             // Upgrade
             UpgradeManager.I.UpgradePlayers();
             while (UpgradeManager.I.IsUpgrading) yield return null;
 
             // New Level
             GenerateLevel();
-
-            // Reactivate Players
-            foreach(var player in _playerManager.PlayerList)
-            {
-                player.Actor.gameObject.SetActive(true);
-            }
 
             yield return new WaitForFixedUpdate();
 

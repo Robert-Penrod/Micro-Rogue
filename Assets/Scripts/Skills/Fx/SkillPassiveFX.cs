@@ -42,6 +42,8 @@ public class SkillPassiveFX : MonoBehaviour
         float targetScale = 1f;
         float cooldownPercent = _skill.CooldownPercent;
 
+        if (_parentActor.IsInUI) cooldownPercent = 0.9f;
+
         targetAlpha = cooldownPercent.Remap(0.5f, 1f, 0.35f, 1f);
         targetScale = cooldownPercent.Remap(0f, 1f, 0.7f, 1.2f);
 
@@ -61,7 +63,6 @@ public class SkillPassiveFX : MonoBehaviour
     Color CalculatePassiveColor()
     {
         Color passiveColor = new Color();
-        int colorCount = 0;
         if (_parentSpriteRend != null)
         {
             Color parentColor = _parentSpriteRend.color;
@@ -70,28 +71,11 @@ public class SkillPassiveFX : MonoBehaviour
             float min = 0.1f;
             if (v < min) v = min;
             h += 17f / 255f;
-            passiveColor += Color.HSVToRGB(h, s, v);
-            colorCount++;
+            passiveColor = Color.HSVToRGB(h, s, v);
         }
 
-        if (_skill != null)
-        {
-            Color archetypalColor = _initParentColor;// GamePalette.Instance.GetColor(GetComponentInParent<Actor>()?.Faction == Actor.FactionType.Player, _skill.ArchetypalStats.Str, _skill.ArchetypalStats.Dex, _skill.ArchetypalStats.Int);
-            passiveColor += Color.Lerp(passiveColor, archetypalColor, 0.25f);
-            colorCount++;
-        }
-
-        if(colorCount != 0)
-        {
-            passiveColor /= colorCount;
-        }
-        else
-        {
-            passiveColor = Color.black;
-        }
-
-        Color skillColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill.Actor, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
-        passiveColor = passiveColor.Lerp(skillColor, _skill.CooldownPercent.Remap(0.5f, 1f, 0f, 0.75f));
+        Color skillColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill);
+        passiveColor = skillColor;// passiveColor.Lerp(skillColor, _skill.CooldownPercent.Remap(0.5f, 1f, 0f, 1f));
 
         return passiveColor;
     }

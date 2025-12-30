@@ -610,7 +610,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 10, y: -25}
+  m_AnchoredPosition: {x: 10, y: -25.000008}
   m_SizeDelta: {x: 100, y: -49.999992}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &223490540
@@ -8208,6 +8208,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6758965154988584268, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 163389059}
     - target: {fileID: 7385992505208217961, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -21,15 +21,15 @@ public class GamePalette : ScriptableObject
         if(actor.IsPlayer())
         {
             individualPlayerColor = actor.GetComponentInParent<Player>().Data.Color;
-            individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0.5f);
+            individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0f);
         }
         else if(actor.Faction == Actor.FactionType.Player)
         {
             individualPlayerColor = PlayerColor;
         }
-        Color archetypeColor = GetArchetypeColor(str, dex, intel);
+        Color archetypeColor = GetArchetypeColor(str, dex, intel).SetValue(1f);
 
-        Color color = Color.Lerp(individualPlayerColor, archetypeColor, 0.25f);
+        Color color = Color.Lerp(individualPlayerColor, archetypeColor, 0.25f); // 0.25f
         return color;
     }
 

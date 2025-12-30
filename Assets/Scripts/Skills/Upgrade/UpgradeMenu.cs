@@ -63,10 +63,31 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
         if(!isOpen)
         {
             EventSystem.current.SetSelectedGameObject(null);
+
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Actor.SetInUI(false);
+            });
         }
         else
         {
             EventSystem.current.SetSelectedGameObject(_upgradeCardList[0].gameObject);
+
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Actor.SetInUI(true);
+                var actorTransform = player.Actor.transform;
+                if (_actorToUpgrade != null && _actorToUpgrade == player.Actor)
+                {
+                    actorTransform.position = 16f * Vector3.right + Vector3.forward * actorTransform.position.z;
+                }
+                else
+                {
+                    var pos = 20f * Vector3.right + Vector3.forward * actorTransform.position.z;
+                    pos += 5f * (Vector3)Random.insideUnitCircle;
+                    actorTransform.position = pos;
+                }
+            });
         }
     }
 

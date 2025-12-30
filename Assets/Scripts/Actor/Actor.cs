@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -85,9 +84,34 @@ public class Actor : MonoBehaviour
         OnDeath?.Invoke();
     }
 
+    public bool IsInUI { get; private set; }
+    Vector3 _preUIPos;
     private void Update()
     {
         ScaleUpdate();
+    }
+
+    public void SetInUI(bool isInUI)
+    {
+        if (this.IsInUI == isInUI) return;
+        this.IsInUI = isInUI;
+        this.gameObject.layer = IsInUI ? LayerMask.NameToLayer("UI") : LayerMask.NameToLayer("Actor");
+
+        if (IsInUI)
+        {
+            _preUIPos = transform.position;
+            transform.position = -50f * Vector3.forward;
+        }
+        else
+        {
+            transform.position = _preUIPos;
+            transform.localScale = _initScale * Vector3.one;
+        }
+
+        if(IsPlayer())
+        {
+            MoveController.enabled = !IsInUI;
+        }
     }
 
     private void FixedUpdate()
@@ -164,6 +188,7 @@ public class Actor : MonoBehaviour
     {
         float targetS = _initScale;
         if (_inPortal) targetS *= 0.5f;
+        if (IsInUI) targetS *= 5f;
 
         float lerpS = Mathf.Lerp(transform.localScale.x, targetS, 12f * Time.deltaTime);
         transform.localScale = lerpS * Vector3.one;
