@@ -28,6 +28,8 @@ public class Skill : MonoBehaviour
 
     [BoxGroup("Stats")]
     public SkillStats Stats;
+    [BoxGroup("Stats")]
+    public ActorStats ActoStats;
 
     [SerializeField] float _dps;
     int _dir = 1;
@@ -122,7 +124,9 @@ public class Skill : MonoBehaviour
         // Cooldown
         if (CooldownPercent < 1f)
         {
-            CooldownPercent += noTargetMult * activeSkillMult * dodgeMult * Stats.Rate.Value * Time.fixedDeltaTime;
+            float mult = noTargetMult * activeSkillMult * dodgeMult;
+            if (this.Slot == SlotEnum.Passive) mult = 1f;
+            CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.ClampMax(1f);
         }
     }

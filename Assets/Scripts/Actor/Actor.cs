@@ -127,7 +127,7 @@ public class Actor : MonoBehaviour
         // Last Chance (Players: If killing hit would do more than half health -> leave player at 1hp instead)
         if (IsPlayer())
         {
-            if (damage >= Stats.Health && damage >= Stats.HealthMax.Value / 2)
+            if (damage >= Stats.Health && damage >= 0.4f * Stats.HealthMax.Value)
             {
                 damage = Stats.Health - 1;
             }

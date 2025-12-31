@@ -8183,11 +8183,11 @@ PrefabInstance:
     - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: 'BaseSkillList.Array.data[3]'
       value: 
-      objectReference: {fileID: 7391418805428206428, guid: 027b1a409858c1c4d9ba625765b8cc3c, type: 3}
+      objectReference: {fileID: 1382790073346510661, guid: 1697488637af72e41981bd08d321dc89, type: 3}
     - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: 'BaseSkillList.Array.data[4]'
       value: 
-      objectReference: {fileID: 7391418805428206428, guid: 027b1a409858c1c4d9ba625765b8cc3c, type: 3}
+      objectReference: {fileID: 1382790073346510661, guid: 1697488637af72e41981bd08d321dc89, type: 3}
     - target: {fileID: 6169443227974423599, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: 'BaseSkillList.Array.data[5]'
       value: 

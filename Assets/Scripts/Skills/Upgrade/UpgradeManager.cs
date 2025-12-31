@@ -73,7 +73,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             // Actor cannot already have skill
             if (skillSystem.HasSkill(newSkill)) return;
 
-            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), Constants.RarityToWeight(newSkill.Rarity) / (5f * 3f));
+            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), Constants.RarityToWeight(newSkill.Rarity) / (3f * 3f));
         });
 
         // Skill Upgrades

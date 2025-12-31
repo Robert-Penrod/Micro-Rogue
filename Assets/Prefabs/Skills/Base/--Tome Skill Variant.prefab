@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905200824935588451, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: FreqMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 905200824935588451, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: FreqMin
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1339682011722151651, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -48,9 +56,125 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3685550267365924128, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Magnitude
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782649247904549658, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5445892865460674892, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022720446568592348, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Amp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022720446568592348, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Freq
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022720446568592348, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Rotation.Amp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
       value: --Tome Skill Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Slot
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: _dps
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Int
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Rate.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Size.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Count.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Lunge.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Speed.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Damage.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Pierce.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Duration.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Knockback.BaseValue
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

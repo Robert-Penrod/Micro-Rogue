@@ -21,7 +21,7 @@ public class SkillSlotUI : MonoBehaviour
 
         _icon.enabled = _skill != null;
         _lvlText.enabled = skill != null;
-        _cooldownFx.enabled = skill != null;
+        _cooldownFx.enabled = skill != null && skill.Stats.Rate.Value > 0;
 
         if(_skill != null)
         {
@@ -36,7 +36,7 @@ public class SkillSlotUI : MonoBehaviour
     {
         if(_skill != null)
         {
-            _cooldownFx.enabled = !_skill.IsActive;
+            _cooldownFx.enabled = !_skill.IsActive && _skill.Stats.Rate.Value > 0;
             _cooldownFx.fillAmount = 1f - _skill.CooldownPercent;
 
             float targetSize = _skill.IsActive ? 1.25f : 1f;
