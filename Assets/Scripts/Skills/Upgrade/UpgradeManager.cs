@@ -10,33 +10,29 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
     // State
     public bool IsUpgrading { get; private set; }
 
-    public void UpgradePlayers()
+    public IEnumerator UpgradePlayers_Co()
     {
         var playerList = PlayerManager.I.PlayerList;
         if(playerList.Count == 0)
         {
             Debug.Log("No players to upgrade");
-            return;
+            yield break;
         }
 
 
         IsUpgrading = true;
         Debug.Log("Upgrading Players!");
-        StartCoroutine(UpgradeCoroutine());
-        IEnumerator UpgradeCoroutine()
+        for (int i = 0; i < playerList.Count; i++)
         {
-            for(int i = 0; i < playerList.Count; i++)
-            {
-                UpgradeMenu.I.DoUpgradeMenuFor(playerList[i].Actor);
-                while (IsUpgrading) yield return null;
-            }
-            yield return null;
+            UpgradeMenu.I.DoUpgradeMenuFor(playerList[i].Actor);
+            while (UpgradeMenu.I.IsOpen) yield return null;
         }
+        IsUpgrading = false;
+        yield return null;
     }
 
     public void FinishUpgrading()
     {
-        IsUpgrading = false;
         UpgradeMenu.I.SetMenuOpen(false);
     }
 

@@ -12,7 +12,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     CanvasGroup _canvasGroup;
     [SerializeField] List<UpgradeCardUI> _upgradeCardList = new();
 
-    bool _isOpen;
+    public bool IsOpen { get; private set; }
     Actor _actorToUpgrade;
 
     protected override void Awake()
@@ -29,11 +29,11 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     private void Update()
     {
         // Dungeon Veil Alpha
-        float lerpAlph = _upgradeBgSprite.color.a.Lerp(_isOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
+        float lerpAlph = _upgradeBgSprite.color.a.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
         _upgradeBgSprite.color = _upgradeBgSprite.color.Alpha(lerpAlph);
 
         // Canvas Alpha
-        _canvasGroup.alpha = _canvasGroup.alpha.Lerp(_isOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
+        _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
 
         // Testing
         if(Input.GetKeyDown(KeyCode.R))
@@ -47,6 +47,12 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
         this._actorToUpgrade = actor;
         RollUpgradeCards(_actorToUpgrade);
         SetMenuOpen(true);
+        
+        if(actor.IsPlayer())
+        {
+            var player = actor.GetComponentInParent<Player>();
+            PlayerManager.I.SetUIOwner(player);
+        }
     }
 
     void RollUpgradeCards(Actor actor)
@@ -58,10 +64,11 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     {
         CameraManager.I.ZoomKnob = isOpen ? 1.1f : 1f;
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
-        _isOpen = isOpen;
+        IsOpen = isOpen;
 
         if(!isOpen)
         {
+            PlayerManager.I.SetUIOwner(null);
             EventSystem.current.SetSelectedGameObject(null);
 
             PlayerManager.I.PlayerList.ForEach(player =>

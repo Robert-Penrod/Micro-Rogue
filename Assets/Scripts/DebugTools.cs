@@ -13,7 +13,7 @@ public class DebugTools : MonoBehaviour
         {
             if(!UpgradeManager.I.IsUpgrading)
             {
-                UpgradeManager.I.UpgradePlayers();
+                StartCoroutine(UpgradeManager.I.UpgradePlayers_Co());
             }
             else
             {

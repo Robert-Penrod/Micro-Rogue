@@ -134,8 +134,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Upgrade
-            UpgradeManager.I.UpgradePlayers();
-            while (UpgradeManager.I.IsUpgrading) yield return null;
+            yield return UpgradeManager.I.UpgradePlayers_Co();
 
             // New Level
             GenerateLevel();

@@ -41,8 +41,9 @@ public class Player : MonoBehaviour
 
     public int Index { get; private set; }
 
-    PlayerInput _playerInput;
-    private InputAction _leave;
+    public PlayerInput PlayerInput { get; private set; }
+    InputAction _leave;
+    public InputAction Submit { get; private set; }
 
     public Actor Actor { get; private set; }
 
@@ -50,9 +51,10 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
-        _leave = _playerInput.actions.FindAction("Leave", false);
+        PlayerInput = GetComponent<PlayerInput>();
+        _leave = PlayerInput.actions.FindAction("Leave", false);
         if(_leave != null) _leave.performed += Disconnect;
+        Submit = PlayerInput.actions["Dash"];
 
         Actor = GetComponentInChildren<Actor>();
         Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
@@ -63,12 +65,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(_playerInput.actions.FindAction("Dash").IsPressed()) Actor.MoveController.Ctrl_Dodge(Actor.MoveController.MoveDir);
+        if(PlayerInput.actions.FindAction("Dash").IsPressed()) Actor.MoveController.Ctrl_Dodge(Actor.MoveController.MoveDir);
     }
 
     private void FixedUpdate()
     {
-        Actor.MoveController.Ctrl_Move(_playerInput.actions.FindAction("Move").ReadValue<Vector2>());
+        Actor.MoveController.Ctrl_Move(PlayerInput.actions.FindAction("Move").ReadValue<Vector2>());
     }
 
     void OnDestroy()
@@ -78,8 +80,8 @@ public class Player : MonoBehaviour
 
     public void Disconnect(InputAction.CallbackContext ctx)
     {
-        _playerInput.DeactivateInput();
-        if (_playerInput.user.valid) _playerInput.user.UnpairDevicesAndRemoveUser();
+        PlayerInput.DeactivateInput();
+        if (PlayerInput.user.valid) PlayerInput.user.UnpairDevicesAndRemoveUser();
         if(gameObject != null) Destroy(gameObject);
     }
 }

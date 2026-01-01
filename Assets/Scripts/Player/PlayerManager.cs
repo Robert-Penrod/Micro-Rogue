@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -18,6 +19,42 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public Action<Player> OnPlayerJoin;
     public Action<Player> OnPlayerLeave;
+
+    public Player CurrentUIOwner { get; private set; }
+    string _uiMapName = "UI";
+    public void SetUIOwner(Player player)
+    {
+        Debug.Log("Setting UI Owner");this.CurrentUIOwner = player;
+
+        var uiModule = FindFirstObjectByType<InputSystemUIInputModule>();
+        if (!uiModule)
+        {
+            Debug.LogError("No InputSystemUIInputModule found in scene.");
+            return;
+        }
+
+        int ownerIndex = (player == null) ? 0 : PlayerList.IndexOf(player);
+        foreach (var pi in FindObjectsByType<PlayerInput>(FindObjectsSortMode.None))
+        {
+            var uiMap = pi.actions.FindActionMap(_uiMapName, true);
+
+            bool isOwner = player == null || pi.playerIndex == ownerIndex;
+
+            if (isOwner)
+            {
+                Debug.Log("Enabling " + pi.playerIndex);
+                uiMap.Enable();
+
+                // KEY LINE: now the EventSystem reads THIS player's actions
+                uiModule.actionsAsset = pi.actions;
+            }
+            else
+            {
+                Debug.Log("Disabling " + pi.playerIndex);
+                uiMap.Disable();
+            }
+        }
+    }
 
     public bool AreAllPlayersDead()
     {
