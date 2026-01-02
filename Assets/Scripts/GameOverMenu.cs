@@ -34,6 +34,7 @@ public class GameOverMenu : MonoBehaviour
 
     void SetOpen(bool openState)
     {
+        if(openState) PlayerManager.I.SetUIOwner(PlayerManager.I.PlayerList[0]);
         this._isOpen = openState;
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = openState;
     }

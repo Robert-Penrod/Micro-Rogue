@@ -49,7 +49,7 @@ MonoBehaviour:
   _roomGeneratorPrefab: {fileID: 2854186638405631178, guid: 3697898c1a6b8334a94d62523c77d27d, type: 3}
   _encounterGeneratorPrefab: {fileID: 7529052086710301278, guid: bf3228c70a03c6e408693a2d71d5abe5, type: 3}
   _portalPrefab: {fileID: 4188905236096137848, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
-  _portalFinishSound: {fileID: 8300000, guid: 1ffd0acb3e80c344b8a88d2116d24098, type: 3}
+  _portalFinishSound: {fileID: 0}
   Data:
     Seed: 0
     RoomNumber: 0

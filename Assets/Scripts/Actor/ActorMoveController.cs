@@ -44,7 +44,7 @@ public class ActorMoveController : MonoBehaviour
         if (_dodgeCooldownTick < DodgeCooldownTime || MoveDir.sqrMagnitude < 0.01f) return false;
 
         // Dodge data
-        _dodgeTimer = dodgeTimeMult * 0.25f;// * 0.325f;// * Constants.SkillStats.Duration.Melee;// * 0.325f;
+        _dodgeTimer = dodgeTimeMult * 0.325f;// * 0.325f;// * Constants.SkillStats.Duration.Melee;// * 0.325f;
         _dodgeCooldownTick = 0f;
         MoveDir = 2f * dodgeVector.normalized;
 

@@ -951,8 +951,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c7035e96a764b4d82b5cf8c1dc1c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chargeSound: {fileID: 8300000, guid: 09eba0da0b47ffb4cb999b836d1ece18, type: 3}
   _selectSound: {fileID: 8300000, guid: d3d6ec2c28ffa34499fe1f7a7cd0d310, type: 3}
-  _submitSound: {fileID: 8300000, guid: e3673d69b204fcf45aa1de15e1904e63, type: 3}
+  _submitSound: {fileID: 8300000, guid: 1ffd0acb3e80c344b8a88d2116d24098, type: 3}
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls:

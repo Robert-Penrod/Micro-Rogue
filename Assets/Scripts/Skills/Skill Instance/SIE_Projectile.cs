@@ -154,7 +154,7 @@ public class SIE_Projectile : SIE, IPoolable
         {
             // Pierce
             _pierceCount++;
-            SlowProjectile(0.5f);
+            SlowProjectile();
 
             // Audio
             PlayAudio(_wallHitClip, 0.25f);

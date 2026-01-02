@@ -8,6 +8,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [SerializeField] float _lerpSpeed = 12f;
 
     [Header("References")]
+    [SerializeField] SimpleButton _rerollButton;
     [SerializeField] SpriteRenderer _upgradeBgSprite;
     CanvasGroup _canvasGroup;
     [SerializeField] List<UpgradeCardUI> _upgradeCardList = new();
@@ -38,14 +39,14 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
         // Testing
         if(Input.GetKeyDown(KeyCode.R))
         {
-            RollUpgradeCards(_actorToUpgrade);
+            RollUpgradeCards();
         }
     }
 
     public void DoUpgradeMenuFor(Actor actor)
     {
         this._actorToUpgrade = actor;
-        RollUpgradeCards(_actorToUpgrade);
+        RollUpgradeCards();
         SetMenuOpen(true);
         
         if(actor.IsPlayer())
@@ -55,9 +56,32 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
         }
     }
 
-    void RollUpgradeCards(Actor actor)
+    void RollUpgradeCards()
     {
-        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(actor));
+        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade));
+        _rerollButton.gameObject.SetActive(ActorCanReroll(_actorToUpgrade));
+    }
+
+    public void BuyReroll()
+    {
+        if(_actorToUpgrade.IsPlayer())
+        {
+            var player = _actorToUpgrade.GetComponentInParent<Player>();
+            player.Data.Coin -= 5;
+        }
+
+        RollUpgradeCards();
+    }
+
+    public bool ActorCanReroll(Actor actor)
+    {
+        if(actor.IsPlayer())
+        {
+            var player = actor.GetComponentInParent<Player>();
+            return player.Data.Coin >= 5;
+        }
+
+        return false;
     }
 
     public void SetMenuOpen(bool isOpen)

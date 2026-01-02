@@ -29,6 +29,8 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         }
         IsUpgrading = false;
         yield return null;
+
+        PlayerManager.I.SetUIOwner(null);
     }
 
     public void FinishUpgrading()

@@ -222,7 +222,6 @@ GameObject:
   - component: {fileID: 2923116778744974696}
   - component: {fileID: 3499506198867516348}
   - component: {fileID: 7998636664145437295}
-  - component: {fileID: 7501560950927231028}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -310,32 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57c7035e96a764b4d82b5cf8c1dc1c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _chargeSound: {fileID: 8300000, guid: 09eba0da0b47ffb4cb999b836d1ece18, type: 3}
   _selectSound: {fileID: 8300000, guid: d3d6ec2c28ffa34499fe1f7a7cd0d310, type: 3}
-  _submitSound: {fileID: 8300000, guid: e3673d69b204fcf45aa1de15e1904e63, type: 3}
+  _submitSound: {fileID: 8300000, guid: 09eba0da0b47ffb4cb999b836d1ece18, type: 3}
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7501560950927231028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5430566431258123635}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b29b3d14f2c3c874e92526fe5aa891b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _icon: {fileID: 0}
-  _iconGlow: {fileID: 0}
-  _frame: {fileID: 4401923114464698315}
-  _bg: {fileID: 6186164763231762969}
-  _title: {fileID: 0}
-  _level: {fileID: 0}
-  _description: {fileID: 0}
-  _slotText: {fileID: 0}
-  _tagHolder: {fileID: 0}
 --- !u!1 &7579757615340072288
 GameObject:
   m_ObjectHideFlags: 0
