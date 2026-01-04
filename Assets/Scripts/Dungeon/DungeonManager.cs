@@ -166,7 +166,6 @@ public class DungeonManager : Singleton<DungeonManager>
                     float percent = player.Actor.Stats.HealthPercent;
                     player.Actor.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(Constants.ActorStats.HealthGain, Kryz.Stats.StatModType.Flat));
                     player.Actor.Stats.Health = (int)(percent * player.Actor.Stats.HealthMax.Value);
-                    
                 }
             }
 

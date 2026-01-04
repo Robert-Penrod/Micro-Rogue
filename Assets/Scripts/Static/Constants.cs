@@ -2,6 +2,8 @@
 
 public static class Constants
 {
+    public static float SpeedMult = 1.5f;
+
     public enum Rarity { Common, Uncommon, Rare, Epic, Legendary, Secret }
     public static float RarityToWeight(Rarity rarity)
     {
@@ -73,7 +75,7 @@ public static class Constants
 
     public static class ActorStats
     {
-        public static float HealthGain = 2f;
+        public static float HealthGain = 10f;
 
         public enum FactionType
         {

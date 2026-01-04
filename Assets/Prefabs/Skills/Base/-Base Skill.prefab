@@ -368,7 +368,7 @@ MonoBehaviour:
     Damage:
       BaseValue: 5
     Rate:
-      BaseValue: 0.3333333
+      BaseValue: 0.5
     Count:
       BaseValue: 1
     Duration:
@@ -400,7 +400,7 @@ MonoBehaviour:
       BaseValue: 0
     Evasion:
       BaseValue: 0
-  _dps: 1.6665
+  _dps: 2.5
   UpgradeList: []
   Actor: {fileID: 0}
   SkillInstances: []

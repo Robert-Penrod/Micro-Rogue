@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class Actor : MonoBehaviour
 {
     [Header("Config")]
+    public float Difficulty = 1f;
     public FactionType Faction = FactionType.Enemy;
     public enum FactionType { None, Player, Enemy }
     public ActorStats Stats;
@@ -82,6 +83,8 @@ public class Actor : MonoBehaviour
         }
 
         OnDeath?.Invoke();
+
+        Debug.Log($"{this.gameObject.name} died");
     }
 
     public bool IsInUI { get; private set; }
@@ -140,7 +143,7 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        Stats.Health += (int)(Stats.HealthMax.Value * 0.3f);
+        Stats.Health += (int)(Stats.HealthMax.Value * 0.4f);
     }
 
     public bool IsPlayer()

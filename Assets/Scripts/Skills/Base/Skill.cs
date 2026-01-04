@@ -126,6 +126,9 @@ public class Skill : MonoBehaviour
         {
             float mult = noTargetMult * activeSkillMult * dodgeMult;
             if (this.Slot == SlotEnum.Passive) mult = 1f;
+
+            //mult *= Constants.SpeedMult;
+
             CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.ClampMax(1f);
         }

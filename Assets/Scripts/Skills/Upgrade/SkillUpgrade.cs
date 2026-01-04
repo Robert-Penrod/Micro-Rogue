@@ -102,7 +102,7 @@ public class SkillUpgrade : Upgrade
 
             if (statName == SkillStats.SkillStatTypes.Damage && previewStatValue < 1f) return false;
             if (statName == SkillStats.SkillStatTypes.Count && previewStatValue < 1f) return false;
-            if (statName == SkillStats.SkillStatTypes.Rate && (previewStatValue < 0.033f || previewStatValue > 2f)) return false;
+            if (statName == SkillStats.SkillStatTypes.Rate && (previewStatValue < 0.033f || previewStatValue > 1f)) return false;
             if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.75f) return false;
             if (statName == SkillStats.SkillStatTypes.Duration && previewStatValue < 0.15f) return false;
             if (statName == SkillStats.SkillStatTypes.Lunge && previewStatValue < -4f) return false;

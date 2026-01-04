@@ -15334,6 +15334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ccec735f1302342bd0d93959848fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Difficulty: 1
   Faction: 2
   Stats:
     _health: 12
@@ -15341,7 +15342,7 @@ MonoBehaviour:
     Dex: 0
     Int: 0
     HealthMax:
-      BaseValue: 15
+      BaseValue: 12
     MoveSpeed:
       BaseValue: 4.5
     DodgeCooldown:

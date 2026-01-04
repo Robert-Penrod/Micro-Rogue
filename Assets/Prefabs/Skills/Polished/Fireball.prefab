@@ -718,6 +718,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -676534630579512969, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: _dps
+      value: 1.6665
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.Int
       value: 1
       objectReference: {fileID: 0}
