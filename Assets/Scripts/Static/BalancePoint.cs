@@ -14,9 +14,21 @@ public static class BalancePoint
     public static float BP_Skill_Pierce = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Lunge = 2f * BP_PercentDPSGain;
 
-    public static StatModifier BPToStatMod(this float bp, SkillStats.SkillStatTypes stat)
+    public static StatModifier BPToStatMod(this float bp, ActorStats.ActorStatTypes actorStatType)
     {
-        float multiplier = stat switch
+        float value = 0f;
+
+
+
+        return new StatModifier(
+            value,
+            StatModType.PercentAdd
+        );
+    }
+
+    public static StatModifier BPToStatMod(this float bp, SkillStats.SkillStatTypes skillStatType)
+    {
+        float multiplier = skillStatType switch
         {
             SkillStats.SkillStatTypes.Damage => BP_Skill_Damage,
             SkillStats.SkillStatTypes.Rate => BP_Skill_Rate,

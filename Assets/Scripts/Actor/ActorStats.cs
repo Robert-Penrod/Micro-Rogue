@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class ActorStats
 {
+    public enum ActorStatTypes { None = 0, MaxHealth = 10, MoveSpeed = 20, DodgeCooldown = 30, Defense = 40, Evasion = 50}
+
     [SerializeField] int _health;
     public int Health
     {

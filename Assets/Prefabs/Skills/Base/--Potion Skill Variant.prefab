@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6233003495243835196
+--- !u!1001 &4015773571789832070
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -48,48 +48,48 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3858271243467729296, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+    - target: {fileID: 4782649247904549658, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
-      value: --Stat Skill Variant
+      value: --Potion Skill Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: _dps
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Slot
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Rate.BaseValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Lunge.BaseValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Speed.BaseValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Damage.BaseValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Potency.BaseValue
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Duration.BaseValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
-      propertyPath: Stats.Knockback.BaseValue
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8636904622021872163}
   m_SourcePrefab: {fileID: 100100000, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+--- !u!1 &8013562852039584337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+  m_PrefabInstance: {fileID: 4015773571789832070}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8636904622021872163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8013562852039584337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d00622761f9131439caa252e0ce2068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

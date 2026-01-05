@@ -70,6 +70,13 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             //
             // Actor cannot already have skill
             if (skillSystem.HasSkill(newSkill)) return;
+            //
+            // Slotsfull check
+            int slotCount = 3;
+            // -active
+            if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
+            // -passive
+            if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
 
             weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), Constants.RarityToWeight(newSkill.Rarity) / (3f * 3f));
         });

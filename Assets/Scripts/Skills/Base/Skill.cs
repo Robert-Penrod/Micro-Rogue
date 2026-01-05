@@ -28,8 +28,9 @@ public class Skill : MonoBehaviour
 
     [BoxGroup("Stats")]
     public SkillStats Stats;
-    [BoxGroup("Stats")]
-    public ActorStats ActoStats;
+
+    [BoxGroup("Mods")]
+    public List<UpgradeMod> Mods = new();
 
     [SerializeField] float _dps;
     int _dir = 1;

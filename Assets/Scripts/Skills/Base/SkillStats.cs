@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class SkillStats
 {
-    public enum SkillStatTypes { Damage = 10, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
+    public enum SkillStatTypes { None = 0, Damage = 10, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
 
     [HorizontalGroup("Stats")]
     [VerticalGroup("Stats/Left")] public int Str;

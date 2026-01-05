@@ -1,0 +1,142 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6687724551679083477
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694542943303198139, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Name
+      value: Vitality
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: 1245691324457983775, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Description
+      value: Increases Max Health.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillColor.b
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillColor.g
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Stats.Rate.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].IsDex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].IsStr
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].TargetType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0]._name
+      value: Grow
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].ActorStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].SkillStatName
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0]._sourceSkill
+      value: 
+      objectReference: {fileID: 3751954650862988980}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+--- !u!114 &3751954650862988980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+  m_PrefabInstance: {fileID: 6687724551679083477}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

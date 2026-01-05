@@ -37,7 +37,7 @@ public class PlayerUI : MonoBehaviour
 
         // Skills
         var skillSystem = Player.Actor.SkillSystem;
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < _activeSlots.Count; i++)
         {
             _activeSlots[i].SetSkill(i < skillSystem.ActiveSkillList.Count? skillSystem.ActiveSkillList[i] : null);
             _passiveSlots[i].SetSkill(i < skillSystem.PassiveSkillList.Count ? skillSystem.PassiveSkillList[i] : null);

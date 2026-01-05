@@ -26,7 +26,7 @@ public class SkillSlotUI : MonoBehaviour
         if(_skill != null)
         {
             _icon.sprite = _skill.Icon;
-            var skillColor = GamePaletteManager.I.Palette.GetSkillColor(_skill).SetValue(1f);
+            var skillColor = _skill.SkillColor == Color.clear? GamePaletteManager.I.Palette.GetSkillColor(_skill).SetValue(1f) : _skill.SkillColor;
             _icon.color = Color.white.Lerp(skillColor, 1f).Alpha(_icon.color.a);
             _lvlText.text = $"Lvl {skill.Level}";
         }
