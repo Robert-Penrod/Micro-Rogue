@@ -78,7 +78,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             // -passive
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
 
-            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), Constants.RarityToWeight(newSkill.Rarity) / (3f * 3f));
+            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), Constants.RarityToWeight(newSkill.Rarity) / (1f * 3f));
         });
 
         // Skill Upgrades

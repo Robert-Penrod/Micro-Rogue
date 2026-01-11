@@ -66,7 +66,7 @@ public class SIE_Projectile : SIE, IPoolable
             Vector2 inheritVel = projectedParentVel;
             //inheritVel *= Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
 
-            //inheritVel *= Vector2.Dot(actor.Body.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
+            inheritVel *= Vector2.Dot(actor.Body.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
 
             launchForce += inheritVel;
 

@@ -12,7 +12,7 @@ public abstract class Upgrade
     protected string _description;
 
     // Reference
-    [HideInInspector] public Skill _sourceSkill;
+    [HideInInspector] public Skill SourceSkill;
 
     // Apply
     public abstract void ApplyUpgrade();
@@ -23,5 +23,5 @@ public abstract class Upgrade
     public virtual string GetDescription() => _description;
     public virtual Color GetColor() => Color.white;
     public virtual string GetSlot() => string.Empty;
-    public virtual string GetLevel() => _sourceSkill != null? $"Lvl {_sourceSkill.Level + 1}" : "New";
+    public virtual string GetLevel() => (SourceSkill != null && SourceSkill.Level > 0)? $"Lvl {SourceSkill.Level + 1}" : "New";
 }

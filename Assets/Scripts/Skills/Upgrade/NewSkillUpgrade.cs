@@ -7,11 +7,28 @@ public class NewSkillUpgrade : Upgrade
 
     public NewSkillUpgrade(Skill skillPrefab, Actor targetActor)
     {
+        this.SourceSkill = skillPrefab;
         this._skillPrefab = skillPrefab;
         this._targetActor = targetActor;
         _name = skillPrefab.gameObject.name;
         _icon = skillPrefab.Icon;
         _description = skillPrefab.Description;
+    }
+
+    public override string GetDescription()
+    {
+        var description = base.GetDescription();
+
+        var se_statMod = _skillPrefab.GetComponent<SE_StatMod>();
+        if(se_statMod != null)
+        {
+            foreach(var mod in se_statMod.Mods)
+            {
+                description = mod.GetUpgradePreviewString(_skillPrefab, _targetActor, description);
+            }
+        }
+
+        return description;
     }
 
     public override Color GetColor()

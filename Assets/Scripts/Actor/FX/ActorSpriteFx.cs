@@ -57,7 +57,7 @@ public class ActorSpriteFx : MonoBehaviour
         }
         if(_actor.MoveController.DodgeCooldownPercent < 0.99f)
         {
-            lerpT -= 0.25f;
+            lerpT -= 0.5f;
         }
         //dodgeLerp = dodgeLerp.Clamp01();
         Color dodgeColor = Color.Lerp(c, Color.black, lerpT.RemapPercent(0.375f, 0f));

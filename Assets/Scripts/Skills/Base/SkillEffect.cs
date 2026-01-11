@@ -10,9 +10,12 @@ public abstract class SkillEffect : MonoBehaviour
     {
         _skill = GetComponent<Skill>();
         _skillTrigger = GetComponent<SkillTrigger>();
-        _skillTrigger.OnTrigger += () =>
+        if (_skillTrigger != null)
         {
-            Effect();
-        };
+            _skillTrigger.OnTrigger += () =>
+            {
+                Effect();
+            };
+        }
     }
 }

@@ -385,22 +385,8 @@ MonoBehaviour:
       BaseValue: 0.75
     Potency:
       BaseValue: 0
-  ActoStats:
-    _health: 0
-    Str: 0
-    Dex: 0
-    Int: 0
-    HealthMax:
-      BaseValue: 0
-    MoveSpeed:
-      BaseValue: 0
-    DodgeCooldown:
-      BaseValue: 0
-    Defense:
-      BaseValue: 0
-    Evasion:
-      BaseValue: 0
   _dps: 2.5
   UpgradeList: []
+  UpgradeHistory: []
   Actor: {fileID: 0}
   SkillInstances: []

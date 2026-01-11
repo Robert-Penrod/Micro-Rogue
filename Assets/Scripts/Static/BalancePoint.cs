@@ -5,6 +5,7 @@ public static class BalancePoint
 {
     public static float BP_PercentDPSGain = 0.5f;
 
+    // Skills
     public static float BP_Skill_Damage = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Rate = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Size = 1f * BP_PercentDPSGain;
@@ -14,15 +15,29 @@ public static class BalancePoint
     public static float BP_Skill_Pierce = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Lunge = 2f * BP_PercentDPSGain;
 
+    // Actor
+    public static float BP_Actor_MaxHealth = 5f;
+
     public static StatModifier BPToStatMod(this float bp, ActorStats.ActorStatTypes actorStatType)
     {
         float value = 0f;
+        StatModType modType = StatModType.PercentAdd;
 
-
+        switch (actorStatType)
+        {
+            case ActorStats.ActorStatTypes.MaxHealth:
+                value = BP_Actor_MaxHealth;
+                modType = StatModType.Flat;
+                break;
+            case ActorStats.ActorStatTypes.Evasion:
+                value = 2;
+                modType = StatModType.Flat;
+                break;
+        }
 
         return new StatModifier(
             value,
-            StatModType.PercentAdd
+            modType
         );
     }
 

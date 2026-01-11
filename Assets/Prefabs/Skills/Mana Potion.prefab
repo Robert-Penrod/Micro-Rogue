@@ -68,12 +68,75 @@ PrefabInstance:
       propertyPath: Stats.Int
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.data[0].SourceSkill
+      value: 
+      objectReference: {fileID: 7428473379433104416}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].IsInt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8013562852039584337, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
       propertyPath: m_Name
       value: Mana Potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636904622021872163, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: IsConstant
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636904622021872163, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: Mods.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636904622021872163, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: Mods.Array.data[0].IsInt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636904622021872163, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: Mods.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636904622021872163, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: Mods.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636904622021872163, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+      propertyPath: Mods.Array.data[0].SkillStatName
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+--- !u!114 &7428473379433104416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
+  m_PrefabInstance: {fileID: 2439412635365631659}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

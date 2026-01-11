@@ -20,7 +20,7 @@ public class PlayerManager : Singleton<PlayerManager>
     public Action<Player> OnPlayerJoin;
     public Action<Player> OnPlayerLeave;
 
-    public Player CurrentUIOwner { get; private set; }
+    public Player CurrentUIOwner;
     string _uiMapName = "UI";
     public void SetUIOwner(Player player)
     {

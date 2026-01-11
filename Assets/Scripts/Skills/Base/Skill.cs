@@ -29,9 +29,6 @@ public class Skill : MonoBehaviour
     [BoxGroup("Stats")]
     public SkillStats Stats;
 
-    [BoxGroup("Mods")]
-    public List<UpgradeMod> Mods = new();
-
     [SerializeField] float _dps;
     int _dir = 1;
     public int GetDirection()
@@ -44,6 +41,7 @@ public class Skill : MonoBehaviour
 
     [BoxGroup("Upgrades")]
     public List<SkillUpgrade> UpgradeList = new();
+    public List<SkillUpgrade> UpgradeHistory = new();
 
     // Data
     [HideInInspector] public Actor Actor;
@@ -63,7 +61,7 @@ public class Skill : MonoBehaviour
         // Init Upgrades
         UpgradeList.ForEach(upgrade =>
         {
-            upgrade._sourceSkill = this;
+            upgrade.SourceSkill = this;
         });
     }
 
@@ -72,7 +70,7 @@ public class Skill : MonoBehaviour
         // Init Upgrades
         UpgradeList.ForEach(upgrade =>
         {
-            upgrade._sourceSkill = this;
+            upgrade.SourceSkill = this;
         });
 
         // References
@@ -113,11 +111,10 @@ public class Skill : MonoBehaviour
         float noTargetMult = 1f;
         if (Actor.Senses.EnemyActors.Count <= 0)
         {
-            // Leak
-            if (CooldownPercent > 0.5f)
+            if (CooldownPercent > 0.9f)
             {
                 noTargetMult = 0f;
-                CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
+                //CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
             }
         }
 

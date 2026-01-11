@@ -45,6 +45,9 @@ public class ActorWalkFX : MonoBehaviour
         // Detect if we are walking & if we have started walking
         Vector2 moveDir = _moveInput.normalized;
         bool isWalking = _moveInput.magnitude > 0.1f &&  _rb.linearVelocity.magnitude > 0.001f;
+
+        if (_actor.MoveController.IsDodging) isWalking = false;
+
         bool startedWalkingThisFrame = isWalking && !_wasWalking;
 
         float slideMagnitude = Vector2.Dot(moveDir, _rb.linearVelocity.normalized).Remap(-1f, 1f, 1f, 0f);
@@ -109,6 +112,9 @@ public class ActorWalkFX : MonoBehaviour
         }
 
         HandleSpriteFlip();
+
+        float lerpScaleY = transform.localScale.y.Lerp(_actor.MoveController.IsDodging ? 0.9f : 1f, 12f * Time.deltaTime);
+        transform.localScale = new Vector3(1f, lerpScaleY, 1f);
 
         // Cache our walking state
         _wasWalking = isWalking;

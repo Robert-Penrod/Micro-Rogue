@@ -5196,10 +5196,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActorSpriteRend: {fileID: 1548810938185463985}
   LerpSpeed: 16
-  Frequency: 1
+  Frequency: 0.9
   Angle: 5
   Lean: -4
-  Height: 0.15
+  Height: 0.1
   WalkSound: {fileID: 8300000, guid: 324fcc82b9ac0f949be28611f66a284c, type: 3}
 --- !u!1 &5755483021967331841
 GameObject:
@@ -15308,7 +15308,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 6
+  m_LinearDamping: 25
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}

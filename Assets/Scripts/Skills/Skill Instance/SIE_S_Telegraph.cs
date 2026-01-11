@@ -4,8 +4,10 @@ using UnityEngine;
 public class SIE_S_Telegraph : SIE, IPoolable
 {
     [Header("Config")]
+    [SerializeField] Transform _passiveTransform;
     [SerializeField] float _telegraphMult = 1f;
     [SerializeField] bool _isHeld = true;
+    [SerializeField] Transform _passiveLerpTransform;
 
     float _size => _skillInstance.Skill.Stats.Size.Value;
     float _telegraphTime => _telegraphMult * _skillInstance.Skill.TelegraphTime;
@@ -47,10 +49,21 @@ public class SIE_S_Telegraph : SIE, IPoolable
             transform.localPosition = 0.35f * (Vector3)Random.insideUnitCircle;
             transform.position = new Vector3(transform.position.x, transform.position.y, -15f);
         }
+
+        _passiveLerpTransform.transform.position = _passiveTransform.position;
+        _passiveLerpTransform.rotation = _passiveTransform.rotation;
     }
+
 
     private void Update()
     {
+        if (_passiveLerpTransform != null && _passiveTransform != null)
+        {
+            _passiveLerpTransform.transform.localPosition = _passiveLerpTransform.transform.localPosition.Lerp(Vector2.zero, 3f * Time.deltaTime);
+            float lerpAngle = _passiveLerpTransform.localRotation.eulerAngles.z.LerpAngle(0f, 3f * Time.deltaTime);
+            _passiveLerpTransform.localRotation = Quaternion.Euler(0f, 0f, lerpAngle);
+        }
+
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
 
         // Tick

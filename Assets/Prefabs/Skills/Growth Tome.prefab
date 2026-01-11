@@ -173,17 +173,49 @@ PrefabInstance:
       value: Increases the Size of all skills.
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Mods.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Mods.Array.data[0].TargetType
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[0]._name
       value: Enlarge
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Mods.Array.data[0].BalancePoints
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Mods.Array.data[0].SkillStatName
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[0]._sourceSkill
       value: 
       objectReference: {fileID: 7810722921821588791}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Name
       value: Growth Tome

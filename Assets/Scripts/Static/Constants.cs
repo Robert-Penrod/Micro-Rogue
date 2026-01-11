@@ -53,14 +53,19 @@ public static class Constants
         }
     }
 
-    public static string ChangeValueString(float initValue, float newValue, float positiveDir = 1f, string unit = "")
+    public static string ChangeValueString(float initValue, float newValue, float positiveDir = 1f, string unit = "", bool positiveSigns = false)
     {
         Color initColor = new Color(0.75f, 0.75f, 0.75f);
         Color positiveColor = Color.green.SetSaturation(0.7f);
         Color negativeColor = Color.red.SetSaturation(0.7f);
         bool isPositive = Mathf.Sign(newValue - initValue) == Mathf.Sign(positiveDir);
         Color c = isPositive ? positiveColor : negativeColor;
-        return ((initValue.ToStatNumString() + unit).Color(initColor) + " → " + (newValue.ToStatNumString() + unit).Color(c));//.Bold();
+        string currentString = (signString(initValue) + initValue.ToStatNumString() + unit).Color(initColor);
+        string newString = (signString(newValue) + newValue.ToStatNumString() + unit).Color(c);
+
+        string signString(float value) => positiveSigns ? (value >= 0f ? "+" : string.Empty) : string.Empty;
+
+        return currentString + " → " + newString;
     }
 
     public static string ToStatNumString(this float t)
@@ -122,9 +127,9 @@ public static class Constants
     public static class SkillStats
     {
         public static float BaseAlpha = 1f;
-        public static float BaseTelegraphTime = 0.375f;
+        public static float BaseTelegraphTime = 0.5f; // 0.375f
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
-        public static float SIE_ProjectileInheritVelocityMult = 0.75f; // 0.75
+        public static float SIE_ProjectileInheritVelocityMult = 0.5f; // 0.75
         public static float HitboxDelay = 1f;
         public static float SpawnDelay = 0.25f;
 
