@@ -50,8 +50,11 @@ public class SIE_S_Telegraph : SIE, IPoolable
             transform.position = new Vector3(transform.position.x, transform.position.y, -15f);
         }
 
-        _passiveLerpTransform.transform.position = _passiveTransform.position;
-        _passiveLerpTransform.rotation = _passiveTransform.rotation;
+        if (_passiveLerpTransform != null)
+        {
+            _passiveLerpTransform.transform.position = _passiveTransform.position;
+            _passiveLerpTransform.rotation = _passiveTransform.rotation;
+        }
     }
 
 

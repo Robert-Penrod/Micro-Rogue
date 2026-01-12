@@ -9,6 +9,30 @@ using Random = UnityEngine.Random;
 
 public static class Utils
 {
+    public static void AddDecayForce(this Rigidbody2D rb, Vector2 force, float decayTime = 0.25f)
+    {
+        PlayerManager.I.StartCoroutine(DecayForce_Co());
+        IEnumerator DecayForce_Co()
+        {
+            float decaySpeed = 1f / decayTime;
+            while(force.magnitude > 0)
+            {
+                Debug.DrawLine(rb.transform.position, rb.transform.position + (Vector3)force, Color.blue.Lerp(Color.red, 0.5f));
+                var decayForce = -force.normalized * decaySpeed * Time.fixedDeltaTime;
+                if (force.magnitude < 0.001f || decayForce.magnitude > force.magnitude)
+                {
+                    force = Vector2.zero;
+                }
+                else
+                {
+                    force += decayForce;
+                }
+                rb.AddDampForce(10f * force, ForceMode2D.Force);
+                yield return new WaitForFixedUpdate();
+            }
+        }
+    }
+
     #region Coroutines
     public static void DelayedInvoke(this MonoBehaviour mb, float delayTime, Action function, bool useTimescale = false)
     {

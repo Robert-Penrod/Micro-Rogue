@@ -124,7 +124,7 @@ public class Actor : MonoBehaviour
 
     public int TakeDamage(int damage)
     {
-        if (MoveController.IsDodging) damage /= 4; // Dodge - GrazeFrames
+        if (MoveController.IsDodging) damage /= 2; // Dodge - GrazeFrames
         //if (MoveController.IsDodging) damage *= 0; // Dodge - IFrames
 
         // Last Chance (Players: If killing hit would do more than half health -> leave player at 1hp instead)

@@ -26,9 +26,9 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Spawn Enemies
         int max = (int)budget;
-        max = Mathf.Min((int)budget, (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 5f, false) * PlayerManager.I.PlayerList.Count);
+        max = Mathf.Min((int)budget, (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count);
         int enemyCount = Random.Range(1, 1 + max);
-        if (enemyCount == 1 && Random.value > 0.5) enemyCount++;
+        if (enemyCount == 1 && Random.value < 0.75) enemyCount++;
         for(int i = 0; i < enemyCount && budget >= 1f; i++)
         {
             // Spawn Actor

@@ -34,6 +34,12 @@ public class SIE_Projectile : SIE, IPoolable
     int _pierceCount;
     Dictionary<Collider2D, float> _colDict = new();
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.white.Alpha(0.5f);
+        Gizmos.DrawSphere(transform.position, 0.25f);
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -82,7 +88,10 @@ public class SIE_Projectile : SIE, IPoolable
 
         // Add Force
         _rb.AddForce(_launchMult * launchForce, ForceMode2D.Impulse);
-        _rb.angularVelocity = -_angularVel * 360f;
+        if (_angularVel.Abs() > 0)
+        {
+            _rb.angularVelocity = -_angularVel * 360f * _skillInstance.Skill.GetDirection();
+        }
 
         // Lunge
         Vector2 lungeForce = transform.up * _lunge;
@@ -201,6 +210,7 @@ public class SIE_Projectile : SIE, IPoolable
         {
             if (_rb == null) return;
             _rb.linearVelocity *= mult * 0.75f;
+            _rb.angularVelocity *= mult * 0.75f;
         }
 
         // Knockback
@@ -208,10 +218,11 @@ public class SIE_Projectile : SIE, IPoolable
         {
             Vector2 knockbackDir = _rb.linearVelocity.normalized;
             Vector2 knockbackForce = knockbackDir * _knockback;
-            knockbackForce *= hitBody.linearDamping;
-            knockbackForce *= _rb.linearVelocity.magnitude.Remap(0f, 8f, 0f, 1f, false).ClampMin(0f);
+            //knockbackForce *= hitBody.linearDamping;
+            //knockbackForce *= _rb.linearVelocity.magnitude.Remap(0f, 8f, 0f, 1f, false).ClampMin(0f);
 
-            hitBody.AddForce(knockbackForce, ForceMode2D.Impulse);
+            //hitBody.AddForce(knockbackForce, ForceMode2D.Impulse);
+            hitBody.AddDecayForce(knockbackForce);
 
             hitBody.transform.localScale *= 0.9f;
         }

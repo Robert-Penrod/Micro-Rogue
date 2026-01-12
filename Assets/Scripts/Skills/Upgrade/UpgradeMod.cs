@@ -18,7 +18,8 @@ public class UpgradeMod
     public ActorStats.ActorStatTypes ActorStatName;
 
     // Skill
-    [BoxGroup("Filter"), ShowIf(nameof(IsSkill)), ShowIf(nameof(IsGlobalSkill))]
+    bool _showSkillStatName => IsSkill || IsGlobalSkill;
+    [BoxGroup("Filter"), ShowIf(nameof(_showSkillStatName))]
     public SkillStats.SkillStatTypes SkillStatName;
     [BoxGroup("Filter"), ShowIf(nameof(IsGlobalSkill))]
     public List<Skill.SlotEnum> Slots = new();

@@ -86,9 +86,9 @@ public class SIE_TelegraphAim : SIE, IPoolable
         Debug.DrawLine(transform.position, targetAimPos, Color.red);
 
         // AIM
-        float torque = 8f; // 3, 2, 2.5
+        float torque = 8f; // 8  // 3, 2, 2.5
         float responseAngle = 180f;
-        float damp = 8f; // 5, 10, 7.5, 8
+        float damp = 8f; // 8  // 5, 10, 7.5, 8
         torque *= damp;
 
         float lerpSpeed = 20f;
@@ -107,7 +107,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     void PrototypeAim()
     {
         float AimMult = 1f;
-        float _aimLerp = 8f;
+        float _aimLerp = 25f; // 8
         if (_targetEnemy == null) return;
         Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;
         float targetDist = targetAimDir.magnitude;

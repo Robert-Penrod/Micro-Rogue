@@ -14,7 +14,7 @@ public class ProjectileExplosion : SkillPart, IPoolable
     float _radius => transform.localScale.x;
 
     float _damage => _damageMult * _sourceSkill.Stats.Damage.Value;
-    float _knockback => 2f;
+    float _knockback => _sourceSkill.Stats.Knockback.Value;
     float _size => _sourceSkill.Stats.Size.Value;
 
     List<Collider2D> _colCache = new();
@@ -84,7 +84,8 @@ public class ProjectileExplosion : SkillPart, IPoolable
         {
             Vector2 dir = body.transform.position - transform.position;
             Vector2 knockbackVector = _size * _knockback * dir.normalized;// * dist.Remap(0f, _radius, 1f, 0f);
-            body.AddDampForce(knockbackVector, ForceMode2D.Impulse);
+            // body.AddDampForce(knockbackVector, ForceMode2D.Impulse);
+            body.AddDecayForce(knockbackVector);
         }
 
         //  Damage
