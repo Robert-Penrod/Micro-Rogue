@@ -1860,10 +1860,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4919752558828363540, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
 --- !u!1 &808936291
 GameObject:
@@ -6462,6 +6459,10 @@ PrefabInstance:
     - target: {fileID: 5705413115017730202, guid: 4b9984a439c35704d8757683e2a13d10, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862018979375679001, guid: 4b9984a439c35704d8757683e2a13d10, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24.554947
       objectReference: {fileID: 0}
     - target: {fileID: 6005366164448984927, guid: 4b9984a439c35704d8757683e2a13d10, type: 3}
       propertyPath: m_AnchorMax.y

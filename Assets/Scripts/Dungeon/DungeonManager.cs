@@ -46,7 +46,8 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(GetSeed());
 
             // Randomization
-            IsElite = Random.value < 0.333f;
+            IsBoss = this.Coordinate.y % 10 == 0;
+            IsElite = !IsBoss && Random.value < 0.333f;
         }
 
         public int GetSeed()
@@ -94,7 +95,7 @@ public class DungeonManager : Singleton<DungeonManager>
         base.Awake();
         _playerManager = PlayerManager.I;
         DungeonTransform = new GameObject("Dungeon").transform;
-        //Data.Seed = DateTime.Now.Ticks.GetHashCode(); // Randomize Seed
+        Data.Seed = DateTime.Now.Ticks.GetHashCode(); // Randomize Seed
     }
     #endregion
 
@@ -163,6 +164,8 @@ public class DungeonManager : Singleton<DungeonManager>
                 // End
                 portalList.Add(portal);
 
+                if (dungeonData.IsBoss) break;
+
                 yield return new WaitForFixedUpdate();
                 yield return new WaitForFixedUpdate();
             }
@@ -178,7 +181,9 @@ public class DungeonManager : Singleton<DungeonManager>
             SelectedPortal = GetPlayerVotePortal();
 
             // Step data
+            int originalSeed = Data.Seed;
             Data = SelectedPortal.DungeonData;
+            Data.Seed = originalSeed;
 
             // Destroy Portals
             foreach (Portal p in FindObjectsByType<Portal>(FindObjectsSortMode.None))

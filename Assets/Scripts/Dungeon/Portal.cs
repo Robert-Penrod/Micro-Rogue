@@ -5,6 +5,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField] GameObject _eliteIcon;
+    [SerializeField] GameObject _bossIcon;
     [SerializeField] TextMeshPro _textMesh;
 
     [SerializeField] AudioClip _enterSound;
@@ -27,6 +28,7 @@ public class Portal : MonoBehaviour
         this.DungeonData = data;
         this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}";
         _eliteIcon.SetActive(DungeonData.IsElite);
+        _bossIcon.SetActive(DungeonData.IsBoss);
     }
 
     private void Update()
