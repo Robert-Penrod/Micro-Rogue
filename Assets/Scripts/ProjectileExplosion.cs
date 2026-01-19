@@ -33,9 +33,9 @@ public class ProjectileExplosion : SkillPart, IPoolable
         });
     }
 
-    public override void SetSourceSkill(Skill sourceSkill)
+    public override void SetSourceSkillInstance(SkillInstance skillInstance)
     {
-        base.SetSourceSkill(sourceSkill);
+        base.SetSourceSkillInstance(skillInstance);
         var main = _pSystem.main;
         main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(_sourceSkill).Alpha(main.startColor.color.a);
         transform.localScale = _sizeMult * _size * Vector3.one;
@@ -94,23 +94,17 @@ public class ProjectileExplosion : SkillPart, IPoolable
         {
             if (!_sourceSkill.Actor.IsEnemyOf(hitActor)) return;
 
-            int damageTaken = hitActor.TakeDamage((int)_damage);
+            int damageTaken = hitActor.TakeDamage((int)_damage, _skillInstance, null);
 
             if (damageTaken == 0) return;
-
-            // Popup
-            string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_sourceSkill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
-            string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
-            Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive ? 0.5f : 1f);
-            popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
-            TextPopup2DManager.I.CreatePopup(popupPos, popupString, null, hitActor.IsAlive ? hitActor.transform : null);
 
             // Screen Shake
             CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
 
             // Audio
             float audioDelay = 0.125f * Random.Range(0.75f, 1.25f);
-            AudioSpawner.PlayAudioWithRandPitch(_damageAudio, 0.2f, 1f, 1f, delay: audioDelay);
+            float vol = damageTaken / _skillInstance.Skill.Stats.Damage.Value;
+            AudioSpawner.PlayAudioWithRandPitch(_damageAudio, 0.2f, 1f, vol, delay: audioDelay);
         }
     }
 

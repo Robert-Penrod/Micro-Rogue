@@ -31,13 +31,31 @@ public class DungeonManager : Singleton<DungeonManager>
     public class DungeonData
     {
         public int Seed;
-        public int RoomNumber;
+        public int RoomNumber => Coordinate.y;
+        public Vector2Int Coordinate;
+        public TagCollection Tags;
+
+        public bool IsElite;
+        public bool IsBoss;
+
+        public DungeonData(int seed, Vector2Int coordinate)
+        {
+            // Seeding
+            this.Seed = seed;
+            this.Coordinate = coordinate;
+            Random.InitState(GetSeed());
+
+            // Randomization
+            IsElite = Random.value < 0.333f;
+        }
 
         public int GetSeed()
         {
             string seed = "";
             seed += Seed.ToString();
-            seed += RoomNumber.ToString();
+            seed += Coordinate.ToString();
+            int seedHash = seed.GetHashCode();
+            Debug.Log("Seed: " + seedHash.ToString());
             return seed.GetHashCode();
         }
     }
@@ -61,8 +79,9 @@ public class DungeonManager : Singleton<DungeonManager>
         Random.InitState(Data.GetSeed());
         Instantiate(_roomGeneratorPrefab, DungeonTransform);
         yield return new WaitForFixedUpdate();
-        Instantiate(_encounterGeneratorPrefab, DungeonTransform);
 
+        Random.InitState(Data.GetSeed());
+        Instantiate(_encounterGeneratorPrefab, DungeonTransform);
         yield return new WaitForFixedUpdate();
         //SpawnPortals();
         //if (Random.value > 0.5) SpawnPortals();
@@ -75,7 +94,7 @@ public class DungeonManager : Singleton<DungeonManager>
         base.Awake();
         _playerManager = PlayerManager.I;
         DungeonTransform = new GameObject("Dungeon").transform;
-        Data.Seed = DateTime.Now.Ticks.GetHashCode();
+        //Data.Seed = DateTime.Now.Ticks.GetHashCode(); // Randomize Seed
     }
     #endregion
 
@@ -112,8 +131,42 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void SpawnPortals()
     {
-        Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1f);
-        Instantiate(_portalPrefab, spawnPos, Quaternion.identity, DungeonTransform);
+        StartCoroutine(SpawnPortals_Co());
+        IEnumerator SpawnPortals_Co()
+        {
+            // Init
+            Random.InitState(Data.Coordinate.GetHashCode());
+            var portalList = new List<Portal>();
+            int count = Random.Range(1, 3 + 1);
+            int offset = count % 2 != 0 ? 0 : -Random.Range(0, 2);
+
+            // Loop
+            for (int i = 0; i < count; i++)
+            {
+                Random.InitState((Data.Coordinate.ToString() + " - " + i.ToString()).GetHashCode());
+
+                // Spawn Pos
+                Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1.5f);
+                var portal = Instantiate(_portalPrefab, spawnPos, Quaternion.identity, DungeonTransform).GetComponent<Portal>();
+
+                // Dungeon Data
+                // - coordinate
+                Vector2Int coordinate = Data.Coordinate;
+                coordinate.y = Data.RoomNumber + 1;
+                coordinate.x = Data.Coordinate.x + ((count / 2) - i);
+                if (count % 2 == 0) coordinate.x += offset;// On evens have random chance to sheft left to keep left right traversal balanced
+                                                           //
+                                                           // - set dungeon data
+                DungeonData dungeonData = new(Data.Seed, coordinate);
+                portal.SetData(dungeonData);
+
+                // End
+                portalList.Add(portal);
+
+                yield return new WaitForFixedUpdate();
+                yield return new WaitForFixedUpdate();
+            }
+        }
     }
 
     void DoPortal()
@@ -125,7 +178,7 @@ public class DungeonManager : Singleton<DungeonManager>
             SelectedPortal = GetPlayerVotePortal();
 
             // Step data
-            Data.RoomNumber++;
+            Data = SelectedPortal.DungeonData;
 
             // Destroy Portals
             foreach (Portal p in FindObjectsByType<Portal>(FindObjectsSortMode.None))

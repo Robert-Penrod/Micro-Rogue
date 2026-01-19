@@ -15,7 +15,7 @@ public class ActorSenses : MonoBehaviour
     public List<ScentDrop> EnemyScentDrop;
     public List<Actor> AllyActors;
     public List<SkillInstance> AllySkills;
-    public Vector2Map WallVMap = new(14);
+    public Vector2Map WallVMap = new(8);
 
     Actor _actor;
 
@@ -27,7 +27,7 @@ public class ActorSenses : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         // Walls
-        //WallVMap.GizmoDraw(transform.position);
+        WallVMap.GizmoDraw(transform.position);
 
         // Actors
         Gizmos.color = new Color(1f, 0f, 0f, 0.5f);
@@ -110,7 +110,7 @@ public class ActorSenses : MonoBehaviour
         {
             Vector2 dir = WallVMap.GetDir(i);
             Physics2D.queriesStartInColliders = false;
-            RaycastHit2D hit = Physics2D.CircleCast(transform.position, 0.1f, dir, _wallSenseDist, LayerMask.GetMask("Default"));
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, (Vector2)transform.position + dir.normalized * _wallSenseDist, LayerMask.GetMask("Default"));
             //RaycastHit2D hit = Physics2D.Linecast(transform.position, transform.position + (Vector3)dir.normalized * _wallSenseDist);
             float dist = hit ? hit.distance : _wallSenseDist;
             WallVMap.Map[i] = dir * dist;
@@ -127,8 +127,11 @@ public class ActorSenses : MonoBehaviour
             if (x == _actor) return;
             if (_actor.IsEnemyOf(x))
             {
-                if (!_actor.HasLineOfSightOf(x)) return;
-                if (!EnemyActors.Contains(x))EnemyActors.Add(x);
+                if (!EnemyActors.Contains(x))
+                {
+                    if (!_actor.HasLineOfSightOf(x)) return;
+                    EnemyActors.Add(x);
+                }
             }
             else
             {

@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 3007361986673538883}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15253,7 +15253,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 459951883985361305}
   m_Father: {fileID: 0}
@@ -15308,10 +15308,10 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 16
+  m_LinearDamping: 12
   m_AngularDamping: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 56202dc01c3210040b240d995158dbbe, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15335,6 +15335,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Difficulty: 1
+  UpgradeAffinity: 1
+  NewSkillAffinity: 1
   Faction: 2
   Stats:
     _health: 12
@@ -15351,6 +15353,14 @@ MonoBehaviour:
       BaseValue: 0
     Evasion:
       BaseValue: 0
+  Tags:
+    _entries:
+    - tag: 0
+      count: 1
+    - tag: 1
+      count: 1
+    - tag: 2
+      count: 1
   _spriteRend: {fileID: 1548810938185463985}
 --- !u!114 &4980042708820111086
 MonoBehaviour:
@@ -15381,6 +15391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 199865507d4ad914ca4e1c8ebe067998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MoveType: 0
 --- !u!114 &656978755204930970
 MonoBehaviour:
   m_ObjectHideFlags: 0

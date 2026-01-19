@@ -107,7 +107,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     void PrototypeAim()
     {
         float AimMult = 1f;
-        float _aimLerp = 25f; // 8
+        float _aimLerp = 12f; // 8, 25
         if (_targetEnemy == null) return;
         Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;
         float targetDist = targetAimDir.magnitude;
@@ -128,7 +128,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
             // lerp predictive aim based on target dist
             float t = _aimAheadRand * targetDist.Remap(1f, 3f, 0f, 1f);
-            targetAimDir = Vector2.Lerp(targetAimDir, predictiveAimDir, t);
+            targetAimDir = Vector2.Lerp(targetAimDir, predictiveAimDir, 0.5f * t);
         }
 
         Debug.DrawLine(transform.position, transform.position + (Vector3)targetAimDir * 5f);

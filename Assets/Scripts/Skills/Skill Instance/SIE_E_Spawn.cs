@@ -30,7 +30,7 @@ public class SIE_E_Spawn : SIE, IPoolable
         var skillPart = spawn.GetComponent<SkillPart>();
         if(skillPart != null)
         {
-            skillPart.SetSourceSkill(_skillInstance.Skill);
+            skillPart.SetSourceSkillInstance(_skillInstance);
         }
 
         var spawnBody = spawn.GetComponent<Rigidbody2D>();

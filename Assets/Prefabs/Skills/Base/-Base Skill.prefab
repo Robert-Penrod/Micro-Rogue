@@ -384,7 +384,9 @@ MonoBehaviour:
     Lunge:
       BaseValue: 0.75
     Potency:
-      BaseValue: 0
+      BaseValue: 1
+  Tags:
+    _entries: []
   _dps: 2.5
   UpgradeList: []
   UpgradeHistory: []

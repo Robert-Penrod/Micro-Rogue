@@ -3,9 +3,11 @@ using UnityEngine;
 public class SkillPart : MonoBehaviour
 {
     protected Skill _sourceSkill;
+    protected SkillInstance _skillInstance;
 
-    public virtual void SetSourceSkill(Skill sourceSkill)
+    public virtual void SetSourceSkillInstance(SkillInstance skillInstance)
     {
-        this._sourceSkill = sourceSkill;
+        this._sourceSkill = skillInstance.Skill;
+        this._skillInstance = skillInstance;
     }
 }

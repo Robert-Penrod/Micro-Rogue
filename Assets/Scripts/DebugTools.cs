@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DebugTools : MonoBehaviour
 {
@@ -18,6 +19,27 @@ public class DebugTools : MonoBehaviour
             else
             {
                 UpgradeManager.I.FinishUpgrading();
+            }
+        }
+
+        // Upgrade all NPCs
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            new List<Actor>(FindObjectsByType<Actor>(FindObjectsSortMode.None)).ForEach(actor =>
+            {
+                if(!actor.IsPlayer())
+                {
+                    var upgradeOptions = UpgradeManager.I.GetUpgradeOptions(actor);
+                    if (upgradeOptions.Count > 0) upgradeOptions[0].ApplyUpgrade();
+                }
+            });
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 

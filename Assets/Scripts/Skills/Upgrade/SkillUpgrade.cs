@@ -86,7 +86,7 @@ public class SkillUpgrade : Upgrade
         // Stat Changes
         SourceSkill.Actor.Stats.AddArchetypeStats(SourceSkill.Stats.Str, SourceSkill.Stats.Dex, SourceSkill.Stats.Int);
         SourceSkill.Level++;
-        //_skill.ParentActor.AddSkillTags(_skill.Tags);
+        SourceSkill.Actor.Tags.AddTags(SourceSkill.Tags);
         SourceSkill.UpgradeHistory.Add(this);
 
         SourceSkill.Actor.OnUpgrade?.Invoke();

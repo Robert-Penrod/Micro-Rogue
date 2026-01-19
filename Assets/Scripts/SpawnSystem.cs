@@ -27,12 +27,14 @@ public static class SpawnSystem
 
         bool isEmpty = false;
         Vector2 pos = new Vector2();
-        for (int maxIter = 1500; maxIter > 0 && !isEmpty; maxIter--)
+        for (int maxIter = 500; maxIter > 0 && !isEmpty; maxIter--)
         {
             isEmpty = true;
             pos = new Vector2(originX, originY) + GetRandomPoint();
-            //Physics2D.queriesStartInColliders = true;
-            Collider2D[] colArray = Physics2D.OverlapCircleAll(pos, emptyRadius);
+            var prevTriggerHit = Physics2D.queriesHitTriggers;
+            Physics2D.queriesHitTriggers = true;
+            Collider2D[] colArray = Physics2D.OverlapCircleAll(pos, emptyRadius, LayerMask.GetMask("Default"));
+            Physics2D.queriesHitTriggers = prevTriggerHit;
             for (int i = 0; i < colArray.Length; i++)
             {
                 if (!colArray[i].isTrigger)

@@ -156,21 +156,26 @@ public class SimpleNPCBrain : ActorBrain
         Vector2 openSpaceVector = _actor.Senses.WallVMap.ToVector() / 5f;
         if (openSpaceVector.magnitude > 1f) openSpaceVector.Normalize();
         openSpaceVector *= _openSpaceDesire;
-        DebugDrawLine(openSpaceVector, Color.cyan);
+        DebugDrawLine(openSpaceVector, Color.blue.Lerp(Color.black, 0.5f));
         moveDir += openSpaceVector;
         //
         // Avoid Wall
         var wallMap = _actor.Senses.WallVMap;
         float minWallDist = float.MaxValue;
+        Vector2 wallVector = Vector2.zero;
         wallMap.Map.ForEach(dir =>
         {
+            wallVector += dir.magnitude.Remap(0.4f, 0.8f, 1f, 0f) * dir.normalized;
             var dist = dir.magnitude;
             if (dist < minWallDist) minWallDist = dist;
         });
-        float wallMult = minWallDist.Remap(0.4f, 0.8f, 1f, 0f);
-        Vector2 avoidWallVector = wallMap.ToVector() * 0.25f * wallMult; // 0.125f
-        DebugDrawLine(avoidWallVector, Color.blue);
-        moveDir += avoidWallVector;
+        wallVector /= wallMap.Map.Count;
+        wallVector *= -1f;
+        wallVector *= 10f;
+        //float wallMult = minWallDist.Remap(0.4f, 0.8f, 1f, 0f);
+        //Vector2 avoidWallVector = wallMap.ToVector() * 0.25f * wallMult; // 0.125f
+        DebugDrawLine(wallVector, Color.blue);
+        moveDir += wallVector;
         //===
 
         // Avoid Enemy Skills
@@ -232,7 +237,7 @@ public class SimpleNPCBrain : ActorBrain
         // MOVE
         moveDir = sprintMult * moveDir.ClampMagnitude(1f);
         _actor.MoveController.Ctrl_Move(moveDir);
-        Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.red);
+        Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.cyan);
         //===
     }
 

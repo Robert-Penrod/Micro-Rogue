@@ -42,7 +42,7 @@ public class NewSkillUpgrade : Upgrade
         var newSkill = _targetActor.SkillSystem.AddSkill(_skillPrefab);
         newSkill.Level++;
         Debug.Log("!!! Applying New Skill UPGRAde");
-
+        _targetActor.Tags.AddTags(newSkill.Tags);
         _targetActor.OnUpgrade?.Invoke();
     }
 

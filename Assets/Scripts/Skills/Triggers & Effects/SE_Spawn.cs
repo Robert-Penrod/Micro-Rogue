@@ -39,6 +39,8 @@ public class SE_Spawn : SkillEffect
             skillInstance.Link(_skill);
         }
 
+        Debug.Log("SPAWNED");
+
         newObj.SetActive(true);
     }
 }

@@ -29,6 +29,8 @@ public class Skill : MonoBehaviour
     [BoxGroup("Stats")]
     public SkillStats Stats;
 
+    public TagCollection Tags;
+
     [SerializeField] float _dps;
     int _dir = 1;
     public int GetDirection()
@@ -49,6 +51,7 @@ public class Skill : MonoBehaviour
     // State
     public bool IsActive => SkillInstances.Count > 0;
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
+    public bool NeedsTargetForCooldown = true;
     public float CooldownPercent { get; private set; }
 
     #endregion
@@ -109,12 +112,15 @@ public class Skill : MonoBehaviour
 
         // No Targets
         float noTargetMult = 1f;
-        if (Actor.Senses.EnemyActors.Count <= 0)
+        if (NeedsTargetForCooldown)
         {
-            if (CooldownPercent > 0.9f)
+            if (Actor.Senses.EnemyActors.Count <= 0)
             {
-                noTargetMult = 0f;
-                //CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
+                if (CooldownPercent > 0.9f)
+                {
+                    noTargetMult = 0f;
+                    //CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
+                }
             }
         }
 

@@ -7,9 +7,12 @@ public class Actor : MonoBehaviour
 {
     [Header("Config")]
     public float Difficulty = 1f;
+    public float UpgradeAffinity = 1f;
+    public float NewSkillAffinity = 1f;
     public FactionType Faction = FactionType.Enemy;
     public enum FactionType { None, Player, Enemy }
     public ActorStats Stats;
+    public TagCollection Tags;
 
     // Data
     public bool IsAlive { get; private set; }
@@ -122,10 +125,25 @@ public class Actor : MonoBehaviour
         //HandleMoveFixedUpdate();
     }
 
-    public int TakeDamage(int damage)
+    public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
+    {
+        heal = (int)Mathf.Min(heal, Stats.HealthMax.Value - Stats.Health);
+        if (heal <= 0) return 0;
+
+        Stats.Health += heal;
+
+        Color c = Color.green.SetSaturation(0.7f);
+        SpawnPopup(heal, c, Vector2.zero, transform.position);
+
+        return heal;
+    }
+
+    public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor)
     {
         if (MoveController.IsDodging) damage /= 2; // Dodge - GrazeFrames
         //if (MoveController.IsDodging) damage *= 0; // Dodge - IFrames
+
+        if (damage <= 0) return 0;
 
         // Last Chance (Players: If killing hit would do more than half health -> leave player at 1hp instead)
         if (IsPlayer())
@@ -138,17 +156,48 @@ public class Actor : MonoBehaviour
 
         // Do damage
         Stats.Health -= damage;
+        
+        // Popup
+        if (sourceSkillInstance != null)
+        {
+            var sourceSkillInstanceBody = sourceSkillInstance.GetComponent<Rigidbody2D>();
+            Color c = GamePaletteManager.I.Palette.GetActorSkillColor(sourceSkillInstance.Skill);
+            Vector2 vel = sourceSkillInstanceBody?.linearVelocity ?? Vector2.zero;
+            SpawnPopup(-damage, c, 0.25f * vel, sourceSkillInstance.transform.position);
+        }
+        else if (actor != null)
+        {
+            if (actor.Faction != FactionType.None)
+            {
+                var palette = GamePaletteManager.I.Palette;
+                Color c = actor.Faction == FactionType.Player ? palette.PlayerColor : palette.EnemyColor;
+                Vector2 vel = 0.5f * actor.Body.linearVelocity + 0.5f * Body.linearVelocity;
+                SpawnPopup(-damage, c, vel, transform.position);
+            }
+        }
+
+        // Return
         return damage;
+    }
+
+    void SpawnPopup(int value, Color c, Vector2 vel, Vector2 pos)
+    {
+        string symbol = value > 0 ? "+" : string.Empty;
+        string colorString = "#" + ColorUtility.ToHtmlStringRGB(c.Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
+        string popupString = "<color=" + colorString + ">" + symbol + value.ToString() + "</color>";
+        Vector3 popupPos = Vector2.Lerp(pos, transform.position, IsAlive ? 0.5f : 1f);
+        popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
+        TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * vel, IsAlive ? transform : null);
     }
 
     public void Rest()
     {
-        Stats.Health += (int)(Stats.HealthMax.Value * 0.4f);
+        Heal((int)(Stats.HealthMax.Value * 0.375f), null, this);
     }
 
     public bool IsPlayer()
     {
-        return gameObject.CompareTag("Player");
+        return gameObject?.CompareTag("Player") ?? false;
     }
 
     public bool IsEnemyOf(Actor otherActor)
@@ -165,7 +214,10 @@ public class Actor : MonoBehaviour
     {
         Vector2 dir = position - (Vector2)transform.position;
         float dist = dir.magnitude;
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, 0.1f, dir, dist);
+        RaycastHit2D hit = Physics2D.Linecast(transform.position, (Vector2)transform.position + dir.normalized * dist, LayerMask.GetMask("Default"));
+        return !hit;
+        /*
+        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, (Vector2)transform.position + dir.normalized * dist, LayerMask.GetMask("Default"));
         foreach (RaycastHit2D hit in hits)
         {
             bool isTrigger = hit.collider.isTrigger;
@@ -178,6 +230,8 @@ public class Actor : MonoBehaviour
                 return false;
             }
         }
+        */
+        
         return true;
     }
 

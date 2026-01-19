@@ -3,8 +3,14 @@ using UnityEngine;
 
 public class ActorMoveController : MonoBehaviour
 {
+    public enum MoveTypeEnum { Walk = 0, Hop = 10}
+    public MoveTypeEnum MoveType;
+
     // Move
     public Vector2 MoveDir { get; private set; }
+
+    // Hop
+    float _hopTick;
 
     // Dodge
     public bool IsDodging => _dodgeTimer > 0f;
@@ -18,6 +24,8 @@ public class ActorMoveController : MonoBehaviour
     Actor _actor;
     Rigidbody2D _body => _actor.Body;
 
+    float _initDrag;
+
     // Events
     public Action OnDodge;
 
@@ -25,6 +33,8 @@ public class ActorMoveController : MonoBehaviour
     {
         _actor = GetComponent<Actor>();
         _dodgeCooldownTick = DodgeCooldownTime;
+
+        _initDrag = _body.linearDamping;
     }
 
     public void Ctrl_Move(Vector2 moveDir)
@@ -61,12 +71,27 @@ public class ActorMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        float hopFactor = 1f;
+
         // Dodge
         if (_dodgeCooldownTick < DodgeCooldownTime) _dodgeCooldownTick += Time.fixedDeltaTime;
         if(IsDodging) _dodgeTimer -= Time.fixedDeltaTime;
 
         // Move
-        float baseMoveSpeed = Constants.ActorStats.MoveSpeed.Default;
-        _body.AddForce(baseMoveSpeed * MoveDir * _body.linearDamping);
+        var moveSpeed = _actor.Stats.MoveSpeed.Value;
+        if (MoveType == MoveTypeEnum.Walk || IsDodging)
+        {
+            _body.AddDampForce(moveSpeed * MoveDir);
+        }        
+        else if(MoveType == MoveTypeEnum.Hop)
+        {
+            if(_hopTick < 1f) _hopTick += 0.666f * moveSpeed * Time.deltaTime / hopFactor;
+            if(_hopTick >= 1f && MoveDir.magnitude > 0.01f)
+            {
+                _hopTick -= 1f;
+                _body.AddDecayForce(hopFactor * 0.25f * moveSpeed * MoveDir.normalized);
+                _body.AddDampForce(hopFactor * 1f * moveSpeed * MoveDir.normalized);
+            }
+        }
     }
 }

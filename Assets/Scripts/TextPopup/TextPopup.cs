@@ -8,7 +8,7 @@ using ManaSprite.EasyPooling;
 public class TextPopup : MonoBehaviour, IPoolable
 {
     [HideInInspector] public TextMeshPro TextMesh;
-    TickTimer _lifeTimer = new TickTimer(0.7f);
+    TickTimer _lifeTimer = new TickTimer(1f); // 0.7
     Rigidbody2D _rb;
     public Vector2 Velocity;
 

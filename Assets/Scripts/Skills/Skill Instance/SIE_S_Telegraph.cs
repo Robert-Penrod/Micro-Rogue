@@ -49,6 +49,11 @@ public class SIE_S_Telegraph : SIE, IPoolable
             transform.localPosition = 0.35f * (Vector3)Random.insideUnitCircle;
             transform.position = new Vector3(transform.position.x, transform.position.y, -15f);
         }
+        else
+        {
+            transform.localPosition += 0.35f * (Vector3)Random.insideUnitCircle;
+            transform.rotation = Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
+        }
 
         if (_passiveLerpTransform != null)
         {

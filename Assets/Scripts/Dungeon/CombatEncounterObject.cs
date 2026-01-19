@@ -9,8 +9,11 @@ public class CombatEncounterObject : MonoBehaviour
 
     public void SpawnEncounter()
     {
+        Random.InitState(DungeonManager.I.Data.GetSeed());
+
         // Init
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
+        budget *= DungeonManager.I.Data.IsElite ? 1.25f : 1f;
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
 
         // ENEMIES
@@ -26,15 +29,24 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Spawn Enemies
         int max = (int)budget;
-        max = Mathf.Min((int)budget, (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count);
+        int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
+        if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
+        max = Mathf.Min((int)budget, absoluteMax);
         int enemyCount = Random.Range(1, 1 + max);
         if (enemyCount == 1 && Random.value < 0.75) enemyCount++;
         for(int i = 0; i < enemyCount && budget >= 1f; i++)
         {
+            var selectedTypeActor = typeTable.SelectItem().GetComponent<Actor>();
+            for(int k = 0; k < 50; k++)
+            {
+                if (selectedTypeActor.Difficulty <= budget) break;
+                selectedTypeActor = typeTable.SelectItem().GetComponent<Actor>();
+            }
+
             // Spawn Actor
-            budget -= 1f;
+            budget -= selectedTypeActor.Difficulty;
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
-            var actor = Instantiate(typeTable.SelectItem(), spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
+            var actor = Instantiate(selectedTypeActor, spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
             _enemyList.Add(actor);
 
             // Base Upgrade
@@ -43,9 +55,14 @@ public class CombatEncounterObject : MonoBehaviour
         }
         //
         // Upgrade Enemies
+        WeightedList<Actor> _upgradeAffinityList = new();
+        _enemyList.ForEach(enemy =>
+        {
+            _upgradeAffinityList.Add(enemy, enemy.UpgradeAffinity);
+        });
         while (budget >= 1f)
         {
-            var enemyToUpgrade = _enemyList.GetRandomElement();
+            var enemyToUpgrade = _upgradeAffinityList.SelectItem();
 
             // Upgrade
             var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade);
@@ -57,97 +74,16 @@ public class CombatEncounterObject : MonoBehaviour
 
             budget -= 1f;
         }
+
+        _enemyList.ForEach(enemy =>
+        {
+            enemy.Stats.SetHealthPercent(1f);
+        });
     }
 
     private void Start()
     {
         SpawnEncounter();
-
-        // Init
-        //float budget = 1 + PlayerManager.I.PlayerList.Count + (DungeonManager.I.Data.RoomNumber-1).ClampMin(0);
-        //Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
-
-        // Spawn Enemies
-        /*
-        int maxEnemies = (int)DungeonManager.I.Data.RoomNumber.Remap(1f, 10f, 2f, 4f, false);
-        maxEnemies = maxEnemies.ClampMax((int)(budget + 0.5f));
-        int enemyCount = Random.Range(1, maxEnemies + 1);
-        for(int i = 0; i < enemyCount && budget >= 1f; i++)
-        {
-            // Spawn Actor
-            budget -= 1.5f;
-            Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
-            var actor = Instantiate(_enemyTable.SelectItem(), spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
-            _enemyList.Add(actor);
-
-            // Health
-            float healthGain = (DungeonManager.I.Data.RoomNumber - 1) * Constants.ActorStats.HealthGain;
-            actor.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(healthGain, Kryz.Stats.StatModType.Flat));
-            actor.Stats.SetHealthPercent(1f);
-
-            // Base Upgrade
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
-            if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
-        }
-
-        // Upgrade Enemies
-        while(budget >= 1f)
-        {
-            var enemyToUpgrade = _enemyList.GetRandomElement();
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade);
-            if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
-            budget -= 1f;
-        }
-        */
-
-        /*
-        while(budget >= 1f)
-        {
-            // Spawn Actor
-            budget -= 1f;
-            Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
-            var actor = Instantiate(_enemyTable.SelectItem(), spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
-            _enemyList.Add(actor);
-
-            // Upgrade Actor
-            int upgradeCount = 1 + (int)Random.Range(0, budget + 1);
-            for(int i = 0; i < upgradeCount; i++)
-            {
-                var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
-                if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
-
-                if(i > 0)
-                    budget--;
-            }
-
-            // Health
-            float healthGain = 0.5f * (DungeonManager.I.Data.RoomNumber - 1) * Constants.ActorStats.HealthGain;
-            actor.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(healthGain, Kryz.Stats.StatModType.Flat));
-            actor.Stats.SetHealthPercent(1f);
-        }
-        */
-
-
-        /*
-        int enemyCount = PlayerManager.I.PlayerList.Count + (DungeonManager.I.Data.RoomNumber).ClampMin(0) / 4;
-        for(int i = 0; i < enemyCount; i++)
-        {
-            // Spawn Actor
-            Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
-            var actor = Instantiate(_enemyTable.SelectItem(), spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
-            _enemyList.Add(actor);
-
-            // Upgrade Actor
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
-            if(upgrades.Count > 0) upgrades[0].ApplyUpgrade();
-
-            // Health
-            float healthGain = 0.5f * (DungeonManager.I.Data.RoomNumber - 1) * Constants.ActorStats.HealthGain;
-            actor.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(healthGain, Kryz.Stats.StatModType.Flat));
-            actor.Stats.SetHealthPercent(1f);
-        }
-        Debug.Log("Enemy Spawn");
-        */
     }
 
     private void FixedUpdate()
@@ -167,7 +103,10 @@ public class CombatEncounterObject : MonoBehaviour
             DungeonManager.I.SpawnPortals();
             PlayerManager.I.PlayerList.ForEach(player =>
             {
-                player.Actor.Rest();
+                this.DelayedInvoke(0.5f, () =>
+                {
+                    player.Actor.Rest();
+                });
             });
         }
     }

@@ -4,7 +4,10 @@ public abstract class SkillEffect : MonoBehaviour
 {
     protected Skill _skill;
     protected SkillTrigger _skillTrigger;
-    public abstract void Effect();
+    public virtual void Effect()
+    {
+
+    }
 
     private void Awake()
     {

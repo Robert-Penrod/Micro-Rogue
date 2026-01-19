@@ -1,8 +1,12 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    [SerializeField] GameObject _eliteIcon;
+    [SerializeField] TextMeshPro _textMesh;
+
     [SerializeField] AudioClip _enterSound;
     [SerializeField] AudioClip _exitSound;
     float _grabForce = 2f;
@@ -10,6 +14,20 @@ public class Portal : MonoBehaviour
     Dictionary<Player, float> _leaveLog = new();
 
     float _lerpRot;
+
+    [field: SerializeField] public DungeonManager.DungeonData DungeonData { get; private set; }
+
+    private void Start()
+    {
+        this.DelayedInvoke(-1, () => this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}");
+    }
+
+    public void SetData(DungeonManager.DungeonData data)
+    {
+        this.DungeonData = data;
+        this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}";
+        _eliteIcon.SetActive(DungeonData.IsElite);
+    }
 
     private void Update()
     {

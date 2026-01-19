@@ -177,7 +177,7 @@ public class SIE_Projectile : SIE, IPoolable
             // Damage
             float damage = (int)(_damageMult * _skillInstance.Skill.Stats.Damage.Value);
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
-            int damageTaken = hitActor.TakeDamage((int)damage);
+            int damageTaken = hitActor.TakeDamage((int)damage, _skillInstance, null);
 
             // Pierce
             _pierceCount++;
@@ -189,16 +189,18 @@ public class SIE_Projectile : SIE, IPoolable
             if (damageTaken > 0)
             {
                 // Popup
+                /*
                 string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
                 string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
                 Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive ? 0.5f : 1f);
                 popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
                 TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
+                */
 
                 // Audio
                 this.DelayedInvoke(0.02f, () =>
                 {
-                    PlayAudio(_hitClip);
+                    PlayAudio(_hitClip, damageTaken / _skillInstance.Skill.Stats.Damage.Value);
                 });
             }
 
