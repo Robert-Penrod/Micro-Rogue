@@ -13,7 +13,6 @@ public class ProjectileExplosion : SkillPart, IPoolable
     [SerializeField] ParticleSystem _pSystem;
     float _radius => transform.localScale.x;
 
-    float _damage => _damageMult * _sourceSkill.Stats.Damage.Value;
     float _knockback => _sourceSkill.Stats.Knockback.Value;
     float _size => _sourceSkill.Stats.Size.Value;
 
@@ -94,7 +93,7 @@ public class ProjectileExplosion : SkillPart, IPoolable
         {
             if (!_sourceSkill.Actor.IsEnemyOf(hitActor)) return;
 
-            int damageTaken = hitActor.TakeDamage((int)_damage, _skillInstance, null);
+            int damageTaken = hitActor.TakeDamage((int)(_damageMult * _sourceSkill.Stats.CalculateDamageValue()), _skillInstance, null);
 
             if (damageTaken == 0) return;
 

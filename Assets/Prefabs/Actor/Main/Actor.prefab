@@ -5197,7 +5197,7 @@ MonoBehaviour:
   ActorSpriteRend: {fileID: 1548810938185463985}
   LerpSpeed: 16
   Frequency: 0.9
-  Angle: 5
+  Angle: 10
   Lean: -4
   Height: 0.1
   WalkSound: {fileID: 8300000, guid: 324fcc82b9ac0f949be28611f66a284c, type: 3}

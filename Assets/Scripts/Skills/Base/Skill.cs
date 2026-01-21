@@ -33,9 +33,9 @@ public class Skill : MonoBehaviour
 
     [SerializeField] float _dps;
     int _dir = 1;
-    public int GetDirection()
+    public int GetDirection(bool doToggle = false)
     {
-        _dir *= -1;
+        if(doToggle) _dir *= -1;
         return _dir;
     }
 
@@ -59,7 +59,7 @@ public class Skill : MonoBehaviour
     #region Init
     private void OnValidate()
     {
-        _dps = Stats.Damage.Value * Stats.Rate.Value;
+        _dps = (Stats.RandomDamage.Value * 0.5f + Stats.Damage.Value) * Stats.Rate.Value;
 
         // Init Upgrades
         UpgradeList.ForEach(upgrade =>

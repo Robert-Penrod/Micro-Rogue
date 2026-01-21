@@ -33,8 +33,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
     private void OnEnable()
     {
-        _offsetAngle *= Random.value > 0.5f ? 1 : -1;
-        _aimAheadRand = Random.Range(0.25f, 1f);
+        //_aimAheadRand = Random.Range(0.25f, 1f);
     }
 
     private void Update()
@@ -86,9 +85,9 @@ public class SIE_TelegraphAim : SIE, IPoolable
         Debug.DrawLine(transform.position, targetAimPos, Color.red);
 
         // AIM
-        float torque = 8f; // 8  // 3, 2, 2.5
+        float torque = 16f; // 8  // 3, 2, 2.5
         float responseAngle = 180f;
-        float damp = 8f; // 8  // 5, 10, 7.5, 8
+        float damp = 4f; // 8  // 5, 10, 7.5, 8
         torque *= damp;
 
         float lerpSpeed = 20f;
@@ -107,7 +106,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     void PrototypeAim()
     {
         float AimMult = 1f;
-        float _aimLerp = 12f; // 8, 25
+        float _aimLerp = 16f; // 8, 25
         if (_targetEnemy == null) return;
         Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;
         float targetDist = targetAimDir.magnitude;
@@ -133,6 +132,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
         Debug.DrawLine(transform.position, transform.position + (Vector3)targetAimDir * 5f);
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
+        targetAngle += -_offsetAngle * _skillInstance.Skill.GetDirection();
         float currentAngle = transform.rotation.eulerAngles.z;
         float lerpAngle = Mathf.LerpAngle(currentAngle, targetAngle, AimMult * _aimLerp * Time.deltaTime);
         transform.rotation = Quaternion.Euler(0f, 0f, lerpAngle);

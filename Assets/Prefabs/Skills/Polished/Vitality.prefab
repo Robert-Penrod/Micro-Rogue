@@ -64,9 +64,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1245691324457983775, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.29803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.29803923
+      objectReference: {fileID: 0}
     - target: {fileID: 4694542943303198139, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: m_Name
       value: Vitality
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626554220356991862, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Icon
@@ -158,6 +174,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

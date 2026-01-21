@@ -7,6 +7,7 @@ public static class BalancePoint
 
     // Skills
     public static float BP_Skill_Damage = 1f * BP_PercentDPSGain;
+    public static float BP_Skill_RandomDamage = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Rate = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Size = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Duration = 1f * BP_PercentDPSGain;
@@ -46,6 +47,7 @@ public static class BalancePoint
         float multiplier = skillStatType switch
         {
             SkillStats.SkillStatTypes.Damage => BP_Skill_Damage,
+            SkillStats.SkillStatTypes.RandomDamage => BP_Skill_RandomDamage,
             SkillStats.SkillStatTypes.Rate => BP_Skill_Rate,
             SkillStats.SkillStatTypes.Count => BP_Skill_Count,
             SkillStats.SkillStatTypes.Size => BP_Skill_Size,

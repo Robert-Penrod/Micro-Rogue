@@ -67,8 +67,8 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         {
             // FILTERS
             //
-            // If starting skill -> must do damage
-            if (actorSkillList.Count == 0 && newSkill.Stats.Damage.Value <= 0f) return;
+            // If no damage skills -> new skill must do damage
+            if (actorSkillList.FindAll(x => x.Stats.Damage.Value > 0).Count == 0 && newSkill.Stats.Damage.Value <= 0f) return;
             //
             // Actor cannot already have skill
             if (skillSystem.HasSkill(newSkill)) return;
@@ -81,7 +81,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
 
             // Weight
-            float newSkillMult = 1f;// 1f / (1f * 3f); // newSkill weight
+            float newSkillMult = (1f / (1f * 3f * 3f)); // newSkill weight
             newSkillMult *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags); // Tag Weight
             newSkillMult *= actorToUpgrade.NewSkillAffinity;
 

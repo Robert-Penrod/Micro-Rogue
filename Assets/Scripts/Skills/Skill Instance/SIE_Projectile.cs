@@ -9,7 +9,7 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] float _damageMult = 1f;
     [SerializeField] float _knockbackMult = 1f;
     [SerializeField] float _launchMult = 1f;
-    [SerializeField] float _angularVel = 0f;
+    [SerializeField] float _angularVelMult = 0f;
 
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
@@ -87,10 +87,11 @@ public class SIE_Projectile : SIE, IPoolable
         }
 
         // Add Force
+        float speed = 0.2f * 360f * _skillInstance.Skill.Stats.Speed.Value;
         _rb.AddForce(_launchMult * launchForce, ForceMode2D.Impulse);
-        if (_angularVel.Abs() > 0)
+        if (_angularVelMult.Abs() > 0)
         {
-            _rb.angularVelocity = -_angularVel * 360f * _skillInstance.Skill.GetDirection();
+            _rb.angularVelocity = -_angularVelMult * speed * _skillInstance.Skill.GetDirection(true);
         }
 
         // Lunge
@@ -175,7 +176,7 @@ public class SIE_Projectile : SIE, IPoolable
             if (!hitActor.IsEnemyOf(_skillInstance.Skill.Actor)) return;
 
             // Damage
-            float damage = (int)(_damageMult * _skillInstance.Skill.Stats.Damage.Value);
+            float damage = (int)(_damageMult * _skillInstance.Skill.Stats.CalculateDamageValue());
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
             int damageTaken = hitActor.TakeDamage((int)damage, _skillInstance, null);
 
@@ -219,6 +220,8 @@ public class SIE_Projectile : SIE, IPoolable
         if(hitBody != null)
         {
             Vector2 knockbackDir = _rb.linearVelocity.normalized;
+            if (_rb.linearVelocity.sqrMagnitude < 0.1f) knockbackDir = transform.up.normalized;
+
             Vector2 knockbackForce = knockbackDir * _knockback;
             //knockbackForce *= hitBody.linearDamping;
             //knockbackForce *= _rb.linearVelocity.magnitude.Remap(0f, 8f, 0f, 1f, false).ClampMin(0f);

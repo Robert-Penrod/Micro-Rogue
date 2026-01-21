@@ -25,6 +25,7 @@ public class DebugTools : MonoBehaviour
         // Upgrade all NPCs
         if(Input.GetKeyDown(KeyCode.I))
         {
+            Debug.Log("Upgrading NPCs");
             new List<Actor>(FindObjectsByType<Actor>(FindObjectsSortMode.None)).ForEach(actor =>
             {
                 if(!actor.IsPlayer())
@@ -39,7 +40,13 @@ public class DebugTools : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
+                Debug.Log("Restarting...");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+            if(Input.GetKeyDown(KeyCode.T))
+            {
+                Debug.Log("Deleting PlayerPrefs");
+                PlayerPrefs.DeleteAll();
             }
         }
 
@@ -47,7 +54,9 @@ public class DebugTools : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             _timeScaleIndex = (_timeScaleIndex + 1) % _timeScaleArray.Length;
-            Utils.SetFullTimeScale(_timeScaleArray[_timeScaleIndex]);
+            var timescale = _timeScaleArray[_timeScaleIndex];
+            Debug.Log($"Timescale: {timescale}");
+            Utils.SetFullTimeScale(timescale);
         }
 
         // Kill

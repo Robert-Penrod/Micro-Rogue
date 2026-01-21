@@ -16,7 +16,14 @@ public class SI_SwingPivot : MonoBehaviour
 
     private void OnEnable()
     {
-        _dir = _skillInstance.Skill.GetDirection();
+        if (_swingAngle.Abs() > 0)
+        {
+            _dir = _skillInstance.Skill.GetDirection(true);
+        }
+        else
+        {
+            this.enabled = false;
+        }
     }
 
     private void Update()

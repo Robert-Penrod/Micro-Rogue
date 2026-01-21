@@ -100,7 +100,7 @@ public class SE_Slime : MonoBehaviour
 
     void DoHit(Actor actor)
     {
-        int damageTaken = actor.TakeDamage((int)_skill.Stats.Damage.Value, null, _actor);
+        int damageTaken = actor.TakeDamage((int)_skill.Stats.CalculateDamageValue(), null, _actor);
         if (!_actorHitTime.ContainsKey(actor)) _actorHitTime.Add(actor, Time.time);
         else _actorHitTime[actor] = Time.time;
 

@@ -14,6 +14,7 @@ public class CombatEncounterObject : MonoBehaviour
         // Init
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
         budget *= DungeonManager.I.Data.IsElite ? 1.25f : 1f;
+        budget *= DungeonManager.I.Data.IsBoss ? 1.25f : 1f;
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
 
         // ENEMIES
@@ -56,9 +57,12 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Upgrade Enemies
         WeightedList<Actor> _upgradeAffinityList = new();
+        bool selectedBoss = false;
         _enemyList.ForEach(enemy =>
         {
-            _upgradeAffinityList.Add(enemy, enemy.UpgradeAffinity);
+            float affinityMult = DungeonManager.I.Data.IsBoss && !selectedBoss ? 10f : 1f;
+            if (!selectedBoss) selectedBoss = true;
+            _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
         });
         while (budget >= 1f)
         {

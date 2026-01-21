@@ -18,7 +18,9 @@ public class ActorLootDropper : MonoBehaviour
 
     void DropLoot()
     {
-        int dropCount = 1 + _actor.GetLevel();
+        float dropCount = 1 + _actor.GetLevel();
+        dropCount *= DungeonManager.I.Data.IsElite ? 2f : 1f;
+        dropCount *= DungeonManager.I.Data.IsBoss ? 2f : 1f;
 
         //dropCount = (int)(dropCount * Random.Range(0.5f, 2f));
 
