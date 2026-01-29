@@ -7,6 +7,7 @@ public class ActorLootDropper : MonoBehaviour
     [SerializeField] float _kickForce = 1.5f;
     [SerializeField] float _angularForce = 1f;
     public WeightedList<GameObject> LootPrefabTable = new();
+    public GameObject GemPrefab;
 
     Actor _actor;
 
@@ -18,7 +19,7 @@ public class ActorLootDropper : MonoBehaviour
 
     void DropLoot()
     {
-        float dropCount = 1 + _actor.GetLevel();
+        float dropCount = Random.Range(0, 3) + _actor.GetLevel() / 2;
         dropCount *= DungeonManager.I.Data.IsElite ? 2f : 1f;
         dropCount *= DungeonManager.I.Data.IsBoss ? 2f : 1f;
 
@@ -34,7 +35,7 @@ public class ActorLootDropper : MonoBehaviour
 
     void DoSpawn()
     {
-        var selectedItem = LootPrefabTable.SelectItem();
+        var selectedItem = (DungeonManager.I.Data.IsBoss && Random.value < 0.5)? GemPrefab : LootPrefabTable.SelectItem();
         if (selectedItem == null) return;
         var lootSpawn = selectedItem.PooledInstantiate(transform.position);
         lootSpawn.gameObject.SetActive(true);

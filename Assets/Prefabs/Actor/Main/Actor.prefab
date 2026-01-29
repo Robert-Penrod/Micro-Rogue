@@ -15361,6 +15361,10 @@ MonoBehaviour:
       count: 1
     - tag: 2
       count: 1
+  WildsAffinity: 0
+  UndergroundAffinity: 0
+  DungeonAffinity: 0
+  _initScale: 0
   _spriteRend: {fileID: 1548810938185463985}
 --- !u!114 &4980042708820111086
 MonoBehaviour:
@@ -15451,7 +15455,7 @@ MonoBehaviour:
   _wander: 0.4
   _evasion: 0.4
   _dodgeEvade: 0.05
-  _dodgeSprint: 0.05
+  _dodgeSprint: 0.1
 --- !u!114 &7109160049825760317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15473,7 +15477,8 @@ MonoBehaviour:
     - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
       Weight: 0.1
     - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
-      Weight: 0.05
+      Weight: 0.01
+  GemPrefab: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
 --- !u!1 &8092221797262269560
 GameObject:
   m_ObjectHideFlags: 0

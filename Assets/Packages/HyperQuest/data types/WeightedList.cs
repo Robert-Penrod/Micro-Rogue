@@ -83,6 +83,17 @@ public class WeightedList<T> : IEnumerable<T>
         return default(T);
     }
 
+    public WeightedEntry SelectAndRemoveEntry()
+    {
+        var selectedEntry = SelectEntry();
+        if (selectedEntry != null)
+        {
+            this.Entries.Remove(selectedEntry);
+            return selectedEntry;
+        }
+        return null;
+    }
+
     public WeightedList<T> Clone()
     {
         WeightedList<T> cloneList = new WeightedList<T>();

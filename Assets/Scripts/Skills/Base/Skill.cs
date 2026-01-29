@@ -49,9 +49,10 @@ public class Skill : MonoBehaviour
     [HideInInspector] public Actor Actor;
 
     // State
-    public bool IsActive => SkillInstances.Count > 0;
+    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance.State == SkillInstance.SkillInstanceState.Start).Count > 0;  // SkillInstances.Count > 0;
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
     public bool NeedsTargetForCooldown = true;
+    public bool ChasedownWhileActive;
     public float CooldownPercent { get; private set; }
 
     #endregion
@@ -90,8 +91,9 @@ public class Skill : MonoBehaviour
         // Temp Stats
         float activeSkillMult = 1f;
         var skillList = Actor.SkillSystem.SkillList;
-        float mainSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? 0.1f : 1f;
-        float offhandSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? 0.1f : 1f;
+        float minMult = 0.1f;
+        float mainSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? minMult : 1f;
+        float offhandSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? minMult : 1f;
         switch (this.Slot)
         {
             case SlotEnum.Main:

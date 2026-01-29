@@ -46,7 +46,10 @@ public class SkillPassiveFX : MonoBehaviour
 
         if (_parentActor.IsInUI) cooldownPercent = 0.95f;
 
-        targetAlpha = cooldownPercent.Remap(0.5f, 1f, 0.375f, 1f);
+        //targetAlpha = cooldownPercent.Remap(0.1f, 1f, 0f, 1f); // 0.5f, 1f, 0.375f, 1f
+
+        targetAlpha = cooldownPercent.Remap(0.5f, 1f, 0.375f, 1f) * cooldownPercent.Remap(0f, 0.5f, 0f, 1f);
+
         targetScale = cooldownPercent.Remap(0f, 1f, 0.7f, 1.2f);
 
         if (cooldownPercent < 0.9f)
@@ -84,9 +87,9 @@ public class SkillPassiveFX : MonoBehaviour
         }
 
         Color skillColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill);
-        float maxPercent = _skill.Stats.Damage.Value > 0 ? 0.5f : 0.25f;
+        float maxSkillColorLerp = _skill.Stats.Damage.Value > 0 ? 0.2f : 0f;
         float cooldownPercent = _skill.Slot == Skill.SlotEnum.Passive ? 1f : _skill.CooldownPercent;
-        passiveColor = passiveColor.Lerp(skillColor, cooldownPercent.RemapPercent(0f, maxPercent)).SetValue(0.7f);
+        passiveColor = passiveColor.Lerp(skillColor, cooldownPercent.RemapPercent(0f, maxSkillColorLerp)).SetValue(0.7f);
 
         return passiveColor;
     }

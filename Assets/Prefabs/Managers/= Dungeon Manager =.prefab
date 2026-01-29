@@ -49,10 +49,20 @@ MonoBehaviour:
   _roomGeneratorPrefab: {fileID: 2854186638405631178, guid: 3697898c1a6b8334a94d62523c77d27d, type: 3}
   _encounterGeneratorPrefab: {fileID: 7529052086710301278, guid: bf3228c70a03c6e408693a2d71d5abe5, type: 3}
   _portalPrefab: {fileID: 4188905236096137848, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
+  _wallMat: {fileID: 0}
+  _floorMat: {fileID: 0}
   _portalFinishSound: {fileID: 0}
+  WildsIcon: {fileID: -3405617218648237640, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+  UndergroundIcon: {fileID: 3583196725970279109, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+  DungeonIcon: {fileID: -7942795272524331987, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
   Data:
     Seed: 0
-    RoomNumber: 0
+    Coordinate: {x: 0, y: 0}
+    Biome: 0
+    Tags:
+      _entries: []
+    IsElite: 0
+    IsBoss: 0
 --- !u!1 &3038512524374721657
 GameObject:
   m_ObjectHideFlags: 0

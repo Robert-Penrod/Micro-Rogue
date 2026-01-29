@@ -718,6 +718,12 @@ public static class TypeExtensions
         Color.RGBToHSV(c, out float h, out float s, out float v);
         return v;
     }
+
+    public static float GetSaturation(this Color c)
+    {
+        Color.RGBToHSV(c, out float h, out float s, out float v);
+        return s;
+    }
     #endregion
 
     #region Transform Extensions

@@ -6,6 +6,7 @@ using Random = UnityEngine.Random;
 public class Actor : MonoBehaviour
 {
     [Header("Config")]
+    public float RarityMult = 1f;
     public float Difficulty = 1f;
     public float UpgradeAffinity = 1f;
     public float NewSkillAffinity = 1f;
@@ -13,10 +14,14 @@ public class Actor : MonoBehaviour
     public enum FactionType { None, Player, Enemy }
     public ActorStats Stats;
     public TagCollection Tags;
+    [Header("Biomes")]
+    public float WildsAffinity = 0f;
+    public float UndergroundAffinity = 0f;
+    public float DungeonAffinity = 0f;
 
     // Data
     public bool IsAlive { get; private set; }
-    float _initScale;
+    public float _initScale;
     float _initialLinearDamping;
 
     // References
@@ -148,7 +153,7 @@ public class Actor : MonoBehaviour
         // Last Chance (Players: If killing hit would do more than half health -> leave player at 1hp instead)
         if (IsPlayer())
         {
-            if (damage >= Stats.Health && damage >= 0.4f * Stats.HealthMax.Value)
+            if (damage >= Stats.Health && damage >= 0.25f * Stats.HealthMax.Value && Stats.Health > 1)
             {
                 damage = Stats.Health - 1;
             }

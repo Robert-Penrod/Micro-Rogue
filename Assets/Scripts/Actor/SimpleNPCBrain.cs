@@ -13,7 +13,7 @@ public class SimpleNPCBrain : ActorBrain
     float _minDistPref => _minDistBase * _distMult; // 0.5,  1f
     float _maxDistPref => _maxDistBase * _distMult; // 2, 2.5
     float _distMult => _isAttacking ? _attackDistMult : _passiveDistMult;
-    bool _isAttacking => _actor?.SkillSystem?.IsAttacking() ?? false;
+    bool _isAttacking => _actor?.SkillSystem?.ShouldAiChaseDown() ?? false;
 
     [Header("Walls")]
     [SerializeField] float _openSpaceDesire = 0f;
@@ -156,8 +156,8 @@ public class SimpleNPCBrain : ActorBrain
         Vector2 openSpaceVector = _actor.Senses.WallVMap.ToVector() / 5f;
         if (openSpaceVector.magnitude > 1f) openSpaceVector.Normalize();
         openSpaceVector *= _openSpaceDesire;
-        DebugDrawLine(openSpaceVector, Color.blue.Lerp(Color.black, 0.5f));
-        moveDir += openSpaceVector;
+        //DebugDrawLine(openSpaceVector, Color.blue.Lerp(Color.black, 0.5f));
+        //moveDir += openSpaceVector;
         //
         // Avoid Wall
         var wallMap = _actor.Senses.WallVMap;
@@ -174,8 +174,9 @@ public class SimpleNPCBrain : ActorBrain
         wallVector *= 10f;
         //float wallMult = minWallDist.Remap(0.4f, 0.8f, 1f, 0f);
         //Vector2 avoidWallVector = wallMap.ToVector() * 0.25f * wallMult; // 0.125f
-        DebugDrawLine(wallVector, Color.blue);
-        moveDir += wallVector;
+        // wall
+        //DebugDrawLine(wallVector, Color.blue);
+        //moveDir += wallVector;
         //===
 
         // Avoid Enemy Skills
@@ -228,7 +229,7 @@ public class SimpleNPCBrain : ActorBrain
         }
 
         // Sprint Dodge
-        if (_dodgeSprintCharge >= 1f && sprintMult * _dodgeSprint > 1 && _actor.MoveController.IsDodgeCooledDown)
+        if (_dodgeSprintCharge >= 1f && sprintMult > 1 && _actor.MoveController.IsDodgeCooledDown)
         {
             _dodgeSprintCharge = 0f;
             _actor.MoveController.Ctrl_Dodge(moveDir.normalized);

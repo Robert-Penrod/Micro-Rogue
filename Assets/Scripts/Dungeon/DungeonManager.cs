@@ -11,6 +11,9 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField] GameObject _roomGeneratorPrefab;
     [SerializeField] GameObject _encounterGeneratorPrefab;
     [SerializeField] GameObject _portalPrefab;
+
+    [SerializeField] Material _wallMat;
+    [SerializeField] Material _floorMat;
     
     public Transform DungeonTransform { get; private set; }
     PlayerManager _playerManager;
@@ -26,6 +29,37 @@ public class DungeonManager : Singleton<DungeonManager>
     public Action OnDungeonDataChanged;
     public Action OnPortalTransitionStart;
 
+    public enum BiomeEnum { Wilds = 0, Underground = 10, Dungeon = 20 }
+    public Sprite WildsIcon;
+    public Sprite UndergroundIcon;
+    public Sprite DungeonIcon;
+    [SerializeField] BiomeData _wildsData;
+    [SerializeField] BiomeData _undergroundData;
+    [SerializeField] BiomeData _dungeonData;
+    public Sprite GetBiomeSprite(BiomeEnum biome)
+    {
+        Sprite sprite = biome switch
+        {
+            BiomeEnum.Wilds => WildsIcon,
+            BiomeEnum.Underground => UndergroundIcon,
+            BiomeEnum.Dungeon => DungeonIcon,
+            _ => null
+        };
+        return sprite;
+    }
+    public Color GetBiomeColor(BiomeEnum biome)
+    {
+        Color c = biome switch
+        {
+            BiomeEnum.Wilds => Color.green,
+            BiomeEnum.Underground => Color.grey,
+            BiomeEnum.Dungeon => Color.blue,
+            _ => Color.black
+        };
+        c = c.SetSaturation(0.7f * c.GetSaturation());
+        return c;
+    }
+
     #region DungeonData
     [System.Serializable]
     public class DungeonData
@@ -33,6 +67,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public int Seed;
         public int RoomNumber => Coordinate.y;
         public Vector2Int Coordinate;
+        public BiomeEnum Biome;
         public TagCollection Tags;
 
         public bool IsElite;
@@ -45,9 +80,12 @@ public class DungeonManager : Singleton<DungeonManager>
             this.Coordinate = coordinate;
             Random.InitState(GetSeed());
 
-            // Randomization
-            IsBoss = this.Coordinate.y % 10 == 0;
-            IsElite = !IsBoss && Random.value < 0.333f;
+            // Encounter Type Sampling
+            this.IsBoss = this.Coordinate.y % 5 == 0;
+            this.IsElite = !this.IsBoss && Random.value < 0.333f;
+
+            // Biome Sampling
+            this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate);
         }
 
         public int GetSeed()
@@ -56,12 +94,52 @@ public class DungeonManager : Singleton<DungeonManager>
             seed += Seed.ToString();
             seed += Coordinate.ToString();
             int seedHash = seed.GetHashCode();
-            Debug.Log("Seed: " + seedHash.ToString());
-            return seed.GetHashCode();
+            //Debug.Log("Seed: " + seedHash.ToString());
+            return seedHash;
         }
     }
     public DungeonData Data;
     #endregion
+
+    public static BiomeEnum SampleBiome(int seed, Vector2Int coord)
+    {
+        Random.InitState(seed.GetHashCode());
+        int bossFloor = 5;
+        int size = 16;      // resolution (keep low, gizmos are expensive)
+        float scale = 6f;   // noise scale
+        float offset = 1000 * Random.Range(1f, 5f);
+
+        float wildsValue = Mathf.PerlinNoise(
+                    (offset + coord.x) / (float)size * scale,
+                    (offset + coord.y) / (float)size * scale
+                );
+        float undergroundValue = Mathf.PerlinNoise(
+                    (offset * 0.25f + coord.x) / (float)size * scale,
+                    (offset * 4.25f + coord.y) / (float)size * scale
+                );
+        float dungeonValue = Mathf.PerlinNoise(
+                    (offset * 9.45f + coord.x) / (float)size * scale,
+                    (offset * 3.15f + coord.y) / (float)size * scale
+                );
+        undergroundValue *= coord.y.Remap(1f, bossFloor, 0f, 1f);
+        dungeonValue *= coord.y.Remap(1f, 2f * bossFloor, 0f, 1f);
+        float maxValue = Mathf.Max(wildsValue, undergroundValue, dungeonValue);
+
+        if(wildsValue == maxValue)
+        {
+            return BiomeEnum.Wilds;
+        }
+        else if(undergroundValue == maxValue)
+        {
+            return BiomeEnum.Underground;
+        }
+        else if(dungeonValue == maxValue)
+        {
+            return BiomeEnum.Dungeon;
+        }
+
+        return BiomeEnum.Wilds;
+    }
 
     #region GenerateLevel()
     public void GenerateLevel()
@@ -75,6 +153,17 @@ public class DungeonManager : Singleton<DungeonManager>
         // Clear Dungeon
         foreach (Transform t in DungeonTransform)
             Destroy(t.gameObject);
+
+        // Texture
+        Random.InitState(Data.GetSeed());
+        var biomeData = Data.Biome switch
+        {
+            BiomeEnum.Wilds => _wildsData,
+            BiomeEnum.Underground => _undergroundData,
+            BiomeEnum.Dungeon => _dungeonData
+        };
+        _wallMat.SetTexture("_Texture", biomeData._textures.GetRandomElement().texture);
+        _floorMat.SetTexture("_Texture", biomeData._textures.GetRandomElement().texture);
 
         // Generator Instantiations
         Random.InitState(Data.GetSeed());
@@ -98,6 +187,55 @@ public class DungeonManager : Singleton<DungeonManager>
         Data.Seed = DateTime.Now.Ticks.GetHashCode(); // Randomize Seed
     }
     #endregion
+    
+    void OnDrawGizmos()
+    {
+        // For dev preview only: Running this seeds randomness to same value every frame
+        /*
+        int size = 16;      // resolution (keep low, gizmos are expensive)
+        float scale = 6f;   // noise scale
+        float spacing = 0.3f;
+        float offset = 1000;
+
+        for (int y = 0; y < size * 2; y++)
+            for (int x = -size; x < size; x++)
+            {
+                Color c = Color.white;
+                var biome = DungeonManager.SampleBiome(DungeonManager.I?.Data.Seed ?? 0, new Vector2Int(x, y));
+                switch (biome)
+                {
+                    case BiomeEnum.Wilds:
+                        c = Color.green;
+                        break;
+                    case BiomeEnum.Underground:
+                        c = Color.grey;
+                        break;
+                    case BiomeEnum.Dungeon:
+                        c = Color.blue;
+                        break;
+                }
+
+                if(y > 0)
+                {
+                    if(y % 5 == 0)
+                    {
+                        c = c.Lerp(Color.red, 0.5f);
+                    }
+                }
+                else
+                {
+                    c = c.Lerp(Color.white, 0.75f);
+                }
+
+                Gizmos.color = c;
+
+                Gizmos.DrawCube(
+                    transform.position + new Vector3(x * spacing, y * spacing, 0),
+                    Vector3.one * spacing
+                );
+            }
+        */
+    }
 
     private void Update()
     {
@@ -139,16 +277,28 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(Data.Coordinate.GetHashCode());
             var portalList = new List<Portal>();
             int count = Random.Range(1, 3 + 1);
+            if (count == 1 && Random.value < 0.5f) count++;
             int offset = count % 2 != 0 ? 0 : -Random.Range(0, 2);
-
+    
             // Loop
             for (int i = 0; i < count; i++)
             {
                 Random.InitState((Data.Coordinate.ToString() + " - " + i.ToString()).GetHashCode());
 
                 // Spawn Pos
-                Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1.5f);
+                Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(1f);
                 var portal = Instantiate(_portalPrefab, spawnPos, Quaternion.identity, DungeonTransform).GetComponent<Portal>();
+
+                // End
+                portalList.Add(portal);
+
+                yield return new WaitForFixedUpdate();
+                yield return new WaitForFixedUpdate();
+            }
+            portalList.Sort((a, b) => (int)(b.transform.position.x - a.transform.position.x).Sign());
+            for(int i = 0; i < portalList.Count; i++)
+            {
+                var portal = portalList[i];
 
                 // Dungeon Data
                 // - coordinate
@@ -156,18 +306,8 @@ public class DungeonManager : Singleton<DungeonManager>
                 coordinate.y = Data.RoomNumber + 1;
                 coordinate.x = Data.Coordinate.x + ((count / 2) - i);
                 if (count % 2 == 0) coordinate.x += offset;// On evens have random chance to sheft left to keep left right traversal balanced
-                                                           //
-                                                           // - set dungeon data
                 DungeonData dungeonData = new(Data.Seed, coordinate);
                 portal.SetData(dungeonData);
-
-                // End
-                portalList.Add(portal);
-
-                if (dungeonData.IsBoss) break;
-
-                yield return new WaitForFixedUpdate();
-                yield return new WaitForFixedUpdate();
             }
         }
     }
@@ -181,9 +321,7 @@ public class DungeonManager : Singleton<DungeonManager>
             SelectedPortal = GetPlayerVotePortal();
 
             // Step data
-            int originalSeed = Data.Seed;
-            Data = SelectedPortal.DungeonData;
-            Data.Seed = originalSeed;
+            Data = new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
 
             // Destroy Portals
             foreach (Portal p in FindObjectsByType<Portal>(FindObjectsSortMode.None))
@@ -201,7 +339,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Teleport Players
             int seed = Data.GetSeed();
-            Debug.Log(seed);
+            //Debug.Log(seed);
             Random.InitState(seed);
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(0.25f);
             Debug.DrawLine(spawnPos, (Vector3)spawnPos + Vector3.up * 10f, Color.red, 10000f);
@@ -228,7 +366,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Extra
-            Debug.Log("Portaled!");
+            //Debug.Log("Portaled!");
             AudioSpawner.PlayAudioWithRandPitch(_portalFinishSound, 0.2f, 1f, 1f);
 
             OnDungeonDataChanged?.Invoke();

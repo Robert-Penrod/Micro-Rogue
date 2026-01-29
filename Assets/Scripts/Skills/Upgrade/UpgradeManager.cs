@@ -43,12 +43,18 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         List<Upgrade> upgradeList = new();
 
         var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade);
-        for(int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
+        Debug.Log("Full List Options: " + weightedUpgradeList.Entries.Count);
+        for (int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
         {
             var selectedItem = weightedUpgradeList.SelectAndRemoveItem();
             upgradeList.Add(selectedItem);
         }
-
+        Debug.Log("Upgrade options: " + upgradeList.Count);
+        upgradeList.ForEach(upgrade =>
+        {
+            Debug.Log(upgrade.GetTitle());
+        });
+        Debug.Log("Rand Num: " + Random.Range(1, 4));
         return upgradeList;
     }
 
@@ -81,7 +87,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
 
             // Weight
-            float newSkillMult = (1f / (1f * 3f * 3f)); // newSkill weight
+            float newSkillMult = (1f / (1f * 3f * 2f)); // newSkill weight
             newSkillMult *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags); // Tag Weight
             newSkillMult *= actorToUpgrade.NewSkillAffinity;
 

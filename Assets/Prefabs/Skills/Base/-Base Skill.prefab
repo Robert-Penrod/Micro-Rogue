@@ -320,6 +320,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1339682011722151651}
   - component: {fileID: 8176092954707893517}
+  - component: {fileID: 8970280336592199421}
+  - component: {fileID: 7083401917376905610}
   m_Layer: 0
   m_Name: -Base Skill
   m_TagString: Untagged
@@ -367,6 +369,8 @@ MonoBehaviour:
     Int: 0
     Damage:
       BaseValue: 5
+    RandomDamage:
+      BaseValue: 0
     Rate:
       BaseValue: 0.5
     Count:
@@ -392,3 +396,30 @@ MonoBehaviour:
   UpgradeHistory: []
   Actor: {fileID: 0}
   SkillInstances: []
+  NeedsTargetForCooldown: 1
+  ChasedownWhileActive: 0
+--- !u!114 &8970280336592199421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6381319461986293207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e374196d01a98a4c9dc61a15a0c3b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7083401917376905610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6381319461986293207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2ca42a7e8b5244a90d6716cecddac0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabToSpawn: {fileID: 0}

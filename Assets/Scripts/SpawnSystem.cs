@@ -27,7 +27,7 @@ public static class SpawnSystem
 
         bool isEmpty = false;
         Vector2 pos = new Vector2();
-        for (int maxIter = 500; maxIter > 0 && !isEmpty; maxIter--)
+        for (int maxIter = 1000; maxIter > 0 && !isEmpty; maxIter--)
         {
             isEmpty = true;
             pos = new Vector2(originX, originY) + GetRandomPoint();
@@ -43,6 +43,10 @@ public static class SpawnSystem
                     break;
                 }
             }
+        }
+        if(!isEmpty)
+        {
+            Debug.LogWarning("Place Portal hit maxIter");
         }
         return pos;
     }

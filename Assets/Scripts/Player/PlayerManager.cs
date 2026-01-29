@@ -24,12 +24,13 @@ public class PlayerManager : Singleton<PlayerManager>
     string _uiMapName = "UI";
     public void SetUIOwner(Player player)
     {
-        Debug.Log("Setting UI Owner");this.CurrentUIOwner = player;
+        //Debug.Log("Setting UI Owner");
+        this.CurrentUIOwner = player;
 
         var uiModule = FindFirstObjectByType<InputSystemUIInputModule>();
         if (!uiModule)
         {
-            Debug.LogError("No InputSystemUIInputModule found in scene.");
+            //Debug.LogError("No InputSystemUIInputModule found in scene.");
             return;
         }
 
@@ -42,7 +43,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
             if (isOwner)
             {
-                Debug.Log("Enabling " + pi.playerIndex);
+                //Debug.Log("Enabling " + pi.playerIndex);
                 uiMap.Enable();
 
                 // KEY LINE: now the EventSystem reads THIS player's actions
@@ -50,7 +51,7 @@ public class PlayerManager : Singleton<PlayerManager>
             }
             else
             {
-                Debug.Log("Disabling " + pi.playerIndex);
+                //Debug.Log("Disabling " + pi.playerIndex);
                 uiMap.Disable();
             }
         }
@@ -123,6 +124,8 @@ public class PlayerManager : Singleton<PlayerManager>
         if (player == null || PlayerList.Contains(player)) return;
         PlayerList.Add(player);
         OnPlayerJoin?.Invoke(player);
+
+        player.transform.position = Random.insideUnitCircle.normalized * Random.Range(1f, 2f);
     }
 
     void OnPlayerLeft(PlayerInput playerInput)

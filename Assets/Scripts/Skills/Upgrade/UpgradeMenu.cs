@@ -58,6 +58,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     void RollUpgradeCards()
     {
+        Debug.Log("Rerolling");
         SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade));
         _rerollButton.gameObject.SetActive(ActorCanReroll(_actorToUpgrade));
     }

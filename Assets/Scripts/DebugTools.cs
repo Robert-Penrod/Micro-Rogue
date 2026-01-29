@@ -69,5 +69,10 @@ public class DebugTools : MonoBehaviour
                 x.Stats.Health = 0;
             });
         }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("E Rand: " + Random.Range(1, 4));
+        }
     }
 }

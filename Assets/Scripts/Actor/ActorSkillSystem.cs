@@ -45,7 +45,7 @@ public class ActorSkillSystem : MonoBehaviour
         PassiveSkillList.AddRange(SkillList.FindAll(x => x.Slot == Skill.SlotEnum.Passive));
     }
 
-    public bool IsAttacking()
+    public bool ShouldAiChaseDown()
     {
         foreach(Skill skill in SkillList)
         {
@@ -55,10 +55,11 @@ public class ActorSkillSystem : MonoBehaviour
                 bool skillStarting = skillInstance.State == SkillInstance.SkillInstanceState.Start;
                 bool skillDoesDamage = skillInstance.Skill.Stats.Damage.Value > 0;
                 
-                if (skillStarting && skillDoesDamage)
-                {
-                    return true;
-                }
+                // Telegraph Skill
+                if (skillInstance.State == SkillInstance.SkillInstanceState.Start && skillDoesDamage) return true;
+
+                // Chasedown skill
+                if (skillInstance.State != SkillInstance.SkillInstanceState.End && skillInstance.Skill.ChasedownWhileActive) return true;
             }
         }
         return false;

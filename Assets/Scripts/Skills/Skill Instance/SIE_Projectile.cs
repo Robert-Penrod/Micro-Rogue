@@ -55,6 +55,7 @@ public class SIE_Projectile : SIE, IPoolable
 
     void Launch()
     {
+        if (!this.enabled) return;
         //Debug.Log("Launch");
         transform.SetParent(null);
         gameObject.SetCollidersEnabled2D(true);
@@ -234,7 +235,7 @@ public class SIE_Projectile : SIE, IPoolable
         //.
 
         // Pierce end condition
-        if (_pierceCount > _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
+        if (_pierce >= 0 && _pierceCount > _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
     }
 
     void PlayAudio(AudioClip audio, float volMult = 1f)

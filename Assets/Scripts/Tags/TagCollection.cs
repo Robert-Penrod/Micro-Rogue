@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class TagCollection
 {
-    public enum TagType { Str = 0, Dex = 1, Int = 2, Primal = 10, Martial = 20, Heavy = 30, Finesse = 40, Arcane = 45, Alchemy = 50, Pyro = 60, Frost = 70, Static = 80, Undead = 90, Trap = 100, Slime = 500, Forest = 1000, Underground = 1100,}
+    public enum TagType { Str = 0, Dex = 1, Int = 2, Primal = 10, Martial = 20, Heavy = 30, Finesse = 40, Arcane = 45, Alchemy = 50, Pyro = 60, Frost = 70, Static = 80, Undead = 90, Trap = 100, Slime = 500}
     [System.Serializable]
     public struct TagStack
     {
@@ -78,7 +78,6 @@ public class TagCollection
             }
             multiplier += tagMult * tagStack.count;
         });
-        //return 1f + (count / 5f);
-        return 0.5f + 0.1f * multiplier;
+        return 1 + multiplier;
     }
 }

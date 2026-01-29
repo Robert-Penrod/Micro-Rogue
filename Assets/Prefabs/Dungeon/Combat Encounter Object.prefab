@@ -46,9 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyTable:
     Entries:
-    - Item: {fileID: 6620445320507997368, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
+    - Item: {fileID: 297830920537487737, guid: adc6bc1e322fd88439fce5b0384dd97e, type: 3}
       Weight: 1
-    - Item: {fileID: 3469973697154441222, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
+    - Item: {fileID: 426422539626438587, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
       Weight: 1
-    - Item: {fileID: 7901988983867986505, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
+    - Item: {fileID: 4180237215866368456, guid: a3ba0865ba77c8e4f905f7fa8abe7c23, type: 3}
+      Weight: 1
+    - Item: {fileID: 1679204681267862174, guid: cf46366c35d21c84fa9e58051a181d89, type: 3}
+      Weight: 1
+    - Item: {fileID: 7939191153020568325, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
+      Weight: 1
+    - Item: {fileID: 7321801539853859315, guid: 4ebdd0f427faee945a8cacbd61c26258, type: 3}
+      Weight: 1
+    - Item: {fileID: 4891015938399015710, guid: 1e1072a9ad78dfc4984b1f0edcafc620, type: 3}
       Weight: 1

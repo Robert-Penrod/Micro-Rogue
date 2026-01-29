@@ -181,6 +181,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: UndergroundAffinity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -328,6 +332,8 @@ MonoBehaviour:
     Int: 0
     Damage:
       BaseValue: 0
+    RandomDamage:
+      BaseValue: 0
     Rate:
       BaseValue: 0
     Count:
@@ -354,6 +360,7 @@ MonoBehaviour:
   Actor: {fileID: 0}
   SkillInstances: []
   NeedsTargetForCooldown: 1
+  ChasedownWhileActive: 0
 --- !u!4 &8186210125841100925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5753419547819121076, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}

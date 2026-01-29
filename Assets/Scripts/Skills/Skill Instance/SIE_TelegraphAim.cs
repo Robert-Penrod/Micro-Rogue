@@ -27,8 +27,12 @@ public class SIE_TelegraphAim : SIE, IPoolable
     {
         // Immediate Aim
         _targetTimer.Reset();
-        if (_targetEnemy != null) transform.up = transform.VectorTowards2D(_targetEnemy.transform);
-        else transform.up = Random.insideUnitCircle.normalized;
+
+        if (this.enabled)
+        {
+            if (_targetEnemy != null) transform.up = transform.VectorTowards2D(_targetEnemy.transform);
+            else transform.up = Random.insideUnitCircle.normalized;
+        }
     }
 
     private void OnEnable()

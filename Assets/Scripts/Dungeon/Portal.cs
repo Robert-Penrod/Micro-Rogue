@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    public int Level = 1;
+
+    [SerializeField] bool _initOnStart = false;
+    
     [SerializeField] GameObject _eliteIcon;
     [SerializeField] GameObject _bossIcon;
     [SerializeField] TextMeshPro _textMesh;
+    [SerializeField] TextMeshPro _lvlText;
+    [SerializeField] SpriteRenderer _biomeIcon;
 
     [SerializeField] AudioClip _enterSound;
     [SerializeField] AudioClip _exitSound;
@@ -21,14 +27,40 @@ public class Portal : MonoBehaviour
     private void Start()
     {
         this.DelayedInvoke(-1, () => this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}");
+    
+        if(_initOnStart)
+        {
+            SetData(new DungeonManager.DungeonData(DungeonData.Seed, DungeonData.Coordinate));
+        }
     }
 
     public void SetData(DungeonManager.DungeonData data)
     {
+        // Init
         this.DungeonData = data;
         this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}";
+
+        // Icons
         _eliteIcon.SetActive(DungeonData.IsElite);
         _bossIcon.SetActive(DungeonData.IsBoss);
+
+        // Biome
+        _biomeIcon.sprite = DungeonManager.I.GetBiomeSprite(DungeonData.Biome);
+        _biomeIcon.color = DungeonManager.I.GetBiomeColor(DungeonData.Biome).Alpha(_biomeIcon.color.a);
+        _biomeIcon.gameObject.SetActive(_biomeIcon.sprite != null);
+
+        // Level
+        Random.InitState(data.GetSeed());
+        Level = 1;
+        if(Random.value < 0.5f)
+        {
+            Level = 1;
+        }
+        if(Random.value < 0.25f)
+        {
+            Level = 2;
+        }
+        _lvlText.text = Level.ToString();
     }
 
     private void Update()
