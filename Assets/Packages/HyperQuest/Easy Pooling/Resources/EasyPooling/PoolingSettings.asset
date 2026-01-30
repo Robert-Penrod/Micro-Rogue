@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 754b677d3d1ab514cb9f19faa71b0436, type: 3}
   m_Name: PoolingSettings
   m_EditorClassIdentifier: 
-  ShowPoolsInHierarchy: 1
+  ShowPoolsInHierarchy: 0
   DefaultPoolSize: 100
-  ThinningCheckRate: 5
+  ThinningCheckRate: 10
   MaxThinCount: 5

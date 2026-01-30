@@ -10,7 +10,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
     // State
     public bool IsUpgrading { get; private set; }
 
-    public IEnumerator UpgradePlayers_Co()
+    public IEnumerator UpgradePlayers_Co(int upgradeLevels = 1)
     {
         var playerList = PlayerManager.I.PlayerList;
         if(playerList.Count == 0)
@@ -22,10 +22,13 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
 
         IsUpgrading = true;
         Debug.Log("Upgrading Players!");
-        for (int i = 0; i < playerList.Count; i++)
+        for (int k = 0; k < upgradeLevels; k++)
         {
-            UpgradeMenu.I.DoUpgradeMenuFor(playerList[i].Actor);
-            while (UpgradeMenu.I.IsOpen) yield return null;
+            for (int i = 0; i < playerList.Count; i++)
+            {
+                UpgradeMenu.I.DoUpgradeMenuFor(playerList[i].Actor);
+                while (UpgradeMenu.I.IsOpen) yield return null;
+            }
         }
         IsUpgrading = false;
         yield return null;

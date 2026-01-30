@@ -92,4 +92,6 @@ MonoBehaviour:
   _joinSceneNames:
   - Hub
   - Test Scene
+  - Gym
   PlayerList: []
+  CurrentUIOwner: {fileID: 0}

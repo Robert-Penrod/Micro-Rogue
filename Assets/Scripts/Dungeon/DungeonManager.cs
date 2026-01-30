@@ -306,8 +306,15 @@ public class DungeonManager : Singleton<DungeonManager>
                 coordinate.y = Data.RoomNumber + 1;
                 coordinate.x = Data.Coordinate.x + ((count / 2) - i);
                 if (count % 2 == 0) coordinate.x += offset;// On evens have random chance to sheft left to keep left right traversal balanced
-                DungeonData dungeonData = new(Data.Seed, coordinate);
-                portal.SetData(dungeonData);
+
+                // Portal Levels
+                float chanceMult = Data.RoomNumber.Remap(1f, 3f, 0f, 1f);
+                int coordY = Data.RoomNumber + 1;
+                if (Random.value < chanceMult * 0.25f) coordinate.y = coordY + 1;
+                if (Random.value < chanceMult * 0.125f) coordinate.y = coordY + 2;
+
+                // Set Data
+                portal.SetData(new DungeonData(Data.Seed, coordinate));
             }
         }
     }
@@ -330,7 +337,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Upgrade
-            yield return UpgradeManager.I.UpgradePlayers_Co();
+            yield return UpgradeManager.I.UpgradePlayers_Co(SelectedPortal.Level);
 
             // New Level
             GenerateLevel();

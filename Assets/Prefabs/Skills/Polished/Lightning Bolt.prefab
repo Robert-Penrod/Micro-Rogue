@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Name
-      value: Lightning Bolt Proj
+      value: Lightning Cloud
       objectReference: {fileID: 0}
     - target: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_IsActive
@@ -87,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 8648085898606072256, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 27572b6aa6ea0a444aee782f547a746a, type: 3}
+      objectReference: {fileID: -8387236620211755492, guid: d0db1112cefe5dd4abd3051c9d2aba6b, type: 3}
     - target: {fileID: 8983771114154365746, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -111,7 +111,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8010688684508478201}
   m_SourcePrefab: {fileID: 100100000, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
 --- !u!4 &1210982461136357885 stripped
 Transform:
@@ -123,6 +126,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
   m_PrefabInstance: {fileID: 7476514330434461320}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8010688684508478201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3083537804411929166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b48b723ca2294484dad8f35ad8130d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9080897794069051579
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 27572b6aa6ea0a444aee782f547a746a, type: 3}
+      objectReference: {fileID: 2129433736414872873, guid: d0db1112cefe5dd4abd3051c9d2aba6b, type: 3}
     - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Color.g
       value: 0.65155804
@@ -214,7 +229,7 @@ PrefabInstance:
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Icon
       value: 
-      objectReference: {fileID: 21300000, guid: 27572b6aa6ea0a444aee782f547a746a, type: 3}
+      objectReference: {fileID: 2129433736414872873, guid: d0db1112cefe5dd4abd3051c9d2aba6b, type: 3}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Int
       value: 1

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    public int Level = 1;
+    public int Level = -1;
+    float _targetScale = 0.8f;
 
     [SerializeField] bool _initOnStart = false;
     
@@ -20,14 +21,27 @@ public class Portal : MonoBehaviour
     List<Player> _grabbedPlayers = new();
     Dictionary<Player, float> _leaveLog = new();
 
+    [SerializeField] Transform _portalGFX;
+    List<SpriteRenderer> _spriteRends = new();
+    Dictionary<SpriteRenderer, Color> _initColor = new();
+
     float _lerpRot;
 
     [field: SerializeField] public DungeonManager.DungeonData DungeonData { get; private set; }
 
     private void Start()
     {
+        // Coordinate text
         this.DelayedInvoke(-1, () => this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}");
-    
+
+        // Sprite Rends
+        _spriteRends = new(_portalGFX.GetComponentsInChildren<SpriteRenderer>());
+        _spriteRends.ForEach(spriteRend =>
+        {
+            _initColor.Add(spriteRend, spriteRend.color);
+        });
+
+        // Init on Start
         if(_initOnStart)
         {
             SetData(new DungeonManager.DungeonData(DungeonData.Seed, DungeonData.Coordinate));
@@ -40,45 +54,81 @@ public class Portal : MonoBehaviour
         this.DungeonData = data;
         this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}";
 
-        // Icons
-        _eliteIcon.SetActive(DungeonData.IsElite);
-        _bossIcon.SetActive(DungeonData.IsBoss);
-
         // Biome
         _biomeIcon.sprite = DungeonManager.I.GetBiomeSprite(DungeonData.Biome);
         _biomeIcon.color = DungeonManager.I.GetBiomeColor(DungeonData.Biome).Alpha(_biomeIcon.color.a);
         _biomeIcon.gameObject.SetActive(_biomeIcon.sprite != null);
 
         // Level
-        Random.InitState(data.GetSeed());
-        Level = 1;
-        if(Random.value < 0.5f)
+        Level = DungeonData.Coordinate.y - DungeonManager.I.Data.Coordinate.y;
+
+        // Level Color
+        Color lvlColor = Level switch
         {
-            Level = 1;
-        }
-        if(Random.value < 0.25f)
+            1 => Color.white,
+            2 => Color.HSVToRGB(0.62f, 0.7f, 1f), // 125 starting = 0.49
+            3 => Color.HSVToRGB(0.78f, 0.7f, 1f),
+            _ => Color.red
+        };
+
+        // Level Difficulty
+        // boss
+        int bossPeriod = 5;
+        int currentLevel = DungeonManager.I.Data.RoomNumber;
+        int nextLevel = DungeonData.Coordinate.y;
+        int levelstoBoss = bossPeriod - (currentLevel % bossPeriod);
+        int levelsGained = nextLevel - currentLevel;
+        if(levelsGained >= levelstoBoss)
         {
-            Level = 2;
+            this.DungeonData.IsBoss = true;
         }
-        _lvlText.text = Level.ToString();
+        if(Level > 1)
+        {
+            this.DungeonData.IsElite = true;
+        }
+
+        // Level Text
+        if (Level == 1) _lvlText.gameObject.SetActive(false);
+        else
+        {
+            _lvlText.text = $"+{Level}";
+            //_lvlText.color = lvlColor;
+        }
+
+        // Sprites
+        _spriteRends.ForEach(spriteRend =>
+        {
+            if (Level == 1) spriteRend.color = _initColor[spriteRend];
+            else
+            {
+                spriteRend.color = lvlColor.Alpha(spriteRend.color.a);
+            }
+        });
+
+        // Size
+        _targetScale = 0.8f * Level.Remap(1f, 2f, 1f, 1.25f);
+
+        // Icons
+        _eliteIcon.SetActive(DungeonData.IsElite);
+        _bossIcon.SetActive(DungeonData.IsBoss);
     }
 
     private void Update()
     {
-        float targetScale = 0.8f;
+        float scale = _targetScale;
         float targetRot = 0f;
         if (this == DungeonManager.I.SelectedPortal)
         {
             // Scale
-            targetScale *= DungeonManager.I.PortalPercent.RemapPercent(1f, 1.375f); // PortalPercent mult
+            scale *= DungeonManager.I.PortalPercent.RemapPercent(1f, 1.375f); // PortalPercent mult
             
             // Rotation
             targetRot = 1.5f * Time.deltaTime * 360f * DungeonManager.I.PortalPercent;
         }
 
         // Scale
-        targetScale *= PlayerManager.I.PlayerList.Count > 0 ? ((float)_grabbedPlayers.Count / PlayerManager.I.PlayerList.Count).RemapPercent(1f, 1.375f) : 1;
-        float lerpScale = transform.localScale.x.Lerp(targetScale, 3f * Time.deltaTime);
+        scale *= PlayerManager.I.PlayerList.Count > 0 ? ((float)_grabbedPlayers.Count / PlayerManager.I.PlayerList.Count).RemapPercent(1f, 1.375f) : 1;
+        float lerpScale = transform.localScale.x.Lerp(_targetScale, 3f * Time.deltaTime);
         transform.localScale = Vector3.one * lerpScale;
 
         // Rotation

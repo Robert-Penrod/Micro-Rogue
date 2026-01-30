@@ -2080,6 +2080,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4721511374034066349, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
+      propertyPath: Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721511374034066349, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
       propertyPath: Coordinate.y
       value: 1
       objectReference: {fileID: 0}
@@ -2102,7 +2106,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2107657990893657571, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 10bd9cf1632146542998cff96dd27f73, type: 3}
 --- !u!1 &808936291
 GameObject:
