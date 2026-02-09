@@ -10,6 +10,7 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] float _knockbackMult = 1f;
     [SerializeField] float _launchMult = 1f;
     [SerializeField] float _angularVelMult = 0f;
+    [SerializeField] bool _hitsWalls = true;
 
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
@@ -65,15 +66,16 @@ public class SIE_Projectile : SIE, IPoolable
 
         var actor = _skillInstance.Skill.Actor;
 
-        // Actor Speed Inheritance
-        if (actor != null)
+        // Speed Inheritance
+        Rigidbody2D parentBody = _skillInstance.ParentBody ?? actor?.Body;
+        if (parentBody != null)
         {
             // Launch Force
-            Vector2 projectedParentVel = Vector3.Project(actor.Body.linearVelocity, launchForce.normalized);
+            Vector2 projectedParentVel = Vector3.Project(parentBody.linearVelocity, launchForce.normalized);
             Vector2 inheritVel = projectedParentVel;
             //inheritVel *= Constants.SkillStats.SIE_ProjectileInheritVelocityMult;
 
-            inheritVel *= Vector2.Dot(actor.Body.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
+            inheritVel *= Vector2.Dot(parentBody.linearVelocity, launchForce) > 0 ? 1f : 0.5f;
 
             launchForce += inheritVel;
 
@@ -96,8 +98,11 @@ public class SIE_Projectile : SIE, IPoolable
         }
 
         // Lunge
-        Vector2 lungeForce = transform.up * _lunge;
-        _skillInstance.Skill.Actor.Body.AddDampForce(lungeForce, ForceMode2D.Impulse);
+        if (parentBody != null)
+        {
+            Vector2 lungeForce = transform.up * _lunge;
+            parentBody.AddDampForce(lungeForce, ForceMode2D.Impulse);
+        }
     }
 
     private void FixedUpdate()
@@ -161,7 +166,7 @@ public class SIE_Projectile : SIE, IPoolable
         //.
 
         // Hit Wall
-        if (!hitActor && !col.isTrigger)
+        if (_hitsWalls && !hitActor && !col.isTrigger)
         {
             // Pierce
             _pierceCount++;

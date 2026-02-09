@@ -36,5 +36,8 @@ public class CamShaker : Singleton<CamShaker>
         targetShakeAmount += new Vector2(amplitude, frequency);
         targetShakeAmount.x = Mathf.Clamp(targetShakeAmount.x, 0f, 1f);
         targetShakeAmount.y = Mathf.Clamp(targetShakeAmount.y, 0f, 2f);
+
+        //float ampPercent = amplitude.Remap(0.2f, 0.3f, 0f, 1f);
+        //AmbientNotePlayer.I.PlayRiff(ampPercent.RemapPercent(0.5f, 2f));
     }
 }

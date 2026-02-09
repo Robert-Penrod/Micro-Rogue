@@ -48,9 +48,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4723733054847103975, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+    - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782649247904549658, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
       value: Power Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Icon

@@ -13,8 +13,8 @@ public class ProjectileExplosion : SkillPart, IPoolable
     [SerializeField] ParticleSystem _pSystem;
     float _radius => transform.localScale.x;
 
-    float _knockback => _sourceSkill.Stats.Knockback.Value;
-    float _size => _sourceSkill.Stats.Size.Value;
+    float _knockback => SourceSkill.Stats.Knockback.Value;
+    float _size => SourceSkill.Stats.Size.Value;
 
     List<Collider2D> _colCache = new();
 
@@ -36,10 +36,10 @@ public class ProjectileExplosion : SkillPart, IPoolable
     {
         base.SetSourceSkillInstance(skillInstance);
         var main = _pSystem.main;
-        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(_sourceSkill).Alpha(main.startColor.color.a);
+        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(SourceSkill).Alpha(main.startColor.color.a);
         transform.localScale = _sizeMult * _size * Vector3.one;
 
-        _explosionTime = _sourceSkill.Stats.Duration.Value;
+        _explosionTime = SourceSkill.Stats.Duration.Value;
         main.startLifetime = _explosionTime;
     }
 
@@ -91,9 +91,9 @@ public class ProjectileExplosion : SkillPart, IPoolable
         var hitActor = col.GetComponent<Actor>();
         if (hitActor != null)
         {
-            if (!_sourceSkill.Actor.IsEnemyOf(hitActor)) return;
+            if (!SourceSkill.Actor.IsEnemyOf(hitActor)) return;
 
-            int damageTaken = hitActor.TakeDamage((int)(_damageMult * _sourceSkill.Stats.CalculateDamageValue()), _skillInstance, null);
+            int damageTaken = hitActor.TakeDamage((int)(_damageMult * SourceSkill.Stats.CalculateDamageValue()), _skillInstance, null);
 
             if (damageTaken == 0) return;
 

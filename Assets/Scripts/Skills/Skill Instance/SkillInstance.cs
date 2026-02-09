@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SkillInstance : MonoBehaviour, IPoolable
 {
-    [HideInInspector] public Skill Skill;
+    public Rigidbody2D ParentBody;
+
+    public Skill Skill;
     [SerializeField] AudioClip _startClip;
     [SerializeField] AudioClip _activeClip;
     [SerializeField] AudioClip _endClip;

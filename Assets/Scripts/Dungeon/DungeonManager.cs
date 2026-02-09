@@ -14,6 +14,8 @@ public class DungeonManager : Singleton<DungeonManager>
 
     [SerializeField] Material _wallMat;
     [SerializeField] Material _floorMat;
+
+    public bool IsEncounterOver { get; private set; }
     
     public Transform DungeonTransform { get; private set; }
     PlayerManager _playerManager;
@@ -82,7 +84,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Encounter Type Sampling
             this.IsBoss = this.Coordinate.y % 5 == 0;
-            this.IsElite = !this.IsBoss && Random.value < 0.333f;
+            this.IsElite = !this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.333f;
 
             // Biome Sampling
             this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate);
@@ -270,6 +272,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void SpawnPortals()
     {
+        IsEncounterOver = true;
         StartCoroutine(SpawnPortals_Co());
         IEnumerator SpawnPortals_Co()
         {
@@ -321,6 +324,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     void DoPortal()
     {
+        IsEncounterOver = false;
         StartCoroutine(Coroutine());
         IEnumerator Coroutine()
         {
@@ -329,6 +333,8 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Step data
             Data = new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
+            Data.IsBoss = SelectedPortal.DungeonData.IsBoss;
+            Data.IsElite = SelectedPortal.DungeonData.IsElite;
 
             // Destroy Portals
             foreach (Portal p in FindObjectsByType<Portal>(FindObjectsSortMode.None))

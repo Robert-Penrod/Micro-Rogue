@@ -115,8 +115,8 @@ public class SIE_TelegraphAim : SIE, IPoolable
         Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;
         float targetDist = targetAimDir.magnitude;
 
-        Vector2 actorAimDir = _targetEnemy.transform.position - _skillInstance.Skill.Actor.transform.position;
-        targetAimDir = (targetAimDir.normalized + actorAimDir.normalized * 0.25f).normalized;
+        // Vector2 actorAimDir = _targetEnemy.transform.position - _skillInstance.Skill.Actor.transform.position;
+        // targetAimDir = (targetAimDir.normalized + actorAimDir.normalized * 0.25f).normalized;
 
         Rigidbody2D targetBody = _targetEnemy.GetComponent<Rigidbody2D>();
         if (targetBody != null)

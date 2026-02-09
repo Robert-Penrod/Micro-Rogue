@@ -2,12 +2,13 @@ using UnityEngine;
 
 public class SkillPart : MonoBehaviour
 {
-    protected Skill _sourceSkill;
+    public  Skill SourceSkill { get; private set; }
     protected SkillInstance _skillInstance;
 
     public virtual void SetSourceSkillInstance(SkillInstance skillInstance)
     {
-        this._sourceSkill = skillInstance.Skill;
-        this._skillInstance = skillInstance;
+        this.SourceSkill = skillInstance.Skill;
+        this._skillInstance = skillInstance; 
+        this._skillInstance.Link(skillInstance.Skill);
     }
 }

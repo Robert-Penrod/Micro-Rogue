@@ -37,6 +37,7 @@ public class SE_Spawn : SkillEffect
         if(skillInstance)
         {
             skillInstance.Link(_skill);
+            skillInstance.ParentBody = _skill?.Actor?.Body;
         }
 
         Debug.Log("SPAWNED");

@@ -45,7 +45,7 @@ public class SIE_S_Telegraph : SIE, IPoolable
             float z = transform.position.z;
             var skill = _skillInstance.Skill;
             var actor = skill.GetComponentInParent<Actor>();
-            transform.SetParent(actor.transform, true);
+            transform.SetParent(_skillInstance.ParentBody.transform, true);
             transform.localPosition = 0.35f * (Vector3)Random.insideUnitCircle;
             transform.position = new Vector3(transform.position.x, transform.position.y, -15f);
         }
