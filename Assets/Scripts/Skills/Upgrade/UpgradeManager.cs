@@ -46,18 +46,18 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         List<Upgrade> upgradeList = new();
 
         var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade);
-        Debug.Log("Full List Options: " + weightedUpgradeList.Entries.Count);
+        //Debug.Log("Full List Options: " + weightedUpgradeList.Entries.Count);
         for (int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
         {
             var selectedItem = weightedUpgradeList.SelectAndRemoveItem();
             upgradeList.Add(selectedItem);
         }
-        Debug.Log("Upgrade options: " + upgradeList.Count);
+        //Debug.Log("Upgrade options: " + upgradeList.Count);
         upgradeList.ForEach(upgrade =>
         {
-            Debug.Log(upgrade.GetTitle());
+            //Debug.Log(upgrade.GetTitle());
         });
-        Debug.Log("Rand Num: " + Random.Range(1, 4));
+        //Debug.Log("Rand Num: " + Random.Range(1, 4));
         return upgradeList;
     }
 
@@ -69,7 +69,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         var skillSystem = actorToUpgrade.SkillSystem;
         var actorSkillList = skillSystem.SkillList;
 
-        Debug.Log("Skill Count: " + actorSkillList.Count);
+        //Debug.Log("Skill Count: " + actorSkillList.Count);
 
         // New Skill Upgrades
         BaseSkillList.ForEach(newSkill =>

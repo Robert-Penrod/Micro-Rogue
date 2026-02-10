@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 247927268725174264}
+  - component: {fileID: -3970410849353674439}
+  - component: {fileID: 3086313946478182423}
   m_Layer: 0
   m_Name: Grass
   m_TagString: Untagged
@@ -30,8 +32,80 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9081481115863094818}
+  - {fileID: 4290902986967666304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3970410849353674439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845725550899163124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89348ac62de3b50439ee97c02da54818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vol: 0.125
+  Sound: {fileID: 8300000, guid: 3f6416ca6da8bc341a2fcfa477d713e5, type: 3}
+  LerpSpeed: 10
+  MinSpeed: 3
+  HitboxDelay: 0.5
+  HitboxVariance: 0
+  RotationAmp: 5
+  PosAmp: 0.025
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3269040537997693708}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!58 &3086313946478182423
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845725550899163124}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.4
 --- !u!1 &7930879571966461322
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,3 +193,70 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &141353097656442319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 247927268725174264}
+    m_Modifications:
+    - target: {fileID: 313661992349201562, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_Name
+      value: Brush Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+--- !u!198 &3269040537997693708 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3218904850200972995, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+  m_PrefabInstance: {fileID: 141353097656442319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4290902986967666304 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+  m_PrefabInstance: {fileID: 141353097656442319}
+  m_PrefabAsset: {fileID: 0}

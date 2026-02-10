@@ -1,13 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    [SerializeField] AudioClip _hubMusicClip;
-    [SerializeField] AudioClip _combatMusicClip;
-    [SerializeField] AudioClip _upgradeMusicClip;
-    [SerializeField] AudioClip _bossMusicClip;
-    [SerializeField] AudioClip _eliteMusicClip;
-    [SerializeField] AudioClip _gameOverMusicClip;
+    List<AudioClip> _hubMusicClips;
+    List<AudioClip> _combatMusicClips;
+    List<AudioClip> _upgradeMusicClips;
+    List<AudioClip> _bossMusicClips;
+    List<AudioClip> _eliteMusicClips;
+    List<AudioClip> _gameOverMusicClips;
     AudioSourceLerper _hubMusic;
     AudioSourceLerper _combatMusic;
     AudioSourceLerper _upgradeMusic;
@@ -17,17 +18,41 @@ public class MusicManager : MonoBehaviour
 
     float _musicVol = 0.2f;
 
+    List<AudioSourceLerper> _audioLerpers = new();
+
     private void Awake()
     {
-        _hubMusic = AudioSourceLerper.Create("Hub Music", this.transform, _hubMusicClip);
-        _combatMusic = AudioSourceLerper.Create("Combat Music", this.transform, _combatMusicClip);
-        _upgradeMusic = AudioSourceLerper.Create("Upgrade Music", this.transform, _upgradeMusicClip);
-        _bossMusic = AudioSourceLerper.Create("Boss Music", this.transform, _bossMusicClip);
-        _eliteMusic = AudioSourceLerper.Create("Elite Music", this.transform, _eliteMusicClip);
-        _gameOverMusic = AudioSourceLerper.Create("Game Over Music", this.transform, _gameOverMusicClip);
+        _hubMusicClips = new(Resources.LoadAll<AudioClip>("Music/Hub"));
+        _combatMusicClips = new(Resources.LoadAll<AudioClip>("Music/Combat"));
+        _upgradeMusicClips = new(Resources.LoadAll<AudioClip>("Music/Upgrade"));
+        _bossMusicClips = new(Resources.LoadAll<AudioClip>("Music/Boss"));
+        _eliteMusicClips = new(Resources.LoadAll<AudioClip>("Music/Elite"));
+        _gameOverMusicClips = new(Resources.LoadAll<AudioClip>("Music/Game Over"));
 
-        _gameOverMusic.Volume.LerpMult = _hubMusic.Volume.LerpMult = _combatMusic.Volume.LerpMult = _upgradeMusic.Volume.LerpMult = _bossMusic.Volume.LerpMult = _eliteMusic.Volume.LerpMult = 0.7f;
-        _gameOverMusic.Volume.Target = _gameOverMusic.Volume.Value = _hubMusic.Volume.Target = _hubMusic.Volume.Value = _combatMusic.Volume.Target = _combatMusic.Volume.Value = _upgradeMusic.Volume.Target = _upgradeMusic.Volume.Value = 0f;
+        _hubMusic = AudioSourceLerper.Create("Hub Music", this.transform, _hubMusicClips);
+        _combatMusic = AudioSourceLerper.Create("Combat Music", this.transform, _combatMusicClips);
+        _upgradeMusic = AudioSourceLerper.Create("Upgrade Music", this.transform, _upgradeMusicClips);
+        _bossMusic = AudioSourceLerper.Create("Boss Music", this.transform, _bossMusicClips);
+        _eliteMusic = AudioSourceLerper.Create("Elite Music", this.transform, _eliteMusicClips);
+        _gameOverMusic = AudioSourceLerper.Create("Game Over Music", this.transform, _gameOverMusicClips);
+        _audioLerpers = new List<AudioSourceLerper> { _hubMusic, _combatMusic, _upgradeMusic, _bossMusic, _eliteMusic, _gameOverMusic };
+
+        // Init 0 Volume
+        _audioLerpers.ForEach(x =>
+        {
+            x.Volume.LerpMult = 0.75f;
+            x.Volume.Value = 0f;
+        });
+    }
+
+    private void Start()
+    {
+        // Random init start time
+        _audioLerpers.ForEach(audioLerper =>
+        {
+            Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
+            audioLerper.AudioSource.time = Random.Range(0f, 1f) * audioLerper.AudioSource.clip.length;
+        });
     }
 
     private void Update()
@@ -50,15 +75,23 @@ public class MusicManager : MonoBehaviour
         // Combat
         else
         {
-            if (DungeonManager.I.Data.IsBoss)
+            // Sneak
+            if(PlayerManager.I.PlayerList.FindAll(x => x.Actor.Senses.EnemyActors.Count > 0).Count == 0)
+            {
+                PlayAudio(_upgradeMusic);
+            }
+            // Boss
+            else if (DungeonManager.I.Data.IsBoss)
             {
                 PlayAudio(_bossMusic);
             }
+            // Elite
             else if (DungeonManager.I.Data.IsElite)
             {
 
                 PlayAudio(_eliteMusic);
             }
+            // Combat
             else
             {
                 PlayAudio(_combatMusic);

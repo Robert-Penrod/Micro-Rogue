@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceLerper : MonoBehaviour
 {
+    public List<AudioClip> TrackList = new();
+
     public bool DoesPause = true;
     public bool UseScaledDeltaTime = false;
     public LerpValue Volume = new LerpValue(0f, 0f, 6f);
@@ -23,6 +25,18 @@ public class AudioSourceLerper : MonoBehaviour
         return audioSourceLerper;
     }
 
+    public static AudioSourceLerper Create(string name, Transform parent, List<AudioClip> trackList)
+    {
+        AudioSourceLerper audioSourceLerper = new GameObject(name).AddComponent<AudioSourceLerper>();
+        audioSourceLerper.transform.SetParent(parent);
+        audioSourceLerper.AudioSource.clip = trackList.GetRandomElement();
+        audioSourceLerper.TrackList = trackList;
+        audioSourceLerper.AudioSource.Play();
+        audioSourceLerper.Volume.SetValue(0f);
+        audioSourceLerper.Pitch.SetValue(1f);
+        return audioSourceLerper;
+    }
+
     public AudioSource AudioSource
     {
         get
@@ -33,10 +47,13 @@ public class AudioSourceLerper : MonoBehaviour
     }
     AudioSource _audioSource;
 
-    private void Awake()
+    private void Start()
     {
-        AudioSource.loop = true;
         AudioSource.volume = 0f;
+        this.DelayedInvoke(-1, () =>
+        {
+            AudioSource.loop = TrackList.Count == 0;
+        });
     }
 
     private void Update()
@@ -46,6 +63,14 @@ public class AudioSourceLerper : MonoBehaviour
 
         AudioSource.volume = Volume.Value;
         AudioSource.pitch = Pitch.Value;
+
+        if(TrackList.Count > 0 && !AudioSource.isPlaying)
+        {
+            var clipList = TrackList.FindAll(x => x != AudioSource.clip);
+            AudioSource.clip = clipList.GetRandomElement();
+            AudioSource.volume = 0f;
+            AudioSource.Play();
+        }
 
         if(DoesPause) AudioSource.enabled = Time.timeScale > 0.01f;
     }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8552955002679175225}
   - component: {fileID: 2432007389272601389}
   - component: {fileID: 4033222344112161532}
+  - component: {fileID: 492659583851813478}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -116,6 +117,41 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.02}
   m_Radius: 0.15
+--- !u!114 &492659583851813478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2350157995935139976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89348ac62de3b50439ee97c02da54818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vol: 0.125
+  Sound: {fileID: 8300000, guid: 10ee02f90d3788844bf174383573feec, type: 3}
+  LerpSpeed: 10
+  MinSpeed: 3
+  HitboxDelay: 0.75
+  HitboxVariance: 0
+  RotationAmp: 1
+  PosAmp: 0.025
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7427843837396897091}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3015503765124254760
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,6 +358,7 @@ Transform:
   m_Children:
   - {fileID: 8515317235400439654}
   - {fileID: 1555224227174810018}
+  - {fileID: 8197868645317562575}
   m_Father: {fileID: 8552955002679175225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &859162550309656715
@@ -363,3 +400,74 @@ MonoBehaviour:
     Amp: 0
     Freq: 0
     Sines: []
+--- !u!1001 &5458037798615319424
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6849044373767255598}
+    m_Modifications:
+    - target: {fileID: 313661992349201562, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_Name
+      value: Brush Particles
+      objectReference: {fileID: 0}
+    - target: {fileID: 3218904850200972995, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+--- !u!198 &7427843837396897091 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3218904850200972995, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+  m_PrefabInstance: {fileID: 5458037798615319424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8197868645317562575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4213810611788206927, guid: a9af6cc4d02f0d14fb2489dfd04e769c, type: 3}
+  m_PrefabInstance: {fileID: 5458037798615319424}
+  m_PrefabAsset: {fileID: 0}

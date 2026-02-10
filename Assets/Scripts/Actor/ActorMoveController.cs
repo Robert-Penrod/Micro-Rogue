@@ -13,6 +13,7 @@ public class ActorMoveController : MonoBehaviour
     float _hopTick;
 
     // Dodge
+    [SerializeField] AudioClip _dodgeSound;
     public bool IsDodging => _dodgeTimer > 0f;
     float _dodgeTimer;
     float DodgeCooldownTime => _actor.Stats.DodgeCooldown.Value;
@@ -63,6 +64,8 @@ public class ActorMoveController : MonoBehaviour
 
         // Skill speed dampen
         // todo
+
+        AudioSpawner.PlayAudioWithRandPitch(_dodgeSound, 0.2f, 1f, 1f);
 
         // End
         OnDodge?.Invoke();

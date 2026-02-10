@@ -109,7 +109,7 @@ public class SIE_Projectile : SIE, IPoolable
     {
         if (_attached)
         {
-            _rb.linearVelocity = _skillInstance.Skill.Actor.Body.linearVelocity;
+            _rb.linearVelocity = _skillInstance?.Skill?.Actor?.Body?.linearVelocity ?? Vector2.zero;
         }
 
         // Aim

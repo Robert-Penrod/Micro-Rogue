@@ -72,9 +72,11 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     }
 
     bool _wasSubmitting;
+    bool _isSubmitValid;
 
     private void Update()
     {
+        bool isSubmitingThisFrame = _isSelected && (_currentUIOwner?.Submit.WasPressedThisFrame() ?? false);
         bool isSubmiting = _isSelected && (_currentUIOwner?.Submit.IsPressed() ?? false);
         float targetPitch = 0.8f;
         float targetVolume = 1f;
@@ -82,28 +84,35 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
         if(isSubmiting)
         {
+            if (isSubmitingThisFrame) _isSubmitValid = true;
+            
             if(!_wasSubmitting)
             {
                 _chargeSource.Stop();
                 _chargeSource.Play();
             }
 
-            targetPitch *= _submitPercent.RemapPercent(0.9f, 1.1f);
-            targetVolume *= 1f;
-
-            if (_submitTick < _submitTime)
+            if (_isSubmitValid)
             {
-                _submitTick += 1f * Time.deltaTime;
-                if(_submitTick >= _submitTime)
+                targetPitch *= _submitPercent.RemapPercent(0.9f, 1.1f);
+                targetVolume *= 1f;
+
+                if (_submitTick < _submitTime)
                 {
-                    _wasSubmitting = false;
-                    _chargeSource.Stop();
-                    DoSubmit();
+                    _submitTick += 1f * Time.deltaTime;
+                    if (_submitTick >= _submitTime)
+                    {
+                        _wasSubmitting = false;
+                        _chargeSource.Stop();
+                        _submitTick = 0f;
+                        DoSubmit();
+                    }
                 }
             }
         }
         else
         {
+            _isSubmitValid = false;
             targetVolume *= 0f;
             if (_submitTick > 0f) _submitTick = (_submitTick - 4f * Time.deltaTime).Clamp01();
         }

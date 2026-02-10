@@ -225,10 +225,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e51bbbd45272144aa1ad3eb928e654a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentBody: {fileID: 0}
   Skill: {fileID: 0}
   _startClip: {fileID: 0}
   _activeClip: {fileID: 8300000, guid: 0bebec1d54c03da449bb5d77ef258f66, type: 3}
-  _endClip: {fileID: 8300000, guid: c5b66908c8350374680446c0da0565dc, type: 3}
+  _endClip: {fileID: 0}
   StartPercent: 0
   ActivePercent: 0
   EndPercent: 0
@@ -316,7 +317,8 @@ MonoBehaviour:
   _knockbackMult: 0
   _launchMult: 1
   _angularVelMult: 0
-  _hitClip: {fileID: 8300000, guid: 00c3b2613fef268489da71bcc5307559, type: 3}
+  _hitsWalls: 1
+  _hitClip: {fileID: 0}
   _wallHitClip: {fileID: 8300000, guid: 8ce36245df0749547bd0061f97491f4f, type: 3}
 --- !u!114 &383452395039062486
 MonoBehaviour:
@@ -343,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821c7a69ed79948479cbf2a4022e7641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnState: 2
   _spawnPrefab: {fileID: 3976000101767700039, guid: 0452b5bc8f4ef7240a231c2baba55cd2, type: 3}
 --- !u!1 &4460761919068176043
 GameObject:

@@ -4947,6 +4947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0f8cb60dbf08b478abc67055142c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explodeAudio: {fileID: 8300000, guid: b9d52183f902d414b82499706c52f1de, type: 3}
   _damageAudio: {fileID: 8300000, guid: 0e93ecafc4b38f845a2d51a7e7a8551a, type: 3}
   _damageMult: 1
   _sizeMult: 1

@@ -25,7 +25,7 @@ public class ActorLootDropper : MonoBehaviour
 
         //dropCount = (int)(dropCount * Random.Range(0.5f, 2f));
 
-        Debug.Log($"Spawning {dropCount} loot");
+        //Debug.Log($"Spawning {dropCount} loot");
 
         for(int i = 0; i < dropCount; i++)
         {

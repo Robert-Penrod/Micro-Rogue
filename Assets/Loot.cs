@@ -104,7 +104,7 @@ public class Loot : Pickup, IPoolable
 
         PlayAudio(_pickupSound);
 
-        Debug.Log("Looted!");
+        //Debug.Log("Looted!");
         _lifeTick = LifeTime; // End Life
 
         _body.linearVelocity *= 0.25f;

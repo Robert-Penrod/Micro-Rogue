@@ -18,6 +18,7 @@ public class CombatEncounterObject : MonoBehaviour
         budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
         budget += DungeonManager.I.Data.IsBoss ? 3f : 0f;
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
+        Debug.Log("COMBAT ENCOUNTER: " + budget.ToString());
 
         // ENEMIES
         //
@@ -54,10 +55,10 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Spawn Enemies
         int max = (int)budget;
-        int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
-        if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
+        //int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
+        //if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
         //if (DungeonManager.I.Data.IsBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
-        max = Mathf.Min((int)budget, absoluteMax);
+        //max = Mathf.Min((int)budget, absoluteMax);
         int enemyCount = Random.Range(1, 1 + max);
         if (enemyCount == 1 && Random.value < 0.75) enemyCount++;
         for(int i = 0; i < enemyCount && budget >= 1f; i++)
@@ -70,7 +71,9 @@ public class CombatEncounterObject : MonoBehaviour
             }
 
             // Spawn Actor
-            budget -= selectedTypeActor.Difficulty;
+            float cost = selectedTypeActor.Difficulty + 0.25f * (i-1f).ClampMin(0f);
+            budget -= cost;
+            Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
             var actor = Instantiate(selectedTypeActor, spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
             _enemyList.Add(actor);
@@ -86,11 +89,12 @@ public class CombatEncounterObject : MonoBehaviour
         _enemyList.ForEach(enemy =>
         {
             bool isBoss = DungeonManager.I.Data.IsBoss && !selectedBoss;
-            float affinityMult = isBoss ? 5f : 1f;
+            float affinityMult = isBoss ? 7f : 1f;
             if (isBoss && !selectedBoss)
             {
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
+                enemy.Stats.HealthMax.BaseValue *= 1.25f;
             }
             _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
         });

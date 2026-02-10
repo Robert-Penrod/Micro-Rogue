@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProjectileExplosion : SkillPart, IPoolable
 {
+    [SerializeField] AudioClip _explodeAudio;
     [SerializeField] AudioClip _damageAudio;
     [SerializeField] float _damageMult = 0.5f;
     [SerializeField] float _sizeMult = 1f;
@@ -62,6 +63,8 @@ public class ProjectileExplosion : SkillPart, IPoolable
             HandleCollision(col);
         }
         */
+
+        AudioSpawner.PlayAudioWithRandPitch(_explodeAudio, 0.2f, 1f, 1f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

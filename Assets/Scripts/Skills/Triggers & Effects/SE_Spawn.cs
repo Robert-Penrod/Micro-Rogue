@@ -40,7 +40,7 @@ public class SE_Spawn : SkillEffect
             skillInstance.ParentBody = _skill?.Actor?.Body;
         }
 
-        Debug.Log("SPAWNED");
+        //Debug.Log("SPAWNED");
 
         newObj.SetActive(true);
     }
