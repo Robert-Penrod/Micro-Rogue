@@ -474,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.Duration.BaseValue
@@ -521,6 +521,10 @@ PrefabInstance:
       value: Focus
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6]._name
+      value: Quickdraw
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[0].Rarity
       value: 0
       objectReference: {fileID: 0}
@@ -538,7 +542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[4].Rarity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[5].Rarity
@@ -574,6 +578,10 @@ PrefabInstance:
       objectReference: {fileID: 1395792107141309682}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[5].SourceSkill
+      value: 
+      objectReference: {fileID: 1395792107141309682}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6].SourceSkill
       value: 
       objectReference: {fileID: 1395792107141309682}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
@@ -619,6 +627,10 @@ PrefabInstance:
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[5].ModList.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6].ModList.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].StatName
@@ -779,6 +791,22 @@ PrefabInstance:
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[5].ModList.Array.data[2].SkillStatName
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6].ModList.Array.data[0].BalancePoints
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6].ModList.Array.data[0].SkillStatName
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6].ModList.Array.data[1].BalancePoints
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[6].ModList.Array.data[1].SkillStatName
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8919291977970271343, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: PrefabToSpawn

@@ -78,6 +78,6 @@ public class TagCollection
             }
             multiplier += tagMult * tagStack.count;
         });
-        return 1 + multiplier;
+        return 1 + 0.1f * multiplier;
     }
 }

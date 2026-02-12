@@ -84,7 +84,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Encounter Type Sampling
             this.IsBoss = this.Coordinate.y % 5 == 0;
-            this.IsElite = !this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.333f;
+            this.IsElite = !this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.3f;
 
             // Biome Sampling
             this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate);
@@ -311,10 +311,11 @@ public class DungeonManager : Singleton<DungeonManager>
                 if (count % 2 == 0) coordinate.x += offset;// On evens have random chance to sheft left to keep left right traversal balanced
 
                 // Portal Levels
+                float lvledPortalChanceMult = 0.05f;
                 float chanceMult = Data.RoomNumber.Remap(1f, 3f, 0f, 1f);
                 int coordY = Data.RoomNumber + 1;
-                if (Random.value < chanceMult * 0.25f) coordinate.y = coordY + 1;
-                if (Random.value < chanceMult * 0.125f) coordinate.y = coordY + 2;
+                if (Random.value < chanceMult * lvledPortalChanceMult) coordinate.y = coordY + 1;
+                if (Random.value < chanceMult * lvledPortalChanceMult * 0.5f) coordinate.y = coordY + 2;
 
                 // Set Data
                 portal.SetData(new DungeonData(Data.Seed, coordinate));

@@ -145,8 +145,17 @@ public class Actor : MonoBehaviour
 
     public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor)
     {
-        if (MoveController.IsDodging) damage /= 2; // Dodge - GrazeFrames
-        //if (MoveController.IsDodging) damage *= 0; // Dodge - IFrames
+        // Dodge - GrazeFrames
+        if (MoveController.IsDodging) damage /= 3;
+        // Dodge - IFrames
+        //if (MoveController.IsDodging) damage *= 0;
+
+        // Armor
+        if (Stats.Defense.Value > 0) damage -= (int)Random.Range(0f, Stats.Defense.Value + 1f);
+
+        // Evasion
+        if (Stats.Evasion.Value > 0) damage -= (int)Random.Range(0f, Stats.Evasion.Value + 1f);
+
 
         if (damage <= 0) return 0;
 

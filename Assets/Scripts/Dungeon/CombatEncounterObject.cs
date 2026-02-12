@@ -54,7 +54,7 @@ public class CombatEncounterObject : MonoBehaviour
         }
         //
         // Spawn Enemies
-        int max = (int)budget;
+        int max = (int)(2 + (budget /3)).ClampMin(1);
         //int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
         //if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
         //if (DungeonManager.I.Data.IsBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
@@ -71,7 +71,7 @@ public class CombatEncounterObject : MonoBehaviour
             }
 
             // Spawn Actor
-            float cost = selectedTypeActor.Difficulty + 0.25f * (i-1f).ClampMin(0f);
+            float cost = selectedTypeActor.Difficulty + 0.25f * (i).ClampMin(0);
             budget -= cost;
             Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
@@ -94,7 +94,7 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
-                enemy.Stats.HealthMax.BaseValue *= 1.25f;
+                enemy.Stats.HealthMax.BaseValue *= 1.1f;
             }
             _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
         });

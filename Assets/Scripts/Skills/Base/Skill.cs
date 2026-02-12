@@ -39,7 +39,7 @@ public class Skill : MonoBehaviour
         return _dir;
     }
 
-    public float TelegraphTime => Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * Stats.Size.Value;
+    public float TelegraphTime => Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value);
 
     [BoxGroup("Upgrades")]
     public List<SkillUpgrade> UpgradeList = new();

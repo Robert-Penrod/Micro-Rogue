@@ -25,6 +25,10 @@ PrefabInstance:
       value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Difficulty
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Stats._health
       value: 15
       objectReference: {fileID: 0}
@@ -33,8 +37,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Stats.Defense.BaseValue
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Stats.MoveSpeed.BaseValue
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[3].tag

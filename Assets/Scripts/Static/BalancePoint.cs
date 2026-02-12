@@ -34,6 +34,10 @@ public static class BalancePoint
                 value = 2;
                 modType = StatModType.Flat;
                 break;
+            case ActorStats.ActorStatTypes.Defense:
+                value = 2;
+                modType = StatModType.Flat;
+                break;
         }
 
         return new StatModifier(
