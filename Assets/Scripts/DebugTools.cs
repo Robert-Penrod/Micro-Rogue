@@ -23,17 +23,25 @@ public class DebugTools : MonoBehaviour
         }
 
         // Upgrade all NPCs
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKey(KeyCode.U))
         {
-            Debug.Log("Upgrading NPCs");
-            new List<Actor>(FindObjectsByType<Actor>(FindObjectsSortMode.None)).ForEach(actor =>
+            bool upgradePlayer = Input.GetKeyDown(KeyCode.P);
+            bool upgradeEnemy = Input.GetKeyDown(KeyCode.E);
+            if (upgradePlayer || upgradeEnemy)
             {
-                if(!actor.IsPlayer())
+                Debug.Log($"Upgrading {(upgradePlayer? "allys" : string.Empty)} {(upgradeEnemy? "enemies" : string.Empty)}");
+                new List<Actor>(FindObjectsByType<Actor>(FindObjectsSortMode.None)).ForEach(actor =>
                 {
-                    var upgradeOptions = UpgradeManager.I.GetUpgradeOptions(actor);
-                    if (upgradeOptions.Count > 0) upgradeOptions[0].ApplyUpgrade();
-                }
-            });
+                    if (!actor.IsPlayer())
+                    {
+                        if ((actor.Faction == Actor.FactionType.Player && upgradePlayer) || (actor.Faction == Actor.FactionType.Enemy && upgradeEnemy))
+                        {
+                            var upgradeOptions = UpgradeManager.I.GetUpgradeOptions(actor);
+                            if (upgradeOptions.Count > 0) upgradeOptions[0].ApplyUpgrade();
+                        }
+                    }
+                });
+            }
         }
 
         if (Input.GetKey(KeyCode.LeftShift))

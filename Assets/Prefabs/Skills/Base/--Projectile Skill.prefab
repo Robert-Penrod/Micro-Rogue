@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: --Projectile Skill
       objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Stats.Pierce.BaseValue
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

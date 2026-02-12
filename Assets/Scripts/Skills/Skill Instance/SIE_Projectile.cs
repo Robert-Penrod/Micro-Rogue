@@ -23,7 +23,7 @@ public class SIE_Projectile : SIE, IPoolable
     float _speed => _skillInstance.Skill.Stats.Speed.Value;
     float _hitboxDelay => _skillInstance.Skill.Stats.HitboxDelay;
     float _knockback => _knockbackMult * _skillInstance.Skill.Stats.Knockback.Value;
-    int _pierce => (int)_skillInstance.Skill.Stats.Pierce.Value;
+    float _pierce => _skillInstance.Skill.Stats.Pierce.Value;
     int _damage => (int)_skillInstance.Skill.Stats.Damage.Value;
     float _lunge => _skillInstance.Skill.Stats.Lunge.Value;
     float _piercePercent => _pierceCount.Remap(0f, _pierce, 0f, 1f);
@@ -32,7 +32,7 @@ public class SIE_Projectile : SIE, IPoolable
     Rigidbody2D _rb;
 
     // Data
-    int _pierceCount;
+    float _pierceCount;
     Dictionary<Collider2D, float> _colDict = new();
 
     private void OnDrawGizmos()
@@ -169,7 +169,7 @@ public class SIE_Projectile : SIE, IPoolable
         if (_hitsWalls && !hitActor && !col.isTrigger)
         {
             // Pierce
-            _pierceCount++;
+            _pierceCount += 0.5f;
             SlowProjectile();
 
             // Audio
@@ -240,7 +240,7 @@ public class SIE_Projectile : SIE, IPoolable
         //.
 
         // Pierce end condition
-        if (_pierce >= 0 && _pierceCount > _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
+        if (_pierce >= 0 && _pierceCount >= _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
     }
 
     void PlayAudio(AudioClip audio, float volMult = 1f)

@@ -31,7 +31,7 @@ public class SIE_FollowTarget : SIE
         Vector2 targetPos = _target?.position ?? thisPos;
         Vector2 dir = targetPos - thisPos;
         Vector2 followForce = dir.normalized * _force * dir.magnitude.Remap(0f, 1f, 0f, 1f);
-        Debug.Log("Follow: " + followForce.magnitude);
+        //Debug.Log("Follow: " + followForce.magnitude);
         _rb.AddDampForce(followForce);
     }
 }
