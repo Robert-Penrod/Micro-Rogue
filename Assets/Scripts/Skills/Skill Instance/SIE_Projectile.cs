@@ -107,10 +107,17 @@ public class SIE_Projectile : SIE, IPoolable
 
     private void FixedUpdate()
     {
+        if(_skillInstance.Skill.Actor == null)
+        {
+            _skillInstance.State = SkillInstance.SkillInstanceState.End;
+        }
+
         if (_attached)
         {
             _rb.linearVelocity = _skillInstance?.Skill?.Actor?.Body?.linearVelocity ?? Vector2.zero;
         }
+
+        if (_rb == null) return;
 
         // Aim
         if (_rb.linearVelocity.sqrMagnitude > 0.01f)
