@@ -397,7 +397,7 @@ MonoBehaviour:
   Actor: {fileID: 0}
   SkillInstances: []
   NeedsTargetForCooldown: 1
-  ChasedownWhileActive: 0
+  AttackChase: 1
 --- !u!114 &8970280336592199421
 MonoBehaviour:
   m_ObjectHideFlags: 0

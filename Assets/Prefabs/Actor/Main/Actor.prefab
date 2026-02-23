@@ -10349,6 +10349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fill: {fileID: 4747299201673411307}
+  _armorFill: {fileID: 2836774724161851805}
 --- !u!114 &4574888512534451014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15229,12 +15230,14 @@ GameObject:
   - component: {fileID: 1652563601574558915}
   - component: {fileID: 5155257701550447254}
   - component: {fileID: 6620082068588023866}
+  - component: {fileID: 7561832501155998433}
   - component: {fileID: 4980042708820111086}
   - component: {fileID: 4729680988706821676}
   - component: {fileID: 656978755204930970}
   - component: {fileID: 4258424107530315670}
-  - component: {fileID: 6454126194898913322}
   - component: {fileID: 7109160049825760317}
+  - component: {fileID: -2264874766299332809}
+  - component: {fileID: -2943919261780777911}
   m_Layer: 6
   m_Name: Actor
   m_TagString: Untagged
@@ -15349,7 +15352,7 @@ MonoBehaviour:
     MoveSpeed:
       BaseValue: 4.5
     DodgeCooldown:
-      BaseValue: 3
+      BaseValue: 2.5
     Defense:
       BaseValue: 0
     Evasion:
@@ -15367,6 +15370,18 @@ MonoBehaviour:
   DungeonAffinity: 0
   _initScale: 0
   _spriteRend: {fileID: 1548810938185463985}
+--- !u!114 &7561832501155998433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931514224636784519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4410da39bc25f42428232d01ae17d3fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4980042708820111086
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15438,26 +15453,6 @@ MonoBehaviour:
   _pitch: 1
   _audioClips: []
   _kickForce: 0
---- !u!114 &6454126194898913322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7931514224636784519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b1c6d109bafdc40a5a79ff173fc265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  State: 
-  _passiveDistMult: 1.25
-  _attackDistMult: 0.25
-  _openSpaceDesire: 1
-  _wander: 0.4
-  _evasion: 0.4
-  _dodgeEvade: 0.05
-  _dodgeSprint: 0.1
 --- !u!114 &7109160049825760317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15481,6 +15476,43 @@ MonoBehaviour:
     - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
       Weight: 0.01
   GemPrefab: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
+--- !u!114 &-2264874766299332809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931514224636784519}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69fe278f516d9ca458a88926dc1a46be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 
+  _targetPassiveDistMult: 1
+  _targetAttackDistMult: 0.75
+--- !u!114 &-2943919261780777911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931514224636784519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5b1c6d109bafdc40a5a79ff173fc265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  State: 
+  _passiveDistMult: 1.75
+  _attackDistMult: 0.5
+  _openSpaceDesire: 1
+  _noiseMag: 0.75
+  _noiseFreq: 0.5
+  _noiseFloor: 0
+  _evasion: 0.5
+  _dodgeEvade: 0.05
+  _dodgeSprint: 0.05
 --- !u!1 &8092221797262269560
 GameObject:
   m_ObjectHideFlags: 0
@@ -15584,7 +15616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2836774724161851805
 Transform:
   m_ObjectHideFlags: 0

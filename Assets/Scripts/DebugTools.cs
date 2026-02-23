@@ -9,6 +9,15 @@ public class DebugTools : MonoBehaviour
 
     private void Update()
     {
+        // Gold
+        if(Input.GetKeyDown(KeyCode.G))
+        {
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Data.Coin += 5;
+            });
+        }
+
         // Upgrade
         if(Input.GetKeyDown(KeyCode.U))
         {
@@ -23,7 +32,7 @@ public class DebugTools : MonoBehaviour
         }
 
         // Upgrade all NPCs
-        if(Input.GetKey(KeyCode.U))
+        if(Input.GetKey(KeyCode.Equals))
         {
             bool upgradePlayer = Input.GetKeyDown(KeyCode.P);
             bool upgradeEnemy = Input.GetKeyDown(KeyCode.E);

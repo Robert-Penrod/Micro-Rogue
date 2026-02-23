@@ -8,6 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _wander
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _attackDistMult
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _passiveDistMult
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2264874766299332809, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _targetAttackDistMult
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: -2264874766299332809, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _targetPassiveDistMult
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_FlipX
       value: 1
@@ -119,14 +143,6 @@ PrefabInstance:
     - target: {fileID: 6262947515533282746, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454126194898913322, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
-      propertyPath: _attackDistMult
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6454126194898913322, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
-      propertyPath: _passiveDistMult
-      value: 0.002
       objectReference: {fileID: 0}
     - target: {fileID: 6614369254504421010, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: InitialModule.size3D
@@ -278,89 +294,10 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7398129913008958606}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8625442574473600346}
-    - targetCorrespondingSourceObject: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7053595324732636328}
     - targetCorrespondingSourceObject: {fileID: 4814371216711433548, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2047229662400891354}
   m_SourcePrefab: {fileID: 100100000, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
---- !u!1 &5787517008422897230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
-  m_PrefabInstance: {fileID: 4486432008120756681}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8625442574473600346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5787517008422897230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d5e07e4229f24046a2dd4ef17d0ce8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hitSound: {fileID: 0}
-  Inheritance: 0.25
-  Drag: 12
---- !u!114 &7053595324732636328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5787517008422897230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Icon: {fileID: 0}
-  Level: 0
-  Rarity: 0
-  Description: 
-  Slot: 0
-  SkillColor: {r: 0, g: 0, b: 0, a: 0}
-  Stats:
-    Str: 0
-    Dex: 0
-    Int: 0
-    Damage:
-      BaseValue: 0
-    RandomDamage:
-      BaseValue: 0
-    Rate:
-      BaseValue: 0
-    Count:
-      BaseValue: 0
-    Duration:
-      BaseValue: 0
-    Speed:
-      BaseValue: 0
-    Size:
-      BaseValue: 0
-    Pierce:
-      BaseValue: 0
-    Knockback:
-      BaseValue: 0
-    Lunge:
-      BaseValue: 0
-    Potency:
-      BaseValue: 0
-  Tags:
-    _entries: []
-  _dps: 0
-  UpgradeList: []
-  UpgradeHistory: []
-  Actor: {fileID: 0}
-  SkillInstances: []
-  NeedsTargetForCooldown: 1
-  ChasedownWhileActive: 0
 --- !u!4 &8186210125841100925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5753419547819121076, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}

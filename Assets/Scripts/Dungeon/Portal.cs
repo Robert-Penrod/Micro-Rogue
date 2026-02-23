@@ -24,6 +24,7 @@ public class Portal : MonoBehaviour
     [SerializeField] Transform _portalGFX;
     List<SpriteRenderer> _spriteRends = new();
     Dictionary<SpriteRenderer, Color> _initColor = new();
+    float _baseScale = 0.8f;
 
     float _lerpRot;
 
@@ -106,7 +107,7 @@ public class Portal : MonoBehaviour
         });
 
         // Size
-        _targetScale = 0.8f * Level.Remap(1f, 2f, 1f, 1.25f);
+        _baseScale = 0.8f * Level.Remap(1f, 2f, 1f, 1.25f);
 
         // Icons
         _eliteIcon.SetActive(DungeonData.IsElite);
@@ -115,7 +116,7 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        float scale = _targetScale;
+        float scale = _baseScale;
         float targetRot = 0f;
         if (this == DungeonManager.I.SelectedPortal)
         {
@@ -128,7 +129,7 @@ public class Portal : MonoBehaviour
 
         // Scale
         scale *= PlayerManager.I.PlayerList.Count > 0 ? ((float)_grabbedPlayers.Count / PlayerManager.I.PlayerList.Count).RemapPercent(1f, 1.375f) : 1;
-        float lerpScale = transform.localScale.x.Lerp(_targetScale, 3f * Time.deltaTime);
+        float lerpScale = transform.localScale.x.Lerp(scale, 3f * Time.deltaTime);
         transform.localScale = Vector3.one * lerpScale;
 
         // Rotation

@@ -9,7 +9,8 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     [Header("References")]
     [SerializeField] SimpleButton _rerollButton;
-    [SerializeField] SpriteRenderer _upgradeBgSprite;
+    List<SpriteRenderer> _upgradeBgSprite = new();
+    Dictionary<SpriteRenderer, float> _upgradeBgAlphaInit = new();
     CanvasGroup _canvasGroup;
     [SerializeField] List<UpgradeCardUI> _upgradeCardList = new();
 
@@ -20,6 +21,12 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     {
         base.Awake();
         _canvasGroup = GetComponent<CanvasGroup>();
+        _upgradeBgSprite.AddRange(GetComponentsInChildren<SpriteRenderer>());
+        _upgradeBgSprite.ForEach(sprite =>
+        {
+            _upgradeBgAlphaInit.Add(sprite, sprite.color.a);
+            sprite.color = sprite.color.Alpha(0f);
+        });
     }
 
     private void Start()
@@ -30,8 +37,10 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     private void Update()
     {
         // Dungeon Veil Alpha
-        float lerpAlph = _upgradeBgSprite.color.a.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
-        _upgradeBgSprite.color = _upgradeBgSprite.color.Alpha(lerpAlph);
+        _upgradeBgSprite.ForEach(sprite =>
+        {
+            sprite.color = sprite.color.Alpha(sprite.color.a.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime));
+        });
 
         // Canvas Alpha
         _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);

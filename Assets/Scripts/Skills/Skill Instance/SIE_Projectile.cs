@@ -152,6 +152,8 @@ public class SIE_Projectile : SIE, IPoolable
         // State
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
 
+        float pierceMult = _skillInstance.ActivePercent < 0.05f? 0f : 1f;
+
         // References
         var hitActor = col.GetComponentInParent<Actor>();
         var skillInstance = col.GetComponentInParent<SkillInstance>();
@@ -176,8 +178,8 @@ public class SIE_Projectile : SIE, IPoolable
         if (_hitsWalls && !hitActor && !col.isTrigger)
         {
             // Pierce
-            _pierceCount += 0.5f;
-            SlowProjectile();
+            _pierceCount += pierceMult * 0.5f;
+            if(pierceMult > 0f) SlowProjectile();
 
             // Audio
             PlayAudio(_wallHitClip, 0.25f);
@@ -194,7 +196,7 @@ public class SIE_Projectile : SIE, IPoolable
             int damageTaken = hitActor.TakeDamage((int)damage, _skillInstance, null);
 
             // Pierce
-            _pierceCount++;
+            _pierceCount += 1f * pierceMult;
             SlowProjectile();
 
             // Hit Stun

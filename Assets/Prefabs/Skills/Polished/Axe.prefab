@@ -916,6 +916,10 @@ PrefabInstance:
       value: Circling heavy attack.
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: PassiveDistMult
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: ChasedownWhileActive
       value: 1
       objectReference: {fileID: 0}
@@ -938,6 +942,10 @@ PrefabInstance:
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: UpgradeList.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
+      propertyPath: IsActiveDurringLifetime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1113343795300314851, guid: 03c459e1030bba2409301de055040d66, type: 3}
       propertyPath: Stats.Duration.BaseValue

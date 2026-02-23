@@ -22,6 +22,7 @@ public class ActorSenses : MonoBehaviour
     private void Awake()
     {
         _actor = GetComponent<Actor>();
+        WallVMap = new(8);
     }
 
     private void OnDrawGizmosSelected()
@@ -72,30 +73,35 @@ public class ActorSenses : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        float deltaTime = Time.fixedDeltaTime;
+        UpdateScaneTimers(Time.fixedDeltaTime);
+    }
+
+    void UpdateScaneTimers(float deltaTime)
+    {
+        // Timers
         _wallScanTimer.Tick(deltaTime);
         _actorScanTimer.Tick(deltaTime);
         _skillScanTimer.Tick(deltaTime);
         _scentScanTimer.Tick(deltaTime);
-
-        if(_wallScanTimer.IsDone())
+        //
+        if (_wallScanTimer.IsDone())
         {
             _wallScanTimer.ResetByMaxTime();
             ScanForWalls();
         }
-
-        if(_actorScanTimer.IsDone())
+        //
+        if (_actorScanTimer.IsDone())
         {
             _actorScanTimer.ResetByMaxTime();
             ScanForActors();
         }
-
-        if(_scentScanTimer.IsDone())
+        //
+        if (_scentScanTimer.IsDone())
         {
             _scentScanTimer.ResetByMaxTime();
             ScanForScents();
         }
-
+        //
         if (_skillScanTimer.IsDone())
         {
             _skillScanTimer.ResetByMaxTime();

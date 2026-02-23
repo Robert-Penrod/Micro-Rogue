@@ -45,23 +45,64 @@ public class ActorSkillSystem : MonoBehaviour
         PassiveSkillList.AddRange(SkillList.FindAll(x => x.Slot == Skill.SlotEnum.Passive));
     }
 
-    public bool ShouldAiChaseDown()
+    #region AI
+    public float GetAI_AttackChase()
     {
-        foreach(Skill skill in SkillList)
+        float chase = 0f;
+        int count = 0;
+        float totalLevels = 0f;
+        foreach (Skill skill in SkillList)
         {
-            foreach(SkillInstance skillInstance in skill.SkillInstances)
+            foreach (SkillInstance skillInstance in skill.SkillInstances)
             {
-                // Damaging Skill Instance
+                // get info
                 bool skillStarting = skillInstance.State == SkillInstance.SkillInstanceState.Start;
                 bool skillDoesDamage = skillInstance.Skill.Stats.Damage.Value > 0;
-                
+                // Telegraph Skill
+                if (skillInstance.State == SkillInstance.SkillInstanceState.Start && skillDoesDamage) ChaseMult(skillInstance.Skill);
+                // Chasedown skill
+                else if (skillInstance.State != SkillInstance.SkillInstanceState.End) ChaseMult(skillInstance.Skill);
+            }
+            
+        }
+        void ChaseMult(Skill skill)
+        {
+            var level = skill.Level == 0 ? 1 : skill.Level;
+            chase += skill.AttackChase * level;
+            totalLevels += level;
+            count++;
+        }
+        if (count == 0) chase = 0f;
+        else chase /= (float)totalLevels; // count
+        return chase;
+    }
+
+    public bool GetAI_IsAttacking()
+    {
+        foreach (Skill skill in SkillList)
+        {
+            foreach (SkillInstance skillInstance in skill.SkillInstances)
+            {
+                // get info
+                bool skillStarting = skillInstance.State == SkillInstance.SkillInstanceState.Start;
+                bool skillDoesDamage = skillInstance.Skill.Stats.Damage.Value > 0;
                 // Telegraph Skill
                 if (skillInstance.State == SkillInstance.SkillInstanceState.Start && skillDoesDamage) return true;
-
                 // Chasedown skill
-                if (skillInstance.State != SkillInstance.SkillInstanceState.End && skillInstance.Skill.ChasedownWhileActive) return true;
+                else if (skillInstance.State != SkillInstance.SkillInstanceState.End) return true;
             }
         }
         return false;
     }
+
+    public float GetAI_PassiveDistMult()
+    {
+        float passiveDistMult = 0f;
+        foreach (Skill skill in SkillList)
+        {
+            passiveDistMult += skill.PassiveDistMult;
+        }
+        return SkillList.Count == 0 ? 1f : passiveDistMult /= SkillList.Count;
+    }
+    #endregion
 }

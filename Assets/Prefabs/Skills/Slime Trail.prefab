@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e51bbbd45272144aa1ad3eb928e654a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParentBody: {fileID: 0}
   Skill: {fileID: 0}
   _startClip: {fileID: 0}
   _activeClip: {fileID: 0}
@@ -277,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f74bb75f34c2aa4cbc4ef83a8925cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drag: 7
+  Drag: 25
   ImunityTags: f4010000
 --- !u!1001 &8335816822080311445
 PrefabInstance:

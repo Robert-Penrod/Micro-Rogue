@@ -206,7 +206,7 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        Heal((int)(Stats.HealthMax.Value * 0.375f), null, this);
+        Heal((int)(Stats.HealthMax.Value * 0.333f), null, this);
     }
 
     public bool IsPlayer()

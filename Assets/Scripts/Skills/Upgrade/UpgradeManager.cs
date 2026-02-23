@@ -43,6 +43,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
 
     public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3)
     {
+        Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
         List<Upgrade> upgradeList = new();
 
         var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade);

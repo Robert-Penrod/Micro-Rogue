@@ -8,6 +8,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5779967019407285899, guid: 1f2579e586f469148b5cf84c1bd880a5, type: 3}
+    - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7669317
+      objectReference: {fileID: 0}
+    - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6127626
+      objectReference: {fileID: 0}
+    - target: {fileID: 2377403922630341728, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Old Wise One Variant

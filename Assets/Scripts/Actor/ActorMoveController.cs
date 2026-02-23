@@ -36,6 +36,7 @@ public class ActorMoveController : MonoBehaviour
         _dodgeCooldownTick = DodgeCooldownTime;
 
         _initDrag = _body.linearDamping;
+        MoveDir = Vector2.zero;
     }
 
     public void Ctrl_Move(Vector2 moveDir)
@@ -84,7 +85,7 @@ public class ActorMoveController : MonoBehaviour
         var moveSpeed = _actor.Stats.MoveSpeed.Value;
         if (MoveType == MoveTypeEnum.Walk || IsDodging)
         {
-            _body.AddDampForce(moveSpeed * MoveDir);
+            _body.AddDampForce(moveSpeed * MoveDir * _body.mass);
         }        
         else if(MoveType == MoveTypeEnum.Hop)
         {

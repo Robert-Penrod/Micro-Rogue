@@ -39,7 +39,7 @@ public class Skill : MonoBehaviour
         return _dir;
     }
 
-    public float TelegraphTime => Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value);
+    public float TelegraphTime => (Actor?.Faction == Actor.FactionType.Enemy? 1.25f : 1f) * (Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value));
 
     [BoxGroup("Upgrades")]
     public List<SkillUpgrade> UpgradeList = new();
@@ -49,12 +49,18 @@ public class Skill : MonoBehaviour
     [HideInInspector] public Actor Actor;
 
     // State
-    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance.State == SkillInstance.SkillInstanceState.Start).Count > 0;  // SkillInstances.Count > 0;
+    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance.State == SkillInstance.SkillInstanceState.Start || (IsActiveDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
     public bool NeedsTargetForCooldown = true;
-    public bool ChasedownWhileActive;
     public float CooldownPercent { get; private set; }
 
+
+    [BoxGroup("AI")]
+    public float AttackChase = 1f;
+    [BoxGroup("AI")]
+    public float PassiveDistMult = 1f;
+    [BoxGroup("AI")]
+    public bool IsActiveDurringLifetime = false;
     #endregion
 
     #region Init

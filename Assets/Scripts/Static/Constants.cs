@@ -127,7 +127,7 @@ public static class Constants
     public static class SkillStats
     {
         public static float BaseAlpha = 1f;
-        public static float BaseTelegraphTime = 0.5f; // 0.375f
+        public static float BaseTelegraphTime = 0.75f;// 0.5f; // 0.375f;
         public static float BaseFadeTime => BaseTelegraphTime / 2f;
         public static float SIE_ProjectileInheritVelocityMult = 0.5f; // 0.75
         public static float HitboxDelay = 0.5f;

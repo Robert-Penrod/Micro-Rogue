@@ -5,6 +5,8 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] Transform _fill;
+    [SerializeField] Transform _armorFill;
+    //[SerializeField] Transform _evadeFill;
     Actor _actor;
     Transform _gfx;
     float _targetHealthPercent = 1f;
@@ -38,21 +40,20 @@ public class HealthBar : MonoBehaviour
         // Disable to simply use events
         UpdateHealthPercent();
 
-        if(!IsLerpComplete())
-        {
-            float currentValue = _fill.transform.localScale.y;
-            float lerpValue = Mathf.Lerp(currentValue, _targetHealthPercent, _lerpSpeed * Time.deltaTime);
-            _fill.transform.localScale = new Vector3(1f, lerpValue, 1f);
+        // Health
+        float healthLerp = _fill.transform.localScale.y.Lerp(_targetHealthPercent, _lerpSpeed * Time.deltaTime);
+        _fill.transform.localScale = new Vector3(1f, healthLerp, 1f);
 
-            if(IsLerpComplete())
-            {
-                _fill.transform.localScale = new Vector3(1f, _targetHealthPercent, 1f);
-            }
-        }
-    }
+        // Armor
+        float armorPercent = ((_actor.Stats.Defense.Value + _actor.Stats.Evasion.Value) / _actor.Stats.HealthMax.Value).Clamp01();
+        float armorLerp = _armorFill.transform.localScale.y.Lerp(armorPercent, _lerpSpeed * Time.deltaTime);
+        _armorFill.transform.localScale = new Vector3(1f, armorLerp, 1f);
 
-    bool IsLerpComplete()
-    {
-        return Mathf.Abs(_targetHealthPercent - _fill.transform.localScale.y) <= 0.01f;
+        // Evade
+        /*
+        float evadePercent = (_actor.Stats.Evasion.Value / _actor.Stats.HealthMax.Value).Clamp01();
+        float evasionLerp = _evadeFill.transform.localScale.y.Lerp(evadePercent, _lerpSpeed * Time.deltaTime);
+        _evadeFill.transform.localScale = new Vector3(1f, evasionLerp, 1f);
+        */
     }
 }
