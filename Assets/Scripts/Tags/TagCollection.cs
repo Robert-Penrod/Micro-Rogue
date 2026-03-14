@@ -67,17 +67,18 @@ public class TagCollection
 
     public float CalculateWeightMultiplier(TagCollection otherCol)
     {
-        List<TagStack> tagOverlapList = otherCol == null ? new() : _entries.FindAll(x => otherCol._entries.Exists(y => y.tag == x.tag && y.count > 0));
+        List<TagStack> tagOverlapList = otherCol == null ? new() : _entries.FindAll(x => otherCol._entries.Exists(y => y.tag == x.tag));
         float multiplier = 0;
         tagOverlapList.ForEach(tagStack =>
         {
-            float tagMult = 0.5f;
+            float tagMult = 0.25f;
             if(tagStack.tag == TagType.Str || tagStack.tag == TagType.Dex || tagStack.tag == TagType.Int || tagStack.tag == TagType.Primal)
             {
                 tagMult = 1f;
             }
-            multiplier += tagMult * Mathf.Pow(tagStack.count, 0.25f);
+            multiplier += tagMult * tagStack.count;// tagMult / 2f;// tagMult * Mathf.Pow(tagStack.count, 0.25f);
         });
-        return 1 + 1f * multiplier;
+        Debug.Log("TagMult: " + multiplier);
+        return 1f + 1f * multiplier;
     }
 }

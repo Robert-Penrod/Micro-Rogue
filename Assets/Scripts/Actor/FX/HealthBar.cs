@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] Transform _fill;
+    [SerializeField] Transform _overhealFill;
     [SerializeField] Transform _armorFill;
     //[SerializeField] Transform _evadeFill;
     Actor _actor;
@@ -31,7 +32,7 @@ public class HealthBar : MonoBehaviour
     void UpdateHealthPercent()
     {
         _targetHealthPercent = _actor.Stats.HealthPercent;
-        if (_targetHealthPercent < 1f) SetVisible(true);
+        if (_targetHealthPercent != 1f) SetVisible(true);
         else SetVisible(false);
     }
 
@@ -41,11 +42,13 @@ public class HealthBar : MonoBehaviour
         UpdateHealthPercent();
 
         // Health
-        float healthLerp = _fill.transform.localScale.y.Lerp(_targetHealthPercent, _lerpSpeed * Time.deltaTime);
+        float healthLerp = _fill.transform.localScale.y.Lerp(_targetHealthPercent.Clamp01(), _lerpSpeed * Time.deltaTime);
         _fill.transform.localScale = new Vector3(1f, healthLerp, 1f);
+        float overhealLerp = _overhealFill.transform.localScale.y.Lerp((_targetHealthPercent - 1f).Clamp01(), _lerpSpeed * Time.deltaTime);
+        _overhealFill.transform.localScale = new Vector3(1f, overhealLerp, 1f);
 
         // Armor
-        float armorPercent = ((_actor.Stats.Defense.Value + _actor.Stats.Evasion.Value) / _actor.Stats.HealthMax.Value).Clamp01();
+        float armorPercent = ((_actor.Stats.Defense.Value + _actor.Stats.Evasion.Value) / (2f * (_actor.GetLevel() == 0? 1f : _actor.GetLevel()))).Clamp01();
         float armorLerp = _armorFill.transform.localScale.y.Lerp(armorPercent, _lerpSpeed * Time.deltaTime);
         _armorFill.transform.localScale = new Vector3(1f, armorLerp, 1f);
 

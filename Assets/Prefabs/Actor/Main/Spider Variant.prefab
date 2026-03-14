@@ -56,6 +56,58 @@ PrefabInstance:
       propertyPath: Tags._entries.Array.data[3].count
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _actorClip.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 7bdb94e70f5ae96418d830453c8e9143, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e0d470fb6b2aa044ead2714e5ef1f3c0, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e3a144f9aaf8d344fb3ea78967d64ab0, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 77e823384a6879545a180ccab0e707ad, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: adfa41e995482074e8c3e7646f7d610c, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cc6ddd9da50fedf48bf64753957bc24b, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ce12e907d1be334f95db55a6c25d645, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 35df37d5b99f4dc4fa355408d647acf1, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e7c4dced5797a104395b609465bda00a, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[9]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b1fcc5f73a9569f4788f2c36da48e07a, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[10]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ac71df72a2617b24f9ef83f4a9a657f4, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[11]'
+      value: 
+      objectReference: {fileID: 8300000, guid: cb5bc14c289f34b4bb380f6c277ba6a5, type: 3}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Spider Variant

@@ -66,6 +66,7 @@ public class UpgradeMod
     public string GetGlobalSkillUpgradeDescription(Skill sourceSkill, string description, UpgradeMod skillUpgradeMod)
     {
         string statName = string.Empty;
+        statName += "Global ";
         // Slot
         foreach(var slot in Slots)
         {
@@ -81,8 +82,22 @@ public class UpgradeMod
         float positiveDir = 1f;
         string unit = "%";
 
-        float value = 0f;// sourceSkill.UpgradeHistory.FindAll(x => x.GetTitle() == skillUpgradeMod.;
-        float previewStatValue = skillUpgradeMod.GetModifier().Value;
+        // Aggregate values from upgrade history
+        float value = 0f;
+        sourceSkill.UpgradeHistory.ForEach(skillUpgrade =>
+        {
+            skillUpgrade.ModList.ForEach(upgradeMod =>
+            {
+                if(upgradeMod.TargetType == UpgradeTargetType.GlobalSkillStat)
+                {
+                    if(upgradeMod.SkillStatName == skillUpgradeMod.SkillStatName)
+                    {
+                        value += upgradeMod.GetModifier().Value;
+                    }
+                }
+            });
+        });
+        float previewStatValue = value + skillUpgradeMod.GetModifier().Value;
 
         // %
         if (unit.Equals("%"))
@@ -113,6 +128,16 @@ public class UpgradeMod
         {
             value *= 100f;
             previewStatValue *= 100f;
+        }
+
+        // Invert Rate for DodgeCooldown
+        if (actorUpgradeMod.ActorStatName == ActorStats.ActorStatTypes.DodgeRate)
+        {
+            statName = "Dodge Cooldown";
+            unit = "s";
+            value = 1f / value;
+            previewStatValue = 1f / previewStatValue;
+            positiveDir = -1f;
         }
 
         string valueChange = Constants.ChangeValueString(value, previewStatValue, positiveDir, unit);

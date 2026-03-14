@@ -5087,7 +5087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2210151602627660519, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LinearDamping
-      value: 2.5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3532198656102765035, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5099,7 +5099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881834613653633259, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _telegraphMult
-      value: 1.5
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 5548848231718439703, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _startClip
@@ -5251,7 +5251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b48b723ca2294484dad8f35ad8130d0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 5
+  _force: 14
+  _range: 1.5
 --- !u!114 &2711567191492694589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5274,6 +5275,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905200824935588451, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: FreqMax
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1339682011722151651, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5334,6 +5339,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6022720446568592348, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Amp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022720446568592348, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Freq
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022720446568592348, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Rotation.Amp
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
       value: Lightning Bolt
@@ -5375,6 +5392,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2129433736414872873, guid: d0db1112cefe5dd4abd3051c9d2aba6b, type: 3}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Slot
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: _dps
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Int
       value: 1
       objectReference: {fileID: 0}
@@ -5389,6 +5414,10 @@ PrefabInstance:
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: PassiveDistMult
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: IsActiveDurringStart
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Lunge.BaseValue
@@ -5407,12 +5436,20 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: IsActiveDurringLifetime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Duration.BaseValue
       value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Tags._entries.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: BlockCooldownDurringStart
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Tags._entries.Array.data[0].tag

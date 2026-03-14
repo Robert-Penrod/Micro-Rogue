@@ -8,6 +8,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [SerializeField] float _lerpSpeed = 12f;
 
     [Header("References")]
+    [SerializeField] GameObject _rarityFlipGFX;
     [SerializeField] SimpleButton _rerollButton;
     List<SpriteRenderer> _upgradeBgSprite = new();
     Dictionary<SpriteRenderer, float> _upgradeBgAlphaInit = new();
@@ -21,16 +22,16 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     {
         base.Awake();
         _canvasGroup = GetComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
         _upgradeBgSprite.AddRange(GetComponentsInChildren<SpriteRenderer>());
         _upgradeBgSprite.ForEach(sprite =>
         {
             _upgradeBgAlphaInit.Add(sprite, sprite.color.a);
             sprite.color = sprite.color.Alpha(0f);
         });
-    }
-
-    private void Start()
-    {
         SetMenuOpen(false);
     }
 
@@ -68,8 +69,15 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     void RollUpgradeCards()
     {
         Debug.Log("Rerolling");
-        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade));
+        float rarityFlip = (DungeonManager.I.PreviousData?.IsElite ?? false) ? 25f : 0f; 
+        _rarityFlipGFX.SetActive(rarityFlip > 0);
+        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade, rarityFlip: rarityFlip));
         _rerollButton.gameObject.SetActive(ActorCanReroll(_actorToUpgrade));
+
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            EventSystem.current.SetSelectedGameObject(_upgradeCardList[0].gameObject);
+        }
     }
 
     public void BuyReroll()

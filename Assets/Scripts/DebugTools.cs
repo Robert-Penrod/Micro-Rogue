@@ -18,9 +18,44 @@ public class DebugTools : MonoBehaviour
             });
         }
 
+        // Deep Rest
+        if(Input.GetKeyDown(KeyCode.RightBracket))
+        {
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Actor.DeepRest();
+            });
+        }
+
+        // Player Damage
+        if(Input.GetKeyDown(KeyCode.LeftBracket))
+        {
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Actor.TakeDamage(Random.Range(1, 4), null, null);
+            });
+        }
+
+        // Gems
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            Player.PlayerData.Gem += 5;
+        }
+
         // Upgrade
         if(Input.GetKeyDown(KeyCode.U))
         {
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
+                DungeonManager.I.PreviousData = DungeonManager.I.Data;
+                DungeonManager.I.PreviousData.IsElite = true;
+            }
+            else
+            {
+                DungeonManager.I.PreviousData = DungeonManager.I.Data;
+                DungeonManager.I.PreviousData.IsElite = false;
+            }
+
             if(!UpgradeManager.I.IsUpgrading)
             {
                 StartCoroutine(UpgradeManager.I.UpgradePlayers_Co());

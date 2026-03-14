@@ -80,7 +80,7 @@ public static class Constants
 
     public static class ActorStats
     {
-        public static float HealthGain = 10f;
+        public static float HealthGain = 10f; // 3f; //10f;
 
         public enum FactionType
         {

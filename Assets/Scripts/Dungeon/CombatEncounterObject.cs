@@ -5,18 +5,30 @@ public class CombatEncounterObject : MonoBehaviour
 {
     public bool IsEncounterOver { get; private set; }
     [SerializeField] WeightedList<Actor> _enemyTable = new();
+    [SerializeField] WeightedList<Actor> _bossTable = new();
     List<Actor> _enemyList = new();
 
-    public void SpawnEncounter()
+    public void SpawnEncounter(float mult = 1f)
     {
+        List<Actor> newEnemiesList = new();
+        _spawnNum++;
         Random.InitState(DungeonManager.I.Data.GetSeed());
 
         // Init
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
-        //budget *= DungeonManager.I.Data.IsElite ? 1.125f : 1f;
-        //budget *= DungeonManager.I.Data.IsBoss ? 1.25f : 1f;
-        budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
-        budget += DungeonManager.I.Data.IsBoss ? 3f : 0f;
+
+        //budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
+        //budget += DungeonManager.I.Data.IsBoss ? 2f : 0f;
+        //budget += DungeonManager.I.Data.IsFinalBoss ? 3f : 0f;
+
+        
+        budget *= DungeonManager.I.Data.IsElite ? 1.2f : 1f;
+        budget *= DungeonManager.I.Data.IsBoss ? 1.4f : 1f;
+        budget *= DungeonManager.I.Data.IsFinalBoss ? 1.6f : 1f;
+        
+
+        budget *= mult;
+
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
         Debug.Log("COMBAT ENCOUNTER: " + budget.ToString());
 
@@ -54,20 +66,29 @@ public class CombatEncounterObject : MonoBehaviour
         }
         //
         // Spawn Enemies
-        int max = (int)(2 + (budget /3)).ClampMin(1);
+        int max = (int)(2 + (budget / 2)).ClampMin(1);
         //int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
         //if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
         //if (DungeonManager.I.Data.IsBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
         //max = Mathf.Min((int)budget, absoluteMax);
         int enemyCount = Random.Range(1, 1 + max);
         if (enemyCount == 1 && Random.value < 0.75) enemyCount++;
-        for(int i = 0; i < enemyCount && budget >= 1f; i++)
+        for(int i = 0; i < enemyCount && budget >= 1f + 0.25f * i; i++)
         {
             var selectedTypeActor = typeTable.SelectItem();
-            for(int k = 0; k < 50; k++)
+            if (DungeonManager.I.Data.IsFinalBoss && i == 0)
             {
-                if (selectedTypeActor.Difficulty <= budget) break;
-                selectedTypeActor = typeTable.SelectItem();
+                // Final Boss
+                selectedTypeActor = _bossTable.SelectItem();
+            }
+            else
+            {
+                // Default Selection
+                for (int k = 0; k < 50; k++)
+                {
+                    if (selectedTypeActor.Difficulty <= budget) break;
+                    selectedTypeActor = typeTable.SelectItem();
+                }
             }
 
             // Spawn Actor
@@ -76,7 +97,7 @@ public class CombatEncounterObject : MonoBehaviour
             Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
             var actor = Instantiate(selectedTypeActor, spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
-            _enemyList.Add(actor);
+            newEnemiesList.Add(actor);
 
             // Base Upgrade
             var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
@@ -85,8 +106,8 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Upgrade Enemies
         WeightedList<Actor> _upgradeAffinityList = new();
-        bool selectedBoss = false;
-        _enemyList.ForEach(enemy =>
+        bool selectedBoss = _spawnNum > 1;
+        newEnemiesList.ForEach(enemy =>
         {
             bool isBoss = DungeonManager.I.Data.IsBoss && !selectedBoss;
             float affinityMult = isBoss ? 7f : 1f;
@@ -94,7 +115,7 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
-                enemy.Stats.HealthMax.BaseValue *= 1.1f;
+                enemy.Stats.HealthMax.BaseValue *= 1.05f;
             }
             _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
         });
@@ -113,11 +134,17 @@ public class CombatEncounterObject : MonoBehaviour
             budget -= 1f;
         }
 
-        _enemyList.ForEach(enemy =>
+        newEnemiesList.ForEach(enemy =>
         {
             enemy.Stats.SetHealthPercent(1f);
         });
+
+        _enemyList.AddRange(newEnemiesList);
     }
+
+    float _spawnTick;
+    float _spawnTime = 30f;
+    int _spawnNum = 0;
 
     private void Start()
     {
@@ -126,6 +153,18 @@ public class CombatEncounterObject : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Wave Spawner
+        if (!IsEncounterOver)
+        {
+            _spawnTick += Time.fixedDeltaTime;
+            if (_spawnTick >= (_spawnNum).Remap(1f, 2f, 30f, 20f))
+            {
+                _spawnTick = 0f;
+                var difMult = (_spawnNum).Remap(1f, 2f, 0.25f, 0.75f);
+                SpawnEncounter(difMult);
+            }
+        }
+
         for(int i = 0; i < _enemyList.Count; i++)
         {
             if(_enemyList[i] == null || !_enemyList[i].IsAlive)

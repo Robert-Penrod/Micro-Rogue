@@ -60,3 +60,7 @@ MonoBehaviour:
       Weight: 1
     - Item: {fileID: 4891015938399015710, guid: 1e1072a9ad78dfc4984b1f0edcafc620, type: 3}
       Weight: 1
+  _bossTable:
+    Entries:
+    - Item: {fileID: 4150598940216829819, guid: e5be1408652a401408dd8467d8de97b9, type: 3}
+      Weight: 1

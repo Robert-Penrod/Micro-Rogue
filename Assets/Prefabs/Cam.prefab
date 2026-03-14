@@ -388,8 +388,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971f41323f9ea5c448be64635f526724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Magnitude: 0.25
-  LerpSpeed: 3
+  Zoom: 0.85
+  Magnitude: 0.4
+  LerpSpeed: 1
 --- !u!81 &1966201223271302218
 AudioListener:
   m_ObjectHideFlags: 0
@@ -444,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971f41323f9ea5c448be64635f526724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Zoom: 1
   Magnitude: 0.25
   LerpSpeed: 3
 --- !u!81 &1048671505545377903

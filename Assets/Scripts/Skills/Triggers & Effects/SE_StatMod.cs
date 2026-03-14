@@ -5,15 +5,26 @@ public class SE_StatMod : SkillEffect
 {
     public bool IsConstant = true;
     public List<UpgradeMod> Mods = new();
+    public List<SkillUpgrade> SkillUpgrade = new();
 
     private void OnEnable()
     {
+        SkillUpgrade.ForEach(skillUpgrade =>
+        {
+            skillUpgrade.SourceSkill = _skill;
+        });
         Effect();
     }
 
     public override void Effect()
     {
-        foreach(var upgradeMod in Mods)
+        SkillUpgrade.ForEach(skillUpgrade =>
+        {
+            _skill.Level--;
+            skillUpgrade.ApplyUpgrade();
+        });
+
+        foreach (var upgradeMod in Mods)
         {
             if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
             {

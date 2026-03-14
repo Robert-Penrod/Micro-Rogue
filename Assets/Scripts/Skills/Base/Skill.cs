@@ -39,7 +39,7 @@ public class Skill : MonoBehaviour
         return _dir;
     }
 
-    public float TelegraphTime => (Actor?.Faction == Actor.FactionType.Enemy? 1.25f : 1f) * (Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value));
+    public float TelegraphTime => /*(Actor?.Faction == Actor.FactionType.Enemy? 1.25f : 1f) * */ (Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value));
 
     [BoxGroup("Upgrades")]
     public List<SkillUpgrade> UpgradeList = new();
@@ -49,7 +49,7 @@ public class Skill : MonoBehaviour
     [HideInInspector] public Actor Actor;
 
     // State
-    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance.State == SkillInstance.SkillInstanceState.Start || (IsActiveDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
+    public bool IsActive => SkillInstances.FindAll(skillInstance => (BlockCooldownDurringStart && skillInstance.State == SkillInstance.SkillInstanceState.Start) || (IsActiveDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
     public bool NeedsTargetForCooldown = true;
     public float CooldownPercent { get; private set; }
@@ -61,6 +61,9 @@ public class Skill : MonoBehaviour
     public float PassiveDistMult = 1f;
     [BoxGroup("AI")]
     public bool IsActiveDurringLifetime = false;
+    [BoxGroup("AI")]
+    public bool BlockCooldownDurringStart = true;
+    SimpleNPCBrain _npcBrain;
     #endregion
 
     #region Init
@@ -85,6 +88,7 @@ public class Skill : MonoBehaviour
 
         // References
         Actor = GetComponentInParent<Actor>();
+        _npcBrain = GetComponentInParent<SimpleNPCBrain>();
 
         // Cooldown
         ShuffleCooldown();
@@ -94,6 +98,8 @@ public class Skill : MonoBehaviour
     #region Update / Cooldown
     private void FixedUpdate()
     {
+        float cooldownMult = 1f;
+
         // Temp Stats
         float activeSkillMult = 1f;
         var skillList = Actor.SkillSystem.SkillList;
@@ -111,6 +117,7 @@ public class Skill : MonoBehaviour
                 activeSkillMult *= mainSkillMult.RemapPercent(0.25f, 1f);
                 break;
         }
+        cooldownMult *= activeSkillMult;
 
         float dodgeMult = 1f;
         if (Actor.MoveController != null)
@@ -119,24 +126,28 @@ public class Skill : MonoBehaviour
         }
 
         // No Targets
-        float noTargetMult = 1f;
         if (NeedsTargetForCooldown)
         {
-            if (Actor.Senses.EnemyActors.Count <= 0)
+            if (Actor.Senses.EnemyActors.Count <= 0 || ((_npcBrain?.NoticeMag ?? 1f) < 1f))
             {
                 if (CooldownPercent > 0.9f)
                 {
-                    noTargetMult = 0f;
+                    cooldownMult *= 0f;
                     //CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
                 }
             }
         }
 
+        // Holding still boosts cooldown
+        if(Actor.MoveController.MoveDir.magnitude <= 0.1f || Actor.Body.linearVelocity.magnitude < 0.1f)
+        {
+            cooldownMult *= 1.125f;
+        }
 
         // Cooldown
         if (CooldownPercent < 1f)
         {
-            float mult = noTargetMult * activeSkillMult * dodgeMult;
+            float mult = cooldownMult * dodgeMult;
             if (this.Slot == SlotEnum.Passive) mult = 1f;
 
             //mult *= Constants.SpeedMult;
@@ -160,7 +171,7 @@ public class Skill : MonoBehaviour
     #endregion
 
     #region Upgrade
-    public WeightedList<Upgrade> GetUpgradeList()
+    public WeightedList<Upgrade> GetUpgradeListClone()
     {
         WeightedList<Upgrade> returnList = new();
 

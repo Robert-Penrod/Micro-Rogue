@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class SimpleNPCBrain : ActorBrain
 {
@@ -40,6 +42,18 @@ public class SimpleNPCBrain : ActorBrain
 
     float _smellTick = 0f;
 
+    // State
+    public float NoticeMag;
+    public float AttackMag;
+    public float TrackingMag;
+    float _lastNoticeMag;
+    float _lastTrackingMag;
+
+    // Events
+    public Action OnNotice;
+    public Action OnLostTrail;
+
+
     private void OnDrawGizmosSelected()
     {
         /*
@@ -54,11 +68,21 @@ public class SimpleNPCBrain : ActorBrain
         Gizmos.DrawWireSphere(transform.position, _maxDistPref);
     }
 
+    private void Start()
+    {
+        _actor.OnTakeDamage += () =>
+        {
+            if(NoticeMag < 1f) NoticeMag += 1f;
+        };
+    }
+
     private void OnEnable()
     {
         _dodgeEvadeCharge = Random.Range(0f, 1f);
         _dodgeSprintCharge = Random.Range(0f, 1f);
         _seed = Random.Range(0f, 10f);
+
+        NoticeMag = -0.5f;
     }
 
     private void Update()
@@ -71,6 +95,24 @@ public class SimpleNPCBrain : ActorBrain
         // Noise Test
         //Debug.DrawLine(transform.position, transform.position + (Vector3)GetPerlinVector(), Color.cyan.Alpha(0.75f));
         //_actor.MoveController.Ctrl_Move(GetPerlinVector());
+
+        if(_lastNoticeMag < 1f && NoticeMag >= 1f)
+        {
+            Debug.Log("Notice");
+            OnNotice?.Invoke();
+        }
+
+        if(_lastNoticeMag >= 1f && NoticeMag < 1f && _lastTrackingMag > 0f && TrackingMag <= 0f)
+        {
+            Debug.Log("Lost Trail");
+            OnLostTrail?.Invoke();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        _lastNoticeMag = NoticeMag;
+        _lastTrackingMag = TrackingMag;
     }
 
     float _seed;
@@ -106,56 +148,82 @@ public class SimpleNPCBrain : ActorBrain
         // CHASE
         //
         // Enemy
-        if (senses.EnemyActors.Count > 0)
+        if (NoticeMag < 1f && senses.EnemyActors.Count > 0)
         {
-            _smellTick = 0f;
-            State = _isAttacking? "Attacking Enemy" : "Chasing Enemy";
-
-            Vector2 desireVector = Vector2.zero;
-            float averageDistance = 0f;
-            
-            foreach (Actor enemy in senses.EnemyActors)
-            {
-                Vector2 towardsEnemy = enemy.transform.position - transform.position;
-                float desire = towardsEnemy.magnitude.Remap(_minDistPref, _maxDistPref, -1f, 1f);
-                //desire = desire.Sign() * desire.Pow(8f).Abs();
-                desireVector += desire * towardsEnemy.normalized;
-                averageDistance += towardsEnemy.magnitude;
-            }
-            desireVector /= senses.EnemyActors.Count;
-
-            //DebugDrawLine(desireVector, Color.red.Lerp(Color.white, 0.5f));
-            DebugDrawLine(desireVector, Color.red.Lerp(Color.white, 0.5f).Alpha(0.5f));
-
-            // desire wander
-            float mag = desireVector.magnitude;
-            desireVector = mag * desireVector.Lerp(_noiseVector, _noiseMag * (_isAttacking? 0.5f : 1f)).normalized;
-
-            
-            moveDir += desireVector;
-
-            // enemy sprint
-            sprintMult += averageDistance.Remap(_maxDistPref, _maxDistPref * 2f, 0f, 0.05f);
+            NoticeMag += 0.75f * Time.deltaTime;
         }
-        //
-        // Scent
-        else if (senses.EnemyScentDrop.Count > 0 && senses.EnemyScentDrop[0] != null && _smellTick < 5f)
+        else
         {
-            _smellTick += Time.deltaTime;
-            State = "Tracking Scent";
-            sprintMult += 0.05f;
-            Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;
-            moveDir += targetDir.normalized;
-            Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir * 5f, Color.green);
+            if (senses.EnemyActors.Count > 0)
+            {
+                // Brian params
+                AttackMag = _isAttacking ? 1f : 0f;
+                TrackingMag = 0f;
+                _smellTick = 0f;
+                State = _isAttacking ? "Attacking Enemy" : "Chasing Enemy";
+                _idleRestTimer = 0f;
+
+                Vector2 desireVector = Vector2.zero;
+                float averageDistance = 0f;
+
+                foreach (Actor enemy in senses.EnemyActors)
+                {
+                    Vector2 towardsEnemy = enemy.transform.position - transform.position;
+                    float desire = towardsEnemy.magnitude.Remap(_minDistPref, _maxDistPref, -1f, 1f);
+                    //desire = desire.Sign() * desire.Pow(8f).Abs();
+                    desireVector += desire * towardsEnemy.normalized;
+                    averageDistance += towardsEnemy.magnitude;
+                }
+                desireVector /= senses.EnemyActors.Count;
+
+                //DebugDrawLine(desireVector, Color.red.Lerp(Color.white, 0.5f));
+                DebugDrawLine(desireVector, Color.red.Lerp(Color.white, 0.5f).Alpha(0.5f));
+
+                // desire wander
+                float mag = desireVector.magnitude;
+                desireVector = mag * desireVector.Lerp(_noiseVector, _noiseMag * (_isAttacking ? 0.5f : 1f)).normalized;
+
+
+                moveDir += desireVector;
+
+                // enemy sprint
+                sprintMult += averageDistance.Remap(_maxDistPref, _maxDistPref * 2f, 0f, 0.05f);
+            }
+            //
+            // Scent
+            else if (senses.EnemyScentDrop.Count > 0 && senses.EnemyScentDrop[0] != null && _smellTick < 3f)
+            {
+                // Brian params
+                AttackMag = 0f;
+                TrackingMag = 1f;
+
+                _smellTick += Time.deltaTime;
+                State = "Tracking Scent";
+                sprintMult += 0.05f;
+                Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;
+                moveDir += targetDir.normalized;
+                Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir * 5f, Color.green);
+            }
+            else
+            {
+                // Brian params
+                AttackMag = 0f;
+                if(NoticeMag > 0f)
+                {
+                    if (NoticeMag > 1f) NoticeMag = 1f;
+                    NoticeMag -= 0.025f * Time.deltaTime;
+                }
+                TrackingMag = 0f;
+            }
         }
         //
         // Idle
-        else
+        if (NoticeMag < 1f) 
         {
-            if(State != "Idle")
-            {
-                _idleRestTimer += Random.Range(0f, 3f);
-            }
+            // Brian params
+            AttackMag = 0f;
+            TrackingMag = 0f;
+
             State = "Idle";
 
             if (_idleMoveTimer > 0f)
@@ -171,7 +239,8 @@ public class SimpleNPCBrain : ActorBrain
 
                 if(_idleMoveTimer <= 0f)
                 {
-                    _idleRestTimer += Random.Range(0f, 6f);
+                    float maxRestTime = NoticeMag.RemapPercent(10f, 0f);
+                    _idleRestTimer += Random.Range(0f, maxRestTime);
                 }
             }
             else
@@ -179,7 +248,8 @@ public class SimpleNPCBrain : ActorBrain
                 _idleRestTimer -= Time.deltaTime;
                 if(_idleRestTimer <= 0f)
                 {
-                    _idleMoveTimer += Random.Range(0f, 10f);
+                    float minMovetime = NoticeMag.RemapPercent(0f, 5f);
+                    _idleMoveTimer += Random.Range(minMovetime, 10f);
                 }
                 _actor.MoveController.Ctrl_Move(Vector2.zero);
                 return;

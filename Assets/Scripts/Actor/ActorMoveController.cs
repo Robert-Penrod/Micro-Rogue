@@ -16,10 +16,8 @@ public class ActorMoveController : MonoBehaviour
     [SerializeField] AudioClip _dodgeSound;
     public bool IsDodging => _dodgeTimer > 0f;
     float _dodgeTimer;
-    float DodgeCooldownTime => _actor.Stats.DodgeCooldown.Value;
-    float _dodgeCooldownTick;
     public bool IsDodgeCooledDown => DodgeCooldownPercent >= 1f;
-    public float DodgeCooldownPercent => DodgeCooldownTime > 0 ? _dodgeCooldownTick / DodgeCooldownTime : 0;
+    public float DodgeCooldownPercent;
 
     // Reference
     Actor _actor;
@@ -33,7 +31,7 @@ public class ActorMoveController : MonoBehaviour
     private void Awake()
     {
         _actor = GetComponent<Actor>();
-        _dodgeCooldownTick = DodgeCooldownTime;
+        DodgeCooldownPercent = 1f;
 
         _initDrag = _body.linearDamping;
         MoveDir = Vector2.zero;
@@ -53,11 +51,11 @@ public class ActorMoveController : MonoBehaviour
     public bool Ctrl_Dodge(Vector2 dodgeVector, float dodgeTimeMult = 1f)
     {
         // Dodge not cooled down || no move input
-        if (_dodgeCooldownTick < DodgeCooldownTime || MoveDir.sqrMagnitude < 0.01f) return false;
+        if (DodgeCooldownPercent < 1f || MoveDir.sqrMagnitude < 0.01f) return false;
 
         // Dodge data
         _dodgeTimer = dodgeTimeMult * 0.325f;// * 0.325f;// * Constants.SkillStats.Duration.Melee;// * 0.325f;
-        _dodgeCooldownTick = 0f;
+        DodgeCooldownPercent = 0f;
         MoveDir = 2f * dodgeVector.normalized;
 
         // Camera Shake
@@ -78,7 +76,7 @@ public class ActorMoveController : MonoBehaviour
         float hopFactor = 1f;
 
         // Dodge
-        if (_dodgeCooldownTick < DodgeCooldownTime) _dodgeCooldownTick += Time.fixedDeltaTime;
+        if (DodgeCooldownPercent < 1f) DodgeCooldownPercent += _actor.Stats.DodgeRate.Value * Time.fixedDeltaTime;
         if(IsDodging) _dodgeTimer -= Time.fixedDeltaTime;
 
         // Move

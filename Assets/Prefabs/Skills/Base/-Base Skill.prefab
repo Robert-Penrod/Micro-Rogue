@@ -378,7 +378,7 @@ MonoBehaviour:
     Duration:
       BaseValue: 1
     Speed:
-      BaseValue: 8
+      BaseValue: 10
     Size:
       BaseValue: 1
     Pierce:
@@ -398,6 +398,8 @@ MonoBehaviour:
   SkillInstances: []
   NeedsTargetForCooldown: 1
   AttackChase: 1
+  PassiveDistMult: 1
+  IsActiveDurringLifetime: 0
 --- !u!114 &8970280336592199421
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,6 +18,10 @@ public static class BalancePoint
 
     // Actor
     public static float BP_Actor_MaxHealth = 5f;
+    public static float BP_Actor_Speed = 0.25f;
+    public static float BP_Actor_Evasion = 1f;
+    public static float BP_Actor_Defense = 1f;
+    public static float BP_Actor_DodgeRate = 0.1f;
 
     public static StatModifier BPToStatMod(this float bp, ActorStats.ActorStatTypes actorStatType)
     {
@@ -31,17 +35,25 @@ public static class BalancePoint
                 modType = StatModType.Flat;
                 break;
             case ActorStats.ActorStatTypes.Evasion:
-                value = 2;
+                value = BP_Actor_Evasion;
                 modType = StatModType.Flat;
                 break;
             case ActorStats.ActorStatTypes.Defense:
-                value = 2;
+                value = BP_Actor_Defense;
+                modType = StatModType.Flat;
+                break;
+            case ActorStats.ActorStatTypes.DodgeRate:
+                value = BP_Actor_DodgeRate;
+                modType = StatModType.Flat;
+                break;
+            case ActorStats.ActorStatTypes.MoveSpeed:
+                value = BP_Actor_Speed;
                 modType = StatModType.Flat;
                 break;
         }
 
         return new StatModifier(
-            value,
+            bp * value,
             modType
         );
     }

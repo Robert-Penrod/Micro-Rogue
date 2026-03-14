@@ -4,9 +4,20 @@ using UnityEngine;
 
 public class CamTarget : MonoBehaviour
 {
+    public float Zoom = 1f;
     public float Magnitude = 0.5f;
     public float LerpSpeed = 10f;
     Vector2 _targetPos;
+
+    CameraManager _camManager;
+
+    CombatEncounterObject _combatEncounterObj;
+
+    private void Start()
+    {
+        _camManager = CameraManager.I;
+        
+    }
 
     private void LateUpdate()
     {
@@ -18,10 +29,17 @@ public class CamTarget : MonoBehaviour
             PlayerManager.I.PlayerList.ForEach(player => avgPos += (Vector2)(player.Actor.transform.position));
             avgPos /= PlayerManager.I.PlayerList.Count;
             _targetPos = avgPos;
+
+            // Zoom
+            if(!UpgradeMenu.I.IsOpen)
+            {
+                _camManager.ZoomKnob = Zoom;
+            }
         }
         else
         {
             _targetPos = Vector2.zero;
+            if (!UpgradeMenu.I.IsOpen) _camManager.ZoomKnob = 1f;
         }
         _targetPos *= Magnitude;
 

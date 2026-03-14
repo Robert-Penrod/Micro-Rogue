@@ -74,6 +74,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
         public bool IsElite;
         public bool IsBoss;
+        public bool IsFinalBoss;
 
         public DungeonData(int seed, Vector2Int coordinate)
         {
@@ -83,7 +84,8 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(GetSeed());
 
             // Encounter Type Sampling
-            this.IsBoss = this.Coordinate.y % 5 == 0;
+            this.IsFinalBoss = this.Coordinate.y % 15 == 0;
+            this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
             this.IsElite = !this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.3f;
 
             // Biome Sampling
@@ -101,10 +103,24 @@ public class DungeonManager : Singleton<DungeonManager>
         }
     }
     public DungeonData Data;
+    public DungeonData PreviousData;
     #endregion
 
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord)
     {
+        if(coord.y <= 5)
+        {
+            return BiomeEnum.Wilds;
+        }
+        else if(coord.y <= 10)
+        {
+            return BiomeEnum.Underground;
+        }
+        else
+        {
+            return BiomeEnum.Dungeon;
+        }
+
         Random.InitState(seed.GetHashCode());
         int bossFloor = 5;
         int size = 16;      // resolution (keep low, gizmos are expensive)
@@ -333,9 +349,11 @@ public class DungeonManager : Singleton<DungeonManager>
             SelectedPortal = GetPlayerVotePortal();
 
             // Step data
+            PreviousData = Data;
             Data = new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
             Data.IsBoss = SelectedPortal.DungeonData.IsBoss;
             Data.IsElite = SelectedPortal.DungeonData.IsElite;
+            Data.IsFinalBoss = SelectedPortal.DungeonData.IsFinalBoss;
 
             // Destroy Portals
             foreach (Portal p in FindObjectsByType<Portal>(FindObjectsSortMode.None))

@@ -15,14 +15,14 @@ public class ActorSenses : MonoBehaviour
     public List<ScentDrop> EnemyScentDrop;
     public List<Actor> AllyActors;
     public List<SkillInstance> AllySkills;
-    public Vector2Map WallVMap = new(8);
+    public Vector2Map WallVMap = new(6);
 
     Actor _actor;
 
     private void Awake()
     {
         _actor = GetComponent<Actor>();
-        WallVMap = new(8);
+        WallVMap = new(6);
     }
 
     private void OnDrawGizmosSelected()

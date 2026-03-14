@@ -11,6 +11,7 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] float _launchMult = 1f;
     [SerializeField] float _angularVelMult = 0f;
     [SerializeField] bool _hitsWalls = true;
+    [SerializeField] float _wallSlowLerp = 0.5f;
 
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
@@ -46,12 +47,18 @@ public class SIE_Projectile : SIE, IPoolable
         base.Awake();
         _rb = GetComponent<Rigidbody2D>();
         _skillInstance.OnActivated += Launch;
-        
+        _skillInstance.OnEnd += () =>
+        {
+            _rb.linearVelocity = Vector2.zero;
+            _rb.angularVelocity = 0f;
+        };
     }
 
     public void Initialize()
     {
         _rb.bodyType = RigidbodyType2D.Kinematic;
+        _pierceCount = 0;
+        _colDict.Clear();
     }
 
     void Launch()
@@ -152,7 +159,7 @@ public class SIE_Projectile : SIE, IPoolable
         // State
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
 
-        float pierceMult = _skillInstance.ActivePercent < 0.05f? 0f : 1f;
+        float pierceMult = _skillInstance.ActivePercent < 0.01f? 0.5f : 1f;
 
         // References
         var hitActor = col.GetComponentInParent<Actor>();
@@ -179,7 +186,7 @@ public class SIE_Projectile : SIE, IPoolable
         {
             // Pierce
             _pierceCount += pierceMult * 0.5f;
-            if(pierceMult > 0f) SlowProjectile();
+            if(pierceMult > 0f) SlowProjectile(_wallSlowLerp);
 
             // Audio
             PlayAudio(_wallHitClip, 0.25f);
@@ -224,11 +231,11 @@ public class SIE_Projectile : SIE, IPoolable
             CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
         }
         //.
-        void SlowProjectile(float mult = 1f)
+        void SlowProjectile(float lerp = 1f)
         {
             if (_rb == null) return;
-            _rb.linearVelocity *= mult * 0.75f;
-            _rb.angularVelocity *= mult * 0.75f;
+            _rb.linearVelocity *= 1f.Lerp(0.75f, lerp);
+            _rb.angularVelocity *= 1f.Lerp(0.75f, lerp);
         }
 
         // Knockback

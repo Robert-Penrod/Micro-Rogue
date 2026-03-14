@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: Tags._entries.Array.data[4].count
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _actorClip.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 8719486c1f2b81a4db9d84f4104d05d1, type: 3}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Skeleton Variant

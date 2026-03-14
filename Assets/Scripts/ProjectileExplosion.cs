@@ -113,5 +113,6 @@ public class ProjectileExplosion : SkillPart, IPoolable
     public void Initialize()
     {
         _colCache.Clear();
+        _explosionTick = 0f;
     }
 }

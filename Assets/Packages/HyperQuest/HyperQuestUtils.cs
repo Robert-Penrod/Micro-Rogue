@@ -72,6 +72,11 @@ public static class Utils
         return Camera.main.ScreenToWorldPoint(pos);
     }
 
+    internal static void RandomSeed()
+    {
+        Random.InitState(DateTime.Now.Ticks.GetHashCode());
+    }
+
     static public Collider2D[] MouseOverlap2D(float radius = 0.1f)
     {
         return Physics2D.OverlapCircleAll(GetMouseWorldPos(), radius);

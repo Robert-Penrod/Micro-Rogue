@@ -17,6 +17,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _dodgeSprint
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: _attackDistMult
       value: 0.01
       objectReference: {fileID: 0}
@@ -216,6 +220,14 @@ PrefabInstance:
       propertyPath: Tags._entries.Array.data[3].count
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _actorClip.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 2dbe906900d86cb45afb86f06201c168, type: 3}
     - target: {fileID: 7563609088413985646, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Angle
       value: 2.5

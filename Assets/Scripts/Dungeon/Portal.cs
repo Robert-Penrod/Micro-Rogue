@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     
     [SerializeField] GameObject _eliteIcon;
     [SerializeField] GameObject _bossIcon;
+    [SerializeField] GameObject _finalBossIcon;
     [SerializeField] TextMeshPro _textMesh;
     [SerializeField] TextMeshPro _lvlText;
     [SerializeField] SpriteRenderer _biomeIcon;
@@ -111,7 +112,8 @@ public class Portal : MonoBehaviour
 
         // Icons
         _eliteIcon.SetActive(DungeonData.IsElite);
-        _bossIcon.SetActive(DungeonData.IsBoss);
+        _bossIcon.SetActive(!DungeonData.IsFinalBoss && DungeonData.IsBoss);
+        _finalBossIcon.SetActive(DungeonData.IsFinalBoss);
     }
 
     private void Update()

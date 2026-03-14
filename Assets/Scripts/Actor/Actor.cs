@@ -31,11 +31,19 @@ public class Actor : MonoBehaviour
     public ActorSkillSystem SkillSystem { get; private set; }
 
     // Events
+    public Action OnTakeDamage;
     public Action OnUpgrade;
     public Action OnDeath;
+    public Action OnEvade;
+    public Action OnArmor;
 
     [SerializeField] SpriteRenderer _spriteRend;
     public Sprite Sprite => _spriteRend.sprite;
+
+    [SerializeField] Sprite  _armorSprite;
+    [SerializeField] AudioClip _armorSound;
+    [SerializeField] Sprite _evadeSprite;
+    [SerializeField] AudioClip _evadeSound;
 
     public int GetLevel()
     {
@@ -138,28 +146,67 @@ public class Actor : MonoBehaviour
         Stats.Health += heal;
 
         Color c = Color.green.SetSaturation(0.7f);
-        SpawnPopup(heal, c, Vector2.zero, transform.position);
+        SpawnPopup(heal, null, c, Vector2.zero, transform.position);
 
         return heal;
     }
 
     public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor)
     {
+        string blockType = string.Empty;
+        // Whiff
+        if(damage <= 0)
+        {
+            return 0;
+        }
+
         // Dodge - GrazeFrames
-        if (MoveController.IsDodging) damage /= 3;
+        if (MoveController.IsDodging)
+        {
+            damage /= 3;
+            if(damage <= 0)
+            {
+                // Evasion
+                blockType = "evade";
+            }
+        }
         // Dodge - IFrames
         //if (MoveController.IsDodging) damage *= 0;
 
+        Utils.RandomSeed();
+
         // Armor
-        if (Stats.Defense.Value > 0) damage -= (int)Random.Range(0f, Stats.Defense.Value + 1f);
+        int armorRoll = (int)Random.Range(0f, Stats.Defense.Value + Stats.Defense.Value.Sign() * 0.99f);
+        damage -= armorRoll;
 
         // Evasion
-        if (Stats.Evasion.Value > 0) damage -= (int)Random.Range(0f, Stats.Evasion.Value + 1f);
+        int evasionRoll = (int)Random.Range(0f, Stats.Evasion.Value + Stats.Evasion.Value.Sign() * 0.99f);
+        damage -= evasionRoll;
 
 
-        if (damage <= 0) return 0;
+        if (damage <= 0)
+        {
+            if (blockType == string.Empty)
+            {
+                // Armor Block
+                if (armorRoll > evasionRoll)
+                {
+                    blockType = "armor";
+                    OnArmor?.Invoke();
+                    PlayAudio(_armorSound);
+                }
+                // Evasion Block
+                else
+                {
+                    blockType = "evade";
+                    OnEvade?.Invoke();
+                    PlayAudio(_evadeSound);
+                }
+            }
+            damage = 0;
+        }
 
-        // Last Chance (Players: If killing hit would do more than half health -> leave player at 1hp instead)
+        // Last Chance (Players: If killing hit would do more than x% health -> leave player at 1hp instead)
         if (IsPlayer())
         {
             if (damage >= Stats.Health && damage >= 0.25f * Stats.HealthMax.Value && Stats.Health > 1)
@@ -170,23 +217,39 @@ public class Actor : MonoBehaviour
 
         // Do damage
         Stats.Health -= damage;
-        
+        OnTakeDamage?.Invoke();
+
+        Sprite blockSprite = null;
+        Color blockColor = Color.clear;
+        if(blockType == "armor")
+        {
+            blockSprite = _armorSprite;
+            blockColor = _spriteRend.color;
+        }
+        else if(blockType == "evade")
+        {
+            blockSprite = _evadeSprite;
+            blockColor = _spriteRend.color;
+        }
+
         // Popup
         if (sourceSkillInstance != null)
         {
             var sourceSkillInstanceBody = sourceSkillInstance.GetComponent<Rigidbody2D>();
-            Color c = GamePaletteManager.I.Palette.GetActorSkillColor(sourceSkillInstance.Skill);
+            var normalColor = GamePaletteManager.I.Palette.GetActorSkillColor(sourceSkillInstance.Skill);
+            Color c = blockColor != Color.clear? blockColor.Lerp(normalColor, 0.1f) : normalColor;
             Vector2 vel = sourceSkillInstanceBody?.linearVelocity ?? Vector2.zero;
-            SpawnPopup(-damage, c, 0.25f * vel, sourceSkillInstance.transform.position);
+            SpawnPopup(damage <= 0? null : -damage, blockSprite, c, 0.25f * vel, sourceSkillInstance.transform.position);
         }
         else if (actor != null)
         {
             if (actor.Faction != FactionType.None)
             {
                 var palette = GamePaletteManager.I.Palette;
-                Color c = actor.Faction == FactionType.Player ? palette.PlayerColor : palette.EnemyColor;
+                var normalColor = (actor.Faction == FactionType.Player ? palette.PlayerColor : palette.EnemyColor);
+                Color c = blockColor != Color.clear ? blockColor.Lerp(normalColor, 0.1f) : normalColor;
                 Vector2 vel = 0.5f * actor.Body.linearVelocity + 0.5f * Body.linearVelocity;
-                SpawnPopup(-damage, c, vel, transform.position);
+                SpawnPopup(damage <= 0 ? null : -damage, blockSprite, c, vel, transform.position);
             }
         }
 
@@ -194,19 +257,39 @@ public class Actor : MonoBehaviour
         return damage;
     }
 
-    void SpawnPopup(int value, Color c, Vector2 vel, Vector2 pos)
+    void PlayAudio(AudioClip clip)
     {
-        string symbol = value > 0 ? "+" : string.Empty;
+        AudioSpawner.PlayAudioWithRandPitch(clip, 0.2f, 1f, 0.5f, transform.position);
+    }
+
+    void SpawnPopup(int? value, Sprite sprite, Color c, Vector2 vel, Vector2 pos)
+    {
+        // color
         string colorString = "#" + ColorUtility.ToHtmlStringRGB(c.Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
-        string popupString = "<color=" + colorString + ">" + symbol + value.ToString() + "</color>";
+
+        // string
+        string popupString = string.Empty;
+        if (value != null)
+        {
+            string symbol = value > 0 ? "+" : string.Empty;
+            popupString = "<color=" + colorString + ">" + symbol + value.ToString() + "</color>";
+        }
+
+        // popup
         Vector3 popupPos = Vector2.Lerp(pos, transform.position, IsAlive ? 0.5f : 1f);
         popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
-        TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * vel, IsAlive ? transform : null);
+        SymbolPopup2DManager.I.CreatePopup(popupPos, popupString, sprite, c,  0.5f * vel, IsAlive ? transform : null);
     }
 
     public void Rest()
     {
-        Heal((int)(Stats.HealthMax.Value * 0.333f), null, this);
+        float restFactor = 0.4f; // 0.375f;
+        Heal((int)(Stats.HealthMax.Value * restFactor), null, this);
+    }
+
+    public void DeepRest()
+    {
+        Stats.Health = (int)(Stats.HealthMax.Value * 2f);
     }
 
     public bool IsPlayer()
