@@ -187,9 +187,11 @@ public class DungeonManager : Singleton<DungeonManager>
         Random.InitState(Data.GetSeed());
         Instantiate(_roomGeneratorPrefab, DungeonTransform);
         yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
 
         Random.InitState(Data.GetSeed());
         Instantiate(_encounterGeneratorPrefab, DungeonTransform);
+        yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
         //SpawnPortals();
         //if (Random.value > 0.5) SpawnPortals();

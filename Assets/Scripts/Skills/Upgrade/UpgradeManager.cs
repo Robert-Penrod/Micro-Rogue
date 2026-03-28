@@ -85,7 +85,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             if (skillSystem.HasSkill(newSkill)) return;
             //
             // Slotsfull check
-            int slotCount = 3;
+            int slotCount = 2;
             // -active
             if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
             // -passive
@@ -105,7 +105,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             // Tag Weight
             weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags);
 
-            Debug.Log(newSkill.Name + " : " + weight);
+            //Debug.Log(newSkill.Name + " : " + weight);
 
             // Add
             weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), weight);

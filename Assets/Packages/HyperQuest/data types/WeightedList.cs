@@ -52,7 +52,10 @@ public class WeightedList<T> : IEnumerable<T>
         float roll = Random.Range(0f, weightSum);
         for (int i = 0; i < Entries.Count; i++)
         {
-            roll -= Entries[i].Weight;
+            var weight = Entries[i].Weight;
+            if (weight <= 0) continue;
+
+            roll -= weight;
             if (roll <= 0)
             {
                 return Entries[i];

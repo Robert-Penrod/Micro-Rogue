@@ -158,8 +158,9 @@ public class SIE_Projectile : SIE, IPoolable
     {
         // State
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
+        bool didDodge = false;
 
-        float pierceMult = _skillInstance.ActivePercent < 0.01f? 0.5f : 1f;
+        float pierceMult = _skillInstance.ActivePercent < 0.02f? 0f : 1f;
 
         // References
         var hitActor = col.GetComponentInParent<Actor>();
@@ -201,25 +202,17 @@ public class SIE_Projectile : SIE, IPoolable
             float damage = (int)(_damageMult * _skillInstance.Skill.Stats.CalculateDamageValue());
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
             int damageTaken = hitActor.TakeDamage((int)damage, _skillInstance, null);
+            didDodge = hitActor.MoveController.IsDodging;
 
-            // Pierce
-            _pierceCount += 1f * pierceMult;
-            SlowProjectile();
-
-            // Hit Stun
-
+            if (!didDodge)
+            {
+                // Pierce
+                _pierceCount += 1f * pierceMult;
+                SlowProjectile();
+            }            
 
             if (damageTaken > 0)
             {
-                // Popup
-                /*
-                string colorString = "#" + ColorUtility.ToHtmlStringRGB(GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
-                string popupString = "<color=" + colorString + ">-" + damageTaken.ToString() + "</color>";
-                Vector3 popupPos = Vector2.Lerp(transform.position, hitActor.transform.position, hitActor.IsAlive ? 0.5f : 1f);
-                popupPos += 0.25f * (Vector3)Random.insideUnitCircle;
-                TextPopup2DManager.I.CreatePopup(popupPos, popupString, 0.5f * _rb.linearVelocity, hitActor.IsAlive ? hitActor.transform : null);
-                */
-
                 // Audio
                 this.DelayedInvoke(0.02f, () =>
                 {
@@ -239,7 +232,7 @@ public class SIE_Projectile : SIE, IPoolable
         }
 
         // Knockback
-        if(hitBody != null)
+        if(hitBody != null && hitBody.bodyType == RigidbodyType2D.Dynamic && (hitActor == null || !didDodge))
         {
             Vector2 knockbackDir = _rb.linearVelocity.normalized;
             if (_rb.linearVelocity.sqrMagnitude < 0.1f) knockbackDir = transform.up.normalized;

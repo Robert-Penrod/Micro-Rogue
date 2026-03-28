@@ -47,10 +47,10 @@ public class CombatEncounterObject : MonoBehaviour
                 DungeonManager.BiomeEnum.Dungeon => enemyEntry.Item.DungeonAffinity,
                 _ => 1f
             };
-            biomeMult = biomeMult < 0? 0f : biomeMult.Remap(0f, 1f, 0.2f, 1f);
-            weight *= biomeMult;
+            float baseMinAffinity = 0.1f; // 0.2f
+            biomeMult = biomeMult < 0? biomeMult.Remap(-1f, 0f, 0f, baseMinAffinity) : biomeMult.Remap(0f, 1f, baseMinAffinity, 1f);
+            weight *= biomeMult.Clamp01();
             weight *= enemyEntry.Item.RarityMult;
-            weight = 1f;
 
             enemyTable.Add(enemyEntry.Item, weight);
         });
@@ -62,6 +62,7 @@ public class CombatEncounterObject : MonoBehaviour
         for(int i = 0; i < typeCount && enemyTable.Entries.Count > 0; i++)
         {
             var selectedEntry = enemyTable.SelectAndRemoveEntry();
+            Debug.Log("Selected Entry " + selectedEntry.Item.gameObject.name + ", " + selectedEntry.Weight);
             typeTable.Add(selectedEntry.Item, selectedEntry.Weight.Remap(0f, 1f, 0.5f, 1f, false));
         }
         //
@@ -99,12 +100,19 @@ public class CombatEncounterObject : MonoBehaviour
             var actor = Instantiate(selectedTypeActor, spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
             newEnemiesList.Add(actor);
 
+            // Brain Difficulty
+            var brain = actor.GetComponent<SimpleNPCBrain>();
+            if(brain != null)
+            {
+                brain.DifficultyMult = 0.9f;
+            }
+
             // Base Upgrade
             var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
             if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
         }
         //
-        // Upgrade Enemies
+        // Select Boss
         WeightedList<Actor> _upgradeAffinityList = new();
         bool selectedBoss = _spawnNum > 1;
         newEnemiesList.ForEach(enemy =>
@@ -116,9 +124,18 @@ public class CombatEncounterObject : MonoBehaviour
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
                 enemy.Stats.HealthMax.BaseValue *= 1.05f;
+
+                // Brain Update
+                var brain = enemy.GetComponent<SimpleNPCBrain>();
+                if (brain != null)
+                {
+                    brain.DifficultyMult = 1.2f;
+                }
             }
             _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
         });
+        //
+        // Upgrade Enemies
         while (budget >= 1f)
         {
             var enemyToUpgrade = _upgradeAffinityList.SelectItem();
@@ -154,6 +171,7 @@ public class CombatEncounterObject : MonoBehaviour
     private void FixedUpdate()
     {
         // Wave Spawner
+        /*
         if (!IsEncounterOver)
         {
             _spawnTick += Time.fixedDeltaTime;
@@ -164,6 +182,7 @@ public class CombatEncounterObject : MonoBehaviour
                 SpawnEncounter(difMult);
             }
         }
+        */
 
         for(int i = 0; i < _enemyList.Count; i++)
         {

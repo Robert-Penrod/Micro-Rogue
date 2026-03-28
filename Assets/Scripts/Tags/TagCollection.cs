@@ -78,7 +78,7 @@ public class TagCollection
             }
             multiplier += tagMult * tagStack.count;// tagMult / 2f;// tagMult * Mathf.Pow(tagStack.count, 0.25f);
         });
-        Debug.Log("TagMult: " + multiplier);
+        //Debug.Log("TagMult: " + multiplier);
         return 1f + 1f * multiplier;
     }
 }

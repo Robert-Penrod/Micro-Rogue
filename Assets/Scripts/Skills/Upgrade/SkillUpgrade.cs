@@ -92,7 +92,7 @@ public class SkillUpgrade : Upgrade
         SourceSkill.Actor.OnUpgrade?.Invoke();
     }
 
-    internal bool IsValid()
+    internal bool IsValid(Skill skill)
     {
         foreach (var skillUpgradeMod in ModList)
         {
@@ -113,7 +113,19 @@ public class SkillUpgrade : Upgrade
 
                 if (statName == SkillStats.SkillStatTypes.Damage && previewStatValue < 1f) return false;
                 if (statName == SkillStats.SkillStatTypes.Count && previewStatValue < 1f) return false;
-                if (statName == SkillStats.SkillStatTypes.Rate && (previewStatValue < 0.125f || previewStatValue > 2f)) return false;
+                if (statName == SkillStats.SkillStatTypes.Rate)
+                {
+                    if(skill.Stats.Damage.Value > 0)
+                    {
+                        // 8s, 0.5s
+                        if (previewStatValue < 0.125f || previewStatValue > 2f) return false;
+                    }
+                    else
+                    {
+                        // 30s, 0.5s
+                        if (previewStatValue < 0.033f || previewStatValue > 2f) return false;
+                    }
+                }
                 if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.75f) return false;
                 if (statName == SkillStats.SkillStatTypes.Duration && previewStatValue < 0.15f) return false;
                 if (statName == SkillStats.SkillStatTypes.Lunge && previewStatValue < -4f) return false;

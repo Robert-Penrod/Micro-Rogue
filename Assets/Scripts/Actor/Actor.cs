@@ -163,12 +163,16 @@ public class Actor : MonoBehaviour
         // Dodge - GrazeFrames
         if (MoveController.IsDodging)
         {
-            damage /= 3;
+            damage = 0;
+            blockType = "dodge";
+            /*
+            damage /= 5;
             if(damage <= 0)
             {
                 // Evasion
-                blockType = "evade";
+                blockType = "dodge";
             }
+/**/
         }
         // Dodge - IFrames
         //if (MoveController.IsDodging) damage *= 0;
@@ -283,7 +287,7 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        float restFactor = 0.4f; // 0.375f;
+        float restFactor = 0.3f;// 0.4f; // 0.375f; // Prototype was 0.25f
         Heal((int)(Stats.HealthMax.Value * restFactor), null, this);
     }
 

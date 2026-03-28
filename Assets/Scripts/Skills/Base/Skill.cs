@@ -177,7 +177,7 @@ public class Skill : MonoBehaviour
 
         UpgradeList.ForEach(upgrade =>
         {
-            if (upgrade.IsValid())
+            if (upgrade.IsValid(this))
             {
                 returnList.Add(upgrade, Constants.RarityToWeight(upgrade.Rarity));
             }

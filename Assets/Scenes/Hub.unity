@@ -11617,26 +11617,6 @@ PrefabInstance:
       propertyPath: _hub
       value: 
       objectReference: {fileID: 2006343612}
-    - target: {fileID: 209966341756596192, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: _wallMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 906e4233ae90063409548ddd64f5e6bf, type: 2}
-    - target: {fileID: 209966341756596192, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: _floorMat
-      value: 
-      objectReference: {fileID: 2100000, guid: ef209b48ba7fbae4d89bbce8d9c1f631, type: 2}
-    - target: {fileID: 209966341756596192, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: _wildsData
-      value: 
-      objectReference: {fileID: 11400000, guid: 89a3e199965d579438cbeec02d348ec6, type: 2}
-    - target: {fileID: 209966341756596192, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: _dungeonData
-      value: 
-      objectReference: {fileID: 11400000, guid: ea8d8f8a06307574fb22c6bd762ae06b, type: 2}
-    - target: {fileID: 209966341756596192, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: _undergroundData
-      value: 
-      objectReference: {fileID: 11400000, guid: 298d3dbfa9ca2c1448fc4661e9ec66f8, type: 2}
     - target: {fileID: 1047170992306814672, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_Name
       value: Symbol Template
@@ -11737,10 +11717,6 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 5004007307638969037, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 81cab6a3cba999e4995e2a8aab958627, type: 2}
     - target: {fileID: 5295518659058941983, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_fontSizeBase
       value: 13

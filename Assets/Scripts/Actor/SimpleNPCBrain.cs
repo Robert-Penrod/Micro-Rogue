@@ -7,6 +7,8 @@ public class SimpleNPCBrain : ActorBrain
 {
     public string State;
 
+    public float DifficultyMult = 1f;
+
     [Header("Dist")]
     [SerializeField] float _passiveDistMult = 1f;
     [SerializeField] float _attackDistMult = 0.5f;
@@ -140,9 +142,9 @@ public class SimpleNPCBrain : ActorBrain
         DebugDrawLine(_noiseVector, Color.white.Alpha(0.5f));
         //
         // Dodge
-        _dodgeEvadeCharge += _dodgeEvade * deltaTime;
+        _dodgeEvadeCharge += DifficultyMult * _dodgeEvade * deltaTime;
         if (_dodgeEvadeCharge > 1f) _dodgeEvadeCharge = 1f;
-        _dodgeSprintCharge += _dodgeSprint * deltaTime;
+        _dodgeSprintCharge += DifficultyMult * _dodgeSprint * deltaTime;
         if (_dodgeSprintCharge > 1f) _dodgeSprintCharge = 1f;
 
         // CHASE
@@ -150,7 +152,15 @@ public class SimpleNPCBrain : ActorBrain
         // Enemy
         if (NoticeMag < 1f && senses.EnemyActors.Count > 0)
         {
-            NoticeMag += 0.75f * Time.deltaTime;
+            float distMult = 1f;
+            senses.EnemyActors.ForEach(enemyActor =>
+            {
+                float dist = Vector2.Distance(enemyActor.transform.position, transform.position);
+                distMult *= dist.Remap(1f, 5f, 2f, 1f);
+            });
+            float countMult = senses.EnemyActors.Count;
+            float noticeMult = countMult * distMult;
+            NoticeMag += noticeMult * 0.75f * Time.deltaTime;
         }
         else
         {
@@ -339,7 +349,7 @@ public class SimpleNPCBrain : ActorBrain
             }
 
             // Apply Evasion
-            Vector2 skillAvoidanceVector = _evasion * avoidanceVector; //2.3f
+            Vector2 skillAvoidanceVector = DifficultyMult * _evasion * avoidanceVector; //2.3f
             DebugDrawLine(skillAvoidanceVector, Color.magenta);
             moveDir += skillAvoidanceVector;
         }
