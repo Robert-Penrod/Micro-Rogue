@@ -32,6 +32,10 @@ public class CamShaker : Singleton<CamShaker>
 
     public void Shake(float amplitude, float frequency)
     {
+        // Hard Coded Mults
+        amplitude *= 1.5f;
+        frequency *= 12f;
+
         // Add the requested shake effect to the target shake amount
         targetShakeAmount += new Vector2(amplitude, frequency);
         targetShakeAmount.x = Mathf.Clamp(targetShakeAmount.x, 0f, 1f);

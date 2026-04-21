@@ -32,18 +32,19 @@ public class ActorPickupSystem : MonoBehaviour
             if (pickup.CanPickUp())
             {
                 var body = pickup.GetComponent<Rigidbody2D>();
-                if (body != null) Attract(body);
+                if (body != null) Attract(body, pickup);
 
                 TryCollection(pickup);
             }
         }
     }
 
-    void Attract(Rigidbody2D body)
+    void Attract(Rigidbody2D body, Pickup pickup)
     {
         Vector2 dir = (Vector2)transform.position - body.position;
         Vector2 attractForce = Force * dir.normalized;
         body.AddDampForce(attractForce);
+        pickup.IsGrabbing(Time.fixedDeltaTime);
     }
 
     void TryCollection(Pickup pickup)

@@ -20,5 +20,7 @@ public class RoomObject : MonoBehaviour
         _wildsRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Wilds);
         _undergroundRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Underground);
         _dungeonRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Dungeon);
+
+        transform.localScale = Random.Range(0.9f, 1.1f) * DungeonManager.I.Data.Coordinate.y.Remap(1f, 15f, 1f, 1.125f) * Vector3.one;
     }
 }

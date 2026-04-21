@@ -8,7 +8,7 @@ public class BedrollInteractable : InteractableTrigger
 
     private void OnValidate()
     {
-        _tmPro.text = _gemCost.ToString();
+        //_tmPro.text = _gemCost.ToString();
     }
 
     protected override bool CanInteract(Player player)

@@ -13,14 +13,30 @@ public class SE_StatMod : SkillEffect
         {
             skillUpgrade.SourceSkill = _skill;
         });
-        Effect();
+        TriggerEffect();
     }
 
-    public override void Effect()
+    private void Start()
+    {
+        // Instantiate skill upgrades
+        SkillUpgrade.ForEach(skillUpgrade =>
+        {
+            skillUpgrade.SourceSkill = _skill;
+        });
+
+        // Reapply!
+        _skill.Actor.OnUpgrade += () =>
+        {
+
+        };
+    }
+
+    public override void TriggerEffect()
     {
         SkillUpgrade.ForEach(skillUpgrade =>
         {
             _skill.Level--;
+            skillUpgrade.SourceSkill = _skill;
             skillUpgrade.ApplyUpgrade();
         });
 

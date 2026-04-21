@@ -4,7 +4,7 @@ public abstract class SkillEffect : MonoBehaviour
 {
     protected Skill _skill;
     protected SkillTrigger _skillTrigger;
-    public virtual void Effect()
+    public virtual void TriggerEffect()
     {
 
     }
@@ -17,7 +17,7 @@ public abstract class SkillEffect : MonoBehaviour
         {
             _skillTrigger.OnTrigger += () =>
             {
-                Effect();
+                TriggerEffect();
             };
         }
     }

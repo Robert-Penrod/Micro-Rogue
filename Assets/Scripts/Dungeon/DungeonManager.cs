@@ -108,11 +108,12 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord)
     {
-        if(coord.y <= 5)
+        int biomeIndex = ((coord.y-1) % 15); // (1, 15, 30) -> (1, 1, 0)
+        if(biomeIndex <= 4)
         {
             return BiomeEnum.Wilds;
         }
-        else if(coord.y <= 10)
+        else if(biomeIndex <= 9)
         {
             return BiomeEnum.Underground;
         }

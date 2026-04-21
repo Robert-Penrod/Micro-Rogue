@@ -22,7 +22,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
 
 
         IsUpgrading = true;
-        Debug.Log("Upgrading Players!");
+        //Debug.Log("Upgrading Players!");
         for (int k = 0; k < upgradeLevels; k++)
         {
             for (int i = 0; i < playerList.Count; i++)
@@ -42,12 +42,12 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         UpgradeMenu.I.SetMenuOpen(false);
     }
 
-    public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3, float rarityFlip = 0f)
+    public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3, float rarityFlip = 0f, float newSkillMult = 1f)
     {
         Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
         List<Upgrade> upgradeList = new();
 
-        var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade, rarityFlip);
+        var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade, rarityFlip, newSkillMult);
         //Debug.Log("Full List Options: " + weightedUpgradeList.Entries.Count);
         for (int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
         {
@@ -63,26 +63,31 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         return upgradeList;
     }
 
-    WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float rarityFlip = 0f)
+    WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
     {
-        // Init
+        // INIT
         WeightedList<Upgrade> weightedUpgradeList = new();
 
         var skillSystem = actorToUpgrade.SkillSystem;
         var actorSkillList = skillSystem.SkillList;
 
         //Debug.Log("Skill Count: " + actorSkillList.Count);
-        Debug.Log("\\/==\\/==\\/");
-        // New Skill Upgrades
+        //Debug.Log("\\/==\\/==\\/");
+
+        // NEW SKILL UPGRADES
         BaseSkillList.ForEach(newSkill =>
         {
             // FILTERS
             //
             // If no damage skills -> new skill must do damage
-            if (actorSkillList.FindAll(x => x.Stats.Damage.Value > 0).Count == 0 && newSkill.Stats.Damage.Value <= 0f) return;
+            bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
+            if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
             //
             // Actor cannot already have skill
             if (skillSystem.HasSkill(newSkill)) return;
+            //
+            // Skill Prereq check
+            if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
             //
             // Slotsfull check
             int slotCount = 2;
@@ -92,18 +97,24 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
 
             // Weight
-            float newSkillMult = (1f / (1f * 3f * 1f)); // newSkill weight
-            newSkillMult *= actorToUpgrade.NewSkillAffinity;
-            float weight = Constants.RarityToWeight(newSkill.Rarity) * newSkillMult;
+            float weightMult = 1f / 3f;// newSkill weight
+            weightMult *= actorToUpgrade.NewSkillAffinity;
+            float weight = Constants.RarityToWeight(newSkill.Rarity) * weightMult;
 
             // Rarity Flip
-            if (rarityFlip > 0)
+            if (minRarity > 0)
             {
-                weight = weight.Remap(0f, 1f, rarityFlip, 1f);
+                weight = weight.Remap(0f, 1f, minRarity, 1f);
             }
+
+            weightMult *= newSkillMult;
 
             // Tag Weight
             weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags);
+            if(newSkill.Tags.GetTagList().Count == 0)
+            {
+                weight *= 2f;
+            }
 
             //Debug.Log(newSkill.Name + " : " + weight);
 
@@ -111,7 +122,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), weight);
         });
 
-        // Skill Upgrades
+        // SKILL UPGRADES
         actorSkillList.ForEach(actorSkill =>
         {
             // Skill Upgrade list
@@ -121,7 +132,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             for(int i = 0; i < skillUpgradeList.Entries.Count; i++)
             {
                 // Rarity Flip
-                if (rarityFlip > 0) skillUpgradeList.Entries[i].Weight = skillUpgradeList.Entries[i].Weight.Remap(0f, 1f, rarityFlip, 1f);
+                if (minRarity > 0) skillUpgradeList.Entries[i].Weight = skillUpgradeList.Entries[i].Weight.Remap(0f, 1f, minRarity, 1f);
 
                 // Tag Weight
                 skillUpgradeList.Entries[i].Weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(skillUpgradeList.Entries[i].Item.SourceSkill.Tags);
@@ -131,7 +142,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             weightedUpgradeList.AddRange(skillUpgradeList);
         });
 
-        // Return
+        // RETURN
         return weightedUpgradeList;
     }
 }

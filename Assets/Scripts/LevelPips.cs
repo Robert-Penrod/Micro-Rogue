@@ -23,7 +23,7 @@ public class LevelPips : MonoBehaviour
 
     void SetLevel(int level)
     {
-        int pipLevel = level % 15;
+        int pipLevel = 1 + ((level-1) % 15);
         for(int i = 0; i < _imageList.Count; i++)
         {
             _imageList[i].color = i < pipLevel ? Color.white : Color.grey.Alpha(0.5f);

@@ -193,7 +193,7 @@ Transform:
   m_GameObject: {fileID: 1263432072942540211}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16, y: -2.5, z: -30}
+  m_LocalPosition: {x: 12, y: -2.5, z: -30}
   m_LocalScale: {x: 0.75, y: 0.5, z: 0.75}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1513,8 +1513,11 @@ MonoBehaviour:
   - {fileID: 1159842556308663515, guid: f8c0f840e6aa92e468f9a6e638f40511, type: 3}
   - {fileID: 1159842556308663515, guid: 6082d392416aad34db9ea52fb302bfb6, type: 3}
   - {fileID: 8215274306946818650, guid: 871a496abafce944ba40ca1e9f26bf48, type: 3}
+  - {fileID: 7391418805428206428, guid: 027b1a409858c1c4d9ba625765b8cc3c, type: 3}
   - {fileID: 302500762316385262, guid: 53f653c2a86abaf42976c3c70a213570, type: 3}
   - {fileID: 7810722921821588791, guid: 1f955114468ff4e49b5eea418edf0f99, type: 3}
+  - {fileID: 3054739362383696392, guid: c523a88dec2136f4dadc8299fa1de947, type: 3}
+  - {fileID: 1395792107141309682, guid: fb23286fd83325d489373280b0285a1f, type: 3}
 --- !u!114 &9016044144876615625
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] float _angularVelMult = 0f;
     [SerializeField] bool _hitsWalls = true;
     [SerializeField] float _wallSlowLerp = 0.5f;
+    [SerializeField] ParticleSystem _hitParticles;
 
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
@@ -31,6 +32,7 @@ public class SIE_Projectile : SIE, IPoolable
 
     // References
     Rigidbody2D _rb;
+    Vector2 _lastVel;
 
     // Data
     float _pierceCount;
@@ -148,6 +150,8 @@ public class SIE_Projectile : SIE, IPoolable
             _rb.linearVelocity = newVel;
             */
         }
+
+        _lastVel = _rb.linearVelocity;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) => HandleCollisionStay(collision.collider, collision);
@@ -156,6 +160,9 @@ public class SIE_Projectile : SIE, IPoolable
     private void OnTriggerStay2D(Collider2D collider) => HandleCollisionStay(collider);
     void HandleCollisionStay(Collider2D col, Collision2D collision = null)
     {
+        Vector2 particleVel = _lastVel * 0.5f;
+        Vector2 particlePoint = collision != null ? collision.contacts[0].point : transform.position;
+
         // State
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
         bool didDodge = false;
@@ -189,6 +196,8 @@ public class SIE_Projectile : SIE, IPoolable
             _pierceCount += pierceMult * 0.5f;
             if(pierceMult > 0f) SlowProjectile(_wallSlowLerp);
 
+            HandleParticles(particlePoint, particleVel, 0.5f);
+
             // Audio
             PlayAudio(_wallHitClip, 0.25f);
         }
@@ -218,6 +227,8 @@ public class SIE_Projectile : SIE, IPoolable
                 {
                     PlayAudio(_hitClip, damageTaken / _skillInstance.Skill.Stats.Damage.Value);
                 });
+
+                HandleParticles(particlePoint, particleVel, damageTaken / _skillInstance.Skill.Stats.Damage.Value);
             }
 
             // Screen Shake
@@ -228,7 +239,7 @@ public class SIE_Projectile : SIE, IPoolable
         {
             if (_rb == null) return;
             _rb.linearVelocity *= 1f.Lerp(0.75f, lerp);
-            _rb.angularVelocity *= 1f.Lerp(0.75f, lerp);
+            _rb.angularVelocity *= 1f.Lerp(0.875f, lerp);
         }
 
         // Knockback
@@ -250,6 +261,29 @@ public class SIE_Projectile : SIE, IPoolable
 
         // Pierce end condition
         if (_pierce >= 0 && _pierceCount >= _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
+    }
+
+    void HandleParticles(Vector2 hitPos, Vector2 hitVel, float mult = 1f)
+    {
+        HitParticlesManager.I.SpawnHitParticles(_skillInstance.Skill, hitPos, hitVel, mult);
+        /*
+        var pSystem = Instantiate(_hitParticles).GetComponent<ParticleSystem>();
+        pSystem.transform.position = (Vector3)hitPos + Vector3.forward * _hitParticles.transform.position.z;
+        var main = pSystem.main;
+        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.1f).Alpha(0.5f * mult);
+
+        main.startSpeed = new ParticleSystem.MinMaxCurve(2.5f * mult, 5f * mult);
+
+        var velOverLifetime = pSystem.velocityOverLifetime;
+        velOverLifetime.enabled = true;
+        velOverLifetime.x = hitVel.x;
+        velOverLifetime.y = hitVel.y;
+
+        var emission = pSystem.emission;
+        emission.SetBurst(0, new ParticleSystem.Burst(0f, (short)(2 * mult), (short)(3 * mult)));
+
+        pSystem.Play();
+        */
     }
 
     void PlayAudio(AudioClip audio, float volMult = 1f)

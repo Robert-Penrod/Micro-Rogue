@@ -2,12 +2,26 @@ using UnityEngine;
 
 public class ST_Cooldown : SkillTrigger
 {
-    private void Update()
+    public bool ResetsCooldownOnTrigger = true;
+
+    private void Start()
     {
-        if(_skill.CooldownPercent >= 1f)
+        _skill.OnCooldown += () =>
         {
-            OnTrigger?.Invoke();
+            DoTrigger();
+        };
+    }
+
+    bool DoTrigger()
+    {
+        bool succesfulTrigger = true;
+        OnTrigger?.Invoke();
+
+        if (succesfulTrigger && ResetsCooldownOnTrigger)
+        {
             _skill.ResetCooldown();
         }
+
+        return succesfulTrigger;
     }
 }

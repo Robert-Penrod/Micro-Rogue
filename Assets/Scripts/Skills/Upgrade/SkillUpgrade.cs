@@ -29,7 +29,7 @@ public class SkillUpgrade : Upgrade
         ModList.Sort((x, y) => x.SkillStatName > y.SkillStatName ? 1 : -1);
         foreach (var upgradeMod in ModList)
         {
-            description = upgradeMod.GetUpgradePreviewString(SourceSkill, SourceSkill.Actor, description);
+            description = upgradeMod.GetUpgradePreviewString(SourceSkill, SourceSkill?.Actor, description);
         }
         return description;
     }
@@ -42,7 +42,7 @@ public class SkillUpgrade : Upgrade
             {
                 Stat stat = SourceSkill.Stats.GetSkillStat(upgradeMod.SkillStatName);
                 var mod = upgradeMod.GetModifier();
-                mod.Source = this;
+                mod.Source = SourceSkill;
                 mod.IsStackable = true;
                 stat.AddModifier(mod);
             }
@@ -50,7 +50,7 @@ public class SkillUpgrade : Upgrade
             {
                 Stat stat = SourceSkill.Actor.Stats.GetStat(upgradeMod.ActorStatName);
                 var mod = upgradeMod.GetModifier();
-                mod.Source = this;
+                mod.Source = SourceSkill;
                 mod.IsStackable = true;
                 stat.AddModifier(mod);
 
@@ -72,7 +72,7 @@ public class SkillUpgrade : Upgrade
 
                     var stat = skill.Stats.GetSkillStat(upgradeMod.SkillStatName);
                     var mod = upgradeMod.GetModifier();
-                    mod.Source = this;
+                    mod.Source = SourceSkill;
                     mod.IsStackable = true;
                     stat.AddModifier(mod);
 

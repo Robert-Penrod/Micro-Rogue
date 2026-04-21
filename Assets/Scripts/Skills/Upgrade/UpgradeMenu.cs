@@ -68,10 +68,11 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     void RollUpgradeCards()
     {
-        Debug.Log("Rerolling");
-        float rarityFlip = (DungeonManager.I.PreviousData?.IsElite ?? false) ? 25f : 0f; 
+        //Debug.Log("Rerolling");
+        float rarityFlip = (DungeonManager.I.PreviousData?.IsElite ?? false) ? 5f : 0f; 
+        float newSkillMult = (DungeonManager.I.PreviousData?.IsElite ?? false) ? 5f : 1f;
         _rarityFlipGFX.SetActive(rarityFlip > 0);
-        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade, rarityFlip: rarityFlip));
+        SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult));
         _rerollButton.gameObject.SetActive(ActorCanReroll(_actorToUpgrade));
 
         if (EventSystem.current.currentSelectedGameObject == null)
@@ -128,7 +129,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
                 var actorTransform = player.Actor.transform;
                 if (_actorToUpgrade != null && _actorToUpgrade == player.Actor)
                 {
-                    actorTransform.position = 16f * Vector3.right + Vector3.forward * actorTransform.position.z;
+                    actorTransform.position = 12f * Vector3.right + Vector3.forward * actorTransform.position.z;
                 }
                 else
                 {

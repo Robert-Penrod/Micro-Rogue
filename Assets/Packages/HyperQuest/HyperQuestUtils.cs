@@ -361,6 +361,10 @@ public static class TypeExtensions
     {
         return value < min ? min : value;
     }
+    public static int ClampInt(this int value, int min, int max)
+    {
+        return value > max ? max : (value < min ? min : value);
+    }
     public static int ClampMax(this int value, int max)
     {
         return value > max ? max : value;

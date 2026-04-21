@@ -31,7 +31,43 @@ public class Skill : MonoBehaviour
 
     public TagCollection Tags;
 
+
+    public SkillPrerequisites Prerequisites;
+    [System.Serializable]
+    public class SkillPrerequisites
+    {
+        public int OffhandCount;
+        public TagCollection TagsRequired;
+    }
+    public bool ArePrerequisitesMet(Actor actor)
+    {
+        if(Prerequisites.OffhandCount > 0)
+        {
+            if(actor.SkillSystem.SkillList.FindAll(skill => skill.Slot == SlotEnum.Offhand).Count < Prerequisites.OffhandCount)
+            {
+                return false;
+            }
+        }
+
+        var prereqTagList = Prerequisites.TagsRequired.GetTagList();
+        if(prereqTagList.Count > 0)
+        {
+            foreach(var prereqTag in prereqTagList)
+            {
+                if (!actor.Tags.HasTag(prereqTag))
+                {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
     [SerializeField] float _dps;
+
+    public Action OnCooldown;
+
     int _dir = 1;
     public int GetDirection(bool doToggle = false)
     {
@@ -122,7 +158,7 @@ public class Skill : MonoBehaviour
         float dodgeMult = 1f;
         if (Actor.MoveController != null)
         {
-            dodgeMult = Actor.MoveController.IsDodging ? 0f : 1f;
+            dodgeMult = Actor.MoveController.IsDodging ? -2f : 1f;
         }
 
         // No Targets
@@ -130,7 +166,7 @@ public class Skill : MonoBehaviour
         {
             if (Actor.Senses.EnemyActors.Count <= 0 || ((_npcBrain?.NoticeMag ?? 1f) < 1f))
             {
-                if (CooldownPercent > 0.9f)
+                if (CooldownPercent > 0.9f && dodgeMult > 0f)
                 {
                     cooldownMult *= 0f;
                     //CooldownPercent -= 0.1f * Stats.Rate.Value * Time.fixedDeltaTime;
@@ -154,6 +190,12 @@ public class Skill : MonoBehaviour
 
             CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.ClampMax(1f);
+
+            // On Cooldown
+            if(CooldownPercent >= 1f)
+            {
+                OnCooldown?.Invoke();
+            }
         }
     }
 

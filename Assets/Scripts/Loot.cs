@@ -67,7 +67,7 @@ public class Loot : Pickup, IPoolable
             {
                 transform.position += 2f * Vector3.up * Time.deltaTime;
             }
-            SetAlpha((_fadeTick / _fadeTime).RemapPercent(1f, 0f));
+            SetAlpha((_fadeTick / _fadeTime).RemapPercent(0.5f, 0f));
         }
         else
         {
@@ -122,5 +122,18 @@ public class Loot : Pickup, IPoolable
     void PlayAudio(AudioClip clip)
     {
         AudioSpawner.PlayAudioWithRandPitch(clip, 0.2f, 1f, 1f);
+    }
+
+    public override void IsGrabbing(float deltaTime)
+    {
+        float reverseAmount = 10f * deltaTime;
+        if (_fadeTick > 0)
+        {
+            _fadeTick = (_fadeTick - reverseAmount).ClampMin(0);
+        }
+        else
+        {
+            _lifeTick = (_lifeTick - reverseAmount).ClampMin(0);
+        }
     }
 }

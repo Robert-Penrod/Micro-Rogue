@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Actor : MonoBehaviour
 {
+    [Header("Info")]
+    [SerializeField] int _lvl;
+    [SerializeField] ActorSkillSystem _skillSystem;
+
     [Header("Config")]
     public float RarityMult = 1f;
     public float Difficulty = 1f;
@@ -25,6 +30,8 @@ public class Actor : MonoBehaviour
     float _initialLinearDamping;
 
     // References
+    public GameObject DeathDrop;
+    public AudioClip DeathClip;
     public Rigidbody2D Body { get; private set; }
     public ActorMoveController MoveController { get; private set; }
     public ActorSenses Senses { get; private set; }
@@ -32,6 +39,7 @@ public class Actor : MonoBehaviour
 
     // Events
     public Action OnTakeDamage;
+    public Action OnWasHit;
     public Action OnUpgrade;
     public Action OnDeath;
     public Action OnEvade;
@@ -44,6 +52,8 @@ public class Actor : MonoBehaviour
     [SerializeField] AudioClip _armorSound;
     [SerializeField] Sprite _evadeSprite;
     [SerializeField] AudioClip _evadeSound;
+
+    Color _initColor;
 
     public int GetLevel()
     {
@@ -59,6 +69,7 @@ public class Actor : MonoBehaviour
 
     private void Awake()
     {
+        DeathDrop.gameObject.SetActive(false);
         Body = GetComponent<Rigidbody2D>();
         _initialLinearDamping = Body.linearDamping;
         MoveController = GetComponent<ActorMoveController>();
@@ -70,6 +81,8 @@ public class Actor : MonoBehaviour
         Stats.HealthMax.BaseValue = Stats.Health;
         Stats.SetHealthPercent(1f);
 
+        _initColor = _spriteRend.color;
+
         // Scale
         _initScale = transform.localScale.x;
         transform.localScale = Vector3.zero;
@@ -79,6 +92,14 @@ public class Actor : MonoBehaviour
         {
             if (newHp <= 0 && IsAlive) Die();
         };
+
+        // Info Updates
+        OnUpgrade += () =>
+        {
+            Debug.Log(this.gameObject.name + " OnUpgrade -> Updating Level");
+            _lvl = GetLevel();
+        };
+        _skillSystem = SkillSystem;
     }
 
     void Die()
@@ -90,6 +111,26 @@ public class Actor : MonoBehaviour
         {
             this.DelayedInvoke(0.25f * Random.Range(0.9f, 1.1f), () =>
             {
+                // Death Drop
+                DeathDrop.transform.SetParent(null);
+                DeathDrop.gameObject.SetActive(true);
+                var pSystemList = new List<ParticleSystem>(DeathDrop.GetComponentsInChildren<ParticleSystem>());
+                var p = DeathDrop.GetComponent<ParticleSystem>();
+                pSystemList.Add(p);
+
+                foreach(ParticleSystem pSystem in pSystemList)
+                {
+                    if (pSystem != null)
+                    {
+                        var main = pSystem.main;
+                        main.startColor = _initColor.Alpha(main.startColor.color.a);
+                        pSystem.Play();
+                    }
+                }
+                
+                AudioSpawner.PlayAudioWithRandPitch(DeathClip, 0.2f, 1f, 1f, transform.position);
+
+                // Destroy
                 Destroy(this.gameObject);
             });
         }
@@ -210,6 +251,12 @@ public class Actor : MonoBehaviour
             damage = 0;
         }
 
+        // Hit Event
+        if(blockType != "dodge")
+        {
+            OnWasHit?.Invoke();
+        }
+
         // Last Chance (Players: If killing hit would do more than x% health -> leave player at 1hp instead)
         if (IsPlayer())
         {
@@ -287,7 +334,7 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        float restFactor = 0.3f;// 0.4f; // 0.375f; // Prototype was 0.25f
+        float restFactor = 0.4f;// 0.3f; // 0.4f; // 0.375f; // Prototype was 0.25f
         Heal((int)(Stats.HealthMax.Value * restFactor), null, this);
     }
 

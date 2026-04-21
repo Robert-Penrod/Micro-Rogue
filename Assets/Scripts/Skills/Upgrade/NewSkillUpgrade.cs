@@ -26,6 +26,13 @@ public class NewSkillUpgrade : Upgrade
             {
                 description = mod.GetUpgradePreviewString(_skillPrefab, _targetActor, description);
             }
+
+            
+            foreach (var upgrade in se_statMod.SkillUpgrade)
+            {
+                upgrade.SourceSkill = SourceSkill;
+                description += upgrade.GetDescription();
+            }
         }
 
         return description;

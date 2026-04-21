@@ -50,12 +50,17 @@ public class ActorSFX : MonoBehaviour
         };
     }
 
+    void PlayAudio(AudioClip clip, float intensity = 1f, float pitchMult = 1f)
+    {
+        AudioSpawner.PlayAudioWithRandPitch(clip, 0.15f, pitchMult, intensity * 0.5f, transform.position);
+    }
+
     void PlayAudio(float intensity = 1f, float pitchMult = 1f)
     {
         //Random.InitState(_actor.name.Substring(0, 3).GetHashCode());
         Random.InitState(_actor.GetInstanceID().GetHashCode() + 3);
         var clip = _actorClip.GetRandomElement();
         Utils.RandomSeed();
-        AudioSpawner.PlayAudioWithRandPitch(clip, 0.15f, pitchMult, intensity * 0.5f, transform.position);
+        PlayAudio(clip, intensity, pitchMult);
     }
 }

@@ -19,7 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Color
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: 9b0f9ddc7862e7f49a288e1524da32c9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 681c3c3c33cd7614487ce59e9178d348, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_cbf0a5c84039468c81bd439033427c1e_Out_0_Texture2D:
@@ -49,10 +49,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Size: 0.5
-    - _TextureAmp: 0.25
+    - _Size: 0.375
+    - _TextureAmp: 0.2
     m_Colors:
-    - _Color: {r: 0.050980393, g: 0.050980393, b: 0.050980393, a: 1}
+    - _Color: {r: 0.08, g: 0.08, b: 0.08, a: 1}
     - _Offset: {r: -6, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

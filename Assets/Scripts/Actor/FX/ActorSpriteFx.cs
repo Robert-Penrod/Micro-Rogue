@@ -53,7 +53,7 @@ public class ActorSpriteFx : MonoBehaviour
         if(_actor.MoveController.IsDodging)
         {
             lerpT -= 0.25f;
-            alpha *= 0.5f;
+            alpha *= 0.25f; // 0.5f
         }
         if(_actor.MoveController.DodgeCooldownPercent < 0.99f)
         {

@@ -21,31 +21,59 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[1].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Mods.Array.data[0].BalancePoints
-      value: 0.1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Mods.Array.data[0].SkillStatName
-      value: 30
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[1].BalancePoints
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[1].SkillStatName
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0]._name
       value: Base
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].SourceSkill
+      value: 
+      objectReference: {fileID: 8215274306946818650}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].TargetType
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].SkillStatName
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].BalancePoints
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].SkillStatName
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
@@ -118,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Description
-      value: Increases the Count of all skills.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.size
@@ -182,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: m_LocalPosition.z

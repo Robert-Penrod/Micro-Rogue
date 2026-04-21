@@ -140,8 +140,16 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Tags._entries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Stats.MoveSpeed.BaseValue
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Tags._entries.Array.data[3].tag
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[0].count
@@ -150,6 +158,10 @@ PrefabInstance:
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[2].count
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Tags._entries.Array.data[3].count
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7563609088413985646, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Angle

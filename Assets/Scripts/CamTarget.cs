@@ -31,7 +31,11 @@ public class CamTarget : MonoBehaviour
             _targetPos = avgPos;
 
             // Zoom
-            if(!UpgradeMenu.I.IsOpen)
+            if(UpgradeMenu.I.IsOpen)
+            {
+                _targetPos = Vector2.zero;
+            }
+            else
             {
                 _camManager.ZoomKnob = Zoom;
             }

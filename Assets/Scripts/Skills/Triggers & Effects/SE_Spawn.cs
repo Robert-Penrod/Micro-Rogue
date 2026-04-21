@@ -6,7 +6,7 @@ public class SE_Spawn : SkillEffect
 {
     public GameObject PrefabToSpawn;
 
-    public override void Effect()
+    public override void TriggerEffect()
     {
         int amount = (int)_skill.Stats.Count.Value;
         float spawnDelay = 0.9f * _skill.TelegraphTime;

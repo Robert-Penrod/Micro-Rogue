@@ -100,13 +100,13 @@ public class SimpleNPCBrain : ActorBrain
 
         if(_lastNoticeMag < 1f && NoticeMag >= 1f)
         {
-            Debug.Log("Notice");
+            //Debug.Log("Notice");
             OnNotice?.Invoke();
         }
 
         if(_lastNoticeMag >= 1f && NoticeMag < 1f && _lastTrackingMag > 0f && TrackingMag <= 0f)
         {
-            Debug.Log("Lost Trail");
+            //Debug.Log("Lost Trail");
             OnLostTrail?.Invoke();
         }
     }

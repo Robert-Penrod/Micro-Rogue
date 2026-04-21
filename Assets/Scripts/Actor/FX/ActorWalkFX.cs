@@ -156,7 +156,7 @@ public class ActorWalkFX : MonoBehaviour
     void PlayWalkSound()
     {
         float basePitch = _actor.Body.linearVelocity.magnitude.Remap(0f, 3f, 0.75f, 1.25f);
-        float vol = 0.04f * Random.Range(0.8f, 1.2f);
+        float vol = 0.01f * Random.Range(0.8f, 1.2f);
         vol *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 2f, false);
         basePitch *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 0.5f, false);
         AudioSpawner.PlayAudioWithRandPitch(WalkSound, 0.2f, basePitch, vol, transform.position).spatialBlend = 0.5f;

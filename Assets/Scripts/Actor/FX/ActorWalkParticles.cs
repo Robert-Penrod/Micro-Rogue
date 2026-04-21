@@ -5,9 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 public class ActorWalkParticles : MonoBehaviour
 {
+    [SerializeField] bool _doesDash = false;
     ParticleSystem _pSystem;
     ActorWalkFX _actorWalkFX;
     Rigidbody2D _body;
+    Actor _actor;
 
     float _pMinSpeed;
     float _pMaxSpeed;
@@ -15,8 +17,9 @@ public class ActorWalkParticles : MonoBehaviour
     private void Awake()
     {
         // Get References
+        _actor = GetComponentInParent<Actor>();
         _pSystem = GetComponent<ParticleSystem>();
-        _actorWalkFX = GetComponentInParent<Actor>().GetComponentInChildren<ActorWalkFX>();
+        _actorWalkFX = _actor?.GetComponentInChildren<ActorWalkFX>();
         _body = GetComponentInParent<Rigidbody2D>();
 
         // Cache pSystem values
@@ -25,9 +28,31 @@ public class ActorWalkParticles : MonoBehaviour
         _pMaxSpeed = main.startSpeed.constantMax;
 
         // Handle Step
-        _actorWalkFX.OnStep += () => HandleStep();
+        if (_actorWalkFX != null)
+        {
+            _actorWalkFX.OnStep += () => HandleStep();
+        }
 
-        
+        if (_doesDash)
+        {
+            _actor.MoveController.OnDodge += () =>
+            {
+                HandleDodge();
+            };
+        }
+    }
+
+    void HandleDodge()
+    {
+        StartCoroutine(HandleDodge_Co());
+        IEnumerator HandleDodge_Co()
+        {
+            while(_actor.MoveController.IsDodging)
+            {
+                HandleStep();
+                yield return new WaitForSeconds(0.05f);
+            }
+        }
     }
 
     void OnLevelChanged(int oldLvl, int newLvl)
@@ -42,7 +67,7 @@ public class ActorWalkParticles : MonoBehaviour
         main.stopAction = ParticleSystemStopAction.Destroy;
     }
 
-    void HandleStep()
+    void HandleStep(float mult = 1f)
     {
         // Get info
         float speed = _body.linearVelocity.magnitude;

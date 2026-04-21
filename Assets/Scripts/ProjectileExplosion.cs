@@ -19,6 +19,8 @@ public class ProjectileExplosion : SkillPart, IPoolable
 
     List<Collider2D> _colCache = new();
 
+    [SerializeField] ParticleSystem _hitParticles;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -99,6 +101,13 @@ public class ProjectileExplosion : SkillPart, IPoolable
             int damageTaken = hitActor.TakeDamage((int)(_damageMult * SourceSkill.Stats.CalculateDamageValue()), _skillInstance, null);
 
             if (damageTaken == 0) return;
+
+            // Particles
+            Vector2 vel = (hitActor.transform.position - transform.position);
+            float mag = 1f;// vel.magnitude.Remap(_radius * 0.5f, _radius, 1f, 0.5f);
+            vel = 7.5f * vel.normalized * mag;
+            Vector2 pos = (transform.position + hitActor.transform.position) / 2f;
+            HitParticlesManager.I.SpawnHitParticles(_skillInstance.Skill, pos, vel, mag);
 
             // Screen Shake
             CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));

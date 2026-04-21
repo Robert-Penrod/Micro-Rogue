@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 493900368521454925, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+      objectReference: {fileID: 4550128079870134220, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 2666913601786557291, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Color.b
       value: 0.375
@@ -64,25 +64,37 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.75
       objectReference: {fileID: 0}
+    - target: {fileID: 3685550267365924128, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: Magnitude
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4782649247904549658, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
-      value: Heavy Helm
+      value: Helmet
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -91,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Icon
       value: 
-      objectReference: {fileID: 493900368521454925, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+      objectReference: {fileID: 4550128079870134220, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Slot
       value: 2
@@ -162,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: UpgradeList.Array.data[0]._name
-      value: Plates
+      value: Reinforced
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: UpgradeList.Array.data[1]._name
@@ -319,3 +331,4 @@ MonoBehaviour:
     IsDex: 0
     IsInt: 0
     BalancePoints: 1.5
+  SkillUpgrade: []

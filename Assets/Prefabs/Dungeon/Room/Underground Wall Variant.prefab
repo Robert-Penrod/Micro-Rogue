@@ -52,12 +52,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5456068647248794534, guid: 3395ab2ccb329f64fb9d8ea7a79b2b8d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
     - target: {fileID: 6471265013603617297, guid: 3395ab2ccb329f64fb9d8ea7a79b2b8d, type: 3}
       propertyPath: m_Name
       value: Underground Wall Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4726187022705886678, guid: 3395ab2ccb329f64fb9d8ea7a79b2b8d, type: 3}
+    - {fileID: 3220445591142623887, guid: 3395ab2ccb329f64fb9d8ea7a79b2b8d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

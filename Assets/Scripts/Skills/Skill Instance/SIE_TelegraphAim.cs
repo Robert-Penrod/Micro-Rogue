@@ -9,7 +9,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
     Actor _cachedTargetEnemy = null;
-    TickTimer _targetTimer = new TickTimer(0.5f);
+    float _cacheTargetTimer;
     float _speed => Constants.SkillStats.Speed.Default;
 
     float _angularVel;
@@ -26,7 +26,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     public void Initialize()
     {
         // Immediate Aim
-        _targetTimer.Reset();
+        _cacheTargetTimer = 0f;
 
         if (this.enabled)
         {
@@ -44,16 +44,27 @@ public class SIE_TelegraphAim : SIE, IPoolable
     {
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
 
+        //ManyAimAttempts();
+        PrototypeAim();
+        //Aim();
+    }
+
+    private void FixedUpdate()
+    {
+        if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
+
         // Targeting
-        _targetTimer.Tick(Time.deltaTime);
-        if(_targetTimer.IsDone())
+        _cacheTargetTimer += Time.fixedDeltaTime;
+        if (_cacheTargetTimer >= 0.9f * _skillInstance.Skill.TelegraphTime)
         {
             _cachedTargetEnemy = _targetEnemy;
         }
 
-        //ManyAimAttempts();
-        PrototypeAim();
-        //Aim();
+        if(_targetEnemy == null)
+        {
+            _skillInstance.StartPercent -= 1f * Time.fixedDeltaTime;
+            _skillInstance.ActivePercent -= 50f * Time.fixedDeltaTime;
+        }
     }
 
     void Aim()
@@ -110,7 +121,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
     void PrototypeAim()
     {
         float AimMult = 1f;
-        float _aimLerp = 16f; // 8, 25
+        float _aimLerp = 14f; // (12, 16) 6, 16, 8, 25
         if (_targetEnemy == null) return;
         Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;
         float targetDist = targetAimDir.magnitude;
@@ -134,11 +145,16 @@ public class SIE_TelegraphAim : SIE, IPoolable
             targetAimDir = Vector2.Lerp(targetAimDir, predictiveAimDir, 0.5f * t);
         }
 
+        // debug line
         Debug.DrawLine(transform.position, transform.position + (Vector3)targetAimDir * 5f);
+
+        // Angle
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
         targetAngle += -_offsetAngle * _skillInstance.Skill.GetDirection();
         float currentAngle = transform.rotation.eulerAngles.z;
         float lerpAngle = Mathf.LerpAngle(currentAngle, targetAngle, AimMult * _aimLerp * Time.deltaTime);
+
+        // Rotation
         transform.rotation = Quaternion.Euler(0f, 0f, lerpAngle);
     }
 
