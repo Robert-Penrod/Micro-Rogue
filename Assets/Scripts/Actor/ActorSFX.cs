@@ -23,6 +23,8 @@ public class ActorSFX : MonoBehaviour
 
     private void Start()
     {
+        if (_actor.IsPlayer()) return;
+
         if (_npcBrain != null)
         {
             _npcBrain.OnNotice += () =>
@@ -55,7 +57,7 @@ public class ActorSFX : MonoBehaviour
         AudioSpawner.PlayAudioWithRandPitch(clip, 0.15f, pitchMult, intensity * 0.5f, transform.position);
     }
 
-    void PlayAudio(float intensity = 1f, float pitchMult = 1f)
+    public void PlayAudio(float intensity = 1f, float pitchMult = 1f)
     {
         //Random.InitState(_actor.name.Substring(0, 3).GetHashCode());
         Random.InitState(_actor.GetInstanceID().GetHashCode() + 3);

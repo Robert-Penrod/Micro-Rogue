@@ -1,16 +1,23 @@
+using System;
 using UnityEngine;
 
-public class HubRoom : MonoBehaviour
+public class HubRoom : Singleton<HubRoom>
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int Level;
+    string _hubLevelKey = "hub_level";
+
+    public Action OnUpgrade;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+        Level = PlayerPrefs.GetInt(_hubLevelKey, 0);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Upgrade()
     {
-        
+        Level++;
+        PlayerPrefs.SetInt(_hubLevelKey, Level);
+        OnUpgrade?.Invoke();
     }
 }

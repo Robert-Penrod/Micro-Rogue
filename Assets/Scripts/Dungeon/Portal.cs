@@ -10,6 +10,7 @@ public class Portal : MonoBehaviour
     [SerializeField] bool _initOnStart = false;
     
     [SerializeField] GameObject _eliteIcon;
+    [SerializeField] GameObject _elite2Icon;
     [SerializeField] GameObject _bossIcon;
     [SerializeField] GameObject _finalBossIcon;
     [SerializeField] TextMeshPro _textMesh;
@@ -86,7 +87,7 @@ public class Portal : MonoBehaviour
         }
         if(Level > 1)
         {
-            this.DungeonData.IsElite = true;
+            this.DungeonData.EliteTier = 1;
         }
 
         // Level Text
@@ -111,7 +112,10 @@ public class Portal : MonoBehaviour
         _baseScale = 0.8f * Level.Remap(1f, 2f, 1f, 1.25f);
 
         // Icons
-        _eliteIcon.SetActive(DungeonData.IsElite);
+        _eliteIcon.SetActive(DungeonData.EliteTier == 1);
+        _eliteIcon.transform.localScale = Vector3.one * DungeonData.EliteTier.Remap(1f, 2f, 1f, 1.2f);
+        _elite2Icon.SetActive(DungeonData.EliteTier == 2);
+        _elite2Icon.transform.localScale = Vector3.one * DungeonData.EliteTier.Remap(1f, 2f, 1f, 1.2f);
         _bossIcon.SetActive(!DungeonData.IsFinalBoss && DungeonData.IsBoss);
         _finalBossIcon.SetActive(DungeonData.IsFinalBoss);
     }

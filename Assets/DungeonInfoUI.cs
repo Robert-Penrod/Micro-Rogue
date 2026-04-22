@@ -17,7 +17,7 @@ public class DungeonInfoUI : MonoBehaviour
 
     void UpdateUI()
     {
-        _eliteimage.enabled = DungeonManager.I.Data.IsElite;
-        _bossImage.enabled = DungeonManager.I.Data.IsBoss;
+        _eliteimage.enabled = DungeonManager.I?.Data?.EliteTier > 0;
+        _bossImage.enabled = DungeonManager.I?.Data?.IsBoss ?? false;
     }
 }

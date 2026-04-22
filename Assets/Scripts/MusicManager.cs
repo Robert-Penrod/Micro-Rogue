@@ -89,7 +89,7 @@ public class MusicManager : MonoBehaviour
                 PlayAudio(_bossMusic);
             }
             // Elite
-            else if (DungeonManager.I.Data.IsElite)
+            else if (DungeonManager.I.Data.EliteTier > 0)
             {
 
                 PlayAudio(_eliteMusic);

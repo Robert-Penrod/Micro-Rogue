@@ -1,13 +1,28 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 public class InteractionBubble : MonoBehaviour
 {
+    [SerializeField] AudioClip _interactCompleteSound;
+    [SerializeField] AudioClip _interactStartSound;
+    [SerializeField] float _interactTime = 1.5f;
+    [SerializeField] float _interactCooldownTime = 1f;
+    float _interactCooldownTick;
+
     public bool IsInteractable = true;
     [SerializeField] SpriteRenderer _mainSprite;
     [SerializeField] ParticleSystem _pSystem;
     List<Player> _colPlayerList = new List<Player>();
+    float _interactTick;
+    float _interactPercent => _interactTick / _interactTime;
+
+    [SerializeField] SpriteRenderer _interactMeterBG;
+    [SerializeField] SpriteRenderer _interactMeterFill;
+
+    public UnityEvent OnInteract;
 
     private void Start()
     {
@@ -40,6 +55,7 @@ public class InteractionBubble : MonoBehaviour
     public List<Player> GetInteractingPlayers()
     {
         if (!IsInteractable) return null;
+        if (_interactCooldownTick > 0f) return null;
         if (_colPlayerList.Count == 0) return _colPlayerList;
         return new List<Player>() { _colPlayerList[0] };
     }
@@ -55,17 +71,88 @@ public class InteractionBubble : MonoBehaviour
 
     private void Update()
     {
+        bool isInteractable = IsInteractable && _interactCooldownTick <= 0f;
+
+        if(_interactCooldownTick > 0f)
+        {
+            _interactCooldownTick -= Time.deltaTime;
+        }
+
+        bool isBeingInteracted = (GetInteractingPlayers()?.Count ?? 0) > 0;
+
+        if(isBeingInteracted)
+        {
+            if(_interactTick <= 0f)
+            {
+                //PlayAudio(_interactStartSound, 0.5f);
+                var actorSFX = GetInteractingPlayers()[0].Actor.GetComponentInChildren<ActorSFX>();
+                if(actorSFX != null)
+                {
+                    actorSFX.PlayAudio(0.5f);
+                }
+            }
+
+            float prevInteractTick = _interactTick;
+            _interactTick += Time.deltaTime;
+            if (_interactTick >= _interactTime)
+            {
+                _interactTick = _interactTime;
+                if(prevInteractTick < _interactTime)
+                {
+                    // New Interact
+                    OnInteract?.Invoke();
+                    _interactCooldownTick = _interactCooldownTime;
+                    if(_interactCooldownTime > 0f)
+                    {
+                        isBeingInteracted = false;
+                    }
+                    PlayAudio(_interactCompleteSound);
+                }
+            }
+        }
+        else
+        {
+            _interactTick = 0f;
+        }
+
+        _interactMeterBG.color = _interactMeterBG.color.Alpha(_interactMeterBG.color.a.Lerp(_interactPercent.Remap(0f, 0.25f, 0f, 0.25f), 6f * Time.deltaTime));
+        _interactMeterFill.transform.localScale = Vector3.one * _interactPercent;
+
+
         // Scale
-        float s = (_colPlayerList.Count > 0 && IsInteractable)? 1.25f : 1f;
+        float s = isBeingInteracted? 1.25f : 1f;
         transform.GetChild(0).localScale = transform.GetChild(0).localScale.x.Lerp(s, 6f * Time.deltaTime) * Vector3.one;
 
+        // Color
+        Color interactColor = isBeingInteracted? GetInteractingPlayers()[0].Data.Color : Color.blue.Lerp(Color.white, 0.675f);
+        Color readyColor = Color.white;
+        Color notInteractableColor = Color.red.Lerp(Color.white, 0.675f);
+        Color c = (isInteractable ? (isBeingInteracted? interactColor : readyColor) : notInteractableColor);
+
         // Sprite
-        _mainSprite.color = (IsInteractable ? Color.white : Color.red.Lerp(Color.white, 0.75f)).Alpha(_mainSprite.color.a);
+        _mainSprite.color = c.Alpha(_mainSprite.color.a);
+
+        Color d = c.Lerp(Color.white, 0.5f);
+        _interactMeterBG.color = d.Alpha(_interactMeterBG.color.a);
+        _interactMeterFill.color = d.Alpha(_interactMeterFill.color.a);
 
         // Particles
-        var main = _pSystem.main; main.startColor = _mainSprite.color.Alpha(main.startColor.color.a);
-        float emissionMult = IsInteractable ? 1f : 0.37f;
-        var emisson = _pSystem.emission; emisson.rateOverTime = new(emissionMult * 1f, emissionMult * 3f);
+        var main = _pSystem.main;
+        var emisson = _pSystem.emission;
+        main.startColor = c.Alpha(main.startColor.color.a);
+        float emissionMult = isInteractable ? 1f : 0.5f;
+        emissionMult *= isBeingInteracted ? 3f : 1f;
+        emisson.rateOverTime = new(emissionMult * 0.5f, emissionMult * 2f);
+
+        float simSpeed = 1f;
+        simSpeed *= isInteractable ? 1f : 0.5f;
+        simSpeed *= isBeingInteracted ? 2f : 1f;
+        main.simulationSpeed = simSpeed;
+    }
+
+    void PlayAudio(AudioClip clip, float mult = 1f)
+    {
+        AudioSpawner.PlayAudioWithRandPitch(clip, 0.2f, 1f, mult);
     }
 
     private void FixedUpdate()

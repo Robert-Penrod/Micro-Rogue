@@ -69,8 +69,8 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     void RollUpgradeCards()
     {
         //Debug.Log("Rerolling");
-        float rarityFlip = (DungeonManager.I.PreviousData?.IsElite ?? false) ? 5f : 0f; 
-        float newSkillMult = (DungeonManager.I.PreviousData?.IsElite ?? false) ? 5f : 1f;
+        float rarityFlip = (DungeonManager.I.PreviousData?.EliteTier > 0) ? 5f : 0f; 
+        float newSkillMult = (DungeonManager.I.PreviousData?.EliteTier > 0) ? 5f : 1f;
         _rarityFlipGFX.SetActive(rarityFlip > 0);
         SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult));
         _rerollButton.gameObject.SetActive(ActorCanReroll(_actorToUpgrade));

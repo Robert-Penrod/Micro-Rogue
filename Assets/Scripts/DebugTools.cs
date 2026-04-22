@@ -48,12 +48,12 @@ public class DebugTools : MonoBehaviour
             if(Input.GetKey(KeyCode.LeftShift))
             {
                 DungeonManager.I.PreviousData = DungeonManager.I.Data;
-                DungeonManager.I.PreviousData.IsElite = true;
+                DungeonManager.I.PreviousData.EliteTier = 1;
             }
             else
             {
                 DungeonManager.I.PreviousData = DungeonManager.I.Data;
-                DungeonManager.I.PreviousData.IsElite = false;
+                DungeonManager.I.PreviousData.EliteTier = 0;
             }
 
             if(!UpgradeManager.I.IsUpgrading)

@@ -125,7 +125,7 @@ public class PlayerManager : Singleton<PlayerManager>
         PlayerList.Add(player);
         OnPlayerJoin?.Invoke(player);
 
-        player.transform.position = Random.insideUnitCircle.normalized * Random.Range(1f, 2f);
+        player.transform.position = Random.insideUnitCircle.normalized * Random.Range(0.5f, 1f);
     }
 
     void OnPlayerLeft(PlayerInput playerInput)

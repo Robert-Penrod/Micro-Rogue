@@ -769,7 +769,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -783,7 +783,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -807,7 +807,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -861,10 +861,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 267
-        width: 14
-        height: 17
+        x: 0
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -883,10 +883,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_1
       rect:
         serializedVersion: 2
-        x: 26
-        y: 267
-        width: 14
-        height: 15
+        x: 22
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -905,10 +905,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 267
-        width: 14
-        height: 16
+        x: 44
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -927,10 +927,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_3
       rect:
         serializedVersion: 2
-        x: 70
-        y: 267
-        width: 14
-        height: 16
+        x: 66
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -949,10 +949,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_4
       rect:
         serializedVersion: 2
-        x: 92
-        y: 267
-        width: 14
-        height: 17
+        x: 88
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -971,10 +971,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_5
       rect:
         serializedVersion: 2
-        x: 114
-        y: 267
-        width: 14
-        height: 16
+        x: 110
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -993,10 +993,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_6
       rect:
         serializedVersion: 2
-        x: 136
-        y: 267
-        width: 14
-        height: 16
+        x: 132
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1015,10 +1015,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_7
       rect:
         serializedVersion: 2
-        x: 158
-        y: 267
-        width: 14
-        height: 17
+        x: 154
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1037,10 +1037,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_8
       rect:
         serializedVersion: 2
-        x: 180
-        y: 267
-        width: 14
-        height: 16
+        x: 176
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1059,10 +1059,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_9
       rect:
         serializedVersion: 2
-        x: 202
-        y: 267
-        width: 14
-        height: 17
+        x: 198
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1081,10 +1081,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_10
       rect:
         serializedVersion: 2
-        x: 222
-        y: 266
-        width: 18
-        height: 18
+        x: 220
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1103,10 +1103,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_11
       rect:
         serializedVersion: 2
-        x: 245
-        y: 273
-        width: 10
-        height: 10
+        x: 242
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1125,10 +1125,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_12
       rect:
         serializedVersion: 2
-        x: 246
-        y: 267
-        width: 9
-        height: 7
+        x: 264
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1147,10 +1147,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_13
       rect:
         serializedVersion: 2
-        x: 254
-        y: 273
-        width: 7
-        height: 9
+        x: 286
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1169,10 +1169,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_14
       rect:
         serializedVersion: 2
-        x: 267
-        y: 267
-        width: 16
-        height: 16
+        x: 308
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1191,10 +1191,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_15
       rect:
         serializedVersion: 2
-        x: 288
-        y: 269
-        width: 8
-        height: 15
+        x: 330
+        y: 264
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1213,10 +1213,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_16
       rect:
         serializedVersion: 2
-        x: 293
-        y: 266
-        width: 9
-        height: 12
+        x: 0
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1235,10 +1235,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_17
       rect:
         serializedVersion: 2
-        x: 299
-        y: 269
-        width: 8
-        height: 15
+        x: 22
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1257,10 +1257,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_18
       rect:
         serializedVersion: 2
-        x: 312
-        y: 267
-        width: 14
-        height: 16
+        x: 44
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1279,10 +1279,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_19
       rect:
         serializedVersion: 2
-        x: 332
-        y: 266
-        width: 18
-        height: 18
+        x: 66
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1301,10 +1301,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_20
       rect:
         serializedVersion: 2
-        x: 2
-        y: 245
-        width: 18
-        height: 16
+        x: 88
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1323,10 +1323,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_21
       rect:
         serializedVersion: 2
-        x: 24
-        y: 246
-        width: 18
-        height: 15
+        x: 110
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1345,10 +1345,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_22
       rect:
         serializedVersion: 2
-        x: 46
-        y: 245
-        width: 18
-        height: 16
+        x: 132
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1367,10 +1367,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_23
       rect:
         serializedVersion: 2
-        x: 70
-        y: 245
-        width: 14
-        height: 16
+        x: 154
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1389,10 +1389,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_24
       rect:
         serializedVersion: 2
-        x: 91
-        y: 245
-        width: 16
-        height: 16
+        x: 176
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1411,10 +1411,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_25
       rect:
         serializedVersion: 2
-        x: 112
-        y: 244
-        width: 18
-        height: 18
+        x: 198
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1433,10 +1433,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_26
       rect:
         serializedVersion: 2
-        x: 134
-        y: 246
-        width: 18
-        height: 14
+        x: 220
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1455,10 +1455,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_27
       rect:
         serializedVersion: 2
-        x: 157
-        y: 246
-        width: 16
-        height: 15
+        x: 242
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1477,10 +1477,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_28
       rect:
         serializedVersion: 2
-        x: 178
-        y: 245
-        width: 18
-        height: 16
+        x: 264
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1499,10 +1499,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_29
       rect:
         serializedVersion: 2
-        x: 200
-        y: 248
-        width: 18
-        height: 11
+        x: 286
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1521,10 +1521,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_30
       rect:
         serializedVersion: 2
-        x: 206
-        y: 247
-        width: 6
-        height: 6
+        x: 308
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1543,10 +1543,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_31
       rect:
         serializedVersion: 2
-        x: 222
-        y: 249
-        width: 18
-        height: 10
+        x: 330
+        y: 242
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1565,10 +1565,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_32
       rect:
         serializedVersion: 2
-        x: 228
-        y: 247
-        width: 6
-        height: 6
+        x: 0
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1587,10 +1587,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_33
       rect:
         serializedVersion: 2
-        x: 244
-        y: 247
-        width: 18
-        height: 12
+        x: 22
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1609,10 +1609,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_34
       rect:
         serializedVersion: 2
-        x: 266
-        y: 249
-        width: 14
-        height: 10
+        x: 44
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1631,10 +1631,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_35
       rect:
         serializedVersion: 2
-        x: 272
-        y: 247
-        width: 6
-        height: 6
+        x: 66
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1653,10 +1653,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_36
       rect:
         serializedVersion: 2
-        x: 277
-        y: 249
-        width: 7
-        height: 9
+        x: 88
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1675,10 +1675,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_37
       rect:
         serializedVersion: 2
-        x: 288
-        y: 245
-        width: 18
-        height: 16
+        x: 110
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1697,10 +1697,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_38
       rect:
         serializedVersion: 2
-        x: 314
-        y: 246
-        width: 10
-        height: 12
+        x: 132
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1719,10 +1719,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_39
       rect:
         serializedVersion: 2
-        x: 333
-        y: 246
-        width: 15
-        height: 11
+        x: 154
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1741,10 +1741,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_40
       rect:
         serializedVersion: 2
-        x: 2
-        y: 222
-        width: 18
-        height: 18
+        x: 176
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1763,10 +1763,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_41
       rect:
         serializedVersion: 2
-        x: 26
-        y: 224
-        width: 14
-        height: 14
+        x: 198
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1785,10 +1785,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_42
       rect:
         serializedVersion: 2
-        x: 48
-        y: 224
-        width: 13
-        height: 13
+        x: 220
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1807,10 +1807,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_43
       rect:
         serializedVersion: 2
-        x: 72
-        y: 225
-        width: 11
-        height: 11
+        x: 242
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1829,10 +1829,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_44
       rect:
         serializedVersion: 2
-        x: 90
-        y: 222
-        width: 18
-        height: 18
+        x: 264
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1851,10 +1851,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_45
       rect:
         serializedVersion: 2
-        x: 114
-        y: 224
-        width: 14
-        height: 14
+        x: 286
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1873,10 +1873,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_46
       rect:
         serializedVersion: 2
-        x: 136
-        y: 224
-        width: 13
-        height: 13
+        x: 308
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1895,10 +1895,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_47
       rect:
         serializedVersion: 2
-        x: 160
-        y: 225
-        width: 11
-        height: 11
+        x: 330
+        y: 220
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1917,10 +1917,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_48
       rect:
         serializedVersion: 2
-        x: 181
-        y: 224
-        width: 13
-        height: 13
+        x: 0
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1939,10 +1939,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_49
       rect:
         serializedVersion: 2
-        x: 204
-        y: 224
-        width: 10
-        height: 14
+        x: 22
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1961,10 +1961,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_50
       rect:
         serializedVersion: 2
-        x: 224
-        y: 225
-        width: 14
-        height: 10
+        x: 44
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1983,10 +1983,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_51
       rect:
         serializedVersion: 2
-        x: 246
-        y: 225
-        width: 14
-        height: 11
+        x: 66
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2005,10 +2005,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_52
       rect:
         serializedVersion: 2
-        x: 268
-        y: 225
-        width: 14
-        height: 12
+        x: 88
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2027,10 +2027,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_53
       rect:
         serializedVersion: 2
-        x: 290
-        y: 225
-        width: 14
-        height: 12
+        x: 110
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2049,10 +2049,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_54
       rect:
         serializedVersion: 2
-        x: 311
-        y: 224
-        width: 16
-        height: 13
+        x: 132
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2071,10 +2071,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_55
       rect:
         serializedVersion: 2
-        x: 334
-        y: 225
-        width: 14
-        height: 12
+        x: 154
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2093,10 +2093,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_56
       rect:
         serializedVersion: 2
-        x: 2
-        y: 200
-        width: 18
-        height: 18
+        x: 176
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2115,10 +2115,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_57
       rect:
         serializedVersion: 2
-        x: 24
-        y: 200
-        width: 18
-        height: 18
+        x: 198
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2137,10 +2137,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_58
       rect:
         serializedVersion: 2
-        x: 47
-        y: 200
-        width: 17
-        height: 18
+        x: 220
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2159,10 +2159,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_59
       rect:
         serializedVersion: 2
-        x: 69
-        y: 203
-        width: 16
-        height: 14
+        x: 242
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2181,10 +2181,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_60
       rect:
         serializedVersion: 2
-        x: 74
-        y: 201
-        width: 6
-        height: 8
+        x: 264
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2203,10 +2203,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_61
       rect:
         serializedVersion: 2
-        x: 92
-        y: 207
-        width: 14
-        height: 10
+        x: 286
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2225,10 +2225,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_62
       rect:
         serializedVersion: 2
-        x: 96
-        y: 201
-        width: 6
-        height: 8
+        x: 308
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2247,10 +2247,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_63
       rect:
         serializedVersion: 2
-        x: 113
-        y: 206
-        width: 16
-        height: 11
+        x: 330
+        y: 198
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2269,10 +2269,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_64
       rect:
         serializedVersion: 2
-        x: 118
-        y: 201
-        width: 6
-        height: 6
+        x: 0
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2291,10 +2291,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_65
       rect:
         serializedVersion: 2
-        x: 135
-        y: 203
-        width: 16
-        height: 14
+        x: 22
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2313,10 +2313,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_66
       rect:
         serializedVersion: 2
-        x: 140
-        y: 201
-        width: 6
-        height: 6
+        x: 44
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2335,10 +2335,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_67
       rect:
         serializedVersion: 2
-        x: 156
-        y: 200
-        width: 18
-        height: 18
+        x: 66
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2357,10 +2357,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_68
       rect:
         serializedVersion: 2
-        x: 178
-        y: 204
-        width: 18
-        height: 13
+        x: 88
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2379,10 +2379,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_69
       rect:
         serializedVersion: 2
-        x: 184
-        y: 202
-        width: 6
-        height: 7
+        x: 110
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2401,10 +2401,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_70
       rect:
         serializedVersion: 2
-        x: 200
-        y: 206
-        width: 18
-        height: 11
+        x: 132
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2423,10 +2423,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_71
       rect:
         serializedVersion: 2
-        x: 206
-        y: 201
-        width: 6
-        height: 8
+        x: 154
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2445,10 +2445,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_72
       rect:
         serializedVersion: 2
-        x: 222
-        y: 206
-        width: 17
-        height: 11
+        x: 176
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2467,10 +2467,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_73
       rect:
         serializedVersion: 2
-        x: 227
-        y: 202
-        width: 7
-        height: 7
+        x: 198
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2489,10 +2489,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_74
       rect:
         serializedVersion: 2
-        x: 244
-        y: 202
-        width: 18
-        height: 13
+        x: 220
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2511,10 +2511,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_75
       rect:
         serializedVersion: 2
-        x: 266
-        y: 203
-        width: 18
-        height: 13
+        x: 242
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2533,10 +2533,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_76
       rect:
         serializedVersion: 2
-        x: 288
-        y: 207
-        width: 18
-        height: 11
+        x: 264
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2555,10 +2555,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_77
       rect:
         serializedVersion: 2
-        x: 293
-        y: 200
-        width: 8
-        height: 10
+        x: 286
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2577,10 +2577,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_78
       rect:
         serializedVersion: 2
-        x: 310
-        y: 203
-        width: 18
-        height: 12
+        x: 308
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2599,10 +2599,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_79
       rect:
         serializedVersion: 2
-        x: 332
-        y: 205
-        width: 18
-        height: 10
+        x: 330
+        y: 176
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2621,10 +2621,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_80
       rect:
         serializedVersion: 2
-        x: 337
-        y: 203
-        width: 8
-        height: 6
+        x: 0
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2643,10 +2643,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_81
       rect:
         serializedVersion: 2
-        x: 2
-        y: 181
-        width: 18
-        height: 13
+        x: 22
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2665,10 +2665,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_82
       rect:
         serializedVersion: 2
-        x: 24
-        y: 179
-        width: 18
-        height: 15
+        x: 44
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2687,10 +2687,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_83
       rect:
         serializedVersion: 2
-        x: 46
-        y: 180
-        width: 18
-        height: 14
+        x: 66
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2709,10 +2709,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_84
       rect:
         serializedVersion: 2
-        x: 68
-        y: 180
-        width: 18
-        height: 15
+        x: 88
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2731,10 +2731,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_85
       rect:
         serializedVersion: 2
-        x: 90
-        y: 181
-        width: 18
-        height: 13
+        x: 110
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2753,10 +2753,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_86
       rect:
         serializedVersion: 2
-        x: 112
-        y: 180
-        width: 18
-        height: 14
+        x: 132
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2775,10 +2775,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_87
       rect:
         serializedVersion: 2
-        x: 134
-        y: 179
-        width: 18
-        height: 16
+        x: 154
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2797,10 +2797,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_88
       rect:
         serializedVersion: 2
-        x: 156
-        y: 179
-        width: 18
-        height: 16
+        x: 176
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2819,10 +2819,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_89
       rect:
         serializedVersion: 2
-        x: 178
-        y: 179
-        width: 18
-        height: 16
+        x: 198
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2841,10 +2841,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_90
       rect:
         serializedVersion: 2
-        x: 200
-        y: 183
-        width: 18
-        height: 13
+        x: 220
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2863,10 +2863,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_91
       rect:
         serializedVersion: 2
-        x: 205
-        y: 179
-        width: 8
-        height: 10
+        x: 242
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2885,10 +2885,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_92
       rect:
         serializedVersion: 2
-        x: 222
-        y: 179
-        width: 18
-        height: 16
+        x: 264
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2907,10 +2907,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_93
       rect:
         serializedVersion: 2
-        x: 244
-        y: 179
-        width: 18
-        height: 17
+        x: 286
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2929,10 +2929,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_94
       rect:
         serializedVersion: 2
-        x: 266
-        y: 183
-        width: 18
-        height: 12
+        x: 308
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2951,10 +2951,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_95
       rect:
         serializedVersion: 2
-        x: 269
-        y: 179
-        width: 12
-        height: 10
+        x: 330
+        y: 154
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2973,10 +2973,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_96
       rect:
         serializedVersion: 2
-        x: 288
-        y: 179
-        width: 18
-        height: 16
+        x: 0
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2995,10 +2995,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_97
       rect:
         serializedVersion: 2
-        x: 310
-        y: 180
-        width: 18
-        height: 16
+        x: 22
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3017,10 +3017,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_98
       rect:
         serializedVersion: 2
-        x: 332
-        y: 179
-        width: 18
-        height: 17
+        x: 44
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3039,10 +3039,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_99
       rect:
         serializedVersion: 2
-        x: 4
-        y: 164
-        width: 14
-        height: 9
+        x: 66
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3061,10 +3061,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_100
       rect:
         serializedVersion: 2
-        x: 26
-        y: 165
-        width: 14
-        height: 9
+        x: 88
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3083,10 +3083,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_101
       rect:
         serializedVersion: 2
-        x: 28
-        y: 156
-        width: 10
-        height: 10
+        x: 110
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3105,10 +3105,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_102
       rect:
         serializedVersion: 2
-        x: 48
-        y: 165
-        width: 14
-        height: 9
+        x: 132
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3127,10 +3127,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_103
       rect:
         serializedVersion: 2
-        x: 49
-        y: 157
-        width: 12
-        height: 9
+        x: 154
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3149,10 +3149,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_104
       rect:
         serializedVersion: 2
-        x: 70
-        y: 164
-        width: 14
-        height: 9
+        x: 176
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3171,10 +3171,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_105
       rect:
         serializedVersion: 2
-        x: 92
-        y: 164
-        width: 14
-        height: 9
+        x: 198
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3193,10 +3193,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_106
       rect:
         serializedVersion: 2
-        x: 114
-        y: 165
-        width: 14
-        height: 9
+        x: 220
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3215,10 +3215,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_107
       rect:
         serializedVersion: 2
-        x: 115
-        y: 157
-        width: 12
-        height: 10
+        x: 242
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3237,10 +3237,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_108
       rect:
         serializedVersion: 2
-        x: 136
-        y: 164
-        width: 14
-        height: 9
+        x: 264
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3259,10 +3259,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_109
       rect:
         serializedVersion: 2
-        x: 138
-        y: 157
-        width: 10
-        height: 9
+        x: 286
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3281,10 +3281,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_110
       rect:
         serializedVersion: 2
-        x: 158
-        y: 164
-        width: 14
-        height: 9
+        x: 308
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3303,10 +3303,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_111
       rect:
         serializedVersion: 2
-        x: 180
-        y: 163
-        width: 14
-        height: 9
+        x: 330
+        y: 132
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3325,10 +3325,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_112
       rect:
         serializedVersion: 2
-        x: 202
-        y: 165
-        width: 14
-        height: 9
+        x: 0
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3347,10 +3347,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_113
       rect:
         serializedVersion: 2
-        x: 204
-        y: 157
-        width: 10
-        height: 9
+        x: 22
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3369,10 +3369,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_114
       rect:
         serializedVersion: 2
-        x: 224
-        y: 164
-        width: 14
-        height: 9
+        x: 44
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3391,10 +3391,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_115
       rect:
         serializedVersion: 2
-        x: 225
-        y: 157
-        width: 12
-        height: 9
+        x: 66
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3413,10 +3413,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_116
       rect:
         serializedVersion: 2
-        x: 245
-        y: 156
-        width: 16
-        height: 11
+        x: 88
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3435,10 +3435,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_117
       rect:
         serializedVersion: 2
-        x: 247
-        y: 166
-        width: 12
-        height: 8
+        x: 110
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3457,10 +3457,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_118
       rect:
         serializedVersion: 2
-        x: 268
-        y: 165
-        width: 14
-        height: 9
+        x: 132
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3479,10 +3479,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_119
       rect:
         serializedVersion: 2
-        x: 270
-        y: 156
-        width: 10
-        height: 10
+        x: 154
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3501,10 +3501,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_120
       rect:
         serializedVersion: 2
-        x: 290
-        y: 165
-        width: 14
-        height: 9
+        x: 176
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3523,10 +3523,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_121
       rect:
         serializedVersion: 2
-        x: 292
-        y: 156
-        width: 10
-        height: 10
+        x: 198
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3545,10 +3545,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_122
       rect:
         serializedVersion: 2
-        x: 313
-        y: 165
-        width: 13
-        height: 9
+        x: 220
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3567,10 +3567,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_123
       rect:
         serializedVersion: 2
-        x: 315
-        y: 157
-        width: 9
-        height: 9
+        x: 242
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3589,10 +3589,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_124
       rect:
         serializedVersion: 2
-        x: 334
-        y: 164
-        width: 14
-        height: 9
+        x: 264
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3611,10 +3611,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_125
       rect:
         serializedVersion: 2
-        x: 4
-        y: 157
-        width: 14
-        height: 8
+        x: 286
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3633,10 +3633,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_126
       rect:
         serializedVersion: 2
-        x: 73
-        y: 157
-        width: 8
-        height: 8
+        x: 308
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3655,10 +3655,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_127
       rect:
         serializedVersion: 2
-        x: 95
-        y: 157
-        width: 8
-        height: 8
+        x: 330
+        y: 110
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3677,10 +3677,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_128
       rect:
         serializedVersion: 2
-        x: 161
-        y: 158
-        width: 8
-        height: 7
+        x: 0
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3699,10 +3699,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_129
       rect:
         serializedVersion: 2
-        x: 178
-        y: 157
-        width: 18
-        height: 8
+        x: 22
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3721,10 +3721,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_130
       rect:
         serializedVersion: 2
-        x: 337
-        y: 158
-        width: 8
-        height: 7
+        x: 44
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3743,10 +3743,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_131
       rect:
         serializedVersion: 2
-        x: 4
-        y: 135
-        width: 14
-        height: 16
+        x: 66
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3765,10 +3765,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_132
       rect:
         serializedVersion: 2
-        x: 28
-        y: 134
-        width: 10
-        height: 18
+        x: 88
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3787,10 +3787,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_133
       rect:
         serializedVersion: 2
-        x: 49
-        y: 135
-        width: 12
-        height: 17
+        x: 110
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3809,10 +3809,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_134
       rect:
         serializedVersion: 2
-        x: 72
-        y: 135
-        width: 10
-        height: 16
+        x: 132
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3831,10 +3831,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_135
       rect:
         serializedVersion: 2
-        x: 94
-        y: 135
-        width: 10
-        height: 16
+        x: 154
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3853,10 +3853,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_136
       rect:
         serializedVersion: 2
-        x: 115
-        y: 135
-        width: 12
-        height: 17
+        x: 176
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3875,10 +3875,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_137
       rect:
         serializedVersion: 2
-        x: 138
-        y: 135
-        width: 10
-        height: 16
+        x: 198
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3897,10 +3897,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_138
       rect:
         serializedVersion: 2
-        x: 160
-        y: 135
-        width: 10
-        height: 16
+        x: 220
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3919,10 +3919,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_139
       rect:
         serializedVersion: 2
-        x: 179
-        y: 135
-        width: 17
-        height: 15
+        x: 242
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3941,10 +3941,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_140
       rect:
         serializedVersion: 2
-        x: 204
-        y: 135
-        width: 10
-        height: 17
+        x: 264
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3963,10 +3963,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_141
       rect:
         serializedVersion: 2
-        x: 225
-        y: 135
-        width: 12
-        height: 16
+        x: 286
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3985,10 +3985,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_142
       rect:
         serializedVersion: 2
-        x: 245
-        y: 134
-        width: 16
-        height: 18
+        x: 308
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4007,10 +4007,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_143
       rect:
         serializedVersion: 2
-        x: 270
-        y: 135
-        width: 10
-        height: 17
+        x: 330
+        y: 88
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4029,10 +4029,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_144
       rect:
         serializedVersion: 2
-        x: 292
-        y: 134
-        width: 10
-        height: 18
+        x: 0
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4051,10 +4051,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_145
       rect:
         serializedVersion: 2
-        x: 315
-        y: 135
-        width: 9
-        height: 17
+        x: 22
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4073,10 +4073,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_146
       rect:
         serializedVersion: 2
-        x: 336
-        y: 136
-        width: 10
-        height: 15
+        x: 44
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4095,10 +4095,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_147
       rect:
         serializedVersion: 2
-        x: 2
-        y: 112
-        width: 18
-        height: 18
+        x: 66
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4117,10 +4117,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_148
       rect:
         serializedVersion: 2
-        x: 24
-        y: 113
-        width: 18
-        height: 17
+        x: 88
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4139,10 +4139,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_149
       rect:
         serializedVersion: 2
-        x: 47
-        y: 114
-        width: 16
-        height: 13
+        x: 110
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4161,10 +4161,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_150
       rect:
         serializedVersion: 2
-        x: 69
-        y: 114
-        width: 17
-        height: 14
+        x: 132
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4183,10 +4183,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_151
       rect:
         serializedVersion: 2
-        x: 91
-        y: 112
-        width: 17
-        height: 18
+        x: 154
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4205,10 +4205,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_152
       rect:
         serializedVersion: 2
-        x: 113
-        y: 119
-        width: 16
-        height: 10
+        x: 176
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4227,10 +4227,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_153
       rect:
         serializedVersion: 2
-        x: 113
-        y: 92
-        width: 16
-        height: 28
+        x: 198
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4249,10 +4249,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_154
       rect:
         serializedVersion: 2
-        x: 137
-        y: 117
-        width: 11
-        height: 6
+        x: 220
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4271,10 +4271,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_155
       rect:
         serializedVersion: 2
-        x: 158
-        y: 116
-        width: 15
-        height: 9
+        x: 242
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4293,10 +4293,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_156
       rect:
         serializedVersion: 2
-        x: 179
-        y: 115
-        width: 16
-        height: 11
+        x: 264
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4315,10 +4315,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_157
       rect:
         serializedVersion: 2
-        x: 200
-        y: 113
-        width: 18
-        height: 16
+        x: 286
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4337,10 +4337,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_158
       rect:
         serializedVersion: 2
-        x: 222
-        y: 113
-        width: 18
-        height: 16
+        x: 308
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4359,10 +4359,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_159
       rect:
         serializedVersion: 2
-        x: 244
-        y: 113
-        width: 17
-        height: 15
+        x: 330
+        y: 66
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4381,10 +4381,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_160
       rect:
         serializedVersion: 2
-        x: 268
-        y: 114
-        width: 14
-        height: 14
+        x: 0
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4403,10 +4403,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_161
       rect:
         serializedVersion: 2
-        x: 289
-        y: 93
-        width: 61
-        height: 37
+        x: 22
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4425,10 +4425,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_162
       rect:
         serializedVersion: 2
-        x: 290
-        y: 113
-        width: 15
-        height: 15
+        x: 44
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4447,10 +4447,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_163
       rect:
         serializedVersion: 2
-        x: 310
-        y: 112
-        width: 18
-        height: 18
+        x: 66
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4469,10 +4469,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_164
       rect:
         serializedVersion: 2
-        x: 3
-        y: 92
-        width: 16
-        height: 12
+        x: 88
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4491,10 +4491,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_165
       rect:
         serializedVersion: 2
-        x: 25
-        y: 91
-        width: 16
-        height: 16
+        x: 110
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4513,10 +4513,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_166
       rect:
         serializedVersion: 2
-        x: 47
-        y: 92
-        width: 16
-        height: 10
+        x: 132
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4535,10 +4535,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_167
       rect:
         serializedVersion: 2
-        x: 69
-        y: 92
-        width: 16
-        height: 10
+        x: 154
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4557,10 +4557,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_168
       rect:
         serializedVersion: 2
-        x: 91
-        y: 92
-        width: 16
-        height: 10
+        x: 176
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4579,10 +4579,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_169
       rect:
         serializedVersion: 2
-        x: 135
-        y: 92
-        width: 16
-        height: 13
+        x: 198
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4601,10 +4601,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_170
       rect:
         serializedVersion: 2
-        x: 157
-        y: 91
-        width: 16
-        height: 15
+        x: 220
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4623,10 +4623,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_171
       rect:
         serializedVersion: 2
-        x: 179
-        y: 94
-        width: 16
-        height: 11
+        x: 242
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4645,10 +4645,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_172
       rect:
         serializedVersion: 2
-        x: 200
-        y: 90
-        width: 18
-        height: 17
+        x: 264
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4667,10 +4667,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_173
       rect:
         serializedVersion: 2
-        x: 223
-        y: 92
-        width: 37
-        height: 15
+        x: 286
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4689,10 +4689,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_174
       rect:
         serializedVersion: 2
-        x: 223
-        y: 90
-        width: 16
-        height: 7
+        x: 308
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4711,10 +4711,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_175
       rect:
         serializedVersion: 2
-        x: 267
-        y: 91
-        width: 16
-        height: 14
+        x: 330
+        y: 44
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4733,10 +4733,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_176
       rect:
         serializedVersion: 2
-        x: 270
-        y: 97
-        width: 10
-        height: 10
+        x: 0
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4755,10 +4755,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_177
       rect:
         serializedVersion: 2
-        x: 3
-        y: 68
-        width: 16
-        height: 18
+        x: 22
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4777,10 +4777,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_178
       rect:
         serializedVersion: 2
-        x: 25
-        y: 68
-        width: 16
-        height: 18
+        x: 44
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4799,10 +4799,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_179
       rect:
         serializedVersion: 2
-        x: 47
-        y: 68
-        width: 16
-        height: 18
+        x: 66
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4821,10 +4821,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_180
       rect:
         serializedVersion: 2
-        x: 69
-        y: 68
-        width: 16
-        height: 18
+        x: 88
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4843,10 +4843,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_181
       rect:
         serializedVersion: 2
-        x: 91
-        y: 68
-        width: 16
-        height: 18
+        x: 110
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4865,10 +4865,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_182
       rect:
         serializedVersion: 2
-        x: 113
-        y: 68
-        width: 16
-        height: 18
+        x: 132
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4887,10 +4887,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_183
       rect:
         serializedVersion: 2
-        x: 135
-        y: 68
-        width: 16
-        height: 18
+        x: 154
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4909,10 +4909,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_184
       rect:
         serializedVersion: 2
-        x: 157
-        y: 68
-        width: 16
-        height: 18
+        x: 176
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4931,10 +4931,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_185
       rect:
         serializedVersion: 2
-        x: 179
-        y: 68
-        width: 16
-        height: 18
+        x: 198
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4953,10 +4953,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_186
       rect:
         serializedVersion: 2
-        x: 201
-        y: 68
-        width: 16
-        height: 18
+        x: 220
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4975,10 +4975,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_187
       rect:
         serializedVersion: 2
-        x: 223
-        y: 68
-        width: 16
-        height: 18
+        x: 242
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4997,10 +4997,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_188
       rect:
         serializedVersion: 2
-        x: 245
-        y: 68
-        width: 15
-        height: 18
+        x: 264
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5019,10 +5019,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_189
       rect:
         serializedVersion: 2
-        x: 267
-        y: 68
-        width: 16
-        height: 18
+        x: 286
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5041,10 +5041,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_190
       rect:
         serializedVersion: 2
-        x: 289
-        y: 68
-        width: 16
-        height: 18
+        x: 308
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5063,10 +5063,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_191
       rect:
         serializedVersion: 2
-        x: 311
-        y: 68
-        width: 16
-        height: 18
+        x: 330
+        y: 22
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5085,10 +5085,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_192
       rect:
         serializedVersion: 2
-        x: 333
-        y: 68
-        width: 16
-        height: 18
+        x: 0
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5107,10 +5107,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_193
       rect:
         serializedVersion: 2
-        x: 3
-        y: 46
-        width: 16
-        height: 18
+        x: 22
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5129,10 +5129,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_194
       rect:
         serializedVersion: 2
-        x: 25
-        y: 46
-        width: 16
-        height: 18
+        x: 44
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5151,10 +5151,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_195
       rect:
         serializedVersion: 2
-        x: 47
-        y: 46
-        width: 16
-        height: 18
+        x: 66
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5173,10 +5173,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_196
       rect:
         serializedVersion: 2
-        x: 69
-        y: 46
-        width: 16
-        height: 18
+        x: 88
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5195,10 +5195,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_197
       rect:
         serializedVersion: 2
-        x: 91
-        y: 46
-        width: 16
-        height: 18
+        x: 110
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5217,10 +5217,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_198
       rect:
         serializedVersion: 2
-        x: 113
-        y: 46
-        width: 16
-        height: 18
+        x: 132
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5239,10 +5239,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_199
       rect:
         serializedVersion: 2
-        x: 135
-        y: 46
-        width: 16
-        height: 18
+        x: 154
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5261,10 +5261,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_200
       rect:
         serializedVersion: 2
-        x: 157
-        y: 46
-        width: 16
-        height: 18
+        x: 176
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5283,10 +5283,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_201
       rect:
         serializedVersion: 2
-        x: 179
-        y: 46
-        width: 16
-        height: 18
+        x: 198
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5305,10 +5305,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_202
       rect:
         serializedVersion: 2
-        x: 202
-        y: 46
-        width: 14
-        height: 18
+        x: 220
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5327,10 +5327,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_203
       rect:
         serializedVersion: 2
-        x: 224
-        y: 46
-        width: 14
-        height: 18
+        x: 242
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5349,10 +5349,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_204
       rect:
         serializedVersion: 2
-        x: 246
-        y: 47
-        width: 14
-        height: 16
+        x: 264
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5371,10 +5371,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_205
       rect:
         serializedVersion: 2
-        x: 268
-        y: 47
-        width: 14
-        height: 16
+        x: 286
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5393,10 +5393,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_206
       rect:
         serializedVersion: 2
-        x: 289
-        y: 48
-        width: 16
-        height: 13
+        x: 308
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5415,10 +5415,10 @@ TextureImporter:
       name: 16x16_accesories_books_diamons_hair_207
       rect:
         serializedVersion: 2
-        x: 309
-        y: 48
-        width: 18
-        height: 14
+        x: 330
+        y: 0
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5433,825 +5433,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_208
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 47
-        width: 18
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 136f983fff2a658d0800000000000000
-      internalID: -2857917693333735887
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_209
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b63bde0313aa62ca0800000000000000
-      internalID: -6041954721819937941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_210
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4de13dd61a4c54760800000000000000
-      internalID: 7441570156910943956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_211
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef58edd91760aeeb0800000000000000
-      internalID: -4689928976903272962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_212
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc2c83e99cfe9dfd0800000000000000
-      internalID: -2316556884083424564
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_213
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4a2a0a78ea5c01b50800000000000000
-      internalID: 6561962010469245604
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_214
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a89710cfc8676f90800000000000000
-      internalID: -6960479457587521371
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_215
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 26
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7b7aab8b78569c120800000000000000
-      internalID: 2434588707164694455
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_216
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 26
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 614c8068000bc01e0800000000000000
-      internalID: -2230214199160028138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_217
-      rect:
-        serializedVersion: 2
-        x: 178
-        y: 24
-        width: 18
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1cc843c64d2a2d40800000000000000
-      internalID: 5560306471889587227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_218
-      rect:
-        serializedVersion: 2
-        x: 201
-        y: 24
-        width: 17
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ef28f9a1344200140800000000000000
-      internalID: 4683783483093385982
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_219
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 24
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b1d52274cc99c6a10800000000000000
-      internalID: 1904065845116689691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_220
-      rect:
-        serializedVersion: 2
-        x: 245
-        y: 25
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c9812a7aa29febe40800000000000000
-      internalID: 5674246542129764508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_221
-      rect:
-        serializedVersion: 2
-        x: 268
-        y: 26
-        width: 14
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 37a121a6e9bc1e8f0800000000000000
-      internalID: -512905001298683277
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_222
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 27
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32962cc7d8ea98cf0800000000000000
-      internalID: -249476381635614429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_223
-      rect:
-        serializedVersion: 2
-        x: 314
-        y: 28
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 66de52b876dcfa610800000000000000
-      internalID: 1634751034358623590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_224
-      rect:
-        serializedVersion: 2
-        x: 337
-        y: 29
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7bc27be51f501eb10800000000000000
-      internalID: 2008893443018271927
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_225
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 7
-        width: 18
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 731870e1454d9d750800000000000000
-      internalID: 6330324208992092471
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_226
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 7
-        width: 10
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a1634ae5866123250800000000000000
-      internalID: 5922821097465853466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_227
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 13
-        width: 7
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f37ede297e2caeff0800000000000000
-      internalID: -5978149629335745
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_228
-      rect:
-        serializedVersion: 2
-        x: 33
-        y: 7
-        width: 9
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 91913bdf5bf3ec880800000000000000
-      internalID: -8588857388470953703
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_229
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 6
-        width: 17
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d64a5d642c90d4dd0800000000000000
-      internalID: -2500331488104045459
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_230
-      rect:
-        serializedVersion: 2
-        x: 68
-        y: 8
-        width: 18
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 85ec9dc517b1cc8e0800000000000000
-      internalID: -1671931187958264232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_231
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 8
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 44d1002e2eedfd410800000000000000
-      internalID: 1504165866600668484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_232
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 4
-        width: 18
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 930e24031f5937930800000000000000
-      internalID: 4139817345612963897
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_233
-      rect:
-        serializedVersion: 2
-        x: 134
-        y: 2
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4bfb3affe6d76bfc0800000000000000
-      internalID: -3479455746408333388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_234
-      rect:
-        serializedVersion: 2
-        x: 156
-        y: 6
-        width: 18
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8d0bfee285a26b1c0800000000000000
-      internalID: -4488353420395171624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_235
-      rect:
-        serializedVersion: 2
-        x: 178
-        y: 8
-        width: 13
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c08d4202e802a7510800000000000000
-      internalID: 1547585216751917068
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_236
-      rect:
-        serializedVersion: 2
-        x: 190
-        y: 8
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2ca86ffab01b896f0800000000000000
-      internalID: -677597080164332862
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_237
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 5
-        width: 18
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d64a453bd0f8b8de0800000000000000
-      internalID: -1329811975951834003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_238
-      rect:
-        serializedVersion: 2
-        x: 222
-        y: 2
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d072b6982aab551d0800000000000000
-      internalID: -3362576339509238003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_239
-      rect:
-        serializedVersion: 2
-        x: 244
-        y: 5
-        width: 12
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 05b54c3f408c8cc20800000000000000
-      internalID: 3227049056606116688
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_240
-      rect:
-        serializedVersion: 2
-        x: 255
-        y: 7
-        width: 7
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c64545d4328c5bbe0800000000000000
-      internalID: -1462042450065075092
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_241
-      rect:
-        serializedVersion: 2
-        x: 266
-        y: 5
-        width: 18
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f5eb25d5b9bde0e20800000000000000
-      internalID: 3318831435750751839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_242
-      rect:
-        serializedVersion: 2
-        x: 289
-        y: 8
-        width: 16
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f94a86ae9eb45b980800000000000000
-      internalID: -8523823251696606049
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_243
-      rect:
-        serializedVersion: 2
-        x: 312
-        y: 10
-        width: 14
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fe36c15aa23bc8a80800000000000000
-      internalID: -8463192603995905041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 16x16_accesories_books_diamons_hair_244
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 2
-        width: 18
-        height: 18
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 20cd4543a1280cd60800000000000000
-      internalID: 7908463994721328130
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 284d9a039f38c9640800eacdc9d13140
     internalID: 0
     vertices: []
     indices: 
@@ -6383,47 +5569,10 @@ TextureImporter:
       16x16_accesories_books_diamons_hair_205: 8281029907173678855
       16x16_accesories_books_diamons_hair_206: 2800869386191881432
       16x16_accesories_books_diamons_hair_207: -6419533876589240413
-      16x16_accesories_books_diamons_hair_208: -2857917693333735887
-      16x16_accesories_books_diamons_hair_209: -6041954721819937941
       16x16_accesories_books_diamons_hair_21: -803229459987862131
-      16x16_accesories_books_diamons_hair_210: 7441570156910943956
-      16x16_accesories_books_diamons_hair_211: -4689928976903272962
-      16x16_accesories_books_diamons_hair_212: -2316556884083424564
-      16x16_accesories_books_diamons_hair_213: 6561962010469245604
-      16x16_accesories_books_diamons_hair_214: -6960479457587521371
-      16x16_accesories_books_diamons_hair_215: 2434588707164694455
-      16x16_accesories_books_diamons_hair_216: -2230214199160028138
-      16x16_accesories_books_diamons_hair_217: 5560306471889587227
-      16x16_accesories_books_diamons_hair_218: 4683783483093385982
-      16x16_accesories_books_diamons_hair_219: 1904065845116689691
       16x16_accesories_books_diamons_hair_22: 1949618490509491022
-      16x16_accesories_books_diamons_hair_220: 5674246542129764508
-      16x16_accesories_books_diamons_hair_221: -512905001298683277
-      16x16_accesories_books_diamons_hair_222: -249476381635614429
-      16x16_accesories_books_diamons_hair_223: 1634751034358623590
-      16x16_accesories_books_diamons_hair_224: 2008893443018271927
-      16x16_accesories_books_diamons_hair_225: 6330324208992092471
-      16x16_accesories_books_diamons_hair_226: 5922821097465853466
-      16x16_accesories_books_diamons_hair_227: -5978149629335745
-      16x16_accesories_books_diamons_hair_228: -8588857388470953703
-      16x16_accesories_books_diamons_hair_229: -2500331488104045459
       16x16_accesories_books_diamons_hair_23: -7433116226118298237
-      16x16_accesories_books_diamons_hair_230: -1671931187958264232
-      16x16_accesories_books_diamons_hair_231: 1504165866600668484
-      16x16_accesories_books_diamons_hair_232: 4139817345612963897
-      16x16_accesories_books_diamons_hair_233: -3479455746408333388
-      16x16_accesories_books_diamons_hair_234: -4488353420395171624
-      16x16_accesories_books_diamons_hair_235: 1547585216751917068
-      16x16_accesories_books_diamons_hair_236: -677597080164332862
-      16x16_accesories_books_diamons_hair_237: -1329811975951834003
-      16x16_accesories_books_diamons_hair_238: -3362576339509238003
-      16x16_accesories_books_diamons_hair_239: 3227049056606116688
       16x16_accesories_books_diamons_hair_24: 6934020292528489419
-      16x16_accesories_books_diamons_hair_240: -1462042450065075092
-      16x16_accesories_books_diamons_hair_241: 3318831435750751839
-      16x16_accesories_books_diamons_hair_242: -8523823251696606049
-      16x16_accesories_books_diamons_hair_243: -8463192603995905041
-      16x16_accesories_books_diamons_hair_244: 7908463994721328130
       16x16_accesories_books_diamons_hair_25: 4578275579581249936
       16x16_accesories_books_diamons_hair_26: 6804427327112674837
       16x16_accesories_books_diamons_hair_27: -311737785485833440

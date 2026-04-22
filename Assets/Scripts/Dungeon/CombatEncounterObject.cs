@@ -28,7 +28,7 @@ public class CombatEncounterObject : MonoBehaviour
         //budget *= DungeonManager.I.Data.IsBoss ? 1.4f : 1f;
         //budget *= DungeonManager.I.Data.IsFinalBoss ? 1.4f : 1f;
 
-        budget *= DungeonManager.I.Data.IsElite ? 1.1f : 1f;
+        budget *= DungeonManager.I.Data.EliteTier > 0 ? (0.1f * (DungeonManager.I.Data.EliteTier - 1f) + 1.1f) : 1f;
         budget *= DungeonManager.I.Data.IsBoss ? 1.2f : 1f;
         budget *= DungeonManager.I.Data.IsFinalBoss ? 1.3f : 1f;
 

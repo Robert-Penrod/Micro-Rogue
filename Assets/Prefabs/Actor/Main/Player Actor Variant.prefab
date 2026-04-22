@@ -42,8 +42,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: _actorClip.Array.size
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: a7bccd010b12b7c45abf977d255089e7, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1bfc2fe31ccaba74ab160212b08c077e, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: e8612639c9cd08d4bb60529382f5082f, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 77b13d1cfffdf0748b40870e3abeaea7, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fe90ec31c15c9244920d68af3cbb56f, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[6]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 9635e00d1fcb5594ca50bf63abc9b6b1, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[7]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6ca7098fb408a3c408971e62825b4529, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[8]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ecd7a51fb586784c93326f6b8d8d697, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[9]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e6ab572c0152a543a50e4b952c45bdd, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[10]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[11]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[12]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[13]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[14]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[15]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[16]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
+    - target: {fileID: 7561832501155998433, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: '_actorClip.Array.data[17]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 47756a24c7d71bd49a74233441534be5, type: 3}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Player Actor Variant
@@ -144,7 +212,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4415280466405483119}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ade3df3518d36a149a500f5860f87c94, type: 3}
   m_Name: 

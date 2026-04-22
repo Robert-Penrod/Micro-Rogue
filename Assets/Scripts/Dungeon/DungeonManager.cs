@@ -72,7 +72,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public BiomeEnum Biome;
         public TagCollection Tags;
 
-        public bool IsElite;
+        public int EliteTier = 0;
         public bool IsBoss;
         public bool IsFinalBoss;
 
@@ -86,7 +86,7 @@ public class DungeonManager : Singleton<DungeonManager>
             // Encounter Type Sampling
             this.IsFinalBoss = this.Coordinate.y % 15 == 0;
             this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
-            this.IsElite = !this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.3f;
+            this.EliteTier = (!this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.3f)? Random.Range(1, 3) : 0;
 
             // Biome Sampling
             this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate);
@@ -355,7 +355,7 @@ public class DungeonManager : Singleton<DungeonManager>
             PreviousData = Data;
             Data = new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
             Data.IsBoss = SelectedPortal.DungeonData.IsBoss;
-            Data.IsElite = SelectedPortal.DungeonData.IsElite;
+            Data.EliteTier = SelectedPortal.DungeonData.EliteTier;
             Data.IsFinalBoss = SelectedPortal.DungeonData.IsFinalBoss;
 
             // Destroy Portals
