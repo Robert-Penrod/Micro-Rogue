@@ -228,7 +228,7 @@ public class SIE_Projectile : SIE, IPoolable
                     PlayAudio(_hitClip, damageTaken / _skillInstance.Skill.Stats.Damage.Value);
                 });
 
-                HandleParticles(particlePoint, particleVel, damageTaken / _skillInstance.Skill.Stats.Damage.Value);
+                HandleParticles(particlePoint, particleVel, (damageTaken / (0.333f * hitActor.Stats.HealthMax.Value)));
             }
 
             // Screen Shake

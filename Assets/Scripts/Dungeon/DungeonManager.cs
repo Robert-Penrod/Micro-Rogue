@@ -66,6 +66,8 @@ public class DungeonManager : Singleton<DungeonManager>
     [System.Serializable]
     public class DungeonData
     {
+        public int RunTier = 1;
+
         public int Seed;
         public int RoomNumber => Coordinate.y;
         public Vector2Int Coordinate;
@@ -76,7 +78,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public bool IsBoss;
         public bool IsFinalBoss;
 
-        public DungeonData(int seed, Vector2Int coordinate)
+        public DungeonData(int seed, Vector2Int coordinate, int runTier)
         {
             // Seeding
             this.Seed = seed;
@@ -88,8 +90,10 @@ public class DungeonManager : Singleton<DungeonManager>
             this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
             this.EliteTier = (!this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.3f)? Random.Range(1, 3) : 0;
 
+            this.RunTier = runTier;
+
             // Biome Sampling
-            this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate);
+            this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate, runTier);
         }
 
         public int GetSeed()
@@ -106,9 +110,9 @@ public class DungeonManager : Singleton<DungeonManager>
     public DungeonData PreviousData;
     #endregion
 
-    public static BiomeEnum SampleBiome(int seed, Vector2Int coord)
+    public static BiomeEnum SampleBiome(int seed, Vector2Int coord, int runTier)
     {
-        int biomeIndex = ((coord.y-1) % 15); // (1, 15, 30) -> (1, 1, 0)
+        int biomeIndex = ((5 * (runTier-1)) + (coord.y - 1)) % 15; // (1, 15, 30) -> (1, 1, 0)
         if(biomeIndex <= 4)
         {
             return BiomeEnum.Wilds;
@@ -337,7 +341,7 @@ public class DungeonManager : Singleton<DungeonManager>
                 if (Random.value < chanceMult * lvledPortalChanceMult * 0.5f) coordinate.y = coordY + 2;
 
                 // Set Data
-                portal.SetData(new DungeonData(Data.Seed, coordinate));
+                portal.SetData(new DungeonData(Data.Seed, coordinate, Data.RunTier));
             }
         }
     }
@@ -353,10 +357,25 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Step data
             PreviousData = Data;
-            Data = new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
+            Data = SelectedPortal.DungeonData;// new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
+            Data.RunTier = SelectedPortal.DungeonData.RunTier;
+
+            // Take Money?
+            Player.PlayerData.Gem -= SelectedPortal.GemCost;
+
+            // Starting run
+            if(PreviousData.Coordinate.y == 0)
+            {
+                // Randomize Seed
+                Data.Seed = System.DateTime.Now.Ticks.GetHashCode();
+            }
+
+            /*
             Data.IsBoss = SelectedPortal.DungeonData.IsBoss;
             Data.EliteTier = SelectedPortal.DungeonData.EliteTier;
             Data.IsFinalBoss = SelectedPortal.DungeonData.IsFinalBoss;
+            Data.RunTier = SelectedPortal.DungeonData.RunTier;
+            */
 
             // Destroy Portals
             foreach (Portal p in FindObjectsByType<Portal>(FindObjectsSortMode.None))

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
+    public int GemCost = 0;
+    public bool IsEnterable => GemCost <= Player.PlayerData.Gem;
+
     public int Level = -1;
     float _targetScale = 0.8f;
 
-    [SerializeField] bool _initOnStart = false;
+    [SerializeField] bool _sampleDataOnStart = false;
     
     [SerializeField] GameObject _eliteIcon;
     [SerializeField] GameObject _elite2Icon;
@@ -15,7 +18,9 @@ public class Portal : MonoBehaviour
     [SerializeField] GameObject _finalBossIcon;
     [SerializeField] TextMeshPro _textMesh;
     [SerializeField] TextMeshPro _lvlText;
+    [SerializeField] TextMeshPro _costText;
     [SerializeField] SpriteRenderer _biomeIcon;
+    [SerializeField] SpriteRenderer _lockIcon;
 
     [SerializeField] AudioClip _enterSound;
     [SerializeField] AudioClip _exitSound;
@@ -45,9 +50,13 @@ public class Portal : MonoBehaviour
         });
 
         // Init on Start
-        if(_initOnStart)
+        if(_sampleDataOnStart)
         {
-            SetData(new DungeonManager.DungeonData(DungeonData.Seed, DungeonData.Coordinate));
+            SetData(new DungeonManager.DungeonData(DungeonData.Seed, DungeonData.Coordinate, DungeonData.RunTier));
+        }
+        else
+        {
+            SetData(DungeonData);
         }
     }
 
@@ -98,6 +107,10 @@ public class Portal : MonoBehaviour
             //_lvlText.color = lvlColor;
         }
 
+        // Cost Text
+        _costText.gameObject.SetActive(GemCost > 0);
+        _costText.text = "-" + GemCost.ToString();
+
         // Sprites
         _spriteRends.ForEach(spriteRend =>
         {
@@ -122,6 +135,9 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
+        // Lock
+        _lockIcon.gameObject.SetActive(!IsEnterable);
+
         float scale = _baseScale;
         float targetRot = 0f;
         if (this == DungeonManager.I.SelectedPortal)
@@ -135,6 +151,7 @@ public class Portal : MonoBehaviour
 
         // Scale
         scale *= PlayerManager.I.PlayerList.Count > 0 ? ((float)_grabbedPlayers.Count / PlayerManager.I.PlayerList.Count).RemapPercent(1f, 1.375f) : 1;
+        scale *= IsEnterable ? 1f : 0.75f;
         float lerpScale = transform.localScale.x.Lerp(scale, 3f * Time.deltaTime);
         transform.localScale = Vector3.one * lerpScale;
 
@@ -145,22 +162,36 @@ public class Portal : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for(int i = 0; i < _grabbedPlayers.Count; i++)
+        if (IsEnterable)
         {
-            // Info
-            float dist = Vector2.Distance(transform.position, _grabbedPlayers[i].Actor.transform.position);
+            for (int i = 0; i < _grabbedPlayers.Count; i++)
+            {
+                // Info
+                float dist = Vector2.Distance(transform.position, _grabbedPlayers[i].Actor.transform.position);
 
-            // Grab Force
-            float distMult = dist.Remap(0.125f, 1f, 0f, 1f);
-            Vector2 towardsCore = transform.position - _grabbedPlayers[i].Actor.transform.position;
-            Vector2 grabForceVector = distMult * _grabForce * towardsCore.normalized;
-            _grabbedPlayers[i].Actor.Body.AddForce(grabForceVector * _grabbedPlayers[i].Actor.Body.linearDamping);
+                // Grab Force
+                float distMult = dist.Remap(0.125f, 1f, 0f, 1f);
+                Vector2 towardsCore = transform.position - _grabbedPlayers[i].Actor.transform.position;
+                Vector2 grabForceVector = distMult * _grabForce * towardsCore.normalized;
+                _grabbedPlayers[i].Actor.Body.AddForce(grabForceVector * _grabbedPlayers[i].Actor.Body.linearDamping);
 
-            // Slide Force
-            _grabbedPlayers[i].Actor.Body.AddForce(0.5f * _grabbedPlayers[i].Actor.Body.linearVelocity);
+                // Slide Force
+                _grabbedPlayers[i].Actor.Body.AddForce(0.5f * _grabbedPlayers[i].Actor.Body.linearVelocity);
 
-            // Dampening
-            _grabbedPlayers[i].Actor.Body.linearVelocity = _grabbedPlayers[i].Actor.Body.linearVelocity * (1f - (2f * Time.fixedDeltaTime));
+                // Dampening
+                _grabbedPlayers[i].Actor.Body.linearVelocity = _grabbedPlayers[i].Actor.Body.linearVelocity * (1f - (2f * Time.fixedDeltaTime));
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _grabbedPlayers.Count; i++)
+            {
+                Vector2 dir = _grabbedPlayers[i].Actor.transform.position - transform.position;
+                Vector2 forceVector = dir.normalized * 5f * dir.magnitude.Remap(0f, 1f, 1f, 0.75f);
+
+                // Slide Force
+                _grabbedPlayers[i].Actor.Body.AddDampForce(forceVector);
+            }
         }
     }
 
@@ -178,7 +209,7 @@ public class Portal : MonoBehaviour
         // Check leaveLog
         if (_leaveLog.ContainsKey(player))
         {
-            if (Time.time - _leaveLog[player] < 0.5f) return;
+            if (Time.time - _leaveLog[player] < 0.2f) return;
         }
 
         // Add player
@@ -215,6 +246,7 @@ public class Portal : MonoBehaviour
 
     void HandlePlayerEnter(Player player)
     {
+        if (!IsEnterable) return; 
         player.SelectedPortal = this;
         AudioSpawner.PlayAudioWithRandPitch(_enterSound, 0.2f, 1.25f, 1f);
     }
@@ -222,6 +254,7 @@ public class Portal : MonoBehaviour
     void HandlePlayerExit(Player player)
     {
         player.SelectedPortal = null;
+        if (!IsEnterable) return;
         AudioSpawner.PlayAudioWithRandPitch(_exitSound, 0.2f, 0.75f, 1f);
     }
 }
