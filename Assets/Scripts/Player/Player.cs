@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,6 +37,19 @@ public class Player : MonoBehaviour
             }
         }
         public static int _gem;
+
+        public static List<string> GetUnlockedSkillList()
+        {
+            return new(GetUnlockedSkillString().Split(", "));
+        }
+        public static void UnlockSkill(string skillName)
+        {
+            PlayerPrefs.SetString("UnlockedSkills", GetUnlockedSkillString() + ", " + skillName);
+        }
+        static string GetUnlockedSkillString()
+        {
+            return PlayerPrefs.GetString("UnlockedSkills", "all, Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome");
+        }
     }
     public PlayerData Data;
 

@@ -17,6 +17,7 @@ public static class Utils
             float decaySpeed = 1f / decayTime;
             while(force.magnitude > 0)
             {
+                if (rb == null) yield break;
                 Debug.DrawLine(rb.transform.position, rb.transform.position + (Vector3)force, Color.blue.Lerp(Color.red, 0.5f));
                 var decayForce = -force.normalized * decaySpeed * Time.fixedDeltaTime;
                 if (force.magnitude < 0.001f || decayForce.magnitude > force.magnitude)

@@ -40,8 +40,7 @@ public class NewSkillUpgrade : Upgrade
 
     public override Color GetColor()
     {
-        if (_skillPrefab.SkillColor != Color.clear) return _skillPrefab.SkillColor;
-        return GamePaletteManager.I.Palette.GetSkillColor(_skillPrefab);
+        return _skillPrefab.GetColor();
     }
 
     public override void ApplyUpgrade()

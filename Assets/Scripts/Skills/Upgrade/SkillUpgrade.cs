@@ -118,7 +118,7 @@ public class SkillUpgrade : Upgrade
                     if(skill.Stats.Damage.Value > 0)
                     {
                         // 8s, 0.5s
-                        if (previewStatValue < 0.125f || previewStatValue > 2f) return false;
+                        if (previewStatValue < 0.125f || previewStatValue > 1f) return false;
                     }
                     else
                     {

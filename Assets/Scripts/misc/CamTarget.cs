@@ -37,13 +37,13 @@ public class CamTarget : MonoBehaviour
             }
             else
             {
-                _camManager.ZoomKnob = Zoom;
+                _camManager.Zoom(Zoom, this);
             }
         }
         else
         {
             _targetPos = Vector2.zero;
-            if (!UpgradeMenu.I.IsOpen) _camManager.ZoomKnob = 1f;
+            if (!UpgradeMenu.I.IsOpen) _camManager.Zoom(0.9f, this);
         }
         _targetPos *= Magnitude;
 

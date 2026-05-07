@@ -28,17 +28,19 @@ public class CamShaker : Singleton<CamShaker>
 
         // Decrease the target shake amount over time
         targetShakeAmount = Vector2.MoveTowards(targetShakeAmount, Vector2.zero, decreaseFactor * Time.deltaTime);
+
+        CameraManager.I.Zoom(targetShakeAmount.x.Remap(0f, 1f, 1f, 1.1f), this);
     }
 
     public void Shake(float amplitude, float frequency)
     {
         // Hard Coded Mults
         amplitude *= 1.5f;
-        frequency *= 12f;
+        frequency *= 1.5f * 12f;
 
         // Add the requested shake effect to the target shake amount
         targetShakeAmount += new Vector2(amplitude, frequency);
-        targetShakeAmount.x = Mathf.Clamp(targetShakeAmount.x, 0f, 1f);
+        targetShakeAmount.x = Mathf.Clamp(targetShakeAmount.x, 0f, 2f);
         targetShakeAmount.y = Mathf.Clamp(targetShakeAmount.y, 0f, 2f);
 
         //float ampPercent = amplitude.Remap(0.2f, 0.3f, 0f, 1f);

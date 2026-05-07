@@ -37,6 +37,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].SourceSkill
+      value: 
+      objectReference: {fileID: 302500762316385262}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Mods.Array.data[0].RequiredSlots.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -54,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -154,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Description
-      value: Increases the Rate of Offhand skills.
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.size
@@ -206,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 0.2
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName

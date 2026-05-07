@@ -116,6 +116,16 @@ public class PlayerManager : Singleton<PlayerManager>
         UpdateCanJoin();
     }
 
+    /*
+    private void Update()
+    {
+        PlayerList.ForEach(player => {
+            CameraManager.I.Zoom(player.Actor.Body.linearVelocity.magnitude.Remap(0f, 2f * Constants.ActorStats.MoveSpeed.Default, 1f, 1.05f), this);
+        });
+    }
+    */
+
+
     public Color GetPlayerColor(int index) => _playerColors[index];
 
     void OnPlayerJoined(PlayerInput playerInput)

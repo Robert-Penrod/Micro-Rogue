@@ -60,6 +60,11 @@ public class Portal : MonoBehaviour
         }
     }
 
+    public void UpdateUI()
+    {
+        SetData(DungeonData);
+    }
+
     public void SetData(DungeonManager.DungeonData data)
     {
         // Init
@@ -96,16 +101,12 @@ public class Portal : MonoBehaviour
         }
         if(Level > 1)
         {
-            this.DungeonData.EliteTier = 1;
+            //this.DungeonData.EliteTier = 1;
         }
 
         // Level Text
-        if (Level == 1) _lvlText.gameObject.SetActive(false);
-        else
-        {
-            _lvlText.text = $"+{Level}";
-            //_lvlText.color = lvlColor;
-        }
+        _lvlText.gameObject.SetActive(Level != 1 && IsEnterable);
+        _lvlText.text = $"+{Level}";
 
         // Cost Text
         _costText.gameObject.SetActive(GemCost > 0);
@@ -137,6 +138,7 @@ public class Portal : MonoBehaviour
     {
         // Lock
         _lockIcon.gameObject.SetActive(!IsEnterable);
+        UpdateUI();
 
         float scale = _baseScale;
         float targetRot = 0f;

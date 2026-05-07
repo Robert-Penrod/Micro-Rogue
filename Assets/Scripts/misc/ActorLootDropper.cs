@@ -24,7 +24,7 @@ public class ActorLootDropper : MonoBehaviour
         dropCount += DungeonManager.I.Data.EliteTier;
         dropCount *= DungeonManager.I.Data.EliteTier.Remap(0f, 2f, 1f, 2f);
         dropCount *= DungeonManager.I.Data.IsBoss ? 2f : 1f;
-        dropCount *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 2f);
+        dropCount *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 3f);
         //dropCount = (int)(dropCount * Random.Range(0.5f, 2f));
 
         //Debug.Log($"Spawning {dropCount} loot");

@@ -384,16 +384,20 @@ PrefabInstance:
       value: An improvised thrown weapon found on the ground...
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
-      propertyPath: SkillColor.b
+      propertyPath: SkillColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: SkillColor.b
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: SkillColor.g
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: SkillColor.r
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: PassiveDistMult

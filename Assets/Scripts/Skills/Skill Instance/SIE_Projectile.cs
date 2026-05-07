@@ -121,9 +121,14 @@ public class SIE_Projectile : SIE, IPoolable
             _skillInstance.State = SkillInstance.SkillInstanceState.End;
         }
 
-        if (_attached)
+        if (_attached && _rb != null)
         {
-            _rb.linearVelocity = _skillInstance?.Skill?.Actor?.Body?.linearVelocity ?? Vector2.zero;
+            Vector2 vel = Vector2.zero;
+            if(_skillInstance?.Skill?.Actor?.Body != null)
+            {
+                vel = _skillInstance.Skill.Actor.Body.linearVelocity;
+            }
+            _rb.linearVelocity = vel;
         }
 
         if (_rb == null) return;

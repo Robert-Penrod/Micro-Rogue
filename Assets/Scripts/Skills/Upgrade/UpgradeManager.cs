@@ -8,6 +8,8 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
     [Header("Data")]
     [SerializeField] List<Skill> BaseSkillList = new();
 
+    public List<Skill> GetSkillList() => BaseSkillList;
+
     // State
     public bool IsUpgrading { get; private set; }
 
@@ -78,6 +80,10 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         BaseSkillList.ForEach(newSkill =>
         {
             // FILTERS
+            //
+            // If Player skill must be unlocked
+            var unlockedSkillList = Player.PlayerData.GetUnlockedSkillList();
+            if (actorToUpgrade.IsPlayer() && !unlockedSkillList.Contains(newSkill.name) && !unlockedSkillList.Contains("all")) return;
             //
             // If no damage skills -> new skill must do damage
             bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;

@@ -67,7 +67,11 @@ public class Loot : Pickup, IPoolable
             {
                 transform.position += 2f * Vector3.up * Time.deltaTime;
             }
-            SetAlpha((_fadeTick / _fadeTime).RemapPercent(0.5f, 0f));
+
+            if (LifeTime > 0)
+            {
+                SetAlpha((_fadeTick / _fadeTime).RemapPercent(0.5f, 0f));
+            }
         }
         else
         {

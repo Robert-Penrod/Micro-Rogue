@@ -10,6 +10,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [Header("References")]
     [SerializeField] GameObject _rarityFlipGFX;
     [SerializeField] SimpleButton _rerollButton;
+    [SerializeField] GameObject _toggleObjects;
     List<SpriteRenderer> _upgradeBgSprite = new();
     Dictionary<SpriteRenderer, float> _upgradeBgAlphaInit = new();
     CanvasGroup _canvasGroup;
@@ -105,7 +106,8 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     public void SetMenuOpen(bool isOpen)
     {
-        CameraManager.I.ZoomKnob = isOpen ? 1.1f : 1f;
+        _toggleObjects?.SetActive(!isOpen);
+        CameraManager.I.Zoom(isOpen ? 1.1f : 1f, this);
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
         IsOpen = isOpen;
 

@@ -25,6 +25,11 @@ public class Skill : MonoBehaviour
     public SlotEnum Slot;
     [VerticalGroup("Info/SkillGroup/Right")]
     public Color SkillColor = Color.clear;
+    public Color GetColor()
+    {
+        if (SkillColor != Color.clear) return SkillColor;
+        return GamePaletteManager.I.Palette.GetSkillColor(this);
+    }
 
     [BoxGroup("Stats")]
     public SkillStats Stats;
@@ -85,7 +90,7 @@ public class Skill : MonoBehaviour
     [HideInInspector] public Actor Actor;
 
     // State
-    public bool IsActive => SkillInstances.FindAll(skillInstance => (BlockCooldownDurringStart && skillInstance.State == SkillInstance.SkillInstanceState.Start) || (IsActiveDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
+    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance != null && (BlockCooldownDurringStart && skillInstance.State == SkillInstance.SkillInstanceState.Start) || (IsActiveDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
     public bool NeedsTargetForCooldown = true;
     public float CooldownPercent { get; private set; }
