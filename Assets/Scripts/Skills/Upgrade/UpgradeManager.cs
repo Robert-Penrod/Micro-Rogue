@@ -67,6 +67,8 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
 
     WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
     {
+        if (actorToUpgrade == null || actorToUpgrade.SkillSystem == null) return new();
+
         // INIT
         WeightedList<Upgrade> weightedUpgradeList = new();
 

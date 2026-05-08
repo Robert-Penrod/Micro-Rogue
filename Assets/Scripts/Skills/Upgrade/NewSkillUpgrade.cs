@@ -50,6 +50,12 @@ public class NewSkillUpgrade : Upgrade
         //Debug.Log("!!! Applying New Skill UPGRAde");
         _targetActor.Tags.AddTags(newSkill.Tags);
         _targetActor.OnUpgrade?.Invoke();
+
+        // Skill Refresh
+        _targetActor.SkillSystem.SkillList.ForEach(skill =>
+        {
+            skill.ReInitializeFromHistory();
+        });
     }
 
     public override string GetSlot()

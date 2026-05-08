@@ -95,6 +95,8 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     public bool ActorCanReroll(Actor actor)
     {
+        if (actor == null) return false;
+
         if(actor.IsPlayer())
         {
             var player = actor.GetComponentInParent<Player>();

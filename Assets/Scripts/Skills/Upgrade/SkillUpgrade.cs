@@ -36,22 +36,41 @@ public class SkillUpgrade : Upgrade
 
     public override void ApplyUpgrade()
     {
+        ApplyMods();
+
+        // Stat Changes
+        SourceSkill.Actor.Stats.AddArchetypeStats(SourceSkill.Stats.Str, SourceSkill.Stats.Dex, SourceSkill.Stats.Int);
+        SourceSkill.Level++;
+        SourceSkill.Actor.Tags.AddTags(SourceSkill.Tags);
+        SourceSkill.UpgradeHistory.Add(this);
+
+        SourceSkill.Actor.OnUpgrade?.Invoke();
+
+        SourceSkill.ReInitializeFromHistory();
+    }
+
+
+    public void ApplyMods()
+    {
+        var source = this;
         foreach (var upgradeMod in ModList)
         {
             if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.SkillStat)
             {
                 Stat stat = SourceSkill.Stats.GetSkillStat(upgradeMod.SkillStatName);
                 var mod = upgradeMod.GetModifier();
-                mod.Source = SourceSkill;
+                mod.Source = source;
                 mod.IsStackable = true;
+                mod.Tags.Add(SourceSkill.Name);
                 stat.AddModifier(mod);
             }
-            else if(upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
+            else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
             {
                 Stat stat = SourceSkill.Actor.Stats.GetStat(upgradeMod.ActorStatName);
                 var mod = upgradeMod.GetModifier();
-                mod.Source = SourceSkill;
+                mod.Source = source;
                 mod.IsStackable = true;
+                mod.Tags.Add(SourceSkill.Name);
                 stat.AddModifier(mod);
 
                 if (upgradeMod.ActorStatName == ActorStats.ActorStatTypes.MaxHealth)
@@ -59,10 +78,10 @@ public class SkillUpgrade : Upgrade
                     SourceSkill.Actor.Stats.Health += (int)mod.Value;
                 }
             }
-            else if(upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.GlobalSkillStat)
+            else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.GlobalSkillStat)
             {
                 Debug.Log("Global Skill Stat Upgrade");
-                foreach(var skill in SourceSkill.Actor.SkillSystem.SkillList)
+                foreach (var skill in SourceSkill.Actor.SkillSystem.SkillList)
                 {
                     if (!upgradeMod.IsSkillValid(skill))
                     {
@@ -72,8 +91,9 @@ public class SkillUpgrade : Upgrade
 
                     var stat = skill.Stats.GetSkillStat(upgradeMod.SkillStatName);
                     var mod = upgradeMod.GetModifier();
-                    mod.Source = SourceSkill;
+                    mod.Source = source;
                     mod.IsStackable = true;
+                    mod.Tags.Add(SourceSkill.Name);
                     stat.AddModifier(mod);
 
                     Debug.Log("Doing global stat mod for " + skill.Name);
@@ -82,14 +102,32 @@ public class SkillUpgrade : Upgrade
                 }
             }
         }
+    }
 
-        // Stat Changes
-        SourceSkill.Actor.Stats.AddArchetypeStats(SourceSkill.Stats.Str, SourceSkill.Stats.Dex, SourceSkill.Stats.Int);
-        SourceSkill.Level++;
-        SourceSkill.Actor.Tags.AddTags(SourceSkill.Tags);
-        SourceSkill.UpgradeHistory.Add(this);
-
-        SourceSkill.Actor.OnUpgrade?.Invoke();
+    public void RemoveMods()
+    {
+        var source = this;
+        foreach (var upgradeMod in ModList)
+        {
+            if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.SkillStat)
+            {
+                Stat stat = SourceSkill.Stats.GetSkillStat(upgradeMod.SkillStatName);
+                stat.RemoveAllModifiersFromSource(source);
+            }
+            else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
+            {
+                Stat stat = SourceSkill.Actor.Stats.GetStat(upgradeMod.ActorStatName);
+                stat.RemoveAllModifiersFromSource(source);
+            }
+            else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.GlobalSkillStat)
+            {
+                foreach (var skill in SourceSkill.Actor.SkillSystem.SkillList)
+                {
+                    var stat = skill.Stats.GetSkillStat(upgradeMod.SkillStatName);
+                    stat.RemoveAllModifiersFromSource(source);
+                }
+            }
+        }
     }
 
     internal bool IsValid(Skill skill)

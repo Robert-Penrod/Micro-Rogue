@@ -119,6 +119,19 @@ public class Skill : MonoBehaviour
         });
     }
 
+    public void ReInitializeFromHistory()
+    {
+        UpgradeHistory.ForEach(upgrade =>
+        {
+            upgrade.RemoveMods();
+        });
+
+        UpgradeHistory.ForEach(Upgrade =>
+        {
+            Upgrade.ApplyMods();
+        });
+    }
+
     private void OnEnable()
     {
         // Init Upgrades

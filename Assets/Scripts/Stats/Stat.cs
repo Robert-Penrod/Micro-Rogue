@@ -41,7 +41,7 @@ namespace Kryz.Stats
 			}
 		}
 
-		[HideInInspector] protected List<StatModifier> statModifiers;
+		[SerializeField] protected List<StatModifier> statModifiers;
 		public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
 		public Action<float, float> OnValueChanged;
@@ -83,7 +83,7 @@ namespace Kryz.Stats
 				bool modAlreadyExists = false;
 				statModifiers.ForEach(x =>
 				{
-					if (x.Source != null && x.Source == mod.Source && x.Value == mod.Value)
+					if (x.Source != null && x.Source == mod.Source)// && x.Value == mod.Value)
 					{
 						modAlreadyExists = true;
 					}
