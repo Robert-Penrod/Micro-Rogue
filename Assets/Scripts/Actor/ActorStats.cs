@@ -31,11 +31,11 @@ public class ActorStats
     public int Dex;
     public int Int;
 
-    public Stat HealthMax = new Stat(0, "Max Health", true, unit: "hp");
-    public Stat MoveSpeed = new Stat(0, "Move Speed", unit: "m/s");
-    public Stat DodgeRate = new Stat(0, "Dodge Rate", positiveDir: -1, unit: "s");
-    public Stat Defense = new Stat(0, "Defense");
-    public Stat Evasion = new Stat(0, "Evasion");
+    public Stat HealthMax = new Stat("Max Health", 0, true, unit: "hp");
+    public Stat MoveSpeed = new Stat("Move Speed", 0, unit: "m/s");
+    public Stat DodgeRate = new Stat("Dodge Rate", 0, positiveDir: -1, unit: "s");
+    public Stat Defense = new Stat("Defense", 0);
+    public Stat Evasion = new Stat("Evasion", 0);
 
     /// <summary>
     /// ?.Invoke(newHealth, delta)

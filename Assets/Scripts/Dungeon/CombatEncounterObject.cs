@@ -17,7 +17,7 @@ public class CombatEncounterObject : MonoBehaviour
         // Init
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
 
-        budget *= DungeonManager.I.Data.RoomNumber.Remap(1f, 15f, 1f, 1.05f);
+        //budget *= DungeonManager.I.Data.RoomNumber.Remap(1f, 15f, 1f, 1.05f);
 
         //budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
         //budget += DungeonManager.I.Data.IsBoss ? 2f : 0f;

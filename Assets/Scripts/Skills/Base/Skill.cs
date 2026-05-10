@@ -207,7 +207,7 @@ public class Skill : MonoBehaviour
             //mult *= Constants.SpeedMult;
 
             CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
-            CooldownPercent = CooldownPercent.ClampMax(1f);
+            CooldownPercent = CooldownPercent.Clamp01();
 
             // On Cooldown
             if(CooldownPercent >= 1f)

@@ -7,7 +7,10 @@ public class HubLevelUnlockObject : MonoBehaviour
 
     private void Start()
     {
-        transform.GetChild(0).gameObject.SetActive(false);
+        foreach (Transform t in transform)
+        {
+            t.gameObject.SetActive(false);
+        }
         transform.localScale = Vector3.zero;
         HubRoom.I.OnUpgrade += () =>
         {
@@ -22,7 +25,10 @@ public class HubLevelUnlockObject : MonoBehaviour
         if(hubLevel >= UnlockLevel)
         {
             _unlocked = true;
-            transform.GetChild(0).gameObject.SetActive(true);
+            foreach(Transform t in transform)
+            {
+                t.gameObject.SetActive(true);
+            }
         }
     }
 

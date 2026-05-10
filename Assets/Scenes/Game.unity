@@ -7280,14 +7280,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1863449584593414639, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 1863449584593414639, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 27
-      objectReference: {fileID: 0}
     - target: {fileID: 3419859953418669523, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
       propertyPath: orthographic size
       value: 9
@@ -7303,10 +7295,6 @@ PrefabInstance:
     - target: {fileID: 3794676167097572264, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
       propertyPath: m_LocalPosition.z
       value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 4719338304093082998, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
-      propertyPath: Zoom
-      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6461807052147353946, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9566,11 +9554,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!1 &1366001086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2554574803133758493, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-  m_PrefabInstance: {fileID: 6499624074570785069}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1369801241
 GameObject:
   m_ObjectHideFlags: 0
@@ -17465,10 +17448,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8031744714158729290, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-      propertyPath: _toggleObjects
-      value: 
-      objectReference: {fileID: 1366001086}
     - target: {fileID: 8475263568435286024, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -10

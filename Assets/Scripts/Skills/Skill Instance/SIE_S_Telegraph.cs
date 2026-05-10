@@ -75,8 +75,8 @@ public class SIE_S_Telegraph : SIE, IPoolable
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
 
         // Tick
-        float dodgeMult = _skillInstance.Skill.Actor.MoveController.IsDodging ? 0f : 1f;
-        _skillInstance.StartPercent += dodgeMult * Time.deltaTime / _telegraphTime;
+        float startPercentMult = _skillInstance.Skill.Actor.MoveController.IsDodging ? 0f : 1f;
+        _skillInstance.StartPercent += startPercentMult * (Time.deltaTime / _telegraphTime);
 
         // Alpha
         float alphaPercent = Mathf.Pow(_skillInstance.StartPercent.Remap(0f, 0.5f, 0f, 1f), 1.25f);

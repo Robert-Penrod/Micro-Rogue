@@ -62,8 +62,8 @@ public class SIE_TelegraphAim : SIE, IPoolable
 
         if(_targetEnemy == null)
         {
-            _skillInstance.StartPercent -= 1f * Time.fixedDeltaTime;
-            _skillInstance.ActivePercent -= 50f * Time.fixedDeltaTime;
+            //_skillInstance.StartPercent -= 1f * Time.fixedDeltaTime;
+            //_skillInstance.ActivePercent -= 50f * Time.fixedDeltaTime;
         }
     }
 

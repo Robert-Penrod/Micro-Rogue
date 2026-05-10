@@ -16,8 +16,8 @@ public class SkillStats
 
     [VerticalGroup("Stats/Right")] public Stat Damage = new("Damage");
     [VerticalGroup("Stats/Right")] public Stat RandomDamage = new("Random Damage");
-    [VerticalGroup("Stats/Right")] public Stat Rate = new("Rate", "/s");
-    [VerticalGroup("Stats/Right")] public Stat Count = new("Count");
+    [VerticalGroup("Stats/Right")] public Stat Rate = new("Rate", unit: "/s");
+    [VerticalGroup("Stats/Right")] public Stat Count = new("Count", minVal: 0);
     [VerticalGroup("Stats/Right")] public Stat Duration = new("Duration");
     [VerticalGroup("Stats/Right")] public Stat Speed = new("Speed");
     [VerticalGroup("Stats/Right")] public Stat Size = new("Size", "%");

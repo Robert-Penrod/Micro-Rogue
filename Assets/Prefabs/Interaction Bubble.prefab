@@ -206,8 +206,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interactCompleteSound: {fileID: 8300000, guid: 1ffd0acb3e80c344b8a88d2116d24098, type: 3}
   _interactStartSound: {fileID: 8300000, guid: 6cdc738571640b349a8e45c14e999505, type: 3}
-  _interactTime: 1.5
-  _interactCooldownTime: 1
+  _interactTime: 1
+  _interactCooldownTime: 0.75
   IsInteractable: 1
   _mainSprite: {fileID: 3028514419456260197}
   _pSystem: {fileID: 5395156688452766395}

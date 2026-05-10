@@ -8,6 +8,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [SerializeField] float _lerpSpeed = 12f;
 
     [Header("References")]
+    [SerializeField] Transform _actorPlatform;
     [SerializeField] GameObject _rarityFlipGFX;
     [SerializeField] SimpleButton _rerollButton;
     [SerializeField] GameObject _toggleObjects;
@@ -133,7 +134,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
                 var actorTransform = player.Actor.transform;
                 if (_actorToUpgrade != null && _actorToUpgrade == player.Actor)
                 {
-                    actorTransform.position = 12f * Vector3.right + Vector3.forward * actorTransform.position.z;
+                    actorTransform.position = _actorPlatform.position.x * Vector3.right + Vector3.forward * actorTransform.position.z;
                 }
                 else
                 {

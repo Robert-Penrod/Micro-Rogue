@@ -41,6 +41,9 @@ namespace Kryz.Stats
 			}
 		}
 
+		public float? _minVal = null;
+		public float? _maxVal = null;
+
 		[SerializeField] protected List<StatModifier> statModifiers;
 		public readonly ReadOnlyCollection<StatModifier> StatModifiers;
 
@@ -63,15 +66,17 @@ namespace Kryz.Stats
 			this.Unit = unit;
         }
 
-		public Stat(float baseValue, string name, bool isInt = false, string unit = "", float positiveDir = 1) : this(name)
+		public Stat(string name, float baseValue = 0, bool isInt = false, string unit = "", float positiveDir = 1, float? minVal = null, float? maxVal = null) : this(name)
 		{
 			BaseValue = baseValue;
 			_isInt = isInt;
 			PositiveDir = positiveDir;
 			Unit = unit;
+			_minVal = minVal;
+			_maxVal = maxVal;
 		}
 
-		public Stat(Stat otherStat) : this(otherStat.BaseValue, otherStat.Name)
+		public Stat(Stat otherStat) : this(otherStat.Name, otherStat.BaseValue)
 		{
 			statModifiers.AddRange(otherStat.statModifiers);
 		}
@@ -196,6 +201,10 @@ namespace Kryz.Stats
 					finalValue *= 1 + mod.Value;
 				}
 			}
+
+			// Min/Max
+			if (_minVal != null && finalValue < _minVal) finalValue = _minVal.Value;
+			if (_maxVal != null && finalValue > _maxVal) finalValue = _maxVal.Value;
 
 			// Workaround for float calculation errors, like displaying 12.00001 instead of 12
 			return (float)Math.Round(finalValue, 4);
