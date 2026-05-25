@@ -8,6 +8,8 @@ using UnityEngine.Serialization;
 [Serializable]
 public class UpgradeMod
 {
+    #region Filtering
+
     public enum UpgradeTargetType { SkillStat = 0, GlobalSkillStat = 10, ActorStat = 20 }
 
     [BoxGroup("Filter")]
@@ -29,6 +31,7 @@ public class UpgradeMod
     public bool IsDex;
     [BoxGroup("Filter"), ShowIf(nameof(IsGlobalSkill))]
     public bool IsInt;
+    #endregion
 
     [BoxGroup("Mod")]
     public float BalancePoints;
@@ -115,6 +118,11 @@ public class UpgradeMod
 
     public string GetActorUpgradeDescription(Actor actor, String description, UpgradeMod actorUpgradeMod)
     {
+        if(actor == null)
+        {
+            actor = UpgradeMenu.I._actorToUpgrade;
+        }
+
         Stat stat = actor.Stats.GetStat(actorUpgradeMod.ActorStatName);
         string statName = stat.Name;
         var statMod = actorUpgradeMod.GetModifier();

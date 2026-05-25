@@ -132,6 +132,7 @@ public class SkillUpgrade : Upgrade
 
     internal bool IsValid(Skill skill)
     {
+        /*
         foreach (var skillUpgradeMod in ModList)
         {
             if (skillUpgradeMod.TargetType == UpgradeMod.UpgradeTargetType.SkillStat)
@@ -167,6 +168,60 @@ public class SkillUpgrade : Upgrade
                 if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.75f) return false;
                 if (statName == SkillStats.SkillStatTypes.Duration && previewStatValue < 0.15f) return false;
                 if (statName == SkillStats.SkillStatTypes.Lunge && previewStatValue < -4f) return false;
+            }
+            else if (skillUpgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
+            {
+                Stat stat = SourceSkill.Actor.Stats.GetStat(skillUpgradeMod.ActorStatName);
+                var statName = skillUpgradeMod.ActorStatName;
+                var statMod = skillUpgradeMod.GetModifier();
+                float previewStatValue = statMod.CalculatePreviewValue(stat, this);
+            }
+        }
+
+        return true;
+        */
+
+        foreach (var skillUpgradeMod in ModList)
+        {
+            if (skillUpgradeMod.TargetType == UpgradeMod.UpgradeTargetType.SkillStat)
+            {
+                Stat stat = SourceSkill.Stats.GetSkillStat(skillUpgradeMod.SkillStatName);
+                var statName = skillUpgradeMod.SkillStatName;
+                var statMod = skillUpgradeMod.GetModifier();
+                float previewStatValue = statMod.CalculatePreviewValue(stat, this);
+                float previewStatDelta = previewStatValue - stat.Value;
+
+                if (previewStatValue <= 0f && previewStatDelta <= 0)
+                {
+                    if (statName != SkillStats.SkillStatTypes.Lunge && statName != SkillStats.SkillStatTypes.Knockback)
+                    {
+                        return false;
+                    }
+                }
+
+                if (statName == SkillStats.SkillStatTypes.Damage && previewStatValue < 1f && previewStatDelta <= 0) return false;
+                if (statName == SkillStats.SkillStatTypes.Count && previewStatValue < 1f && previewStatDelta <= 0) return false;
+                if (statName == SkillStats.SkillStatTypes.Rate)
+                {
+                    if (skill.Stats.Damage.Value > 0)
+                    {
+                        // 8s, 0.5s
+                        //if (previewStatValue < 0.125f || previewStatValue > 1f) return false;
+                        // 1 / 0.16 = 6.25s
+                        if (previewStatValue < 0.1375f && previewStatDelta < 0) return false;
+                        if (previewStatValue > 1f && previewStatValue > 0) return false;
+                    }
+                    else
+                    {
+                        // 30s, 0.5s
+                        //if (previewStatValue < 0.033f || previewStatValue > 2f) return false;
+                        if (previewStatValue < 0.033f && previewStatDelta <= 0) return false;
+                        if (previewStatValue > 2f && previewStatValue > 0) return false;
+                    }
+                }
+                if (statName == SkillStats.SkillStatTypes.Size && previewStatValue < 0.75f && previewStatDelta <= 0) return false;
+                if (statName == SkillStats.SkillStatTypes.Duration && previewStatValue < 0.15f && previewStatDelta <= 0) return false;
+                if (statName == SkillStats.SkillStatTypes.Lunge && previewStatValue < -4f && previewStatDelta <= 0) return false;
             }
             else if (skillUpgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
             {

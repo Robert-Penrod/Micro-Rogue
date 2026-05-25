@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_Name
       value: Helmet
@@ -94,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.5
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -206,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 1159842556308663515}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.size
@@ -238,7 +242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -308,27 +312,19 @@ MonoBehaviour:
   IsConstant: 1
   Mods:
   - TargetType: 20
-    ActorStatName: 20
-    SkillStatName: 0
-    Slots: 
-    IsStr: 0
-    IsDex: 0
-    IsInt: 0
-    BalancePoints: -0.25
-  - TargetType: 20
-    ActorStatName: 30
-    SkillStatName: 0
-    Slots: 
-    IsStr: 0
-    IsDex: 0
-    IsInt: 0
-    BalancePoints: -0.25
-  - TargetType: 20
     ActorStatName: 40
     SkillStatName: 0
     Slots: 
     IsStr: 0
     IsDex: 0
     IsInt: 0
-    BalancePoints: 1.5
+    BalancePoints: 1.2
+  - TargetType: 20
+    ActorStatName: 20
+    SkillStatName: 0
+    Slots: 
+    IsStr: 0
+    IsDex: 0
+    IsInt: 0
+    BalancePoints: -0.2
   SkillUpgrade: []

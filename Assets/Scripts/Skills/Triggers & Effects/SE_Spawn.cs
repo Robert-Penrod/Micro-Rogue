@@ -9,7 +9,6 @@ public class SE_Spawn : SkillEffect
     public override void TriggerEffect()
     {
         int amount = (int)_skill.Stats.Count.Value;
-        float spawnDelay = 0.9f * _skill.TelegraphTime;
 
         StartCoroutine(Spawn_Co());
         IEnumerator Spawn_Co()
@@ -17,7 +16,7 @@ public class SE_Spawn : SkillEffect
             for (int i = 0; i < amount; i++)
             {
                 DoSpawn();
-                yield return new WaitForSeconds(spawnDelay);
+                yield return new WaitForSeconds(_skill.SpawnDelayTime);
             }
         }
     }

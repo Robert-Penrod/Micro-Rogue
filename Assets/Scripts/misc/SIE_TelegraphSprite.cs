@@ -19,7 +19,7 @@ public class SIE_TelegraphSprite : SIE
 
     private void Update()
     {
-        float targetAlpha = _skillInstance.State == SkillInstance.SkillInstanceState.Start ? 1f : 0f;
+        float targetAlpha = _skillInstance.StartPercent < 1 ? _skillInstance.StartPercent.Remap(0f, 0.5f, 0f, 1f) : 0; // _skillInstance.State == SkillInstance.SkillInstanceState.Start ? 1f : 0f;
         float lerpAlpha = _spriteRend.color.a.Lerp(targetAlpha, _lerpSpeed * Time.deltaTime);
         SetAlpha(lerpAlpha);
     }

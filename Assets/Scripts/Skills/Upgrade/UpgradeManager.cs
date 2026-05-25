@@ -44,12 +44,12 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         UpgradeMenu.I.SetMenuOpen(false);
     }
 
-    public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3, float rarityFlip = 0f, float newSkillMult = 1f)
+    public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3, float rarityFlip = 0f, float newSkillMult = 1f, float tagAffinityMult = 0.25f)
     {
         Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
         List<Upgrade> upgradeList = new();
 
-        var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade, rarityFlip, newSkillMult);
+        var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade, rarityFlip, newSkillMult, tagAffinityMult);
         //Debug.Log("Full List Options: " + weightedUpgradeList.Entries.Count);
         for (int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
         {
@@ -65,7 +65,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
         return upgradeList;
     }
 
-    WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
+    WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f, float tagAffinityMult = 0.25f)
     {
         if (actorToUpgrade == null || actorToUpgrade.SkillSystem == null) return new();
 
@@ -118,7 +118,7 @@ public class UpgradeManager : PersistantSingleton<UpgradeManager>
             weightMult *= newSkillMult;
 
             // Tag Weight
-            weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags);
+            weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags, tagAffinityMult);
             if(newSkill.Tags.GetTagList().Count == 0)
             {
                 weight *= 2f;

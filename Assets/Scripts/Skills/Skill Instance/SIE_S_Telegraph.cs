@@ -5,12 +5,11 @@ public class SIE_S_Telegraph : SIE, IPoolable
 {
     [Header("Config")]
     [SerializeField] Transform _passiveTransform;
-    [SerializeField] float _telegraphMult = 1f;
     [SerializeField] bool _isHeld = true;
     [SerializeField] Transform _passiveLerpTransform;
 
     float _size => _skillInstance.Skill.Stats.Size.Value;
-    float _telegraphTime => _telegraphMult * _skillInstance.Skill.TelegraphTime;
+    float _telegraphTime => _skillInstance.Skill.TelegraphTime;
 
     ColorController _colorController;
 
@@ -47,7 +46,7 @@ public class SIE_S_Telegraph : SIE, IPoolable
             var actor = skill.GetComponentInParent<Actor>();
             transform.SetParent(_skillInstance.ParentBody.transform, true);
             transform.localPosition = 0.35f * (Vector3)Random.insideUnitCircle;
-            transform.position = new Vector3(transform.position.x, transform.position.y, -15f);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         }
         else
         {

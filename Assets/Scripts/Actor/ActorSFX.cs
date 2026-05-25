@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ActorSFX : MonoBehaviour
 {
+    [SerializeField] ParticleSystem _speakParticles;
     [SerializeField] List<AudioClip> _actorClip;
     Actor _actor;
     SimpleNPCBrain _npcBrain;
@@ -23,6 +24,12 @@ public class ActorSFX : MonoBehaviour
 
     private void Start()
     {
+        this.DelayedInvoke(-1, () =>
+        {
+            var main = _speakParticles.main;
+            main.startColor = _actor.Color;
+        });
+
         if (_actor.IsPlayer()) return;
 
         if (_npcBrain != null)
@@ -52,9 +59,10 @@ public class ActorSFX : MonoBehaviour
         };
     }
 
-    void PlayAudio(AudioClip clip, float intensity = 1f, float pitchMult = 1f)
+    void Speak(AudioClip clip, float intensity = 1f, float pitchMult = 1f)
     {
         AudioSpawner.PlayAudioWithRandPitch(clip, 0.15f, pitchMult, intensity * 0.5f, transform.position);
+        _speakParticles.Play();
     }
 
     public void PlayAudio(float intensity = 1f, float pitchMult = 1f)
@@ -63,6 +71,6 @@ public class ActorSFX : MonoBehaviour
         Random.InitState(_actor.GetInstanceID().GetHashCode() + 3);
         var clip = _actorClip.GetRandomElement();
         Utils.RandomSeed();
-        PlayAudio(clip, intensity, pitchMult);
+        Speak(clip, intensity, pitchMult);
     }
 }

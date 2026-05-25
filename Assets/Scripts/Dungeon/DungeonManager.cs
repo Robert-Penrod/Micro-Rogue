@@ -31,7 +31,7 @@ public class DungeonManager : Singleton<DungeonManager>
     public Action OnDungeonDataChanged;
     public Action OnPortalTransitionStart;
 
-    public enum BiomeEnum { Wilds = 0, Underground = 10, Dungeon = 20 }
+    public enum BiomeEnum { Wilds = 1, Underground = 2, Dungeon = 3 }
     public Sprite WildsIcon;
     public Sprite UndergroundIcon;
     public Sprite DungeonIcon;

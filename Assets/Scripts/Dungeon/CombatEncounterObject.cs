@@ -17,7 +17,7 @@ public class CombatEncounterObject : MonoBehaviour
         // Init
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
 
-        //budget *= DungeonManager.I.Data.RoomNumber.Remap(1f, 15f, 1f, 1.05f);
+        budget *= DungeonManager.I.Data.RoomNumber.Remap(1f, 15f, 1f, 1.05f); // 1.05f
 
         //budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
         //budget += DungeonManager.I.Data.IsBoss ? 2f : 0f;
@@ -131,7 +131,7 @@ public class CombatEncounterObject : MonoBehaviour
             }
 
             // Base Upgrade
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
+            var upgrades = UpgradeManager.I.GetUpgradeOptions(actor, tagAffinityMult: 1f);
             if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
         }
         //
@@ -166,7 +166,7 @@ public class CombatEncounterObject : MonoBehaviour
             // Upgrade
             float rarityFlip = Random.value < 0.25f ? 5f : 0f;
             float newSkillMult = Random.value < 0.25f ? 5f : 1f;
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult);
+            var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult, tagAffinityMult: 1f);
             if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
 
             // Hp

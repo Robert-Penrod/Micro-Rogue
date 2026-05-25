@@ -18,7 +18,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [SerializeField] List<UpgradeCardUI> _upgradeCardList = new();
 
     public bool IsOpen { get; private set; }
-    Actor _actorToUpgrade;
+    public Actor _actorToUpgrade;
 
     protected override void Awake()
     {
@@ -109,10 +109,28 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
 
     public void SetMenuOpen(bool isOpen)
     {
-        _toggleObjects?.SetActive(!isOpen);
         CameraManager.I.Zoom(isOpen ? 1.1f : 1f, this);
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
         IsOpen = isOpen;
+
+        foreach(var particleSystem in GetComponentsInChildren<ParticleSystem>(true))
+        {
+            if(isOpen)
+            {
+                //particleSystem.Stop();
+                //particleSystem.Play();
+                particleSystem.gameObject.SetActive(true);
+                particleSystem.Play();
+                Debug.Log("Open Menu");
+            }
+            else
+            {
+                //particleSystem.Stop();
+                particleSystem.gameObject.SetActive(false);
+                particleSystem.Stop();
+                Debug.Log("Close Menu");
+            }
+        }
 
         if(!isOpen)
         {

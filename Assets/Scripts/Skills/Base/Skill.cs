@@ -69,8 +69,6 @@ public class Skill : MonoBehaviour
         return true;
     }
 
-    [SerializeField] float _dps;
-
     public Action OnCooldown;
 
     int _dir = 1;
@@ -80,9 +78,13 @@ public class Skill : MonoBehaviour
         return _dir;
     }
 
-    public float TelegraphTime => /*(Actor?.Faction == Actor.FactionType.Enemy? 1.25f : 1f) * */ (Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value));
+    [SerializeField] float _telegraphMult = 1f;
+    public float TelegraphTime => /*(Actor?.Faction == Actor.FactionType.Enemy? 1.25f : 1f) * */ _telegraphMult * (Constants.SkillStats.BaseTelegraphTime + Constants.SkillStats.BaseTelegraphTime * (0.5f / Stats.Rate.Value) * (0.5f * Stats.Size.Value));
+    [SerializeField] float _spawnDelayMult = 1f;
+    public float SpawnDelayTime => _spawnDelayMult * TelegraphTime;// (Constants.SkillStats.SpawnDelay + TelegraphTime);
 
     [BoxGroup("Upgrades")]
+    public List<UpgradeMod> NewUpgradeListTest = new();
     public List<SkillUpgrade> UpgradeList = new();
     public List<SkillUpgrade> UpgradeHistory = new();
 
@@ -105,9 +107,16 @@ public class Skill : MonoBehaviour
     [BoxGroup("AI")]
     public bool BlockCooldownDurringStart = true;
     SimpleNPCBrain _npcBrain;
+
+    [SerializeField] float _dps;
     #endregion
 
     #region Init
+    private void Start()
+    {
+        Stats.Init();
+    }
+
     private void OnValidate()
     {
         _dps = (Stats.RandomDamage.Value * 0.5f + Stats.Damage.Value) * Stats.Rate.Value;

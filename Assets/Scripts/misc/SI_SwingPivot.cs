@@ -48,5 +48,7 @@ public class SI_SwingPivot : MonoBehaviour
     {
         float lerpAngle = Mathf.LerpAngle(transform.localRotation.eulerAngles.z, targetAngle, speed * Time.deltaTime);
         transform.localRotation = Quaternion.Euler(0f, 0f, lerpAngle);
+        float angleDelta = targetAngle - transform.localRotation.eulerAngles.z;
+        transform.localScale = new Vector3(angleDelta.Sign(), 1f, 1f);
     }
 }

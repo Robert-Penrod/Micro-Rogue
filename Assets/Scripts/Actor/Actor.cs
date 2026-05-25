@@ -47,6 +47,7 @@ public class Actor : MonoBehaviour
 
     [SerializeField] SpriteRenderer _spriteRend;
     public Sprite Sprite => _spriteRend.sprite;
+    public Color Color => _spriteRend.color;
 
     [SerializeField] Sprite  _armorSprite;
     [SerializeField] AudioClip _armorSound;
@@ -81,7 +82,11 @@ public class Actor : MonoBehaviour
         Stats.HealthMax.BaseValue = Stats.Health;
         Stats.SetHealthPercent(1f);
 
+        // Sprite Rend
         _initColor = _spriteRend.color;
+        Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
+        _spriteRend.material.SetVector("_TextureOffset", new Vector2(1000f * Random.Range(-1f, 1f), 1000f * Random.Range(-1f, 1f)));
+        _spriteRend.material.SetFloat("_TextureSize", _spriteRend.material.GetFloat("_TextureSize") * Random.Range(0.9f, 1.1f));
 
         // Scale
         _initScale = transform.localScale.x;
@@ -160,7 +165,7 @@ public class Actor : MonoBehaviour
         if (IsInUI)
         {
             _preUIPos = transform.position;
-            transform.position = -50f * Vector3.forward;
+            transform.position = -100f * Vector3.forward;
         }
         else
         {

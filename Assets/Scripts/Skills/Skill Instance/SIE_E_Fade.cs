@@ -40,9 +40,11 @@ public class SIE_E_Fade : SIE, IPoolable
         var percent = _endTimer.GetPercent();
         _skillInstance.EndPercent = percent;
 
-        // Alpha Fade
-        var alpha = percent.RemapPercent(_initAlpha, 0f);
-        _colorController.SetAlpha(alpha);
+        // Color Fade
+        float lerpSpeed = 25f;
+        var alpha = percent.RemapPercent(_initAlpha * 0.5f, 0f);
+        _colorController.SetColor(_colorController.Color.SetSaturation(_colorController.Color.GetSaturation().Lerp(0f, lerpSpeed * Time.deltaTime)).Alpha(_colorController.Color.a));
+        _colorController.SetAlpha(_colorController.Color.a.Lerp(alpha, lerpSpeed * Time.deltaTime));
 
         // Scale
         transform.SetLossyScale(transform.lossyScale.Lerp(transform.lossyScale * 0.5f, Time.deltaTime / _endTime));

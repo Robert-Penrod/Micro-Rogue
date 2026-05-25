@@ -4553,6 +4553,36 @@ MonoBehaviour:
   _wildsRoomShapes: {fileID: 415718535578319263}
   _undergroundRoomShapes: {fileID: 7945810970874859523}
   _dungeonRoomShapes: {fileID: 5902791559948138373}
+  _wildsProps:
+    Entries:
+    - Item: {fileID: 7171582297924976486, guid: f7da290929c1b784b8545a726af462cc, type: 3}
+      Weight: 1
+    - Item: {fileID: 3457719482460532522, guid: 8b9cc0a0c80453c40b0c952284da9064, type: 3}
+      Weight: 0.75
+  _undergroundProps:
+    Entries:
+    - Item: {fileID: 629904369180813581, guid: fcb48fef4093f7a45976fe9df0297add, type: 3}
+      Weight: 1
+    - Item: {fileID: 3963228198183731318, guid: 0426329542498714eb29faae18f37a80, type: 3}
+      Weight: 1
+    - Item: {fileID: 4730564792577753864, guid: e903a84469af6ca4dacc048fa3c8b97d, type: 3}
+      Weight: 1
+  _dungeonProps:
+    Entries:
+    - Item: {fileID: 6022050934739681897, guid: 59d84ade06f78484ca45997690d8349f, type: 3}
+      Weight: 1
+    - Item: {fileID: 7137642896519811938, guid: d3b37b1d61046c94e812a02c90f2fc52, type: 3}
+      Weight: 1
+    - Item: {fileID: 3111115135119314630, guid: a51ce0591abca284b9ae200ecdad3af1, type: 3}
+      Weight: 1
+    - Item: {fileID: 7845725550899163124, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
+      Weight: 0.25
+    - Item: {fileID: 3410350472626890691, guid: e3f89797e6cc7e949b113520e1eac766, type: 3}
+      Weight: 0.25
+    - Item: {fileID: 6890708118726979927, guid: a732f324f86dbda4cb690f34c627afae, type: 3}
+      Weight: 1
+    - Item: {fileID: 1246654279609871003, guid: 9df547367e1eb384e8435f7ce8bb99be, type: 3}
+      Weight: 1
 --- !u!50 &3532650352731229485
 Rigidbody2D:
   serializedVersion: 5
@@ -20383,6 +20413,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8268495591765674683}
     m_Modifications:
+    - target: {fileID: 932456959879550708, guid: 04235778a7256c4408760385fdc2f942, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1239638084776404600, guid: 04235778a7256c4408760385fdc2f942, type: 3}
       propertyPath: m_Name
       value: Square
@@ -20390,6 +20424,18 @@ PrefabInstance:
     - target: {fileID: 1239638084776404600, guid: 04235778a7256c4408760385fdc2f942, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2461665719569320779, guid: 04235778a7256c4408760385fdc2f942, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2703648338187475448, guid: 04235778a7256c4408760385fdc2f942, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5933056697877187324, guid: 04235778a7256c4408760385fdc2f942, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7520759029186711439, guid: 04235778a7256c4408760385fdc2f942, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20401,7 +20447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7520759029186711439, guid: 04235778a7256c4408760385fdc2f942, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7520759029186711439, guid: 04235778a7256c4408760385fdc2f942, type: 3}
       propertyPath: m_LocalRotation.w

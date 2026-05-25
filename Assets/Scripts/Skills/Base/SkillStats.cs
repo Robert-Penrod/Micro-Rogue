@@ -27,6 +27,11 @@ public class SkillStats
     [VerticalGroup("Stats/Right")] public Stat Potency = new("Potency", "%");
     public float HitboxDelay => Constants.SkillStats.HitboxDelay;
 
+    public void Init()
+    {
+        Rate._minVal = Damage.BaseValue > 0 ? 0.03f : 0.01f;
+    }
+
     public float CalculateDamageValue()
     {
         return Random.Range(0f, 0.9f + RandomDamage.Value) + Damage.Value;
