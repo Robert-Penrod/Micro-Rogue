@@ -244,13 +244,44 @@ public class Skill : MonoBehaviour
     {
         WeightedList<Upgrade> returnList = new();
 
-        UpgradeList.ForEach(upgrade =>
+        if (NewUpgradeListTest.Count > 0)
         {
-            if (upgrade.IsValid(this))
+            // NEW SYSTEM
+            for (int upgradeCount = 6; upgradeCount > 0; upgradeCount--)
             {
-                returnList.Add(upgrade, Constants.RarityToWeight(upgrade.Rarity));
+                SkillUpgrade skillUpgrade = new();
+                skillUpgrade.SourceSkill = this;
+                int statCount = Random.Range(1, Mathf.Min(3, NewUpgradeListTest.Count + 1));
+                for (int i = 0; i < statCount; i++)
+                {
+                    var element = NewUpgradeListTest.GetRandomElement();
+                    if (!skillUpgrade.ModList.Contains(element))
+                    {
+                        skillUpgrade.ModList.Add(element);
+                    }
+                    else
+                    {
+                        i--;
+                    }
+                }
+                skillUpgrade.ModList.ForEach(mod =>
+                {
+                    mod.BalancePoints = 1f / skillUpgrade.ModList.Count;
+                });
+                returnList.Add(skillUpgrade);
             }
-        });
+        }
+        else
+        {
+            // OLD SYTEM
+            UpgradeList.ForEach(upgrade =>
+            {
+                if (upgrade.IsValid(this))
+                {
+                    returnList.Add(upgrade, Constants.RarityToWeight(upgrade.Rarity));
+                }
+            });
+        }
 
         return returnList;
     }

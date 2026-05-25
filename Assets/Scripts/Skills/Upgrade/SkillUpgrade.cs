@@ -10,7 +10,7 @@ public class SkillUpgrade : Upgrade
 
     public override string GetSlot() => SourceSkill.Slot.ToString();
 
-    public override string GetTitle() => $"{SourceSkill.Name} ← {_name}";
+    public override string GetTitle() => _name?.Length > 0 ? $"{SourceSkill.Name} ← {_name}" : SourceSkill.Name;
 
     public override Sprite GetIcon()
     {

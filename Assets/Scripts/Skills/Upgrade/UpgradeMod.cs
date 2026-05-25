@@ -9,7 +9,6 @@ using UnityEngine.Serialization;
 public class UpgradeMod
 {
     #region Filtering
-
     public enum UpgradeTargetType { SkillStat = 0, GlobalSkillStat = 10, ActorStat = 20 }
 
     [BoxGroup("Filter")]
