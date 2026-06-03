@@ -201,13 +201,13 @@ public class SimpleNPCBrain : ActorBrain
             }
             //
             // Scent
-            else if (senses.EnemyScentDrop.Count > 0 && senses.EnemyScentDrop[0] != null && _smellTick < 3f)
+            else if (senses.EnemyScentDrop.Count > 0 && senses.EnemyScentDrop[0] != null && _smellTick < 2.5f)
             {
                 // Brian params
                 AttackMag = 0f;
                 TrackingMag = 1f;
 
-                _smellTick += Time.deltaTime;
+                _smellTick += Random.Range(0.75f, 1.25f) * Time.deltaTime;
                 State = "Tracking Scent";
                 sprintMult += 0.05f;
                 Vector2 targetDir = senses.EnemyScentDrop[0].transform.position - transform.position;

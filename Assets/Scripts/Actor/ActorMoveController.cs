@@ -7,10 +7,13 @@ public class ActorMoveController : MonoBehaviour
     public MoveTypeEnum MoveType;
 
     // Move
-    public Vector2 MoveDir { get; private set; }
+    public Vector2 MoveDir;
 
     // Hop
     float _hopTick;
+
+    // Knockback
+    public float KnockbackState;
 
     // Dodge
     [SerializeField] AudioClip _dodgeSound;
@@ -73,7 +76,16 @@ public class ActorMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Param
         float hopFactor = 1f;
+
+        // Knockback
+        if (KnockbackState > 0)
+        {
+            KnockbackState -= 2f * Time.fixedDeltaTime;
+            if (KnockbackState < 0f) KnockbackState = 0f;
+        }
+        _body.linearDamping = KnockbackState > 0 ? _initDrag * 0.25f : _initDrag;// _actor.KnockbackState.RemapPercent(_initDrag, _initDrag * 0.25f);
 
         // Dodge
         if (DodgeCooldownPercent < 1f) DodgeCooldownPercent += _actor.Stats.DodgeRate.Value * Time.fixedDeltaTime;
@@ -95,5 +107,13 @@ public class ActorMoveController : MonoBehaviour
                 _body.AddDampForce(hopFactor * 1f * moveSpeed * MoveDir.normalized);
             }
         }
+    }
+
+    public void ApplyKnockback(float knockback)
+    {
+        knockback = knockback.Abs();
+        knockback /= (1f + KnockbackState);
+        KnockbackState += knockback;
+        _body.linearDamping = KnockbackState > 0 ? _initDrag * 0.25f : _initDrag;
     }
 }

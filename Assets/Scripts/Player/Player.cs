@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         if(_leave != null) _leave.performed += Disconnect;
         Submit = PlayerInput.actions["Dash"];
 
-        Actor = GetComponentInChildren<Actor>();
+        Actor = GetComponentInChildren<Actor>(true);
         Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
         Data.Color = PlayerManager.I.GetPlayerColor(Index);
 
@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Actor == null || Actor.MoveController == null) return;
         Actor.MoveController.Ctrl_Move(PlayerInput.actions.FindAction("Move").ReadValue<Vector2>());
     }
 

@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 4143907630078677123}
   - component: {fileID: 6325416979287975635}
   - component: {fileID: 248858858516680181}
+  - component: {fileID: 582662090662122038}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -555,10 +556,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 25
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
-  m_sharedMaterial: {fileID: -35519726058494776, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62b004989962aae4eb03b8046c785f1c, type: 2}
+  m_sharedMaterial: {fileID: 3543593594341474039, guid: 62b004989962aae4eb03b8046c785f1c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -656,6 +657,18 @@ MonoBehaviour:
   ReturnSpeed: 3
   BounceSound: {fileID: 0}
   ChangeSound: []
+--- !u!114 &582662090662122038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997522363880208166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2108003760795684152
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,7 +963,7 @@ RectTransform:
   - {fileID: 8344653790264612219}
   - {fileID: 4591991312679051361}
   - {fileID: 1248162956276501128}
-  m_Father: {fileID: 1693646758569882382}
+  m_Father: {fileID: 2268945334824700711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1225,6 +1238,7 @@ GameObject:
   - component: {fileID: 729419116293824210}
   - component: {fileID: 7795581264232159894}
   - component: {fileID: 1803450556432305477}
+  - component: {fileID: 977760515958690059}
   m_Layer: 5
   m_Name: Floor Text
   m_TagString: Untagged
@@ -1281,8 +1295,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "0 \n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
-  m_sharedMaterial: {fileID: -35519726058494776, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62b004989962aae4eb03b8046c785f1c, type: 2}
+  m_sharedMaterial: {fileID: 3543593594341474039, guid: 62b004989962aae4eb03b8046c785f1c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1380,6 +1394,18 @@ MonoBehaviour:
   ReturnSpeed: 3
   BounceSound: {fileID: 0}
   ChangeSound: []
+--- !u!114 &977760515958690059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990387836495448247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5123516182456503119
 GameObject:
   m_ObjectHideFlags: 0
@@ -1467,7 +1493,7 @@ GameObject:
   - component: {fileID: 1524407104746064517}
   - component: {fileID: 6442401675485928852}
   m_Layer: 5
-  m_Name: Dungeon Info
+  m_Name: Level Icons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1491,7 +1517,7 @@ RectTransform:
   - {fileID: 6935040416131334501}
   - {fileID: 9092823521438250934}
   - {fileID: 8058584541290342117}
-  m_Father: {fileID: 1693646758569882382}
+  m_Father: {fileID: 2268945334824700711}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1888,6 +1914,43 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &7254158189309709164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2268945334824700711}
+  m_Layer: 5
+  m_Name: Dungeon Info
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2268945334824700711
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254158189309709164}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5579131066216026290}
+  - {fileID: 5516155640324456268}
+  m_Father: {fileID: 1693646758569882382}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7810642892170613272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,9 +2303,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5579131066216026290}
+  - {fileID: 2268945334824700711}
   - {fileID: 5862018979375679001}
-  - {fileID: 5516155640324456268}
   - {fileID: 8284744032937211676}
   - {fileID: 8579470319283746060}
   m_Father: {fileID: 6961397143825537610}
@@ -4363,6 +4425,14 @@ PrefabInstance:
       propertyPath: m_text
       value: CONFIRM
       objectReference: {fileID: 0}
+    - target: {fileID: 1238493228141257366, guid: ec975dc01a4711c4eaf652dc8fbe4cc5, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
+    - target: {fileID: 1238493228141257366, guid: ec975dc01a4711c4eaf652dc8fbe4cc5, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -35519726058494776, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
     - target: {fileID: 2923116778744974696, guid: ec975dc01a4711c4eaf652dc8fbe4cc5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

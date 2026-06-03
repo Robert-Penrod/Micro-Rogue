@@ -78,7 +78,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public bool IsBoss;
         public bool IsFinalBoss;
 
-        public DungeonData(int seed, Vector2Int coordinate, int runTier)
+        public DungeonData(int seed, Vector2Int coordinate, int runTier, int eliteTier = -1)
         {
             // Seeding
             this.Seed = seed;
@@ -86,9 +86,10 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(GetSeed());
 
             // Encounter Type Sampling
-            this.IsFinalBoss = this.Coordinate.y % 15 == 0;
+            this.IsFinalBoss = this.Coordinate.y % 10 == 0;
             this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
-            this.EliteTier = (!this.IsBoss && this.Coordinate.y > 1 && Random.value < 0.3f)? Random.Range(1, 3) : 0;
+            if (eliteTier >= 0 && !IsFinalBoss && !IsBoss) this.EliteTier = eliteTier;
+            else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
 
             this.RunTier = runTier;
 
@@ -110,8 +111,21 @@ public class DungeonManager : Singleton<DungeonManager>
     public DungeonData PreviousData;
     #endregion
 
+    private void Start()
+    {
+        UpdateWallTexture();
+    }
+
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord, int runTier)
     {
+        return runTier switch
+        {
+            1 => BiomeEnum.Wilds,
+            2 => BiomeEnum.Underground,
+            3 => BiomeEnum.Dungeon,
+            _ => BiomeEnum.Wilds
+        };
+
         int biomeIndex = ((5 * (runTier-1)) + (coord.y - 1)) % 15; // (1, 15, 30) -> (1, 1, 0)
         if(biomeIndex <= 4)
         {
@@ -171,13 +185,8 @@ public class DungeonManager : Singleton<DungeonManager>
         StartCoroutine(GenerateLevel_Co());
     }
 
-    IEnumerator GenerateLevel_Co()
+    public void UpdateWallTexture()
     {
-        // Clear Dungeon
-        foreach (Transform t in DungeonTransform)
-            Destroy(t.gameObject);
-
-        // Texture
         Random.InitState(Data.GetSeed());
         var biomeData = Data.Biome switch
         {
@@ -187,6 +196,16 @@ public class DungeonManager : Singleton<DungeonManager>
         };
         _wallMat.SetTexture("_Texture", biomeData._textures.GetRandomElement().texture);
         _floorMat.SetTexture("_Texture", biomeData._textures.GetRandomElement().texture);
+    }
+
+    IEnumerator GenerateLevel_Co()
+    {
+        // Clear Dungeon
+        foreach (Transform t in DungeonTransform)
+            Destroy(t.gameObject);
+
+        // Texture
+        UpdateWallTexture();
 
         // Generator Instantiations
         Random.InitState(Data.GetSeed());
@@ -305,6 +324,8 @@ public class DungeonManager : Singleton<DungeonManager>
             int count = Random.Range(1, 3 + 1);
             if (count == 1 && Random.value < 0.5f) count++;
             int offset = count % 2 != 0 ? 0 : -Random.Range(0, 2);
+            if ((Data.Coordinate.y + 1) % 5 == 0) count = 1; // Boss Portal
+            count = 1; // testing
     
             // Loop
             for (int i = 0; i < count; i++)
@@ -341,9 +362,14 @@ public class DungeonManager : Singleton<DungeonManager>
                 if (Random.value < chanceMult * lvledPortalChanceMult * 0.5f) coordinate.y = coordY + 2;
 
                 // Set Data
-                portal.SetData(new DungeonData(Data.Seed, coordinate, Data.RunTier));
+                portal.SetData(new DungeonData(Data.Seed, coordinate, Data.RunTier, i));
             }
         }
+    }
+
+    public void StartGame()
+    {
+        DoPortal();
     }
 
     void DoPortal()
@@ -357,11 +383,19 @@ public class DungeonManager : Singleton<DungeonManager>
 
             // Step data
             PreviousData = Data;
-            Data = SelectedPortal.DungeonData;// new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
-            Data.RunTier = SelectedPortal.DungeonData.RunTier;
-
-            // Take Money?
-            Player.PlayerData.Gem -= SelectedPortal.GemCost;
+            if (SelectedPortal != null)
+            {
+                Data = SelectedPortal.DungeonData;// new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
+                Data.RunTier = SelectedPortal.DungeonData.RunTier;
+                // Take Money?
+                Player.PlayerData.Gem -= SelectedPortal.GemCost;
+            }
+            else
+            {
+                Data.Coordinate.y++;
+                Data.RunTier = 1;
+                Data.Biome = BiomeEnum.Wilds;
+            }
 
             // Starting run
             if(PreviousData.Coordinate.y == 0)
@@ -384,7 +418,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Upgrade
-            yield return UpgradeManager.I.UpgradePlayers_Co(SelectedPortal.Level);
+            yield return UpgradeManager.I.UpgradePlayers_Co(SelectedPortal?.Level ?? 1);
 
             // New Level
             GenerateLevel();

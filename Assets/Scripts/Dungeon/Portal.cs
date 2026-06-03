@@ -72,9 +72,12 @@ public class Portal : MonoBehaviour
         this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}";
 
         // Biome
-        _biomeIcon.sprite = DungeonManager.I.GetBiomeSprite(DungeonData.Biome);
-        _biomeIcon.color = DungeonManager.I.GetBiomeColor(DungeonData.Biome).Alpha(_biomeIcon.color.a);
-        _biomeIcon.gameObject.SetActive(_biomeIcon.sprite != null);
+        if (_biomeIcon != null)
+        {
+            _biomeIcon.sprite = DungeonManager.I.GetBiomeSprite(DungeonData.Biome);
+            _biomeIcon.color = DungeonManager.I.GetBiomeColor(DungeonData.Biome).Alpha(_biomeIcon.color.a);
+            _biomeIcon.gameObject.SetActive(_biomeIcon.sprite != null);
+        }
 
         // Level
         Level = DungeonData.Coordinate.y - DungeonManager.I.Data.Coordinate.y;

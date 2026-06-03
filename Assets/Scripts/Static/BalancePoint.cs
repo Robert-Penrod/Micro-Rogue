@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class BalancePoint
 {
-    public static float BP_PercentDPSGain = 0.5f;
+    public static float BP_PercentDPSGain = 0.5f; // 0.5f;
 
     // Skills
     public static float BP_Skill_Damage = 1f * BP_PercentDPSGain;

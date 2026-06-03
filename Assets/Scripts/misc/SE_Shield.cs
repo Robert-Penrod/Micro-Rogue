@@ -90,7 +90,8 @@ public class SE_Shield : SkillEffect
             bashVector.Normalize();
             bashVector *= _skill.Stats.Knockback.Value;
             bashVector *= dist.Remap(0f, _bashRadius, 1f, 0f);
-            actor.Body.AddDecayForce(bashVector);
+            actor.Body.AddForce(5f * bashVector, ForceMode2D.Impulse);
+            actor.MoveController.ApplyKnockback(bashVector.magnitude);
         }
 
         _bashEffectTick = 0f;

@@ -2354,7 +2354,7 @@ MonoBehaviour:
   _textMesh: {fileID: 7914399833096961638}
   _lvlText: {fileID: 1346308362198223678}
   _costText: {fileID: 298146034305293659}
-  _biomeIcon: {fileID: 7927114810148216675}
+  _biomeIcon: {fileID: 0}
   _lockIcon: {fileID: 2520582700170989021}
   _enterSound: {fileID: 8300000, guid: 09eba0da0b47ffb4cb999b836d1ece18, type: 3}
   _exitSound: {fileID: 8300000, guid: 95539d3b331ca0c4ea070f86453571e3, type: 3}
@@ -3173,7 +3173,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3891642241025347604
 Transform:
   m_ObjectHideFlags: 0

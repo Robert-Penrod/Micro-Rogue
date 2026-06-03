@@ -18,7 +18,7 @@ public class LevelPips : MonoBehaviour
         {
             SetLevel(DungeonManager.I.Data.Coordinate.y);
         };
-        SetLevel(0);
+        SetLevel(DungeonManager.I.Data.Coordinate.y);
     }
 
     void SetLevel(int level)
@@ -26,7 +26,7 @@ public class LevelPips : MonoBehaviour
         int pipLevel = 1 + ((level-1) % 15);
         for(int i = 0; i < _imageList.Count; i++)
         {
-            _imageList[i].color = i < pipLevel ? Color.white : Color.grey.Alpha(0.5f);
+            _imageList[i].color = i < pipLevel ? Color.white.Alpha(0.675f) : Color.grey.Alpha(0.375f);
         }
     }
 }

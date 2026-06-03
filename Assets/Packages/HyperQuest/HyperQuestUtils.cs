@@ -9,8 +9,10 @@ using Random = UnityEngine.Random;
 
 public static class Utils
 {
-    public static void AddDecayForce(this Rigidbody2D rb, Vector2 force, float decayTime = 0.25f)
+    public static void AddDecayForce(this Rigidbody2D rb, Vector2 force, float decayMult = 1f)
     {
+        rb.AddDampForce(0.1f * force, ForceMode2D.Impulse);
+        float decayTime = 0.25f * decayMult;
         PlayerManager.I.StartCoroutine(DecayForce_Co());
         IEnumerator DecayForce_Co()
         {

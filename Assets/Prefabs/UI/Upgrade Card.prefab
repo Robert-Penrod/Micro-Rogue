@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 3009277103102375573}
   - component: {fileID: 334897709575774103}
   - component: {fileID: 8567431236459149190}
+  - component: {fileID: 115859501217098354}
   m_Layer: 0
   m_Name: Slot Text (1)
   m_TagString: Untagged
@@ -502,6 +503,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &115859501217098354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864109854282461659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3578544199087024778
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +526,7 @@ GameObject:
   - component: {fileID: 5188384746670712504}
   - component: {fileID: 7664977909220513463}
   - component: {fileID: 8990183034755664848}
+  - component: {fileID: 8594319859370139217}
   m_Layer: 0
   m_Name: Title
   m_TagString: Untagged
@@ -638,6 +652,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8594319859370139217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578544199087024778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4167094316833843179
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +675,7 @@ GameObject:
   - component: {fileID: 920761640312003750}
   - component: {fileID: 5162696103467004576}
   - component: {fileID: 8583131503270913417}
+  - component: {fileID: 4791187323117416699}
   m_Layer: 0
   m_Name: Lvl
   m_TagString: Untagged
@@ -774,6 +801,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4791187323117416699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167094316833843179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6793048360233162503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1115,8 @@ GameObject:
   - component: {fileID: 3005181739307554864}
   - component: {fileID: 3037614648090810420}
   - component: {fileID: 2460763550586700869}
+  - component: {fileID: 270632875536617301}
+  - component: {fileID: 1160969292776912431}
   m_Layer: 0
   m_Name: Description
   m_TagString: Untagged
@@ -1203,6 +1244,30 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &270632875536617301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750322570556450909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1160969292776912431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8750322570556450909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf552cd70b49484ea3dcfaa74c20bcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8930589407057900325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8203862452218986856, guid: e4d144047209d524f8ece2007a842149, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: -55
       objectReference: {fileID: 0}
     - target: {fileID: 8203862452218986856, guid: e4d144047209d524f8ece2007a842149, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

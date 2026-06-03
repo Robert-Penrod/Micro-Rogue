@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UpgradeManager : PersistantSingleton<UpgradeManager>
+public class UpgradeManager : Singleton<UpgradeManager>
 {
     [Header("Data")]
     [SerializeField] List<Skill> BaseSkillList = new();

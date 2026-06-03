@@ -81,19 +81,24 @@ public class ProjectileExplosion : SkillPart, IPoolable
     void HandleCollision(Collider2D col)
     {
         float dist = Vector2.Distance(col.transform.position, this.transform.position);
+        var body = col.GetComponent<Rigidbody2D>();
+        var hitActor = col.GetComponent<Actor>();
 
         // Knockback
-        var body = col.GetComponent<Rigidbody2D>();
         if (body != null)
         {
             Vector2 dir = body.transform.position - transform.position;
             Vector2 knockbackVector = _size * _knockback * dir.normalized;// * dist.Remap(0f, _radius, 1f, 0f);
             // body.AddDampForce(knockbackVector, ForceMode2D.Impulse);
-            body.AddDecayForce(knockbackVector);
+            //body.AddDecayForce(knockbackVector);
+            if(hitActor != null)
+            {
+                hitActor.MoveController.ApplyKnockback(_knockback);
+            }
+            body.AddForce(knockbackVector * 5f, ForceMode2D.Impulse);
         }
 
         //  Damage
-        var hitActor = col.GetComponent<Actor>();
         if (hitActor != null)
         {
             if (!SourceSkill.Actor.IsEnemyOf(hitActor)) return;

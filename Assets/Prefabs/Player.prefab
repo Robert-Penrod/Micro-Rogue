@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Actor Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 530704922983699953, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1449863812820039732, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -129,6 +133,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1449863812820039732, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948772221135989850, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3607857536660041180, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}

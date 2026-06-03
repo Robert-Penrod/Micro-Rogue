@@ -72,6 +72,14 @@ public class ActorSpriteFx : MonoBehaviour
         _lerpMag = Mathf.Lerp(_lerpMag, _bleedTimer, lerpMult * 6f * Time.deltaTime);
         c = c.Lerp(Color.red, _lerpMag.Remap(0f, 1f, 0f, 0.8f));
 
+        // Size Impact
+        float targetSize = _bleedTimer.Remap(0f, 0.75f, 1f, 0.9f);
+        float lerpX = transform.localScale.x.Lerp(targetSize * transform.localScale.x.Sign(), 12f * Time.deltaTime);
+        Vector3 s = transform.localScale;
+        s.x = lerpX;
+        s.y = lerpX.Abs();
+        transform.localScale = s;
+
         // Set color
         _spriteRend.color = c;
     }

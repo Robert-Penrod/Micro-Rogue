@@ -26,7 +26,13 @@ public class CamTarget : MonoBehaviour
         if (PlayerManager.I.PlayerList.Count > 0)
         {
             Vector2 avgPos = new Vector2();
-            PlayerManager.I.PlayerList.ForEach(player => avgPos += (Vector2)(player.Actor.transform.position));
+            PlayerManager.I.PlayerList.ForEach(player => 
+            {
+                if (player.Actor != null)
+                {
+                    avgPos += (Vector2)(player.Actor.transform.position);
+                }
+            });
             avgPos /= PlayerManager.I.PlayerList.Count;
             _targetPos = avgPos;
 

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
+public class UpgradeMenu : Singleton<UpgradeMenu>
 {
     [Header("Params")]
     [SerializeField] float _lerpSpeed = 12f;
@@ -10,7 +10,7 @@ public class UpgradeMenu : PersistantSingleton<UpgradeMenu>
     [Header("References")]
     [SerializeField] Transform _actorPlatform;
     [SerializeField] GameObject _rarityFlipGFX;
-    [SerializeField] SimpleButton _rerollButton;
+    [SerializeField] SimpleButton_Old _rerollButton;
     [SerializeField] GameObject _toggleObjects;
     List<SpriteRenderer> _upgradeBgSprite = new();
     Dictionary<SpriteRenderer, float> _upgradeBgAlphaInit = new();

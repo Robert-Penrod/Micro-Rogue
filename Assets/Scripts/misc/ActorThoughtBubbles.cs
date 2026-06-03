@@ -24,8 +24,11 @@ public class ActorThoughtBubbles : MonoBehaviour
 
     private void Start()
     {
-        _npcBrain.OnNotice += () => TriggerNotice();
-        _npcBrain.OnLostTrail += () => TriggerQuestion();
+        if (_npcBrain != null)
+        {
+            _npcBrain.OnNotice += () => TriggerNotice();
+            _npcBrain.OnLostTrail += () => TriggerQuestion();
+        }
     }
 
     private void Update()

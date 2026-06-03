@@ -30672,6 +30672,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveType: 0
+  MoveDir: {x: 0, y: 0}
+  KnockbackState: 0
   _dodgeSound: {fileID: 8300000, guid: 69df4be5638d9aa438974bc6a38b1ffd, type: 3}
   DodgeCooldownPercent: 0
 --- !u!114 &656978755204930970
@@ -30688,7 +30690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Force: 15
   Mass: 1
-  MaxDist: 1.5
+  MaxDist: 2
   OuterDist: 5
   CentralDist: 0
   OuterDrag: 1

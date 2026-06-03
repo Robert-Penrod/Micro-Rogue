@@ -25,6 +25,7 @@ public class Actor : MonoBehaviour
     public float DungeonAffinity = 0f;
 
     // Data
+    [Header("State")]
     public bool IsAlive { get; private set; }
     public float _initScale;
     float _initialLinearDamping;
@@ -367,7 +368,10 @@ public class Actor : MonoBehaviour
     {
         Vector2 dir = position - (Vector2)transform.position;
         float dist = dir.magnitude;
+        bool prevQueriesHitTriggers = Physics2D.queriesHitTriggers;
+        Physics2D.queriesHitTriggers = false;
         RaycastHit2D hit = Physics2D.Linecast(transform.position, (Vector2)transform.position + dir.normalized * dist, LayerMask.GetMask("Default"));
+        Physics2D.queriesHitTriggers = prevQueriesHitTriggers;
         return !hit;
         /*
         RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, (Vector2)transform.position + dir.normalized * dist, LayerMask.GetMask("Default"));
@@ -386,6 +390,20 @@ public class Actor : MonoBehaviour
         */
         
         return true;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var hitActor = collision.gameObject.GetComponent<Actor>();
+        if (hitActor == null) return;
+        if(MoveController.IsDodging)
+        {
+            var vel = -collision.relativeVelocity.normalized;
+            //hitActor.Body.AddDecayForce(vel, vel.magnitude);
+            hitActor.MoveController.ApplyKnockback(0.75f);
+            hitActor.Body.AddForce(vel, ForceMode2D.Impulse);
+            MoveController.MoveDir *= 0.5f;
+        }
     }
 
     #region Container

@@ -4,8 +4,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler
+public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler
 {
+    public bool IsInteractable = true;
     [SerializeField] AudioClip _chargeSound;
     [SerializeField] AudioClip _selectSound;
     [SerializeField] AudioClip _submitSound;
@@ -38,22 +39,30 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     #region UI
     public void OnSelect(BaseEventData eventData)
     {
+        if (!IsInteractable) return;
         _isSelected = true;
         PlayAudio(_selectSound);
     }
     public void OnDeselect(BaseEventData eventData)
     {
+        if (!IsInteractable) return;
         _isSelected = false;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (!IsInteractable) return;
         if (_pointerPresenceSelection) EventSystem.current.SetSelectedGameObject(this.gameObject);
     }
     public void OnPointerMove(PointerEventData eventData)
     {
+        if (!IsInteractable) return;
         if (_pointerPresenceSelection) EventSystem.current.SetSelectedGameObject(this.gameObject);
     }
-    public void OnPointerDown(PointerEventData eventData) => OnSubmit(eventData);
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (!IsInteractable) return;
+        OnSubmit(eventData);
+    }
     #endregion
 
     public void OnSubmit(BaseEventData eventData)

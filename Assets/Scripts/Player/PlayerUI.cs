@@ -36,11 +36,19 @@ public class PlayerUI : MonoBehaviour
         LoadCoins();
 
         // Skills
-        var skillSystem = Player.Actor.SkillSystem;
+        var skillSystem = Player?.Actor?.SkillSystem;
         for(int i = 0; i < _activeSlots.Count; i++)
         {
-            _activeSlots[i].SetSkill(i < skillSystem.ActiveSkillList.Count? skillSystem.ActiveSkillList[i] : null);
-            _passiveSlots[i].SetSkill(i < skillSystem.PassiveSkillList.Count ? skillSystem.PassiveSkillList[i] : null);
+            if (skillSystem != null)
+            {
+                _activeSlots[i].SetSkill(i < skillSystem.ActiveSkillList.Count ? skillSystem.ActiveSkillList[i] : null);
+                _passiveSlots[i].SetSkill(i < skillSystem.PassiveSkillList.Count ? skillSystem.PassiveSkillList[i] : null);
+            }
+            else
+            {
+                _activeSlots[i].SetSkill(null);
+                _passiveSlots[i].SetSkill(null);
+            }
         }
     }
 }

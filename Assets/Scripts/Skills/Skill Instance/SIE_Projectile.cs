@@ -250,19 +250,17 @@ public class SIE_Projectile : SIE, IPoolable
         // Knockback
         if(hitBody != null && hitBody.bodyType == RigidbodyType2D.Dynamic && (hitActor == null || !didDodge))
         {
-            Vector2 knockbackDir = _rb.linearVelocity.normalized;
-            if (_rb.linearVelocity.sqrMagnitude < 0.1f) knockbackDir = transform.up.normalized;
-
-            Vector2 knockbackForce = knockbackDir * _knockback;
-            //knockbackForce *= hitBody.linearDamping;
-            //knockbackForce *= _rb.linearVelocity.magnitude.Remap(0f, 8f, 0f, 1f, false).ClampMin(0f);
-
-            //hitBody.AddForce(knockbackForce, ForceMode2D.Impulse);
-            hitBody.AddDecayForce(knockbackForce);
-
-            hitBody.transform.localScale *= 0.9f;
+            Vector2 knockbackVel = _rb.linearVelocity;
+            if (_rb.linearVelocity.sqrMagnitude < 0.1f) knockbackVel = transform.up.normalized;
+            knockbackVel = transform.up.normalized;
+            Vector2 knockbackForce = knockbackVel * _knockback;
+            if(hitActor != null)
+            {
+                hitActor.MoveController.ApplyKnockback(_knockback);
+            }
+            //hitBody.AddDecayForce(knockbackForce, _knockback);
+            hitBody.AddForce(5f * knockbackForce, ForceMode2D.Impulse);
         }
-        //.
 
         // Pierce end condition
         if (_pierce >= 0 && _pierceCount >= _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;

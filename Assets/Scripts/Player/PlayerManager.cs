@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem.Utilities;
 using UnityEngine.SceneManagement;
@@ -13,7 +15,7 @@ public class PlayerManager : Singleton<PlayerManager>
     [SerializeField] List<string> _joinSceneNames = new();
     public List<Player> PlayerList = new();
 
-    PlayerInputManager _playerInputManager;
+    public PlayerInputManager _playerInputManager { get; private set; }
 
     List<Color> _playerColors = new();
 
@@ -22,6 +24,26 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public Player CurrentUIOwner;
     string _uiMapName = "UI";
+
+    public InputDevice LastInputDevice { get; private set; }
+
+    public void JoinPlayerByLastInputDevice()
+    {
+       _playerInputManager.JoinPlayer(pairWithDevice: LastInputDevice);
+    }
+
+    public void UnjoinAllPlayers()
+    {
+        for(int i = 0; i < PlayerList.Count; i++)
+        {
+            if(PlayerList[i] != null)
+            {
+                Destroy(PlayerList[i].gameObject);
+                i--;
+            }
+        }
+    }
+
     public void SetUIOwner(Player player)
     {
         //Debug.Log("Setting UI Owner");
@@ -75,6 +97,16 @@ public class PlayerManager : Singleton<PlayerManager>
         // Init
         base.Awake();
         _playerInputManager = GetComponent<PlayerInputManager>();
+
+        InputSystem.onEvent.Call(eventPtr =>
+        {
+            if (!eventPtr.IsA<StateEvent>() && !eventPtr.IsA<DeltaStateEvent>()) return;
+            var device = InputSystem.GetDeviceById(eventPtr.deviceId);
+            if (device == null) return;
+            // ignore idle stick drift / noise so it only updates on real input
+            if (!eventPtr.EnumerateChangedControls(device, magnitudeThreshold: 0.1f).Any()) return;
+            LastInputDevice = device;
+        });
 
         // Shuffle Colors
         /*

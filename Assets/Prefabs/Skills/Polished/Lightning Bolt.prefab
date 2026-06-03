@@ -5265,7 +5265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821c7a69ed79948479cbf2a4022e7641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnState: 1
+  SpawnState: 0
   _spawnPrefab: {fileID: 1984254191303831823}
 --- !u!1001 &9080897794069051579
 PrefabInstance:
@@ -5414,6 +5414,10 @@ PrefabInstance:
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: PassiveDistMult
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      propertyPath: _spawnDelayMult
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: IsActiveDurringStart

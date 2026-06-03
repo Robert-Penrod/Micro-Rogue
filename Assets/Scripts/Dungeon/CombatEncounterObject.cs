@@ -81,15 +81,16 @@ public class CombatEncounterObject : MonoBehaviour
         }
         //
         // Spawn Enemies
-        int max = (int)(2 + (budget / 2)).ClampMin(1);
+        int max = (int)(2 + (budget / 2f)).ClampMin(1);
         //int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
         //if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
         //if (DungeonManager.I.Data.IsBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
         //max = Mathf.Min((int)budget, absoluteMax);
+        var data = DungeonManager.I.Data;
         int enemyCount = Random.Range(1, 1 + max);
-        if (enemyCount == 1 && Random.value < 0.75) enemyCount++;
-        if (DungeonManager.I.Data.IsFinalBoss) enemyCount = (int)(0.5f * enemyCount);
-        if (DungeonManager.I.Data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
+        if (enemyCount == 1) enemyCount = Random.Range(1, 1 + max);
+        if (data.IsFinalBoss) enemyCount = (int)(0.75f * enemyCount);
+        if (data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
         enemyCount = enemyCount.ClampMin(1);
         for(int i = 0; i < enemyCount && budget >= 1f + 0.25f * i; i++)
         {
