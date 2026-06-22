@@ -26,6 +26,11 @@ public class PlayerUIManager : MonoBehaviour
         };
     }
 
+    private void OnEnable()
+    {
+        UpdatePlayerUIs();
+    }
+
     void PlayerDataChange()
     {
         this.DelayedInvoke(-1, () =>

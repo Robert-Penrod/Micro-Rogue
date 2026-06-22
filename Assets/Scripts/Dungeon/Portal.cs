@@ -52,12 +52,15 @@ public class Portal : MonoBehaviour
         // Init on Start
         if(_sampleDataOnStart)
         {
-            SetData(new DungeonManager.DungeonData(DungeonData.Seed, DungeonData.Coordinate, DungeonData.RunTier));
+            SetData(new DungeonManager.DungeonData(DungeonData.Seed, DungeonData.Coordinate));
         }
         else
         {
             SetData(DungeonData);
         }
+
+        UpdateUI();
+        transform.localScale = Vector3.zero;
     }
 
     public void UpdateUI()

@@ -1,46 +1,20 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(CanvasGroup))]
-public class GameOverMenu : MonoBehaviour
+public class GameOverMenu : SimpleMenu
 {
-    [SerializeField] GameObject _startButton;
-    CanvasGroup _canvasGroup;
-
-    bool _isOpen;
     bool _isGameOver;
 
-    private void Awake()
+    protected override void Update()
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
-        SetOpen(false);
-    }
+        base.Update();
 
-    private void Update()
-    {
-        if(!_isGameOver && PlayerManager.I.AreAllPlayersDead())
+        if (!_isGameOver && PlayerManager.I.AreAllPlayersDead())
         {
             _isGameOver = true;
-            this.DelayedInvoke(1f, () =>
-            {
-                SetOpen(true);
-                EventSystem.current.SetSelectedGameObject(_startButton);
-            });
+            if (!IsOpen) SetOpen(true);
         }
-
-        _canvasGroup.alpha = _canvasGroup.alpha.Lerp(_isOpen ? 1f : 0f, 3f * Time.deltaTime);
-    }
-
-    void SetOpen(bool openState)
-    {
-        if(openState) PlayerManager.I.SetUIOwner(PlayerManager.I.PlayerList[0]);
-        this._isOpen = openState;
-        _canvasGroup.interactable = _canvasGroup.blocksRaycasts = openState;
-    }
-
-    public void Confirm()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

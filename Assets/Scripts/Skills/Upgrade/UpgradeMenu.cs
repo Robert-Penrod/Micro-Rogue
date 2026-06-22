@@ -135,8 +135,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         if(!isOpen)
         {
             PlayerManager.I.SetUIOwner(null);
-            EventSystem.current.SetSelectedGameObject(null);
-
+            EventSystemSingleton.I.ClearSelection();
             PlayerManager.I.PlayerList.ForEach(player =>
             {
                 player.Actor.SetInUI(false);

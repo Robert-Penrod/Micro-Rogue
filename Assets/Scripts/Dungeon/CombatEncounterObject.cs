@@ -132,7 +132,7 @@ public class CombatEncounterObject : MonoBehaviour
             }
 
             // Base Upgrade
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(actor, tagAffinityMult: 1f);
+            var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
             if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
         }
         //
@@ -147,7 +147,7 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
-                enemy.Stats.HealthMax.BaseValue *= 1.05f;
+                enemy.Stats.HealthMax.BaseValue *= 1.1f; // 1.05f
 
                 // Brain Update
                 var brain = enemy.GetComponent<SimpleNPCBrain>();
@@ -167,7 +167,7 @@ public class CombatEncounterObject : MonoBehaviour
             // Upgrade
             float rarityFlip = Random.value < 0.25f ? 5f : 0f;
             float newSkillMult = Random.value < 0.25f ? 5f : 1f;
-            var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult, tagAffinityMult: 1f);
+            var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult);
             if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
 
             // Hp

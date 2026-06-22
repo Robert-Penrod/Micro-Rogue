@@ -44,12 +44,12 @@ public class UpgradeManager : Singleton<UpgradeManager>
         UpgradeMenu.I.SetMenuOpen(false);
     }
 
-    public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3, float rarityFlip = 0f, float newSkillMult = 1f, float tagAffinityMult = 0.25f)
+    public List<Upgrade> GetUpgradeOptions(Actor actorToUpgrade, int count = 3, float rarityFlip = 0f, float newSkillMult = 1f)
     {
         Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
         List<Upgrade> upgradeList = new();
 
-        var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade, rarityFlip, newSkillMult, tagAffinityMult);
+        var weightedUpgradeList = GetWeightedUpgradeList(actorToUpgrade, rarityFlip, newSkillMult);
         //Debug.Log("Full List Options: " + weightedUpgradeList.Entries.Count);
         for (int i = 0; i < count && weightedUpgradeList.Entries.Count > 0; i++)
         {
@@ -65,8 +65,10 @@ public class UpgradeManager : Singleton<UpgradeManager>
         return upgradeList;
     }
 
-    WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f, float tagAffinityMult = 0.25f)
+    WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
     {
+        float tagAffinityMult = actorToUpgrade.IsPlayer() ? 0.25f : 2f;
+
         if (actorToUpgrade == null || actorToUpgrade.SkillSystem == null) return new();
 
         // INIT
@@ -77,6 +79,37 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
         //Debug.Log("Skill Count: " + actorSkillList.Count);
         //Debug.Log("\\/==\\/==\\/");
+
+        // INNATE SKILL UPGRADES
+        actorToUpgrade.InnateSkillList.ForEach(newSkill =>
+        {
+            // FILTERS
+            //
+            // If Player skill must be unlocked
+            var unlockedSkillList = Player.PlayerData.GetUnlockedSkillList();
+            if (actorToUpgrade.IsPlayer() && !unlockedSkillList.Contains(newSkill.name) && !unlockedSkillList.Contains("all")) return;
+            //
+            // If no damage skills -> new skill must do damage
+            bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
+            if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
+            //
+            // Actor cannot already have skill
+            if (skillSystem.HasSkill(newSkill)) return;
+            //
+            // Skill Prereq check
+            if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
+            //
+            // Slotsfull check
+            int slotCount = 2;
+            // -active
+            if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
+            // -passive
+            if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
+            // Blacklist check
+            if (newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
+
+            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), 100f);
+        });
 
         // NEW SKILL UPGRADES
         BaseSkillList.ForEach(newSkill =>
@@ -103,6 +136,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
             // -passive
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
+            // Blacklist check
+            if(newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
 
             // Weight
             float weightMult = 1f / 3f;// newSkill weight
@@ -143,7 +178,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
                 if (minRarity > 0) skillUpgradeList.Entries[i].Weight = skillUpgradeList.Entries[i].Weight.Remap(0f, 1f, minRarity, 1f);
 
                 // Tag Weight
-                skillUpgradeList.Entries[i].Weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(skillUpgradeList.Entries[i].Item.SourceSkill.Tags);
+                skillUpgradeList.Entries[i].Weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(skillUpgradeList.Entries[i].Item.SourceSkill.Tags, tagAffinityMult * 0.5f);
             }
 
             // Add

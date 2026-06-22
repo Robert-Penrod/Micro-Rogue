@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler
+public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
     public bool IsInteractable = true;
     [SerializeField] AudioClip _chargeSound;
@@ -45,8 +45,14 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
     }
     public void OnDeselect(BaseEventData eventData)
     {
-        if (!IsInteractable) return;
+        if (!IsInteractable)
+        {
+            _isSelected = false;
+            _submitPressed = false;
+            return;
+        }
         _isSelected = false;
+        _submitPressed = false;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -65,6 +71,9 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
     }
     #endregion
 
+    bool _submiteWasPressedThisFrame;
+    bool _submitPressed;
+
     public void OnSubmit(BaseEventData eventData)
     {
         /*
@@ -72,6 +81,8 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         PlayAudio(_submitSound);
         //OnSubmitEvent?.Invoke();
         */
+        _submiteWasPressedThisFrame = true;
+        _submitPressed = true;
     }
 
     void DoSubmit()
@@ -85,8 +96,8 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
     private void Update()
     {
-        bool isSubmitingThisFrame = _isSelected && (_currentUIOwner?.Submit.WasPressedThisFrame() ?? false);
-        bool isSubmiting = _isSelected && (_currentUIOwner?.Submit.IsPressed() ?? false);
+        bool isSubmitingThisFrame = _submiteWasPressedThisFrame;// _isSelected && (_currentUIOwner?.Submit.WasPressedThisFrame() ?? false);
+        bool isSubmiting = _submitPressed;// _isSelected && (_currentUIOwner?.Submit.IsPressed() ?? false);
         float targetPitch = 0.8f;
         float targetVolume = 1f;
         float lerpSpeed = 12f;
@@ -138,6 +149,8 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         transform.localScale = lerpScale * Vector3.one;
 
         _wasSubmitting = isSubmiting;
+
+        if(_submiteWasPressedThisFrame) _submiteWasPressedThisFrame = false;
     }
 
     void PlayAudio(AudioClip clip)
@@ -145,5 +158,15 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         _audioSource.volume = 1f;
         _audioSource.pitch = 1f + 0.1f * Random.Range(-1f, 1f);
         _audioSource.PlayOneShot(clip);
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        _submitPressed = false;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _submitPressed = false;
     }
 }

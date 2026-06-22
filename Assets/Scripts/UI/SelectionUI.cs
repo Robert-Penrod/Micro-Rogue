@@ -1,16 +1,18 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Image))]
 public class SelectionUI : MonoBehaviour
 {
     Image _image;
     Button _button;
+    bool _isActive;
+    float _lerpSpeed = 25f;
 
     private void Awake()
     {
         // Init
-        _image = GetComponent<Image>();
+        _image = GetComponentInChildren<Image>();
         _button = GetComponentInParent<Button>();
         SetActive(false);
 
@@ -29,5 +31,22 @@ public class SelectionUI : MonoBehaviour
     void SetActive(bool isActive)
     {
         _image.enabled = isActive;
+        _isActive = isActive;
+
+        if(isActive)
+        {
+            var lastSelected = EventSystemSingleton.I?._lastSelected;
+            if (lastSelected != null)
+            {
+                transform.position = lastSelected.transform.position.Lerp(transform.position, 0f);
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        //_image.color = _image.color.Alpha(_image.color.a.Lerp(_isActive? 1f : 0f, _lerpSpeed * Time.deltaTime));
+        //transform.localScale = transform.localScale.x.Lerp(_isActive? 1f : 0.5f, _lerpSpeed * Time.deltaTime) * Vector3.one;
+        transform.localPosition = transform.localPosition.Lerp(Vector3.zero, _lerpSpeed * Time.deltaTime);
     }
 }

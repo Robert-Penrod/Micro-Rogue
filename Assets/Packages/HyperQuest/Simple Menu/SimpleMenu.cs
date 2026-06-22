@@ -1,10 +1,15 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(CanvasGroup))]
 public class SimpleMenu : MonoBehaviour
 {
     [SerializeField] bool StartOpen;
+    [SerializeField] Button _selectOnOpen;
     [SerializeField] SimpleMenu _prevMenu;
     float _lerpSpeed = 12f;
     public bool IsOpen { get; private set; }
@@ -17,13 +22,17 @@ public class SimpleMenu : MonoBehaviour
 
     private void Awake()
     {
-        _canvasGroup = GetComponent<CanvasGroup>();
+        _canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
+    }
+
+    private void Start()
+    {
         if (StartOpen) SetOpen(true);
         else SetOpen(false);
         _canvasGroup.alpha = IsOpen ? 1f : 0f;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
 
@@ -40,16 +49,29 @@ public class SimpleMenu : MonoBehaviour
 
     public void SetOpen(bool isOpen)
     {
-        bool didOpenChange = this.IsOpen != isOpen;
+        bool didOpenChange = true;// this.IsOpen != isOpen;
         this.IsOpen = isOpen;
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
 
-        if(didOpenChange) OnOpenChanged?.Invoke(isOpen);
+        if(didOpenChange)
+        {
+            if(isOpen)
+            {
+                if(_selectOnOpen != null) EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
+            }
+
+            OnOpenChanged?.Invoke(isOpen);
+        }
     }
 
     public void SwitchMenu(SimpleMenu otherMenu)
     {
         this.SetOpen(false);
         otherMenu.SetOpen(true);
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

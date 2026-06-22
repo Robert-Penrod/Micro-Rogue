@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,8 @@ public class DungeonInfoUI : MonoBehaviour
 {
     [SerializeField] Image _eliteimage;
     [SerializeField] Image _bossImage;
+    [SerializeField] TextMeshProUGUI _nextTierText;
+    [SerializeField] TextMeshProUGUI _currentTierText;
 
     private void Start()
     {
@@ -17,8 +20,13 @@ public class DungeonInfoUI : MonoBehaviour
 
     void UpdateUI()
     {
+        // Boss/Elite Images
         transform.parent.gameObject.SetActive(DungeonManager.I.Data.Coordinate.y != 0);
         _eliteimage.enabled = DungeonManager.I?.Data?.EliteTier > 0;
         _bossImage.enabled = DungeonManager.I?.Data?.IsBoss ?? false;
+
+        // Tier Text
+        _nextTierText.text = Utils.ToRomanNumeral((DungeonManager.I?.Data?.RunTier + 1) ?? 0);
+        _currentTierText.text = Utils.ToRomanNumeral(DungeonManager.I?.Data?.RunTier ?? 0);
     }
 }

@@ -73,6 +73,26 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: BlacklistedTags.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'BlacklistedTags.Array.data[0]'
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'BlacklistedTags.Array.data[1]'
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'BlacklistedTags.Array.data[2]'
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'BlacklistedTags.Array.data[3]'
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[3].tag
       value: 30
       objectReference: {fileID: 0}

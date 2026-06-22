@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -9,6 +10,28 @@ using Random = UnityEngine.Random;
 
 public static class Utils
 {
+    public static string ToRomanNumeral(int number)
+    {
+        if (number <= 0 || number > 3999)
+            return string.Empty; // Roman numerals classically cover 1–3999
+
+        int[] values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+        string[] symbols = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            while (number >= values[i])
+            {
+                result.Append(symbols[i]);
+                number -= values[i];
+            }
+        }
+
+        return result.ToString();
+    }
+
     public static void AddDecayForce(this Rigidbody2D rb, Vector2 force, float decayMult = 1f)
     {
         rb.AddDampForce(0.1f * force, ForceMode2D.Impulse);
@@ -39,6 +62,10 @@ public static class Utils
     #region Coroutines
     public static void DelayedInvoke(this MonoBehaviour mb, float delayTime, Action function, bool useTimescale = false)
     {
+        if(!mb.gameObject.activeInHierarchy)
+        {
+            return;
+        }
         mb.StartCoroutine(DelayedInvoke_Coroutine(mb, delayTime, function, useTimescale));
     }
     static IEnumerator DelayedInvoke_Coroutine(MonoBehaviour monoBehavior, float delayTime, Action function, bool useTimescale = false)

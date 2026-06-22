@@ -389,7 +389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971f41323f9ea5c448be64635f526724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Zoom: 0.675
+  Zoom: 0.65
   Magnitude: 0.75
   LerpSpeed: 1
 --- !u!81 &1966201223271302218

@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
         PlayerInput = GetComponent<PlayerInput>();
         _leave = PlayerInput.actions.FindAction("Leave", false);
         if(_leave != null) _leave.performed += Disconnect;
-        Submit = PlayerInput.actions["Dash"];
+        Submit = PlayerInput.actions["Submit"];
 
         Actor = GetComponentInChildren<Actor>(true);
         Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;

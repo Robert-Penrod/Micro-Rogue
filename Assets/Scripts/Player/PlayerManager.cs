@@ -49,6 +49,8 @@ public class PlayerManager : Singleton<PlayerManager>
         //Debug.Log("Setting UI Owner");
         this.CurrentUIOwner = player;
 
+        return;
+
         var uiModule = FindFirstObjectByType<InputSystemUIInputModule>();
         if (!uiModule)
         {
@@ -56,7 +58,7 @@ public class PlayerManager : Singleton<PlayerManager>
             return;
         }
 
-        int ownerIndex = (player == null) ? 0 : PlayerList.IndexOf(player);
+        int ownerIndex = (player == null) ? -1 : PlayerList.IndexOf(player);
         foreach (var pi in FindObjectsByType<PlayerInput>(FindObjectsSortMode.None))
         {
             var uiMap = pi.actions.FindActionMap(_uiMapName, true);
@@ -98,15 +100,21 @@ public class PlayerManager : Singleton<PlayerManager>
         base.Awake();
         _playerInputManager = GetComponent<PlayerInputManager>();
 
+        
         InputSystem.onEvent.Call(eventPtr =>
         {
+            /*
             if (!eventPtr.IsA<StateEvent>() && !eventPtr.IsA<DeltaStateEvent>()) return;
-            var device = InputSystem.GetDeviceById(eventPtr.deviceId);
-            if (device == null) return;
+            
             // ignore idle stick drift / noise so it only updates on real input
             if (!eventPtr.EnumerateChangedControls(device, magnitudeThreshold: 0.1f).Any()) return;
+            */
+
+            var device = InputSystem.GetDeviceById(eventPtr.deviceId);
+            if (device == null) return;
             LastInputDevice = device;
         });
+        
 
         // Shuffle Colors
         /*

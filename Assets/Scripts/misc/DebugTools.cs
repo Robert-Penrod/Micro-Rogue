@@ -117,10 +117,19 @@ public class DebugTools : MonoBehaviour
             var actorList = new List<Actor>(FindObjectsByType<Actor>(FindObjectsSortMode.None));
             actorList.ForEach(x =>
             {
-                if (x.Faction == Actor.FactionType.Player) return;
-                x.Stats.Health = 0;
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    if (x.Faction != Actor.FactionType.Player) return;
+                    x.Stats.Health = 0;
+                }
+                else
+                {
+                    if (x.Faction == Actor.FactionType.Player) return;
+                    x.Stats.Health = 0;
+                }
             });
         }
+
 
         if(Input.GetKeyDown(KeyCode.E))
         {

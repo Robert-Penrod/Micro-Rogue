@@ -66,7 +66,7 @@ public class DungeonManager : Singleton<DungeonManager>
     [System.Serializable]
     public class DungeonData
     {
-        public int RunTier = 1;
+        public int RunTier => 1 + ((Coordinate.y-1) / 10);
 
         public int Seed;
         public int RoomNumber => Coordinate.y;
@@ -78,7 +78,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public bool IsBoss;
         public bool IsFinalBoss;
 
-        public DungeonData(int seed, Vector2Int coordinate, int runTier, int eliteTier = -1)
+        public DungeonData(int seed, Vector2Int coordinate, int runLevel = 1, int eliteTier = -1)
         {
             // Seeding
             this.Seed = seed;
@@ -91,10 +91,8 @@ public class DungeonManager : Singleton<DungeonManager>
             if (eliteTier >= 0 && !IsFinalBoss && !IsBoss) this.EliteTier = eliteTier;
             else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
 
-            this.RunTier = runTier;
-
             // Biome Sampling
-            this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate, runTier);
+            this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate, runLevel);
         }
 
         public int GetSeed()
@@ -194,8 +192,14 @@ public class DungeonManager : Singleton<DungeonManager>
             BiomeEnum.Underground => _undergroundData,
             BiomeEnum.Dungeon => _dungeonData
         };
-        _wallMat.SetTexture("_Texture", biomeData._textures.GetRandomElement().texture);
-        _floorMat.SetTexture("_Texture", biomeData._textures.GetRandomElement().texture);
+
+        int textureIndex = ((Data.Coordinate.y - 1).ClampMin(0) / 5);
+        int wallIndex = textureIndex % biomeData._textures.Count;
+        int floorIndex = (textureIndex + 1) % biomeData._textures.Count;
+        _wallMat.SetTexture("_Texture", biomeData._textures[wallIndex].texture);
+        _wallMat.SetVector("_Offset", new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
+        _floorMat.SetTexture("_Texture", biomeData._textures[floorIndex].texture);
+        _floorMat.SetVector("_Offset", new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
     }
 
     IEnumerator GenerateLevel_Co()
@@ -355,14 +359,14 @@ public class DungeonManager : Singleton<DungeonManager>
                 if (count % 2 == 0) coordinate.x += offset;// On evens have random chance to sheft left to keep left right traversal balanced
 
                 // Portal Levels
-                float lvledPortalChanceMult = 0.05f;
-                float chanceMult = Data.RoomNumber.Remap(1f, 3f, 0f, 1f);
-                int coordY = Data.RoomNumber + 1;
-                if (Random.value < chanceMult * lvledPortalChanceMult) coordinate.y = coordY + 1;
-                if (Random.value < chanceMult * lvledPortalChanceMult * 0.5f) coordinate.y = coordY + 2;
+                //float lvledPortalChanceMult = 0.05f;
+                //float chanceMult = Data.RoomNumber.Remap(1f, 3f, 0f, 1f);
+                //int coordY = Data.RoomNumber + 1;
+                //if (Random.value < chanceMult * lvledPortalChanceMult) coordinate.y = coordY + 1;
+                //if (Random.value < chanceMult * lvledPortalChanceMult * 0.5f) coordinate.y = coordY + 2;
 
                 // Set Data
-                portal.SetData(new DungeonData(Data.Seed, coordinate, Data.RunTier, i));
+                portal.SetData(new DungeonData(Data.Seed, coordinate, eliteTier: i));
             }
         }
     }
@@ -386,14 +390,12 @@ public class DungeonManager : Singleton<DungeonManager>
             if (SelectedPortal != null)
             {
                 Data = SelectedPortal.DungeonData;// new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
-                Data.RunTier = SelectedPortal.DungeonData.RunTier;
                 // Take Money?
                 Player.PlayerData.Gem -= SelectedPortal.GemCost;
             }
             else
             {
                 Data.Coordinate.y++;
-                Data.RunTier = 1;
                 Data.Biome = BiomeEnum.Wilds;
             }
 

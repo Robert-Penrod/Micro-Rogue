@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Floor
+  m_Name: Sign
   m_Shader: {fileID: -6465566751694194690, guid: 1dfe26c73f0f69d4e843b449a5a1df48, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -19,7 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _Color
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: fbb2f040c507a5e45a57f8d53483d977, type: 3}
+        m_Texture: {fileID: 2800000, guid: 279fc1ae56aea7d4d95b21cea620691a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_cbf0a5c84039468c81bd439033427c1e_Out_0_Texture2D:
@@ -49,11 +49,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Size: 0.5
-    - _TextureAmp: 0.05
+    - _Size: 0.375
+    - _TextureAmp: 0.375
     m_Colors:
-    - _Color: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Offset: {r: -0.07027686, g: -0.1120888, b: 0, a: 0}
+    - _Color: {r: 0.12100001, g: 0.12100001, b: 0.12100001, a: 1}
+    - _Offset: {r: 0.36920425, g: 0.76918745, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6048144213652858119

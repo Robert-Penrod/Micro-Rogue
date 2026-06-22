@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 948110064038719178}
   - component: {fileID: 5798845653968130976}
   - component: {fileID: 6852697748980481820}
+  - component: {fileID: 4477457834715437804}
   m_Layer: 0
   m_Name: Multiplayer Event System
   m_TagString: Untagged
@@ -80,6 +81,18 @@ MonoBehaviour:
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
   m_ScrollDeltaPerTick: 6
+--- !u!114 &4477457834715437804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258427418906322252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b564d37fcc09b1489db810d61239af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1316824382257466514
 GameObject:
   m_ObjectHideFlags: 0

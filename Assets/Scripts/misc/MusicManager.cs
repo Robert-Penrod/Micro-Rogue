@@ -31,6 +31,8 @@ public class MusicManager : MonoBehaviour
         _eliteMusicClips = new(Resources.LoadAll<AudioClip>("Music/Elite"));
         _gameOverMusicClips = new(Resources.LoadAll<AudioClip>("Music/Game Over"));
 
+        _hubMusicClips.AddRange(_upgradeMusicClips);
+
         _hubMusic = AudioSourceLerper.Create("Hub Music", this.transform, _hubMusicClips);
         _combatMusic = AudioSourceLerper.Create("Combat Music", this.transform, _combatMusicClips);
         _upgradeMusic = AudioSourceLerper.Create("Upgrade Music", this.transform, _upgradeMusicClips);

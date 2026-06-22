@@ -15,6 +15,8 @@ public class Actor : MonoBehaviour
     public float Difficulty = 1f;
     public float UpgradeAffinity = 1f;
     public float NewSkillAffinity = 1f;
+    public List<TagCollection.TagType> BlacklistedTags;
+    public List<Skill> InnateSkillList = new();
     public FactionType Faction = FactionType.Enemy;
     public enum FactionType { None, Player, Enemy }
     public ActorStats Stats;
@@ -45,6 +47,14 @@ public class Actor : MonoBehaviour
     public Action OnDeath;
     public Action OnEvade;
     public Action OnArmor;
+    public Action<Actor> OnKill;
+    public Action<float, Skill> OnHit;
+
+    public class MetaInfo
+    {
+        public int Kills;
+        public int DamageDone;
+    }
 
     [SerializeField] SpriteRenderer _spriteRend;
     public Sprite Sprite => _spriteRend.sprite;

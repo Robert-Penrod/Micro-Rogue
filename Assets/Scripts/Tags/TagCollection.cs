@@ -69,6 +69,7 @@ public class TagCollection
     {
         List<TagStack> tagOverlapList = otherCol == null ? new() : _entries.FindAll(x => otherCol._entries.Exists(y => y.tag == x.tag));
         float multiplier = 0;
+        int sum = 0;
         tagOverlapList.ForEach(tagStack =>
         {
             float tagMult = 0.5f;
@@ -77,7 +78,9 @@ public class TagCollection
                 tagMult = 1f;
             }
             multiplier += tagMult * tagStack.count;// tagMult / 2f;// tagMult * Mathf.Pow(tagStack.count, 0.25f);
+            sum += tagStack.count;
         });
+        //if(sum > 0) multiplier /= sum;
         //Debug.Log("TagMult: " + multiplier);
         return 1f + affinityMult * multiplier;
     }

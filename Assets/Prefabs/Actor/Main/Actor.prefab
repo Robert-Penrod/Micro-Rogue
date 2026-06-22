@@ -30569,6 +30569,8 @@ MonoBehaviour:
   Difficulty: 1
   UpgradeAffinity: 1
   NewSkillAffinity: 1
+  BlacklistedTags: 
+  InnateSkillList: []
   Faction: 2
   Stats:
     _health: 12

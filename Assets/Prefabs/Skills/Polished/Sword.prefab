@@ -534,7 +534,7 @@ MonoBehaviour:
   _wallSlowLerp: 0.5
   _hitParticles: {fileID: 7850725256528138724, guid: bf8e70d1b41a7f64c9e5820cc01c1d4f, type: 3}
   _hitClip: {fileID: 8300000, guid: a2dfef3fcd8b20c48ab3826ac81d4aab, type: 3}
-  _wallHitClip: {fileID: 8300000, guid: 3b144d2e86c1af64a9eabd5137f6f1b4, type: 3}
+  _wallHitClip: {fileID: 0}
 --- !u!114 &5391772451037885078
 MonoBehaviour:
   m_ObjectHideFlags: 0

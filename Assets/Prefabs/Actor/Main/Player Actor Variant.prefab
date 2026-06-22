@@ -30,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Stats._health
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Stats.HealthMax.BaseValue
-      value: 20
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 7435097367609470564, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_IsActive

@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a06f05f1c2cdc4e8c187cc8bed49c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blocksSight: 1
+  _health: -1
   _minSizeMult: 0.675
   _maxSizeMult: 1.5
 --- !u!58 &1727026771232789003
@@ -260,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7992406002929872762
 Transform:
   m_ObjectHideFlags: 0
