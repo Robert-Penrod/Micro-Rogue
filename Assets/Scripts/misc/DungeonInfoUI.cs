@@ -18,10 +18,14 @@ public class DungeonInfoUI : MonoBehaviour
         };
     }
 
+    private void OnEnable()
+    {
+        UpdateUI();
+    }
+
     void UpdateUI()
     {
         // Boss/Elite Images
-        transform.parent.gameObject.SetActive(DungeonManager.I.Data.Coordinate.y != 0);
         _eliteimage.enabled = DungeonManager.I?.Data?.EliteTier > 0;
         _bossImage.enabled = DungeonManager.I?.Data?.IsBoss ?? false;
 

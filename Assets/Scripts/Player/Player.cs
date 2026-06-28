@@ -28,7 +28,8 @@ public class Player : MonoBehaviour
         {
             get
             {
-                return _gem;
+                return PlayerPrefs.GetInt("Gems", 0);
+                //return _gem;
             }
             set
             {
@@ -73,8 +74,6 @@ public class Player : MonoBehaviour
         Actor = GetComponentInChildren<Actor>(true);
         Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
         Data.Color = PlayerManager.I.GetPlayerColor(Index);
-
-        PlayerData.Gem = PlayerPrefs.GetInt("Gems", 0);
     }
 
     private void Update()

@@ -2216,6 +2216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2268945334824700711}
   - component: {fileID: 7629632860080096397}
+  - component: {fileID: 7675509391064834219}
   m_Layer: 5
   m_Name: Dungeon Info
   m_TagString: Untagged
@@ -2260,6 +2261,18 @@ MonoBehaviour:
   _bossImage: {fileID: 2496510948776857156}
   _nextTierText: {fileID: 621089984910452591}
   _currentTierText: {fileID: 1052806311300979017}
+--- !u!225 &7675509391064834219
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254158189309709164}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7810642892170613272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1693646758569882382}
   - component: {fileID: 3613945873399306265}
+  - component: {fileID: 7992985479878609091}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -2612,10 +2626,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2268945334824700711}
-  - {fileID: 5862018979375679001}
   - {fileID: 8284744032937211676}
   - {fileID: 8579470319283746060}
+  - {fileID: 2268945334824700711}
+  - {fileID: 5862018979375679001}
   m_Father: {fileID: 6961397143825537610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2635,6 +2649,19 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &7992985479878609091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8256625254808644328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8239be5f0d4b42a4c82a6004090d9773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dungeonInfoGroup: {fileID: 7675509391064834219}
 --- !u!1 &8509209207913810337
 GameObject:
   m_ObjectHideFlags: 0
