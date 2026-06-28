@@ -48,13 +48,8 @@ public class Actor : MonoBehaviour
     public Action OnEvade;
     public Action OnArmor;
     public Action<Actor> OnKill;
-    public Action<float, Skill> OnHit;
+    public Action<float, Actor, Skill> OnHit;
 
-    public class MetaInfo
-    {
-        public int Kills;
-        public int DamageDone;
-    }
 
     [SerializeField] SpriteRenderer _spriteRend;
     public Sprite Sprite => _spriteRend.sprite;

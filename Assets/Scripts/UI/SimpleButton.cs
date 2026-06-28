@@ -9,7 +9,9 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 {
     #region Vars
     [SerializeField] string _text;
+    [SerializeField] Sprite _sprite;
     [SerializeField] TextMeshProUGUI _textMesh;
+    [SerializeField] Image _image;
 
     float _lerpSpeed = 25f;
     Vector3 _initScale;
@@ -35,7 +37,14 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     private void OnValidate()
     {
         if (_textMesh != null) _textMesh.text = _text;
-        this.gameObject.name = _text + "_btn";
+        if (_image != null)
+        {
+            _image.sprite = _sprite;
+        }
+        _image.enabled = _sprite != null;
+
+        if (_text != string.Empty) this.gameObject.name = _text + "_btn";
+        //else if (_sprite != null) this.gameObject.name = _sprite.name + "_btn";
     }
 
     private void Awake()

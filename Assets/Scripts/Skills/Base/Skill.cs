@@ -109,6 +109,18 @@ public class Skill : MonoBehaviour
     SimpleNPCBrain _npcBrain;
 
     [SerializeField] float _dps;
+
+    //Events
+    public Action<float, Actor, Skill> OnHit;
+    public Action<Actor> OnKill;
+
+    [System.Serializable]
+    public class MetaInfo
+    {
+        public int Kills;
+        public float DamageDone;
+    }
+    public MetaInfo MetaSkillInfo;
     #endregion
 
     #region Init
@@ -152,6 +164,20 @@ public class Skill : MonoBehaviour
         // References
         Actor = GetComponentInParent<Actor>();
         _npcBrain = GetComponentInParent<SimpleNPCBrain>();
+
+        // Events
+        OnHit = null;
+        OnHit += (damage, hitActor, skill) =>
+        {
+            Actor.OnHit?.Invoke(damage, hitActor, skill);
+            MetaSkillInfo.DamageDone += damage;
+        };
+        OnKill = null;
+        OnKill += (slainActor) =>
+        {
+            Actor.OnKill?.Invoke(slainActor);
+            MetaSkillInfo.Kills++;
+        };
 
         // Cooldown
         ShuffleCooldown();

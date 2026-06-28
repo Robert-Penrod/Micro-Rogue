@@ -236,6 +236,11 @@ public class SIE_Projectile : SIE, IPoolable
                 HandleParticles(particlePoint, particleVel, (damageTaken / (0.333f * hitActor.Stats.HealthMax.Value)));
             }
 
+            // Events
+            var skill = _skillInstance.Skill;
+            skill.OnHit?.Invoke(damageTaken, hitActor, skill);
+            if (hitActor.Stats.Health < 0f) skill.OnKill?.Invoke(hitActor);
+
             // Screen Shake
             CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
         }

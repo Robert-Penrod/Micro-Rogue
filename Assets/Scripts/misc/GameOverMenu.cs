@@ -14,7 +14,10 @@ public class GameOverMenu : SimpleMenu
         if (!_isGameOver && PlayerManager.I.AreAllPlayersDead())
         {
             _isGameOver = true;
-            if (!IsOpen) SetOpen(true);
+            this.DelayedInvoke(1f, () =>
+            {
+                if (!IsOpen) SetOpen(true);
+            });
         }
     }
 }
