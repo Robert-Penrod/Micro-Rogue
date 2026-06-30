@@ -62,6 +62,27 @@ public class DungeonManager : Singleton<DungeonManager>
         return c;
     }
 
+    public void SetBiomeWilds()
+    {
+        Data.Biome = BiomeEnum.Wilds;
+        ForceSetBiome();
+    }
+    public void SetBiomeUnderground()
+    {
+        Data.Biome = BiomeEnum.Underground;
+        ForceSetBiome();
+    }
+    public void SetBiomeDungeon()
+    {
+        Data.Biome = BiomeEnum.Dungeon;
+        ForceSetBiome();
+    }
+
+    void ForceSetBiome()
+    {
+        StartCoroutine(GenerateLevel_Co(System.DateTime.Now.Ticks.GetHashCode()));
+    }
+
     #region DungeonData
     [System.Serializable]
     public class DungeonData
@@ -92,7 +113,7 @@ public class DungeonManager : Singleton<DungeonManager>
             else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
 
             // Biome Sampling
-            this.Biome = DungeonManager.SampleBiome(this.Seed, this.Coordinate, runLevel);
+            this.Biome = DungeonManager.I?.Data?.Biome ?? BiomeEnum.Wilds;// DungeonManager.SampleBiome(this.Seed, this.Coordinate, runLevel);
         }
 
         public int GetSeed()
@@ -111,7 +132,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     private void Start()
     {
-        UpdateWallTexture();
+        UpdateBiomeTextures();
     }
 
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord, int runTier)
@@ -183,7 +204,7 @@ public class DungeonManager : Singleton<DungeonManager>
         StartCoroutine(GenerateLevel_Co());
     }
 
-    public void UpdateWallTexture()
+    public void UpdateBiomeTextures()
     {
         Random.InitState(Data.GetSeed());
         var biomeData = Data.Biome switch
@@ -202,17 +223,22 @@ public class DungeonManager : Singleton<DungeonManager>
         _floorMat.SetVector("_Offset", new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)));
     }
 
-    IEnumerator GenerateLevel_Co()
+    IEnumerator GenerateLevel_Co(int seed = 0)
     {
+        if(DungeonTransform == null) DungeonTransform = new GameObject("Dungeon").transform;
+
+        PlayerPrefs.SetInt("LastBiomeIndex", (int)Data.Biome);
+        Debug.Log("Saving Last Biome: " + Data.Biome);
+
         // Clear Dungeon
         foreach (Transform t in DungeonTransform)
             Destroy(t.gameObject);
 
         // Texture
-        UpdateWallTexture();
+        UpdateBiomeTextures();
 
         // Generator Instantiations
-        Random.InitState(Data.GetSeed());
+        Random.InitState(seed + Data.GetSeed());
         Instantiate(_roomGeneratorPrefab, DungeonTransform);
         yield return new WaitForFixedUpdate();
         yield return new WaitForFixedUpdate();
@@ -231,8 +257,10 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         base.Awake();
         _playerManager = PlayerManager.I;
-        DungeonTransform = new GameObject("Dungeon").transform;
+        if (DungeonTransform == null) DungeonTransform = new GameObject("Dungeon").transform;
         Data.Seed = DateTime.Now.Ticks.GetHashCode(); // Randomize Seed
+        Data.Biome = (BiomeEnum)PlayerPrefs.GetInt("LastBiomeIndex", 0);
+        Debug.Log("Setting Biome to " + Data.Biome);
     }
     #endregion
     
@@ -396,7 +424,7 @@ public class DungeonManager : Singleton<DungeonManager>
             else
             {
                 Data.Coordinate.y++;
-                Data.Biome = BiomeEnum.Wilds;
+                //Data.Biome = BiomeEnum.Wilds;
             }
 
             // Starting run

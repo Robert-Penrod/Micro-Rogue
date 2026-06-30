@@ -6,6 +6,7 @@ public class SimpleButtonFX : MonoBehaviour
 {
     public float LerpSpeed = 25f;
     public float SelectValueShift = 0f;
+    float _highlightValueShift = 0.125f;
     SimpleButton _simpleButton;
     Image _image;
     Color _initColor;
@@ -21,7 +22,10 @@ public class SimpleButtonFX : MonoBehaviour
     {
         // Color
         Color targetColor = _initColor;
-        if(_simpleButton.IsSelected) targetColor = targetColor.SetValue(targetColor.GetValue() + SelectValueShift);
+        float targetValue = targetColor.GetValue();
+        if (_simpleButton.IsHighlighted) targetValue += _highlightValueShift;
+        if (_simpleButton.IsSelected) targetValue += SelectValueShift;
+        targetColor = targetColor.SetValue(targetValue);
         _image.color = _image.color.Lerp(targetColor, LerpSpeed * Time.deltaTime);
     }
 }

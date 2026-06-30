@@ -67,6 +67,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
     {
+        if (actorToUpgrade == null) return null;
+
         float tagAffinityMult = actorToUpgrade.IsPlayer() ? 0.25f : 2f;
 
         if (actorToUpgrade == null || actorToUpgrade.SkillSystem == null) return new();

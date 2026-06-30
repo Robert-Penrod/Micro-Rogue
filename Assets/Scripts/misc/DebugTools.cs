@@ -110,6 +110,14 @@ public class DebugTools : MonoBehaviour
             Debug.Log($"Timescale: {timescale}");
             Utils.SetFullTimeScale(timescale);
         }
+        if(Input.GetKeyDown(KeyCode.Semicolon))
+        {
+            Utils.SetDefaultTimeScale(2f);
+        }
+        else if(Input.GetKeyUp(KeyCode.Semicolon))
+        {
+            Utils.SetFullTimeScale(_timeScaleArray[_timeScaleIndex]);
+        }
 
         // Kill
         if (Input.GetKeyDown(KeyCode.K))

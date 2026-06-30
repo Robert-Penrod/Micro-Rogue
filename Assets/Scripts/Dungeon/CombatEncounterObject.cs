@@ -7,9 +7,16 @@ public class CombatEncounterObject : MonoBehaviour
     [SerializeField] WeightedList<Actor> _enemyTable = new();
     [SerializeField] WeightedList<Actor> _bossTable = new();
     List<Actor> _enemyList = new();
+    List<SimpleNPCBrain> _enemyBrainList = new();
 
     public void SpawnEncounter(float mult = 1f)
     {
+        if (PlayerManager.I.PlayerList.Count == 0)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+
         List<Actor> newEnemiesList = new();
         _spawnNum++;
         Random.InitState(DungeonManager.I.Data.GetSeed());
@@ -18,6 +25,7 @@ public class CombatEncounterObject : MonoBehaviour
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
 
         budget *= DungeonManager.I.Data.RoomNumber.Remap(1f, 15f, 1f, 1.05f); // 1.05f
+        budget *= ((float)DungeonManager.I.Data.Biome).Remap(1f, 2f, 1f, 1.1f, false);
 
         //budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
         //budget += DungeonManager.I.Data.IsBoss ? 2f : 0f;
@@ -40,6 +48,8 @@ public class CombatEncounterObject : MonoBehaviour
 
 
         budget *= mult;
+
+        budget = budget.ClampMin(1);
 
         Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
         Debug.Log("COMBAT ENCOUNTER: " + budget.ToString());
@@ -89,13 +99,14 @@ public class CombatEncounterObject : MonoBehaviour
         var data = DungeonManager.I.Data;
         int enemyCount = Random.Range(1, 1 + max);
         if (enemyCount == 1) enemyCount = Random.Range(1, 1 + max);
+        if (enemyCount == 1) enemyCount++;
         if (data.IsFinalBoss) enemyCount = (int)(0.75f * enemyCount);
         if (data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
         enemyCount = enemyCount.ClampMin(1);
         for(int i = 0; i < enemyCount && budget >= 1f + 0.25f * i; i++)
         {
             var selectedTypeActor = typeTable.SelectItem();
-            if (DungeonManager.I.Data.IsFinalBoss && i == 0)
+            if (false && DungeonManager.I.Data.IsFinalBoss && i == 0)
             {
                 // Final Boss
                 selectedTypeActor = _bossTable.SelectItem();
@@ -183,6 +194,10 @@ public class CombatEncounterObject : MonoBehaviour
         });
 
         _enemyList.AddRange(newEnemiesList);
+        _enemyList.ForEach(enemy =>
+        {
+            _enemyBrainList.Add(enemy.GetComponent<SimpleNPCBrain>());
+        });
     }
 
     float _spawnTick;
@@ -197,24 +212,27 @@ public class CombatEncounterObject : MonoBehaviour
     private void FixedUpdate()
     {
         // Wave Spawner
-        /*
-        if (!IsEncounterOver)
+        if (!IsEncounterOver && _enemyList.Count > 0)
         {
-            _spawnTick += Time.fixedDeltaTime;
-            if (_spawnTick >= (_spawnNum).Remap(1f, 2f, 30f, 20f))
+            bool isPlayersDetected = _enemyBrainList.FindAll(enemyBrain => enemyBrain.State != "Idle").Count > 0;
+            float reinforcementSpeed = isPlayersDetected ? 1f : 0.25f;
+
+            _spawnTick += reinforcementSpeed * Time.fixedDeltaTime;
+            _spawnTime = (_spawnNum).Remap(1f, 3f, 30f, 20f);
+            if (_spawnTick >= _spawnTime)
             {
                 _spawnTick = 0f;
-                var difMult = (_spawnNum).Remap(1f, 2f, 0.25f, 0.75f);
+                var difMult = (_spawnNum).Remap(1f, 3f, 0.5f, 1f, false);
                 SpawnEncounter(difMult);
             }
         }
-        */
 
         for(int i = 0; i < _enemyList.Count; i++)
         {
             if(_enemyList[i] == null || !_enemyList[i].IsAlive)
             {
                 _enemyList.RemoveAt(i);
+                _enemyBrainList.RemoveAt(i);
                 i--;
             }
         }

@@ -35,6 +35,7 @@ public class SimpleMenu : MonoBehaviour
     protected virtual void Update()
     {
         _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
+        //if (!IsOpen && _canvasGroup.alpha < 0.001f) this.gameObject.SetActive(false); 
 
         if(IsOpen)
         {
@@ -49,6 +50,8 @@ public class SimpleMenu : MonoBehaviour
 
     public void SetOpen(bool isOpen)
     {
+        if (isOpen) this.gameObject.SetActive(true);
+
         bool didOpenChange = true;// this.IsOpen != isOpen;
         this.IsOpen = isOpen;
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
@@ -68,6 +71,12 @@ public class SimpleMenu : MonoBehaviour
     {
         this.SetOpen(false);
         otherMenu.SetOpen(true);
+    }
+
+    public void GoBack()
+    {
+        SwitchMenu(_prevMenu);
+        OnGoBack?.Invoke();
     }
 
     public void RestartScene()

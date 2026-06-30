@@ -23,14 +23,36 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
     [Header("Reference")]
     [SerializeField] Transform _content;
+    float _initContentSize;
+    [SerializeField] GameObject _highlightGFX;
 
     [Header("State")]
     [SerializeField] bool _isInteractable = true;
     public bool IsSelected { get; private set; }
     float _submitPulse = 0f;
+    public bool IsHighlighted
+    {
+        get
+        {
+            return _isHighlighted;
+        }
+        set
+        {
+            _isHighlighted = value;
+            if(_isHighlighted)
+            {
+                OnHighlightEvent?.Invoke();
+            }
+            if(_highlightGFX != null) _highlightGFX.SetActive(_isHighlighted);
+            if (_isHighlighted) transform.SetAsLastSibling();
+        }
+    }
+    bool _isHighlighted;
 
     [Header("Events")]
     public UnityEvent OnSubmitEvent;
+    public UnityEvent OnDownEvent;
+    public UnityEvent OnHighlightEvent;
     #endregion
 
     #region Init
@@ -52,6 +74,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
         _audioSource = gameObject.AddComponent<AudioSource>();
         _audioSource.spatialBlend = 0f;
         _initScale = transform.localScale;
+        _initContentSize = _content.localScale.x;
     }
     #endregion
 
@@ -105,10 +128,13 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
             if (!_isInteractable) return;
             if (!IsSelected) return;
             _submitPulse += 1f;
-            Debug.Log("Submit: " + this.gameObject.name);
+            //Debug.Log("Submit: " + this.gameObject.name);
 
             // Lock Selection
             SetInputSystemActive(false);
+
+            // Down Event
+            OnDownEvent?.Invoke();
 
             this.DelayedInvoke(0.2f, () =>
             {
@@ -129,7 +155,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
     void SetSelected(bool isSelected)
     {
-        Debug.Log("Set Selected: " + this.gameObject.name + " " + isSelected);
+        //Debug.Log("Set Selected: " + this.gameObject.name + " " + isSelected);
         this.IsSelected = isSelected;
     }
 
@@ -157,11 +183,17 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
         if (_submitPulse > 0f) _submitPulse = _submitPulse.Lerp(0f, 0.1f * _lerpSpeed * Time.deltaTime);
 
         // Scale Lerp
-        Vector3 targetScale = IsSelected ? 1.1f * _initScale : _initScale;
-        float targetX = targetScale.x;
-        targetX *= _submitPulse.RemapPercent(1f, 1.1f, false);
+        float targetScaleMult = IsSelected ? 1.1f : 1f;
+        targetScaleMult *= _submitPulse.RemapPercent(1f, 1.1f, false);
+        targetScaleMult *= IsHighlighted ? 1.1f : 1f;
+        float targetX = targetScaleMult * _initScale.x;
         transform.localScale = transform.localScale.x.Lerp(targetX, _lerpSpeed * Time.deltaTime) * Vector3.one;
-        if(_content != null) _content.transform.localScale = _content.transform.localScale.x.Lerp(targetX, _lerpSpeed * Time.deltaTime) * Vector2.one;
+        if(_content != null)
+        {
+            float contentTargetX = targetScaleMult * _initContentSize;
+            contentTargetX *= IsHighlighted ? 1.025f : 1f;
+            _content.transform.localScale = _content.transform.localScale.x.Lerp(contentTargetX, _lerpSpeed * Time.deltaTime) * Vector2.one;
+        }
     }
     #endregion
 }
