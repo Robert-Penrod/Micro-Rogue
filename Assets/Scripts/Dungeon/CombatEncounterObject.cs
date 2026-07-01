@@ -64,8 +64,8 @@ public class CombatEncounterObject : MonoBehaviour
 
             var biomeMult = DungeonManager.I.Data.Biome switch
             {
-                DungeonManager.BiomeEnum.Wilds => enemyEntry.Item.WildsAffinity,
-                DungeonManager.BiomeEnum.Underground => enemyEntry.Item.UndergroundAffinity,
+                DungeonManager.BiomeEnum.Forest => enemyEntry.Item.WildsAffinity,
+                DungeonManager.BiomeEnum.Cave => enemyEntry.Item.UndergroundAffinity,
                 DungeonManager.BiomeEnum.Dungeon => enemyEntry.Item.DungeonAffinity,
                 _ => 1f
             };
@@ -222,7 +222,7 @@ public class CombatEncounterObject : MonoBehaviour
             if (_spawnTick >= _spawnTime)
             {
                 _spawnTick = 0f;
-                var difMult = (_spawnNum).Remap(1f, 3f, 0.5f, 1f, false);
+                var difMult = (_spawnNum).Remap(1f, 3f, 0.25f, 1f, false);
                 SpawnEncounter(difMult);
             }
         }

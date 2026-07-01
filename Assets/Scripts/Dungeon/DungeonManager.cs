@@ -30,8 +30,9 @@ public class DungeonManager : Singleton<DungeonManager>
     // Events
     public Action OnDungeonDataChanged;
     public Action OnPortalTransitionStart;
+    public Action OnGenerateLevel;
 
-    public enum BiomeEnum { Wilds = 1, Underground = 2, Dungeon = 3 }
+    public enum BiomeEnum { Forest = 1, Cave = 2, Dungeon = 3 }
     public Sprite WildsIcon;
     public Sprite UndergroundIcon;
     public Sprite DungeonIcon;
@@ -42,8 +43,8 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         Sprite sprite = biome switch
         {
-            BiomeEnum.Wilds => WildsIcon,
-            BiomeEnum.Underground => UndergroundIcon,
+            BiomeEnum.Forest => WildsIcon,
+            BiomeEnum.Cave => UndergroundIcon,
             BiomeEnum.Dungeon => DungeonIcon,
             _ => null
         };
@@ -53,8 +54,8 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         Color c = biome switch
         {
-            BiomeEnum.Wilds => Color.green,
-            BiomeEnum.Underground => Color.grey,
+            BiomeEnum.Forest => Color.green,
+            BiomeEnum.Cave => Color.grey,
             BiomeEnum.Dungeon => Color.blue,
             _ => Color.black
         };
@@ -64,21 +65,21 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void SetBiomeWilds()
     {
-        Data.Biome = BiomeEnum.Wilds;
-        ForceSetBiome();
+        Data.Biome = BiomeEnum.Forest;
+        GenerateRandomizedRoom();
     }
     public void SetBiomeUnderground()
     {
-        Data.Biome = BiomeEnum.Underground;
-        ForceSetBiome();
+        Data.Biome = BiomeEnum.Cave;
+        GenerateRandomizedRoom();
     }
     public void SetBiomeDungeon()
     {
         Data.Biome = BiomeEnum.Dungeon;
-        ForceSetBiome();
+        GenerateRandomizedRoom();
     }
 
-    void ForceSetBiome()
+    void GenerateRandomizedRoom()
     {
         StartCoroutine(GenerateLevel_Co(System.DateTime.Now.Ticks.GetHashCode()));
     }
@@ -113,7 +114,7 @@ public class DungeonManager : Singleton<DungeonManager>
             else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
 
             // Biome Sampling
-            this.Biome = DungeonManager.I?.Data?.Biome ?? BiomeEnum.Wilds;// DungeonManager.SampleBiome(this.Seed, this.Coordinate, runLevel);
+            this.Biome = DungeonManager.I?.Data?.Biome ?? BiomeEnum.Forest;// DungeonManager.SampleBiome(this.Seed, this.Coordinate, runLevel);
         }
 
         public int GetSeed()
@@ -139,20 +140,20 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         return runTier switch
         {
-            1 => BiomeEnum.Wilds,
-            2 => BiomeEnum.Underground,
+            1 => BiomeEnum.Forest,
+            2 => BiomeEnum.Cave,
             3 => BiomeEnum.Dungeon,
-            _ => BiomeEnum.Wilds
+            _ => BiomeEnum.Forest
         };
 
         int biomeIndex = ((5 * (runTier-1)) + (coord.y - 1)) % 15; // (1, 15, 30) -> (1, 1, 0)
         if(biomeIndex <= 4)
         {
-            return BiomeEnum.Wilds;
+            return BiomeEnum.Forest;
         }
         else if(biomeIndex <= 9)
         {
-            return BiomeEnum.Underground;
+            return BiomeEnum.Cave;
         }
         else
         {
@@ -183,18 +184,18 @@ public class DungeonManager : Singleton<DungeonManager>
 
         if(wildsValue == maxValue)
         {
-            return BiomeEnum.Wilds;
+            return BiomeEnum.Forest;
         }
         else if(undergroundValue == maxValue)
         {
-            return BiomeEnum.Underground;
+            return BiomeEnum.Cave;
         }
         else if(dungeonValue == maxValue)
         {
             return BiomeEnum.Dungeon;
         }
 
-        return BiomeEnum.Wilds;
+        return BiomeEnum.Forest;
     }
 
     #region GenerateLevel()
@@ -209,8 +210,8 @@ public class DungeonManager : Singleton<DungeonManager>
         Random.InitState(Data.GetSeed());
         var biomeData = Data.Biome switch
         {
-            BiomeEnum.Wilds => _wildsData,
-            BiomeEnum.Underground => _undergroundData,
+            BiomeEnum.Forest => _wildsData,
+            BiomeEnum.Cave => _undergroundData,
             BiomeEnum.Dungeon => _dungeonData
         };
 
@@ -249,6 +250,8 @@ public class DungeonManager : Singleton<DungeonManager>
         yield return new WaitForFixedUpdate();
         //SpawnPortals();
         //if (Random.value > 0.5) SpawnPortals();
+
+        OnGenerateLevel?.Invoke();
     }
     #endregion
 

@@ -34,7 +34,7 @@ public class DungeonFog : MonoBehaviour
         if (UpgradeMenu.I.IsOpen) targetSize *= 1.25f;
 
         // Underground
-        if (DungeonManager.I?.Data?.Biome == DungeonManager.BiomeEnum.Underground) targetSize *= 0.75f;
+        if (DungeonManager.I?.Data?.Biome == DungeonManager.BiomeEnum.Cave) targetSize *= 0.75f;
 
         // Hub
         if(DungeonManager.I.Data.Coordinate.y <= 0)

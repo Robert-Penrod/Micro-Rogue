@@ -27,8 +27,8 @@ public class RoomObject : MonoBehaviour
 
         // Room Shape
         var biome = _dungeonManager.Data.Biome;
-        _wildsRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Wilds);
-        _undergroundRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Underground);
+        _wildsRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Forest);
+        _undergroundRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Cave);
         _dungeonRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Dungeon);
 
         // Scale
@@ -37,8 +37,8 @@ public class RoomObject : MonoBehaviour
         // Props
         WeightedList<GameObject> biomePropTable = biome switch
         {
-            DungeonManager.BiomeEnum.Wilds => _wildsProps,
-            DungeonManager.BiomeEnum.Underground => _undergroundProps,
+            DungeonManager.BiomeEnum.Forest => _wildsProps,
+            DungeonManager.BiomeEnum.Cave => _undergroundProps,
             DungeonManager.BiomeEnum.Dungeon => _dungeonProps,
             _ => null
         };
