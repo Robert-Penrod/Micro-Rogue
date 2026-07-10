@@ -28,7 +28,7 @@ public class SE_Shield : SkillEffect
 
     private void Start()
     {
-        _skill.Actor.OnWasHit += () =>
+        _skill.Actor.OnWasHit += (SkillInstance skill) =>
         {
             if (_charges <= 0) return;
             HandleShieldHit();

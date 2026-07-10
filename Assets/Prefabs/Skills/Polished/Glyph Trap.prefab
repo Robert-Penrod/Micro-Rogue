@@ -22,23 +22,27 @@ PrefabInstance:
       objectReference: {fileID: -2556484806140483146, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Slot
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: _dps
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Int
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: Description
+      value: Periodically drop a damaging glyph on the ground.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Damage.BaseValue
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Pierce.BaseValue
-      value: -1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.size
@@ -46,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Duration.BaseValue
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Tags._entries.Array.size
@@ -70,11 +74,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2]._name
-      value: Ritual
+      value: Grow
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].Rarity
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Tags._entries.Array.data[0].count
@@ -98,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 7914506722562047379}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.size
@@ -106,15 +110,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].BalancePoints
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].SkillStatName
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
@@ -126,39 +138,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].BalancePoints
-      value: -0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].SkillStatName
-      value: 20
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[1].BalancePoints
-      value: 1.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[1].SkillStatName
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[2].BalancePoints
-      value: 0.25
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[2].SkillStatName
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 3978231070191244806, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: PrefabToSpawn
+      value: 
+      objectReference: {fileID: 1588591637013566469}
     - target: {fileID: 4530849425862184876, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530849425862184876, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530849425862184876, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530849425862184876, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530849425862184876, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4530849425862184876, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -223,54 +247,39 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3174867068238258102}
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1006493677201343067, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1668489867389721750, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8773545455887008210}
-    - targetCorrespondingSourceObject: {fileID: 1006493677201343067, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1242724565302791745}
+      addedObject: {fileID: 6154287521720379923}
   m_SourcePrefab: {fileID: 100100000, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
 --- !u!4 &1023770009595123325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5183442124071526767, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
   m_PrefabInstance: {fileID: 5321671739271935762}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4912768495479600457 stripped
+--- !u!1 &6844850147786206084 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1006493677201343067, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1668489867389721750, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
   m_PrefabInstance: {fileID: 5321671739271935762}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8773545455887008210
+--- !u!114 &6154287521720379923
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4912768495479600457}
+  m_GameObject: {fileID: 6844850147786206084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e374196d01a98a4c9dc61a15a0c3b2d, type: 3}
+  m_Script: {fileID: 11500000, guid: 17350222c3755ef47a3bd2d038322e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1242724565302791745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4912768495479600457}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee2ca42a7e8b5244a90d6716cecddac0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PrefabToSpawn: {fileID: 1588591637013566469}
+  Speed: -45
 --- !u!114 &7914506722562047379 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
   m_PrefabInstance: {fileID: 5321671739271935762}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4912768495479600457}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
@@ -288,6 +297,10 @@ PrefabInstance:
       propertyPath: _useAlpha
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5548848231718439703, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _activeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: adc6a337a9c3ad04e9f254ee70d4a9a2, type: 3}
     - target: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Name
       value: skill projectile
@@ -304,6 +317,10 @@ PrefabInstance:
       propertyPath: _swingAngle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e42fba15eec64ed42a79bf3f956ee6e0, type: 3}
     - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _launchMult
       value: 0
@@ -374,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: -2556484806140483146, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 8648085898606072256, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Color.a
-      value: 0.2509804
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8983771114154365746, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalPosition.z

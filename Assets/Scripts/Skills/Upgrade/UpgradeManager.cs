@@ -67,9 +67,11 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
     {
+        int slotCount = 2;
+
         if (actorToUpgrade == null) return null;
 
-        float tagAffinityMult = actorToUpgrade.IsPlayer() ? 0.25f : 2f;
+        float tagAffinityMult = actorToUpgrade.IsPlayer() ? 0.1f : 2f;
 
         if (actorToUpgrade == null || actorToUpgrade.SkillSystem == null) return new();
 
@@ -102,7 +104,6 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
             //
             // Slotsfull check
-            int slotCount = 2;
             // -active
             if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
             // -passive
@@ -110,7 +111,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             // Blacklist check
             if (newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
 
-            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), 100f);
+            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), 1000f);
         });
 
         // NEW SKILL UPGRADES
@@ -133,7 +134,6 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
             //
             // Slotsfull check
-            int slotCount = 2;
             // -active
             if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
             // -passive

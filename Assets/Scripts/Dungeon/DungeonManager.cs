@@ -356,12 +356,17 @@ public class DungeonManager : Singleton<DungeonManager>
             // Init
             Random.InitState(Data.Coordinate.GetHashCode());
             var portalList = new List<Portal>();
-            int count = Random.Range(1, 3 + 1);
+            int count = 1;
+            if (Random.value < 0.5f) count++;
+            int offset = count % 2 != 0 ? 0 : -Random.Range(0, 2);
+            if ((Data.Coordinate.y + 1) % 5 == 0) count = 1; // Boss Portal
+
+            /*
             if (count == 1 && Random.value < 0.5f) count++;
             int offset = count % 2 != 0 ? 0 : -Random.Range(0, 2);
             if ((Data.Coordinate.y + 1) % 5 == 0) count = 1; // Boss Portal
-            count = 1; // testing
-    
+            */
+
             // Loop
             for (int i = 0; i < count; i++)
             {

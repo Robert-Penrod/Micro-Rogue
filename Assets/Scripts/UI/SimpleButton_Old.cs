@@ -25,6 +25,8 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
     public UnityEvent OnSubmitEvent;
 
+    CanvasGroup _canvasGroup;
+
     private void Awake()
     {
         _audioSource = this.gameObject.AddComponent<AudioSource>();
@@ -34,6 +36,12 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         _chargeSource.loop = true;
         _chargeSource.volume = 0f;
         _chargeSource.Play();
+        _canvasGroup = GetComponentInParent<CanvasGroup>();
+    }
+
+    private void OnDisable()
+    {
+        _isSelected = _submitPressed = _wasSubmitting = _submiteWasPressedThisFrame = false;
     }
 
     #region UI
@@ -96,6 +104,8 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
     private void Update()
     {
+        if (_canvasGroup != null && !_canvasGroup.interactable) return;
+
         bool isSubmitingThisFrame = _submiteWasPressedThisFrame;// _isSelected && (_currentUIOwner?.Submit.WasPressedThisFrame() ?? false);
         bool isSubmiting = _submitPressed;// _isSelected && (_currentUIOwner?.Submit.IsPressed() ?? false);
         float targetPitch = 0.8f;

@@ -21,33 +21,26 @@ public class CombatEncounterObject : MonoBehaviour
         _spawnNum++;
         Random.InitState(DungeonManager.I.Data.GetSeed());
 
+        var dungeonData = DungeonManager.I.Data;
+
         // Init
+
+        // CALCULATE BUDGET
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
 
-        budget *= DungeonManager.I.Data.RoomNumber.Remap(1f, 15f, 1f, 1.05f); // 1.05f
         budget *= ((float)DungeonManager.I.Data.Biome).Remap(1f, 2f, 1f, 1.1f, false);
+        //budget += ((float)dungeonData.Biome).Remap(1f, 3f, 1f, 2f, false);
 
-        //budget += DungeonManager.I.Data.IsElite ? 1.5f : 0f;
-        //budget += DungeonManager.I.Data.IsBoss ? 2f : 0f;
-        //budget += DungeonManager.I.Data.IsFinalBoss ? 3f : 0f;
+        budget *= DungeonManager.I.Data.EliteTier > 0 ? 1.1f : 1f;
 
-
-        //budget *= DungeonManager.I.Data.IsElite ? 1.2f : 1f;
-        //budget *= DungeonManager.I.Data.IsBoss ? 1.4f : 1f;
-        //budget *= DungeonManager.I.Data.IsFinalBoss ? 1.4f : 1f;
-
-        budget *= DungeonManager.I.Data.EliteTier > 0 ? (0.1f * (DungeonManager.I.Data.EliteTier - 1f) + 1.1f) : 1f;
         budget *= DungeonManager.I.Data.IsBoss ? 1.2f : 1f;
         budget *= DungeonManager.I.Data.IsFinalBoss ? 1.3f : 1f;
-        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.1f);
 
-        //if (DungeonManager.I.Data.IsBoss) budget += 1;
-        //if (DungeonManager.I.Data.IsFinalBoss) budget += 3;
-        budget += DungeonManager.I.Data.EliteTier * 0.25f;
-        budget += 0.1f * (DungeonManager.I.Data.RunTier - 1f);
-
+        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.1f, false);
 
         budget *= mult;
+
+        budget += (DungeonManager.I.Data.EliteTier * 1f);
 
         budget = budget.ClampMin(1);
 
@@ -122,7 +115,7 @@ public class CombatEncounterObject : MonoBehaviour
             }
 
             // Spawn Actor
-            float cost = selectedTypeActor.Difficulty + 0.1f * (i).ClampMin(0); // 0.25f
+            float cost = selectedTypeActor.Difficulty;// + 0.1f * (i).ClampMin(0); // 0.25f
             budget -= cost;
             Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
@@ -153,7 +146,7 @@ public class CombatEncounterObject : MonoBehaviour
         newEnemiesList.ForEach(enemy =>
         {
             bool isBoss = spawnedBossList.Contains(enemy) || (DungeonManager.I.Data.IsBoss && !selectedBoss);
-            float affinityMult = isBoss ? 7f : 1f;
+            float affinityMult = isBoss ? 10f : 1f;
             if (isBoss && !selectedBoss)
             {
                 selectedBoss = true;
@@ -216,13 +209,14 @@ public class CombatEncounterObject : MonoBehaviour
         {
             bool isPlayersDetected = _enemyBrainList.FindAll(enemyBrain => enemyBrain.State != "Idle").Count > 0;
             float reinforcementSpeed = isPlayersDetected ? 1f : 0.25f;
+            float reinforcementTime = 30f + (DungeonManager.I?.Data?.Coordinate.y ?? 0f);
 
             _spawnTick += reinforcementSpeed * Time.fixedDeltaTime;
-            _spawnTime = (_spawnNum).Remap(1f, 3f, 30f, 20f);
+            _spawnTime = reinforcementTime;// (_spawnNum).Remap(1f, 3f, reinforcementTime, reinforcementTime * 0.5f);
             if (_spawnTick >= _spawnTime)
             {
                 _spawnTick = 0f;
-                var difMult = (_spawnNum).Remap(1f, 3f, 0.25f, 1f, false);
+                var difMult = (_spawnNum).Remap(1f, 5f, 0.25f, 1f, false);
                 SpawnEncounter(difMult);
             }
         }

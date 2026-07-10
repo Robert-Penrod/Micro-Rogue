@@ -5225,7 +5225,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 16
+      scalar: 8
       minScalar: 3
       maxCurve:
         serializedVersion: 2
@@ -30564,7 +30564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lvl: 0
-  _skillSystem: {fileID: 0}
+  _skillSystem: {fileID: 2582964353104462975}
   RarityMult: 1
   Difficulty: 1
   UpgradeAffinity: 1
@@ -30658,6 +30658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyActors: []
   EnemySkills: []
+  EnemyTraps: []
   EnemyScentDrop: []
   AllyActors: []
   AllySkills: []
@@ -30736,7 +30737,7 @@ MonoBehaviour:
     - Item: {fileID: 7512805904016728388, guid: 94f9aeb1f28f98a42a2416f10c8efd7d, type: 3}
       Weight: 1
     - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
-      Weight: 0.1
+      Weight: 0.25
     - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
       Weight: 0.1
   GemPrefab: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
@@ -31118,7 +31119,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 12
+      scalar: 6
       minScalar: 0.1
       maxCurve:
         serializedVersion: 2

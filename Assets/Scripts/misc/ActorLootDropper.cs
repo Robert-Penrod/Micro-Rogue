@@ -19,8 +19,9 @@ public class ActorLootDropper : MonoBehaviour
 
     void DropLoot()
     {
-        float dropCount = Random.Range(0, 3) + _actor.GetLevel() / 2;
+        float dropCount = Random.Range(1, 4) + _actor.GetLevel() / 2;
         if (DungeonManager.I.Data.IsBoss) dropCount++;
+        dropCount += DungeonManager.I.Data.EliteTier;
         /*
         dropCount += DungeonManager.I.Data.EliteTier;
         dropCount *= DungeonManager.I.Data.EliteTier.Remap(0f, 2f, 1f, 2f);
@@ -39,7 +40,7 @@ public class ActorLootDropper : MonoBehaviour
 
     void DoSpawn()
     {
-        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.25f) || (Random.value < 0.1f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
+        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.5f) || (Random.value < 0f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
         if (selectedItem == null) return;
         var lootSpawn = selectedItem.PooledInstantiate(transform.position);
         lootSpawn.gameObject.SetActive(true);

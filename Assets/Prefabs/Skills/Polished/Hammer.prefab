@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 2497229969752659803, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: _dps
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Description
@@ -34,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Rate.BaseValue
-      value: 0.5
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Size.BaseValue
@@ -50,11 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Damage.BaseValue
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+      propertyPath: Stats.Duration.BaseValue
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Knockback.BaseValue
@@ -114,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.size
@@ -146,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -154,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].BalancePoints
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].SkillStatName
@@ -182,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
-      value: 0.875
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].SkillStatName
@@ -190,7 +194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].BalancePoints
-      value: 0.125
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].SkillStatName
@@ -270,11 +274,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4246477898769960361, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: m_Size.y
-      value: 1.25
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 4246477898769960361, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4246477898769960361, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: m_Offset.y
-      value: 0.4
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739422010393252967, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+      propertyPath: _swingAngle
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5297444599509645798, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: m_LocalPosition.x
@@ -414,8 +426,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.675}
-  m_Size: {x: 0.9, y: 0.65}
+  m_Offset: {x: 0, y: 0.15}
+  m_Size: {x: 0.8, y: 0.65}
   m_Direction: 1
 --- !u!1 &6287794757202722209 stripped
 GameObject:

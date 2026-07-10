@@ -30,8 +30,13 @@ public class NewSkillUpgrade : Upgrade
             
             foreach (var upgrade in se_statMod.SkillUpgrade)
             {
+                if (description != string.Empty) description += "\n";
                 upgrade.SourceSkill = SourceSkill;
                 description += upgrade.GetDescription();
+                if(upgrade != se_statMod.SkillUpgrade.Last())
+                {
+                    description += "\n";
+                }
             }
         }
 

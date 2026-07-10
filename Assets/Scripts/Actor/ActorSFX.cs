@@ -50,6 +50,7 @@ public class ActorSFX : MonoBehaviour
             PlayAudio(0.75f, 0.75f);
         };
 
+        /*
         _actor.OnTakeDamage += () =>
         {
             if (Random.value < 0.25f)
@@ -57,6 +58,7 @@ public class ActorSFX : MonoBehaviour
                 PlayAudio(0.75f, 1f);
             }
         };
+        */
     }
 
     void Speak(AudioClip clip, float intensity = 1f, float pitchMult = 1f)

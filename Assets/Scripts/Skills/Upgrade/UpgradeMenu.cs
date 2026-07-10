@@ -75,9 +75,13 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         float newSkillMult = (DungeonManager.I.PreviousData?.EliteTier > 0) ? 5f : 1f;
         _rarityFlipGFX.SetActive(rarityFlip > 0);
         SetUpgradeOptions(UpgradeManager.I.GetUpgradeOptions(_actorToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult));
-        _rerollButton.gameObject.SetActive(ActorCanReroll(_actorToUpgrade));
 
-        if (EventSystem.current.currentSelectedGameObject == null)
+        bool canReroll = ActorCanReroll(_actorToUpgrade);
+        _rerollButton.gameObject.SetActive(canReroll);
+
+        var currentSelectedGameObject = EventSystem.current.currentSelectedGameObject;
+
+        if (currentSelectedGameObject == null || (!canReroll && currentSelectedGameObject == _rerollButton.gameObject))
         {
             EventSystem.current.SetSelectedGameObject(_upgradeCardList[0].gameObject);
         }

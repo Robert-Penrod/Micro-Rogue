@@ -12,6 +12,7 @@ public class ActorSenses : MonoBehaviour
 
     public List<Actor> EnemyActors;
     public List<SkillInstance> EnemySkills;
+    public List<SkillInstance> EnemyTraps;
     public List<ScentDrop> EnemyScentDrop;
     public List<Actor> AllyActors;
     public List<SkillInstance> AllySkills;
@@ -24,6 +25,8 @@ public class ActorSenses : MonoBehaviour
         _actor = GetComponent<Actor>();
         WallVMap = new(6);
     }
+
+
 
     private void OnDrawGizmosSelected()
     {
@@ -70,6 +73,14 @@ public class ActorSenses : MonoBehaviour
         _actorScanTimer.SetPercent(Random.Range(0f, 1f));
         _skillScanTimer.SetPercent(Random.Range(0f, 1f));
         _scentScanTimer.SetPercent(Random.Range(0f, 1f));
+
+        _actor.OnWasHit += (SkillInstance skillInstance) =>
+        {
+            if(skillInstance.Skill.Tags.HasTag(TagCollection.TagType.Trap))
+            {
+                EnemyTraps.Add(skillInstance);
+            }
+        };
     }
     private void FixedUpdate()
     {
@@ -161,23 +172,39 @@ public class ActorSenses : MonoBehaviour
     {
         EnemySkills.Clear();
         AllySkills.Clear();
+        EnemyTraps.RemoveAll(x => x == null);
         List<SkillInstance> skillInstanceList = Utils.ComponentScan<SkillInstance>(transform.position, _skillSenseDist, false, LayerMask.GetMask("Skill"));
+
+        /*
         SkillInstance[] skillInstanceArray = skillInstanceList.ToArray();
         Array.Sort(skillInstanceArray, (x, y) =>
         {
             return (int)Mathf.Sign(transform.DistanceFrom(x.transform) - transform.DistanceFrom(y.transform));
         });
+        */
 
-        skillInstanceList.ForEach(x =>
+        skillInstanceList.ForEach(skillInstance =>
         {
-            if (x.Skill.Actor.IsEnemyOf(_actor))
+            SeeSkillInstance(skillInstance);
+        });
+        EnemyTraps.ForEach(enemyTrap =>
+        {
+            SeeSkillInstance(enemyTrap);
+        });
+
+        void SeeSkillInstance(SkillInstance instance)
+        {
+            if (instance.Skill.Actor.IsEnemyOf(_actor))
             {
-                EnemySkills.Add(x);
+                if (!instance.Skill.Tags.HasTag(TagCollection.TagType.Trap))
+                {
+                    if (!EnemySkills.Contains(instance)) EnemySkills.Add(instance);
+                }
             }
             else
             {
-                AllySkills.Add(x);
+                if (!AllySkills.Contains(instance)) AllySkills.Add(instance);
             }
-        });
+        }
     }
 }

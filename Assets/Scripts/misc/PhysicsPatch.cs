@@ -7,11 +7,12 @@ public class PhysicsPatch : MonoBehaviour
     List<Rigidbody2D> _colBodyList = new();
     SkillInstance _skillInstance;
     [SerializeField] List<TagCollection.TagType> ImunityTags = new();
+    [SerializeField] List<string> ImuneActorNames = new();
 
     #region Init
     private void Awake()
     {
-        _skillInstance = GetComponent<SkillInstance>();
+        _skillInstance = GetComponentInParent<SkillInstance>();
     }
     #endregion
 
@@ -33,9 +34,13 @@ public class PhysicsPatch : MonoBehaviour
                 if (_skillInstance.Skill.Actor == colActor) return;
 
                 // Immunity
-                foreach(TagCollection.TagType imunityTag in ImunityTags)
+                foreach (TagCollection.TagType imunityTag in ImunityTags)
                 {
                     if (_skillInstance.Skill.Actor.Tags.HasTag(imunityTag)) return;
+                }
+                foreach(string name in ImuneActorNames)
+                {
+                    if (colActor.gameObject.name.Contains(name, System.StringComparison.InvariantCultureIgnoreCase)) return;
                 }
             }
         }

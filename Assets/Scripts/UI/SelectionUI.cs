@@ -28,6 +28,11 @@ public class SelectionUI : MonoBehaviour
         };
     }
 
+    private void OnDisable()
+    {
+        SetActive(false);
+    }
+
     void SetActive(bool isActive)
     {
         _image.enabled = isActive;

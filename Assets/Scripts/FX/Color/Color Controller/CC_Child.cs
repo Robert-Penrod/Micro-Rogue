@@ -7,6 +7,7 @@ public class CC_Child : MonoBehaviour
 {
     [SerializeField] bool _useColor = true;
     [SerializeField] bool _useAlpha = true;
+    [SerializeField] bool _useOwnColorHueSat = false;
     public float SaturationOffset = 0f;
     public float ValueOffset = 0f;
 
@@ -53,6 +54,11 @@ public class CC_Child : MonoBehaviour
         if (!_useColor) return;
         Color.RGBToHSV(newColor, out float h, out float s, out float v);
         Color offsetColor = Color.HSVToRGB(h, s + SaturationOffset, v + ValueOffset);
+        if(_useOwnColorHueSat)
+        {
+            Color.RGBToHSV(GetColor(), out float selfH, out float selfS, out float selfV);
+            offsetColor = Color.HSVToRGB(selfH, selfS, v + ValueOffset);
+        }
         SetColor(offsetColor.Alpha(GetColor().a));
     }
 

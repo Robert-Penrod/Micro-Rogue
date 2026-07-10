@@ -68,6 +68,9 @@ public class SkillPassiveFX : MonoBehaviour
         _lerpAlpha = _lerpAlpha.Lerp(targetAlpha, 3f * Time.deltaTime);
         _lerpScale = _lerpScale.Lerp(targetScale, 3f * Time.deltaTime);
 
+        float actorSpriteAlphaMult = _skill?.Actor?._spriteRend?.color.a ?? 1f;
+        _lerpAlpha *= actorSpriteAlphaMult;
+
         _colorController.SetColor(CalculatePassiveColor().Alpha(_lerpAlpha));
         _mainTransform.localScale = Vector3.one * _lerpScale;
     }

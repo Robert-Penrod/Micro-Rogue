@@ -60,7 +60,7 @@ public class ActorSpriteFx : MonoBehaviour
             lerpT -= 0.5f;
         }
         //dodgeLerp = dodgeLerp.Clamp01();
-        Color dodgeColor = Color.Lerp(c, Color.black, lerpT.RemapPercent(0.375f, 0f));
+        Color dodgeColor = Color.Lerp(c, Color.black, lerpT.RemapPercent(0.75f, 0f));
         float lerpAlpha = c.a.Lerp(_initColor.Value.a * alpha, 500f * Time.deltaTime);
         c = dodgeColor.Alpha(lerpAlpha);
 

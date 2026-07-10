@@ -5,6 +5,8 @@ using UnityEngine;
 public class SE_Spawn : SkillEffect
 {
     public GameObject PrefabToSpawn;
+    [SerializeField] float _randPos = 0f;
+    [SerializeField] bool _randRot = false;
 
     public override void TriggerEffect()
     {
@@ -25,11 +27,20 @@ public class SE_Spawn : SkillEffect
     {
         if (PrefabToSpawn == null) return;
 
+        // Random
+        Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
+
+        // Spawn
+        GameObject newObj = PrefabToSpawn.PooledInstantiate();
+
+        // Position
         Vector3 spawnPos = transform.position;
         spawnPos.z = PrefabToSpawn.transform.position.z;
+        if(_randPos > 0f) spawnPos += (Vector3)Random.insideUnitCircle * _randPos;
+        newObj.transform.position = spawnPos;
 
-        GameObject newObj = PrefabToSpawn.PooledInstantiate();
-        newObj.transform.position = transform.position;
+        // Rotation
+        if(_randRot) newObj.transform.rotation = Quaternion.Euler(0f, 0f, 360f * Random.Range(0f, 1f));
 
         // Skill Instance
         var skillInstance = newObj.GetComponent<SkillInstance>();

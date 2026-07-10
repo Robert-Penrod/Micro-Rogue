@@ -42,7 +42,7 @@ public class Actor : MonoBehaviour
 
     // Events
     public Action OnTakeDamage;
-    public Action OnWasHit;
+    public Action<SkillInstance> OnWasHit;
     public Action OnUpgrade;
     public Action OnDeath;
     public Action OnEvade;
@@ -51,7 +51,7 @@ public class Actor : MonoBehaviour
     public Action<float, Actor, Skill> OnHit;
 
 
-    [SerializeField] SpriteRenderer _spriteRend;
+    [SerializeField] public SpriteRenderer _spriteRend;
     public Sprite Sprite => _spriteRend.sprite;
     public Color Color => _spriteRend.color;
 
@@ -263,10 +263,8 @@ public class Actor : MonoBehaviour
         }
 
         // Hit Event
-        if(blockType != "dodge")
-        {
-            OnWasHit?.Invoke();
-        }
+        //if(blockType != "dodge")
+        OnWasHit?.Invoke(sourceSkillInstance);
 
         // Last Chance (Players: If killing hit would do more than x% health -> leave player at 1hp instead)
         if (IsPlayer())
