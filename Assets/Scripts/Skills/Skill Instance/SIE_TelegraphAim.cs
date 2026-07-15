@@ -115,7 +115,7 @@ public class SIE_TelegraphAim : SIE, IPoolable
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
         targetAngle += _offsetAngle;
         Utils.MotorDampAngle(currentAngle, targetAngle, ref _angularVel, torque, responseAngle, damp, Time.deltaTime);
-        transform.Rotate2D(_angularVel);
+        transform.Rotate2D(_skillInstance.Skill.Actor.FrostMult * _angularVel);
     }
 
     void PrototypeAim()

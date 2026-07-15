@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2]._name
-      value: Grow
+      value: Expand
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].Rarity
@@ -106,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
@@ -137,8 +137,16 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].BalancePoints
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].BalancePoints
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].SkillStatName
@@ -146,11 +154,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[1].BalancePoints
-      value: 0.125
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[1].SkillStatName
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[2].BalancePoints
@@ -159,6 +167,14 @@ PrefabInstance:
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[2].SkillStatName
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978231070191244806, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: _randPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3978231070191244806, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
+      propertyPath: _randRot
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3978231070191244806, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: PrefabToSpawn
@@ -293,6 +309,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1023770009595123325}
     m_Modifications:
+    - target: {fileID: 591538419394188466, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4524372092899953610, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _useAlpha
       value: 1
@@ -331,15 +351,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8579264975035111285, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 8579264975035111285, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 8579264975035111285, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 8579264975035111285, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_LocalPosition.x
@@ -419,6 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8191357747834812176, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+    - {fileID: 591538419394188466, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

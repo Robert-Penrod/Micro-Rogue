@@ -9,13 +9,13 @@ public class PortalUpgradeInteractable : InteractableTrigger
 
     protected override void Interact(Player player)
     {
-        Player.PlayerData.Gem -= _upgradeCost;
+        Player.PlayerData.Gems -= _upgradeCost;
         _portal.DungeonData.Coordinate.y += 5;
         _portal.Level += 5;
     }
 
     protected override bool CanInteract(Player player)
     {
-        return Player.PlayerData.Gem >= _upgradeCost;
+        return Player.PlayerData.Gems >= _upgradeCost;
     }
 }

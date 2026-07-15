@@ -5,7 +5,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public int GemCost = 0;
-    public bool IsEnterable => GemCost <= Player.PlayerData.Gem;
+    public bool IsEnterable => GemCost <= Player.PlayerData.Gems;
 
     public int Level = -1;
     float _targetScale = 0.8f;

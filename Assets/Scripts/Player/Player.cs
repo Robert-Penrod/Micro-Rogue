@@ -9,22 +9,25 @@ public class Player : MonoBehaviour
     [System.Serializable]
     public class PlayerData
     {
+        public int Index;
         public Color Color;
-        public int Coin
+        public int Gold
         {
             get
             {
-                return _coin;
+                return PlayerPrefs.GetInt($"{Index}_Gold", 0);
+                //return _coin;
             }
             set
             {
-                _coin = value;
+                PlayerPrefs.SetInt($"{Index}_Gold", value);
+                _gold = value;
                 OnCoinChange?.Invoke();
             }
         }
-        int _coin;
+        int _gold;
         public Action OnCoinChange;
-        public static int Gem
+        public static int Gems
         {
             get
             {
@@ -54,8 +57,6 @@ public class Player : MonoBehaviour
     }
     public PlayerData Data;
 
-    public int Index { get; private set; }
-
     public PlayerInput PlayerInput { get; private set; }
     InputAction _leave;
     public InputAction Submit { get; private set; }
@@ -72,8 +73,12 @@ public class Player : MonoBehaviour
         Submit = PlayerInput.actions["Submit"];
 
         Actor = GetComponentInChildren<Actor>(true);
-        Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
-        Data.Color = PlayerManager.I.GetPlayerColor(Index);
+        Data.Index = PlayerManager.I?.PlayerList?.Count-1 ?? -1;
+        Data.Color = PlayerManager.I.GetPlayerColor(Data.Index);
+
+        // Place Actor in spawn pos
+        Vector2 spawnPos =  SpawnSystem.GetRandomEmptyPos(2f);
+        Actor.transform.position = (Vector3)spawnPos + Vector3.forward * Actor.transform.position.z;
     }
 
     private void Update()

@@ -13,6 +13,9 @@ public abstract class SkillEffect : MonoBehaviour
     {
         _skill = GetComponent<Skill>();
         _skillTrigger = GetComponent<SkillTrigger>();
+
+        if (this is SE_StatMod && (this as SE_StatMod).IsConstant) return;
+
         if (_skillTrigger != null)
         {
             _skillTrigger.OnTrigger += () =>

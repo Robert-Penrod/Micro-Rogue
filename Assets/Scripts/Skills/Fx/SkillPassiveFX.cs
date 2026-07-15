@@ -60,7 +60,7 @@ public class SkillPassiveFX : MonoBehaviour
 
         targetScale *= _skill.Stats.Size.Value;
 
-        if(_skill.Slot == Skill.SlotEnum.Passive)
+        if(_skill.Slot == Skill.SlotEnum.Passive || _skill.Slot == Skill.SlotEnum.Item)
         {
             targetAlpha = targetScale = 1f;
         }

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 0
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!114 &7899134194707630333
@@ -219,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1001 &8833154435636357752
@@ -446,7 +448,7 @@ PrefabInstance:
       objectReference: {fileID: 6669031697634508905, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: _dps
-      value: 2.75
+      value: 3.025
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: _name
@@ -518,7 +520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.RandomDamage.BaseValue
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.PotentialDamage.BaseValue

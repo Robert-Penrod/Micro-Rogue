@@ -15,17 +15,22 @@ public class SimpleButtonFX : MonoBehaviour
     {
         _simpleButton = GetComponentInParent<SimpleButton>();
         _image = GetComponent<Image>();
+    }
+    private void Start()
+    {
         _initColor = _image.color;
     }
 
     private void LateUpdate()
     {
         // Color
+        /*
         Color targetColor = _initColor;
         float targetValue = targetColor.GetValue();
         if (_simpleButton.IsHighlighted) targetValue += _highlightValueShift;
         if (_simpleButton.IsSelected) targetValue += SelectValueShift;
         targetColor = targetColor.SetValue(targetValue);
-        _image.color = _image.color.Lerp(targetColor, LerpSpeed * Time.deltaTime);
+        _image.color = _image.color.Lerp(targetColor, LerpSpeed * Time.deltaTime).Alpha(_image.color.a);
+        */
     }
 }

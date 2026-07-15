@@ -13,12 +13,12 @@ public class BedrollInteractable : InteractableTrigger
 
     protected override bool CanInteract(Player player)
     {
-        return (Player.PlayerData.Gem >= _gemCost) && player.Actor.Stats.HealthPercent != 2f;
+        return (Player.PlayerData.Gems >= _gemCost) && player.Actor.Stats.HealthPercent != 2f;
     }
 
     protected override void Interact(Player player)
     {
-        Player.PlayerData.Gem -= _gemCost;
+        Player.PlayerData.Gems -= _gemCost;
         PlayerManager.I.PlayerList.ForEach(player =>
         {
             player.Actor.DeepRest();

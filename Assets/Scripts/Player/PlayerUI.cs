@@ -9,6 +9,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] TextMeshProUGUI _goldText;
     [SerializeField] List<SkillSlotUI> _activeSlots;
     [SerializeField] List<SkillSlotUI> _passiveSlots;
+    [SerializeField] List<SkillSlotUI> _itemSlots;
 
     public Player Player { get; private set; }
 
@@ -24,7 +25,7 @@ public class PlayerUI : MonoBehaviour
 
     void LoadCoins()
     {
-        _goldText.text = (Player?.Data.Coin ?? 0).ToString();
+        _goldText.text = (Player?.Data.Gold ?? 0).ToString();
     }
 
     void LoadData()
@@ -43,11 +44,13 @@ public class PlayerUI : MonoBehaviour
             {
                 _activeSlots[i].SetSkill(i < skillSystem.ActiveSkillList.Count ? skillSystem.ActiveSkillList[i] : null);
                 _passiveSlots[i].SetSkill(i < skillSystem.PassiveSkillList.Count ? skillSystem.PassiveSkillList[i] : null);
+                _itemSlots[i].SetSkill(i < skillSystem.ItemList.Count ? skillSystem.ItemList[i] : null);
             }
             else
             {
                 _activeSlots[i].SetSkill(null);
                 _passiveSlots[i].SetSkill(null);
+                _itemSlots[i].SetSkill(null);
             }
         }
     }

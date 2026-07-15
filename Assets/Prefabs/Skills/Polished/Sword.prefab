@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &2375997116312273491
@@ -357,6 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &6656863303657318010
@@ -650,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &8194614358321593944
@@ -754,6 +757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 0
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 1.1
   ValueOffset: 1.1
 --- !u!1001 &2666587833146535190

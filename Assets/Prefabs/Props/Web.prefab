@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f74bb75f34c2aa4cbc4ef83a8925cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Drag: 25
+  Drag: 16
   ImunityTags: 
   ImuneActorNames:
   - spider

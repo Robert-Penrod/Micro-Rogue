@@ -104,10 +104,10 @@ public class Loot : Pickup, IPoolable
         switch (Type)
         {
             case LootType.Coin:
-                player.Data.Coin += Value;
+                player.Data.Gold += Value;
                 break;
             case LootType.Gem:
-                Player.PlayerData.Gem += Value;
+                Player.PlayerData.Gems += Value;
                 break;
         }
 

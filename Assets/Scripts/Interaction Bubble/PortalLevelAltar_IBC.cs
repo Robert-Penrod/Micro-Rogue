@@ -14,7 +14,7 @@ public class PortalLevelAltar_IBC : IBC
 
     private void Update()
     {
-        _interactionBubble.IsInteractable = Player.PlayerData.Gem >= GetUpgradeCost();
+        _interactionBubble.IsInteractable = Player.PlayerData.Gems >= GetUpgradeCost();
     }
 
     int GetUpgradeCost()
@@ -24,7 +24,7 @@ public class PortalLevelAltar_IBC : IBC
 
     public void DoUpgrade()
     {
-        Player.PlayerData.Gem -= GetUpgradeCost();
+        Player.PlayerData.Gems -= GetUpgradeCost();
         GetPortals().ForEach(portal =>
         {
             portal.DungeonData.Coordinate.y += 1;

@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1001 &4127676382706353913
@@ -266,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -274,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].BalancePoints
-      value: 0.1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].SkillStatName
@@ -282,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].SkillStatName
@@ -350,7 +351,7 @@ MonoBehaviour:
       IsStr: 0
       IsDex: 0
       IsInt: 0
-      BalancePoints: 0.2
+      BalancePoints: 0.5
 --- !u!114 &7810722921821588791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}

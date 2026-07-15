@@ -14,7 +14,7 @@ public class DebugTools : MonoBehaviour
         {
             PlayerManager.I.PlayerList.ForEach(player =>
             {
-                player.Data.Coin += 5;
+                player.Data.Gold += 5;
             });
         }
 
@@ -39,7 +39,7 @@ public class DebugTools : MonoBehaviour
         // Gems
         if(Input.GetKeyDown(KeyCode.H))
         {
-            Player.PlayerData.Gem += 5;
+            Player.PlayerData.Gems += 5;
         }
 
         // Upgrade
@@ -110,11 +110,11 @@ public class DebugTools : MonoBehaviour
             Debug.Log($"Timescale: {timescale}");
             Utils.SetFullTimeScale(timescale);
         }
-        if(Input.GetKeyDown(KeyCode.Semicolon))
+        if(Input.GetKeyDown(KeyCode.Semicolon) || Input.GetMouseButtonDown(1))
         {
-            Utils.SetDefaultTimeScale(2f);
+            Utils.SetDefaultTimeScale(1.5f);
         }
-        else if(Input.GetKeyUp(KeyCode.Semicolon))
+        else if(Input.GetKeyUp(KeyCode.Semicolon) || Input.GetMouseButtonUp(1))
         {
             Utils.SetFullTimeScale(_timeScaleArray[_timeScaleIndex]);
         }

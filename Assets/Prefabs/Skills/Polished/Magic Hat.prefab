@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -198,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName

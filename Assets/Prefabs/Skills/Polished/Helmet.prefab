@@ -318,13 +318,5 @@ MonoBehaviour:
     IsStr: 0
     IsDex: 0
     IsInt: 0
-    BalancePoints: 1.2
-  - TargetType: 20
-    ActorStatName: 20
-    SkillStatName: 0
-    Slots: 
-    IsStr: 0
-    IsDex: 0
-    IsInt: 0
-    BalancePoints: -0.2
+    BalancePoints: 1
   SkillUpgrade: []

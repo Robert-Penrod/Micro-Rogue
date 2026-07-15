@@ -13,6 +13,7 @@ public class Actor : MonoBehaviour
     [Header("Config")]
     public float RarityMult = 1f;
     public float Difficulty = 1f;
+    public int MinLevel = 0;
     public float UpgradeAffinity = 1f;
     public float NewSkillAffinity = 1f;
     public List<TagCollection.TagType> BlacklistedTags;
@@ -31,6 +32,11 @@ public class Actor : MonoBehaviour
     public bool IsAlive { get; private set; }
     public float _initScale;
     float _initialLinearDamping;
+
+    // statuses
+    public float Frost;
+    public float FrostPercent => Frost / 2f;
+    public float FrostMult => FrostPercent.RemapPercent(1f, 0.1f);
 
     // References
     public GameObject DeathDrop;
@@ -188,6 +194,7 @@ public class Actor : MonoBehaviour
     private void FixedUpdate()
     {
         //HandleMoveFixedUpdate();
+        if(Frost > 0) Frost -= Time.fixedDeltaTime;
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
@@ -238,6 +245,12 @@ public class Actor : MonoBehaviour
         // Evasion
         int evasionRoll = (int)Random.Range(0f, Stats.Evasion.Value + Stats.Evasion.Value.Sign() * 0.99f);
         damage -= evasionRoll;
+
+        // Graze
+        if(!MoveController.IsDodging && MoveController.HasIFrames)
+        {
+            damage /= 2;
+        }
 
 
         if (damage <= 0)
@@ -292,6 +305,19 @@ public class Actor : MonoBehaviour
             blockColor = _spriteRend.color;
         }
 
+        // ELemental effects
+        if(sourceSkillInstance != null)
+        {
+            if(sourceSkillInstance.Skill.Tags.GetTagList().Contains(TagCollection.TagType.Frost))
+            {
+                AddToStatus(ref Frost);
+            }
+        }
+        void AddToStatus(ref float status)
+        {
+            status += 0.75f * (status < 1f ? 1f : (1f / status));
+        }
+
         // Popup
         if (sourceSkillInstance != null)
         {
@@ -343,7 +369,11 @@ public class Actor : MonoBehaviour
 
     public void Rest()
     {
-        float restFactor = 0.4f;// 0.3f; // 0.4f; // 0.375f; // Prototype was 0.25f
+        // Rest Factor ~ avg damage hits recovered
+        // 0.4 ~ 2
+        // 0.45 ~ 2.25
+        // 0.5 ~ 2.5
+        float restFactor = 0.5f; //0.4f // 0.3f; // 0.4f; // 0.375f; // Prototype was 0.25f
         Heal((int)(Stats.HealthMax.Value * restFactor), null, this);
     }
 

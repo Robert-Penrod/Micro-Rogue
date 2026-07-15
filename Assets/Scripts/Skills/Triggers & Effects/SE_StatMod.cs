@@ -31,6 +31,11 @@ public class SE_StatMod : SkillEffect
         };
     }
 
+    private void OnDestroy()
+    {
+        _skill.RemoveMods();
+    }
+
     public override void TriggerEffect()
     {
         SkillUpgrade.ForEach(skillUpgrade =>

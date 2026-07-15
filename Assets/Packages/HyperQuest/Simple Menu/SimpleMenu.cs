@@ -13,6 +13,7 @@ public class SimpleMenu : MonoBehaviour
     [SerializeField] SimpleMenu _prevMenu;
     float _lerpSpeed = 12f;
     public bool IsOpen { get; private set; }
+    bool _wentBackThisFrame = false;
 
     CanvasGroup _canvasGroup;
 
@@ -40,17 +41,25 @@ public class SimpleMenu : MonoBehaviour
         if(IsOpen)
         {
             // Back
-            if(_prevMenu != null && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
+            if(EventSystem.current.sendNavigationEvents && !_wentBackThisFrame && _prevMenu != null && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
             {
+                _prevMenu._wentBackThisFrame = true;
                 SwitchMenu(_prevMenu);
                 OnGoBack?.Invoke();
+            }
+            else
+            {
+                _wentBackThisFrame = false;
             }
         }
     }
 
     public void SetOpen(bool isOpen)
     {
-        if (isOpen) this.gameObject.SetActive(true);
+        if (isOpen)
+        {
+            this.gameObject.SetActive(true);
+        }
 
         bool didOpenChange = true;// this.IsOpen != isOpen;
         this.IsOpen = isOpen;
@@ -70,11 +79,16 @@ public class SimpleMenu : MonoBehaviour
     public void SwitchMenu(SimpleMenu otherMenu)
     {
         this.SetOpen(false);
+        foreach (var menu in FindObjectsByType<SimpleMenu>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)) 
+        {
+            menu.SetOpen(false);
+        }
         otherMenu.SetOpen(true);
     }
 
     public void GoBack()
     {
+        if (_prevMenu == null) return;
         SwitchMenu(_prevMenu);
         OnGoBack?.Invoke();
     }

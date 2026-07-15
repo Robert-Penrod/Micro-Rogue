@@ -18,7 +18,9 @@ public class ActorMoveController : MonoBehaviour
     // Dodge
     [SerializeField] AudioClip _dodgeSound;
     public bool IsDodging => _dodgeTimer > 0f;
+    public bool HasIFrames => IsDodging || _extraIFrameTimer > 0f;
     float _dodgeTimer;
+    float _extraIFrameTimer;
     public bool IsDodgeCooledDown => DodgeCooldownPercent >= 1f;
     public float DodgeCooldownPercent;
 
@@ -58,6 +60,7 @@ public class ActorMoveController : MonoBehaviour
 
         // Dodge data
         _dodgeTimer = dodgeTimeMult * 0.325f;// * 0.325f;// * Constants.SkillStats.Duration.Melee;// * 0.325f;
+        _extraIFrameTimer = 0.5f * _dodgeTimer;
         DodgeCooldownPercent = 0f;
         MoveDir = 2f * dodgeVector.normalized;
 
@@ -89,10 +92,18 @@ public class ActorMoveController : MonoBehaviour
 
         // Dodge
         if (DodgeCooldownPercent < 1f) DodgeCooldownPercent += _actor.Stats.DodgeRate.Value * Time.fixedDeltaTime;
-        if(IsDodging) _dodgeTimer -= Time.fixedDeltaTime;
+        if(IsDodging)
+        {
+            _dodgeTimer -= Time.fixedDeltaTime;
+        }
+        else if(_extraIFrameTimer > 0f)
+        {
+            _extraIFrameTimer -= Time.fixedDeltaTime;
+        }
 
         // Move
         var moveSpeed = _actor.Stats.MoveSpeed.Value;
+        moveSpeed *= _actor.FrostMult;
         if (MoveType == MoveTypeEnum.Walk || IsDodging)
         {
             _body.AddDampForce(moveSpeed * MoveDir * _body.mass);

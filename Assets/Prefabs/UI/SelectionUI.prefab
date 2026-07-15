@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5395468816583271217}
   - component: {fileID: 7135452428740693233}
   - component: {fileID: 292130154936930808}
+  - component: {fileID: 3952701421855201616}
   m_Layer: 0
   m_Name: SelectionUI
   m_TagString: Untagged
@@ -58,6 +59,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcfc57589f0ec1a4b8b151f4009ec477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &3952701421855201616
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5139984234639614855}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 5000
+  m_TargetDisplay: 0
 --- !u!1 &5859941068444446616
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 public class Skill : MonoBehaviour
 {
     #region Vars
-    public string Name => Regex.Replace(gameObject.name, @"\s*\(.*$", "", RegexOptions.IgnoreCase);
+    public string Name => gameObject == null? string.Empty : Regex.Replace(gameObject.name, @"\s*\(.*$", "", RegexOptions.IgnoreCase);
     [BoxGroup("Info")]
     [HorizontalGroup("Info/SkillGroup", 75), VerticalGroup("Info/SkillGroup/Left")]
     [PreviewField(75, ObjectFieldAlignment.Left, FilterMode = FilterMode.Point)]
@@ -20,7 +20,7 @@ public class Skill : MonoBehaviour
     public Constants.Rarity Rarity;
     [VerticalGroup("Info/SkillGroup/Right", 0.2f)]
     [TextArea] public string Description;
-    public enum SlotEnum { Main = 0, Offhand = 1, Passive = 2 }
+    public enum SlotEnum { Main = 0, Offhand = 1, Passive = 2, Item = 3 }
     [VerticalGroup("Info/SkillGroup/Left")]
     public SlotEnum Slot;
     [VerticalGroup("Info/SkillGroup/Right")]
@@ -142,14 +142,19 @@ public class Skill : MonoBehaviour
 
     public void ReInitializeFromHistory()
     {
-        UpgradeHistory.ForEach(upgrade =>
-        {
-            upgrade.RemoveMods();
-        });
+        RemoveMods();
 
         UpgradeHistory.ForEach(Upgrade =>
         {
             Upgrade.ApplyMods();
+        });
+    }
+
+    public void RemoveMods()
+    {
+        UpgradeHistory.ForEach(upgrade =>
+        {
+            upgrade.RemoveMods();
         });
     }
 
@@ -192,7 +197,7 @@ public class Skill : MonoBehaviour
         // Temp Stats
         float activeSkillMult = 1f;
         var skillList = Actor.SkillSystem.SkillList;
-        float minMult = 0.1f;
+        float minMult = 0f;
         float mainSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Main) && skill.IsActive).Count > 0)? minMult : 1f;
         float offhandSkillMult = (skillList.FindAll(skill => (skill.Slot == Skill.SlotEnum.Offhand) && skill.IsActive).Count > 0) ? minMult : 1f;
         switch (this.Slot)
@@ -240,6 +245,8 @@ public class Skill : MonoBehaviour
             if (this.Slot == SlotEnum.Passive) mult = 1f;
 
             //mult *= Constants.SpeedMult;
+
+            mult *= Actor.FrostMult;
 
             CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.Clamp01();

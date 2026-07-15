@@ -11,7 +11,7 @@ public class CombatEncounterObject : MonoBehaviour
 
     public void SpawnEncounter(float mult = 1f)
     {
-        if (PlayerManager.I.PlayerList.Count == 0)
+        if (DungeonManager.I.Data.Coordinate.y == 0)
         {
             Destroy(this.gameObject);
             return;
@@ -33,8 +33,8 @@ public class CombatEncounterObject : MonoBehaviour
 
         budget *= DungeonManager.I.Data.EliteTier > 0 ? 1.1f : 1f;
 
-        budget *= DungeonManager.I.Data.IsBoss ? 1.2f : 1f;
-        budget *= DungeonManager.I.Data.IsFinalBoss ? 1.3f : 1f;
+        budget *= DungeonManager.I.Data.IsBoss ? 1.1f : 1f;
+        budget *= DungeonManager.I.Data.IsFinalBoss ? 1.2f : 1f;
 
         budget *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.1f, false);
 
@@ -67,6 +67,8 @@ public class CombatEncounterObject : MonoBehaviour
             weight *= biomeMult.Clamp01();
             weight *= enemyEntry.Item.RarityMult;
 
+            if (DungeonManager.I.Data.Coordinate.y < enemyEntry.Item.MinLevel) weight = 0;
+
             enemyTable.Add(enemyEntry.Item, weight);
         });
         //
@@ -76,6 +78,7 @@ public class CombatEncounterObject : MonoBehaviour
         List<Actor> spawnedBossList = new();
         //var enemyTable = _enemyTable.Clone();
         int typeCount = Random.Range(1, 4);
+        if (Random.value < 0.5f) typeCount++;
         for(int i = 0; i < typeCount && enemyTable.Entries.Count > 0; i++)
         {
             var selectedEntry = enemyTable.SelectAndRemoveEntry();
@@ -114,8 +117,13 @@ public class CombatEncounterObject : MonoBehaviour
                 }
             }
 
+            // 0, 0.2, 0.4, 0.6, 0.8
+            // 2
+            // 0, 0.1, 0.2, 0.3, 0.4
+            // 1
+
             // Spawn Actor
-            float cost = selectedTypeActor.Difficulty;// + 0.1f * (i).ClampMin(0); // 0.25f
+            float cost = selectedTypeActor.Difficulty + 0.2f * (i).ClampMin(0);// + 0.2f * (i).ClampInt(0, 1);// 0.1f * (i).ClampMin(0); // 0.25f;
             budget -= cost;
             Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
@@ -164,8 +172,23 @@ public class CombatEncounterObject : MonoBehaviour
         });
         //
         // Upgrade Enemies
-        while (budget >= 1f)
+        while (budget > 0)
         {
+            if(budget < 1)
+            {
+                Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
+                var randVal = Random.value;
+                Debug.Log($"Enemy Budget Bonus? {randVal} < {budget} (budget) Floor {DungeonManager.I.Data.Coordinate.y}");
+                if(!(randVal < budget))
+                {
+                    break;
+                }
+                else
+                {
+                    Debug.Log($"!!! Enemy Upgrade Bonus!!!");
+                }
+            }
+
             var enemyToUpgrade = _upgradeAffinityList.SelectItem();
 
             // Upgrade
@@ -178,7 +201,10 @@ public class CombatEncounterObject : MonoBehaviour
             enemyToUpgrade.Stats.HealthMax.BaseValue += Constants.ActorStats.HealthGain;
             enemyToUpgrade.Stats.SetHealthPercent(1f);
 
-            budget -= 1f;
+            float upgradeCost = 1f;
+            if (upgrades[0].SourceSkill.Slot == Skill.SlotEnum.Item) upgradeCost = 0.5f;
+
+            budget -= upgradeCost;
         }
 
         newEnemiesList.ForEach(enemy =>
@@ -209,14 +235,14 @@ public class CombatEncounterObject : MonoBehaviour
         {
             bool isPlayersDetected = _enemyBrainList.FindAll(enemyBrain => enemyBrain.State != "Idle").Count > 0;
             float reinforcementSpeed = isPlayersDetected ? 1f : 0.25f;
-            float reinforcementTime = 30f + (DungeonManager.I?.Data?.Coordinate.y ?? 0f);
+            float reinforcementTime = 35f + (DungeonManager.I?.Data?.Coordinate.y ?? 0f);
 
             _spawnTick += reinforcementSpeed * Time.fixedDeltaTime;
             _spawnTime = reinforcementTime;// (_spawnNum).Remap(1f, 3f, reinforcementTime, reinforcementTime * 0.5f);
             if (_spawnTick >= _spawnTime)
             {
                 _spawnTick = 0f;
-                var difMult = (_spawnNum).Remap(1f, 5f, 0.25f, 1f, false);
+                var difMult = (_spawnNum).Remap(1f, 5f, 0.1f, 1f, false);
                 SpawnEncounter(difMult);
             }
         }

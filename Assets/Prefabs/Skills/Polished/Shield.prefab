@@ -288,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Description
-      value: Blocks an attack after a long cooldown
+      value: Blocks attacks
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Rate.BaseValue
@@ -416,6 +416,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4484704542699366153}
+    - targetCorrespondingSourceObject: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1300949315077777315}
   m_SourcePrefab: {fileID: 100100000, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
 --- !u!4 &4904881464782113381 stripped
 Transform:
@@ -441,6 +444,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bashEffect: {fileID: 8174190648854717746}
   BlockSound: {fileID: 0}
+--- !u!114 &-1300949315077777315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5722889000264037254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d00622761f9131439caa252e0ce2068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsConstant: 1
+  Mods: []
+  SkillUpgrade:
+  - _name: 
+    Rarity: 0
+    SourceSkill: {fileID: 7391418805428206428}
+    ModList:
+    - TargetType: 20
+      ActorStatName: 40
+      SkillStatName: 0
+      Slots: 
+      IsStr: 0
+      IsDex: 0
+      IsInt: 0
+      BalancePoints: 1
 --- !u!4 &6662930177864927005 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5445892865460674892, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}

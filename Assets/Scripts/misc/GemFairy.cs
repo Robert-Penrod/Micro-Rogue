@@ -9,7 +9,7 @@ public class GemFairy : MonoBehaviour
     [SerializeField] AudioClip _audio;
     [SerializeField] Transform _avatar;
     bool _needsToDropGems => PlayerManager.I.PlayerList.Count > 0 && _potentialGemCount < _cost && HubRoom.I.Level == 0;
-    int _potentialGemCount => Player.PlayerData.Gem + _droppedGems.FindAll(x => x != null).Count;
+    int _potentialGemCount => Player.PlayerData.Gems + _droppedGems.FindAll(x => x != null).Count;
     float _timer;
     [SerializeField] float _activeTime = 5f;
     bool _isActive => _timer >= _activeTime;
@@ -63,7 +63,7 @@ public class GemFairy : MonoBehaviour
         // Gem Drop
         if(_isActive)
         {
-            int gemsRemaining = _cost - (_droppedGems.Count + Player.PlayerData.Gem);
+            int gemsRemaining = _cost - (_droppedGems.Count + Player.PlayerData.Gems);
             if(gemsRemaining > 0)
             {
                 _spawnGemTick += Time.deltaTime;

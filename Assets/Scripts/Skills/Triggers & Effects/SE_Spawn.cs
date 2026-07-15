@@ -11,6 +11,11 @@ public class SE_Spawn : SkillEffect
     public override void TriggerEffect()
     {
         int amount = (int)_skill.Stats.Count.Value;
+        float fractionalCount = _skill.Stats.Count.Value - (float)amount;
+        Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
+        var rand = Random.value;
+        //Debug.Log($"{rand} < {fractionalCount}?");
+        if (rand < fractionalCount) amount++;
 
         StartCoroutine(Spawn_Co());
         IEnumerator Spawn_Co()

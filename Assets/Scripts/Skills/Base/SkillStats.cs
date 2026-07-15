@@ -34,7 +34,10 @@ public class SkillStats
 
     public float CalculateDamageValue()
     {
-        return Random.Range(0f, 0.9f + RandomDamage.Value) + Damage.Value;
+        float damage = Random.Range(0f, 0.9f + RandomDamage.Value) + Damage.Value;
+        float fractionalDamage = damage - (int)damage;
+        if (Random.value < fractionalDamage) damage++;
+        return damage;
     }
 
     internal Stat GetSkillStat(SkillStatTypes statName)

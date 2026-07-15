@@ -110,7 +110,9 @@ public class SIE_Projectile : SIE, IPoolable
         if (parentBody != null)
         {
             Vector2 lungeForce = transform.up * _lunge;
-            parentBody.AddDampForce(lungeForce, ForceMode2D.Impulse);
+            //parentBody.AddDampForce(lungeForce, ForceMode2D.Impulse); olf "bad physics" way
+            parentBody.AddForce(5f * lungeForce, ForceMode2D.Impulse);
+            _skillInstance.Skill.Actor.MoveController.ApplyKnockback(1f * _lunge);
         }
     }
 
@@ -242,7 +244,13 @@ public class SIE_Projectile : SIE, IPoolable
             if (hitActor.Stats.Health < 0f) skill.OnKill?.Invoke(hitActor);
 
             // Screen Shake
-            CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
+            float amp = Random.Range(0.2f, 0.3f);
+            float freq = Random.Range(2.5f, 3.5f);
+            float healthPercent = damageTaken / hitActor.Stats.HealthMax.Value;
+            float screenShakeMult = healthPercent.Remap(0.1f, 0.5f, 0.5f, 1f, false).ClampMin(0.5f);
+            amp *= screenShakeMult;
+            freq *= screenShakeMult;
+            CamShaker.I.Shake(amp, freq);
         }
         //.
         void SlowProjectile(float lerp = 1f)

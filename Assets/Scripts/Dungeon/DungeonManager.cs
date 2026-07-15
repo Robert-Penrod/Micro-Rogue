@@ -427,7 +427,7 @@ public class DungeonManager : Singleton<DungeonManager>
             {
                 Data = SelectedPortal.DungeonData;// new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
                 // Take Money?
-                Player.PlayerData.Gem -= SelectedPortal.GemCost;
+                Player.PlayerData.Gems -= SelectedPortal.GemCost;
             }
             else
             {

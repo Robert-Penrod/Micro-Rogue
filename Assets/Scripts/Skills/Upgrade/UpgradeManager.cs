@@ -98,7 +98,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
             //
             // Actor cannot already have skill
-            if (skillSystem.HasSkill(newSkill)) return;
+            if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;
             //
             // Skill Prereq check
             if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
@@ -110,6 +110,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
             // Blacklist check
             if (newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
+            if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
 
             weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), 1000f);
         });
@@ -128,7 +129,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
             //
             // Actor cannot already have skill
-            if (skillSystem.HasSkill(newSkill)) return;
+            if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;
             //
             // Skill Prereq check
             if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
@@ -140,6 +141,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
             // Blacklist check
             if(newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
+            if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
 
             // Weight
             float weightMult = 1f / 3f;// newSkill weight

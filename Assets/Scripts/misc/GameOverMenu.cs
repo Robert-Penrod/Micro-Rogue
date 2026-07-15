@@ -16,7 +16,15 @@ public class GameOverMenu : SimpleMenu
             _isGameOver = true;
             this.DelayedInvoke(1f, () =>
             {
-                if (!IsOpen) SetOpen(true);
+                if (!IsOpen)
+                {
+                    PlayerManager.I.PlayerList.ForEach(player =>
+                    {
+                        Player.PlayerData.Gems += player.Data.Gold / 20;
+                        player.Data.Gold = 0;
+                    });
+                    SetOpen(true);
+                }
             });
         }
     }

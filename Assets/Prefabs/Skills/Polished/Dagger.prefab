@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1001 &8833154435636357752
@@ -688,14 +689,17 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5368175303707748817, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4245522892608095921}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4685428554802942002, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7532028403756074901}
   m_SourcePrefab: {fileID: 100100000, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
 --- !u!114 &1395792107141309682 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
   m_PrefabInstance: {fileID: 8909093062110166042}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4226215393074179112}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
@@ -706,6 +710,38 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5368175303707748817, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
   m_PrefabInstance: {fileID: 8909093062110166042}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4226215393074179112 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4685428554802942002, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+  m_PrefabInstance: {fileID: 8909093062110166042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7532028403756074901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4226215393074179112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d00622761f9131439caa252e0ce2068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsConstant: 1
+  Mods: []
+  SkillUpgrade:
+  - _name: Base
+    Rarity: 0
+    SourceSkill: {fileID: 1395792107141309682}
+    ModList:
+    - TargetType: 20
+      ActorStatName: 30
+      SkillStatName: 0
+      Slots: 
+      IsStr: 0
+      IsDex: 0
+      IsInt: 0
+      BalancePoints: 0.5
 --- !u!4 &8123940736059985692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 800934841047020294, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}

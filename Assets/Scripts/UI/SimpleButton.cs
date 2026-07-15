@@ -9,7 +9,8 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 {
     #region Vars
     [SerializeField] string _text;
-    [SerializeField] Sprite _sprite;
+    public Sprite Sprite;
+    public Color MainColor = Color.clear;
     [SerializeField] TextMeshProUGUI _textMesh;
     [SerializeField] Image _image;
 
@@ -22,6 +23,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     AudioSource _audioSource;
 
     [Header("Reference")]
+    [SerializeField] List<Image> BgImages = new();
     [SerializeField] Transform _content;
     float _initContentSize;
     [SerializeField] GameObject _highlightGFX;
@@ -58,15 +60,27 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     #region Init
     private void OnValidate()
     {
+        RefreshUI();
+        if (_text != string.Empty) this.gameObject.name = _text + "_btn";
+    }
+
+    public void RefreshUI()
+    {
         if (_textMesh != null) _textMesh.text = _text;
         if (_image != null)
         {
-            _image.sprite = _sprite;
+            _image.sprite = Sprite;
+            // Color
+            if (MainColor != Color.clear)
+            {
+                _image.color = MainColor;
+                BgImages.ForEach(sr =>
+                {
+                    sr.color = sr.color.SetHS(MainColor.GetHue(), 0.5f * MainColor.GetSaturation());
+                });
+            }
         }
-        _image.enabled = _sprite != null;
-
-        if (_text != string.Empty) this.gameObject.name = _text + "_btn";
-        //else if (_sprite != null) this.gameObject.name = _sprite.name + "_btn";
+        _image.enabled = Sprite != null;
     }
 
     private void Awake()

@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: _wander
       value: 0.475
       objectReference: {fileID: 0}
+    - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: _evasion
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -91,6 +95,10 @@ PrefabInstance:
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Goblin Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8095862505222504996, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9030249478300664386, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_LocalScale.x

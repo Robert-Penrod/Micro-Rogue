@@ -12,7 +12,7 @@ public class CampUpgrade_IBC : IBC
 
     private void Update()
     {
-        _interactionBubble.IsInteractable = Player.PlayerData.Gem >= CalculateCampUpgradeCost();
+        _interactionBubble.IsInteractable = Player.PlayerData.Gems >= CalculateCampUpgradeCost();
     }
 
     int CalculateCampUpgradeCost()
@@ -27,7 +27,7 @@ public class CampUpgrade_IBC : IBC
 
     public void Upgrade()
     {
-        Player.PlayerData.Gem -= CalculateCampUpgradeCost();
+        Player.PlayerData.Gems -= CalculateCampUpgradeCost();
         HubRoom.I.Upgrade();
         UpdateCostText();
     }

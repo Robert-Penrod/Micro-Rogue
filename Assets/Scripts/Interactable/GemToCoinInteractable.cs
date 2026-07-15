@@ -17,9 +17,9 @@ public class GemToCoinInteractable : InteractableTrigger
 
     protected override void Interact(Player player)
     {
-        if (Player.PlayerData.Gem >= _gemCost)
+        if (Player.PlayerData.Gems >= _gemCost)
         {
-            Player.PlayerData.Gem -= _gemCost;
+            Player.PlayerData.Gems -= _gemCost;
             var spawnObj = Instantiate(_tradeSpawn, transform.position, Quaternion.identity);
             var spawnBody = spawnObj.GetComponent<Rigidbody2D>();
             if (spawnBody != null)
@@ -32,6 +32,6 @@ public class GemToCoinInteractable : InteractableTrigger
 
     protected override bool CanInteract(Player player)
     {
-        return Player.PlayerData.Gem >= _gemCost;
+        return Player.PlayerData.Gems >= _gemCost;
     }
 }

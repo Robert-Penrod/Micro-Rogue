@@ -92,7 +92,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         if(_actorToUpgrade.IsPlayer())
         {
             var player = _actorToUpgrade.GetComponentInParent<Player>();
-            player.Data.Coin -= 5;
+            player.Data.Gold -= 5;
         }
 
         RollUpgradeCards();
@@ -105,7 +105,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         if(actor.IsPlayer())
         {
             var player = actor.GetComponentInParent<Player>();
-            return player.Data.Coin >= 5;
+            return player.Data.Gold >= 5;
         }
 
         return false;

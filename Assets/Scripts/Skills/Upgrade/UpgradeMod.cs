@@ -60,12 +60,12 @@ public class UpgradeMod
         }
         else if(TargetType == UpgradeTargetType.GlobalSkillStat)
         {
-            return GetGlobalSkillUpgradeDescription(sourceSkill, description, this);
+            return GetGlobalSkillUpgradeDescription(upgradeActor, sourceSkill, description, this);
         }
         return string.Empty;
     }
 
-    public string GetGlobalSkillUpgradeDescription(Skill sourceSkill, string description, UpgradeMod skillUpgradeMod)
+    public string GetGlobalSkillUpgradeDescription(Actor actor, Skill sourceSkill, string description, UpgradeMod skillUpgradeMod)
     {
         string statName = string.Empty;
         statName += "Global ";
@@ -86,17 +86,23 @@ public class UpgradeMod
 
         // Aggregate values from upgrade history
         float value = 0f;
-        sourceSkill.UpgradeHistory.ForEach(skillUpgrade =>
+        //sourceSkill.UpgradeHistory.ForEach(skillUpgrade =>
+        //{
+        actor = UpgradeMenu.I._actorToUpgrade;
+        actor.SkillSystem.SkillList.ForEach(skill =>
         {
-            skillUpgrade.ModList.ForEach(upgradeMod =>
+            skill.UpgradeHistory.ForEach(skillUpgrade =>
             {
-                if(upgradeMod.TargetType == UpgradeTargetType.GlobalSkillStat)
+                skillUpgrade.ModList.ForEach(upgradeMod =>
                 {
-                    if(upgradeMod.SkillStatName == skillUpgradeMod.SkillStatName)
+                    if (upgradeMod.TargetType == UpgradeTargetType.GlobalSkillStat)
                     {
-                        value += upgradeMod.GetModifier().Value;
+                        if (upgradeMod.SkillStatName == skillUpgradeMod.SkillStatName)
+                        {
+                            value += upgradeMod.GetModifier().Value;
+                        }
                     }
-                }
+                });
             });
         });
         float previewStatValue = value + skillUpgradeMod.GetModifier().Value;

@@ -32,6 +32,16 @@ public class PlayerManager : Singleton<PlayerManager>
        _playerInputManager.JoinPlayer(pairWithDevice: LastInputDevice);
     }
 
+    public void GatherPlayersInValidSpace(float size = 1.5f)
+    {
+        float random = 0.5f;
+        Vector2 basePos = SpawnSystem.GetRandomEmptyPos(size);
+        PlayerList.ForEach(player =>
+        {
+            player.transform.position = (Vector3)(basePos + random * Random.insideUnitCircle) + Vector3.forward * player.transform.position.z;
+        });
+    }
+
     public void UnjoinAllPlayers()
     {
         for(int i = 0; i < PlayerList.Count; i++)

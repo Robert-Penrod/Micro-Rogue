@@ -77,6 +77,7 @@ public class SIE_S_Telegraph : SIE, IPoolable
 
         // Tick
         float startPercentMult = _skillInstance.Skill.Actor.MoveController.IsDodging ? 0f : 1f;
+        startPercentMult *= _skillInstance.Skill.Actor.FrostMult;
         _skillInstance.StartPercent += startPercentMult * (Time.deltaTime / _telegraphTime);
 
         // Alpha
