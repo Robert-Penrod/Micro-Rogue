@@ -77,6 +77,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Rarity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Stats.Int
       value: 1
       objectReference: {fileID: 0}
@@ -215,6 +219,10 @@ PrefabInstance:
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[2].SkillStatName
       value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8633226481915782431, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Amp
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Name

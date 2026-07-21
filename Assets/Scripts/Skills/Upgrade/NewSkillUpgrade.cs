@@ -48,6 +48,12 @@ public class NewSkillUpgrade : Upgrade
         return _skillPrefab.GetColor();
     }
 
+    public void ApplyUpgrade(Actor actor)
+    {
+        _targetActor = actor;
+        ApplyUpgrade();
+    }
+
     public override void ApplyUpgrade()
     {
         var newSkill = _targetActor.SkillSystem.AddSkill(_skillPrefab);

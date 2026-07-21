@@ -60,9 +60,15 @@ public class SkillPassiveFX : MonoBehaviour
 
         targetScale *= _skill.Stats.Size.Value;
 
-        if(_skill.Slot == Skill.SlotEnum.Passive || _skill.Slot == Skill.SlotEnum.Item)
+        if(_skill.Slot == Skill.SlotEnum.Passive)
         {
             targetAlpha = targetScale = 1f;
+        }
+
+        if(_skill.Slot == Skill.SlotEnum.Item)
+        {
+            targetAlpha = 0.5f;
+            targetScale = 0.75f;
         }
 
         _lerpAlpha = _lerpAlpha.Lerp(targetAlpha, 3f * Time.deltaTime);

@@ -81,6 +81,9 @@ public class UpgradeMod
         //
         statName += skillUpgradeMod.SkillStatName.ToString();
 
+        var statMod = skillUpgradeMod.GetModifier();
+        if (actor == null) return (statName + ": ").Color("CAD079") + statMod.ToString();
+
         float positiveDir = 1f;
         string unit = "%";
 
@@ -123,14 +126,13 @@ public class UpgradeMod
 
     public string GetActorUpgradeDescription(Actor actor, String description, UpgradeMod actorUpgradeMod)
     {
-        if(actor == null)
-        {
-            actor = UpgradeMenu.I._actorToUpgrade;
-        }
+        if(actor == null) actor = UpgradeMenu.I._actorToUpgrade;
+
+        var statMod = actorUpgradeMod.GetModifier();
+        if(actor == null) return (actorUpgradeMod.ActorStatName.ToString() + ": ").Color("CAD079") + statMod.ToString();
 
         Stat stat = actor.Stats.GetStat(actorUpgradeMod.ActorStatName);
         string statName = stat.Name;
-        var statMod = actorUpgradeMod.GetModifier();
         float previewStatValue = statMod.CalculatePreviewValue(stat, this);
         float value = stat.Value;
         string unit = stat.Unit ?? "";

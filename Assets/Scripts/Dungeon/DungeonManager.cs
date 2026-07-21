@@ -229,7 +229,7 @@ public class DungeonManager : Singleton<DungeonManager>
         if(DungeonTransform == null) DungeonTransform = new GameObject("Dungeon").transform;
 
         PlayerPrefs.SetInt("LastBiomeIndex", (int)Data.Biome);
-        Debug.Log("Saving Last Biome: " + Data.Biome);
+        //Debug.Log("Saving Last Biome: " + Data.Biome);
 
         // Clear Dungeon
         foreach (Transform t in DungeonTransform)

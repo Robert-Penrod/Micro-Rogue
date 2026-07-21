@@ -36,6 +36,7 @@ public class SkillUpgrade : Upgrade
 
     public override void ApplyUpgrade()
     {
+        Debug.Log("APPLY SKILL UPGRADE");
         ApplyMods();
 
         // Stat Changes
@@ -66,17 +67,13 @@ public class SkillUpgrade : Upgrade
             }
             else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
             {
+                Debug.Log("Applyyyyy");
                 Stat stat = SourceSkill.Actor.Stats.GetStat(upgradeMod.ActorStatName);
                 var mod = upgradeMod.GetModifier();
                 mod.Source = source;
                 mod.IsStackable = true;
                 mod.Tags.Add(SourceSkill.Name);
                 stat.AddModifier(mod);
-
-                if (upgradeMod.ActorStatName == ActorStats.ActorStatTypes.MaxHealth)
-                {
-                    SourceSkill.Actor.Stats.Health += (int)mod.Value;
-                }
             }
             else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.GlobalSkillStat)
             {

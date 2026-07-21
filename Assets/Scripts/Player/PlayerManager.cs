@@ -27,6 +27,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public InputDevice LastInputDevice { get; private set; }
 
+
     public void JoinPlayerByLastInputDevice()
     {
        _playerInputManager.JoinPlayer(pairWithDevice: LastInputDevice);
@@ -198,6 +199,7 @@ public class PlayerManager : Singleton<PlayerManager>
 
     private void OnLevelWasLoaded(int level)
     {
+        Player.PlayerData.OnGemChange = null;
         UpdateCanJoin();
     }
 

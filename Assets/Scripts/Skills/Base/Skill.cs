@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Skill : MonoBehaviour
 {
     #region Vars
+    public int GemCost = 0;
     public string Name => gameObject == null? string.Empty : Regex.Replace(gameObject.name, @"\s*\(.*$", "", RegexOptions.IgnoreCase);
     [BoxGroup("Info")]
     [HorizontalGroup("Info/SkillGroup", 75), VerticalGroup("Info/SkillGroup/Left")]
@@ -142,12 +143,18 @@ public class Skill : MonoBehaviour
 
     public void ReInitializeFromHistory()
     {
+        float initHealthPercent = Actor.Stats.HealthPercent;
+        Debug.Log("REINITIALIZE SKILL");
+
         RemoveMods();
+        
 
         UpgradeHistory.ForEach(Upgrade =>
         {
             Upgrade.ApplyMods();
         });
+
+        Actor.Stats.SetHealthPercent(initHealthPercent);
     }
 
     public void RemoveMods()

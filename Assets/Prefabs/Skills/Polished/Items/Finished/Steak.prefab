@@ -11,22 +11,22 @@ PrefabInstance:
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3325501679073810093, guid: 8186985b07e7cf8459d83add957552e4, type: 3}
+      objectReference: {fileID: 7234983646143351451, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.a
       value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.b
-      value: 0.37800002
+      value: 0.19869283
       objectReference: {fileID: 0}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.g
-      value: 0.5146154
+      value: 0.2926362
       objectReference: {fileID: 0}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.r
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3949059123605921824, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,10 +71,18 @@ PrefabInstance:
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Icon
       value: 
-      objectReference: {fileID: -3325501679073810093, guid: 8186985b07e7cf8459d83add957552e4, type: 3}
+      objectReference: {fileID: 7234983646143351451, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Slot
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Rarity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: GemCost
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Stats.Int
@@ -90,15 +98,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.b
-      value: 0.38039216
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.g
-      value: 0.5176471
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.r
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Mods.Array.size
@@ -110,7 +118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Tags._entries.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Mods.Array.data[0].TargetType
@@ -118,7 +126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Tags._entries.Array.data[0].tag
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Tags._entries.Array.data[1].tag
@@ -232,9 +240,13 @@ PrefabInstance:
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[2].SkillStatName
       value: 70
       objectReference: {fileID: 0}
+    - target: {fileID: 8633226481915782431, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: Amp
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Name
-      value: Coffee
+      value: Steak
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5050555445403735881, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
@@ -270,21 +282,13 @@ MonoBehaviour:
     SourceSkill: {fileID: 7810722921821588791}
     ModList:
     - TargetType: 20
-      ActorStatName: 20
+      ActorStatName: 10
       SkillStatName: 0
       Slots: 
       IsStr: 0
       IsDex: 0
       IsInt: 0
-      BalancePoints: 0.3
-    - TargetType: 10
-      ActorStatName: 0
-      SkillStatName: 20
-      Slots: 
-      IsStr: 0
-      IsDex: 0
-      IsInt: 0
-      BalancePoints: 0.25
+      BalancePoints: 1
 --- !u!114 &7810722921821588791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}

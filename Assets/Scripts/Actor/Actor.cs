@@ -75,6 +75,7 @@ public class Actor : MonoBehaviour
         int level = 0;
         SkillSystem.SkillList.ForEach(skill =>
         {
+            if (skill.Slot == Skill.SlotEnum.Item) return;
             level += skill.Level;
         });
         return level;
@@ -113,7 +114,6 @@ public class Actor : MonoBehaviour
         // Info Updates
         OnUpgrade += () =>
         {
-            Debug.Log(this.gameObject.name + " OnUpgrade -> Updating Level");
             _lvl = GetLevel();
         };
         _skillSystem = SkillSystem;
@@ -199,6 +199,7 @@ public class Actor : MonoBehaviour
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
     {
+        Debug.Log("HEALING");
         heal = (int)Mathf.Min(heal, Stats.HealthMax.Value - Stats.Health);
         if (heal <= 0) return 0;
 

@@ -38,9 +38,12 @@ public class SE_StatMod : SkillEffect
 
     public override void TriggerEffect()
     {
+        var actor = _skill?.Actor;
+        float initHealthPercent = actor?.Stats.HealthPercent ?? 1f;
+
         SkillUpgrade.ForEach(skillUpgrade =>
         {
-            _skill.Level--;
+            if(_skill.Slot != Skill.SlotEnum.Item) _skill.Level--;
             skillUpgrade.SourceSkill = _skill;
             skillUpgrade.ApplyUpgrade();
         });
@@ -76,6 +79,11 @@ public class SE_StatMod : SkillEffect
                     Debug.Log(mod.Value);
                 }
             }
+        }
+
+        if(actor != null)
+        {
+            actor.Stats.SetHealthPercent(initHealthPercent);
         }
     }
 }

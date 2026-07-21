@@ -43,6 +43,7 @@ public class SimpleButton_RadioGroup : MonoBehaviour
 
     void HighlightButton(SimpleButton buttonToHighlight)
     {
+        if (!buttonToHighlight.GetInteractable()) return;
         _buttonList.ForEach(button =>
         {
             button.IsHighlighted = button == buttonToHighlight;

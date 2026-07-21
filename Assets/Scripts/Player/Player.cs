@@ -38,9 +38,11 @@ public class Player : MonoBehaviour
             {
                 _gem = value;
                 PlayerPrefs.SetInt("Gems", _gem);
+                OnGemChange?.Invoke();
             }
         }
         public static int _gem;
+        public static Action OnGemChange;
 
         public static List<string> GetUnlockedSkillList()
         {
@@ -52,7 +54,7 @@ public class Player : MonoBehaviour
         }
         static string GetUnlockedSkillString()
         {
-            return PlayerPrefs.GetString("UnlockedSkills", "all, Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome");
+            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome, Fruit, Steak, Fairy In a Bottle, Coffee");
         }
     }
     public PlayerData Data;

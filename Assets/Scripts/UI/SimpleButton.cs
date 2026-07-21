@@ -28,8 +28,18 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     float _initContentSize;
     [SerializeField] GameObject _highlightGFX;
 
+    
+    public bool GetInteractable()
+    {
+        return _button.interactable;
+    }
+    public void SetInteractable(bool interactableState)
+    {
+        if (_button != null) _button.interactable = interactableState;
+        RefreshUI();
+    }
     [Header("State")]
-    [SerializeField] bool _isInteractable = true;
+    Button _button;
     public bool IsSelected { get; private set; }
     float _submitPulse = 0f;
     public bool IsHighlighted
@@ -46,7 +56,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
                 OnHighlightEvent?.Invoke();
             }
             if(_highlightGFX != null) _highlightGFX.SetActive(_isHighlighted);
-            if (_isHighlighted) transform.SetAsLastSibling();
+            //if (_isHighlighted) transform.SetAsLastSibling();
         }
     }
     bool _isHighlighted;
@@ -60,66 +70,75 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     #region Init
     private void OnValidate()
     {
+        if (_button == null) _button = GetComponent<Button>();
         RefreshUI();
         if (_text != string.Empty) this.gameObject.name = _text + "_btn";
     }
 
     public void RefreshUI()
     {
+        Debug.Log(gameObject);
+        if (gameObject == null) return;
         if (_textMesh != null) _textMesh.text = _text;
         if (_image != null)
         {
             _image.sprite = Sprite;
             // Color
-            if (MainColor != Color.clear)
+            Color c = MainColor == Color.clear ? Color.grey : MainColor;
+            _image.color = c;
+            BgImages.ForEach(sr =>
             {
-                _image.color = MainColor;
-                BgImages.ForEach(sr =>
-                {
-                    sr.color = sr.color.SetHS(MainColor.GetHue(), 0.5f * MainColor.GetSaturation());
-                });
-            }
+                sr.color = sr.color.SetHS(c.GetHue(), 0.5f * c.GetSaturation()).Alpha(GetInteractable() ? 1f : 0.5f);
+            });
+            _image.enabled = Sprite != null;
         }
-        _image.enabled = Sprite != null;
     }
 
     private void Awake()
     {
+        _button = GetComponent<Button>();
         _audioSource = gameObject.AddComponent<AudioSource>();
         _audioSource.spatialBlend = 0f;
         _initScale = transform.localScale;
         _initContentSize = _content.localScale.x;
+    }
+
+    private void OnEnable()
+    {
+        RefreshUI();
     }
     #endregion
 
     #region UI
     public void OnSelect(BaseEventData eventData)
     {
-        if (!_isInteractable) return;
+        if (!GetInteractable()) return;
         SetSelected(true);
         PlayAudio(SelectSound);
+        RefreshUI();
     }
     public void OnDeselect(BaseEventData eventData)
     {
-        if (!_isInteractable) return;
+        if (!GetInteractable()) return;
         SetSelected(false);
+        RefreshUI();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!_isInteractable) return;
+        if (!GetInteractable()) return;
         //SelectSelf();
     }
 
     public void OnPointerMove(PointerEventData eventData)
     {
-        if (!_isInteractable) return;
+        if (!GetInteractable()) return;
         //SelectSelf();
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (!_isInteractable) return;
+        if (!GetInteractable()) return;
         if (!Input.GetMouseButtonDown(0)) return;
         SelectSelf();
         OnSubmit(eventData);
@@ -137,9 +156,11 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
     public void OnSubmit(BaseEventData eventData)
     {
+        Debug.Log("BUTTON SUBMIT START");
         this.DelayedInvoke(-1, () =>
         {
-            if (!_isInteractable) return;
+            Debug.Log("BUTTON DELAY 1");
+            if (!GetInteractable()) return;
             if (!IsSelected) return;
             _submitPulse += 1f;
             //Debug.Log("Submit: " + this.gameObject.name);
@@ -152,6 +173,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
             this.DelayedInvoke(0.2f, () =>
             {
+                Debug.Log("BUTTON SUBMIT");
                 // Unlock Selection
                 SetInputSystemActive(true);
 
@@ -160,6 +182,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
             PlayAudio(SubmitSound);
         });
+        Debug.Log("BUTTON SUBMIT END");
     }
 
     void SetInputSystemActive(bool isActive)
@@ -167,8 +190,11 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
         EventSystem.current.sendNavigationEvents = isActive;
     }
 
+    bool GetInputSystemActive() => EventSystem.current.sendNavigationEvents;
+
     void SetSelected(bool isSelected)
     {
+        if (!GetInteractable()) return;
         //Debug.Log("Set Selected: " + this.gameObject.name + " " + isSelected);
         this.IsSelected = isSelected;
     }

@@ -19,10 +19,11 @@ public class ActorStats
             if (value == _health) return;
             int oldHealth = _health;
             _health = value;
-            
+
             // Clamp
             //_health = (int)Mathf.Clamp(_health, 0, HealthMax.Value);
 
+            Debug.Log("Health Changed??");
             OnHealthChanged?.Invoke(_health, (_health - oldHealth));
         }
     }
@@ -42,8 +43,12 @@ public class ActorStats
     /// </summary>
     public Action<float, float> OnHealthChanged;
 
-    public void SetHealthPercent(float newPercent) { Health = (int)(HealthMax.Value * newPercent); }
-    public float HealthPercent => (float)Health / HealthMax.Value;
+    public void SetHealthPercent(float newPercent) 
+    {
+        Debug.Log($"SetHealthPercent({newPercent}) => Health = {HealthMax.Value} * {newPercent}");
+        Health = (int)((int)HealthMax.Value * newPercent); 
+    }
+    public float HealthPercent => (float)Health / (int)HealthMax.Value;
 
     public void AddArchetypeStats(int str, int dex, int intel)
     {

@@ -7,18 +7,20 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Floor
-  m_Shader: {fileID: -6465566751694194690, guid: 1dfe26c73f0f69d4e843b449a5a1df48, type: 3}
+  m_Name: Actor Canvas
+  m_Shader: {fileID: -6465566751694194690, guid: 68ee952fbd04d5f4cb738ef162ce26a7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - CORNERS_ON
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
-  disabledShaderPasses: []
+  disabledShaderPasses:
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -28,11 +30,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture:
-        m_Texture: {fileID: 2800000, guid: fbb2f040c507a5e45a57f8d53483d977, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_cbf0a5c84039468c81bd439033427c1e_Out_0_Texture2D:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 819b0457b37a29a4387d76f3d6b33a0f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -49,14 +47,28 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Size: 0.5
-    - _TextureAmp: 0.05
+    - CORNERS: 1
+    - _ColorMask: 15
+    - _Lighten: 0.375
+    - _OutlineThickness: 1
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TextureBlend: 0.75
+    - _TextureSize: 0.1
+    - _UIMaskSoftnessX: 1
+    - _UIMaskSoftnessY: 1
     m_Colors:
-    - _Color: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _Offset: {r: -0.61583257, g: 0.45658132, b: 0, a: 0}
+    - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlineColor: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
+    - _TextureOffset: {r: -30.3, g: -0.81, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &6048144213652858119
+--- !u!114 &4534370427742506494
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

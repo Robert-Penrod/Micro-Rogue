@@ -518,6 +518,15 @@ public static class TypeExtensions
         if (list.Count == 0) return default(T);
         return list[Random.Range(0, list.Count)];
     }
+    public static List<T> GetRandomElements<T>(this List<T> list, int count)
+    {
+        List<T> returnList = new();
+        while(returnList.Count < count && list.Count > 0)
+        {
+            returnList.Add(list.GetRandomElement());
+        }
+        return returnList;
+    }
     public static void Shuffle<T>(this List<T> list)
     {
         int swapCount = list.Count * 2;

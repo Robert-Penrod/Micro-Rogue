@@ -49,7 +49,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
 
         // Testing
-        if(Input.GetKeyDown(KeyCode.R))
+        if(IsOpen && Input.GetKeyDown(KeyCode.R))
         {
             RollUpgradeCards();
         }
@@ -125,14 +125,14 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
                 //particleSystem.Play();
                 particleSystem.gameObject.SetActive(true);
                 particleSystem.Play();
-                Debug.Log("Open Menu");
+                //Debug.Log("Open Menu");
             }
             else
             {
                 //particleSystem.Stop();
                 particleSystem.gameObject.SetActive(false);
                 particleSystem.Stop();
-                Debug.Log("Close Menu");
+                //Debug.Log("Close Menu");
             }
         }
 
