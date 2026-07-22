@@ -20,6 +20,7 @@ public class PlayerUI : MonoBehaviour
         this.Player = player;
         if (this.Player != null) Player.Data.OnCoinChange += LoadCoins;
         if (this.Player != null) Player.Actor.OnUpgrade += LoadData;
+        if (this.Player != null) Player.Actor.SkillSystem.OnSkillAdded += (skill, actor) => LoadData();
         LoadData();
     }
 

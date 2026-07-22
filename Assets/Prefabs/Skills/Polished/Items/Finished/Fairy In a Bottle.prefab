@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: GemCost
-      value: 32
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Stats.Int
@@ -90,7 +90,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Description
-      value: 
+      value: Revive on death.
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.a
@@ -251,14 +251,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8029387158902853936}
+      addedObject: {fileID: -6140022697996888920}
   m_SourcePrefab: {fileID: 100100000, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
 --- !u!1 &5016185461969225197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
   m_PrefabInstance: {fileID: 4127676382706353913}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8029387158902853936
+--- !u!114 &-6140022697996888920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,32 +267,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5016185461969225197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d00622761f9131439caa252e0ce2068, type: 3}
+  m_Script: {fileID: 11500000, guid: e8e978b9febdeb246a0397e3847f721e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsConstant: 1
-  Mods: []
-  SkillUpgrade:
-  - _name: 
-    Rarity: 0
-    SourceSkill: {fileID: 7810722921821588791}
-    ModList:
-    - TargetType: 20
-      ActorStatName: 20
-      SkillStatName: 0
-      Slots: 
-      IsStr: 0
-      IsDex: 0
-      IsInt: 0
-      BalancePoints: 0.3
-    - TargetType: 10
-      ActorStatName: 0
-      SkillStatName: 20
-      Slots: 
-      IsStr: 0
-      IsDex: 0
-      IsInt: 0
-      BalancePoints: 0.25
+  HealPercent: 1
+  IsUsed: 0
 --- !u!114 &7810722921821588791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}

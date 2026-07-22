@@ -123,7 +123,7 @@ public class CombatEncounterObject : MonoBehaviour
             // 1
 
             // Spawn Actor
-            float cost = selectedTypeActor.Difficulty + 0.2f * (i).ClampMin(0);// + 0.2f * (i).ClampInt(0, 1);// 0.1f * (i).ClampMin(0); // 0.25f;
+            float cost = selectedTypeActor.Difficulty + 0.1f * (i).ClampMin(0);// + 0.2f * (i).ClampInt(0, 1);// 0.1f * (i).ClampMin(0); // 0.25f;
             budget -= cost;
             Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);

@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         }
         static string GetUnlockedSkillString()
         {
-            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome, Fruit, Steak, Fairy In a Bottle, Coffee");
+            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome, Fruit, Steak, Fairy In a Bottle, Coffee, Compass, Map, Coinpurse");
         }
     }
     public PlayerData Data;

@@ -30669,6 +30669,7 @@ MonoBehaviour:
   _skillSystem: {fileID: 2582964353104462975}
   RarityMult: 1
   Difficulty: 1
+  MinLevel: 0
   UpgradeAffinity: 1
   NewSkillAffinity: 1
   BlacklistedTags: 
@@ -30840,9 +30841,9 @@ MonoBehaviour:
     - Item: {fileID: 7512805904016728388, guid: 94f9aeb1f28f98a42a2416f10c8efd7d, type: 3}
       Weight: 1
     - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
-      Weight: 0.25
+      Weight: 0.5
     - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
-      Weight: 0.1
+      Weight: 0.25
   GemPrefab: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
 --- !u!114 &-2264874766299332809
 MonoBehaviour:

@@ -18,12 +18,28 @@ public class GameOverMenu : SimpleMenu
             {
                 if (!IsOpen)
                 {
+                    // Open Menu
+                    SetOpen(true);
+
+                    // Gold -> Gem Conversion
                     PlayerManager.I.PlayerList.ForEach(player =>
                     {
                         Player.PlayerData.Gems += player.Data.Gold / 20;
                         player.Data.Gold = 0;
                     });
-                    SetOpen(true);
+
+                    // Shop Restock
+                    string shopRestockKey = "ShopRestockTick";
+                    int shopRestockTick = PlayerPrefs.GetInt(shopRestockKey, 0);
+                    shopRestockTick += DungeonManager.I.Data.Coordinate.y;
+                    int restockCount = shopRestockTick / 4;
+                    shopRestockTick -= restockCount * 4;
+                    PlayerPrefs.SetInt(shopRestockKey, shopRestockTick);
+                    var shopMenu = FindFirstObjectByType<ShopMenu>();
+                    shopMenu.GenerateInventory(restockCount);
+
+                    //Debug.Log($"Restock Tick {shopRestockTick}");
+                    //Debug.Log($"Restock Count {restockCount}");
                 }
             });
         }

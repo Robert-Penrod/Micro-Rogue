@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: GemCost
-      value: 16
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Stats.Int
@@ -288,7 +288,7 @@ MonoBehaviour:
       IsStr: 0
       IsDex: 0
       IsInt: 0
-      BalancePoints: 1
+      BalancePoints: 2
 --- !u!114 &7810722921821588791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}

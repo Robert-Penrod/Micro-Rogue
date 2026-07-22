@@ -13,6 +13,8 @@ public class ActorSkillSystem : MonoBehaviour
     public List<Skill> PassiveSkillList { get; private set; }
     public List<Skill> ItemList { get; private set; }
 
+    public Action<Skill, Actor> OnSkillAdded;
+
     private void Awake()
     {
         SkillList = new();
@@ -21,6 +23,24 @@ public class ActorSkillSystem : MonoBehaviour
         ItemList = new();
         _actor = GetComponentInParent<Actor>();
         RefreshSkillList();
+    }
+
+    private void Start()
+    {
+        // Load Player Skills
+        this.DelayedInvoke(-1, () =>
+        {
+            if (_actor.IsPlayer())
+            {
+                var player = _actor.GetComponentInParent<Player>();
+                if (player != null)
+                {
+                    int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
+                    var skillString = PlayerPrefs.GetString(GetSkillStringKey(playerNum), string.Empty);
+                    LoadSkillString(skillString);
+                }
+            }
+        });
     }
 
     public bool HasSkill(Skill skillToCheck)
@@ -38,7 +58,48 @@ public class ActorSkillSystem : MonoBehaviour
 
         RefreshSkillList();
 
+        // Save Player Skill String On Add
+        if(_actor.IsPlayer())
+        {
+            var player = _actor.GetComponentInParent<Player>();
+            if (player != null)
+            {
+                int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
+                string skillString = !DungeonManager.I.IsRunStarted ? GetSkillString() : string.Empty;
+                PlayerPrefs.SetString(GetSkillStringKey(playerNum), skillString);
+            }
+        }
+
+        OnSkillAdded?.Invoke(newSkill, _actor);
+
         return newSkill;
+    }
+    public string GetSkillStringKey(int playerNum)
+    {
+        return $"PlayerPrepSkillString_{playerNum}";
+    }
+    public void LoadSkillString(string skillString)
+    {
+        RemoveAllSkills();
+        var globalSkillList = UpgradeManager.I.GetSkillList();
+        string[] skillNames = skillString.Split(",");
+        foreach(var name in skillNames)
+        {
+            var skill = globalSkillList.Find(x => x.Name == name);
+            if (skill == null) continue;
+            AddSkill(skill);
+        }
+    }
+
+    public string GetSkillString()
+    {
+        string skillString = string.Empty;
+        foreach(var skill in SkillList)
+        {
+            if (skillString.Length > 0) skillString += ",";
+            skillString += skill.Name;
+        }
+        return skillString;
     }
 
     void RefreshSkillList()

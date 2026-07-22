@@ -77,7 +77,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
     public void RefreshUI()
     {
-        Debug.Log(gameObject);
+        //Debug.Log(gameObject);
         if (gameObject == null) return;
         if (_textMesh != null) _textMesh.text = _text;
         if (_image != null)

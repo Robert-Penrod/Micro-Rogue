@@ -14,6 +14,7 @@ public class ShopMenu : MonoBehaviour
     [SerializeField] TextMeshProUGUI _descriptionText;
     [SerializeField] SimpleButton _buyButton;
     [SerializeField] SimpleButton _nextButton;
+    [SerializeField] TextMeshProUGUI _costText;
 
     UpgradeManager _upgradeManager;
 
@@ -27,12 +28,12 @@ public class ShopMenu : MonoBehaviour
         {
             button.OnDownEvent.AddListener(() =>
             {
-                LoadButtonItemInfo(button);
+                LoadInfoPannelWithButton(button);
             });
 
             if(button.IsHighlighted)
             {
-                LoadButtonItemInfo(button);
+                LoadInfoPannelWithButton(button);
             }
         });
         LoadInventory();
@@ -40,7 +41,7 @@ public class ShopMenu : MonoBehaviour
 
         Player.PlayerData.OnGemChange += () =>
         {
-            LoadButtonItemInfo(GetHighlightedButton());
+            LoadInfoPannelWithButton(GetHighlightedButton());
         };
 
         GetComponent<SimpleMenu>().OnOpenChanged += (open) =>
@@ -48,7 +49,7 @@ public class ShopMenu : MonoBehaviour
             if(open)
             {
                 var highlightedButton = GetHighlightedButton();
-                LoadButtonItemInfo(highlightedButton);
+                LoadInfoPannelWithButton(highlightedButton);
             }
         };
 
@@ -88,6 +89,8 @@ public class ShopMenu : MonoBehaviour
         }
 
         UpdateButtonUI();
+
+        SaveInventory();
     }
 
     SimpleButton GetHighlightedButton()
@@ -99,7 +102,7 @@ public class ShopMenu : MonoBehaviour
         return null;
     }
 
-    void LoadButtonItemInfo(SimpleButton button)
+    void LoadInfoPannelWithButton(SimpleButton button)
     {
         var item = GetButtonItem(button);
 
@@ -108,12 +111,16 @@ public class ShopMenu : MonoBehaviour
         if (button == null || item == null)
         {
             _descriptionText.text = string.Empty;
+            if(_costText != null) _costText.transform.parent.gameObject.SetActive(false);
             return;
         }
+        _costText.transform.parent.gameObject.SetActive(true);
 
         var newSkillUpgrade = new NewSkillUpgrade(item, null);
         _descriptionText.text = item.Name;
         _descriptionText.text += "\n" + newSkillUpgrade.GetDescription();
+
+        _costText.text = "-" + item.GemCost.ToString();
     }
 
     Skill GetButtonItem(SimpleButton button)
@@ -162,17 +169,34 @@ public class ShopMenu : MonoBehaviour
         }
     }
 
-    void GenerateInventory()
+    public void GenerateInventory(int count = -1)
     {
-        var itemList = _upgradeManager.GetSkillList().FindAll(skill => skill.Slot == Skill.SlotEnum.Item  && Player.PlayerData.GetUnlockedSkillList().Contains(skill.Name));
-        WeightedList<Skill> weightedItemList = new();
-        itemList.ForEach(item => weightedItemList.Add(item, Constants.RarityToWeight(item.Rarity)));
-        int itemCount = Random.Range(2, 4);
-        for (int i = 0; i < itemCount; i++)
+        var weightedItemList = GetWeightedItemList();
+        if(count < 0) count = Random.Range(2, 4);
+        for (int i = 0; i < count; i++)
         {
             Inventory.Add(weightedItemList.SelectItem());
         }
         SaveInventory();
+        UpdateButtonUI();
+    }
+
+    WeightedList<Skill> GetWeightedItemList()
+    {
+        var itemList = _upgradeManager.GetSkillList().FindAll(skill => skill.Slot == Skill.SlotEnum.Item && Player.PlayerData.GetUnlockedSkillList().Contains(skill.Name));
+        WeightedList<Skill> weightedItemList = new();
+        itemList.ForEach(item => weightedItemList.Add(item, Constants.RarityToWeight(item.Rarity)));
+        return weightedItemList;
+    }
+
+    public void RerollShop()
+    {
+        int cost = 8;
+        if (Player.PlayerData.Gems < cost) return;
+        Player.PlayerData.Gems -= cost;
+
+        Inventory.Clear();
+        GenerateInventory();
     }
 
     void SaveInventory()
@@ -192,7 +216,7 @@ public class ShopMenu : MonoBehaviour
         //var itemList = _upgradeManager.GetSkillList().FindAll(skill => skill.Slot == Skill.SlotEnum.Item);
         for (int i = 0; i < _buttonList.Count; i++)
         {
-            Debug.Log($"{i} < {Inventory.Count}");
+            //Debug.Log($"{i} < {Inventory.Count}");
             if (i < Inventory.Count)
             {
                 _buttonList[i].Sprite = Inventory[i].Icon;
@@ -208,7 +232,7 @@ public class ShopMenu : MonoBehaviour
             }
         }
 
-        LoadButtonItemInfo(GetHighlightedButton());
+        LoadInfoPannelWithButton(GetHighlightedButton());
     }
 
     public void SellGems()

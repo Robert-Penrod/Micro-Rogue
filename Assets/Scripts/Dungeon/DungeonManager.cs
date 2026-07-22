@@ -16,6 +16,7 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField] Material _floorMat;
 
     public bool IsEncounterOver { get; private set; }
+    public bool IsRunStarted { get; private set; }
     
     public Transform DungeonTransform { get; private set; }
     PlayerManager _playerManager;
@@ -95,6 +96,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public Vector2Int Coordinate;
         public BiomeEnum Biome;
         public TagCollection Tags;
+        public int LevelSkip = 0;
 
         public int EliteTier = 0;
         public bool IsBoss;
@@ -102,6 +104,8 @@ public class DungeonManager : Singleton<DungeonManager>
 
         public DungeonData(int seed, Vector2Int coordinate, int runLevel = 1, int eliteTier = -1)
         {
+            LevelSkip = 0;
+
             // Seeding
             this.Seed = seed;
             this.Coordinate = coordinate;
@@ -409,6 +413,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void StartGame()
     {
+        IsRunStarted = true;
         DoPortal();
     }
 
@@ -431,7 +436,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
             else
             {
-                Data.Coordinate.y++;
+                Data.Coordinate.y += 1 + Data.LevelSkip;
                 //Data.Biome = BiomeEnum.Wilds;
             }
 
@@ -456,7 +461,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Upgrade
-            yield return UpgradeManager.I.UpgradePlayers_Co(SelectedPortal?.Level ?? 1);
+            yield return UpgradeManager.I.UpgradePlayers_Co(SelectedPortal?.Level ?? (1 + Data.LevelSkip));
 
             // New Level
             GenerateLevel();

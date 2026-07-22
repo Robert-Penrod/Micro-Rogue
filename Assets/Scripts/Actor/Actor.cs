@@ -51,6 +51,7 @@ public class Actor : MonoBehaviour
     public Action<SkillInstance> OnWasHit;
     public Action OnUpgrade;
     public Action OnDeath;
+    public Action OnPreDeath;
     public Action OnEvade;
     public Action OnArmor;
     public Action<Actor> OnKill;
@@ -108,7 +109,12 @@ public class Actor : MonoBehaviour
         // Health Change
         Stats.OnHealthChanged += (float newHp, float deltaHp) =>
         {
-            if (newHp <= 0 && IsAlive) Die();
+            
+            if (Stats.Health <= 0 && IsAlive)
+            {
+                OnPreDeath?.Invoke();
+                Die();
+            }
         };
 
         // Info Updates
@@ -121,6 +127,8 @@ public class Actor : MonoBehaviour
 
     void Die()
     {
+        if (Stats.Health > 0) return;
+
         gameObject.SetCollidersEnabled2D(false);
         IsAlive = false;
 
