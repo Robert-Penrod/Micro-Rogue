@@ -18,14 +18,17 @@ public class GamePalette : ScriptableObject
     public Color GetActorSkillColor(Actor actor, int str = 1, int dex = 1, int intel = 1)
     {
         Color individualPlayerColor = EnemyColor; // Player vs enemy color
-        if(actor.IsPlayer())
+        if (actor != null)
         {
-            individualPlayerColor = actor.GetComponentInParent<Player>().Data.Color;
-            individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0f);
-        }
-        else if(actor.Faction == Actor.FactionType.Player)
-        {
-            individualPlayerColor = PlayerColor;
+            if (actor.IsPlayer())
+            {
+                individualPlayerColor = actor.GetComponentInParent<Player>().Data.Color;
+                individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0f);
+            }
+            else if (actor.Faction == Actor.FactionType.Player)
+            {
+                individualPlayerColor = PlayerColor;
+            }
         }
         Color archetypeColor = GetArchetypeColor(str, dex, intel).SetValue(1f);
 

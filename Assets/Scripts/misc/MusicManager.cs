@@ -62,8 +62,33 @@ public class MusicManager : MonoBehaviour
 
     private void Update()
     {
+        bool allPlayersDead = PlayerManager.I.AreAllPlayersDead();
+        var visibleEnemyCount = PlayerManager.I.PlayerList.FindAll(x => x.Actor.Senses.EnemyActors.Count > 0).Count;
+
+        float combatPitch = 1f;
+        if (PlayerManager.I.PlayerList.Count > 0)
+        {
+            float avgHealthPercent = 0f;
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                avgHealthPercent += player.Actor.Stats.HealthPercent;
+            });
+            avgHealthPercent /= PlayerManager.I.PlayerList.Count;
+
+            combatPitch = avgHealthPercent.Remap(0.25f, 0.5f, 1.1f, 1f);
+            combatPitch *= avgHealthPercent.Remap(0f, 0.25f, 1.4f, 1f);
+            if (avgHealthPercent <= 0f)
+            {
+                combatPitch = 0.25f;
+            }
+        }
+        _bossMusic.Pitch.Target = _combatMusic.Pitch.Target = _eliteMusic.Pitch.Target = combatPitch;
+        _upgradeMusic.Pitch.Target = UpgradeManager.I.IsUpgrading ? 0.975f :( DungeonManager.I.IsEncounterOver ? 0.9675f : 1.1f);
+        _upgradeMusic.Pitch.LerpMult = 1.5f;
+        _gameOverMusic.Pitch.Target = allPlayersDead ? 0.9f : 1.15f;
+
         // GameOver
-        if(PlayerManager.I.AreAllPlayersDead())
+        if (allPlayersDead)
         {
             PlayAudio(_gameOverMusic);
         }
@@ -81,7 +106,7 @@ public class MusicManager : MonoBehaviour
         else
         {
             // Sneak
-            if(PlayerManager.I.PlayerList.FindAll(x => x.Actor.Senses.EnemyActors.Count > 0).Count == 0)
+            if(visibleEnemyCount == 0)
             {
                 PlayAudio(_upgradeMusic);
             }

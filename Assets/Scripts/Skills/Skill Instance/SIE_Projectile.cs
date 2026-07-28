@@ -13,6 +13,8 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] bool _hitsWalls = true;
     [SerializeField] float _wallSlowLerp = 0.5f;
     [SerializeField] ParticleSystem _hitParticles;
+    [SerializeField] SkillInstance _spawnOnHit;
+    [SerializeField] float _spawnOnHitChance = 0f;
 
     List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
@@ -251,6 +253,16 @@ public class SIE_Projectile : SIE, IPoolable
             amp *= screenShakeMult;
             freq *= screenShakeMult;
             CamShaker.I.Shake(amp, freq);
+
+            // Spawn on Hit
+            if(!didDodge && _spawnOnHit != null && Random.value < _spawnOnHitChance)
+            {
+                var spawnedSkillInstance = Instantiate(_spawnOnHit).GetComponent<SkillInstance>();
+                spawnedSkillInstance.transform.position = (Vector3)transform.position + Vector3.forward * spawnedSkillInstance.transform.position.z;
+                spawnedSkillInstance.Skill = skill;
+                spawnedSkillInstance.gameObject.SetActive(true);
+                spawnedSkillInstance._previousTargetsList.Add(hitActor.gameObject);
+            }
         }
         //.
         void SlowProjectile(float lerp = 1f)

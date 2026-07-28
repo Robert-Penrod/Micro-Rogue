@@ -45,7 +45,7 @@ public class ActorStats
 
     public void SetHealthPercent(float newPercent) 
     {
-        Debug.Log($"SetHealthPercent({newPercent}) => Health = {HealthMax.Value} * {newPercent}");
+        //Debug.Log($"SetHealthPercent({newPercent}) => Health = {HealthMax.Value} * {newPercent}");
         Health = (int)((int)HealthMax.Value * newPercent); 
     }
     public float HealthPercent => (float)Health / (int)HealthMax.Value;

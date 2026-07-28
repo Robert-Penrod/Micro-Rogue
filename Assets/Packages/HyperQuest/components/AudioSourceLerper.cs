@@ -10,7 +10,7 @@ public class AudioSourceLerper : MonoBehaviour
     public bool DoesPause = true;
     public bool UseScaledDeltaTime = false;
     public LerpValue Volume = new LerpValue(0f, 0f, 6f);
-    public LerpValue Pitch = new LerpValue(0.9f, 0.9f, 6f);
+    public LerpValue Pitch = new LerpValue(0.9f, 0.9f, 0.25f);
 
     float _deltaTime => UseScaledDeltaTime ? Time.deltaTime : Time.unscaledDeltaTime;
 

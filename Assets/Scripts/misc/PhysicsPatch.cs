@@ -58,6 +58,7 @@ public class PhysicsPatch : MonoBehaviour
 
     private void FixedUpdate()
     {
+        _colBodyList.RemoveAll(x => x == null);
         _colBodyList.ForEach(body =>
         {
             body.linearVelocity *= (1f - Drag * Time.fixedDeltaTime);

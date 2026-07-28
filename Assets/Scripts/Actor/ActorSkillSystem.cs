@@ -28,19 +28,24 @@ public class ActorSkillSystem : MonoBehaviour
     private void Start()
     {
         // Load Player Skills
-        this.DelayedInvoke(-1, () =>
+        if (_actor.IsPlayer())
         {
-            if (_actor.IsPlayer())
+            var isRestarting = PlayerPrefs.GetInt("Restarting", 0) > 0;
+            var player = _actor.GetComponentInParent<Player>();
+            if (player != null)
             {
-                var player = _actor.GetComponentInParent<Player>();
-                if (player != null)
+                int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
+                var skillString = PlayerPrefs.GetString(GetSkillStringKey(playerNum), string.Empty);
+                LoadSkillString(skillString);
+
+                if (isRestarting)
                 {
-                    int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
-                    var skillString = PlayerPrefs.GetString(GetSkillStringKey(playerNum), string.Empty);
-                    LoadSkillString(skillString);
+                    RemoveAllButItems();
+                    SaveSkills();
+                    Debug.Log($"Loading player skillString: {skillString}");
                 }
             }
-        });
+        }
     }
 
     public bool HasSkill(Skill skillToCheck)
@@ -57,24 +62,13 @@ public class ActorSkillSystem : MonoBehaviour
         if (newSkill.Slot == Skill.SlotEnum.Item) ItemList.Add(newSkill);
 
         RefreshSkillList();
-
-        // Save Player Skill String On Add
-        if(_actor.IsPlayer())
-        {
-            var player = _actor.GetComponentInParent<Player>();
-            if (player != null)
-            {
-                int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
-                string skillString = !DungeonManager.I.IsRunStarted ? GetSkillString() : string.Empty;
-                PlayerPrefs.SetString(GetSkillStringKey(playerNum), skillString);
-            }
-        }
+        SaveSkills();
 
         OnSkillAdded?.Invoke(newSkill, _actor);
 
         return newSkill;
     }
-    public string GetSkillStringKey(int playerNum)
+    public static string GetSkillStringKey(int playerNum)
     {
         return $"PlayerPrepSkillString_{playerNum}";
     }
@@ -88,6 +82,43 @@ public class ActorSkillSystem : MonoBehaviour
             var skill = globalSkillList.Find(x => x.Name == name);
             if (skill == null) continue;
             AddSkill(skill);
+        }
+    }
+
+    void SaveSkills()
+    {
+        if (_actor.IsPlayer())
+        {
+            var player = _actor.GetComponentInParent<Player>();
+            if (player != null)
+            {
+                int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
+                string skillString = GetSkillString();
+                PlayerPrefs.SetString(GetSkillStringKey(playerNum), skillString);
+                Debug.Log($"Add skill skillString: {skillString}");
+            }
+        }
+    }
+
+    public void ClearSavedSkills()
+    {
+        if (_actor.IsPlayer())
+        {
+            var player = _actor.GetComponentInParent<Player>();
+            if (player != null)
+            {
+                int playerNum = 1 + PlayerManager.I.PlayerList.IndexOf(player);
+                PlayerPrefs.SetString(GetSkillStringKey(playerNum), string.Empty);
+                LoadSkillString(string.Empty);
+            }
+        }
+    }
+
+    public static void ClearAllSavedSkills()
+    {
+        for(int i = 0; i < 6; i++)
+        {
+            PlayerPrefs.SetString(GetSkillStringKey(i), string.Empty);
         }
     }
 
@@ -134,6 +165,35 @@ public class ActorSkillSystem : MonoBehaviour
             PassiveSkillList.Clear();
             ItemList.Clear();
         }
+
+        RefreshSkillList();
+        SaveSkills();
+    }
+
+    public void RemoveAllButItems()
+    {
+        Debug.Log("REmove ALL BUT ITEMS!!!");
+        List<Skill> skillList = new List<Skill>(GetComponentsInChildren<Skill>());
+        foreach(Skill skill in skillList)
+        {
+            if(skill.Slot != Skill.SlotEnum.Item)
+            {
+                if (Application.isEditor)
+                {
+                    DestroyImmediate(skill.gameObject);
+                }
+                else
+                {
+                    Destroy(skill.gameObject);
+                }
+            }
+        }
+        SkillList.RemoveAll(x => x.Slot != Skill.SlotEnum.Item);
+        ActiveSkillList.Clear();
+        PassiveSkillList.Clear();
+
+        RefreshSkillList();
+        SaveSkills();
     }
 
     #region AI

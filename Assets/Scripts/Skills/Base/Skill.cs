@@ -144,7 +144,7 @@ public class Skill : MonoBehaviour
     public void ReInitializeFromHistory()
     {
         float initHealthPercent = Actor.Stats.HealthPercent;
-        Debug.Log("REINITIALIZE SKILL");
+        //Debug.Log("REINITIALIZE SKILL");
 
         RemoveMods();
         
@@ -223,7 +223,7 @@ public class Skill : MonoBehaviour
         float dodgeMult = 1f;
         if (Actor.MoveController != null)
         {
-            dodgeMult = Actor.MoveController.IsDodging ? -2f : 1f;
+            dodgeMult = Actor.MoveController.IsDodging ? -1f : 1f;
         }
 
         // No Targets

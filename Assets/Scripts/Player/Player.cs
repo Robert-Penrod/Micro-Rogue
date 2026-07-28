@@ -36,13 +36,14 @@ public class Player : MonoBehaviour
             }
             set
             {
+                var oldValue = _gem;
                 _gem = value;
                 PlayerPrefs.SetInt("Gems", _gem);
-                OnGemChange?.Invoke();
+                OnGemChange?.Invoke(_gem - oldValue);
             }
         }
         public static int _gem;
-        public static Action OnGemChange;
+        public static Action<int> OnGemChange;
 
         public static List<string> GetUnlockedSkillList()
         {
@@ -54,10 +55,86 @@ public class Player : MonoBehaviour
         }
         static string GetUnlockedSkillString()
         {
-            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome, Fruit, Steak, Fairy In a Bottle, Coffee, Compass, Map, Coinpurse");
+            return PlayerPrefs.GetString("UnlockedSkills", "all, Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome, Fruit, Steak, Fairy In a Bottle, Coffee, Compass, Map, Coinpurse");
         }
     }
     public PlayerData Data;
+
+    public static class CampUpgradeData
+    {
+        public static Action OnCampDataChange;
+
+        public static int SkillSlotLevel
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("SkillSlotUpgradeCount", 0);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("SkillSlotUpgradeCount", value);
+                OnCampDataChange?.Invoke();
+            }
+        }
+        public static int SkillSlotCount => 1 + SkillSlotLevel;
+
+        public static int PassiveSlotUpgradeCount
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("PassiveSlotUpgradeCount", 0);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("PassiveSlotUpgradeCount", value);
+                OnCampDataChange?.Invoke();
+            }
+        }
+        public static int PassiveSlotCount => 1 + PassiveSlotUpgradeCount;
+
+        public static int ItemSlotUpgradeCount
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("ItemSlotUpgradeCount", 0);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("ItemSlotUpgradeCount", value);
+                OnCampDataChange?.Invoke();
+            }
+        }
+        public static int ItemSlotCount => 1 + ItemSlotUpgradeCount;
+
+        public static int LootLevel
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("LootLevel", 0);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("LootLevel", value);
+                OnCampDataChange?.Invoke();
+            }
+        }
+        public static float LootMultiplier => 1f + (0.12f * LootLevel);
+
+        public static int HordeLevel
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("HordeLevel", 0);
+            }
+            set
+            {
+                PlayerPrefs.SetInt("HordeLevel", value);
+                OnCampDataChange?.Invoke();
+            }
+        }
+        public static int HordeStartingGold => 20 * HordeLevel;
+    }
+
 
     public PlayerInput PlayerInput { get; private set; }
     InputAction _leave;

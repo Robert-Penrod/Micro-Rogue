@@ -10,10 +10,11 @@ using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(PlayerInputManager))]
-public class PlayerManager : Singleton<PlayerManager>
+public class PlayerManager : PersistantSingleton<PlayerManager>
 {
     [SerializeField] List<string> _joinSceneNames = new();
     public List<Player> PlayerList = new();
+    [SerializeField] List<InputDevice> _inputDeviceList = new();
 
     public PlayerInputManager _playerInputManager { get; private set; }
 
@@ -26,7 +27,6 @@ public class PlayerManager : Singleton<PlayerManager>
     string _uiMapName = "UI";
 
     public InputDevice LastInputDevice { get; private set; }
-
 
     public void JoinPlayerByLastInputDevice()
     {
@@ -104,6 +104,8 @@ public class PlayerManager : Singleton<PlayerManager>
 
         return true;
     }
+
+    
 
     protected override void Awake()
     {
@@ -184,6 +186,8 @@ public class PlayerManager : Singleton<PlayerManager>
         Player player = playerInput.GetComponentInParent<Player>();
         if (player == null || PlayerList.Contains(player)) return;
         PlayerList.Add(player);
+        if(!_inputDeviceList.Contains(playerInput.devices[0])) _inputDeviceList.Add(playerInput.devices[0]);
+        Debug.Log("Adding Device " + playerInput.devices[0].displayName);
         OnPlayerJoin?.Invoke(player);
 
         player.transform.position = Random.insideUnitCircle.normalized * Random.Range(0.5f, 1f);
@@ -194,13 +198,26 @@ public class PlayerManager : Singleton<PlayerManager>
         Player player = playerInput.GetComponentInParent<Player>();
         if (player == null || !PlayerList.Contains(player)) return;
         PlayerList.Remove(player);
+        if(_inputDeviceList.Contains(playerInput.devices[0])) _inputDeviceList.Remove(playerInput.devices[0]);
         OnPlayerLeave?.Invoke(player);
     }
 
     private void OnLevelWasLoaded(int level)
     {
         Player.PlayerData.OnGemChange = null;
+        Player.CampUpgradeData.OnCampDataChange = null;
         UpdateCanJoin();
+        PlayerList.RemoveAll(x => x == null);
+        _playerInputManager = GetComponent<PlayerInputManager>();
+        OnPlayerJoin = null;
+        OnPlayerLeave = null;
+
+        UnjoinAllPlayers();
+        _inputDeviceList.RemoveAll(x => x == null);
+        foreach(InputDevice inputDevice in _inputDeviceList)
+        {
+            _playerInputManager.JoinPlayer(pairWithDevice: inputDevice);
+        }
     }
 
     void UpdateCanJoin()

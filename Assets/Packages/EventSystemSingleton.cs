@@ -17,7 +17,7 @@ public class EventSystemSingleton : PersistantSingleton<EventSystemSingleton>
         {
             this.DelayedInvoke(-1f, () =>
             {
-                Debug.Log("_currentSelected == null, selecting last selection " + _lastSelected.gameObject.name);
+                //Debug.LogWarning("_currentSelected == null, selecting last selection " + _lastSelected.gameObject.name);
                 _currentSelected = _lastSelected;
                 EventSystem.current.SetSelectedGameObject(_lastSelected);
             });

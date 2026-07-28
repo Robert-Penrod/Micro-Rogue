@@ -82,7 +82,7 @@ public class UpgradeMod
         statName += skillUpgradeMod.SkillStatName.ToString();
 
         var statMod = skillUpgradeMod.GetModifier();
-        if (actor == null) return (statName + ": ").Color("CAD079") + statMod.ToString();
+        if (actor == null) return (statName + ": ").Color(Constants.Colors.LabelColorHex) + statMod.ToString();
 
         float positiveDir = 1f;
         string unit = "%";
@@ -119,7 +119,7 @@ public class UpgradeMod
 
         string valueChange = Constants.ChangeValueString(value, previewStatValue, positiveDir, unit, true);
         if (description.Length > 0) description += "\n";
-        description += ((statName + ": ").Color("CAD079") + valueChange);
+        description += ((statName + ": ").Color(Constants.Colors.LabelColorHex) + valueChange);
 
         return description;
     }
@@ -129,7 +129,7 @@ public class UpgradeMod
         if(actor == null) actor = UpgradeMenu.I._actorToUpgrade;
 
         var statMod = actorUpgradeMod.GetModifier();
-        if(actor == null) return (actorUpgradeMod.ActorStatName.ToString() + ": ").Color("CAD079") + statMod.ToString();
+        if(actor == null) return (actorUpgradeMod.ActorStatName.ToString() + ": ").Color(Constants.Colors.LabelColorHex) + statMod.ToString();
 
         Stat stat = actor.Stats.GetStat(actorUpgradeMod.ActorStatName);
         string statName = stat.Name;
@@ -157,7 +157,7 @@ public class UpgradeMod
 
         string valueChange = Constants.ChangeValueString(value, previewStatValue, positiveDir, unit);
         if (description.Length > 0) description += "\n";
-        description += ((statName + ": ").Color("CAD079") + valueChange);
+        description += ((statName + ": ").Color(Constants.Colors.LabelColorHex) + valueChange);
         return description;
     }
 
@@ -190,7 +190,7 @@ public class UpgradeMod
 
         string valueChange = Constants.ChangeValueString(value, previewStatValue, positiveDir, unit);
         if (description.Length > 0) description += "\n";
-        description += ((statName + ": ").Color("CAD079") + valueChange);
+        description += ((statName + ": ").Color(Constants.Colors.LabelColorHex) + valueChange);
         return description;
     }
 

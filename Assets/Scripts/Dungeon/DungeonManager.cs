@@ -64,6 +64,13 @@ public class DungeonManager : Singleton<DungeonManager>
         return c;
     }
 
+    [System.Serializable]
+    public class RunInfo
+    {
+        public int GemsCollected = 0;
+    }
+    public RunInfo RunInfoData = new();
+
     public void SetBiomeWilds()
     {
         Data.Biome = BiomeEnum.Forest;
@@ -138,6 +145,13 @@ public class DungeonManager : Singleton<DungeonManager>
     private void Start()
     {
         UpdateBiomeTextures();
+        Player.PlayerData.OnGemChange += (delta) =>
+        {
+            if (IsRunStarted)
+            {
+                RunInfoData.GemsCollected += delta;
+            }
+        };
     }
 
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord, int runTier)
@@ -414,7 +428,16 @@ public class DungeonManager : Singleton<DungeonManager>
     public void StartGame()
     {
         IsRunStarted = true;
+
+        // Starting Gold
+        PlayerManager.I.PlayerList.ForEach(player =>
+        {
+            player.Data.Gold += Player.CampUpgradeData.HordeStartingGold;
+        });
+
         DoPortal();
+
+        PlayerPrefs.SetInt("IsInvDirty", 1);
     }
 
     void DoPortal()
@@ -487,6 +510,7 @@ public class DungeonManager : Singleton<DungeonManager>
                 });
 
                 // Health Increase
+                /*
                 if (Data.RoomNumber > 1)
                 {
                     
@@ -494,6 +518,7 @@ public class DungeonManager : Singleton<DungeonManager>
                     player.Actor.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(Constants.ActorStats.HealthGain, Kryz.Stats.StatModType.Flat));
                     player.Actor.Stats.Health = (int)(percent * player.Actor.Stats.HealthMax.Value);
                 }
+                */
             }
 
             // Extra
@@ -515,6 +540,8 @@ public class DungeonManager : Singleton<DungeonManager>
             .Select(g => new { Portal = g.Key, Count = g.Count() })
             .ToList();
 
+        if (groups == null) return null;
+
         // Find the highest vote count
         int maxCount = groups.Max(g => g.Count);
 
@@ -527,6 +554,7 @@ public class DungeonManager : Singleton<DungeonManager>
         int seed = Data.GetSeed();
         foreach (var portal in topPortals)
         {
+            if (portal == null) continue;
             seed = HashCode.Combine(seed, portal.name);  // or any stable property
         }
         Random.InitState(seed);

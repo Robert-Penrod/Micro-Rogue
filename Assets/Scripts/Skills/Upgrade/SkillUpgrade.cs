@@ -67,7 +67,7 @@ public class SkillUpgrade : Upgrade
             }
             else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.ActorStat)
             {
-                Debug.Log("Applyyyyy");
+                //Debug.Log("Applyyyyy");
                 Stat stat = SourceSkill.Actor.Stats.GetStat(upgradeMod.ActorStatName);
                 var mod = upgradeMod.GetModifier();
                 mod.Source = source;

@@ -49,6 +49,14 @@ public class TagCollection
         });
     }
 
+    public void AddTag(TagType type, int count = 1)
+    {
+        TagStack tagStack = new();
+        tagStack.tag = type;
+        tagStack.count = count;
+        AddTag(tagStack);
+    }
+
     public void AddTag(TagStack otherTagStack)
     {
         int index = _entries.FindIndex(x => x.tag == otherTagStack.tag);

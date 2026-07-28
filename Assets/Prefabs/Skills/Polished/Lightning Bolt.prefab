@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &8723036410597588552
@@ -5253,6 +5254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _force: 14
   _range: 1.5
+  _noiseFreq: 1
+  _noiseMag: 5
 --- !u!114 &2711567191492694589
 MonoBehaviour:
   m_ObjectHideFlags: 0

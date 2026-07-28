@@ -24,6 +24,9 @@ public class ActorLootDropper : MonoBehaviour
         if (DungeonManager.I.Data.IsBoss) dropCount *= 2f;
         dropCount *= DungeonManager.I.Data.EliteTier.Remap(0, 1, 1, 1.5f);
 
+        // Camp Upgrade
+        dropCount *= Player.CampUpgradeData.LootMultiplier;
+
         //if (DungeonManager.I.Data.IsBoss) dropCount++;
         //dropCount += DungeonManager.I.Data.EliteTier;
         /*

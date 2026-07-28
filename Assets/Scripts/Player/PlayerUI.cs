@@ -13,14 +13,25 @@ public class PlayerUI : MonoBehaviour
 
     public Player Player { get; private set; }
 
+    private void Start()
+    {
+        LoadData();
+        this.DelayedInvoke(-1, () =>
+        {
+            LoadData();
+        });
+    }
+
     public void SetPlayer(Player player)
     {
         if (this.Player != null) Player.Data.OnCoinChange -= LoadCoins;
         if (this.Player != null) Player.Actor.OnUpgrade -= LoadData;
+        if (this.Player != null) Player.CampUpgradeData.OnCampDataChange -= LoadData;
         this.Player = player;
         if (this.Player != null) Player.Data.OnCoinChange += LoadCoins;
         if (this.Player != null) Player.Actor.OnUpgrade += LoadData;
         if (this.Player != null) Player.Actor.SkillSystem.OnSkillAdded += (skill, actor) => LoadData();
+        if (this.Player != null) Player.CampUpgradeData.OnCampDataChange += LoadData;
         LoadData();
     }
 
@@ -39,19 +50,26 @@ public class PlayerUI : MonoBehaviour
 
         // Skills
         var skillSystem = Player?.Actor?.SkillSystem;
-        for(int i = 0; i < _activeSlots.Count; i++)
+        HandleSlots(_activeSlots, Player.CampUpgradeData.SkillSlotCount, skillSystem.ActiveSkillList);
+        HandleSlots(_passiveSlots, Player.CampUpgradeData.PassiveSlotCount, skillSystem.PassiveSkillList);
+        HandleSlots(_itemSlots, Player.CampUpgradeData.ItemSlotCount, skillSystem.ItemList);
+    }
+
+    void HandleSlots(List<SkillSlotUI> slotList, int slotCount = 1, List<Skill> skillList = null) 
+    {
+        for (int i = 0; i < slotList.Count; i++)
         {
-            if (skillSystem != null)
+            slotList[i].gameObject.SetActive(i < slotCount);
+            if (i < slotCount)
             {
-                _activeSlots[i].SetSkill(i < skillSystem.ActiveSkillList.Count ? skillSystem.ActiveSkillList[i] : null);
-                _passiveSlots[i].SetSkill(i < skillSystem.PassiveSkillList.Count ? skillSystem.PassiveSkillList[i] : null);
-                _itemSlots[i].SetSkill(i < skillSystem.ItemList.Count ? skillSystem.ItemList[i] : null);
-            }
-            else
-            {
-                _activeSlots[i].SetSkill(null);
-                _passiveSlots[i].SetSkill(null);
-                _itemSlots[i].SetSkill(null);
+                if (skillList != null)
+                {
+                    slotList[i].SetSkill(i < skillList.Count ? skillList[i] : null);
+                }
+                else
+                {
+                    slotList[i].SetSkill(null);
+                }
             }
         }
     }

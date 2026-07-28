@@ -20,6 +20,15 @@ public class SimpleMenu : MonoBehaviour
     public UnityEvent OnGoBack;
     public Action<bool> OnOpenChanged;
 
+    public void JoinPlayerByLastInput()
+    {
+        PlayerManager.I.JoinPlayerByLastInputDevice();
+    }
+
+    public void UnjoinAllPlayers()
+    {
+        PlayerManager.I.UnjoinAllPlayers();
+    }
 
     private void Awake()
     {

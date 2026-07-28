@@ -13,7 +13,10 @@ public class PlayerUIManager : MonoBehaviour
         {
             x.gameObject.SetActive(false);
         });
+    }
 
+    private void Start()
+    {
         // Player Join
         PlayerManager.I.OnPlayerJoin += (Player player) =>
         {
@@ -24,6 +27,11 @@ public class PlayerUIManager : MonoBehaviour
         {
             PlayerDataChange();
         };
+
+        this.DelayedInvoke(-1, () =>
+       {
+           UpdatePlayerUIs();
+       });
     }
 
     private void OnEnable()
@@ -47,6 +55,7 @@ public class PlayerUIManager : MonoBehaviour
             // Has Player
             if(i < playerList.Count)
             {
+                if (playerList[i] == null) continue;
                 _playerUIs[i].SetPlayer(playerList[i]);
                 _playerUIs[i].gameObject.SetActive(true);
             }

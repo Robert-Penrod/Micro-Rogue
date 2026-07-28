@@ -2,6 +2,13 @@
 
 public static class Constants
 {
+    public static class Colors
+    {
+        public static string LabelColorHex = "CAD079";
+        public static Color PositiveStatColor = Color.green.SetSaturation(0.7f);
+        public static Color NegativeStatColor = Color.red.SetSaturation(0.7f);
+    }
+
     public static float SpeedMult = 1.5f;
 
     public enum Rarity { Common, Uncommon, Rare, Epic, Legendary, Secret }
@@ -56,8 +63,8 @@ public static class Constants
     public static string ChangeValueString(float initValue, float newValue, float positiveDir = 1f, string unit = "", bool positiveSigns = false)
     {
         Color initColor = new Color(0.75f, 0.75f, 0.75f);
-        Color positiveColor = Color.green.SetSaturation(0.7f);
-        Color negativeColor = Color.red.SetSaturation(0.7f);
+        Color positiveColor = Colors.PositiveStatColor;
+        Color negativeColor = Colors.NegativeStatColor;
         bool isPositive = Mathf.Sign(newValue - initValue) == Mathf.Sign(positiveDir);
         Color c = isPositive ? positiveColor : negativeColor;
         string currentString = (signString(initValue) + initValue.ToStatNumString() + unit).Color(initColor);

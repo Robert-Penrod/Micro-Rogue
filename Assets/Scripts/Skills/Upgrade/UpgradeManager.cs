@@ -67,11 +67,11 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
     WeightedList<Upgrade> GetWeightedUpgradeList(Actor actorToUpgrade, float minRarity = 0f, float newSkillMult = 1f)
     {
-        int slotCount = 2;
+        bool isPlayer = actorToUpgrade.IsPlayer();
 
         if (actorToUpgrade == null) return null;
 
-        float tagAffinityMult = actorToUpgrade.IsPlayer() ? 0.1f : 2f;
+        float tagAffinityMult = isPlayer ? 0.1f : 2f;
 
         if (actorToUpgrade == null || actorToUpgrade.SkillSystem == null) return new();
 
@@ -104,10 +104,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
             //
             // Slotsfull check
-            // -active
-            if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
-            // -passive
-            if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
+            if (isPlayer)
+            {
+                // -active
+                if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.SkillSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
+                // -passive
+                if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= Player.CampUpgradeData.PassiveSlotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
+            }
             // Blacklist check
             if (newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
             if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
@@ -135,10 +138,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
             //
             // Slotsfull check
-            // -active
-            if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= slotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
-            // -passive
-            if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= slotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
+            if (isPlayer)
+            {
+                // -active
+                if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.SkillSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
+                // -passive
+                if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= Player.CampUpgradeData.PassiveSlotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
+            }
             // Blacklist check
             if(newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
             if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;

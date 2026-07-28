@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameOverMenu : SimpleMenu
 {
+    [SerializeField] TextMeshProUGUI _costText;
     bool _isGameOver;
 
     protected override void Update()
@@ -28,6 +30,14 @@ public class GameOverMenu : SimpleMenu
                         player.Data.Gold = 0;
                     });
 
+                    // Restart Cost
+                    var restartCost = GetRestartCost();
+                    _costText.transform.parent.gameObject.SetActive(restartCost > 0);
+                    if (restartCost > 0)
+                    {
+                        _costText.text = $"-{GetRestartCost()}";
+                    }
+
                     // Shop Restock
                     string shopRestockKey = "ShopRestockTick";
                     int shopRestockTick = PlayerPrefs.GetInt(shopRestockKey, 0);
@@ -43,5 +53,23 @@ public class GameOverMenu : SimpleMenu
                 }
             });
         }
+    }
+
+    int GetRestartCost()
+    {
+        return DungeonManager.I.RunInfoData.GemsCollected;
+    }
+
+    public void ReturnToCamp()
+    {
+        PlayerPrefs.SetInt("Restarting", 0);
+        RestartScene();
+    }
+
+    public void Restart()
+    {
+        Player.PlayerData.Gems -= GetRestartCost();
+        PlayerPrefs.SetInt("Restarting", 1);
+        RestartScene();
     }
 }

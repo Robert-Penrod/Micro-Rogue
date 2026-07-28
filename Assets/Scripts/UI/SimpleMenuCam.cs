@@ -13,8 +13,14 @@ public class SimpleMenuCam : MonoBehaviour
         _simpleMenu = GetComponent<SimpleMenu>();
         _simpleMenu.OnOpenChanged += (bool isOpen) =>
         {
-            CameraManager.I.Zoom(isOpen ? _zoom : 1f, this);
-            CameraManager.I.Offset(isOpen ? _offset : Vector2.zero, this);
+            UpdateCam(isOpen); 
         };
+        UpdateCam(_simpleMenu.IsOpen);
+    }
+
+    void UpdateCam(bool isOpen)
+    {
+        CameraManager.I.Zoom(isOpen ? _zoom : 1f, this);
+        CameraManager.I.Offset(isOpen ? _offset : Vector2.zero, this);
     }
 }

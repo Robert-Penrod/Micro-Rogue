@@ -13,6 +13,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     public Color MainColor = Color.clear;
     [SerializeField] TextMeshProUGUI _textMesh;
     [SerializeField] Image _image;
+    public Transform LevelPipHolder;
 
     float _lerpSpeed = 25f;
     Vector3 _initScale;
@@ -77,18 +78,22 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
     public void RefreshUI()
     {
+        var isInteractable = GetInteractable();
+        var alpha = isInteractable ? 1f : 0.5f;
+
         //Debug.Log(gameObject);
         if (gameObject == null) return;
         if (_textMesh != null) _textMesh.text = _text;
         if (_image != null)
         {
             _image.sprite = Sprite;
+            
             // Color
             Color c = MainColor == Color.clear ? Color.grey : MainColor;
-            _image.color = c;
+            _image.color = c.Alpha(alpha);
             BgImages.ForEach(sr =>
             {
-                sr.color = sr.color.SetHS(c.GetHue(), 0.5f * c.GetSaturation()).Alpha(GetInteractable() ? 1f : 0.5f);
+                sr.color = sr.color.SetHS(c.GetHue(), 0.5f * c.GetSaturation()).Alpha(alpha);
             });
             _image.enabled = Sprite != null;
         }
@@ -156,10 +161,10 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
     public void OnSubmit(BaseEventData eventData)
     {
-        Debug.Log("BUTTON SUBMIT START");
+        //Debug.Log("BUTTON SUBMIT START");
         this.DelayedInvoke(-1, () =>
         {
-            Debug.Log("BUTTON DELAY 1");
+            //Debug.Log("BUTTON DELAY 1");
             if (!GetInteractable()) return;
             if (!IsSelected) return;
             _submitPulse += 1f;
@@ -173,7 +178,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
             this.DelayedInvoke(0.2f, () =>
             {
-                Debug.Log("BUTTON SUBMIT");
+                //Debug.Log("BUTTON SUBMIT");
                 // Unlock Selection
                 SetInputSystemActive(true);
 
@@ -182,7 +187,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
 
             PlayAudio(SubmitSound);
         });
-        Debug.Log("BUTTON SUBMIT END");
+        //Debug.Log("BUTTON SUBMIT END");
     }
 
     void SetInputSystemActive(bool isActive)

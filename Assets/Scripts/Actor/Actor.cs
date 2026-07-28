@@ -13,6 +13,7 @@ public class Actor : MonoBehaviour
     [Header("Config")]
     public float RarityMult = 1f;
     public float Difficulty = 1f;
+    public float EncounterCount = 1f;
     public int MinLevel = 0;
     public float UpgradeAffinity = 1f;
     public float NewSkillAffinity = 1f;
@@ -59,8 +60,8 @@ public class Actor : MonoBehaviour
 
 
     [SerializeField] public SpriteRenderer _spriteRend;
-    public Sprite Sprite => _spriteRend.sprite;
-    public Color Color => _spriteRend.color;
+    public Sprite Sprite => _spriteRend?.sprite ?? null;
+    public Color Color => _spriteRend?.color ?? Color.magenta;
 
     [SerializeField] Sprite  _armorSprite;
     [SerializeField] AudioClip _armorSound;
@@ -121,6 +122,16 @@ public class Actor : MonoBehaviour
         OnUpgrade += () =>
         {
             _lvl = GetLevel();
+            float percent = Stats.HealthPercent;
+
+            Stats.HealthMax.RemoveAllModifiersWithTag("Level");
+            if (_lvl > 1)
+            {
+                //Debug.Log($"{Stats.Health} / {Stats.HealthMax.Value}");
+                //Debug.Log("UpgradeHealthPercent " + percent);
+                Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier((_lvl-1) * Constants.ActorStats.HealthGain, Kryz.Stats.StatModType.Flat, new string[] { "Level" }));
+                Stats.SetHealthPercent(percent);
+            }
         };
         _skillSystem = SkillSystem;
     }
@@ -324,7 +335,7 @@ public class Actor : MonoBehaviour
         }
         void AddToStatus(ref float status)
         {
-            status += 0.75f * (status < 1f ? 1f : (1f / status));
+            status += 0.8f * (status < 1f ? 1f : (1f / status));
         }
 
         // Popup

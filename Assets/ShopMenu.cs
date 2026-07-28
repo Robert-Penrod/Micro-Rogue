@@ -39,7 +39,7 @@ public class ShopMenu : MonoBehaviour
         LoadInventory();
         UpdateButtonUI();
 
-        Player.PlayerData.OnGemChange += () =>
+        Player.PlayerData.OnGemChange += (delta) =>
         {
             LoadInfoPannelWithButton(GetHighlightedButton());
         };
@@ -106,11 +106,21 @@ public class ShopMenu : MonoBehaviour
     {
         var item = GetButtonItem(button);
 
-        if(_buyButton != null) _buyButton.SetInteractable(item != null && Player.PlayerData.Gems >= item.GemCost);
+        bool itemSlotsRemain = false;
+        foreach(var player in PlayerManager.I.PlayerList)
+        {
+            if (player.Actor.SkillSystem.ItemList.Count < Player.CampUpgradeData.ItemSlotCount)
+            {
+                itemSlotsRemain = true;
+                break;
+            }
+        }
+
+        if(_buyButton != null) _buyButton.SetInteractable(item != null && Player.PlayerData.Gems >= item.GemCost && itemSlotsRemain);
 
         if (button == null || item == null)
         {
-            _descriptionText.text = string.Empty;
+            if(_descriptionText != null) _descriptionText.text = string.Empty;
             if(_costText != null) _costText.transform.parent.gameObject.SetActive(false);
             return;
         }
@@ -183,7 +193,8 @@ public class ShopMenu : MonoBehaviour
 
     WeightedList<Skill> GetWeightedItemList()
     {
-        var itemList = _upgradeManager.GetSkillList().FindAll(skill => skill.Slot == Skill.SlotEnum.Item && Player.PlayerData.GetUnlockedSkillList().Contains(skill.Name));
+        var unlockedSkillList = Player.PlayerData.GetUnlockedSkillList();
+        var itemList = _upgradeManager.GetSkillList().FindAll(skill => skill.Slot == Skill.SlotEnum.Item && (unlockedSkillList.Contains("all") || unlockedSkillList.Contains(skill.Name)));
         WeightedList<Skill> weightedItemList = new();
         itemList.ForEach(item => weightedItemList.Add(item, Constants.RarityToWeight(item.Rarity)));
         return weightedItemList;
@@ -191,7 +202,7 @@ public class ShopMenu : MonoBehaviour
 
     public void RerollShop()
     {
-        int cost = 8;
+        int cost = 4;
         if (Player.PlayerData.Gems < cost) return;
         Player.PlayerData.Gems -= cost;
 
@@ -212,7 +223,7 @@ public class ShopMenu : MonoBehaviour
 
     void UpdateButtonUI()
     {
-        Debug.Log("Shop Updating Button UI");
+        //Debug.Log("Shop Updating Button UI");
         //var itemList = _upgradeManager.GetSkillList().FindAll(skill => skill.Slot == Skill.SlotEnum.Item);
         for (int i = 0; i < _buttonList.Count; i++)
         {

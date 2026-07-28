@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class CombatEncounterObject : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class CombatEncounterObject : MonoBehaviour
     [SerializeField] WeightedList<Actor> _bossTable = new();
     List<Actor> _enemyList = new();
     List<SimpleNPCBrain> _enemyBrainList = new();
+    [SerializeField] TagCollection _tagBiasDebug = new();
 
     public void SpawnEncounter(float mult = 1f)
     {
@@ -36,7 +39,7 @@ public class CombatEncounterObject : MonoBehaviour
         budget *= DungeonManager.I.Data.IsBoss ? 1.1f : 1f;
         budget *= DungeonManager.I.Data.IsFinalBoss ? 1.2f : 1f;
 
-        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.1f, false);
+        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.2f, false);
 
         budget *= mult;
 
@@ -44,8 +47,23 @@ public class CombatEncounterObject : MonoBehaviour
 
         budget = budget.ClampMin(1);
 
-        Vector2 playerPos = PlayerManager.I.PlayerList[0].Actor.transform.position;
+        Vector2 playerPos = PlayerManager.I.PlayerList.Count > 0? PlayerManager.I.PlayerList[0].Actor.transform.position : Vector2.zero;
         Debug.Log("COMBAT ENCOUNTER: " + budget.ToString());
+
+        // Encounter Tag Bias
+        TagCollection encounterTagBias = new();
+        /*
+        int tagBiasCount = Random.Range(1, 4);
+        int tagBiasMag = 10;
+        for(int i = tagBiasCount; i > 0; i--)
+        {
+            var tagArray = Enum.GetValues(typeof(TagCollection.TagType));
+            var tagType = (TagCollection.TagType)tagArray.GetValue(Random.Range(0, tagArray.Length));
+            encounterTagBias.AddTag(tagType, tagBiasMag);
+        }
+        _tagBiasDebug = encounterTagBias;
+        DungeonManager.I.Data.Tags = encounterTagBias;
+        */
 
         // ENEMIES
         //
@@ -77,12 +95,14 @@ public class CombatEncounterObject : MonoBehaviour
         var typeTable = new WeightedList<Actor>();
         List<Actor> spawnedBossList = new();
         //var enemyTable = _enemyTable.Clone();
-        int typeCount = Random.Range(1, 4);
+        int typeCount = Random.Range(1, 4 + 1);
         if (Random.value < 0.5f) typeCount++;
+        if (typeCount == 1 && Random.value < 0.5f) typeCount++;
+        if (Random.value < 0.25f) typeCount *= 2;
         for(int i = 0; i < typeCount && enemyTable.Entries.Count > 0; i++)
         {
             var selectedEntry = enemyTable.SelectAndRemoveEntry();
-            //Debug.Log("Selected Entry " + selectedEntry.Item.gameObject.name + ", " + selectedEntry.Weight);
+            if (selectedEntry == null) break;
             typeTable.Add(selectedEntry.Item, selectedEntry.Weight.Remap(0f, 1f, 0.5f, 1f, false));
         }
         //
@@ -98,11 +118,12 @@ public class CombatEncounterObject : MonoBehaviour
         if (enemyCount == 1) enemyCount++;
         if (data.IsFinalBoss) enemyCount = (int)(0.75f * enemyCount);
         if (data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
+        enemyCount *= PlayerManager.I.PlayerList.Count;
         enemyCount = enemyCount.ClampMin(1);
-        for(int i = 0; i < enemyCount && budget >= 1f + 0.25f * i; i++)
+        for(float encounterCount = 0; encounterCount < enemyCount && budget >= 1f + 0.25f * encounterCount; encounterCount += 0)
         {
             var selectedTypeActor = typeTable.SelectItem();
-            if (false && DungeonManager.I.Data.IsFinalBoss && i == 0)
+            if (false && DungeonManager.I.Data.IsFinalBoss && encounterCount == 0)
             {
                 // Final Boss
                 selectedTypeActor = _bossTable.SelectItem();
@@ -123,15 +144,19 @@ public class CombatEncounterObject : MonoBehaviour
             // 1
 
             // Spawn Actor
-            float cost = selectedTypeActor.Difficulty + 0.1f * (i).ClampMin(0);// + 0.2f * (i).ClampInt(0, 1);// 0.1f * (i).ClampMin(0); // 0.25f;
+            float cost = selectedTypeActor.Difficulty + 0.1f * (encounterCount).ClampMin(0);// + 0.2f * (i).ClampInt(0, 1);// 0.1f * (i).ClampMin(0); // 0.25f;
             budget -= cost;
+            encounterCount += selectedTypeActor.EncounterCount;
             Debug.Log("Spawning " + selectedTypeActor.gameObject.name + " for " + cost.ToString());
             Vector2 spawnPos = SpawnSystem.GetRandomEmptyPosAvoidingCircle(Vector2.zero, 1f, playerPos, 5f);
             var actor = Instantiate(selectedTypeActor, spawnPos, Quaternion.identity, DungeonManager.I.DungeonTransform).GetComponent<Actor>();
             newEnemiesList.Add(actor);
 
+            // Encounter Tag Bias
+            actor.Tags.AddTags(encounterTagBias);
+
             // Selected boss
-            if (DungeonManager.I.Data.IsFinalBoss && i == 0)
+            if (DungeonManager.I.Data.IsFinalBoss && encounterCount == 0)
             {
                 spawnedBossList.Add(actor);
             }
@@ -192,17 +217,22 @@ public class CombatEncounterObject : MonoBehaviour
             var enemyToUpgrade = _upgradeAffinityList.SelectItem();
 
             // Upgrade
+            float upgradeCost = 1f;
             float rarityFlip = Random.value < 0.25f ? 5f : 0f;
             float newSkillMult = Random.value < 0.25f ? 5f : 1f;
             var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult);
-            if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
+            if (upgrades.Count > 0)
+            {
+                if (upgrades[0].SourceSkill.Slot == Skill.SlotEnum.Item) upgradeCost = 0.5f;
+                upgrades[0].ApplyUpgrade();
+            }
 
             // Hp
-            enemyToUpgrade.Stats.HealthMax.BaseValue += Constants.ActorStats.HealthGain;
-            enemyToUpgrade.Stats.SetHealthPercent(1f);
+            //enemyToUpgrade.Stats.HealthMax.BaseValue += Constants.ActorStats.HealthGain;
+            //enemyToUpgrade.Stats.SetHealthPercent(1f);
 
-            float upgradeCost = 1f;
-            if (upgrades[0].SourceSkill.Slot == Skill.SlotEnum.Item) upgradeCost = 0.5f;
+            
+            
 
             budget -= upgradeCost;
         }

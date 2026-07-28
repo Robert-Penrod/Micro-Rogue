@@ -1,10 +1,13 @@
 using ManaSprite.EasyPooling;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SkillInstance : MonoBehaviour, IPoolable
 {
     public Rigidbody2D ParentBody;
+
+    public List<GameObject> _previousTargetsList = new();
 
     public Skill Skill;
     [SerializeField] AudioClip _startClip;
