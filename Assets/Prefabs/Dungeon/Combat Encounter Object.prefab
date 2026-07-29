@@ -64,6 +64,8 @@ MonoBehaviour:
       Weight: 1
     - Item: {fileID: 4202965850808188155, guid: 16e0131b0ea88b9478b645bd54ab3912, type: 3}
       Weight: 1
+    - Item: {fileID: 340429878755309284, guid: b8550543876d2fd4bbbdb5ee6d4d7efd, type: 3}
+      Weight: 1
   _bossTable:
     Entries: []
   _tagBiasDebug:

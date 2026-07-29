@@ -37,7 +37,13 @@ public class Actor : MonoBehaviour
     // statuses
     public float Frost;
     public float FrostPercent => Frost / 2f;
-    public float FrostMult => FrostPercent.RemapPercent(1f, 0.1f);
+    public float FrostSlowMult => FrostPercent.RemapPercent(1f, 0.1f);
+    public float Pyro;
+    float _burnTick;
+    public float PyroPercent => Pyro / 1f;
+    public float Static;
+    public float StaticPercent => Static / 1f;
+    public bool IsParalyzed => StaticPercent >= 1f;
 
     // References
     public GameObject DeathDrop;
@@ -210,10 +216,34 @@ public class Actor : MonoBehaviour
         }
     }
 
+    float resistMin = 0.75f;
+    float resistMax = 1.25f;
+
     private void FixedUpdate()
     {
         //HandleMoveFixedUpdate();
-        if(Frost > 0) Frost -= Time.fixedDeltaTime;
+
+        // Elemental Effects
+        float elementalClearMult = 0.5f;
+        if (Pyro > 0) Pyro -= elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, 0.5f, 1.5f);
+        if(Pyro >= 0.75f)
+        {
+            _burnTick += Pyro * Time.fixedDeltaTime;
+            int burnDamage = ((int)Pyro).ClampMin(1);
+            float burnThreshold = 1f;
+            if(_burnTick >= burnThreshold)
+            {
+                // Do Burn
+                TakeDamage(burnDamage, null, this, true);
+                _burnTick -= burnThreshold;
+            }
+        }
+        else if(_burnTick > 0f)
+        {
+            _burnTick -= 0.5f * elementalClearMult * Time.fixedDeltaTime;
+        }
+        if (Frost > 0) Frost -= elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax) * (IsParalyzed? 1.25f : 1f);
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
@@ -230,7 +260,7 @@ public class Actor : MonoBehaviour
         return heal;
     }
 
-    public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor)
+    public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor, bool isTrueDamage = false)
     {
         string blockType = string.Empty;
         // Whiff
@@ -239,60 +269,65 @@ public class Actor : MonoBehaviour
             return 0;
         }
 
-        // Dodge - GrazeFrames
-        if (MoveController.IsDodging)
-        {
-            damage = 0;
-            blockType = "dodge";
-            /*
-            damage /= 5;
-            if(damage <= 0)
-            {
-                // Evasion
-                blockType = "dodge";
-            }
-/**/
-        }
-        // Dodge - IFrames
-        //if (MoveController.IsDodging) damage *= 0;
-
         Utils.RandomSeed();
 
-        // Armor
-        int armorRoll = (int)Random.Range(0f, Stats.Defense.Value + Stats.Defense.Value.Sign() * 0.99f);
-        damage -= armorRoll;
-
-        // Evasion
-        int evasionRoll = (int)Random.Range(0f, Stats.Evasion.Value + Stats.Evasion.Value.Sign() * 0.99f);
-        damage -= evasionRoll;
-
-        // Graze
-        if(!MoveController.IsDodging && MoveController.HasIFrames)
+        if (!isTrueDamage)
         {
-            damage /= 2;
-        }
-
-
-        if (damage <= 0)
-        {
-            if (blockType == string.Empty)
+            // Dodge - GrazeFrames
+            if (MoveController.IsDodging)
             {
-                // Armor Block
-                if (armorRoll > evasionRoll)
+                damage = 0;
+                blockType = "dodge";
+                /*
+                damage /= 5;
+                if(damage <= 0)
                 {
-                    blockType = "armor";
-                    OnArmor?.Invoke();
-                    PlayAudio(_armorSound);
+                    // Evasion
+                    blockType = "dodge";
                 }
-                // Evasion Block
-                else
-                {
-                    blockType = "evade";
-                    OnEvade?.Invoke();
-                    PlayAudio(_evadeSound);
-                }
+    /**/
             }
-            damage = 0;
+            // Dodge - IFrames
+            //if (MoveController.IsDodging) damage *= 0;
+
+
+
+            // Armor
+            int armorRoll = (int)Random.Range(0f, Stats.Defense.Value + Stats.Defense.Value.Sign() * 0.99f);
+            damage -= armorRoll;
+
+            // Evasion
+            int evasionRoll = (int)Random.Range(0f, Stats.Evasion.Value + Stats.Evasion.Value.Sign() * 0.99f);
+            damage -= evasionRoll;
+
+            // Graze
+            if (!MoveController.IsDodging && MoveController.HasIFrames)
+            {
+                damage /= 2;
+            }
+
+
+            if (damage <= 0)
+            {
+                if (blockType == string.Empty)
+                {
+                    // Armor Block
+                    if (armorRoll > evasionRoll)
+                    {
+                        blockType = "armor";
+                        OnArmor?.Invoke();
+                        PlayAudio(_armorSound);
+                    }
+                    // Evasion Block
+                    else
+                    {
+                        blockType = "evade";
+                        OnEvade?.Invoke();
+                        PlayAudio(_evadeSound);
+                    }
+                }
+                damage = 0;
+            }
         }
 
         // Hit Event
@@ -325,17 +360,23 @@ public class Actor : MonoBehaviour
             blockColor = _spriteRend.color;
         }
 
+        float damagePercent = damage / Stats.HealthMax.Value;
+        float damageStatusMult = damagePercent.Remap(0f, 1f, 0.75f, 1.25f);
+        if (IsPlayer()) damageStatusMult = damagePercent.Remap(0f, 0.75f, 0.75f, 1.25f);
+
         // ELemental effects
-        if(sourceSkillInstance != null)
+        if (blockType != "evade" && blockType != "dodge")
         {
-            if(sourceSkillInstance.Skill.Tags.GetTagList().Contains(TagCollection.TagType.Frost))
+            if (sourceSkillInstance != null)
             {
-                AddToStatus(ref Frost);
+                AddToStatus(ref Pyro, damageStatusMult * sourceSkillInstance.Skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                AddToStatus(ref Frost, damageStatusMult * sourceSkillInstance.Skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                AddToStatus(ref Static, damageStatusMult * sourceSkillInstance.Skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
             }
         }
-        void AddToStatus(ref float status)
+        void AddToStatus(ref float status, float value)
         {
-            status += 0.8f * (status < 1f ? 1f : (1f / status));
+            status += value / status.ClampMin(1f);
         }
 
         // Popup

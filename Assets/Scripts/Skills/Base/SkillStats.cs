@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 [System.Serializable]
 public class SkillStats
 {
-    public enum SkillStatTypes { None = 0, Damage = 10, RandomDamage = 15, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
+    public enum SkillStatTypes { None = 0, Damage = 10, Pyro = 11, Frost = 12, Static = 13, RandomDamage = 15, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
 
     [HorizontalGroup("Stats")]
     [VerticalGroup("Stats/Left")] public int Str;
@@ -15,6 +15,9 @@ public class SkillStats
     [VerticalGroup("Stats/Left")] public int Int;
 
     [VerticalGroup("Stats/Right")] public Stat Damage = new("Damage");
+    [VerticalGroup("Stats/Right")] public Stat Pyro = new("Pyro");
+    [VerticalGroup("Stats/Right")] public Stat Frost = new("Frost");
+    [VerticalGroup("Stats/Right")] public Stat Static = new("Static");
     [VerticalGroup("Stats/Right")] public Stat RandomDamage = new("Random Damage");
     [VerticalGroup("Stats/Right")] public Stat Rate = new("Rate", unit: "/s");
     [VerticalGroup("Stats/Right")] public Stat Count = new("Count", minVal: 0);
@@ -66,6 +69,12 @@ public class SkillStats
                 return Lunge;
             case SkillStatTypes.Potency:
                 return Potency;
+            case SkillStatTypes.Pyro:
+                return Pyro;
+            case SkillStatTypes.Frost:
+                return Frost;
+            case SkillStatTypes.Static:
+                return Static;
             default:
                 return null;
         }

@@ -108,6 +108,8 @@ public class Skill : MonoBehaviour
     [BoxGroup("AI")]
     public bool BlockCooldownDurringStart = true;
     SimpleNPCBrain _npcBrain;
+    [BoxGroup("AI")]
+    public bool IsUsedByNPCs = true;
 
     [SerializeField] float _dps;
 
@@ -245,6 +247,12 @@ public class Skill : MonoBehaviour
             cooldownMult *= 1.125f;
         }
 
+        // Paralysis Status
+        if(Actor.IsParalyzed)
+        {
+            cooldownMult = 0f;
+        }
+
         // Cooldown
         if (CooldownPercent < 1f)
         {
@@ -253,7 +261,7 @@ public class Skill : MonoBehaviour
 
             //mult *= Constants.SpeedMult;
 
-            mult *= Actor.FrostMult;
+            mult *= Actor.FrostSlowMult;
 
             CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
             CooldownPercent = CooldownPercent.Clamp01();

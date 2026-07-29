@@ -93,6 +93,10 @@ PrefabInstance:
       value: Skip 2 floors.
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: IsUsedByNPCs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.a
       value: 1
       objectReference: {fileID: 0}

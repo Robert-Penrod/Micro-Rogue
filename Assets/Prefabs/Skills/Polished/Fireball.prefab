@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &2011402587253571019
@@ -226,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentBody: {fileID: 0}
+  _previousTargetsList: []
   Skill: {fileID: 0}
   _startClip: {fileID: 0}
   _activeClip: {fileID: 8300000, guid: 0bebec1d54c03da449bb5d77ef258f66, type: 3}
@@ -319,6 +321,8 @@ MonoBehaviour:
   _hitsWalls: 1
   _wallSlowLerp: 0.5
   _hitParticles: {fileID: 7850725256528138724, guid: bf8e70d1b41a7f64c9e5820cc01c1d4f, type: 3}
+  _spawnOnHit: {fileID: 0}
+  _spawnOnHitChance: 0
   _hitClip: {fileID: 0}
   _wallHitClip: {fileID: 8300000, guid: 8ce36245df0749547bd0061f97491f4f, type: 3}
 --- !u!114 &383452395039062486
@@ -450,6 +454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &6992086216752705458
@@ -554,6 +559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 0
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 1.1
   ValueOffset: 1.1
 --- !u!1 &8639065382987882497
@@ -658,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1001 &1964648516546672371
@@ -746,7 +753,7 @@ PrefabInstance:
       objectReference: {fileID: -676534630579512969, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: _dps
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.Int
@@ -769,8 +776,12 @@ PrefabInstance:
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: Stats.Pyro.BaseValue
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.Damage.BaseValue
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.size

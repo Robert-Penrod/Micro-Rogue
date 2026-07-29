@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ActorStatusFX : MonoBehaviour
 {
-    public enum StatusTypeEnum { Frost };
+    [SerializeField] float _maxAlpha = 1f;
+    public enum StatusTypeEnum { Pyro, Frost, Static };
     public StatusTypeEnum StatusType;
 
     Actor _actor;
@@ -17,8 +18,15 @@ public class ActorStatusFX : MonoBehaviour
     private void Update()
     {
         float lerpSpeed = 12f;
-        float effectMag = _actor.FrostPercent;
-        _spriteRend.color = _spriteRend.color.Alpha(_spriteRend.color.a.Lerp(effectMag, lerpSpeed * Time.deltaTime));
+        float effectMag = StatusType switch
+        {
+            StatusTypeEnum.Pyro => _actor.PyroPercent.Pow(3f),
+            StatusTypeEnum.Frost => _actor.FrostPercent,
+            StatusTypeEnum.Static => _actor.StaticPercent.Pow(6f),
+            _ => 0f
+        };
+
+        _spriteRend.color = _spriteRend.color.Alpha(_spriteRend.color.a.Lerp(effectMag * _maxAlpha, lerpSpeed * Time.deltaTime));
         _spriteRend.transform.localScale = Vector3.one * _spriteRend.transform.localScale.x.Lerp(effectMag.RemapPercent(0.375f, 1f), lerpSpeed * Time.deltaTime);
     }
 }

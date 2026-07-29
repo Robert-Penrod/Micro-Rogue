@@ -115,12 +115,16 @@ public class SIE_TelegraphAim : SIE, IPoolable
         float targetAngle = Vector2.SignedAngle(Vector2.up, targetAimDir);
         targetAngle += _offsetAngle;
         Utils.MotorDampAngle(currentAngle, targetAngle, ref _angularVel, torque, responseAngle, damp, Time.deltaTime);
-        transform.Rotate2D(_skillInstance.Skill.Actor.FrostMult * _angularVel);
+        transform.Rotate2D(_skillInstance.Skill.Actor.FrostSlowMult * _angularVel);
     }
 
     void PrototypeAim()
     {
         float AimMult = 1f;
+
+        AimMult *= _skillInstance.Skill.Actor.FrostSlowMult;
+        AimMult *= _skillInstance.Skill.Actor.IsParalyzed ? 0f : 1f;
+
         float _aimLerp = 14f; // (12, 16) 6, 16, 8, 25
         if (_targetEnemy == null) return;
         Vector2 targetAimDir = _targetEnemy.transform.position - transform.position;

@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class TagCollection
 {
-    public enum TagType { Str = 0, Dex = 1, Int = 2, Primal = 10, Martial = 20, Heavy = 30, Finesse = 40, Arcane = 45, Alchemy = 50, Pyro = 60, Frost = 70, Static = 80, Undead = 90, Trap = 100, Slime = 500}
+    public enum TagType { Str = 0, Dex = 1, Int = 2, Primal = 10, Martial = 20, Heavy = 30, Finesse = 40, Arcane = 45, Alchemy = 50, Druid = 55, Pyro = 60, Frost = 70, Static = 80, Undead = 90, Trap = 100, Slime = 500}
     [System.Serializable]
     public struct TagStack
     {

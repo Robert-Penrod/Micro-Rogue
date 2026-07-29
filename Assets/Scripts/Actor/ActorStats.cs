@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ActorStats
 {
-    public enum ActorStatTypes { None = 0, MaxHealth = 10, MoveSpeed = 20, DodgeRate = 30, Defense = 40, Evasion = 50 }
+    public enum ActorStatTypes { None = 0, MaxHealth = 10, MoveSpeed = 20, DodgeRate = 30, Defense = 40, Evasion = 50, PyroResist = 60, FrostResist = 61, StaticResist = 62 }
 
     [SerializeField] int _health;
     public int Health
@@ -37,6 +37,9 @@ public class ActorStats
     public Stat DodgeRate = new Stat("Dodge Rate", 0, positiveDir: -1, unit: "s");
     public Stat Defense = new Stat("Defense", 0);
     public Stat Evasion = new Stat("Evasion", 0);
+    public Stat PyroResist = new Stat("Pyro Resist", 0);
+    public Stat FrostResist = new Stat("Frost Resist", 0);
+    public Stat StaticResist = new Stat("Static Resist", 0);
 
     /// <summary>
     /// ?.Invoke(newHealth, delta)
@@ -71,6 +74,12 @@ public class ActorStats
                 return Defense;
             case ActorStatTypes.Evasion:
                 return Evasion;
+            case ActorStatTypes.PyroResist:
+                return PyroResist;
+            case ActorStatTypes.FrostResist:
+                return FrostResist;
+            case ActorStatTypes.StaticResist:
+                return StaticResist;
             default:
                 return null;
         }

@@ -79,6 +79,12 @@ public class ActorMoveController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(_actor.IsParalyzed)
+        {
+            _body.linearVelocity -= 1f * _body.linearVelocity * Time.fixedDeltaTime;
+            return;
+        }
+
         // Param
         float hopFactor = 1f;
 
@@ -103,7 +109,7 @@ public class ActorMoveController : MonoBehaviour
 
         // Move
         var moveSpeed = _actor.Stats.MoveSpeed.Value;
-        moveSpeed *= _actor.FrostMult;
+        moveSpeed *= _actor.FrostSlowMult;
         if (MoveType == MoveTypeEnum.Walk || IsDodging)
         {
             _body.AddDampForce(moveSpeed * MoveDir * _body.mass);

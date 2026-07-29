@@ -123,6 +123,9 @@ public class UpgradeManager : Singleton<UpgradeManager>
         {
             // FILTERS
             //
+            // If npc skill must be used by npcs
+            if (!isPlayer && !newSkill.IsUsedByNPCs) return;
+            //
             // If Player skill must be unlocked
             var unlockedSkillList = Player.PlayerData.GetUnlockedSkillList();
             if (actorToUpgrade.IsPlayer() && !unlockedSkillList.Contains(newSkill.name) && !unlockedSkillList.Contains("all")) return;

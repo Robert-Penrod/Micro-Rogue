@@ -11,18 +11,18 @@ PrefabInstance:
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8692337774189358048, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+      objectReference: {fileID: -5343586314023946478, guid: 8186985b07e7cf8459d83add957552e4, type: 3}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.a
       value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.b
-      value: 0.59607846
+      value: 0.23035294
       objectReference: {fileID: 0}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.g
-      value: 0.6784314
+      value: 0.23035294
       objectReference: {fileID: 0}
     - target: {fileID: 97010061209183656, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Color.r
@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Icon
       value: 
-      objectReference: {fileID: 8692337774189358048, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
+      objectReference: {fileID: -5343586314023946478, guid: 8186985b07e7cf8459d83add957552e4, type: 3}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Slot
       value: 3
@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: GemCost
-      value: 10
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Stats.Int
@@ -90,7 +90,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Description
-      value: Skip 5 floors.
+      value: Skip to the Final Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: IsUsedByNPCs
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.a
@@ -98,15 +102,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.b
-      value: 0.5957
+      value: 0.23137255
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.g
-      value: 0.67914
+      value: 0.23137255
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: SkillColor.r
-      value: 0.7
+      value: 0.69803923
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Mods.Array.size
@@ -118,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Tags._entries.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Mods.Array.data[0].TargetType
@@ -246,7 +250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: m_Name
-      value: Map
+      value: Boss Key
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5050555445403735881, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
@@ -255,14 +259,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8855115681823698895}
+      addedObject: {fileID: -3926109151057130111}
   m_SourcePrefab: {fileID: 100100000, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
 --- !u!1 &5016185461969225197 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8995203399118799636, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
   m_PrefabInstance: {fileID: 4127676382706353913}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8855115681823698895
+--- !u!114 &-3926109151057130111
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -274,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b906aebde76c0434fa6e1f3d6bd9b8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelsToSkip: 5
+  LevelsToSkip: 9
 --- !u!114 &7810722921821588791 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}

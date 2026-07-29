@@ -233,7 +233,7 @@ public class DungeonManager : Singleton<DungeonManager>
             BiomeEnum.Dungeon => _dungeonData
         };
 
-        int textureIndex = ((Data.Coordinate.y - 1).ClampMin(0) / 5);
+        int textureIndex = ((Data.Coordinate.y).ClampMin(0) / 5);
         int wallIndex = textureIndex % biomeData._textures.Count;
         int floorIndex = (textureIndex + 1) % biomeData._textures.Count;
         _wallMat.SetTexture("_Texture", biomeData._textures[wallIndex].texture);

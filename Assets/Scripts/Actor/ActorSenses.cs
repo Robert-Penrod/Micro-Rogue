@@ -76,6 +76,7 @@ public class ActorSenses : MonoBehaviour
 
         _actor.OnWasHit += (SkillInstance skillInstance) =>
         {
+            if (skillInstance == null) return;
             if(skillInstance.Skill.Tags.HasTag(TagCollection.TagType.Trap))
             {
                 EnemyTraps.Add(skillInstance);

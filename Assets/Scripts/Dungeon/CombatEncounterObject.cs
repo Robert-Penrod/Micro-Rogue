@@ -39,7 +39,8 @@ public class CombatEncounterObject : MonoBehaviour
         budget *= DungeonManager.I.Data.IsBoss ? 1.1f : 1f;
         budget *= DungeonManager.I.Data.IsFinalBoss ? 1.2f : 1f;
 
-        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.2f, false);
+        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 2f, 1f, 1.1f, false);
+        budget *= ((DungeonManager.I.Data.Coordinate.y - 1) % 10).Remap(0f, 9f, 1f, 1.1f);
 
         budget *= mult;
 
