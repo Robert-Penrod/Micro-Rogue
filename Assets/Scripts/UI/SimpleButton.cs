@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
+public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, IPointerExitHandler
 {
     #region Vars
     [SerializeField] string _text;
@@ -43,6 +43,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     Button _button;
     public bool IsSelected { get; private set; }
     float _submitPulse = 0f;
+    public bool IsHovered { get; private set; }
     public bool IsHighlighted
     {
         get
@@ -132,7 +133,13 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!GetInteractable()) return;
+        IsHovered = true;
         //SelectSelf();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        IsHovered = false;
     }
 
     public void OnPointerMove(PointerEventData eventData)
@@ -231,6 +238,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
         float targetScaleMult = IsSelected ? 1.1f : 1f;
         targetScaleMult *= _submitPulse.RemapPercent(1f, 1.1f, false);
         targetScaleMult *= IsHighlighted ? 1.1f : 1f;
+        targetScaleMult *= IsHovered ? 1.1f : 1f;
         float targetX = targetScaleMult * _initScale.x;
         transform.localScale = transform.localScale.x.Lerp(targetX, _lerpSpeed * Time.deltaTime) * Vector3.one;
         if(_content != null)

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85704fe037722d46a27d75f3ef0600a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusSound: {fileID: 8300000, guid: a388604edd485fb4c83e2e173de2e8e7, type: 3}
   _maxAlpha: 1
   StatusType: 2
 --- !u!114 &3403952186583757598
@@ -10321,6 +10322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85704fe037722d46a27d75f3ef0600a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusSound: {fileID: 0}
   _maxAlpha: 0.75
   StatusType: 0
 --- !u!114 &7261804566132958714
@@ -25828,6 +25830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85704fe037722d46a27d75f3ef0600a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusSound: {fileID: 8300000, guid: 01f592e07dd5eed4cb5ad9b5b6f7f649, type: 3}
   _maxAlpha: 0.75
   StatusType: 0
 --- !u!114 &1599855783302207740
@@ -31046,6 +31049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b85704fe037722d46a27d75f3ef0600a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _statusSound: {fileID: 8300000, guid: 27bb5946980e16c47a8a29326c1277bc, type: 3}
   _maxAlpha: 1
   StatusType: 1
 --- !u!1 &7931514224636784519
@@ -31196,6 +31200,15 @@ MonoBehaviour:
       BaseValue: 0
       statModifiers: []
     Evasion:
+      BaseValue: 0
+      statModifiers: []
+    PyroResist:
+      BaseValue: 0
+      statModifiers: []
+    FrostResist:
+      BaseValue: 0
+      statModifiers: []
+    StaticResist:
       BaseValue: 0
       statModifiers: []
   Tags:

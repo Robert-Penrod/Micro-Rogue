@@ -64,11 +64,13 @@ public class Player : MonoBehaviour
     {
         public static Action OnCampDataChange;
 
+        static int _startingSlotCount = (DemoManager.I?.IsDemo ?? false) ? 1 : 0;
+
         public static int SkillSlotLevel
         {
             get
             {
-                return PlayerPrefs.GetInt("SkillSlotUpgradeCount", 0);
+                return PlayerPrefs.GetInt("SkillSlotUpgradeCount", _startingSlotCount);
             }
             set
             {
@@ -82,7 +84,7 @@ public class Player : MonoBehaviour
         {
             get
             {
-                return PlayerPrefs.GetInt("PassiveSlotUpgradeCount", 0);
+                return PlayerPrefs.GetInt("PassiveSlotUpgradeCount", _startingSlotCount);
             }
             set
             {
@@ -96,7 +98,7 @@ public class Player : MonoBehaviour
         {
             get
             {
-                return PlayerPrefs.GetInt("ItemSlotUpgradeCount", 0);
+                return PlayerPrefs.GetInt("ItemSlotUpgradeCount", _startingSlotCount);
             }
             set
             {

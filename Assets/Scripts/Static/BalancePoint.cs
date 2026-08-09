@@ -54,6 +54,19 @@ public static class BalancePoint
                 value = BP_Actor_Speed;
                 modType = StatModType.Flat;
                 break;
+            case ActorStats.ActorStatTypes.PyroResist:
+                value = 1f;
+                modType = StatModType.Flat;
+                break;
+            case ActorStats.ActorStatTypes.FrostResist:
+                value = 1f;
+                modType = StatModType.Flat;
+                break;
+            case ActorStats.ActorStatTypes.StaticResist:
+                value = 1f;
+                modType = StatModType.Flat;
+                break;
+
         }
 
         return new StatModifier(

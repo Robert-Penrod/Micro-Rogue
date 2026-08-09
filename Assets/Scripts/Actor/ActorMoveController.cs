@@ -60,7 +60,7 @@ public class ActorMoveController : MonoBehaviour
 
         // Dodge data
         _dodgeTimer = dodgeTimeMult * 0.325f;// * 0.325f;// * Constants.SkillStats.Duration.Melee;// * 0.325f;
-        _extraIFrameTimer = 0.5f * _dodgeTimer;
+        _extraIFrameTimer = 1f * _dodgeTimer;
         DodgeCooldownPercent = 0f;
         MoveDir = 2f * dodgeVector.normalized;
 

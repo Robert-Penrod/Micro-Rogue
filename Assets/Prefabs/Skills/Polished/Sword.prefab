@@ -442,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentBody: {fileID: 0}
+  _previousTargetsList: []
   Skill: {fileID: 0}
   _startClip: {fileID: 0}
   _activeClip: {fileID: 8300000, guid: ad60b78feeee17b44a8e567a18549a10, type: 3}
@@ -535,6 +536,8 @@ MonoBehaviour:
   _hitsWalls: 1
   _wallSlowLerp: 0.5
   _hitParticles: {fileID: 7850725256528138724, guid: bf8e70d1b41a7f64c9e5820cc01c1d4f, type: 3}
+  _spawnOnHit: {fileID: 0}
+  _spawnOnHitChance: 0
   _hitClip: {fileID: 8300000, guid: a2dfef3fcd8b20c48ab3826ac81d4aab, type: 3}
   _wallHitClip: {fileID: 0}
 --- !u!114 &5391772451037885078

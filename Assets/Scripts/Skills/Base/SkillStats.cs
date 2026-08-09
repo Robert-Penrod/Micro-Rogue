@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 [System.Serializable]
 public class SkillStats
 {
-    public enum SkillStatTypes { None = 0, Damage = 10, Pyro = 11, Frost = 12, Static = 13, RandomDamage = 15, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
+    public enum SkillStatTypes { None = 0, Damage = 10, Elemental = 9, Pyro = 11, Frost = 12, Static = 13, RandomDamage = 15, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
 
     [HorizontalGroup("Stats")]
     [VerticalGroup("Stats/Left")] public int Str;
@@ -15,6 +15,7 @@ public class SkillStats
     [VerticalGroup("Stats/Left")] public int Int;
 
     [VerticalGroup("Stats/Right")] public Stat Damage = new("Damage");
+    [VerticalGroup("Stats/Right")] public Stat Elemental = new("Elemental", 1f);
     [VerticalGroup("Stats/Right")] public Stat Pyro = new("Pyro");
     [VerticalGroup("Stats/Right")] public Stat Frost = new("Frost");
     [VerticalGroup("Stats/Right")] public Stat Static = new("Static");
@@ -37,7 +38,8 @@ public class SkillStats
 
     public float CalculateDamageValue()
     {
-        float damage = Random.Range(0f, 0.9f + RandomDamage.Value) + Damage.Value;
+        float damage = Damage.Value;
+        if(RandomDamage.Value != 0) damage += Random.Range(0f, 0.9f + RandomDamage.Value);
         float fractionalDamage = damage - (int)damage;
         if (Random.value < fractionalDamage) damage++;
         return damage;
@@ -76,6 +78,8 @@ public class SkillStats
             case SkillStatTypes.Static:
                 return Static;
             default:
+            case SkillStatTypes.Elemental:
+                return Elemental;
                 return null;
         }
     }

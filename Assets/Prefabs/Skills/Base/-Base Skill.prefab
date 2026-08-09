@@ -308,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _useColor: 1
   _useAlpha: 1
+  _useOwnColorHueSat: 0
   SaturationOffset: 0
   ValueOffset: 0
 --- !u!1 &6381319461986293207
@@ -357,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GemCost: 0
   Icon: {fileID: 0}
   Level: 0
   Rarity: 0
@@ -369,29 +371,58 @@ MonoBehaviour:
     Int: 0
     Damage:
       BaseValue: 5
+      statModifiers: []
+    Elemental:
+      BaseValue: 1
+      statModifiers: []
+    Pyro:
+      BaseValue: 0
+      statModifiers: []
+    Frost:
+      BaseValue: 0
+      statModifiers: []
+    Static:
+      BaseValue: 0
+      statModifiers: []
     RandomDamage:
       BaseValue: 0
+      statModifiers: []
     Rate:
       BaseValue: 0.5
+      statModifiers: []
     Count:
       BaseValue: 1
+      statModifiers: []
     Duration:
       BaseValue: 1
+      statModifiers: []
     Speed:
       BaseValue: 10
+      statModifiers: []
     Size:
       BaseValue: 1
+      statModifiers: []
     Pierce:
       BaseValue: 0.8
+      statModifiers: []
     Knockback:
       BaseValue: 1
+      statModifiers: []
     Lunge:
       BaseValue: 0.75
+      statModifiers: []
     Potency:
       BaseValue: 1
+      statModifiers: []
   Tags:
     _entries: []
-  _dps: 2.5
+  Prerequisites:
+    OffhandCount: 0
+    TagsRequired:
+      _entries: []
+  _telegraphMult: 1
+  _spawnDelayMult: 1
+  NewUpgradeListTest: []
   UpgradeList: []
   UpgradeHistory: []
   Actor: {fileID: 0}
@@ -400,6 +431,12 @@ MonoBehaviour:
   AttackChase: 1
   PassiveDistMult: 1
   IsActiveDurringLifetime: 0
+  BlockCooldownDurringStart: 1
+  IsUsedByNPCs: 1
+  _dps: 2.5
+  MetaSkillInfo:
+    Kills: 0
+    DamageDone: 0
 --- !u!114 &8970280336592199421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,6 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e374196d01a98a4c9dc61a15a0c3b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ResetsCooldownOnTrigger: 1
 --- !u!114 &7083401917376905610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,3 +463,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabToSpawn: {fileID: 0}
+  _randPos: 0
+  _randRot: 0

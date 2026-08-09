@@ -37,12 +37,12 @@ public class Actor : MonoBehaviour
     // statuses
     public float Frost;
     public float FrostPercent => Frost / 2f;
-    public float FrostSlowMult => FrostPercent.RemapPercent(1f, 0.1f);
+    public float FrostSlowMult => FrostPercent.RemapPercent(1f, 0f);
     public float Pyro;
     float _burnTick;
     public float PyroPercent => Pyro / 1f;
     public float Static;
-    public float StaticPercent => Static / 1f;
+    public float StaticPercent => Static / 0.85f;
     public bool IsParalyzed => StaticPercent >= 1f;
 
     // References
@@ -225,12 +225,12 @@ public class Actor : MonoBehaviour
 
         // Elemental Effects
         float elementalClearMult = 0.5f;
-        if (Pyro > 0) Pyro -= elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, 0.5f, 1.5f);
+        if (Pyro > 0) Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
         if(Pyro >= 0.75f)
         {
-            _burnTick += Pyro * Time.fixedDeltaTime;
+            _burnTick += 0.75f * Pyro * Time.fixedDeltaTime;
             int burnDamage = ((int)Pyro).ClampMin(1);
-            float burnThreshold = 1f;
+            float burnThreshold = 0.75f;
             if(_burnTick >= burnThreshold)
             {
                 // Do Burn
@@ -240,10 +240,10 @@ public class Actor : MonoBehaviour
         }
         else if(_burnTick > 0f)
         {
-            _burnTick -= 0.5f * elementalClearMult * Time.fixedDeltaTime;
+            _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
-        if (Frost > 0) Frost -= elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax) * (IsParalyzed? 1.25f : 1f);
+        if (Frost > 0) Frost -= (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax) * (IsParalyzed? Static : 0.75f) * (Static > 2f? 2f : 1f);
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
@@ -361,21 +361,27 @@ public class Actor : MonoBehaviour
         }
 
         float damagePercent = damage / Stats.HealthMax.Value;
-        float damageStatusMult = damagePercent.Remap(0f, 1f, 0.75f, 1.25f);
-        if (IsPlayer()) damageStatusMult = damagePercent.Remap(0f, 0.75f, 0.75f, 1.25f);
+        float damageStatusMult = damagePercent.Remap(0f, 0.5f, 0.5f, 1.375f);
+        if (IsPlayer()) damageStatusMult = damagePercent.Remap(0f, 0.125f, 0.5f, 1.375f);
+        damageStatusMult = 1f;
 
         // ELemental effects
         if (blockType != "evade" && blockType != "dodge")
         {
             if (sourceSkillInstance != null)
             {
-                AddToStatus(ref Pyro, damageStatusMult * sourceSkillInstance.Skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
-                AddToStatus(ref Frost, damageStatusMult * sourceSkillInstance.Skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
-                AddToStatus(ref Static, damageStatusMult * sourceSkillInstance.Skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                var skill = sourceSkillInstance.Skill;
+                AddToStatus(ref Pyro, damageStatusMult * skill.Stats.Elemental.Value * skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                AddToStatus(ref Frost, damageStatusMult * skill.Stats.Elemental.Value * skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                AddToStatus(ref Static, damageStatusMult * skill.Stats.Elemental.Value * skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
             }
         }
         void AddToStatus(ref float status, float value)
         {
+            if(value > 1.5f)
+            {
+                value = 1.5f + 0.5f * (value - 1.5f);
+            }
             status += value / status.ClampMin(1f);
         }
 
