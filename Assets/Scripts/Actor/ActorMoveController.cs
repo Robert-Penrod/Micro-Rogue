@@ -65,7 +65,7 @@ public class ActorMoveController : MonoBehaviour
         MoveDir = 2f * dodgeVector.normalized;
 
         // Camera Shake
-        CamShaker.I.Shake(0.2f, 0.3f);
+        CamShaker.I.Shake(0.2f, 0.3f, MoveDir.normalized);
 
         // Skill speed dampen
         // todo

@@ -47,6 +47,7 @@ public class ActorWalkFX : MonoBehaviour
         bool isWalking = _moveInput.magnitude > 0.1f &&  _rb.linearVelocity.magnitude > 0.001f;
 
         if (_actor.MoveController.IsDodging) isWalking = false;
+        if (_actor.HitStop > 0f) isWalking = false;
 
         bool startedWalkingThisFrame = isWalking && !_wasWalking;
 
@@ -126,6 +127,8 @@ public class ActorWalkFX : MonoBehaviour
     float _flipAnim = 1f;
     void HandleSpriteFlip()
     {
+        if (_actor.HitStop > 0f) return;
+
         Vector2 moveDir = _moveInput.normalized;
 
         // Get dir

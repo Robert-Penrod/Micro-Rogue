@@ -33,6 +33,7 @@ public class Actor : MonoBehaviour
     public bool IsAlive { get; private set; }
     public float _initScale;
     float _initialLinearDamping;
+    public float HitStop { get; private set; }
 
     // statuses
     public float Frost;
@@ -221,6 +222,12 @@ public class Actor : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(HitStop > 0f)
+        {
+            HitStop -= Time.fixedDeltaTime;
+            if (HitStop < 0f) HitStop = 0f;
+        }
+
         //HandleMoveFixedUpdate();
 
         // Elemental Effects
@@ -243,7 +250,7 @@ public class Actor : MonoBehaviour
             _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
         if (Frost > 0) Frost -= (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax) * (IsParalyzed? Static : 0.75f) * (Static > 2f? 2f : 1f);
+        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax) * (IsParalyzed? Static : 1f) * (Static > 2f? 2f : 1f);
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
@@ -330,10 +337,6 @@ public class Actor : MonoBehaviour
             }
         }
 
-        // Hit Event
-        //if(blockType != "dodge")
-        OnWasHit?.Invoke(sourceSkillInstance);
-
         // Last Chance (Players: If killing hit would do more than x% health -> leave player at 1hp instead)
         if (IsPlayer())
         {
@@ -342,6 +345,18 @@ public class Actor : MonoBehaviour
                 damage = Stats.Health - 1;
             }
         }
+
+        float damagePercent = damage / Stats.HealthMax.Value;
+
+        // Hit Stop
+        if (damage > 0)
+        {
+            HitStop += 0.75f * damagePercent.Remap(0f, 0.25f, 0f, 1f);
+        }
+
+        // Hit Event
+        //if(blockType != "dodge")
+        OnWasHit?.Invoke(sourceSkillInstance);
 
         // Do damage
         Stats.Health -= damage;
@@ -360,7 +375,6 @@ public class Actor : MonoBehaviour
             blockColor = _spriteRend.color;
         }
 
-        float damagePercent = damage / Stats.HealthMax.Value;
         float damageStatusMult = damagePercent.Remap(0f, 0.5f, 0.5f, 1.375f);
         if (IsPlayer()) damageStatusMult = damagePercent.Remap(0f, 0.125f, 0.5f, 1.375f);
         damageStatusMult = 1f;

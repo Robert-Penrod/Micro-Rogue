@@ -70,10 +70,10 @@ public class ActorSpriteFx : MonoBehaviour
         _bleedTimer = Mathf.Clamp(_bleedTimer, 0f, 1f);
         float lerpMult = _lerpMag < _bleedTimer ? 3f : 1f;
         _lerpMag = Mathf.Lerp(_lerpMag, _bleedTimer, lerpMult * 6f * Time.deltaTime);
-        c = c.Lerp(Color.red, _lerpMag.Remap(0f, 1f, 0f, 0.8f));
+        c = c.Lerp(Color.red, _lerpMag.Remap(0f, 0.75f, 0f, 1f)); // 0.8f
 
         // Size Impact
-        float targetSize = _bleedTimer.Remap(0f, 0.75f, 1f, 0.9f);
+        float targetSize = _bleedTimer.Remap(0f, 0.75f, 1f, 0.8f); // 0.85f
         float lerpX = transform.localScale.x.Lerp(targetSize * transform.localScale.x.Sign(), 12f * Time.deltaTime);
         Vector3 s = transform.localScale;
         s.x = lerpX;

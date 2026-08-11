@@ -115,7 +115,8 @@ public class ProjectileExplosion : SkillPart, IPoolable
             HitParticlesManager.I.SpawnHitParticles(_skillInstance.Skill, pos, vel, mag);
 
             // Screen Shake
-            CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f));
+            Vector2 direction = (hitActor.transform.position - transform.position).normalized;
+            CamShaker.I.Shake(Random.Range(0.2f, 0.3f), Random.Range(2.5f, 3.5f), direction);
 
             // Audio
             float audioDelay = 0.125f * Random.Range(0.75f, 1.25f);

@@ -169,13 +169,13 @@ public class SIE_Projectile : SIE, IPoolable
     private void OnTriggerStay2D(Collider2D collider) => HandleCollisionStay(collider);
     void HandleCollisionStay(Collider2D col, Collision2D collision = null)
     {
-        Vector2 particleVel = _lastVel * 0.5f;
+        Vector2 particleVel = _lastVel * 0.25f;
         Vector2 particlePoint = collision != null ? collision.contacts[0].point : transform.position;
 
         // State
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
+        int damageDone = 0;
         bool didDodge = false;
-
         float pierceMult = _skillInstance.ActivePercent < 0.02f? 0f : 1f;
 
         // References
@@ -219,7 +219,7 @@ public class SIE_Projectile : SIE, IPoolable
             // Damage
             float damage = (int)(_damageMult * _skillInstance.Skill.Stats.CalculateDamageValue());
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
-            int damageTaken = hitActor.TakeDamage((int)damage, _skillInstance, null);
+            damageDone = hitActor.TakeDamage((int)damage, _skillInstance, null);
             didDodge = hitActor.MoveController.IsDodging;
 
             if (!didDodge)
@@ -229,30 +229,23 @@ public class SIE_Projectile : SIE, IPoolable
                 SlowProjectile();
             }            
 
-            if (damageTaken > 0)
+            if (damageDone > 0)
             {
                 // Audio
                 this.DelayedInvoke(0.02f, () =>
                 {
-                    PlayAudio(_hitClip, damageTaken / _skillInstance.Skill.Stats.Damage.Value);
+                    PlayAudio(_hitClip, damageDone / _skillInstance.Skill.Stats.Damage.Value);
                 });
 
-                HandleParticles(particlePoint, particleVel, (damageTaken / (0.333f * hitActor.Stats.HealthMax.Value)));
+                particlePoint = particlePoint.Lerp(hitActor.transform.position, 0.75f);
+                float particleMag = damageDone.Remap(0f, 0.25f * hitActor.Stats.HealthMax.Value, 0f, 1f);
+                HandleParticles(particlePoint, particleVel, particleMag);
             }
 
             // Events
             var skill = _skillInstance.Skill;
-            skill.OnHit?.Invoke(damageTaken, hitActor, skill);
+            skill.OnHit?.Invoke(damageDone, hitActor, skill);
             if (hitActor.Stats.Health < 0f) skill.OnKill?.Invoke(hitActor);
-
-            // Screen Shake
-            float amp = Random.Range(0.2f, 0.3f);
-            float freq = Random.Range(2.5f, 3.5f);
-            float healthPercent = damageTaken / hitActor.Stats.HealthMax.Value;
-            float screenShakeMult = healthPercent.Remap(0.1f, 0.5f, 0.5f, 1f, false).ClampMin(0.5f);
-            amp *= screenShakeMult;
-            freq *= screenShakeMult;
-            CamShaker.I.Shake(amp, freq);
 
             // Spawn on Hit
             if(!didDodge && _spawnOnHit != null && Random.value < _spawnOnHitChance)
@@ -285,6 +278,17 @@ public class SIE_Projectile : SIE, IPoolable
             }
             //hitBody.AddDecayForce(knockbackForce, _knockback);
             hitBody.AddForce(5f * knockbackForce, ForceMode2D.Impulse);
+
+            // Screen Shake
+            float screenShakeMult = 1f;
+            float amp = Random.Range(0.2f, 0.3f);
+            float freq = Random.Range(2.5f, 3.5f);
+            if (hitActor != null) screenShakeMult *= damageDone.Remap(0f, 0.25f * hitActor.Stats.HealthMax.Value, 0.25f, 1f);
+            screenShakeMult *= _knockback.Abs().Remap(0f, 2f, 0.25f, 1f);
+            amp *= screenShakeMult;
+            freq *= screenShakeMult;
+            Vector2 direction = (hitActor.transform.position - this.transform.position).normalized;
+            CamShaker.I.Shake(amp, freq, direction);
         }
 
         // Pierce end condition

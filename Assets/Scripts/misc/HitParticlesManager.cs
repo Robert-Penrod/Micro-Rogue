@@ -11,7 +11,7 @@ public class HitParticlesManager : PersistantSingleton<HitParticlesManager>
         var pSystem = Instantiate(_hitParticlePrefab).GetComponent<ParticleSystem>();
         pSystem.transform.position = (Vector3)pos + Vector3.forward * _hitParticlePrefab.transform.position.z;
         var main = pSystem.main;
-        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(skill).Lerp(Color.white, 0.1f).Alpha(0.5f * magnitude);
+        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(skill).Lerp(Color.white, 0.1f).Alpha(0.75f * magnitude);
 
         main.startSpeed = new ParticleSystem.MinMaxCurve(2.5f * magnitude, 5f * magnitude);
 
