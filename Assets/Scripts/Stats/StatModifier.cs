@@ -93,9 +93,9 @@ namespace Kryz.Stats
 			switch (Type)
 			{
 				case StatModType.Flat:
-					return signString + Value;
+					return signString + Constants.ToStatNumString(Value);
 				default:
-					return signString + (Value * 100f) + "%";
+					return signString + Constants.ToStatNumString(Value * 100f) + "%";
 			}
 			return "ERROR";
 		}

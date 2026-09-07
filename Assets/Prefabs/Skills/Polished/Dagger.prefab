@@ -345,6 +345,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: Stats.Pierce.BaseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -692,7 +696,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4685428554802942002, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7532028403756074901}
+      addedObject: {fileID: -8928277915171557811}
   m_SourcePrefab: {fileID: 100100000, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
 --- !u!114 &1395792107141309682 stripped
 MonoBehaviour:
@@ -715,7 +719,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4685428554802942002, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
   m_PrefabInstance: {fileID: 8909093062110166042}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7532028403756074901
+--- !u!114 &-8928277915171557811
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -741,7 +745,7 @@ MonoBehaviour:
       IsStr: 0
       IsDex: 0
       IsInt: 0
-      BalancePoints: 0.5
+      BalancePoints: 0.25
 --- !u!4 &8123940736059985692 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 800934841047020294, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}

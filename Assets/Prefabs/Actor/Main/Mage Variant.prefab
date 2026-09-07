@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: UpgradeAffinity
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: UndergroundAffinity
@@ -73,9 +73,45 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: InnateSkillList.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: 'BlacklistedTags.Array.data[0]'
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8340235622040579611, guid: cd7761de7d7ea19498149e5dcdcf2648, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1395792107141309682, guid: 21ce1c530f94c7e49a97000e104d8c34, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7914506722562047379, guid: 028ae88bab3712d4cbd8104c1a4b5f95, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7810722921821588791, guid: 1f955114468ff4e49b5eea418edf0f99, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 1113098668483618230, guid: 09bf94fde9bec3740aa524a25671c33b, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8215274306946818650, guid: 871a496abafce944ba40ca1e9f26bf48, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[6]'
+      value: 
+      objectReference: {fileID: 1395792107141309682, guid: 9556361833b76d64f91ef3f5c4ccf30e, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[7]'
+      value: 
+      objectReference: {fileID: 7428473379433104416, guid: 85122f470d14f2140911fa1e884d6603, type: 3}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[1].tag
       value: 1

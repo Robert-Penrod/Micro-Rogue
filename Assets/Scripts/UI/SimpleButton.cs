@@ -52,6 +52,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, ISu
         }
         set
         {
+            if (Time.time < 1f) return;
             _isHighlighted = value;
             if(_isHighlighted)
             {

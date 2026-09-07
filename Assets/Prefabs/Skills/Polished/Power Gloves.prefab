@@ -183,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 0.4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -335,11 +335,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Stats.Rate.BaseValue
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: Tags._entries.Array.size
@@ -355,11 +355,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0]._name
-      value: Poke
+      value: Slap
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[1]._name
-      value: Slap
+      value: Fist
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[2]._name
@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[1].Rarity
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[2].Rarity
@@ -403,7 +403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.size
@@ -439,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
@@ -447,11 +447,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].BalancePoints
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].SkillStatName
-      value: 70
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[0].ModList.Array.data[2].BalancePoints
@@ -467,7 +467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
-      value: 0.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].SkillStatName
@@ -483,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].BalancePoints
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
       propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].SkillStatName

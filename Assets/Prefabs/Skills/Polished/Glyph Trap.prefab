@@ -346,6 +346,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: e42fba15eec64ed42a79bf3f956ee6e0, type: 3}
     - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _hitsWalls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _launchMult
       value: 0
       objectReference: {fileID: 0}

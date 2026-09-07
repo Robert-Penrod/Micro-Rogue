@@ -12,10 +12,10 @@ public class SimpleNPCBrain : ActorBrain
     [Header("Dist")]
     [SerializeField] float _passiveDistMult = 1f;
     [SerializeField] float _attackDistMult = 0.5f;
-    float _minDistBase = 1f;
-    float _maxDistBase = 2.5f;
-    float _minDistPref => _minDistBase * _distMult; // 0.5,  1f
-    float _maxDistPref => _maxDistBase * _distMult; // 2, 2.5
+    float _minDistBase = 0.75f; // 1f // Trying to relax this to make things feel a little easier?
+    float _maxDistBase = 2.5f; // 2.5f
+    float _minDistPref => _minDistBase * _distMult;
+    float _maxDistPref => _maxDistBase * _distMult;
     float _distMult => _skillPassiveDistMult * _skillAttackChase.RemapPercent(_passiveDistMult, _attackDistMult, false);// _isAttacking ? _aiAttackMag * _attackDistMult : _passiveDistMult;
     float _skillAttackChase => _skillSystem?.GetAI_AttackChase() ?? 0f;
     float _skillPassiveDistMult => _skillSystem?.GetAI_PassiveDistMult() ?? 1f;

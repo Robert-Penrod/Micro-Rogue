@@ -12,6 +12,8 @@ public class DungeonManager : Singleton<DungeonManager>
     [SerializeField] GameObject _encounterGeneratorPrefab;
     [SerializeField] GameObject _portalPrefab;
 
+    public CombatEncounterObject CombatEncounter = null;
+
     [SerializeField] Material _wallMat;
     [SerializeField] Material _floorMat;
 
@@ -68,8 +70,17 @@ public class DungeonManager : Singleton<DungeonManager>
     public class RunInfo
     {
         public int GemsCollected = 0;
+        public float RunTime;
     }
     public RunInfo RunInfoData = new();
+    public bool IsRunTimerRunning()
+    {
+        bool isTimerRunning = IsRunStarted;
+        isTimerRunning = isTimerRunning && !UpgradeManager.I.IsUpgrading;
+        isTimerRunning = isTimerRunning && !(CombatEncounter != null && CombatEncounter.AreEnemiesDefeated());
+        isTimerRunning = isTimerRunning && !PlayerManager.I.AreAllPlayersDead();
+        return isTimerRunning;
+    }
 
     public void SetBiomeWilds()
     {
@@ -101,7 +112,7 @@ public class DungeonManager : Singleton<DungeonManager>
         public int Seed;
         public int RoomNumber => Coordinate.y;
         public Vector2Int Coordinate;
-        public BiomeEnum Biome;
+        public BiomeEnum Biome = BiomeEnum.Forest;
         public TagCollection Tags;
         public int LevelSkip = 0;
 
@@ -152,6 +163,7 @@ public class DungeonManager : Singleton<DungeonManager>
                 RunInfoData.GemsCollected += delta;
             }
         };
+        //GenerateRandomizedRoom();
     }
 
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord, int runTier)
@@ -244,6 +256,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     IEnumerator GenerateLevel_Co(int seed = 0)
     {
+        Debug.Log("Generating Level?");
         if(DungeonTransform == null) DungeonTransform = new GameObject("Dungeon").transform;
 
         PlayerPrefs.SetInt("LastBiomeIndex", (int)Data.Biome);
@@ -280,7 +293,7 @@ public class DungeonManager : Singleton<DungeonManager>
         _playerManager = PlayerManager.I;
         if (DungeonTransform == null) DungeonTransform = new GameObject("Dungeon").transform;
         Data.Seed = DateTime.Now.Ticks.GetHashCode(); // Randomize Seed
-        Data.Biome = (BiomeEnum)PlayerPrefs.GetInt("LastBiomeIndex", 0);
+        Data.Biome = (BiomeEnum)PlayerPrefs.GetInt("LastBiomeIndex", 1);
         Debug.Log("Setting Biome to " + Data.Biome);
     }
     #endregion
@@ -337,6 +350,7 @@ public class DungeonManager : Singleton<DungeonManager>
     private void Update()
     {
         HandlePortalTick();
+        if(IsRunTimerRunning()) RunInfoData.RunTime += Time.deltaTime;
     }
 
     #region Portal
@@ -427,6 +441,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void StartGame()
     {
+        Debug.Log("Starting Game?");
         IsRunStarted = true;
 
         // Starting Gold
@@ -442,6 +457,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
     void DoPortal()
     {
+        Debug.Log("Doing Portal?");
         IsEncounterOver = false;
         StartCoroutine(Coroutine());
         IEnumerator Coroutine()

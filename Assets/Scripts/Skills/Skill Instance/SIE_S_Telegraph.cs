@@ -75,10 +75,14 @@ public class SIE_S_Telegraph : SIE, IPoolable
 
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Start) return;
 
+        if (_skillInstance.Skill == null) _skillInstance.State = SkillInstance.SkillInstanceState.End;
+
         // Tick
         float startPercentMult = _skillInstance.Skill.Actor.MoveController.IsDodging ? 0f : 1f;
         startPercentMult *= _skillInstance.Skill.Actor.FrostSlowMult;
         startPercentMult *= _skillInstance.Skill.Actor.IsParalyzed ? 0f : 1f;
+        var rateStat = _skillInstance.Skill.Stats.Rate;
+        startPercentMult *= rateStat.Value.Remap(rateStat.BaseValue, 2f * rateStat.BaseValue, 1f, 2f);
         _skillInstance.StartPercent += startPercentMult * (Time.deltaTime / _telegraphTime);
 
         // Alpha

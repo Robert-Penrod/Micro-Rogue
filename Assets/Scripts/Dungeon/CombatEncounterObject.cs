@@ -12,6 +12,8 @@ public class CombatEncounterObject : MonoBehaviour
     List<SimpleNPCBrain> _enemyBrainList = new();
     [SerializeField] TagCollection _tagBiasDebug = new();
 
+    public bool AreEnemiesDefeated() => _enemyList == null || _enemyList.Count == 0;
+
     public void SpawnEncounter(float mult = 1f)
     {
         if (DungeonManager.I.Data.Coordinate.y == 0)
@@ -115,16 +117,17 @@ public class CombatEncounterObject : MonoBehaviour
         //max = Mathf.Min((int)budget, absoluteMax);
         var data = DungeonManager.I.Data;
         int enemyCount = Random.Range(1, 1 + max);
-        if (enemyCount == 1) enemyCount = Random.Range(1, 1 + max);
+        //if (enemyCount == 1) enemyCount = Random.Range(1, 1 + max);
         if (enemyCount == 1) enemyCount++;
         if (data.IsFinalBoss) enemyCount = (int)(0.75f * enemyCount);
         if (data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
         enemyCount *= PlayerManager.I.PlayerList.Count;
         enemyCount = enemyCount.ClampMin(1);
+        Debug.Log($"Enemy Count??? {enemyCount} / {max}");
         for(float encounterCount = 0; encounterCount < enemyCount && budget >= 1f + 0.25f * encounterCount; encounterCount += 0)
         {
             var selectedTypeActor = typeTable.SelectItem();
-            if (false && DungeonManager.I.Data.IsFinalBoss && encounterCount == 0)
+            if ((DungeonManager.I.Data.IsBoss || DungeonManager.I.Data.IsFinalBoss) && encounterCount == 0)
             {
                 // Final Boss
                 selectedTypeActor = _bossTable.SelectItem();
@@ -185,7 +188,7 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
-                enemy.Stats.HealthMax.BaseValue *= 1.1f; // 1.05f
+                enemy.Stats.HealthMax.BaseValue *= 1.5f; // 1.1f
 
                 // Brain Update
                 var brain = enemy.GetComponent<SimpleNPCBrain>();
@@ -219,8 +222,8 @@ public class CombatEncounterObject : MonoBehaviour
 
             // Upgrade
             float upgradeCost = 1f;
-            float rarityFlip = Random.value < 0.25f ? 5f : 0f;
-            float newSkillMult = Random.value < 0.25f ? 5f : 1f;
+            float rarityFlip = Random.value < 0.25f ? 10f : 0f;
+            float newSkillMult = Random.value < 0.5f ? 1000f : 1f;
             var upgrades = UpgradeManager.I.GetUpgradeOptions(enemyToUpgrade, rarityFlip: rarityFlip, newSkillMult: newSkillMult);
             if (upgrades.Count > 0)
             {
@@ -257,6 +260,7 @@ public class CombatEncounterObject : MonoBehaviour
     private void Start()
     {
         SpawnEncounter();
+        DungeonManager.I.CombatEncounter = this;
     }
 
     private void FixedUpdate()
@@ -266,7 +270,7 @@ public class CombatEncounterObject : MonoBehaviour
         {
             bool isPlayersDetected = _enemyBrainList.FindAll(enemyBrain => enemyBrain.State != "Idle").Count > 0;
             float reinforcementSpeed = isPlayersDetected ? 1f : 0.25f;
-            float reinforcementTime = 35f + (DungeonManager.I?.Data?.Coordinate.y ?? 0f);
+            float reinforcementTime = 59f + (DungeonManager.I?.Data?.Coordinate.y ?? 0f);
 
             _spawnTick += reinforcementSpeed * Time.fixedDeltaTime;
             _spawnTime = reinforcementTime;// (_spawnNum).Remap(1f, 3f, reinforcementTime, reinforcementTime * 0.5f);

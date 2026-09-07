@@ -8,7 +8,7 @@ public static class BalancePoint
     // Skills
     public static float BP_Skill_Damage = 1f * BP_PercentDPSGain;
     public static float BP_Skill_RandomDamage = 2f * BP_PercentDPSGain;
-    public static float BP_Skill_Rate = 1f * BP_PercentDPSGain;
+    public static float BP_Skill_Rate = 0.5f * BP_PercentDPSGain;
     public static float BP_Skill_Size = 0.5f * BP_PercentDPSGain;
     public static float BP_Skill_Duration = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Speed = 1f * BP_PercentDPSGain;
@@ -75,7 +75,7 @@ public static class BalancePoint
         );
     }
 
-    public static StatModifier BPToStatMod(this float bp, SkillStats.SkillStatTypes skillStatType)
+    public static StatModifier BPToStatMod(this float bp, SkillStats.SkillStatTypes skillStatType, bool isGlobal = false, int tagFilterCount = 0)
     {
         float multiplier = skillStatType switch
         {
@@ -98,6 +98,14 @@ public static class BalancePoint
         };
 
         float value = bp * multiplier;
+        if (isGlobal)
+        {
+            // tagFilterCount = 3 : /1
+            // tagFilterCount = 2 : 
+            // tagFilterCount = 1 : 
+            // tagFiltetCount = 0 : /3
+            value /= tagFilterCount.Remap(0f, 3f, 2f, 1f);
+        }
         StatModType modType = StatModType.PercentAdd;
 
         if(skillStatType == SkillStats.SkillStatTypes.Pyro || skillStatType == SkillStats.SkillStatTypes.Frost || skillStatType == SkillStats.SkillStatTypes.Static)

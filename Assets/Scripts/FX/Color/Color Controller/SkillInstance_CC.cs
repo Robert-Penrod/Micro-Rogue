@@ -34,7 +34,7 @@ public class SkillInstance_CC : ColorController, IPoolable
         else
         {
             _skill = _skillInstance.Skill;
-            paletteColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill.Actor, _skill.Stats.Str, _skill.Stats.Dex, _skill.Stats.Int);
+            paletteColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill);
         }
 
         //float actorSpriteAlpha = _skill.Actor?._spriteRend?.color.a ?? 1f;

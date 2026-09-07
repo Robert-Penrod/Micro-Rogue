@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 2497229969752659803, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: _dps
-      value: 4
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Description
@@ -31,6 +31,10 @@ PrefabInstance:
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: _telegraphMult
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+      propertyPath: Stats.Rate.BaseValue
+      value: 0.375
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Size.BaseValue
@@ -46,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Damage.BaseValue
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: UpgradeList.Array.size
@@ -58,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Stats.Knockback.BaseValue
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: Tags._entries.Array.data[1].tag
@@ -378,7 +382,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 260307485779450578, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1495858214796601514}
+      addedObject: {fileID: 8533344808500624899}
     - targetCorrespondingSourceObject: {fileID: 4746252970022344296, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2174946740982949440}
@@ -430,7 +434,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 260307485779450578, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
   m_PrefabInstance: {fileID: 6115448777313871731}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1495858214796601514
+--- !u!114 &8533344808500624899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -445,7 +449,7 @@ MonoBehaviour:
   IsConstant: 1
   Mods: []
   SkillUpgrade:
-  - _name: 
+  - _name: Base
     Rarity: 0
     SourceSkill: {fileID: 9131871782958757243}
     ModList:
@@ -456,7 +460,7 @@ MonoBehaviour:
       IsStr: 0
       IsDex: 0
       IsInt: 0
-      BalancePoints: -0.5
+      BalancePoints: -1
 --- !u!114 &9131871782958757243 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}

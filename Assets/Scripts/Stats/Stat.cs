@@ -106,6 +106,7 @@ namespace Kryz.Stats
 		public virtual void AddModifier(StatModifier mod, float time, MonoBehaviour mono)
 		{
 			AddModifier(mod);
+			if (time < 0) return;
 
 			Utils.DelayedInvoke(mono, time, () =>
 			{

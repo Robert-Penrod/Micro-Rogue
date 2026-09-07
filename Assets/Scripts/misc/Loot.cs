@@ -18,7 +18,7 @@ public class Loot : Pickup, IPoolable
     float _spawnTime = 0.25f;
     float _spawnTick;
 
-    float _fadeTime = 0.25f;
+    float _fadeTime = 0.3f;
     float _fadeTick;
 
     Rigidbody2D _body;
@@ -29,6 +29,7 @@ public class Loot : Pickup, IPoolable
     {
         _lifeTick = _spawnTick = _fadeTick = 0f;
         _wasPickedUp = false;
+        this.gameObject.SetCollidersEnabled2D(true);
     }
 
     private void Awake()
@@ -45,16 +46,24 @@ public class Loot : Pickup, IPoolable
 
     private void Update()
     {
+        float targetAlpha = 1f;
+        float targetScale = 1f;
+        float lerpMult = 1f;
 
         if(_spawnTick < _spawnTime)
         {
             _spawnTick += Time.deltaTime;
-            SetAlpha((_spawnTick / _spawnTime).Clamp01());
+            float spawnPercent = (_spawnTick / _spawnTime).Clamp01();
+            targetAlpha = (_spawnTick / _spawnTime).Clamp01();
+            targetScale = spawnPercent.RemapPercent(0.5f, 1f);
+            lerpMult = 10f;
         }
         else if(_lifeTick < LifeTime)
         {
             _lifeTick += Time.deltaTime;
-            SetAlpha((_lifeTick / LifeTime).RemapPercent(1f, 0.5f));
+            float lifePercent = _lifeTick / LifeTime;
+            targetAlpha = lifePercent.RemapPercent(1f, 0.5f);
+            targetScale = lifePercent.RemapPercent(1f, 0.675f);
         }
         else if(_fadeTick < _fadeTime)
         {
@@ -65,18 +74,27 @@ public class Loot : Pickup, IPoolable
 
             if(_wasPickedUp)
             {
-                transform.position += 2f * Vector3.up * Time.deltaTime;
+                transform.position += 1f * Vector3.up * Time.deltaTime;
+                targetScale = transform.localScale.x.Lerp(1f, 3f * Time.deltaTime);
+                this.gameObject.SetCollidersEnabled2D(false);
             }
 
             if (LifeTime > 0)
             {
-                SetAlpha((_fadeTick / _fadeTime).RemapPercent(0.5f, 0f));
+                float fadePercent = _fadeTick / _fadeTime;
+                targetAlpha = fadePercent.RemapPercent(0.5f, 0f);
+                targetScale = fadePercent.RemapPercent(0.675f, 0.5f);
+                lerpMult = fadePercent.RemapPercent(2f, 100f);
             }
         }
         else
         {
             this.gameObject.DestroyOrRecycle();
         }
+
+        float lerpSpeed = 12f;
+        transform.localScale = Vector3.one * transform.localScale.x.Lerp(targetScale, lerpMult * lerpSpeed * Time.deltaTime);
+        LerpAlpha(targetAlpha, lerpSpeed * Time.deltaTime);
     }
 
     void SetAlpha(float alpha)
@@ -84,6 +102,14 @@ public class Loot : Pickup, IPoolable
         _spriteRends.ForEach(x =>
         {
             x.color = x.color.Alpha(_alphaDict[x] * alpha);
+        });
+    }
+
+    void LerpAlpha(float alpha, float deltaT)
+    {
+        _spriteRends.ForEach(x =>
+        {
+            x.color = x.color.Alpha(x.color.a.Lerp(_alphaDict[x] * alpha, deltaT));
         });
     }
 

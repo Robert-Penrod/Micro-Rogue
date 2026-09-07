@@ -49,9 +49,33 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: InnateSkillList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Stats.StaticResist.BaseValue
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3054739362383696392, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1159842556308663515, guid: 6082d392416aad34db9ea52fb302bfb6, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7391418805428206428, guid: 027b1a409858c1c4d9ba625765b8cc3c, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3751954650862988980, guid: 9b1936885428c104bb7d33889623ff87, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7593434825032902938, guid: ff75278bb71b58244b40ea2210343b90, type: 3}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[3].tag
       value: 20

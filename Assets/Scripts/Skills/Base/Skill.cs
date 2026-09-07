@@ -93,7 +93,7 @@ public class Skill : MonoBehaviour
     [HideInInspector] public Actor Actor;
 
     // State
-    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance != null && (BlockCooldownDurringStart && skillInstance.State == SkillInstance.SkillInstanceState.Start) || (IsActiveDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
+    public bool IsActive => SkillInstances.FindAll(skillInstance => skillInstance != null && (BlockCooldownDurringStart && skillInstance.State == SkillInstance.SkillInstanceState.Start) || (BlockCooldownDurringLifetime && skillInstance.State != SkillInstance.SkillInstanceState.End)).Count > 0;  // SkillInstances.Count > 0;
     [HideInInspector] public List<SkillInstance> SkillInstances = new();
     public bool NeedsTargetForCooldown = true;
     public float CooldownPercent { get; private set; }
@@ -104,12 +104,12 @@ public class Skill : MonoBehaviour
     [BoxGroup("AI")]
     public float PassiveDistMult = 1f;
     [BoxGroup("AI")]
-    public bool IsActiveDurringLifetime = false;
+    public bool BlockCooldownDurringLifetime = false;
     [BoxGroup("AI")]
     public bool BlockCooldownDurringStart = true;
     SimpleNPCBrain _npcBrain;
     [BoxGroup("AI")]
-    public bool IsUsedByNPCs = true;
+    public bool IsUsableByNPCs = true;
 
     [SerializeField] float _dps;
 
@@ -148,7 +148,7 @@ public class Skill : MonoBehaviour
         float initHealthPercent = Actor.Stats.HealthPercent;
         //Debug.Log("REINITIALIZE SKILL");
 
-        RemoveMods();
+        RemoveModsFromUpgradeHistory();
         
 
         UpgradeHistory.ForEach(Upgrade =>
@@ -159,7 +159,7 @@ public class Skill : MonoBehaviour
         Actor.Stats.SetHealthPercent(initHealthPercent);
     }
 
-    public void RemoveMods()
+    public void RemoveModsFromUpgradeHistory()
     {
         UpgradeHistory.ForEach(upgrade =>
         {
@@ -244,7 +244,7 @@ public class Skill : MonoBehaviour
         // Holding still boosts cooldown
         if(Actor.MoveController.MoveDir.magnitude <= 0.1f || Actor.Body.linearVelocity.magnitude < 0.1f)
         {
-            cooldownMult *= 1.125f;
+            //cooldownMult *= 1.125f;
         }
 
         // Paralysis Status
@@ -257,7 +257,7 @@ public class Skill : MonoBehaviour
         if (CooldownPercent < 1f)
         {
             float mult = cooldownMult * dodgeMult;
-            if (this.Slot == SlotEnum.Passive) mult = 1f;
+            //if (this.Slot == SlotEnum.Passive) mult = 1f;
 
             //mult *= Constants.SpeedMult;
 
@@ -271,6 +271,11 @@ public class Skill : MonoBehaviour
             {
                 OnCooldown?.Invoke();
             }
+        }
+
+        if(Stats.Rate.BaseValue <= 0f)
+        {
+            CooldownPercent = 1f;
         }
     }
 

@@ -5440,7 +5440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Pierce.BaseValue
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: Stats.Static.BaseValue
@@ -5685,19 +5685,54 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5119049438356564521}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3697118559128181109}
   m_SourcePrefab: {fileID: 100100000, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
 --- !u!114 &1113098668483618230 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8176092954707893517, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
   m_PrefabInstance: {fileID: 9080897794069051579}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2777265577082219884}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2777265577082219884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6381319461986293207, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
+  m_PrefabInstance: {fileID: 9080897794069051579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3697118559128181109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2777265577082219884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d00622761f9131439caa252e0ce2068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsConstant: 1
+  Mods: []
+  SkillUpgrade:
+  - _name: Base
+    Rarity: 0
+    SourceSkill: {fileID: 1113098668483618230}
+    ModList:
+    - TargetType: 10
+      ActorStatName: 0
+      SkillStatName: 13
+      Slots: 
+      IsStr: 0
+      IsDex: 0
+      IsInt: 0
+      BalancePoints: 1.5
 --- !u!4 &3310355590716445839 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6049858981575060532, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}

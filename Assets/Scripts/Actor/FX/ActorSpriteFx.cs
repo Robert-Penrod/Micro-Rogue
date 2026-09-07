@@ -61,7 +61,7 @@ public class ActorSpriteFx : MonoBehaviour
         }
         //dodgeLerp = dodgeLerp.Clamp01();
         Color dodgeColor = Color.Lerp(c, Color.black, lerpT.RemapPercent(0.75f, 0f));
-        float lerpAlpha = c.a.Lerp(_initColor.Value.a * alpha, 500f * Time.deltaTime);
+        float lerpAlpha = _spriteRend.color.a.Lerp(_initColor.Value.a * alpha, 12f * Time.deltaTime);
         c = dodgeColor.Alpha(lerpAlpha);
 
 
@@ -74,6 +74,7 @@ public class ActorSpriteFx : MonoBehaviour
 
         // Size Impact
         float targetSize = _bleedTimer.Remap(0f, 0.75f, 1f, 0.8f); // 0.85f
+        if (!_actor.IsAlive) targetSize *= 0.75f;
         float lerpX = transform.localScale.x.Lerp(targetSize * transform.localScale.x.Sign(), 12f * Time.deltaTime);
         Vector3 s = transform.localScale;
         s.x = lerpX;

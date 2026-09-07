@@ -8,6 +8,7 @@ public class Actor : MonoBehaviour
 {
     [Header("Info")]
     [SerializeField] int _lvl;
+    public int StartingSkillCount = 0;
     [SerializeField] ActorSkillSystem _skillSystem;
 
     [Header("Config")]
@@ -43,7 +44,7 @@ public class Actor : MonoBehaviour
     float _burnTick;
     public float PyroPercent => Pyro / 1f;
     public float Static;
-    public float StaticPercent => Static / 0.85f;
+    public float StaticPercent => Static / 1f;
     public bool IsParalyzed => StaticPercent >= 1f;
 
     // References
@@ -250,7 +251,7 @@ public class Actor : MonoBehaviour
             _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
         if (Frost > 0) Frost -= (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax) * (IsParalyzed? Static : 1f) * (Static > 2f? 2f : 1f);
+        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
@@ -375,9 +376,9 @@ public class Actor : MonoBehaviour
             blockColor = _spriteRend.color;
         }
 
-        float damageStatusMult = damagePercent.Remap(0f, 0.5f, 0.5f, 1.375f);
-        if (IsPlayer()) damageStatusMult = damagePercent.Remap(0f, 0.125f, 0.5f, 1.375f);
-        damageStatusMult = 1f;
+        float damageStatusMult = damagePercent.Remap(0f, 0.75f, 0.75f, 1.25f);
+        if (IsPlayer()) damageStatusMult = damagePercent.Remap(0f, 0.125f, 0.75f, 1.25f);
+        //damageStatusMult = 1f;
 
         // ELemental effects
         if (blockType != "evade" && blockType != "dodge")
@@ -385,9 +386,10 @@ public class Actor : MonoBehaviour
             if (sourceSkillInstance != null)
             {
                 var skill = sourceSkillInstance.Skill;
-                AddToStatus(ref Pyro, damageStatusMult * skill.Stats.Elemental.Value * skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
-                AddToStatus(ref Frost, damageStatusMult * skill.Stats.Elemental.Value * skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
-                AddToStatus(ref Static, damageStatusMult * skill.Stats.Elemental.Value * skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                float elementalMult = skill.Stats.Elemental.Value;
+                AddToStatus(ref Pyro, damageStatusMult * elementalMult * skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                AddToStatus(ref Frost, damageStatusMult * elementalMult * skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                AddToStatus(ref Static, damageStatusMult * elementalMult * skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
             }
         }
         void AddToStatus(ref float status, float value)

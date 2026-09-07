@@ -30,6 +30,7 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
 
     public void JoinPlayerByLastInputDevice()
     {
+        Debug.Log("LAST INPUT JOIN");
        _playerInputManager.JoinPlayer(pairWithDevice: LastInputDevice);
     }
 
@@ -214,10 +215,13 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
 
         UnjoinAllPlayers();
         _inputDeviceList.RemoveAll(x => x == null);
+        /*
+        // Auto rejoin players
         foreach(InputDevice inputDevice in _inputDeviceList)
         {
             _playerInputManager.JoinPlayer(pairWithDevice: inputDevice);
         }
+        */
     }
 
     void UpdateCanJoin()

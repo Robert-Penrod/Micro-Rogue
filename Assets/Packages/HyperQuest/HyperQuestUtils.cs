@@ -245,7 +245,7 @@ public static class Utils
         return Quaternion.Euler(0f, 0f, angle) * Vector2.up;
     }
 
-    public static string SecondsToMonoTimeString(this float time, float fontSize)
+    public static string SecondsToMonoTimeStringMinSecMil(this float time, float fontSize)
     {
         // Calculate minutes, seconds, and milliseconds
         int minutes = Mathf.FloorToInt(time / 60);              // Get the total minutes
@@ -254,13 +254,28 @@ public static class Utils
 
 
         // Convert the numeric parts to monospaced using your Monospace extension
-        string spacing = (fontSize / 2f).ToString("F0") + "px";
+        string spacing = (fontSize).ToString("F0") + "px";
         string minMonospaced = minutes.ToString("00").Monospace(spacing);
         string secMonospaced = seconds.ToString("00").Monospace(spacing);
         string msMonospaced = milliseconds.ToString("00").Monospace(spacing);
 
         // Combine everything with normal separators
         return minMonospaced + ":" + secMonospaced + "." + msMonospaced;
+    }
+
+    public static string SecondsToMonoTimeStringMinSec(this float time, float fontSize)
+    {
+        // Calculate minutes, seconds
+        int minutes = Mathf.FloorToInt(time / 60);              // Get the total minutes
+        int seconds = Mathf.FloorToInt(time % 60);              // Get the seconds
+
+        // Convert the numeric parts to monospaced using your Monospace extension
+        string spacing = (fontSize).ToString("F0") + "px";
+        string minMonospaced = minutes.ToString("00").Monospace(spacing);
+        string secMonospaced = seconds.ToString("00").Monospace(spacing);
+
+        // Combine everything with normal separators
+        return minMonospaced + ":" + secMonospaced;
     }
     public static string CapitalizeFirstLetters(this string input)
     {
@@ -742,6 +757,12 @@ public static class TypeExtensions
     {
         Color.RGBToHSV(c, out float h, out float s, out float v);
         return Color.HSVToRGB(newHue, newSaturation, v);
+    }
+
+    public static Color SetSV(this Color c, float newSat, float newVal)
+    {
+        Color.RGBToHSV(c, out float h, out float s, out float v);
+        return Color.HSVToRGB(h, newSat, newVal);
     }
 
     public static Color SetSaturation(this Color c, float newSaturation)

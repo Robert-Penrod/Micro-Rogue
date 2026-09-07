@@ -6,7 +6,7 @@ public class SkillPassiveFX : MonoBehaviour
 {
     [SerializeField] Transform _mainTransform;
     Skill _skill;
-    SpriteRenderer _parentSpriteRend;
+    SpriteRenderer _actorSpriteRend;
     ColorController _colorController;
     Actor _parentActor;
     Color _initParentColor;
@@ -20,13 +20,13 @@ public class SkillPassiveFX : MonoBehaviour
     {
         _skill = GetComponentInParent<Skill>();
         _parentActor = GetComponentInParent<Actor>();
-        if(_parentActor != null) { _parentSpriteRend = GetComponentInParent<Actor>().GetComponentInChildren<SpriteRenderer>(); }
+        if(_parentActor != null) { _actorSpriteRend = _parentActor._spriteRend; }
         _colorController = gameObject.GetOrAddComponent<ColorController>();
         UpdateSprites();
 
         this.DelayedInvoke(-1, () =>
         {
-            _initParentColor = _parentSpriteRend.color;
+            _initParentColor = _actorSpriteRend.color;
         });
 
         //_mainTransform.gameObject.SetActive(false);
@@ -60,7 +60,7 @@ public class SkillPassiveFX : MonoBehaviour
 
         targetScale *= _skill.Stats.Size.Value;
 
-        if(_skill.Slot == Skill.SlotEnum.Passive)
+        if(_skill.Stats.Rate.BaseValue <= 0)
         {
             targetAlpha = targetScale = 1f;
         }
@@ -75,18 +75,18 @@ public class SkillPassiveFX : MonoBehaviour
         _lerpScale = _lerpScale.Lerp(targetScale, 3f * Time.deltaTime);
 
         float actorSpriteAlphaMult = _skill?.Actor?._spriteRend?.color.a ?? 1f;
-        _lerpAlpha *= actorSpriteAlphaMult;
+        float newAlpha = _lerpAlpha * actorSpriteAlphaMult;
 
-        _colorController.SetColor(CalculatePassiveColor().Alpha(_lerpAlpha));
+        _colorController.SetColor(CalculatePassiveColor().Alpha(newAlpha));
         _mainTransform.localScale = Vector3.one * _lerpScale;
     }
 
     Color CalculatePassiveColor()
     {
         Color passiveColor = new Color();
-        if (_parentSpriteRend != null)
+        if (_actorSpriteRend != null)
         {
-            Color parentColor = _parentSpriteRend.color;
+            Color parentColor = _actorSpriteRend.color;
             Color.RGBToHSV(parentColor, out float h, out float s, out float v);
             v -= 0.35f; // 0.43
             float min = 0.1f;
@@ -97,8 +97,13 @@ public class SkillPassiveFX : MonoBehaviour
 
         Color skillColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill);
         float maxSkillColorLerp = _skill.Stats.Damage.Value > 0 ? 0.2f : 0f;
-        float cooldownPercent = _skill.Slot == Skill.SlotEnum.Passive ? 1f : _skill.CooldownPercent;
+        float cooldownPercent = _skill.Stats.Rate.Value > 0? _skill.CooldownPercent : 1f;
         passiveColor = passiveColor.Lerp(skillColor, cooldownPercent.RemapPercent(0f, maxSkillColorLerp)).SetValue(0.7f);
+
+        if(_skill.Slot == Skill.SlotEnum.Passive)
+        {
+            passiveColor = GamePalette.LerpTowardsPassive(passiveColor, _parentActor);
+        }
 
         return passiveColor;
     }

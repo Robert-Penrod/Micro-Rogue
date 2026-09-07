@@ -22,6 +22,7 @@ public class UpgradeCardUI : MonoBehaviour
         // Init
         var skillColor = upgrade.GetColor().Lerp(Color.white, 0.25f);
         var rarityColor = Constants.RarityToColor(upgrade.Rarity);
+        rarityColor = skillColor.Lerp(rarityColor, 0.675f);
         var upgradeColor = upgrade.Rarity != Constants.Rarity.Common ? rarityColor : skillColor;
         this._upgrade = upgrade;
 
@@ -48,6 +49,32 @@ public class UpgradeCardUI : MonoBehaviour
         this._description.text = upgrade.GetDescription();
 
         // Tags
+        for (int i = 0; i < this._tagHolder.childCount; i++)
+        {
+            var tagTransform = _tagHolder.GetChild(i);
+            var tagList = upgrade.SourceSkill.Tags.GetTagList();
+            if (i < tagList.Count && i < 1)
+            {
+                var tag = tagList[i];
+                tagTransform.gameObject.SetActive(true);
+                var image = tagTransform.GetComponentInChildren<Image>();
+                var text = tagTransform.GetComponentInChildren<TextMeshProUGUI>();
+                text.text = tag.ToString();
+                image.color = tag switch
+                {
+                    TagCollection.TagType.Str => GamePaletteManager.I.Palette.StrColor,
+                    TagCollection.TagType.Dex => GamePaletteManager.I.Palette.DexColor,
+                    TagCollection.TagType.Int => GamePaletteManager.I.Palette.IntColor,
+                    _ => Color.grey
+                };
+                text.color = image.color;
+                image.color = image.color.Alpha(0.5f);
+            }
+            else
+            {
+                tagTransform.gameObject.SetActive(false);
+            }
+        }
     }
 
     public void ChooseCard()

@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: _dodgeEvade
-      value: 0.01875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2943919261780777911, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: _dodgeSprint
-      value: 0.01875
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1548810938185463985, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Sprite
@@ -81,6 +81,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: InnateSkillList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Stats.PyroResist.BaseValue
       value: 0.5
       objectReference: {fileID: 0}
@@ -108,6 +112,26 @@ PrefabInstance:
       propertyPath: 'BlacklistedTags.Array.data[3]'
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9131871782958757243, guid: e9f4ace11a9146e47b0aaa0aac0a0f08, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3054739362383696392, guid: 2495436a07162754e9f8d7e172194c0c, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1159842556308663515, guid: 6082d392416aad34db9ea52fb302bfb6, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7391418805428206428, guid: 027b1a409858c1c4d9ba625765b8cc3c, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8215274306946818650, guid: 80fe027a7e87575439d3eb13bac8cedc, type: 3}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[3].tag
       value: 30

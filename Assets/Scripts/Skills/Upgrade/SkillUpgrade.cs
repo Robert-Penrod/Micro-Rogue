@@ -27,10 +27,13 @@ public class SkillUpgrade : Upgrade
     {
         string description = string.Empty;// _description + "\n";
         ModList.Sort((x, y) => x.SkillStatName > y.SkillStatName ? 1 : -1);
+        Debug.Log($"ModCount: {ModList.Count}");
         foreach (var upgradeMod in ModList)
         {
             description = upgradeMod.GetUpgradePreviewString(SourceSkill, SourceSkill?.Actor, description);
+            Debug.Log(description);
         }
+        Debug.Log($"{SourceSkill.Name}: {description}");
         return description;
     }
 
@@ -85,6 +88,8 @@ public class SkillUpgrade : Upgrade
                         Debug.Log(skill.Name + " is not valid");
                         continue;
                     }
+
+                    if (skill == SourceSkill) continue;
 
                     var stat = skill.Stats.GetSkillStat(upgradeMod.SkillStatName);
                     var mod = upgradeMod.GetModifier();

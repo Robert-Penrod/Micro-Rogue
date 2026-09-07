@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.2
+      value: -0.15
       objectReference: {fileID: 0}
     - target: {fileID: 7752954571549693984, guid: 3fcc7629044aea84abd4c1cb355c741a, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -319,12 +319,4 @@ MonoBehaviour:
     IsDex: 0
     IsInt: 0
     BalancePoints: 1
-  - TargetType: 20
-    ActorStatName: 62
-    SkillStatName: 0
-    Slots: 
-    IsStr: 0
-    IsDex: 0
-    IsInt: 0
-    BalancePoints: -0.5
   SkillUpgrade: []

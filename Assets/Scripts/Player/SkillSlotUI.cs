@@ -39,7 +39,7 @@ public class SkillSlotUI : MonoBehaviour
             _cooldownFx.enabled = !_skill.IsActive && _skill.Stats.Rate.Value > 0;
             _cooldownFx.fillAmount = 1f - _skill.CooldownPercent;
 
-            float targetSize = _skill.IsActive ? 1.25f : 1f;
+            float targetSize = _skill.IsActive ? 1.25f : _skill.CooldownPercent.RemapPercent(0.9f, 1f);
             float lerpSize = _icon.transform.localScale.x.Lerp(targetSize, 12f * Time.deltaTime);
             _icon.transform.localScale = Vector3.one * lerpSize;
         }

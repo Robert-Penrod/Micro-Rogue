@@ -35,11 +35,14 @@ public class MainMenu : MonoBehaviour
                 ActorSkillSystem.ClearAllSavedSkills();
             }
 
+            /*
+            // Skip to shop
             if (PlayerManager.I.PlayerList.Count > 0)
             {
                 _thisMenu.SetOpen(false);
                 _shopMenu.SetOpen(true);
             }
+            */
         }
     }
 }

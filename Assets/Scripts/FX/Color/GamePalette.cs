@@ -13,26 +13,47 @@ public class GamePalette : ScriptableObject
     public Color DexColor;
     public Color IntColor;
 
-    public Color GetSkillColor(Skill skill) => GetArchetypeColor(skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int);
-    public Color GetActorSkillColor(Skill skill) => GetActorSkillColor(skill.Actor, skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int);
-    public Color GetActorSkillColor(Actor actor, int str = 1, int dex = 1, int intel = 1)
+    public static Color LerpTowardsPassive(Color c, Actor actor)
     {
+        var actorSpriteColor = actor._spriteRend.color;
+        return c.Lerp(actorSpriteColor, 0.25f);
+    }
+
+    public Color GetSkillColor(Skill skill) => GetArchetypeColor(skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int);
+    public Color GetActorSkillColor(Skill skill)
+    {
+        var actor = skill.Actor;
+
         Color individualPlayerColor = EnemyColor; // Player vs enemy color
         if (actor != null)
         {
             if (actor.IsPlayer())
             {
-                individualPlayerColor = actor.GetComponentInParent<Player>().Data.Color;
-                individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0f);
+                var player = actor.GetComponentInParent<Player>();
+                if (player != null)
+                {
+                    individualPlayerColor = player.Data.Color;
+                    individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0f);
+                }
+                else
+                {
+                    individualPlayerColor = actor._spriteRend.color;
+                }
             }
             else if (actor.Faction == Actor.FactionType.Player)
             {
                 individualPlayerColor = PlayerColor;
             }
         }
-        Color archetypeColor = GetArchetypeColor(str, dex, intel).SetValue(1f);
+        Color archetypeColor = GetArchetypeColor(skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int).SetValue(1f);
 
         Color color = Color.Lerp(individualPlayerColor, archetypeColor, 0.25f); // 0.25f
+
+        if(skill.Slot == Skill.SlotEnum.Passive)
+        {
+            color = LerpTowardsPassive(color, actor);
+        }
+
         return color;
     }
 

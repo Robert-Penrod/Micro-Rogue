@@ -113,6 +113,10 @@ PrefabInstance:
       value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
+      propertyPath: IsUsableByNPCs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137615544348969934, guid: 0fdc7592209829e42aa3f9adca961431, type: 3}
       propertyPath: Mods.Array.size
       value: 0
       objectReference: {fileID: 0}

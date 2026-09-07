@@ -533,7 +533,7 @@ MonoBehaviour:
   _knockbackMult: 1
   _launchMult: 1
   _angularVelMult: 0
-  _hitsWalls: 1
+  _hitsWalls: 0
   _wallSlowLerp: 0.5
   _hitParticles: {fileID: 7850725256528138724, guid: bf8e70d1b41a7f64c9e5820cc01c1d4f, type: 3}
   _spawnOnHit: {fileID: 0}

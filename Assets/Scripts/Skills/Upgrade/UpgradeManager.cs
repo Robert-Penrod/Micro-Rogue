@@ -81,13 +81,17 @@ public class UpgradeManager : Singleton<UpgradeManager>
         var skillSystem = actorToUpgrade.SkillSystem;
         var actorSkillList = skillSystem.SkillList;
 
-        //Debug.Log("Skill Count: " + actorSkillList.Count);
-        //Debug.Log("\\/==\\/==\\/");
+        int maxSkillCount = 3;
+        if (DungeonManager.I?.Data == null) maxSkillCount = 1000;
+        else maxSkillCount += (DungeonManager.I.Data.Coordinate.y / 5);
 
         // INNATE SKILL UPGRADES
         actorToUpgrade.InnateSkillList.ForEach(newSkill =>
         {
             // FILTERS
+            //
+            // NPC Max Skill Count
+            if (!isPlayer && (actorToUpgrade.SkillSystem.SkillList.Count - actorToUpgrade.StartingSkillCount) >= maxSkillCount) return;
             //
             // If Player skill must be unlocked
             var unlockedSkillList = Player.PlayerData.GetUnlockedSkillList();
@@ -113,26 +117,32 @@ public class UpgradeManager : Singleton<UpgradeManager>
             }
             // Blacklist check
             if (newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
-            if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
+            //if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
+            if (newSkill.Slot == Skill.SlotEnum.Item) return;
 
-            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), 1000f);
+            weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), newSkillMult);
         });
 
         // NEW SKILL UPGRADES
-        BaseSkillList.ForEach(newSkill =>
+        if (isPlayer || actorToUpgrade.InnateSkillList.Count == 0)
         {
+            BaseSkillList.ForEach(newSkill =>
+            {
             // FILTERS
             //
-            // If npc skill must be used by npcs
-            if (!isPlayer && !newSkill.IsUsedByNPCs) return;
+            // NPC Max Skill Count
+            if (!isPlayer && (actorToUpgrade.SkillSystem.SkillList.Count - actorToUpgrade.StartingSkillCount) >= maxSkillCount) return;
+            //
+            // If npc, skill must be usable by npcs
+            if (!isPlayer && !newSkill.IsUsableByNPCs) return;
             //
             // If Player skill must be unlocked
             var unlockedSkillList = Player.PlayerData.GetUnlockedSkillList();
-            if (actorToUpgrade.IsPlayer() && !unlockedSkillList.Contains(newSkill.name) && !unlockedSkillList.Contains("all")) return;
+                if (actorToUpgrade.IsPlayer() && !unlockedSkillList.Contains(newSkill.name) && !unlockedSkillList.Contains("all")) return;
             //
             // If no damage skills -> new skill must do damage
             bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
-            if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
+                if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
             //
             // Actor cannot already have skill
             if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;
@@ -142,41 +152,44 @@ public class UpgradeManager : Singleton<UpgradeManager>
             //
             // Slotsfull check
             if (isPlayer)
-            {
+                {
                 // -active
                 if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.SkillSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
                 // -passive
                 if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= Player.CampUpgradeData.PassiveSlotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
-            }
+                }
             // Blacklist check
-            if(newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
-            if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
+            if (newSkill.Tags.GetTagList().FindAll(tag => actorToUpgrade.BlacklistedTags.Contains(tag)).Count > 0) return;
+            //if (actorToUpgrade.IsPlayer() && newSkill.Slot == Skill.SlotEnum.Item) return;
+            if (newSkill.Slot == Skill.SlotEnum.Item) return;
 
             // Weight
             float weightMult = 1f / 3f;// newSkill weight
-            weightMult *= actorToUpgrade.NewSkillAffinity;
-            float weight = Constants.RarityToWeight(newSkill.Rarity) * weightMult;
+            weightMult *= 0.2f;
+                weightMult *= actorToUpgrade.NewSkillAffinity;
+                float weight = Constants.RarityToWeight(newSkill.Rarity) * weightMult;
 
             // Rarity Flip
             if (minRarity > 0)
-            {
-                weight = weight.Remap(0f, 1f, minRarity, 1f);
-            }
+                {
+                    weight = weight.Remap(0f, 1f, minRarity, 1f);
+                }
 
-            weightMult *= newSkillMult;
+                weightMult *= newSkillMult;
 
             // Tag Weight
             weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags, tagAffinityMult);
-            if(newSkill.Tags.GetTagList().Count == 0)
-            {
-                weight *= 2f;
-            }
+                if (newSkill.Tags.GetTagList().Count == 0)
+                {
+                    weight *= 2f;
+                }
 
             //Debug.Log(newSkill.Name + " : " + weight);
 
             // Add
             weightedUpgradeList.Add(new NewSkillUpgrade(newSkill, actorToUpgrade), weight);
-        });
+            });
+        }
 
         // SKILL UPGRADES
         actorSkillList.ForEach(actorSkill =>

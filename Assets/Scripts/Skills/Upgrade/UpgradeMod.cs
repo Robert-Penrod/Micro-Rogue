@@ -32,6 +32,81 @@ public class UpgradeMod
     public bool IsInt;
     #endregion
 
+    public static void ApplyModList(List<UpgradeMod> modList, SkillInstance skillInstance) => ApplyModList(modList, skillInstance.Skill, skillInstance);
+    public static void ApplyModList(List<UpgradeMod> modList, Skill sourceSkill, SkillInstance sourceSkillInstance = null)
+    {
+        object source = sourceSkillInstance;
+        if (source == null) source = sourceSkill;
+
+        foreach (var upgradeMod in modList)
+        {
+            if (upgradeMod.TargetType == UpgradeTargetType.ActorStat)
+            {
+                var actorStats = sourceSkill.Actor.Stats;
+                var stat = actorStats.GetStat(upgradeMod.ActorStatName);
+                string effectTag = sourceSkill.Name + " - " + upgradeMod.ActorStatName.ToString();
+                stat.RemoveAllModifiersWithTag(effectTag);
+                var mod = upgradeMod.GetModifier();
+                mod.Tags.Add(source.ToString());
+                mod.Source = source;
+                mod.IsStackable = true;
+                stat.AddModifier(mod);
+            }
+            else if (upgradeMod.TargetType == UpgradeTargetType.GlobalSkillStat)
+            {
+                foreach (var skill in sourceSkill.Actor.SkillSystem.SkillList)
+                {
+                    Debug.Log($"Appling {sourceSkill.Name} upgrade to {skill.Name}");
+                    if (skill == sourceSkill)
+                    {
+                        continue;
+                    }
+                    if (!upgradeMod.IsSkillValid(skill)) continue;
+
+                    var stat = skill.Stats.GetSkillStat(upgradeMod.SkillStatName);
+                    var mod = upgradeMod.GetModifier();
+                    string effectTag = sourceSkill.Name;
+                    mod.Tags.Add(source.ToString());
+                    mod.Source = source;
+                    mod.IsStackable = true;
+                    stat.AddModifier(mod);
+
+                    Debug.Log("Doing global stat mod ");
+                    Debug.Log(upgradeMod.SkillStatName.ToString());
+                    Debug.Log(mod.Value);
+                }
+            }
+        }
+    }
+
+    public static void RemoveModList(List<UpgradeMod> modList, SkillInstance sourceSkillInstance) => RemoveModList(modList, sourceSkillInstance.Skill, sourceSkillInstance);
+    public static void RemoveModList(List<UpgradeMod> modList, Skill sourceSkill, SkillInstance sourceSkillInstance = null)
+    {
+        object source = sourceSkillInstance;
+        if (source == null) source = sourceSkill;
+
+        foreach (var upgradeMod in modList)
+        {
+            if (upgradeMod.TargetType == UpgradeTargetType.ActorStat)
+            {
+                modList.ForEach(mod => {
+                    var actorStat = sourceSkillInstance.Skill.Actor.Stats.GetStat(mod.ActorStatName);
+                    actorStat.RemoveAllModifiersFromSource(source);
+                });
+            }
+            else if (upgradeMod.TargetType == UpgradeTargetType.GlobalSkillStat)
+            {
+                foreach (var skill in sourceSkillInstance.Skill.Actor.SkillSystem.SkillList)
+                {
+                    modList.ForEach(mod => {
+                        var skillStat = skill.Stats.GetSkillStat(mod.SkillStatName);
+                        skillStat.RemoveAllModifiersFromSource(source);
+                    });
+                }
+            }
+        }
+    }
+
     [BoxGroup("Mod")]
     public float BalancePoints;
 
@@ -45,6 +120,9 @@ public class UpgradeMod
         if (IsStr && skill.Stats.Str == 0) return false;
         if (IsDex && skill.Stats.Dex == 0) return false;
         if (IsInt && skill.Stats.Int == 0) return false;
+        if (SkillStatName == SkillStats.SkillStatTypes.Pyro && (skill.Stats.Frost.BaseValue > 0 || skill.Stats.Static.BaseValue > 0)) return false;
+        if (SkillStatName == SkillStats.SkillStatTypes.Frost && (skill.Stats.Pyro.BaseValue > 0 || skill.Stats.Static.BaseValue > 0)) return false;
+        if (SkillStatName == SkillStats.SkillStatTypes.Static && (skill.Stats.Pyro.BaseValue > 0 || skill.Stats.Frost.BaseValue > 0)) return false;
         return true;
     }
 
@@ -82,7 +160,12 @@ public class UpgradeMod
         statName += skillUpgradeMod.SkillStatName.ToString();
 
         var statMod = skillUpgradeMod.GetModifier();
-        if (actor == null) return (statName + ": ").Color(Constants.Colors.LabelColorHex) + statMod.ToString();
+        if (actor == null)
+        {
+            if (description.Length > 0) description += "\n";
+            description += (statName + ": ").Color(Constants.Colors.LabelColorHex) + statMod.ToString();
+            return description;
+        }
 
         float positiveDir = 1f;
         string unit = "%";
@@ -196,11 +279,16 @@ public class UpgradeMod
 
     public StatModifier GetModifier()
     {
+        int tagFilterCount = 0;
+        if (IsStr) tagFilterCount++;
+        if (IsDex) tagFilterCount++;
+        if (IsInt) tagFilterCount++;
+
         return TargetType switch
         {
             UpgradeTargetType.ActorStat => BalancePoints.BPToStatMod(ActorStatName),
             UpgradeTargetType.SkillStat => BalancePoints.BPToStatMod(SkillStatName),
-            UpgradeTargetType.GlobalSkillStat => BalancePoints.BPToStatMod(SkillStatName),
+            UpgradeTargetType.GlobalSkillStat => BalancePoints.BPToStatMod(SkillStatName, true, tagFilterCount),
             _ => null
         };
     }

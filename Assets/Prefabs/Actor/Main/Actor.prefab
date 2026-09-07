@@ -10300,7 +10300,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4591248268662380825, guid: d0db1112cefe5dd4abd3051c9d2aba6b, type: 3}
-  m_Color: {r: 0.95, g: 0.8903922, b: 0.5998039, a: 0.7490196}
+  m_Color: {r: 0.95, g: 0.8903922, b: 0.5998039, a: 0}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -16339,7 +16339,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 3
-        scalar: 2
+        scalar: 1
         minScalar: 1
         maxCurve:
           serializedVersion: 2
@@ -25808,7 +25808,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4591248268662380825, guid: d0db1112cefe5dd4abd3051c9d2aba6b, type: 3}
-  m_Color: {r: 1, g: 0.93833333, b: 0.63, a: 0.7490196}
+  m_Color: {r: 1, g: 0.93833333, b: 0.63, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -31172,6 +31172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lvl: 0
+  StartingSkillCount: 0
   _skillSystem: {fileID: 2582964353104462975}
   RarityMult: 1
   Difficulty: 1

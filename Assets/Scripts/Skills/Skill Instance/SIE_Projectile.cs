@@ -25,7 +25,7 @@ public class SIE_Projectile : SIE, IPoolable
 
     // Stats
     float _speed => _skillInstance.Skill.Stats.Speed.Value;
-    float _hitboxDelay => _skillInstance.Skill.Stats.HitboxDelay;
+    float _hitboxDelay => Constants.SkillStats.HitboxDelay;
     float _knockback => _knockbackMult * _skillInstance.Skill.Stats.Knockback.Value;
     float _pierce => _skillInstance.Skill.Stats.Pierce.Value;
     int _damage => (int)_skillInstance.Skill.Stats.Damage.Value;
@@ -176,7 +176,7 @@ public class SIE_Projectile : SIE, IPoolable
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
         int damageDone = 0;
         bool didDodge = false;
-        float pierceMult = _skillInstance.ActivePercent < 0.02f? 0f : 1f;
+        float startupPierceMult = _skillInstance.ActivePercent < 0.02f? 0f : 1f;
 
         // References
         var hitActor = col.GetComponentInParent<Actor>();
@@ -185,6 +185,12 @@ public class SIE_Projectile : SIE, IPoolable
 
         // Disable [Projectile <-> SkillInstance] Collisions
         if (skillInstance) return;
+
+        if (!_attached && _hitsWalls && !hitActor && !col.isTrigger)
+        {
+            _pierceCount += 0.5f;
+            if (startupPierceMult > 0f) SlowProjectile(_wallSlowLerp);
+        }
 
         // Hitbox Delay Check
         if (!PassesHitboxDelay(col)) { return; }
@@ -196,16 +202,15 @@ public class SIE_Projectile : SIE, IPoolable
             _colDict.Add(c, Time.time);
             return true;
         }
-        //.
 
         // Hit Wall
         if (_hitsWalls && !hitActor && !col.isTrigger)
         {
             // Pierce
-            _pierceCount += pierceMult * 0.5f;
-            if(pierceMult > 0f) SlowProjectile(_wallSlowLerp);
+            _pierceCount += startupPierceMult * 0.5f;
+            if(startupPierceMult > 0f) SlowProjectile(_wallSlowLerp);
 
-            HandleParticles(particlePoint, particleVel, 0.5f);
+            //HandleParticles(particlePoint, particleVel, 0.5f);
 
             // Audio
             PlayAudio(_wallHitClip, 0.25f);
@@ -225,7 +230,7 @@ public class SIE_Projectile : SIE, IPoolable
             if (!didDodge)
             {
                 // Pierce
-                _pierceCount += 1f * pierceMult;
+                _pierceCount += 1f;// * pierceMult;
                 SlowProjectile();
             }            
 
@@ -274,10 +279,10 @@ public class SIE_Projectile : SIE, IPoolable
             Vector2 knockbackForce = knockbackVel * _knockback;
             if(hitActor != null)
             {
-                hitActor.MoveController.ApplyKnockback(_knockback);
+                hitActor.MoveController.ApplyKnockback(0.75f * _knockback);
             }
             //hitBody.AddDecayForce(knockbackForce, _knockback);
-            hitBody.AddForce(5f * knockbackForce, ForceMode2D.Impulse);
+            hitBody.AddForce(7.5f * knockbackForce, ForceMode2D.Impulse); // 5f
 
             // Screen Shake
             float screenShakeMult = 1f;
@@ -292,7 +297,11 @@ public class SIE_Projectile : SIE, IPoolable
         }
 
         // Pierce end condition
-        if (_pierce >= 0 && _pierceCount >= _pierce) _skillInstance.State = SkillInstance.SkillInstanceState.End;
+        float fractionalPierce = _pierce - (int)_pierce;
+        float roll = Random.value;
+        float finalPierceCheck = (int)_pierce + ((roll < fractionalPierce) ? 1 : 0);
+        if(_pierceCount > 0) Debug.Log($"FractionalPierce: {roll} < {fractionalPierce}? -> {_pierceCount} / {finalPierceCheck}");
+        if (_pierce >= 0 && _pierceCount > 0 && _pierceCount >= finalPierceCheck) _skillInstance.State = SkillInstance.SkillInstanceState.End;
     }
 
     void HandleParticles(Vector2 hitPos, Vector2 hitVel, float mult = 1f)

@@ -785,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Tags._entries.Array.size
@@ -809,7 +809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1]._name
-      value: Empower
+      value: Punch
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[2]._name
@@ -825,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1].Rarity
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[2].Rarity
@@ -973,19 +973,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
-      value: 0.8
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].SkillStatName
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].BalancePoints
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].SkillStatName
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: UpgradeList.Array.data[1].ModList.Array.data[2].BalancePoints
@@ -1080,7 +1080,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5368175303707748817, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8766583195849596463}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4685428554802942002, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8183646292725406970}
   m_SourcePrefab: {fileID: 100100000, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
 --- !u!4 &1179565506992293365 stripped
 Transform:
@@ -1092,12 +1095,44 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5368175303707748817, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
   m_PrefabInstance: {fileID: 1964648516546672371}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6504931897469265601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4685428554802942002, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+  m_PrefabInstance: {fileID: 1964648516546672371}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8183646292725406970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504931897469265601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d00622761f9131439caa252e0ce2068, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsConstant: 1
+  Mods: []
+  SkillUpgrade:
+  - _name: Base
+    Rarity: 0
+    SourceSkill: {fileID: 8340235622040579611}
+    ModList:
+    - TargetType: 10
+      ActorStatName: 0
+      SkillStatName: 11
+      Slots: 
+      IsStr: 0
+      IsDex: 0
+      IsInt: 0
+      BalancePoints: 1.5
 --- !u!114 &8340235622040579611 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
   m_PrefabInstance: {fileID: 1964648516546672371}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6504931897469265601}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
