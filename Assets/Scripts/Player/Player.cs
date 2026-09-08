@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
                 OnCampDataChange?.Invoke();
             }
         }
-        public static int ItemSlotCount => 1 + ItemSlotUpgradeCount;
+        public static int ItemSlotCount => 0;// 1 + ItemSlotUpgradeCount;
 
         public static int LootLevel
         {

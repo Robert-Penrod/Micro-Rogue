@@ -1,0 +1,432 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1935572156571766587
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[1].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].BalancePoints
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[0].SkillStatName
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[1].BalancePoints
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Mods.Array.data[1].SkillStatName
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0]._name
+      value: Base
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].SourceSkill
+      value: 
+      objectReference: {fileID: 8215274306946818650}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[1].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[2].TargetType
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[1].ModList.Array.data[0].TargetType
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].ActorStatName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[0].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].ActorStatName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].BalancePoints
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[1].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[2].ActorStatName
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[0].ModList.Array.data[2].BalancePoints
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[1].ModList.Array.data[0].ActorStatName
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -2779126392784580571, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: SkillUpgrade.Array.data[1].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 810327302934120079, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524106219733684751, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: FreqMax
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524106219733684751, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: FreqMin
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3066082330200026444, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Magnitude
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1617790264133872437, guid: 2cf44750cab9e0e40b95e8f5d7fd0f04, type: 3}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.5625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371757295168160519, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694542943303198139, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_Name
+      value: Forge Hammer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349253281219494832, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Amp
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349253281219494832, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Freq
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349253281219494832, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Rotation.Amp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358218551354285144, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6626554220356991862, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Icon
+      value: 
+      objectReference: {fileID: -1617790264133872437, guid: 2cf44750cab9e0e40b95e8f5d7fd0f04, type: 3}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Stats.Dex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Stats.Int
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Stats.Str
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Description
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Stats.Rate.BaseValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Tags._entries.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Tags._entries.Array.data[0].tag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Tags._entries.Array.data[1].tag
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0]._name
+      value: Refine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1]._name
+      value: Fist
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2]._name
+      value: Power
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].Rarity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].Rarity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2].Rarity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Tags._entries.Array.data[0].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: Tags._entries.Array.data[1].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].SourceSkill
+      value: 
+      objectReference: {fileID: 8215274306946818650}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].SourceSkill
+      value: 
+      objectReference: {fileID: 8215274306946818650}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2].SourceSkill
+      value: 
+      objectReference: {fileID: 8215274306946818650}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[2].TargetType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].TargetType
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].ActorStatName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].BalancePoints
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].SkillStatName
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[2].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[2].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].ActorStatName
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].BalancePoints
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].SkillStatName
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].BalancePoints
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228457815856408652, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 8927279401902535142, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+    - {fileID: 7337924696066911889, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+--- !u!114 &8215274306946818650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7556491430922661217, guid: 37ac98fcf756da247b1e10bf98426ae8, type: 3}
+  m_PrefabInstance: {fileID: 1935572156571766587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
