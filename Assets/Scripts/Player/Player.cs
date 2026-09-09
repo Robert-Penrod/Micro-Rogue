@@ -15,12 +15,12 @@ public class Player : MonoBehaviour
         {
             get
             {
-                return PlayerPrefs.GetInt($"{Index}_Gold", 0);
+                return _gold;// PlayerPrefs.GetInt($"{Index}_Gold", 0);
                 //return _coin;
             }
             set
             {
-                PlayerPrefs.SetInt($"{Index}_Gold", value);
+                //PlayerPrefs.SetInt($"{Index}_Gold", value);
                 _gold = value;
                 OnCoinChange?.Invoke();
             }

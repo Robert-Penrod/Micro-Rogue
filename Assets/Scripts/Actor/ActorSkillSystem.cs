@@ -28,6 +28,7 @@ public class ActorSkillSystem : MonoBehaviour
     private void Start()
     {
         // Load Player Skills
+        /*
         if (_actor.IsPlayer())
         {
             var isRestarting = PlayerPrefs.GetInt("Restarting", 0) > 0;
@@ -46,6 +47,7 @@ public class ActorSkillSystem : MonoBehaviour
                 }
             }
         }
+        */
     }
 
     public bool HasSkill(Skill skillToCheck)

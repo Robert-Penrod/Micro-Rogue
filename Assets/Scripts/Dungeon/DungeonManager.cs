@@ -441,6 +441,11 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void StartGame()
     {
+        if(PlayerManager.I.PlayerList.Count == 0)
+        {
+            PlayerManager.I.JoinPlayerByLastInputDevice();
+        }
+
         Debug.Log("Starting Game?");
         IsRunStarted = true;
 

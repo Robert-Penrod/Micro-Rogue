@@ -76,14 +76,14 @@ public class MusicManager : MonoBehaviour
             avgHealthPercent /= PlayerManager.I.PlayerList.Count;
 
             combatPitch = avgHealthPercent.Remap(0.25f, 0.5f, 1.1f, 1f);
-            combatPitch *= avgHealthPercent.Remap(0f, 0.25f, 1.4f, 1f);
+            combatPitch *= avgHealthPercent.Remap(0f, 0.25f, 1.1f, 1f);
             if (avgHealthPercent <= 0f)
             {
                 combatPitch = 0.25f;
             }
         }
         _bossMusic.Pitch.Target = _combatMusic.Pitch.Target = _eliteMusic.Pitch.Target = combatPitch;
-        _upgradeMusic.Pitch.Target = UpgradeManager.I.IsUpgrading ? 0.975f :( DungeonManager.I.IsEncounterOver ? 0.9675f : 1.1f);
+        //_upgradeMusic.Pitch.Target = UpgradeManager.I.IsUpgrading ? 0.975f :( DungeonManager.I.IsEncounterOver ? 0.9675f : 1.1f);
         _upgradeMusic.Pitch.LerpMult = 1.5f;
         _gameOverMusic.Pitch.Target = allPlayersDead ? 0.9f : 1.15f;
 
@@ -100,7 +100,7 @@ public class MusicManager : MonoBehaviour
         // Hub
         else if(DungeonManager.I.Data.Coordinate.y == 0)
         {
-            PlayAudio(_hubMusic);
+            PlayAudio(_upgradeMusic);
         }
         // Combat
         else
