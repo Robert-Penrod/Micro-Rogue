@@ -85,6 +85,8 @@ public class UpgradeManager : Singleton<UpgradeManager>
         if (DungeonManager.I?.Data == null) maxSkillCount = 1000;
         else maxSkillCount += (DungeonManager.I.Data.Coordinate.y / 5);
 
+        bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
+
         // INNATE SKILL UPGRADES
         actorToUpgrade.InnateSkillList.ForEach(newSkill =>
         {
@@ -111,7 +113,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (isPlayer)
             {
                 // -active
-                if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.SkillSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
+                if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.MainSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
                 // -passive
                 if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= Player.CampUpgradeData.PassiveSlotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
             }
@@ -141,8 +143,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
                 if (actorToUpgrade.IsPlayer() && !unlockedSkillList.Contains(newSkill.name) && !unlockedSkillList.Contains("all")) return;
             //
             // If no damage skills -> new skill must do damage
-            bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
-                if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
+            if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
             //
             // Actor cannot already have skill
             if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;
@@ -154,7 +155,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (isPlayer)
                 {
                 // -active
-                if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.SkillSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
+                if (actorToUpgrade.SkillSystem.ActiveSkillList.Count >= Player.CampUpgradeData.MainSlotCount && (newSkill.Slot == Skill.SlotEnum.Main || newSkill.Slot == Skill.SlotEnum.Offhand)) return;
                 // -passive
                 if (actorToUpgrade.SkillSystem.PassiveSkillList.Count >= Player.CampUpgradeData.PassiveSlotCount && newSkill.Slot == Skill.SlotEnum.Passive) return;
                 }
@@ -192,24 +193,27 @@ public class UpgradeManager : Singleton<UpgradeManager>
         }
 
         // SKILL UPGRADES
-        actorSkillList.ForEach(actorSkill =>
+        if (hasDamageSkill)
         {
+            actorSkillList.ForEach(actorSkill =>
+            {
             // Skill Upgrade list
             var skillUpgradeList = actorSkill.GetUpgradeListClone();
 
             // Skill Upgrades Loop
-            for(int i = 0; i < skillUpgradeList.Entries.Count; i++)
-            {
+            for (int i = 0; i < skillUpgradeList.Entries.Count; i++)
+                {
                 // Rarity Flip
                 if (minRarity > 0) skillUpgradeList.Entries[i].Weight = skillUpgradeList.Entries[i].Weight.Remap(0f, 1f, minRarity, 1f);
 
                 // Tag Weight
                 skillUpgradeList.Entries[i].Weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(skillUpgradeList.Entries[i].Item.SourceSkill.Tags, tagAffinityMult * 0.5f);
-            }
+                }
 
             // Add
             weightedUpgradeList.AddRange(skillUpgradeList);
-        });
+            });
+        }
 
         // RETURN
         return weightedUpgradeList;

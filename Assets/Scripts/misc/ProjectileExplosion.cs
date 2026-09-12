@@ -103,7 +103,10 @@ public class ProjectileExplosion : SkillPart, IPoolable
         {
             if (!SourceSkill.Actor.IsEnemyOf(hitActor)) return;
 
-            int damageTaken = hitActor.TakeDamage((int)(_damageMult * SourceSkill.Stats.CalculateDamageValue()), _skillInstance, null);
+            float damage = _damageMult * SourceSkill.Stats.CalculateDamageValue();
+            bool didCrit = _skillInstance.Skill.Stats.RollForCrit();
+            if (didCrit) damage *= 1.5f;
+            int damageTaken = hitActor.TakeDamage((int)damage, _skillInstance, null, isCrit: didCrit);
 
             if (damageTaken == 0) return;
 

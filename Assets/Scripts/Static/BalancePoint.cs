@@ -15,6 +15,7 @@ public static class BalancePoint
     public static float BP_Skill_Count = 1f * BP_PercentDPSGain;
     public static float BP_Skill_Pierce = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Lunge = 2f * BP_PercentDPSGain;
+    public static float BP_Skill_CritChance = 0.2f;
 
     public static float BP_Skill_Pyro = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Frost = 2f * BP_PercentDPSGain;
@@ -92,6 +93,7 @@ public static class BalancePoint
             SkillStats.SkillStatTypes.Pyro => BP_Skill_Pyro,
             SkillStats.SkillStatTypes.Frost => BP_Skill_Frost,
             SkillStats.SkillStatTypes.Static => BP_Skill_Static,
+            SkillStats.SkillStatTypes.CritChance => BP_Skill_CritChance,
             //SkillStats.SkillStatTypes.Potency => BP_Skill_Damage,
 
             _ => 1f

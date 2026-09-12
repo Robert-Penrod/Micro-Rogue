@@ -22,7 +22,16 @@ public class DungeonFog : MonoBehaviour
             //_spriteRend.enabled = DungeonManager.I.Data.Coordinate.y > 0;
             Random.InitState(DungeonManager.I.Data.GetSeed());
             _dungeonScaleMult = Random.Range(0.8f, 1f);
+            if (DungeonManager.I.Data.Coordinate.y == 0)
+            {
+                _dungeonScaleMult = 2f;
+            }
         };
+
+        if (DungeonManager.I.Data.Coordinate.y == 0)
+        {
+            _dungeonScaleMult = 2f;
+        }
     }
 
     private void Update()

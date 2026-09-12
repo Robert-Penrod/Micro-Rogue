@@ -130,6 +130,7 @@ public class SE_StatMod : SkillEffect
 
     void SpawnIcon()
     {
+        /*
         Sprite icon = _skill.Icon;
         GameObject iconObject = new GameObject();
         SpriteRenderer spriteRend = iconObject.AddComponent<SpriteRenderer>();
@@ -146,6 +147,7 @@ public class SE_StatMod : SkillEffect
 
         rb.linearVelocity = parentBody.linearVelocity;
         rb.AddForce(Vector2.up * 5f, ForceMode2D.Impulse);
+        */
 
         /*
         SpriteFadeDestroyer fadeDestroyer = iconObject.AddComponent<SpriteFadeDestroyer>();

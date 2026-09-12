@@ -31,7 +31,7 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
     public void JoinPlayerByLastInputDevice()
     {
         Debug.Log("LAST INPUT JOIN");
-       _playerInputManager.JoinPlayer(pairWithDevice: LastInputDevice);
+        _playerInputManager.JoinPlayer();// pairWithDevice: LastInputDevice);
     }
 
     public void GatherPlayersInValidSpace(float size = 1.5f)

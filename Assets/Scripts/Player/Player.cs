@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         }
         static string GetUnlockedSkillString()
         {
-            return PlayerPrefs.GetString("UnlockedSkills", "all, Sword, Dagger, Fireball, Vitality, Helmet, Swift Boots, Growth Tome, Fruit, Steak, Fairy In a Bottle, Coffee, Compass, Map, Coinpurse");
+            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Bow, Fireball, Vitality");
         }
     }
     public PlayerData Data;
@@ -66,47 +66,29 @@ public class Player : MonoBehaviour
 
         static int _startingSlotCount = (DemoManager.I?.IsDemo ?? false) ? 1 : 0;
 
-        public static int SkillSlotLevel
+        public static int MainSlotCount
         {
             get
             {
-                return PlayerPrefs.GetInt("SkillSlotUpgradeCount", _startingSlotCount);
+                return PlayerPrefs.GetInt("MainSlot", 1);
             }
             set
             {
-                PlayerPrefs.SetInt("SkillSlotUpgradeCount", value);
-                OnCampDataChange?.Invoke();
+                PlayerPrefs.SetInt("MainSlot", value);
             }
         }
-        public static int SkillSlotCount => 1 + SkillSlotLevel;
 
-        public static int PassiveSlotUpgradeCount
+        public static int PassiveSlotCount
         {
             get
             {
-                return PlayerPrefs.GetInt("PassiveSlotUpgradeCount", _startingSlotCount);
+                return PlayerPrefs.GetInt("PassiveSlot", 1);
             }
             set
             {
-                PlayerPrefs.SetInt("PassiveSlotUpgradeCount", value);
-                OnCampDataChange?.Invoke();
+                PlayerPrefs.SetInt("PassiveSlot", value);
             }
         }
-        public static int PassiveSlotCount => 1 + PassiveSlotUpgradeCount;
-
-        public static int ItemSlotUpgradeCount
-        {
-            get
-            {
-                return PlayerPrefs.GetInt("ItemSlotUpgradeCount", _startingSlotCount);
-            }
-            set
-            {
-                PlayerPrefs.SetInt("ItemSlotUpgradeCount", value);
-                OnCampDataChange?.Invoke();
-            }
-        }
-        public static int ItemSlotCount => 0;// 1 + ItemSlotUpgradeCount;
 
         public static int LootLevel
         {

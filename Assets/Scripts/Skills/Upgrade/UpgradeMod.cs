@@ -157,7 +157,7 @@ public class UpgradeMod
         if (IsDex) statName += "Dex ";
         if (IsInt) statName += "Int ";
         //
-        statName += skillUpgradeMod.SkillStatName.ToString();
+        statName += sourceSkill.Stats.GetSkillStat(skillUpgradeMod.SkillStatName).Name; ;
 
         var statMod = skillUpgradeMod.GetModifier();
         if (actor == null)

@@ -106,6 +106,7 @@ public class ShopMenu : MonoBehaviour
     {
         var item = GetButtonItem(button);
 
+        /*
         bool itemSlotsRemain = false;
         foreach(var player in PlayerManager.I.PlayerList)
         {
@@ -115,8 +116,9 @@ public class ShopMenu : MonoBehaviour
                 break;
             }
         }
+        */
 
-        if(_buyButton != null) _buyButton.SetInteractable(item != null && Player.PlayerData.Gems >= item.GemCost && itemSlotsRemain);
+        //if(_buyButton != null) _buyButton.SetInteractable(item != null && Player.PlayerData.Gems >= item.GemCost && itemSlotsRemain);
 
         if (button == null || item == null)
         {

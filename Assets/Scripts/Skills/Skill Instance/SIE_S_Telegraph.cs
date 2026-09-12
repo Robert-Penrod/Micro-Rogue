@@ -82,7 +82,9 @@ public class SIE_S_Telegraph : SIE, IPoolable
         startPercentMult *= _skillInstance.Skill.Actor.FrostSlowMult;
         startPercentMult *= _skillInstance.Skill.Actor.IsParalyzed ? 0f : 1f;
         var rateStat = _skillInstance.Skill.Stats.Rate;
+        var speedStat = _skillInstance.Skill.Stats.Speed;
         startPercentMult *= rateStat.Value.Remap(rateStat.BaseValue, 2f * rateStat.BaseValue, 1f, 2f);
+        startPercentMult *= speedStat.Value.Remap(speedStat.BaseValue, 2f * speedStat.BaseValue, 1f, 2f);
         _skillInstance.StartPercent += startPercentMult * (Time.deltaTime / _telegraphTime);
 
         // Alpha

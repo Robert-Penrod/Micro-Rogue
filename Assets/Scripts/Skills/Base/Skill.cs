@@ -29,7 +29,7 @@ public class Skill : MonoBehaviour
     public Color GetColor()
     {
         if (SkillColor != Color.clear) return SkillColor;
-        return GamePaletteManager.I.Palette.GetSkillColor(this);
+        return GamePaletteManager.I?.Palette?.GetSkillColor(this) ?? Color.white;
     }
 
     [BoxGroup("Stats")]
@@ -110,6 +110,8 @@ public class Skill : MonoBehaviour
     SimpleNPCBrain _npcBrain;
     [BoxGroup("AI")]
     public bool IsUsableByNPCs = true;
+
+    public bool InstancesBlockCooldown;
 
     [SerializeField] float _dps;
 
@@ -249,6 +251,12 @@ public class Skill : MonoBehaviour
 
         // Paralysis Status
         if(Actor.IsParalyzed)
+        {
+            cooldownMult = 0f;
+        }
+
+        // Blocks self from cooldown
+        if(InstancesBlockCooldown && SkillInstances.Count > 0)
         {
             cooldownMult = 0f;
         }

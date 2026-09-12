@@ -46,7 +46,7 @@ public class GameOverMenu : SimpleMenu
                     shopRestockTick -= restockCount * 4;
                     PlayerPrefs.SetInt(shopRestockKey, shopRestockTick);
                     var shopMenu = FindFirstObjectByType<ShopMenu>();
-                    shopMenu.GenerateInventory(restockCount);
+                    //shopMenu.GenerateInventory(restockCount);
 
                     //Debug.Log($"Restock Tick {shopRestockTick}");
                     //Debug.Log($"Restock Count {restockCount}");

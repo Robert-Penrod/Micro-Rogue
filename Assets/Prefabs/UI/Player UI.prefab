@@ -959,7 +959,7 @@ PrefabInstance:
     - target: {fileID: 2060283404839990872, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8622017702517090605, guid: 43796091b42c8314da504292be5a62da, type: 3}
+      objectReference: {fileID: 5942365755469001536, guid: efb3044f7c8b39b42ab27d91b53f4c3c, type: 3}
     - target: {fileID: 5757227124714960740, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Name
       value: Slot (5)
@@ -1471,7 +1471,7 @@ PrefabInstance:
     - target: {fileID: 2060283404839990872, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8622017702517090605, guid: 43796091b42c8314da504292be5a62da, type: 3}
+      objectReference: {fileID: 5942365755469001536, guid: efb3044f7c8b39b42ab27d91b53f4c3c, type: 3}
     - target: {fileID: 5757227124714960740, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Name
       value: Slot (2)
@@ -1588,7 +1588,7 @@ PrefabInstance:
     - target: {fileID: 2060283404839990872, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8622017702517090605, guid: 43796091b42c8314da504292be5a62da, type: 3}
+      objectReference: {fileID: 5942365755469001536, guid: efb3044f7c8b39b42ab27d91b53f4c3c, type: 3}
     - target: {fileID: 5757227124714960740, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Name
       value: Slot (4)
@@ -1709,7 +1709,7 @@ PrefabInstance:
     - target: {fileID: 2060283404839990872, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8622017702517090605, guid: 43796091b42c8314da504292be5a62da, type: 3}
+      objectReference: {fileID: 5942365755469001536, guid: efb3044f7c8b39b42ab27d91b53f4c3c, type: 3}
     - target: {fileID: 5757227124714960740, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Name
       value: Slot (3)
@@ -1947,7 +1947,7 @@ PrefabInstance:
     - target: {fileID: 2060283404839990872, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8622017702517090605, guid: 43796091b42c8314da504292be5a62da, type: 3}
+      objectReference: {fileID: 5942365755469001536, guid: efb3044f7c8b39b42ab27d91b53f4c3c, type: 3}
     - target: {fileID: 5757227124714960740, guid: 4e6f26bc47d82fe479d3e033ba2d5e99, type: 3}
       propertyPath: m_Name
       value: Slot (1)

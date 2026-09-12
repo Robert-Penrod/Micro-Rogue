@@ -31234,6 +31234,8 @@ MonoBehaviour:
   _armorSound: {fileID: 8300000, guid: d3e0ac15af0d6b34f99b8a3e74f3e508, type: 3}
   _evadeSprite: {fileID: -5161173795680686134, guid: 43796091b42c8314da504292be5a62da, type: 3}
   _evadeSound: {fileID: 8300000, guid: 64cd13c6b155bb04ca6501a2d4421a08, type: 3}
+  _critObject: {fileID: 4660626129930152164, guid: 9f838cf0cceedd745a222356cdf0b429, type: 3}
+  _critSound: {fileID: 8300000, guid: 96cbbc8e2f9c811468592f6a5de66b1d, type: 3}
 --- !u!114 &7561832501155998433
 MonoBehaviour:
   m_ObjectHideFlags: 0

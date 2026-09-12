@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 [System.Serializable]
 public class SkillStats
 {
-    public enum SkillStatTypes { None = 0, Damage = 10, Elemental = 9, Pyro = 11, Frost = 12, Static = 13, RandomDamage = 15, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
+    public enum SkillStatTypes { None = 0, Damage = 10, Elemental = 9, Pyro = 11, Frost = 12, Static = 13, RandomDamage = 15, CritChance = 16, Rate = 20, Count = 30, Duration = 40, Speed = 50, Size = 60, Pierce = 70, Knockback = 80, Lunge = 90, Potency = 100}
 
     [HorizontalGroup("Stats")]
     [VerticalGroup("Stats/Left")] public int Str;
@@ -20,6 +20,7 @@ public class SkillStats
     [VerticalGroup("Stats/Right")] public Stat Frost = new("Frost");
     [VerticalGroup("Stats/Right")] public Stat Static = new("Static");
     [VerticalGroup("Stats/Right")] public Stat RandomDamage = new("Random Damage");
+    [VerticalGroup("Stats/Right")] public Stat CritChance = new("Crit Chance");
     [VerticalGroup("Stats/Right")] public Stat Rate = new("Rate", unit: "/s");
     [VerticalGroup("Stats/Right")] public Stat Count = new("Count", minVal: 0);
     [VerticalGroup("Stats/Right")] public Stat Duration = new("Duration");
@@ -45,6 +46,12 @@ public class SkillStats
         return damage;
     }
 
+    public bool RollForCrit()
+    {
+        Utils.RandomSeed();
+        return Random.value < (CritChance.Value + 0.05f);
+    }
+
     internal Stat GetSkillStat(SkillStatTypes statName)
     {
         switch (statName)
@@ -53,6 +60,8 @@ public class SkillStats
                 return Damage;
             case SkillStatTypes.RandomDamage:
                 return RandomDamage;
+            case SkillStatTypes.CritChance:
+                return CritChance;
             case SkillStatTypes.Rate:
                 return Rate;
             case SkillStatTypes.Count:
@@ -77,9 +86,9 @@ public class SkillStats
                 return Frost;
             case SkillStatTypes.Static:
                 return Static;
-            default:
             case SkillStatTypes.Elemental:
                 return Elemental;
+            default:
                 return null;
         }
     }

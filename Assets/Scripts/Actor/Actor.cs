@@ -1,3 +1,4 @@
+using ManaSprite.EasyPooling;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -77,6 +78,9 @@ public class Actor : MonoBehaviour
     [SerializeField] AudioClip _evadeSound;
 
     Color _initColor;
+
+    [SerializeField] GameObject _critObject;
+    [SerializeField] AudioClip _critSound;
 
     public int GetLevel()
     {
@@ -268,8 +272,10 @@ public class Actor : MonoBehaviour
         return heal;
     }
 
-    public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor, bool isTrueDamage = false)
+    public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor, bool isTrueDamage = false, bool isCrit = false)
     {
+        if (isCrit) isTrueDamage = true;
+
         string blockType = string.Empty;
         // Whiff
         if(damage <= 0)
@@ -419,6 +425,21 @@ public class Actor : MonoBehaviour
                 Color c = blockColor != Color.clear ? blockColor.Lerp(normalColor, 0.1f) : normalColor;
                 Vector2 vel = 0.5f * actor.Body.linearVelocity + 0.5f * Body.linearVelocity;
                 SpawnPopup(damage <= 0 ? null : -damage, blockSprite, c, vel, transform.position);
+            }
+        }
+
+        if(damage > 0 && isCrit)
+        {
+            Vector3 pos = sourceSkillInstance.transform.position;
+            AudioSpawner.PlayAudioWithRandPitch(_critSound, 0.2f, 1f, 1f, pos);
+            GameObject spawnedCritObj = _critObject.PooledInstantiate(pos);
+            spawnedCritObj.SetActive(true);
+
+            if (sourceSkillInstance != null)
+            {
+                var palette = GamePaletteManager.I.Palette;
+                var normalColor = GamePaletteManager.I.Palette.GetActorSkillColor(sourceSkillInstance.Skill);
+                SymbolPopup2DManager.I.CreatePopup(pos, "Crit!", null, normalColor.Lerp(Color.yellow, 0.25f), 0.5f * Vector2.up);
             }
         }
 

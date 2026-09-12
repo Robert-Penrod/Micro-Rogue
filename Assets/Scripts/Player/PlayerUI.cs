@@ -50,9 +50,9 @@ public class PlayerUI : MonoBehaviour
 
         // Skills
         var skillSystem = Player?.Actor?.SkillSystem;
-        HandleSlots(_activeSlots, Player.CampUpgradeData.SkillSlotCount, skillSystem.ActiveSkillList);
+        HandleSlots(_activeSlots, Player.CampUpgradeData.MainSlotCount, skillSystem.ActiveSkillList);
         HandleSlots(_passiveSlots, Player.CampUpgradeData.PassiveSlotCount, skillSystem.PassiveSkillList);
-        HandleSlots(_itemSlots, Player.CampUpgradeData.ItemSlotCount, skillSystem.ItemList);
+        //HandleSlots(_itemSlots, Player.CampUpgradeData.ItemSlotCount, skillSystem.ItemList);
     }
 
     void HandleSlots(List<SkillSlotUI> slotList, int slotCount = 1, List<Skill> skillList = null) 

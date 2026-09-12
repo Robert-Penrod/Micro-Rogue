@@ -40,6 +40,14 @@ public class SimpleMenu : MonoBehaviour
         if (StartOpen) SetOpen(true);
         else SetOpen(false);
         _canvasGroup.alpha = IsOpen ? 1f : 0f;
+
+        this.DelayedInvoke(-1, () =>
+        {
+            if (StartOpen && this.gameObject.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
+            }
+        });
     }
 
     protected virtual void Update()
@@ -78,7 +86,7 @@ public class SimpleMenu : MonoBehaviour
         {
             if(isOpen)
             {
-                if(_selectOnOpen != null) EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
+                if(_selectOnOpen != null && this.gameObject.activeInHierarchy) EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
             }
 
             OnOpenChanged?.Invoke(isOpen);

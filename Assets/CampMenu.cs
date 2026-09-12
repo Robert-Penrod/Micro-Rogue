@@ -72,6 +72,7 @@ public class CampMenu : MonoBehaviour
         int cost = GetCostForButtonUpgrade(button);
         Player.PlayerData.Gems -= cost;
 
+        /*
         if (button == _skillSlotBtn)
         {
             Player.CampUpgradeData.SkillSlotLevel++;
@@ -92,12 +93,14 @@ public class CampMenu : MonoBehaviour
         {
             Player.CampUpgradeData.HordeLevel++;
         }
+        */
 
         UpdateUI();
     }
 
     int GetLevelOfButton(SimpleButton button)
     {
+        /*
         if (button == _skillSlotBtn)
         {
             return Player.CampUpgradeData.SkillSlotLevel;
@@ -118,11 +121,13 @@ public class CampMenu : MonoBehaviour
         {
             return Player.CampUpgradeData.HordeLevel;
         }
+        */
         return 0;
     }
 
     int GetCostForButtonUpgrade(SimpleButton button)
     {
+        /*
         if (button == _skillSlotBtn)
         {
             return (int)Mathf.Pow(2, 4 + Player.CampUpgradeData.SkillSlotLevel);
@@ -143,6 +148,7 @@ public class CampMenu : MonoBehaviour
         {
             return (int)Mathf.Pow(2, 4 + Player.CampUpgradeData.HordeLevel);
         }
+        */
         return 0;
     }
 
@@ -193,12 +199,14 @@ public class CampMenu : MonoBehaviour
 
     void UpdateUI()
     {
+        /*
         SetButtonLevel(_skillSlotBtn, Player.CampUpgradeData.SkillSlotLevel);
         SetButtonLevel(_passiveSlotBtn, Player.CampUpgradeData.PassiveSlotUpgradeCount);
         SetButtonLevel(_itemSlotBtn, Player.CampUpgradeData.ItemSlotUpgradeCount);
         SetButtonLevel(_lootBtn, Player.CampUpgradeData.LootLevel);
         SetButtonLevel(_hordeBtn, Player.CampUpgradeData.HordeLevel);
         LoadInfoPannelForButton(GetHighlightedButton());
+        */
     }
 
     void SetButtonLevel(SimpleButton button, int level)

@@ -223,8 +223,10 @@ public class SIE_Projectile : SIE, IPoolable
 
             // Damage
             float damage = (int)(_damageMult * _skillInstance.Skill.Stats.CalculateDamageValue());
+            bool didCrit = _skillInstance.Skill.Stats.RollForCrit();
+            if (didCrit) damage *= 1.5f;
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
-            damageDone = hitActor.TakeDamage((int)damage, _skillInstance, null);
+            damageDone = hitActor.TakeDamage((int)damage, _skillInstance, null, isCrit: didCrit);
             didDodge = hitActor.MoveController.IsDodging;
 
             if (!didDodge)
