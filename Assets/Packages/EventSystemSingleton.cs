@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,15 @@ public class EventSystemSingleton : PersistantSingleton<EventSystemSingleton>
     GameObject _currentSelected;
     public GameObject _lastSelected { get; private set; }
 
+    public Action OnSelectionChange;
+
     private void Update()
     {
         _currentSelected = EventSystem.current.currentSelectedGameObject;
+        if(_currentSelected != _lastSelected && _currentSelected != null)
+        {
+            OnSelectionChange?.Invoke();
+        }
 
         
         if(_currentSelected == null && _lastSelected != null)

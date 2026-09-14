@@ -210,9 +210,11 @@ public class UpgradeMod
     public string GetActorUpgradeDescription(Actor actor, String description, UpgradeMod actorUpgradeMod)
     {
         if(actor == null) actor = UpgradeMenu.I._actorToUpgrade;
-
         var statMod = actorUpgradeMod.GetModifier();
-        if(actor == null) return (actorUpgradeMod.ActorStatName.ToString() + ": ").Color(Constants.Colors.LabelColorHex) + statMod.ToString();
+        if (actor == null)
+        {
+            return (actorUpgradeMod.ActorStatName.ToString() + ": ").Color(Constants.Colors.LabelColorHex) + statMod.ToString() + ActorStats.GetUnits(actorUpgradeMod.ActorStatName);
+        }
 
         Stat stat = actor.Stats.GetStat(actorUpgradeMod.ActorStatName);
         string statName = stat.Name;

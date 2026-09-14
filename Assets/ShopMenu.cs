@@ -12,18 +12,18 @@ public class ShopMenu : MonoBehaviour
     [SerializeField] int _gemGoldValue = 2;
     [SerializeField] Transform _shopButtonHolder;
     [SerializeField] TextMeshProUGUI _descriptionText;
-    [SerializeField] SimpleButton _buyButton;
-    [SerializeField] SimpleButton _nextButton;
+    [SerializeField] SimpleButton_OldUI _buyButton;
+    [SerializeField] SimpleButton_OldUI _nextButton;
     [SerializeField] TextMeshProUGUI _costText;
 
     UpgradeManager _upgradeManager;
 
-    List<SimpleButton> _buttonList = new();
+    List<SimpleButton_OldUI> _buttonList = new();
 
     private void Start()
     {
         _upgradeManager = UpgradeManager.I;
-        _buttonList.AddRange(_shopButtonHolder.GetComponentsInChildren<SimpleButton>());
+        _buttonList.AddRange(_shopButtonHolder.GetComponentsInChildren<SimpleButton_OldUI>());
         _buttonList.ForEach(button =>
         {
             button.OnDownEvent.AddListener(() =>
@@ -93,7 +93,7 @@ public class ShopMenu : MonoBehaviour
         SaveInventory();
     }
 
-    SimpleButton GetHighlightedButton()
+    SimpleButton_OldUI GetHighlightedButton()
     {
         foreach(var button in _buttonList)
         {
@@ -102,7 +102,7 @@ public class ShopMenu : MonoBehaviour
         return null;
     }
 
-    void LoadInfoPannelWithButton(SimpleButton button)
+    void LoadInfoPannelWithButton(SimpleButton_OldUI button)
     {
         var item = GetButtonItem(button);
 
@@ -135,7 +135,7 @@ public class ShopMenu : MonoBehaviour
         _costText.text = "-" + item.GemCost.ToString();
     }
 
-    Skill GetButtonItem(SimpleButton button)
+    Skill GetButtonItem(SimpleButton_OldUI button)
     {
         if (button == null) return null;
         int index = _buttonList.IndexOf(button);
@@ -148,7 +148,7 @@ public class ShopMenu : MonoBehaviour
         return GetButtonSkillUpgrade(GetHighlightedButton());
     }
 
-    NewSkillUpgrade GetButtonSkillUpgrade(SimpleButton button)
+    NewSkillUpgrade GetButtonSkillUpgrade(SimpleButton_OldUI button)
     {
         int index = _buttonList.IndexOf(button);
         if (index >= Inventory.Count) return null;

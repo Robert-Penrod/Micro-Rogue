@@ -25,7 +25,7 @@ public class ActorLootDropper : MonoBehaviour
         dropCount *= DungeonManager.I.Data.EliteTier.Remap(0, 1, 1, 1.5f);
 
         // Camp Upgrade
-        dropCount *= Player.CampUpgradeData.LootMultiplier;
+        //dropCount *= Player.CampUpgradeData.LootMultiplier;
 
         //if (DungeonManager.I.Data.IsBoss) dropCount++;
         //dropCount += DungeonManager.I.Data.EliteTier;
@@ -44,6 +44,7 @@ public class ActorLootDropper : MonoBehaviour
             DoSpawn();
         }
 
+        // Fractional drop count
         if(dropCount > 0f && Random.value < dropCount)
         {
             DoSpawn();

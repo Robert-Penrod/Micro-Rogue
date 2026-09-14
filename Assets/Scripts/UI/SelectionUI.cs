@@ -35,7 +35,8 @@ public class SelectionUI : MonoBehaviour
 
     void SetActive(bool isActive)
     {
-        _image.enabled = isActive;
+        //_image.enabled = isActive;
+        transform.GetChild(0).gameObject.SetActive(isActive);
         _isActive = isActive;
 
         if(isActive)

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a428bc17268a844ba3fd87ff4fcde2a, type: 3}
+  m_Name: Passive
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 7330394385173900857, guid: cd0590f8d9a30a34cab2699432dc6dcf, type: 3}
+  Color: {r: 0.7490196, g: 0.6955182, b: 0.63666666, a: 1}
+  Description: <color=#CAD079>Passive Skill Slot:</color> +1

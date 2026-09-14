@@ -47,6 +47,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6412601743165071189}
     - target: {fileID: 835261099230374607, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
+      propertyPath: _isLockedOn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 835261099230374607, guid: eabae5ab782b01641b86c3d9c1059b62, type: 3}
       propertyPath: _offsetLerpSpeed
       value: 3
       objectReference: {fileID: 0}

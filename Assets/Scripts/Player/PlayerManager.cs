@@ -187,8 +187,11 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
         Player player = playerInput.GetComponentInParent<Player>();
         if (player == null || PlayerList.Contains(player)) return;
         PlayerList.Add(player);
-        if(!_inputDeviceList.Contains(playerInput.devices[0])) _inputDeviceList.Add(playerInput.devices[0]);
-        Debug.Log("Adding Device " + playerInput.devices[0].displayName);
+        if (playerInput.devices.Count > 0)
+        {
+            if (!_inputDeviceList.Contains(playerInput.devices[0])) _inputDeviceList.Add(playerInput.devices[0]);
+            Debug.Log("Adding Device " + playerInput.devices[0].displayName);
+        }
         OnPlayerJoin?.Invoke(player);
 
         player.transform.position = Random.insideUnitCircle.normalized * Random.Range(0.5f, 1f);

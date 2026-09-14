@@ -27,7 +27,6 @@ public class NewSkillUpgrade : Upgrade
                 description = mod.GetUpgradePreviewString(_skillPrefab, _targetActor, description);
             }
 
-            Debug.Log($"{SourceSkill.Name}: {se_statMod.SkillUpgrade.Count}");
             foreach (var upgrade in se_statMod.SkillUpgrade)
             {
                 if (description != string.Empty) description += "\n";

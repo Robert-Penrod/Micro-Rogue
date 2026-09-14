@@ -351,6 +351,14 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         HandlePortalTick();
         if(IsRunTimerRunning()) RunInfoData.RunTime += Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            if (Data.Coordinate.y == 0 && !IsRunStarted)
+            {
+                StartGame();
+            }
+        }
     }
 
     #region Portal
@@ -441,6 +449,8 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public void StartGame()
     {
+        CameraManager.I.LockOnCamera();
+
         if(PlayerManager.I.PlayerList.Count == 0)
         {
             PlayerManager.I.JoinPlayerByLastInputDevice();

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraManager : Singleton<CameraManager>
 {
@@ -88,44 +89,12 @@ public class CameraManager : Singleton<CameraManager>
         }
         else
         {
-            // Params
-            float moveSpeed = 25f;
-            float lerpSpeed = 12f;
-            float zoomSpeed = 75f;
+            var lerpSpeed = 1f;
+            var selectedObj = EventSystem.current.currentSelectedGameObject;
+            if (selectedObj == null) return;
 
-            // Zoom
-            float zoomInput = 0f;
-            zoomInput = zoomSpeed * -Input.mouseScrollDelta.y;
-            _targetZoom += zoomInput * Time.deltaTime;
-            _targetZoom = _targetZoom.Clamp(_minZoom, _maxZoom);
-            _camera.Lens.OrthographicSize = _camera.Lens.OrthographicSize.Lerp(_targetZoom, lerpSpeed * Time.deltaTime);
-
-            // Grab Move
-            if (Input.GetMouseButtonDown(1))
-            {
-                _dragOrigin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }
-            if (Input.GetMouseButton(1))
-            {
-                Vector2 dragDelta = _dragOrigin - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.localPosition += (Vector3)dragDelta;
-                _targetPos += dragDelta;
-            }
-            else
-            {
-                // Axis Move
-                Vector2 moveInput = Vector2.zero;
-                moveInput.x = Input.GetAxisRaw("Horizontal");
-                moveInput.y = Input.GetAxisRaw("Vertical");
-                moveInput.Normalize();
-                moveInput *= moveSpeed * _camera.Lens.OrthographicSize.Remap(_minZoom, _maxZoom, 0.5f, 1f);
-                _targetPos += moveInput * Time.deltaTime;
-                transform.localPosition = transform.localPosition.Lerp(_targetPos, lerpSpeed * Time.deltaTime);
-            }
-
-            // Pos Clamp
-            transform.localPosition = ClampPosVector(transform.localPosition);
-            _targetPos = ClampPosVector(_targetPos);
+            Vector3 targetPos = -1.5f * Vector3.up + selectedObj.transform.position.SetZ(_camera.transform.localPosition.z);
+            _camera.transform.localPosition = _camera.transform.localPosition.Lerp(targetPos, lerpSpeed * Time.deltaTime);
         }
     }
 

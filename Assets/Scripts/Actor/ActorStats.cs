@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class ActorStats
 {
-    public enum ActorStatTypes { None = 0, MaxHealth = 10, MoveSpeed = 20, DodgeRate = 30, Defense = 40, Evasion = 50, PyroResist = 60, FrostResist = 61, StaticResist = 62 }
+    public enum ActorStatTypes { None = 0, MaxHealth = 10, Damage = 15, MoveSpeed = 20, DodgeRate = 30, Defense = 40, Evasion = 50, PyroResist = 60, FrostResist = 61, StaticResist = 62 }
 
     [SerializeField] int _health;
     public int Health
@@ -41,6 +41,19 @@ public class ActorStats
     public Stat FrostResist = new Stat("Frost Resist", 0);
     public Stat StaticResist = new Stat("Static Resist", 0);
 
+    public Stat Damage = new Stat("Damage");
+
+    public static string GetUnits(ActorStatTypes type)
+    {
+        return type switch
+        {
+           ActorStatTypes.MaxHealth => "hp",
+           ActorStatTypes.MoveSpeed => "m/s",
+           ActorStatTypes.DodgeRate => "s",
+            _ => "",
+        };
+    }
+
     /// <summary>
     /// ?.Invoke(newHealth, delta)
     /// </summary>
@@ -66,6 +79,8 @@ public class ActorStats
         {
             case ActorStatTypes.MaxHealth:
                 return HealthMax;
+            case ActorStatTypes.Damage:
+                return Damage;
             case ActorStatTypes.MoveSpeed:
                 return MoveSpeed;
             case ActorStatTypes.DodgeRate:

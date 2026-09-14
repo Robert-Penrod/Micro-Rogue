@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CampMenu : MonoBehaviour
 {
-    [SerializeField] SimpleButton _skillSlotBtn;
-    [SerializeField] SimpleButton _passiveSlotBtn;
-    [SerializeField] SimpleButton _itemSlotBtn;
-    [SerializeField] SimpleButton _lootBtn;
-    [SerializeField] SimpleButton _hordeBtn;
-    List<SimpleButton> _buttonList = new();
+    [SerializeField] SimpleButton_OldUI _skillSlotBtn;
+    [SerializeField] SimpleButton_OldUI _passiveSlotBtn;
+    [SerializeField] SimpleButton_OldUI _itemSlotBtn;
+    [SerializeField] SimpleButton_OldUI _lootBtn;
+    [SerializeField] SimpleButton_OldUI _hordeBtn;
+    List<SimpleButton_OldUI> _buttonList = new();
 
-    [SerializeField] SimpleButton _buyButton;
+    [SerializeField] SimpleButton_OldUI _buyButton;
 
     [SerializeField] TextMeshProUGUI _description;
     [SerializeField] TextMeshProUGUI _cost;
@@ -19,7 +19,7 @@ public class CampMenu : MonoBehaviour
     private void Awake()
     {
         _buttonList = new();
-        _buttonList.AddRange(new SimpleButton[] 
+        _buttonList.AddRange(new SimpleButton_OldUI[] 
         { 
             _skillSlotBtn, 
             _passiveSlotBtn,
@@ -57,7 +57,7 @@ public class CampMenu : MonoBehaviour
         UpdateUI();
     }
 
-    SimpleButton GetHighlightedButton()
+    SimpleButton_OldUI GetHighlightedButton()
     {
         foreach (var button in _buttonList)
         {
@@ -98,7 +98,7 @@ public class CampMenu : MonoBehaviour
         UpdateUI();
     }
 
-    int GetLevelOfButton(SimpleButton button)
+    int GetLevelOfButton(SimpleButton_OldUI button)
     {
         /*
         if (button == _skillSlotBtn)
@@ -125,7 +125,7 @@ public class CampMenu : MonoBehaviour
         return 0;
     }
 
-    int GetCostForButtonUpgrade(SimpleButton button)
+    int GetCostForButtonUpgrade(SimpleButton_OldUI button)
     {
         /*
         if (button == _skillSlotBtn)
@@ -152,7 +152,7 @@ public class CampMenu : MonoBehaviour
         return 0;
     }
 
-    void LoadInfoPannelForButton(SimpleButton button)
+    void LoadInfoPannelForButton(SimpleButton_OldUI button)
     {
         int buttonLevel = GetLevelOfButton(button);
 
@@ -209,7 +209,7 @@ public class CampMenu : MonoBehaviour
         */
     }
 
-    void SetButtonLevel(SimpleButton button, int level)
+    void SetButtonLevel(SimpleButton_OldUI button, int level)
     {
         if (button == null) return;
         for(int i = 0; i <  button.LevelPipHolder.childCount; i++)

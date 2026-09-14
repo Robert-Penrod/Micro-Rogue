@@ -26,7 +26,7 @@ public static class BalancePoint
     public static float BP_Actor_Speed = 0.25f;
     public static float BP_Actor_Evasion = 1f;
     public static float BP_Actor_Defense = 1f;
-    public static float BP_Actor_DodgeRate = 0.1f;
+    public static float BP_Actor_DodgeRate = 0.2f;
 
     public static StatModifier BPToStatMod(this float bp, ActorStats.ActorStatTypes actorStatType)
     {

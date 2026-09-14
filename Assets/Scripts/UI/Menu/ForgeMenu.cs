@@ -4,7 +4,7 @@ using UnityEngine;
 public class ForgeMenu : MonoBehaviour
 {
     [SerializeField] Transform _skillGrid;
-    List<SimpleButton> _unlockSlots = new();
+    List<SimpleButton_OldUI> _unlockSlots = new();
 
 
     private void Start()
@@ -18,7 +18,7 @@ public class ForgeMenu : MonoBehaviour
         _unlockSlots.Clear();
         for (int i = 0; i < _skillGrid.childCount; i++)
         {
-            var unlockSlot = _skillGrid.GetChild(i).GetComponent<SimpleButton>();
+            var unlockSlot = _skillGrid.GetChild(i).GetComponent<SimpleButton_OldUI>();
             _unlockSlots.Add(unlockSlot);
         }
         var skillList = UpgradeManager.I.GetSkillList();

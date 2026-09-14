@@ -148,6 +148,54 @@ public class Actor : MonoBehaviour
         _skillSystem = SkillSystem;
     }
 
+    private void Start()
+    {
+        if(IsPlayer())
+        {
+            // Load
+            Debug.Log(Player.GetUnlockedString());
+            string[] upgradeStrings = Player.GetUnlockedStringsArray();
+            foreach(string upgradeString in upgradeStrings)
+            {
+                string s = upgradeString.ToLower().Trim();
+
+                Debug.Log("Upgrade String:" + s);
+
+                if (s.Equals("health"))
+                {
+                    Stats.HealthMax.BaseValue += 2.5f;
+                    Debug.Log(Stats.HealthMax.BaseValue);
+                    Stats.SetHealthPercent(1f);
+                }
+
+                if(s.Equals("defense"))
+                {
+                    Stats.Defense.BaseValue += 1;
+                }
+
+                if(s.Equals("speed"))
+                {
+                    Stats.MoveSpeed.BaseValue += 0.2f;
+                }
+
+                if(s.Equals("dodge"))
+                {
+                    Stats.DodgeRate.BaseValue += 0.2f; 
+                }
+
+                if(s.Equals("evasion"))
+                {
+                    Stats.Evasion.BaseValue += 1;
+                }
+
+                if(s.Equals("damage"))
+                {
+                    Stats.Damage.BaseValue += 0.2f;
+                }
+            }
+        }
+    }
+
     void Die()
     {
         if (Stats.Health > 0) return;
@@ -272,8 +320,11 @@ public class Actor : MonoBehaviour
         return heal;
     }
 
-    public int TakeDamage(int damage, SkillInstance sourceSkillInstance, Actor actor, bool isTrueDamage = false, bool isCrit = false)
+    public int TakeDamage(float damage, SkillInstance sourceSkillInstance, Actor actor, bool isTrueDamage = false, bool isCrit = false)
     {
+        var sourceActor = sourceSkillInstance.Skill.Actor;
+        if (sourceActor != null && sourceActor.IsPlayer()) damage *= 1f + sourceSkillInstance.Skill.Actor.Stats.Damage.Value;
+
         if (isCrit) isTrueDamage = true;
 
         string blockType = string.Empty;
@@ -344,6 +395,10 @@ public class Actor : MonoBehaviour
             }
         }
 
+        // Fractional damage
+        float fractionalDamage = damage - (int)damage;
+        damage += (Random.value < fractionalDamage ? 1 : 0);
+
         // Last Chance (Players: If killing hit would do more than x% health -> leave player at 1hp instead)
         if (IsPlayer())
         {
@@ -366,7 +421,7 @@ public class Actor : MonoBehaviour
         OnWasHit?.Invoke(sourceSkillInstance);
 
         // Do damage
-        Stats.Health -= damage;
+        Stats.Health -= (int)damage;
         OnTakeDamage?.Invoke();
 
         Sprite blockSprite = null;
@@ -444,7 +499,7 @@ public class Actor : MonoBehaviour
         }
 
         // Return
-        return damage;
+        return (int)damage;
     }
 
     void PlayAudio(AudioClip clip)
@@ -452,7 +507,7 @@ public class Actor : MonoBehaviour
         AudioSpawner.PlayAudioWithRandPitch(clip, 0.2f, 1f, 0.5f, transform.position);
     }
 
-    void SpawnPopup(int? value, Sprite sprite, Color c, Vector2 vel, Vector2 pos)
+    void SpawnPopup(float? value, Sprite sprite, Color c, Vector2 vel, Vector2 pos)
     {
         // color
         string colorString = "#" + ColorUtility.ToHtmlStringRGB(c.Lerp(Color.white, 0.25f));// hitActor.Faction == Actor.FactionType.Player ? "#FF9900" : "#FFFFFF";
@@ -462,7 +517,7 @@ public class Actor : MonoBehaviour
         if (value != null)
         {
             string symbol = value > 0 ? "+" : string.Empty;
-            popupString = "<color=" + colorString + ">" + symbol + value.ToString() + "</color>";
+            popupString = "<color=" + colorString + ">" + symbol + ((int)value).ToString() + "</color>";
         }
 
         // popup

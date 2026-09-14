@@ -4,8 +4,8 @@ using UnityEngine;
 public class SimpleButton_RadioGroup : MonoBehaviour
 {
     #region Vars
-    [SerializeField] SimpleButton _firstSelectedBtn;
-    List<SimpleButton> _buttonList = new();
+    [SerializeField] SimpleButton_OldUI _firstSelectedBtn;
+    List<SimpleButton_OldUI> _buttonList = new();
     #endregion
 
     #region Init
@@ -37,11 +37,11 @@ public class SimpleButton_RadioGroup : MonoBehaviour
     void GetButtons()
     {
         _buttonList.Clear();
-        _buttonList.AddRange(GetComponentsInChildren<SimpleButton>());
+        _buttonList.AddRange(GetComponentsInChildren<SimpleButton_OldUI>());
     }
     #endregion
 
-    void HighlightButton(SimpleButton buttonToHighlight)
+    void HighlightButton(SimpleButton_OldUI buttonToHighlight)
     {
         if (!buttonToHighlight.GetInteractable()) return;
         _buttonList.ForEach(button =>
