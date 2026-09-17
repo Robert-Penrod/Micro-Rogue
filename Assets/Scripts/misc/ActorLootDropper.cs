@@ -1,4 +1,5 @@
 using ManaSprite.EasyPooling;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Actor))]
@@ -19,7 +20,12 @@ public class ActorLootDropper : MonoBehaviour
 
     void DropLoot()
     {
-        float dropCount = _actor.GetLevel();
+        float dropCount = 2f * _actor.GetLevel();
+        if (Random.value < 0.5f) dropCount++;
+
+        int lootingLevel = Player.GetUnlockedStringCount("Looting");
+        Debug.Log("Looting: " + lootingLevel);
+        dropCount *= 1f + 0.1f * lootingLevel;
 
         if (DungeonManager.I.Data.IsBoss) dropCount *= 2f;
         dropCount *= DungeonManager.I.Data.EliteTier.Remap(0, 1, 1, 1.5f);
@@ -45,15 +51,20 @@ public class ActorLootDropper : MonoBehaviour
         }
 
         // Fractional drop count
-        if(dropCount > 0f && Random.value < dropCount)
-        {
-            DoSpawn();
-        }
+        if(Random.value < (dropCount - (int)dropCount)) DoSpawn();
     }
 
     void DoSpawn()
     {
         var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.5f) || (Random.value < 0.25f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
+
+        int gemCuttingLevel = Player.GetUnlockedStringCount("Gem Cutting");
+        Debug.Log("Gem Cutting: " + gemCuttingLevel);
+        if(Random.value < gemCuttingLevel * 0.1f)
+        {
+            selectedItem = GemPrefab;
+        }
+
         if (selectedItem == null) return;
         var lootSpawn = selectedItem.PooledInstantiate(transform.position);
         lootSpawn.gameObject.SetActive(true);

@@ -6662,7 +6662,7 @@ MonoBehaviour:
   _lerpSpeed: 12
   _actorPlatform: {fileID: 3359842257970550116}
   _rarityFlipGFX: {fileID: 4721308281961179507}
-  _rerollButton: {fileID: 1571559223125017265}
+  _rerollButton: {fileID: 0}
   _toggleObjects: {fileID: 3538348392396776350}
   _upgradeCardList:
   - {fileID: 2691832105399689476}

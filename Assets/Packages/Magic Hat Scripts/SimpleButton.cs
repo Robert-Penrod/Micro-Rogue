@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -10,11 +11,16 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     [Header("State")]
     [field: SerializeField]
     public bool CanSubmit = true;
+    [SerializeField] float _pressTime;
+    [field: SerializeField]
+    public float PressPercent => _pressTick.Remap(0f, _pressTime, 0f, 1f, false);
+    float _pressTick;
     public bool IsSelected { get; private set; }
     public bool IsHovered { get; private set; }
 
     [Header("Events")]
     public Action OnSubmit;
+    public UnityEvent OnSubmitEvent;
 
     [Header("Audio")]
     [SerializeField] AudioClip SelectSound;
@@ -33,6 +39,11 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     private void Awake()
     {
         _button = GetComponent<Button>();
+    }
+
+    private void Update()
+    {
+        if (_pressTick > 0f) _pressTick = (_pressTick - Time.deltaTime).ClampMin(0f);
     }
 
     public void SetActive(bool state)
@@ -75,6 +86,10 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     #endregion
 
     #region Submit
+    public void TriggerSubmit()
+    {
+        HandleSubmit();
+    }
     void ISubmitHandler.OnSubmit(BaseEventData eventData)
     {
         HandleSubmit();
@@ -93,7 +108,9 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     void HandleSubmit()
     {
         if (!CanSubmit) return;
+        _pressTick += _pressTime;
         OnSubmit?.Invoke();
+        OnSubmitEvent?.Invoke();
         AudioSpawner.PlayAudioWithRandPitch(SubmitSound, 0.2f, 1f, 1f);
     }
     #endregion

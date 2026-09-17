@@ -6,9 +6,15 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerInput))]
 public class Player : MonoBehaviour
 {
+    public static List<string> GetUnlockedStringsList() => new(GetUnlockedStringsArray());
     public static string[] GetUnlockedStringsArray()
     {
         return GetUnlockedString().Split(",");
+    }
+
+    public static int GetUnlockedStringCount(string s)
+    {
+        return new List<string>(GetUnlockedStringsArray()).FindAll(x => x.ToLower().Equals(s.ToLower())).Count;
     }
 
     public static string GetUnlockedString()
@@ -20,7 +26,7 @@ public class Player : MonoBehaviour
     {
         var unlockedNodeStrings = PlayerPrefs.GetString("UpgradeNodeStrings", string.Empty);
         var newString = unlockedNodeStrings;
-        if (newString.Length > 0) newString += ", ";
+        if (newString.Length > 0) newString += ",";
         newString += stringToSave;
         PlayerPrefs.SetString("UpgradeNodeStrings", newString);
     }
@@ -74,7 +80,7 @@ public class Player : MonoBehaviour
         }
         static string GetUnlockedSkillString()
         {
-            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Dagger, Fireball");
+            return PlayerPrefs.GetString("UnlockedSkills", "Sword, Dagger, Fireball, Vitality");
         }
     }
     public PlayerData Data;

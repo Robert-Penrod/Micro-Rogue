@@ -11,19 +11,33 @@ public class CamTarget : MonoBehaviour
 
     CameraManager _camManager;
 
-    CombatEncounterObject _combatEncounterObj;
-
     private void Start()
     {
         _camManager = CameraManager.I;
-        
     }
 
     private void LateUpdate()
     {
         if (PlayerManager.I == null) return;
 
-        if (PlayerManager.I.PlayerList.Count > 0)
+        if(PlayerManager.I.AreAllPlayersDead())
+        {
+            if (DungeonManager.I.CombatEncounter != null)
+            {
+                var enemyList = DungeonManager.I.CombatEncounter.GetEnemies();
+                if (enemyList.Count > 0)
+                {
+                    Vector2 avgPos = new Vector2();
+                    enemyList.ForEach(enemy =>
+                    {
+                        avgPos += (Vector2)(enemy.transform.position);
+                    });
+                    avgPos /= enemyList.Count;
+                    _targetPos = avgPos;
+                }
+            }
+        }
+        else if (PlayerManager.I.PlayerList.Count > 0)
         {
             Vector2 avgPos = new Vector2();
             PlayerManager.I.PlayerList.ForEach(player => 

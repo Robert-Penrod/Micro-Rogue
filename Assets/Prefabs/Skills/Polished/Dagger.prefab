@@ -298,7 +298,7 @@ PrefabInstance:
       objectReference: {fileID: 231128002635548089, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Slot
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: _dps

@@ -122,7 +122,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
         public DungeonData(int seed, Vector2Int coordinate, int runLevel = 1, int eliteTier = -1)
         {
-            LevelSkip = 0;
+            LevelSkip = runLevel;
 
             // Seeding
             this.Seed = seed;
@@ -351,14 +351,6 @@ public class DungeonManager : Singleton<DungeonManager>
     {
         HandlePortalTick();
         if(IsRunTimerRunning()) RunInfoData.RunTime += Time.deltaTime;
-
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            if (Data.Coordinate.y == 0 && !IsRunStarted)
-            {
-                StartGame();
-            }
-        }
     }
 
     #region Portal
@@ -440,9 +432,15 @@ public class DungeonManager : Singleton<DungeonManager>
                 //int coordY = Data.RoomNumber + 1;
                 //if (Random.value < chanceMult * lvledPortalChanceMult) coordinate.y = coordY + 1;
                 //if (Random.value < chanceMult * lvledPortalChanceMult * 0.5f) coordinate.y = coordY + 2;
+                int portalLevel = Player.GetUnlockedStringsList().FindAll(x => x.Equals("Portal Skip")).Count;
+                int levelSkip = 0;
+                for(int k = 0; k < portalLevel; k++)
+                {
+                    if (Random.value < 0.2f) levelSkip++;
+                }
 
                 // Set Data
-                portal.SetData(new DungeonData(Data.Seed, coordinate, eliteTier: i));
+                portal.SetData(new DungeonData(Data.Seed, coordinate, runLevel: levelSkip, eliteTier: i));
             }
         }
     }
@@ -456,18 +454,21 @@ public class DungeonManager : Singleton<DungeonManager>
             PlayerManager.I.JoinPlayerByLastInputDevice();
         }
 
-        Debug.Log("Starting Game?");
-        IsRunStarted = true;
-
-        // Starting Gold
-        PlayerManager.I.PlayerList.ForEach(player =>
+        this.DelayedInvoke(-1, () =>
         {
-            player.Data.Gold += Player.CampUpgradeData.HordeStartingGold;
-        });
+            // Starting Gold
+            PlayerManager.I.PlayerList.ForEach(player =>
+            {
+                player.Data.Gold += Player.CampUpgradeData.HordeStartingGold;
+            });
 
-        DoPortal();
+            Debug.Log("Starting Game");
+            IsRunStarted = true;
 
-        PlayerPrefs.SetInt("IsInvDirty", 1);
+            DoPortal();
+
+            PlayerPrefs.SetInt("IsInvDirty", 1);
+        }); 
     }
 
     void DoPortal()
@@ -515,7 +516,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Upgrade
-            yield return UpgradeManager.I.UpgradePlayers_Co(SelectedPortal?.Level ?? (1 + Data.LevelSkip));
+            yield return UpgradeManager.I.UpgradePlayers_Co(1 + Data.LevelSkip);
 
             // New Level
             GenerateLevel();

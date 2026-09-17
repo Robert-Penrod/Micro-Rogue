@@ -80,6 +80,7 @@ public class DebugTools : MonoBehaviour
                     {
                         if ((actor.Faction == Actor.FactionType.Player && upgradePlayer) || (actor.Faction == Actor.FactionType.Enemy && upgradeEnemy))
                         {
+                            Debug.Log("Upgrading " + actor.name);
                             var upgradeOptions = UpgradeManager.I.GetUpgradeOptions(actor);
                             if (upgradeOptions.Count > 0) upgradeOptions[0].ApplyUpgrade();
                         }

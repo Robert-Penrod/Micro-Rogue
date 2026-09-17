@@ -9,6 +9,7 @@ public class UnlockNodeButton : MonoBehaviour
     #region Vars
     [Header("Link")]
     public bool IsRoot;
+    [field: SerializeField] public UnlockNodeButton Parent { get; private set; }
     public List<UnlockNodeButton> Children = new();
 
     [Header("Data")]
@@ -99,13 +100,16 @@ public class UnlockNodeButton : MonoBehaviour
         PlayerPrefs.SetInt(GetPlayerPrefsKey(key), value ? 1 : 0);
     }
     string GetPlayerPrefsKey(string key) => $"Node_{GetNodeId()}_{key}";
-    string GetNodeId()
+    public string GetNodeId()
     {
         string idString = $"{NodeData.UnlockedStringInfo?.UnlockedString ?? string.Empty}{NodeData.UnlockedSkill?.Name ?? string.Empty}{NodeData.UnlockedCharacter?.name ?? string.Empty}";
+        idString += Parent?.GetNodeId() ?? string.Empty;
+        /*
         Children.ForEach(child =>
         {
             idString += $"{child.name}{child.NodeData.GemCost}";
         });
+        */
         return idString;
     }
     #endregion
@@ -128,6 +132,11 @@ public class UnlockNodeButton : MonoBehaviour
         var unlockedChar = NodeData.UnlockedCharacter;
         string name = $"N_{unlockedString?.UnlockedString ?? string.Empty}{unlockedSkill?.Name ?? string.Empty}{unlockedChar?.name ?? string.Empty}";
         this.gameObject.name = name;
+
+        Children.ForEach(child =>
+        {
+            child.Parent = this;
+        });
     }
     private void Awake()
     {
@@ -151,7 +160,6 @@ public class UnlockNodeButton : MonoBehaviour
         if(IsRoot)
         {
             // Propogate Cost
-            /*
             List<UnlockNodeButton> children = new();
             List<UnlockNodeButton> frontier = new(Children);
             int depth = 2;
@@ -167,8 +175,11 @@ public class UnlockNodeButton : MonoBehaviour
                 frontier.AddRange(children);
                 depth++;
             }
-            */
         }
+
+        Random.InitState(GetNodeId().GetHashCode());
+        transform.localPosition += 15f * (Vector3)Random.insideUnitCircle; // 7.5
+        transform.Rotate2D(2f * Random.Range(-1f, 1f));
     }
 
     void GetReferences()
@@ -203,6 +214,7 @@ public class UnlockNodeButton : MonoBehaviour
         float hoverMult = 1f;
         scaleMult *= _submitPulseLerp.RemapPercent(1f, 1.5f, false).ClampMin(0);
         bool isUnlocked = IsUnlocked();
+        _simpleButton.CanSubmit = !isUnlocked;
 
         // Enabled
         bool isRevealed = IsRevealed() || !Application.isPlaying;
@@ -257,7 +269,8 @@ public class UnlockNodeButton : MonoBehaviour
             targetScale *= _simpleButton.IsSelected ? 1.25f : 0.9f;
             targetScale *= _simpleButton.IsHovered ? 1 + (0.125f * hoverMult) : 1f;
             targetScale *= scaleMult;
-            transform.localScale = transform.localScale.Lerp(Vector3.one * targetScale, lerpSpeed * Time.deltaTime);
+            var scalingTransform = transform.GetChild(0);
+            scalingTransform.localScale = scalingTransform.localScale.Lerp(Vector3.one * targetScale, lerpSpeed * Time.deltaTime);
         }
 
         // Cost
@@ -340,11 +353,17 @@ public class UnlockNodeButton : MonoBehaviour
             }
 
             lineRend.enabled = true;
+            lineRend.sortingOrder = 2;
+            lineRend.transform.localPosition = Vector3.zero;
             lineRend.widthMultiplier = 0.15f;
             lineRend.material = Canvas.GetDefaultCanvasMaterial();
             lineRend.positionCount = 2;
-            lineRend.SetPosition(0, ((RectTransform)transform).position + Vector3.forward * zOffset);
-            lineRend.SetPosition(1, ((RectTransform)childNode.transform).position + Vector3.forward * zOffset);
+            //lineRend.SetPosition(0, ((RectTransform)transform).position + Vector3.forward * zOffset);
+            //lineRend.SetPosition(1, ((RectTransform)childNode.transform).position + Vector3.forward * zOffset);
+            lineRend.useWorldSpace = false;
+            lineRend.SetPosition(0, Vector3.forward * zOffset);
+            Vector3 childLocalP = ((RectTransform)childNode.transform).position - ((RectTransform)transform).position;
+            lineRend.SetPosition(1, childLocalP.SetZ(zOffset));
             lineRend.startColor = Color.white.Lerp(_mainColor, 0.25f);// Color.white.Lerp(_mainColor, 0.25f);
             lineRend.endColor = Color.white.Lerp(childNode._mainColor, 0.25f); ;// Color.white.Lerp(childNode._mainColor, 0.25f);
 

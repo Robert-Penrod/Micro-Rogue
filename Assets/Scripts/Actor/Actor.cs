@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class Actor : MonoBehaviour
 {
     [Header("Info")]
+    public int Tier = 0;
     [SerializeField] int _lvl;
     public int StartingSkillCount = 0;
     [SerializeField] ActorSkillSystem _skillSystem;
@@ -16,7 +17,6 @@ public class Actor : MonoBehaviour
     public float RarityMult = 1f;
     public float Difficulty = 1f;
     public float EncounterCount = 1f;
-    public int MinLevel = 0;
     public float UpgradeAffinity = 1f;
     public float NewSkillAffinity = 1f;
     public List<TagCollection.TagType> BlacklistedTags;
@@ -180,7 +180,7 @@ public class Actor : MonoBehaviour
 
                 if(s.Equals("dodge"))
                 {
-                    Stats.DodgeRate.BaseValue += 0.2f; 
+                    Stats.DodgeRate.BaseValue += 0.1f; 
                 }
 
                 if(s.Equals("evasion"))
@@ -190,7 +190,12 @@ public class Actor : MonoBehaviour
 
                 if(s.Equals("damage"))
                 {
-                    Stats.Damage.BaseValue += 0.2f;
+                    Stats.Damage.BaseValue += 0.1f;
+                }
+
+                if(s.Equals("trove"))
+                {
+                    GetComponentInParent<Player>().Data.Gold += 50;
                 }
             }
         }
@@ -284,7 +289,7 @@ public class Actor : MonoBehaviour
         //HandleMoveFixedUpdate();
 
         // Elemental Effects
-        float elementalClearMult = 0.5f;
+        float elementalClearMult = 0.25f;
         if (Pyro > 0) Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
         if(Pyro >= 0.75f)
         {
@@ -302,8 +307,8 @@ public class Actor : MonoBehaviour
         {
             _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
-        if (Frost > 0) Frost -= (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= elementalClearMult * Time.fixedDeltaTime * Static * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Frost > 0) Frost -= 1.75f * (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Static > 0) Static -= 1.5f * elementalClearMult * Time.fixedDeltaTime * Static.Pow(1.5f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
@@ -322,7 +327,7 @@ public class Actor : MonoBehaviour
 
     public int TakeDamage(float damage, SkillInstance sourceSkillInstance, Actor actor, bool isTrueDamage = false, bool isCrit = false)
     {
-        var sourceActor = sourceSkillInstance.Skill.Actor;
+        var sourceActor = sourceSkillInstance?.Skill?.Actor;
         if (sourceActor != null && sourceActor.IsPlayer()) damage *= 1f + sourceSkillInstance.Skill.Actor.Stats.Damage.Value;
 
         if (isCrit) isTrueDamage = true;

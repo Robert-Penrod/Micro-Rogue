@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8031744714158729290, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: _rerollButton
+      value: 
+      objectReference: {fileID: 8228131129726587739}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -390,6 +394,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4654979527040538880, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
   m_PrefabInstance: {fileID: 3028125058392307642}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8228131129726587739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6356336202924254433, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+  m_PrefabInstance: {fileID: 3028125058392307642}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8342592407666942353
 PrefabInstance:
   m_ObjectHideFlags: 0

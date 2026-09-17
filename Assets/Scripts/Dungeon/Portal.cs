@@ -7,7 +7,7 @@ public class Portal : MonoBehaviour
     public int GemCost = 0;
     public bool IsEnterable => GemCost <= Player.PlayerData.Gems;
 
-    public int Level = -1;
+    public int Level => 1 + DungeonData.LevelSkip;
     float _targetScale = 0.8f;
 
     [SerializeField] bool _sampleDataOnStart = false;
@@ -83,7 +83,7 @@ public class Portal : MonoBehaviour
         }
 
         // Level
-        Level = DungeonData.Coordinate.y - DungeonManager.I.Data.Coordinate.y;
+        DungeonData.Coordinate.y = DungeonManager.I.Data.Coordinate.y + 1 + DungeonData.LevelSkip;
 
         // Level Color
         Color lvlColor = Level switch

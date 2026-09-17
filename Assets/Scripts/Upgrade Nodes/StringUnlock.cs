@@ -6,5 +6,6 @@ public class StringUnlock : ScriptableObject
     public string UnlockedString => this.name;
     public Sprite Sprite;
     public Color Color;
+    [TextArea]
     public string Description;
 }

@@ -26,7 +26,7 @@ public class LevelPips : MonoBehaviour
         int pipLevel = 1 + ((level-1) % 10);
         for(int i = 0; i < _imageList.Count; i++)
         {
-            _imageList[i].color = i < pipLevel ? Color.white.Alpha(0.675f) : Color.grey.Alpha(0.375f);
+            _imageList[i].color = i < pipLevel ? Color.white.Alpha(0.75f) : Color.grey.Alpha(0.5f);
         }
     }
 }

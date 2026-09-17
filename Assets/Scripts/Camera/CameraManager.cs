@@ -89,7 +89,7 @@ public class CameraManager : Singleton<CameraManager>
         }
         else
         {
-            var lerpSpeed = 1f;
+            var lerpSpeed = 0.5f;
             var selectedObj = EventSystem.current.currentSelectedGameObject;
             if (selectedObj == null) return;
 

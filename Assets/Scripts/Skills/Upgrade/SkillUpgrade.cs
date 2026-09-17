@@ -39,7 +39,7 @@ public class SkillUpgrade : Upgrade
 
     public override void ApplyUpgrade()
     {
-        Debug.Log("APPLY SKILL UPGRADE");
+        Debug.Log("APPLY SKILL UPGRADE " + SourceSkill.Name);
         ApplyMods();
 
         // Stat Changes

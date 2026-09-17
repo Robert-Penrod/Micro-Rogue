@@ -1,97 +1,103 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
     public bool IsInteractable = true;
+
     [SerializeField] AudioClip _chargeSound;
     [SerializeField] AudioClip _selectSound;
     [SerializeField] AudioClip _submitSound;
 
+    public UnityEvent OnSubmitEvent;
+
+    const float LERP_SPEED = 25f;
+    const float SUBMIT_TIME = 0.375f;
+    const float SUBMIT_CHARGE_LERP_SPEED = 12f;
+    const float SUBMIT_DECAY_SPEED = 4f;
+
     bool _isSelected;
-    float _lerpSpeed = 25f;
+    bool _pointerHeld;
     float _submitTick;
-    float _submitTime = 0.375f;
-    float _submitPercent => (_submitTick / _submitTime).Clamp01();
+    float SubmitPercent => (_submitTick / SUBMIT_TIME).Clamp01();
 
     Player _currentUIOwner => PlayerManager.I.CurrentUIOwner;
-    bool _pointerPresenceSelection = true;//> PlayerManager.I.CurrentUIOwner == null || _uiOwnerControlScheme == "WASD";
+    bool _pointerPresenceSelection = true; // PlayerManager.I.CurrentUIOwner == null || _uiOwnerControlScheme == "WASD";
 
     AudioSource _audioSource;
     AudioSource _chargeSource;
-
-    public UnityEvent OnSubmitEvent;
-
     CanvasGroup _canvasGroup;
+
+    bool _wasSubmitting;
+    bool _isSubmitValid;
 
     private void Awake()
     {
-        _audioSource = this.gameObject.AddComponent<AudioSource>();
-        _chargeSource = this.gameObject.AddComponent<AudioSource>();
+        _audioSource = gameObject.AddComponent<AudioSource>();
+
+        _chargeSource = gameObject.AddComponent<AudioSource>();
         _chargeSource.clip = _chargeSound;
         _chargeSource.spatialBlend = 0f;
         _chargeSource.loop = true;
         _chargeSource.volume = 0f;
         _chargeSource.Play();
+
         _canvasGroup = GetComponentInParent<CanvasGroup>();
     }
 
     private void OnDisable()
     {
-        _isSelected = _submitPressed = _wasSubmitting = _submiteWasPressedThisFrame = false;
+        _isSelected = false;
+        _pointerHeld = false;
+        _wasSubmitting = false;
+        _isSubmitValid = false;
+        _submitTick = 0f;
     }
 
-    #region UI
+    #region UI events
     public void OnSelect(BaseEventData eventData)
     {
         if (!IsInteractable) return;
         _isSelected = true;
         PlayAudio(_selectSound);
     }
+
     public void OnDeselect(BaseEventData eventData)
     {
-        if (!IsInteractable)
-        {
-            _isSelected = false;
-            _submitPressed = false;
-            return;
-        }
         _isSelected = false;
-        _submitPressed = false;
+        _pointerHeld = false;
     }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (!IsInteractable) return;
-        if (_pointerPresenceSelection) EventSystem.current.SetSelectedGameObject(this.gameObject);
+        if (_pointerPresenceSelection) EventSystem.current.SetSelectedGameObject(gameObject);
     }
+
     public void OnPointerMove(PointerEventData eventData)
     {
         if (!IsInteractable) return;
-        if (_pointerPresenceSelection) EventSystem.current.SetSelectedGameObject(this.gameObject);
+        if (_pointerPresenceSelection) EventSystem.current.SetSelectedGameObject(gameObject);
     }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!IsInteractable) return;
-        OnSubmit(eventData);
+        _pointerHeld = true;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        _pointerHeld = false;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _pointerHeld = false;
     }
     #endregion
-
-    bool _submiteWasPressedThisFrame;
-    bool _submitPressed;
-
-    public void OnSubmit(BaseEventData eventData)
-    {
-        /*
-        _submitCharge += 1f;
-        PlayAudio(_submitSound);
-        //OnSubmitEvent?.Invoke();
-        */
-        _submiteWasPressedThisFrame = true;
-        _submitPressed = true;
-    }
 
     void DoSubmit()
     {
@@ -99,24 +105,26 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         OnSubmitEvent?.Invoke();
     }
 
-    bool _wasSubmitting;
-    bool _isSubmitValid;
-
     private void Update()
     {
         if (_canvasGroup != null && !_canvasGroup.interactable) return;
 
-        bool isSubmitingThisFrame = _submiteWasPressedThisFrame;// _isSelected && (_currentUIOwner?.Submit.WasPressedThisFrame() ?? false);
-        bool isSubmiting = _submitPressed;// _isSelected && (_currentUIOwner?.Submit.IsPressed() ?? false);
+        // Polled every frame from live input state (pointer flag or input-action state),
+        // rather than a one-shot event, so "released" is always detectable.
+        bool keyboardHeld = _isSelected && (_currentUIOwner?.Submit.IsPressed() ?? false);
+        bool keyboardPressedThisFrame = _isSelected && (_currentUIOwner?.Submit.WasPressedThisFrame() ?? false);
+
+        bool isSubmittingThisFrame = (_pointerHeld && !_wasSubmitting) || keyboardPressedThisFrame;
+        bool isSubmitting = _pointerHeld || keyboardHeld;
+
         float targetPitch = 0.8f;
         float targetVolume = 1f;
-        float lerpSpeed = 12f;
 
-        if(isSubmiting)
+        if (isSubmitting)
         {
-            if (isSubmitingThisFrame) _isSubmitValid = true;
-            
-            if(!_wasSubmitting)
+            if (isSubmittingThisFrame) _isSubmitValid = true;
+
+            if (!_wasSubmitting)
             {
                 _chargeSource.Stop();
                 _chargeSource.Play();
@@ -124,43 +132,36 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
             if (_isSubmitValid)
             {
-                targetPitch *= _submitPercent.RemapPercent(0.9f, 1.1f);
-                targetVolume *= 1f;
+                targetPitch *= SubmitPercent.RemapPercent(0.9f, 1.1f);
 
-                if (_submitTick < _submitTime)
+                _submitTick += Time.deltaTime;
+                if (_submitTick >= SUBMIT_TIME)
                 {
-                    _submitTick += 1f * Time.deltaTime;
-                    if (_submitTick >= _submitTime)
-                    {
-                        _wasSubmitting = false;
-                        _chargeSource.Stop();
-                        _submitTick = 0f;
-                        DoSubmit();
-                    }
+                    _submitTick = 0f;
+                    _isSubmitValid = false;
+                    isSubmitting = false; // force a clean reset this frame so it doesn't immediately recharge while still held
+                    _chargeSource.Stop();
+                    DoSubmit();
                 }
             }
         }
         else
         {
             _isSubmitValid = false;
-            targetVolume *= 0f;
-            if (_submitTick > 0f) _submitTick = (_submitTick - 4f * Time.deltaTime).Clamp01();
+            targetVolume = 0f;
+            if (_submitTick > 0f) _submitTick = (_submitTick - SUBMIT_DECAY_SPEED * Time.deltaTime).Clamp01();
         }
 
-        _chargeSource.pitch = _chargeSource.pitch.Lerp(targetPitch, lerpSpeed * Time.deltaTime);
-        _chargeSource.volume = _chargeSource.volume.Lerp(targetVolume, lerpSpeed * Time.deltaTime);
+        _chargeSource.pitch = _chargeSource.pitch.Lerp(targetPitch, SUBMIT_CHARGE_LERP_SPEED * Time.deltaTime);
+        _chargeSource.volume = _chargeSource.volume.Lerp(targetVolume, SUBMIT_CHARGE_LERP_SPEED * Time.deltaTime);
 
         float targetScale = _isSelected ? 1.1f : 1f;
+        targetScale += 0.1f * SubmitPercent * (SubmitPercent >= 1f ? 1.1f : 1f);
 
-
-        targetScale += 0.1f * _submitPercent * (_submitPercent >= 1f? 1.1f : 1f);
-
-        float lerpScale = transform.localScale.x.Lerp(targetScale, _lerpSpeed * Time.deltaTime);
+        float lerpScale = transform.localScale.x.Lerp(targetScale, LERP_SPEED * Time.deltaTime);
         transform.localScale = lerpScale * Vector3.one;
 
-        _wasSubmitting = isSubmiting;
-
-        if(_submiteWasPressedThisFrame) _submiteWasPressedThisFrame = false;
+        _wasSubmitting = isSubmitting;
     }
 
     void PlayAudio(AudioClip clip)
@@ -168,15 +169,5 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         _audioSource.volume = 1f;
         _audioSource.pitch = 1f + 0.1f * Random.Range(-1f, 1f);
         _audioSource.PlayOneShot(clip);
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        _submitPressed = false;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _submitPressed = false;
     }
 }

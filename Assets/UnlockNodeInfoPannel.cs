@@ -37,8 +37,14 @@ public class UnlockNodeInfoPannel : MonoBehaviour
                 _description.text = nodeData.UnlockedStringInfo.Description;
                 _icon.sprite = nodeData.UnlockedStringInfo.Sprite;
                 _icon.color = nodeData.UnlockedStringInfo.Color;
+
+                // Type
                 _typeText.text = string.Empty;
-                if (unlockString.Contains("Slot") || _description.text.ToLower().Contains("slot")) _typeText.text = "Slot";
+                unlockString = unlockString.ToLower();
+                if (unlockString.Contains("slot") || _description.text.ToLower().Contains("slot")) _typeText.text = "Slot";
+                else if (unlockString.Contains("cave") || unlockString.Contains("dungeon")) _typeText.text = "Stage";
+                else if (unlockString.Contains("gem") || unlockString.Contains("gold") || unlockString.Contains("trove") || unlockString.Contains("loot")) _typeText.text = "Loot";
+                else if (unlockString.Contains("portal")) _typeText.text = string.Empty;
                 else _typeText.text = "Stat";
             }
             else if(nodeData.UnlockedSkill != null)

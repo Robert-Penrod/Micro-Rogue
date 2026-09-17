@@ -16,6 +16,7 @@ public static class BalancePoint
     public static float BP_Skill_Pierce = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Lunge = 2f * BP_PercentDPSGain;
     public static float BP_Skill_CritChance = 0.2f;
+    public static float BP_Skill_Knockback = 0.75f;
 
     public static float BP_Skill_Pyro = 2f * BP_PercentDPSGain;
     public static float BP_Skill_Frost = 2f * BP_PercentDPSGain;
@@ -88,7 +89,7 @@ public static class BalancePoint
             SkillStats.SkillStatTypes.Duration => BP_Skill_Duration,
             SkillStats.SkillStatTypes.Speed => BP_Skill_Speed,
             SkillStats.SkillStatTypes.Pierce => BP_Skill_Pierce,
-            SkillStats.SkillStatTypes.Knockback => BP_Skill_Damage,
+            SkillStats.SkillStatTypes.Knockback => BP_Skill_Knockback,
             SkillStats.SkillStatTypes.Lunge => BP_Skill_Lunge,
             SkillStats.SkillStatTypes.Pyro => BP_Skill_Pyro,
             SkillStats.SkillStatTypes.Frost => BP_Skill_Frost,

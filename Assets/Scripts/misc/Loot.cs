@@ -63,7 +63,7 @@ public class Loot : Pickup, IPoolable
             _lifeTick += Time.deltaTime;
             float lifePercent = _lifeTick / LifeTime;
             targetAlpha = lifePercent.RemapPercent(1f, 0.5f);
-            targetScale = lifePercent.RemapPercent(1f, 0.675f);
+            targetScale = lifePercent.RemapPercent(1f, 0.75f);
         }
         else if(_fadeTick < _fadeTime)
         {
@@ -83,7 +83,7 @@ public class Loot : Pickup, IPoolable
             {
                 float fadePercent = _fadeTick / _fadeTime;
                 targetAlpha = fadePercent.RemapPercent(0.5f, 0f);
-                targetScale = fadePercent.RemapPercent(0.675f, 0.5f);
+                targetScale = fadePercent.RemapPercent(0.75f, 0.75f);
                 lerpMult = fadePercent.RemapPercent(2f, 100f);
             }
         }

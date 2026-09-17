@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UpgradeMenu : Singleton<UpgradeMenu>
 {
@@ -10,7 +11,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
     [Header("References")]
     [SerializeField] Transform _actorPlatform;
     [SerializeField] GameObject _rarityFlipGFX;
-    [SerializeField] SimpleButton_Old _rerollButton;
+    [SerializeField] Button _rerollButton;
     [SerializeField] GameObject _toggleObjects;
     List<SpriteRenderer> _upgradeBgSprite = new();
     Dictionary<SpriteRenderer, float> _upgradeBgAlphaInit = new();

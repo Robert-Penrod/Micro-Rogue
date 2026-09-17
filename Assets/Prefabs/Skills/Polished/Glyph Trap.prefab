@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: -2556484806140483146, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Slot
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: _dps
-      value: 0.75
+      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Int
@@ -38,11 +38,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Damage.BaseValue
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Pierce.BaseValue
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: UpgradeList.Array.size

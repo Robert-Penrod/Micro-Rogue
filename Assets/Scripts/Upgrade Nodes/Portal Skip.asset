@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a428bc17268a844ba3fd87ff4fcde2a, type: 3}
+  m_Name: Portal Skip
+  m_EditorClassIdentifier: 
+  Sprite: {fileID: 8884480352349111540, guid: 18a625ae127c51d46885e1b3df82c184, type: 3}
+  Color: {r: 0.14117648, g: 0.69411767, b: 0.8627451, a: 1}
+  Description: 20% chance the portal gains an extra floor and upgrade.

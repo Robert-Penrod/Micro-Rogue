@@ -13,6 +13,7 @@ public class CombatEncounterObject : MonoBehaviour
     [SerializeField] TagCollection _tagBiasDebug = new();
 
     public bool AreEnemiesDefeated() => _enemyList == null || _enemyList.Count == 0;
+    public List<Actor> GetEnemies() => _enemyList;
 
     public void SpawnEncounter(float mult = 1f)
     {
@@ -88,7 +89,7 @@ public class CombatEncounterObject : MonoBehaviour
             weight *= biomeMult.Clamp01();
             weight *= enemyEntry.Item.RarityMult;
 
-            if (DungeonManager.I.Data.Coordinate.y < enemyEntry.Item.MinLevel) weight = 0;
+            if (DungeonManager.I.Data.Coordinate.y < enemyEntry.Item.Tier * 4) weight = 0;
 
             enemyTable.Add(enemyEntry.Item, weight);
         });
@@ -174,6 +175,7 @@ public class CombatEncounterObject : MonoBehaviour
 
             // Base Upgrade
             var upgrades = UpgradeManager.I.GetUpgradeOptions(actor);
+            Debug.Log("Base Upgrade " + upgrades[0].GetTitle());
             if (upgrades.Count > 0) upgrades[0].ApplyUpgrade();
         }
         //
@@ -188,7 +190,8 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 selectedBoss = true;
                 enemy._initScale *= 1.25f;
-                enemy.Stats.HealthMax.BaseValue *= 1.5f; // 1.1f
+                enemy.Stats.HealthMax.AddModifier(new Kryz.Stats.StatModifier(0.5f, Kryz.Stats.StatModType.PercentMult, new string[] { "Boss" }));
+                enemy.Stats.SetHealthPercent(1f);
 
                 // Brain Update
                 var brain = enemy.GetComponent<SimpleNPCBrain>();
@@ -228,6 +231,7 @@ public class CombatEncounterObject : MonoBehaviour
             if (upgrades.Count > 0)
             {
                 if (upgrades[0].SourceSkill.Slot == Skill.SlotEnum.Item) upgradeCost = 0.5f;
+                Debug.Log("Applying Upgrade " + upgrades[0].GetTitle());
                 upgrades[0].ApplyUpgrade();
             }
 

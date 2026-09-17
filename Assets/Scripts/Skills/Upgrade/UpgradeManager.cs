@@ -87,6 +87,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
         bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
 
+        Debug.Log("Innate Skills");
         // INNATE SKILL UPGRADES
         actorToUpgrade.InnateSkillList.ForEach(newSkill =>
         {
@@ -107,7 +108,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
             if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;
             //
             // Skill Prereq check
-            if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
+            //if (!newSkill.ArePrerequisitesMet(actorToUpgrade)) return;
             //
             // Slotsfull check
             if (isPlayer)
