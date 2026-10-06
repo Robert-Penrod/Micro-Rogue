@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ResourceText : TMProSetter
 {
     [SerializeField] float _fadeTime = -1f;
+    [SerializeField] SimpleMenu _upgradeMenu;
     List<Image> _imageList = new();
     public enum ResourceType { Gem, Relic}
     public ResourceType Type;
@@ -16,6 +17,7 @@ public class ResourceText : TMProSetter
     private void Start()
     {
         _imageList.AddRange(transform.parent.GetComponentsInChildren<Image>());
+        SetAlpha(0f);
     }
 
     private void Update()
@@ -41,10 +43,16 @@ public class ResourceText : TMProSetter
         float timeSinceChange = Time.time - _lastStringChangeTime;
 
         // Fade
-        float targetAlpha = 1f;
+        float targetAlpha = (_upgradeMenu?.IsOpen ?? false)? 1f : 0f;
+        if (DungeonManager.I.IsRunStarted) targetAlpha = 1f;
         if (_fadeTime > 0 && DungeonManager.I.IsRunStarted) targetAlpha = timeSinceChange.Remap(0.5f * _fadeTime, _fadeTime, 1f, 0f);
         float lerpAlpha = TextMesh.color.a.Lerp(targetAlpha, _lerpSpeed * Time.deltaTime);
-        TextMesh.color = TextMesh.color.Alpha(lerpAlpha);
-        _imageList.ForEach(x => x.color = x.color.Alpha(lerpAlpha));
+        SetAlpha(lerpAlpha);
+    }
+
+    void SetAlpha(float alpha)
+    {
+        TextMesh.color = TextMesh.color.Alpha(alpha);
+        _imageList.ForEach(x => x.color = x.color.Alpha(alpha));
     }
 }

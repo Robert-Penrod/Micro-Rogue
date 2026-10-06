@@ -204,6 +204,10 @@ PrefabInstance:
       propertyPath: _joinSceneNames.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1117088674204897424, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: _questCompleteAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e6be22208e9bd3e4dac9152e605f756b, type: 3}
     - target: {fileID: 1258427418906322252, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_IsActive
       value: 1

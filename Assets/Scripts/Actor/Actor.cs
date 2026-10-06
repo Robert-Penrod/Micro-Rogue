@@ -47,6 +47,7 @@ public class Actor : MonoBehaviour
     public float Pyro;
     float _burnTick;
     public float PyroPercent => Pyro / 1f;
+    List<Skill> _pyroAttacks = new();
     public float Static;
     public float StaticPercent => Static / 1f;
     public bool IsParalyzed => StaticPercent >= 1f;
@@ -294,7 +295,14 @@ public class Actor : MonoBehaviour
 
         // Elemental Effects
         float elementalClearMult = 0.25f;
-        if (Pyro > 0) Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Pyro > 0)
+        {
+            Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+            if(Pyro <= 0.1f)
+            {
+                _pyroAttacks.Clear();
+            }
+        }
         if(Pyro >= 0.75f)
         {
             _burnTick += 1f * Pyro.ClampMax(1) * Time.fixedDeltaTime;
@@ -303,6 +311,16 @@ public class Actor : MonoBehaviour
             {
                 // Do Burn
                 TakeDamage(1, null, null, true);
+                Debug.Log("Burning");
+                if(Stats.Health <= 0f)
+                {
+                    Debug.Log("Died to burn");
+                    if (_pyroAttacks.Count > 0)
+                    {
+                        Debug.Log("Killed by pyro skill " + _pyroAttacks[0].Name);
+                        _pyroAttacks[0].OnKill?.Invoke(this);
+                    }
+                }
                 _burnTick -= 1f;
             }
         }
@@ -465,7 +483,12 @@ public class Actor : MonoBehaviour
                 var skill = sourceSkillInstance.Skill;
                 float elementalMult = skill.Stats.Elemental.Value;
                 elementalMult *= skill.Stats.Duration.Value.Remap(skill.Stats.Duration.BaseValue, 2f * skill.Stats.Duration.BaseValue, 1f, 2f);
-                AddToStatus(ref Pyro, damageStatusMult * elementalMult * skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
+                float pyroCalc = damageStatusMult * elementalMult * skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin);
+                if(pyroCalc > 0)
+                {
+                    _pyroAttacks.Insert(0, sourceSkillInstance.Skill);
+                }
+                AddToStatus(ref Pyro, pyroCalc);
                 AddToStatus(ref Frost, damageStatusMult * elementalMult * skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
                 AddToStatus(ref Static, damageStatusMult * elementalMult * skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
             }

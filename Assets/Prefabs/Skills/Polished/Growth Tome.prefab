@@ -351,7 +351,7 @@ MonoBehaviour:
       IsStr: 0
       IsDex: 0
       IsInt: 0
-      BalancePoints: 0.9
+      BalancePoints: 1
     - TargetType: 10
       ActorStatName: 0
       SkillStatName: 70

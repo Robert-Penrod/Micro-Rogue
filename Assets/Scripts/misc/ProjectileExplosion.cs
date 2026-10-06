@@ -125,6 +125,9 @@ public class ProjectileExplosion : SkillPart, IPoolable
             float audioDelay = 0.125f * Random.Range(0.75f, 1.25f);
             float vol = damageTaken / _skillInstance.Skill.Stats.Damage.Value;
             AudioSpawner.PlayAudioWithRandPitch(_damageAudio, 0.2f, 1f, vol, delay: audioDelay);
+
+            // On Kill
+            if (hitActor.Stats.Health <= 0f) _skillInstance.Skill.OnKill?.Invoke(hitActor);
         }
     }
 

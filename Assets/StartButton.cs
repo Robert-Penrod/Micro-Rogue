@@ -64,17 +64,20 @@ public class StartButton : MonoBehaviour
         _bg.color = _bg.color.Lerp(targetColor, lerpSpeed * Time.deltaTime);
 
         // Input
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (_simpleButton._button.IsInteractable())
         {
-            _simpleButton.TriggerSubmit();
-        }
-
-        var gamepad = Gamepad.current;
-        if(gamepad != null)
-        {
-            if(gamepad.buttonWest.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 _simpleButton.TriggerSubmit();
+            }
+
+            var gamepad = Gamepad.current;
+            if (gamepad != null)
+            {
+                if (gamepad.buttonWest.wasPressedThisFrame)
+                {
+                    _simpleButton.TriggerSubmit();
+                }
             }
         }
     }

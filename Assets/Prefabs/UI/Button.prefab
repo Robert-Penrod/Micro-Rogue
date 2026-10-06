@@ -1179,31 +1179,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5430566431258123635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c60dace367e642429c7465a54441fd2, type: 3}
+  m_Script: {fileID: 11500000, guid: 24d195beb88e31f4686343a9a60cb5d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _text: 
-  Sprite: {fileID: 0}
-  MainColor: {r: 0, g: 0, b: 0, a: 0}
-  _textMesh: {fileID: 1238493228141257366}
-  _image: {fileID: 8830764126020507906}
-  LevelPipHolder: {fileID: 5048779686177434430}
-  SelectSound: {fileID: 8300000, guid: 1b9cee9ea0016f0428621c0fa6e00159, type: 3}
-  SubmitSound: {fileID: 8300000, guid: 52e99cc6c06cc0a4ea7873b72d8198e4, type: 3}
-  BgImages:
-  - {fileID: 948659988596878985}
-  - {fileID: 6186164763231762969}
-  _content: {fileID: 5703225893940931443}
-  _highlightGFX: {fileID: 3632127761314767508}
+  CanSubmit: 1
+  _pressTime: 0
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls: []
-  OnDownEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnHighlightEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  SelectSound: {fileID: 0}
+  HoverSound: {fileID: 0}
+  SubmitSound: {fileID: 0}
+  _button: {fileID: 0}
+  IsSubmitedOnPointerSelect: 1
 --- !u!1 &5646457650701093946
 GameObject:
   m_ObjectHideFlags: 0

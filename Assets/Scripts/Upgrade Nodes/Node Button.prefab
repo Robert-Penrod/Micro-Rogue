@@ -1035,6 +1035,7 @@ MonoBehaviour:
   SelectSound: {fileID: 8300000, guid: f8422e1f41d1f57409733457e853c8e8, type: 3}
   HoverSound: {fileID: 8300000, guid: 83db74a22825a4840937f71f1ffd5b46, type: 3}
   SubmitSound: {fileID: 0}
+  _button: {fileID: 0}
   IsSubmitedOnPointerSelect: 0
 --- !u!114 &4161233385724503188
 MonoBehaviour:

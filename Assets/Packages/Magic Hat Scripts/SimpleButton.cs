@@ -29,7 +29,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     float _lastHoverTime;
 
     [Header("Reference")]
-    Button _button;
+    public Button _button;
     float _selectionTime;
     public bool IsSubmitedOnPointerSelect = true;
     bool _wasSelectedThisFrame => _selectionTime == Time.unscaledTime;

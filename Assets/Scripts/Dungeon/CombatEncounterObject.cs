@@ -134,6 +134,7 @@ public class CombatEncounterObject : MonoBehaviour
         enemyCount *= PlayerManager.I.PlayerList.Count;
         //enemyCount = enemyCount.ClampMin(2);
         if (Random.value < 0.5f) enemyCount += 1;
+        enemyCount = enemyCount.ClampMin(1);
         //if (data.IsBoss && Random.value < 0.5f) enemyCount += 1;
         //Debug.Log($"Enemy Count??? {enemyCount} / {max}");
         for(float encounterCount = 0; encounterCount < enemyCount && budget >= 1f + 0.25f * encounterCount; encounterCount += 0)

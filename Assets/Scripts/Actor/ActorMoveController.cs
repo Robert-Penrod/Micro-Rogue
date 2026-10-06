@@ -72,7 +72,11 @@ public class ActorMoveController : MonoBehaviour
 
         AudioSpawner.PlayAudioWithRandPitch(_dodgeSound, 0.2f, 1f, 1f);
 
-        if(_actor.Pyro > 0) _actor.Pyro -= 0.5f;
+        if(_actor.Pyro > 0)
+        {
+            _actor.Pyro = (_actor.Pyro -= 0.5f).ClampMin(0f);
+            
+        }
 
         // End
         OnDodge?.Invoke();

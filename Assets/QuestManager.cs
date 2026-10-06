@@ -5,8 +5,10 @@ using UnityEngine;
 public class QuestManager : Singleton<QuestManager>
 {
     [Header("References")]
+    [SerializeField] AudioClip _questCompleteAudio;
     [SerializeField] List<Actor> _enemyList;
     [SerializeField] List<Skill> _skillList;
+    float _targetValue = 5f;
 
     public class QuestData
     {
@@ -49,13 +51,27 @@ public class QuestManager : Singleton<QuestManager>
         string actorKillQuestKey = $"ActorKillQuest_{killedActor.GetName()}";
         float actorKillQuestValue = PlayerPrefs.GetFloat(actorKillQuestKey, 0);
         PlayerPrefs.SetFloat(actorKillQuestKey, actorKillQuestValue + 1);
+        if(actorKillQuestValue < _targetValue && (actorKillQuestValue + 1) >= _targetValue)
+        {
+            HandleQuestComplete();
+        }
 
         // Skill kill quest
         string skillKillQuestKey = $"SkillKillQuest_{killingSkill.Name}";
         float skillKillQuestValue = PlayerPrefs.GetFloat(skillKillQuestKey, 0);
         PlayerPrefs.SetFloat(skillKillQuestKey, skillKillQuestValue + 1);
+        if(skillKillQuestValue < _targetValue && (skillKillQuestValue + 1) >= _targetValue)
+        {
+            HandleQuestComplete();
+        }
 
         OnQuestUpdate?.Invoke();
+    }
+
+    void HandleQuestComplete()
+    {
+        Player.PlayerData.Gems += 10;
+        AudioSpawner.PlayAudio(_questCompleteAudio);
     }
 
     public List<QuestData> GetKillQuests()
@@ -75,7 +91,7 @@ public class QuestManager : Singleton<QuestManager>
         {
             string actorKillQuestKey = $"ActorKillQuest_{enemy.GetName()}";
             float currentValue = PlayerPrefs.GetFloat(actorKillQuestKey, 0);
-            float targetValue = 100;
+            float targetValue = _targetValue;
             string desc = $"Defeat {targetValue} {enemy.GetName()}";
             questList.Add(new(desc, currentValue, targetValue));
         });
@@ -91,8 +107,8 @@ public class QuestManager : Singleton<QuestManager>
             if (skill.Stats.Damage.BaseValue <= 0) return;
             string skillKillQuestKey = $"SkillKillQuest_{skill.Name}";
             float currentValue = PlayerPrefs.GetFloat(skillKillQuestKey, 0);
-            float targetValue = 100;
-            string desc = $"Defeat {targetValue} enemies with the {skill.Name}";
+            float targetValue = _targetValue;
+            string desc = $"Make {targetValue} {skill.Name} kills";
             questList.Add(new(desc, currentValue, targetValue));
         });
 
