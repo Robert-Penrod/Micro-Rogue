@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4edbe19b6ee7414fa5157e1d5c9290e, type: 3}
   m_Name: Dungeon
   m_EditorClassIdentifier: 
+  BiomeType: 3
   Icon: {fileID: -7942795272524331987, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
   Color: {r: 0.30196083, g: 0.47647062, b: 1, a: 1}
   _textures:

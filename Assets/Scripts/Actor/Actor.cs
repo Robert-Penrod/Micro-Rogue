@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Actor : MonoBehaviour
 {
+    public string GetName() => this.gameObject.name.Split("(")[0].Split("Variant")[0].Trim();
+
     [Header("Info")]
     public int Tier = 0;
     [SerializeField] int _lvl;
@@ -23,6 +25,7 @@ public class Actor : MonoBehaviour
     public List<Skill> InnateSkillList = new();
     public FactionType Faction = FactionType.Enemy;
     public enum FactionType { None, Player, Enemy }
+    public bool CanSeeThroughWalls = false;
     public ActorStats Stats;
     public TagCollection Tags;
     [Header("Biomes")]
@@ -64,7 +67,7 @@ public class Actor : MonoBehaviour
     public Action OnPreDeath;
     public Action OnEvade;
     public Action OnArmor;
-    public Action<Actor> OnKill;
+    public Action<Actor, Skill> OnKill;
     public Action<float, Actor, Skill> OnHit;
 
 
@@ -153,7 +156,7 @@ public class Actor : MonoBehaviour
         if(IsPlayer())
         {
             // Load
-            Debug.Log(Player.GetUnlockedString());
+            //Debug.Log(Player.GetUnlockedString());
             string[] upgradeStrings = Player.GetUnlockedStringsArray();
             foreach(string upgradeString in upgradeStrings)
             {
@@ -164,12 +167,13 @@ public class Actor : MonoBehaviour
                 if (s.Equals("health"))
                 {
                     Stats.HealthMax.BaseValue += 2.5f;
-                    Debug.Log(Stats.HealthMax.BaseValue);
+                    //Debug.Log(Stats.HealthMax.BaseValue);
                     Stats.SetHealthPercent(1f);
                 }
 
                 if(s.Equals("defense"))
                 {
+                    Debug.Log("Defense Upgrade!");
                     Stats.Defense.BaseValue += 1;
                 }
 
@@ -293,14 +297,13 @@ public class Actor : MonoBehaviour
         if (Pyro > 0) Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
         if(Pyro >= 0.75f)
         {
-            _burnTick += 0.75f * Pyro * Time.fixedDeltaTime;
+            _burnTick += 1f * Pyro.ClampMax(1) * Time.fixedDeltaTime;
             int burnDamage = ((int)Pyro).ClampMin(1);
-            float burnThreshold = 0.75f;
-            if(_burnTick >= burnThreshold)
+            if(_burnTick >= 1f)
             {
                 // Do Burn
-                TakeDamage(burnDamage, null, this, true);
-                _burnTick -= burnThreshold;
+                TakeDamage(1, null, null, true);
+                _burnTick -= 1f;
             }
         }
         else if(_burnTick > 0f)
@@ -308,12 +311,17 @@ public class Actor : MonoBehaviour
             _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
         if (Frost > 0) Frost -= 1.75f * (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= 1.5f * elementalClearMult * Time.fixedDeltaTime * Static.Pow(1.5f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Static > 0) Static -= 1.5f * elementalClearMult * Time.fixedDeltaTime * (Static > 1? Static.Pow(1.5f) : 1f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+
+        // Caps
+        if (Pyro > 2f) Pyro = 2f;
+        if (Frost > 2f) Frost = 2f;
+        if (Static > 1.5f) Static = 1.5f;
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)
     {
-        Debug.Log("HEALING");
+        //Debug.Log("HEALING");
         heal = (int)Mathf.Min(heal, Stats.HealthMax.Value - Stats.Health);
         if (heal <= 0) return 0;
 
@@ -330,7 +338,7 @@ public class Actor : MonoBehaviour
         var sourceActor = sourceSkillInstance?.Skill?.Actor;
         if (sourceActor != null && sourceActor.IsPlayer()) damage *= 1f + sourceSkillInstance.Skill.Actor.Stats.Damage.Value;
 
-        if (isCrit) isTrueDamage = true;
+        //if (isCrit) isTrueDamage = true;
 
         string blockType = string.Empty;
         // Whiff
@@ -364,10 +372,12 @@ public class Actor : MonoBehaviour
 
             // Armor
             int armorRoll = (int)Random.Range(0f, Stats.Defense.Value + Stats.Defense.Value.Sign() * 0.99f);
+            if (isCrit) armorRoll = 0;
             damage -= armorRoll;
 
             // Evasion
             int evasionRoll = (int)Random.Range(0f, Stats.Evasion.Value + Stats.Evasion.Value.Sign() * 0.99f);
+            if (isCrit) evasionRoll = 0;
             damage -= evasionRoll;
 
             // Graze
@@ -426,6 +436,7 @@ public class Actor : MonoBehaviour
         OnWasHit?.Invoke(sourceSkillInstance);
 
         // Do damage
+        damage = (int)damage;
         Stats.Health -= (int)damage;
         OnTakeDamage?.Invoke();
 
@@ -453,6 +464,7 @@ public class Actor : MonoBehaviour
             {
                 var skill = sourceSkillInstance.Skill;
                 float elementalMult = skill.Stats.Elemental.Value;
+                elementalMult *= skill.Stats.Duration.Value.Remap(skill.Stats.Duration.BaseValue, 2f * skill.Stats.Duration.BaseValue, 1f, 2f);
                 AddToStatus(ref Pyro, damageStatusMult * elementalMult * skill.Stats.Pyro.Value * Stats.PyroResist.Value.Remap(-1f, 1f, resistMax, resistMin));
                 AddToStatus(ref Frost, damageStatusMult * elementalMult * skill.Stats.Frost.Value * Stats.FrostResist.Value.Remap(-1f, 1f, resistMax, resistMin));
                 AddToStatus(ref Static, damageStatusMult * elementalMult * skill.Stats.Static.Value * Stats.StaticResist.Value.Remap(-1f, 1f, resistMax, resistMin));
@@ -487,10 +499,18 @@ public class Actor : MonoBehaviour
                 SpawnPopup(damage <= 0 ? null : -damage, blockSprite, c, vel, transform.position);
             }
         }
+        else
+        {
+            var palette = GamePaletteManager.I.Palette;
+            var normalColor = Faction == FactionType.Player ? palette.EnemyColor : palette.PlayerColor;
+            Color c = blockColor != Color.clear ? blockColor.Lerp(normalColor, 0.1f) : normalColor;
+            Vector2 vel = 0.5f * Body.linearVelocity;
+            SpawnPopup(damage <= 0 ? null : -damage, blockSprite, c, vel, transform.position);
+        }
 
         if(damage > 0 && isCrit)
         {
-            Vector3 pos = sourceSkillInstance.transform.position;
+            Vector3 pos = ((Vector2)sourceSkillInstance.transform.position).Lerp(transform.position, 0.8f);
             AudioSpawner.PlayAudioWithRandPitch(_critSound, 0.2f, 1f, 1f, pos);
             GameObject spawnedCritObj = _critObject.PooledInstantiate(pos);
             spawnedCritObj.SetActive(true);
@@ -521,8 +541,10 @@ public class Actor : MonoBehaviour
         string popupString = string.Empty;
         if (value != null)
         {
-            string symbol = value > 0 ? "+" : string.Empty;
-            popupString = "<color=" + colorString + ">" + symbol + ((int)value).ToString() + "</color>";
+            string numString = value > 0 ? "+" : string.Empty;
+            //numString += (int)(IsPlayer() ? value : value.Value.Abs());
+            numString += (int)(value.Value.Abs());
+            popupString = "<color=" + colorString + ">" + numString + "</color>";
         }
 
         // popup
@@ -563,6 +585,8 @@ public class Actor : MonoBehaviour
     public bool HasLineOfSightOf(Actor otherActor) => HasLineOfSightOf(otherActor.transform.position);
     public bool HasLineOfSightOf(Vector2 position)
     {
+        if (CanSeeThroughWalls) return true;
+
         Vector2 dir = position - (Vector2)transform.position;
         float dist = dir.magnitude;
         bool prevQueriesHitTriggers = Physics2D.queriesHitTriggers;

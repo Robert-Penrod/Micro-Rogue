@@ -113,6 +113,8 @@ public class Skill : MonoBehaviour
 
     public bool InstancesBlockCooldown;
 
+    public bool IsInvalidFirstSkill;
+
     [SerializeField] float _dps;
 
     //Events
@@ -191,7 +193,7 @@ public class Skill : MonoBehaviour
         OnKill = null;
         OnKill += (slainActor) =>
         {
-            Actor.OnKill?.Invoke(slainActor);
+            Actor.OnKill?.Invoke(slainActor, this);
             MetaSkillInfo.Kills++;
         };
 
@@ -264,7 +266,7 @@ public class Skill : MonoBehaviour
         // Cooldown
         if (CooldownPercent < 1f)
         {
-            float mult = cooldownMult * dodgeMult;
+            float mult = cooldownMult;
             //if (this.Slot == SlotEnum.Passive) mult = 1f;
 
             //mult *= Constants.SpeedMult;
@@ -272,6 +274,9 @@ public class Skill : MonoBehaviour
             mult *= Actor.FrostSlowMult;
 
             CooldownPercent += mult * Stats.Rate.Value * Time.fixedDeltaTime;
+
+            if (Actor.MoveController.IsDodging) CooldownPercent -= 1f * Stats.Rate.BaseValue * Time.fixedDeltaTime;
+
             CooldownPercent = CooldownPercent.Clamp01();
 
             // On Cooldown

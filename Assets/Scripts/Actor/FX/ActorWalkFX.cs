@@ -162,6 +162,7 @@ public class ActorWalkFX : MonoBehaviour
         float vol = 0.01f * Random.Range(0.8f, 1.2f);
         vol *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 2f, false);
         basePitch *= _rb.transform.localScale.x.Remap(1f, 2f, 1f, 0.5f, false);
-        AudioSpawner.PlayAudioWithRandPitch(WalkSound, 0.2f, basePitch, vol, transform.position).spatialBlend = 0.5f;
+        AudioSource walkSource = AudioSpawner.PlayAudioWithRandPitch(WalkSound, 0.2f, basePitch, vol, transform.position);
+        if(walkSource != null) walkSource.spatialBlend = 0.5f;
     }
 }

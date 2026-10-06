@@ -393,8 +393,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.2
-      minScalar: 0.1
+      scalar: 0.4
+      minScalar: 0.25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5057,7 +5057,7 @@ MonoBehaviour:
     IsStr: 0
     IsDex: 0
     IsInt: 0
-    BalancePoints: 0.25
+    BalancePoints: 2
 --- !u!114 &6829047747375236527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5160,8 +5160,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
       propertyPath: Description
-      value: Become enraged every 8s to gain <color=#4DFF4D>+50% Damage</color> for
-        5s.
+      value: Become enraged every 8s to gain <color=#4DFF4D>+50% Damage & Size</color>
+        for 5s.
       objectReference: {fileID: 0}
     - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
       propertyPath: InstancesBlockCooldown

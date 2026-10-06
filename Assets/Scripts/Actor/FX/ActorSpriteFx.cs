@@ -25,6 +25,11 @@ public class ActorSpriteFx : MonoBehaviour
 
     private void Start()
     {
+        if(_actor.IsPlayer())
+        {
+            _spriteRend.color = _actor.GetComponentInParent<Player>().Data.Color;
+        }
+
         this.DelayedInvoke(-1, () =>
         {
             _initColor = _spriteRend.color;

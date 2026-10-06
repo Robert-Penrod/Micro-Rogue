@@ -62,7 +62,7 @@ public static class Constants
 
     public static string ChangeValueString(float initValue, float newValue, float positiveDir = 1f, string unit = "", bool positiveSigns = false)
     {
-        Debug.Log("Unit: " + unit);
+        //Debug.Log("Unit: " + unit);
         Color initColor = new Color(0.75f, 0.75f, 0.75f);
         Color positiveColor = Colors.PositiveStatColor;
         Color negativeColor = Colors.NegativeStatColor;

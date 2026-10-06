@@ -598,6 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75f6d683f2f6024fb52617a1b4d493b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _projPivot: {fileID: 0}
   _attached: 1
   _damageMult: 1
   _knockbackMult: 1

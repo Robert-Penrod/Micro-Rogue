@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class SIE_Projectile : SIE, IPoolable
 {
+    Transform _projPivot;
     [SerializeField] bool _attached;
     [SerializeField] float _damageMult = 1f;
     [SerializeField] float _knockbackMult = 1f;
@@ -56,6 +57,8 @@ public class SIE_Projectile : SIE, IPoolable
             _rb.linearVelocity = Vector2.zero;
             _rb.angularVelocity = 0f;
         };
+
+        _projPivot = GetComponentInChildren<Collider2D>().transform;
     }
 
     public void Initialize()
@@ -170,7 +173,7 @@ public class SIE_Projectile : SIE, IPoolable
     void HandleCollisionStay(Collider2D col, Collision2D collision = null)
     {
         Vector2 particleVel = _lastVel * 0.25f;
-        Vector2 particlePoint = collision != null ? collision.contacts[0].point : transform.position;
+        Vector2 particlePoint = collision != null ? collision.GetContact(0).point : (_projPivot != null? _projPivot.position : transform.position);
 
         // State
         if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
@@ -302,7 +305,7 @@ public class SIE_Projectile : SIE, IPoolable
         float fractionalPierce = _pierce - (int)_pierce;
         float roll = Random.value;
         float finalPierceCheck = (int)_pierce + ((roll < fractionalPierce) ? 1 : 0);
-        if(_pierceCount > 0) Debug.Log($"FractionalPierce: {roll} < {fractionalPierce}? -> {_pierceCount} / {finalPierceCheck}");
+        //if(_pierceCount > 0) Debug.Log($"FractionalPierce: {roll} < {fractionalPierce}? -> {_pierceCount} / {finalPierceCheck}");
         if (_pierce >= 0 && _pierceCount > 0 && _pierceCount >= finalPierceCheck) _skillInstance.State = SkillInstance.SkillInstanceState.End;
     }
 

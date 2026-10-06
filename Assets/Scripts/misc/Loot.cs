@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loot : Pickup, IPoolable
 {
-    public enum LootType { Coin = 0, Gem = 100}
+    public enum LootType { Coin = 0, Gem = 100, Relic = 200}
     public LootType Type;
     public int Value = 1;
     [SerializeField] AudioClip _pickupSound;
@@ -134,6 +134,9 @@ public class Loot : Pickup, IPoolable
                 break;
             case LootType.Gem:
                 Player.PlayerData.Gems += Value;
+                break;
+            case LootType.Relic:
+                Player.PlayerData.Relics += Value;
                 break;
         }
 

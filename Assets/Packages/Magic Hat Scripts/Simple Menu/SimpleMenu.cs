@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 public class SimpleMenu : MonoBehaviour
 {
     [SerializeField] bool StartOpen;
+    [SerializeField] bool _doPreviousSelectionCache;
     [SerializeField] Button _selectOnOpen;
     [SerializeField] SimpleMenu _prevMenu;
     float _lerpSpeed = 12f;
@@ -43,7 +45,7 @@ public class SimpleMenu : MonoBehaviour
 
         this.DelayedInvoke(-1, () =>
         {
-            if (StartOpen && this.gameObject.activeInHierarchy)
+            if (_selectOnOpen != null && StartOpen && this.gameObject.activeInHierarchy)
             {
                 EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
             }
@@ -57,8 +59,16 @@ public class SimpleMenu : MonoBehaviour
 
         if(IsOpen)
         {
+            // Selection Cache
+            if (_canvasGroup.interactable && _prevSelectionCache != EventSystem.current.currentSelectedGameObject)
+            {
+                _prevSelectionCache = EventSystem.current.currentSelectedGameObject;
+            }
+
             // Back
-            if(EventSystem.current.sendNavigationEvents && !_wentBackThisFrame && _prevMenu != null && (Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape)))
+            bool backInput = Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Escape);
+            if (Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame) backInput = true; 
+            if (EventSystem.current.sendNavigationEvents && !_wentBackThisFrame && _prevMenu != null && backInput)
             {
                 _prevMenu._wentBackThisFrame = true;
                 SwitchMenu(_prevMenu);
@@ -71,8 +81,11 @@ public class SimpleMenu : MonoBehaviour
         }
     }
 
+
+    GameObject _prevSelectionCache;
     public void SetOpen(bool isOpen)
     {
+
         if (isOpen)
         {
             this.gameObject.SetActive(true);
@@ -84,9 +97,10 @@ public class SimpleMenu : MonoBehaviour
 
         if(didOpenChange)
         {
-            if(isOpen)
+            if(isOpen && this.gameObject.activeInHierarchy)
             {
-                if(_selectOnOpen != null && this.gameObject.activeInHierarchy) EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
+                if (_doPreviousSelectionCache && _prevSelectionCache != null) EventSystem.current.SetSelectedGameObject(_prevSelectionCache);
+                else if(_selectOnOpen != null) EventSystem.current.SetSelectedGameObject(_selectOnOpen.gameObject);
             }
 
             OnOpenChanged?.Invoke(isOpen);

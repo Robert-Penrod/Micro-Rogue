@@ -55,6 +55,8 @@ public class SimpleNPCBrain : ActorBrain
     public Action OnNotice;
     public Action OnLostTrail;
 
+    [SerializeField] bool _lockTo2D = false;
+
 
     private void OnDrawGizmosSelected()
     {
@@ -239,10 +241,11 @@ public class SimpleNPCBrain : ActorBrain
             if (_idleMoveTimer > 0f)
             {
                 _idleMoveTimer -= Time.deltaTime;
-                float distFromCenter = transform.position.magnitude;
+                float distFromCenter = ((Vector2)transform.position).magnitude;
                 Vector2 towardsCenter = -transform.position.normalized;
 
                 float t = distFromCenter.Remap(7f, 12f, 0f, 1f);
+                if (_lockTo2D) t = 0;
                 Vector2 randomMoveVector = Vector2.Lerp(_noiseVector, towardsCenter, t);
 
                 moveDir += randomMoveVector.normalized;
@@ -361,8 +364,19 @@ public class SimpleNPCBrain : ActorBrain
             _actor.MoveController.Ctrl_Dodge(moveDir.normalized);
         }
 
+
         // MOVE
         moveDir = sprintMult * moveDir.ClampMagnitude(1f);
+
+        if (_lockTo2D)
+        {
+            float bounds = 30f;
+            moveDir.y = 0;
+            moveDir.Normalize();
+            if (moveDir.x < 0 && transform.localPosition.x < -bounds) moveDir.x = 0;
+            if (moveDir.x > 0 && transform.localPosition.x > bounds) moveDir.x = 0;
+        }
+
         _actor.MoveController.Ctrl_Move(moveDir);
         Debug.DrawLine(transform.position, transform.position + (Vector3)moveDir, Color.cyan);
         //===

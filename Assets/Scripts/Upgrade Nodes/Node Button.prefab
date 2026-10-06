@@ -662,6 +662,7 @@ RectTransform:
   - {fileID: 4229264437554638754}
   - {fileID: 4384897862990319078}
   - {fileID: 7280189555671036290}
+  - {fileID: 5880488981491098365}
   - {fileID: 3162337845649247633}
   m_Father: {fileID: 2065459938715004896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -855,6 +856,81 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 2.5
+--- !u!1 &7954324909899652465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5880488981491098365}
+  - component: {fileID: 8823751086888824695}
+  - component: {fileID: 892444775521396080}
+  m_Layer: 5
+  m_Name: Relic Symbol
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &5880488981491098365
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954324909899652465}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5547017474155286582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 15, y: 0}
+  m_SizeDelta: {x: 40, y: 40}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8823751086888824695
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954324909899652465}
+  m_CullTransparentMesh: 1
+--- !u!114 &892444775521396080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7954324909899652465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 17f74ce677775394e9409afd60c64c33, type: 2}
+  m_Color: {r: 0.8745098, g: 0.64705884, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 2295369776362361104, guid: 8f13f9adb30b1d543b9444c4f5ae08ba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &8450255842286108353
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +946,7 @@ GameObject:
   - component: {fileID: 5699165812362453069}
   m_Layer: 5
   m_Name: N_
-  m_TagString: Untagged
+  m_TagString: NodeButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -956,9 +1032,10 @@ MonoBehaviour:
   OnSubmitEvent:
     m_PersistentCalls:
       m_Calls: []
-  SelectSound: {fileID: 8300000, guid: 5d77b541b2a39f34d97d298584a786bf, type: 3}
-  HoverSound: {fileID: 8300000, guid: 0f529499a781ad048b8786a2f1f950ef, type: 3}
-  SubmitSound: {fileID: 8300000, guid: b88a28a97c2d41945ab1508460948a86, type: 3}
+  SelectSound: {fileID: 8300000, guid: f8422e1f41d1f57409733457e853c8e8, type: 3}
+  HoverSound: {fileID: 8300000, guid: 83db74a22825a4840937f71f1ffd5b46, type: 3}
+  SubmitSound: {fileID: 0}
+  IsSubmitedOnPointerSelect: 0
 --- !u!114 &4161233385724503188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,15 +1065,20 @@ MonoBehaviour:
   Children: []
   NodeData:
     GemCost: 0
+    RelicCost: 0
     MaxUpgrades: 1
     UnlockedSkill: {fileID: 0}
     UnlockedCharacter: {fileID: 0}
     UnlockedStringInfo: {fileID: 0}
+  _unlockSound: {fileID: 8300000, guid: b88a28a97c2d41945ab1508460948a86, type: 3}
+  _errorSound: {fileID: 8300000, guid: cbcea50527462734d847876a5ed08f5e, type: 3}
   _icon: {fileID: 2519353777771805641}
   _frame: {fileID: 7526520300872860220}
   _bg: {fileID: 7496085868049637468}
   _costText: {fileID: 1086437906615371763}
   _costCGroup: {fileID: 7905742763976603734}
+  _gemIcon: {fileID: 9100534273170256414}
+  _relicIcon: {fileID: 892444775521396080}
 --- !u!1 &8789835294555593101
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,7 +1091,7 @@ GameObject:
   - component: {fileID: 882396048139167676}
   - component: {fileID: 9100534273170256414}
   m_Layer: 5
-  m_Name: Cost Symbol
+  m_Name: Gem Symbol
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

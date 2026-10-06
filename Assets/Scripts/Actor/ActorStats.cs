@@ -23,7 +23,7 @@ public class ActorStats
             // Clamp
             //_health = (int)Mathf.Clamp(_health, 0, HealthMax.Value);
 
-            Debug.Log("Health Changed??");
+            //Debug.Log("Health Changed??");
             OnHealthChanged?.Invoke(_health, (_health - oldHealth));
         }
     }

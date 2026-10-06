@@ -20,6 +20,7 @@ public class UnlockNodeButton : MonoBehaviour
         #region vars
         [Header("Cost")]
         public int GemCost;
+        public int RelicCost;
 
         [Header("Upgrade")]
         public int MaxUpgrades = 1;
@@ -30,16 +31,27 @@ public class UnlockNodeButton : MonoBehaviour
 
         public bool CanAfford()
         {
+            if(RelicCost > 0) return Player.PlayerData.Relics >= RelicCost;
             return Player.PlayerData.Gems >= GemCost;
         }
     }
-    
+
+    [Header("Audio")]
+    [SerializeField] AudioClip _unlockSound;
+    [SerializeField] AudioClip _errorSound;
+    void PlayAudio(AudioClip clip, float vol = 1f)
+    {
+        AudioSpawner.PlayAudioWithRandPitch(clip, 0.2f, 1f, vol);
+    }
+
     [Header("Reference")]
     [SerializeField] Image _icon;
     [SerializeField] Image _frame;
     [SerializeField] Image _bg;
     [SerializeField] TextMeshProUGUI _costText;
     [SerializeField] CanvasGroup _costCGroup;
+    [SerializeField] Image _gemIcon;
+    [SerializeField] Image _relicIcon;
     SimpleButton _simpleButton;
 
     public Color _baseBgColor => Color.HSVToRGB(0f, 0f, 0.14f);
@@ -76,7 +88,15 @@ public class UnlockNodeButton : MonoBehaviour
             }
         }
 
-        Player.PlayerData.Gems -= NodeData.GemCost;
+        if (NodeData.RelicCost > 0)
+        {
+            Player.PlayerData.Relics -= NodeData.RelicCost;
+        }
+        else if (NodeData.GemCost > 0)
+        {
+            Player.PlayerData.Gems -= NodeData.GemCost;
+        }
+
         SaveBool("Unlocked", true);
         Children.ForEach(child =>
         {
@@ -100,10 +120,20 @@ public class UnlockNodeButton : MonoBehaviour
         PlayerPrefs.SetInt(GetPlayerPrefsKey(key), value ? 1 : 0);
     }
     string GetPlayerPrefsKey(string key) => $"Node_{GetNodeId()}_{key}";
+    public string GetShortID()
+    {
+        return $"{NodeData.UnlockedStringInfo?.UnlockedString ?? string.Empty}{NodeData.UnlockedSkill?.Name ?? string.Empty}{NodeData.UnlockedCharacter?.name ?? string.Empty}";
+    }
     public string GetNodeId()
     {
-        string idString = $"{NodeData.UnlockedStringInfo?.UnlockedString ?? string.Empty}{NodeData.UnlockedSkill?.Name ?? string.Empty}{NodeData.UnlockedCharacter?.name ?? string.Empty}";
-        idString += Parent?.GetNodeId() ?? string.Empty;
+        //return "";
+        string idString = GetShortID();
+        UnlockNodeButton current = Parent;
+        for(int i = 0; i < 3 && current != null; i++)
+        {
+            idString += current.GetShortID();
+            current = current.Parent;
+        }
         /*
         Children.ForEach(child =>
         {
@@ -117,6 +147,8 @@ public class UnlockNodeButton : MonoBehaviour
     #region Init
     private void OnValidate()
     {
+        Children.RemoveAll(x => x == this);
+
         GetReferences();
         UpdateGFX();
 
@@ -142,7 +174,6 @@ public class UnlockNodeButton : MonoBehaviour
     {
         GetReferences();
         UpdateGFX();
-        UpdateLines();
 
         _simpleButton.OnSubmit += () =>
         {
@@ -155,6 +186,7 @@ public class UnlockNodeButton : MonoBehaviour
         _simpleButton.OnSubmit += () =>
         {
             bool unlocked = UnlockNode();
+            PlayAudio(unlocked ? _unlockSound : _errorSound);
         };
 
         if(IsRoot)
@@ -180,6 +212,8 @@ public class UnlockNodeButton : MonoBehaviour
         Random.InitState(GetNodeId().GetHashCode());
         transform.localPosition += 15f * (Vector3)Random.insideUnitCircle; // 7.5
         transform.Rotate2D(2f * Random.Range(-1f, 1f));
+
+        UpdateLines();
     }
 
     void GetReferences()
@@ -275,11 +309,25 @@ public class UnlockNodeButton : MonoBehaviour
 
         // Cost
         {
+            int cost = 0;
+            _relicIcon.gameObject.SetActive(false);
+            _gemIcon.gameObject.SetActive(false);
+            if(NodeData.RelicCost > 0)
+            {
+                cost = NodeData.RelicCost;
+                _relicIcon.gameObject.SetActive(true);
+            }
+            else
+            {
+                cost = NodeData.GemCost;
+                _gemIcon.gameObject.SetActive(true);
+            }
+
             float lerp = 1.5f * lerpSpeed;
             float targetAlpha = (_simpleButton.IsSelected ? 1f : (_simpleButton.IsHovered? 0.75f : 0f));
             if (isUnlocked) targetAlpha = 0f;
             _costCGroup.alpha = _costCGroup.alpha.Lerp(targetAlpha, lerp * Time.deltaTime);
-            _costText.text = $"-{NodeData.GemCost}";
+            _costText.text = $"-{cost}";
 
             float targetScale = _simpleButton.IsSelected ? 1f : (_simpleButton.IsHovered ? 0.75f : 0.5f);
             targetScale *= scaleMult;
@@ -334,6 +382,15 @@ public class UnlockNodeButton : MonoBehaviour
         float zOffset = -50f;
 
         List<LineRenderer> lineRends = new(GetComponentsInChildren<LineRenderer>(true));
+
+        // Destroy Line Rends
+        while(lineRends.Count > 0)
+        {
+            Destroy(lineRends[0].gameObject);
+            DestroyImmediate(lineRends[0].gameObject);
+            lineRends.RemoveAt(0);
+        }
+
         var childNodes = Children;
         childNodes.RemoveAll(x => x == null);
 
@@ -348,6 +405,7 @@ public class UnlockNodeButton : MonoBehaviour
             else
             {
                 lineRend = new GameObject($"Line Rend {childIndex}").AddComponent<LineRenderer>();
+                lineRend.gameObject.AddComponent<LineCanvasAlpha>();
                 lineRend.transform.SetParent(transform);
                 lineRends.Add(lineRend);
             }

@@ -7,8 +7,10 @@ public class DungeonInfoUI : MonoBehaviour
     [SerializeField] Image _eliteimage;
     [SerializeField] Image _bossImage;
     [SerializeField] Image _finalBossImage;
-    [SerializeField] TextMeshProUGUI _nextTierText;
-    [SerializeField] TextMeshProUGUI _currentTierText;
+    [SerializeField] TextMeshProUGUI _runTierText;
+    [SerializeField] GameObject _loopObj;
+    [SerializeField] GameObject _relicObj;
+    [SerializeField] TextMeshProUGUI _loopText;
 
     private void Start()
     {
@@ -34,8 +36,14 @@ public class DungeonInfoUI : MonoBehaviour
         _finalBossImage.enabled = DungeonManager.I?.Data?.IsFinalBoss ?? false;
         _finalBossImage.gameObject.SetActive(_finalBossImage.enabled);
 
-        // Tier Text
-        _nextTierText.text = Utils.ToRomanNumeral((DungeonManager.I?.Data?.RunTier + 1) ?? 0);
-        _currentTierText.text = Utils.ToRomanNumeral(DungeonManager.I?.Data?.RunTier ?? 0);
+        // Tier
+        _runTierText.text = Utils.ToRomanNumeral((DungeonManager.I?.Data?.RunTier) ?? 0);
+
+        // Loop / Relic
+        int runLoopCount = DungeonManager.I?.Data?.RunLoop ?? 0;
+        bool hasCollectedRelic = DungeonManager.I?.GetHasCollectedRelic() ?? false;
+        _relicObj.SetActive(!hasCollectedRelic);
+        _loopObj.SetActive(hasCollectedRelic);
+        _loopText.text = runLoopCount.ToString();
     }
 }

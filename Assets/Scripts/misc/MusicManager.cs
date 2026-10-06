@@ -6,17 +6,25 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField] AudioMixerGroup _musicMixer;
     List<AudioClip> _hubMusicClips;
-    List<AudioClip> _combatMusicClips;
-    List<AudioClip> _upgradeMusicClips;
-    List<AudioClip> _bossMusicClips;
-    List<AudioClip> _eliteMusicClips;
-    List<AudioClip> _gameOverMusicClips;
     AudioSourceLerper _hubMusic;
+
+    List<AudioClip> _combatMusicClips;
     AudioSourceLerper _combatMusic;
+
+    List<AudioClip> _upgradeMusicClips;
     AudioSourceLerper _upgradeMusic;
+
+    List<AudioClip> _bossMusicClips;
     AudioSourceLerper _bossMusic;
+
+    List<AudioClip> _eliteMusicClips;
     AudioSourceLerper _eliteMusic;
+
+    List<AudioClip> _gameOverMusicClips;
     AudioSourceLerper _gameOverMusic;
+
+    List<AudioClip> _sneakMusicClips;
+    AudioSourceLerper _sneakMusic;
 
     float _musicVol = 0.2f;
 
@@ -30,6 +38,7 @@ public class MusicManager : MonoBehaviour
         _bossMusicClips = new(Resources.LoadAll<AudioClip>("Music/Boss"));
         _eliteMusicClips = new(Resources.LoadAll<AudioClip>("Music/Elite"));
         _gameOverMusicClips = new(Resources.LoadAll<AudioClip>("Music/Game Over"));
+        _sneakMusicClips = new(Resources.LoadAll<AudioClip>("Music/Sneak"));
 
         _hubMusicClips.AddRange(_upgradeMusicClips);
 
@@ -39,7 +48,9 @@ public class MusicManager : MonoBehaviour
         _bossMusic = AudioSourceLerper.Create("Boss Music", this.transform, _bossMusicClips);
         _eliteMusic = AudioSourceLerper.Create("Elite Music", this.transform, _eliteMusicClips);
         _gameOverMusic = AudioSourceLerper.Create("Game Over Music", this.transform, _gameOverMusicClips);
-        _audioLerpers = new List<AudioSourceLerper> { _hubMusic, _combatMusic, _upgradeMusic, _bossMusic, _eliteMusic, _gameOverMusic };
+        _sneakMusic = AudioSourceLerper.Create("Sneak Music", this.transform, _sneakMusicClips);
+
+        _audioLerpers = new List<AudioSourceLerper> { _hubMusic, _combatMusic, _upgradeMusic, _bossMusic, _eliteMusic, _gameOverMusic, _sneakMusic };
 
         // Init 0 Volume
         _audioLerpers.ForEach(x =>
@@ -48,6 +59,8 @@ public class MusicManager : MonoBehaviour
             x.Volume.Value = 0f;
             x.AudioSource.outputAudioMixerGroup = _musicMixer;
         });
+
+        _isMuted = PlayerPrefs.GetInt("MusicMuted", 0) > 0;
     }
 
     private void Start()
@@ -58,6 +71,13 @@ public class MusicManager : MonoBehaviour
             Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
             audioLerper.AudioSource.time = Random.Range(0f, 1f) * audioLerper.AudioSource.clip.length;
         });
+    }
+
+    bool _isMuted = false;
+    public void ToggleMute()
+    {
+        _isMuted = !_isMuted;
+        PlayerPrefs.SetInt("MusicMuted", _isMuted ? 1 : 0);
     }
 
     private void Update()
@@ -85,7 +105,7 @@ public class MusicManager : MonoBehaviour
         _bossMusic.Pitch.Target = _combatMusic.Pitch.Target = _eliteMusic.Pitch.Target = combatPitch;
         //_upgradeMusic.Pitch.Target = UpgradeManager.I.IsUpgrading ? 0.975f :( DungeonManager.I.IsEncounterOver ? 0.9675f : 1.1f);
         _upgradeMusic.Pitch.LerpMult = 1.5f;
-        _gameOverMusic.Pitch.Target = allPlayersDead ? 0.9f : 1.15f;
+        _gameOverMusic.Pitch.Target = allPlayersDead ? 1f : 1.15f;
 
         // GameOver
         if (allPlayersDead)
@@ -93,14 +113,19 @@ public class MusicManager : MonoBehaviour
             PlayAudio(_gameOverMusic);
         }
         // Upgrading / Idle
-        else if(UpgradeManager.I.IsUpgrading || (DungeonManager.I.IsEncounterOver && DungeonManager.I.Data.Coordinate.y != 0))
+        else if(UpgradeManager.I.IsUpgrading)
         {
             PlayAudio(_upgradeMusic);
+        }
+        // Encounter Defeated
+        else if(DungeonManager.I.IsEncounterOver && DungeonManager.I.Data.Coordinate.y != 0)
+        {
+            PlayAudio(_sneakMusic);
         }
         // Hub
         else if(DungeonManager.I.Data.Coordinate.y == 0)
         {
-            PlayAudio(_upgradeMusic);
+            PlayAudio(_hubMusic);
         }
         // Combat
         else
@@ -108,7 +133,7 @@ public class MusicManager : MonoBehaviour
             // Sneak
             if(visibleEnemyCount == 0)
             {
-                PlayAudio(_upgradeMusic);
+                PlayAudio(_sneakMusic);
             }
             // Boss
             else if (DungeonManager.I.Data.IsBoss)
@@ -127,6 +152,15 @@ public class MusicManager : MonoBehaviour
                 PlayAudio(_combatMusic);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.M)) ToggleMute();
+        if (_isMuted)
+        {
+            _audioLerpers.ForEach(audioLerper =>
+            {
+                audioLerper.Volume.Target = 0f;
+            });
+        }
     }
 
     void PlayAudio(AudioSourceLerper playSource)
@@ -137,5 +171,6 @@ public class MusicManager : MonoBehaviour
         _bossMusic.Volume.Target = playSource == _bossMusic ? _musicVol : 0f;
         _eliteMusic.Volume.Target = playSource == _eliteMusic ? _musicVol : 0f;
         _gameOverMusic.Volume.Target = playSource == _gameOverMusic ? _musicVol : 0f;
+        _sneakMusic.Volume.Target = playSource == _sneakMusic ? _musicVol : 0f;
     }
 }

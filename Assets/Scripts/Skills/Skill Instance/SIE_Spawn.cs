@@ -25,7 +25,7 @@ public class SIE_Spawn : SIE, IPoolable
 
     void DoSpawn()
     {
-        var spawn = _spawnPrefab.PooledInstantiate(null, transform.position + transform.up * 0.25f);
+        var spawn = _spawnPrefab.PooledInstantiate(null, transform.position + transform.up * 0.5f);
 
         // Inheritance
         // - skillPart

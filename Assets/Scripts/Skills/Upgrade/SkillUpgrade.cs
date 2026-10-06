@@ -27,19 +27,19 @@ public class SkillUpgrade : Upgrade
     {
         string description = string.Empty;// _description + "\n";
         ModList.Sort((x, y) => x.SkillStatName > y.SkillStatName ? 1 : -1);
-        Debug.Log($"ModCount: {ModList.Count}");
+        //Debug.Log($"ModCount: {ModList.Count}");
         foreach (var upgradeMod in ModList)
         {
             description = upgradeMod.GetUpgradePreviewString(SourceSkill, SourceSkill?.Actor, description);
-            Debug.Log(description);
+            //Debug.Log(description);
         }
-        Debug.Log($"{SourceSkill.Name}: {description}");
+        //Debug.Log($"{SourceSkill.Name}: {description}");
         return description;
     }
 
     public override void ApplyUpgrade()
     {
-        Debug.Log("APPLY SKILL UPGRADE " + SourceSkill.Name);
+        //Debug.Log("APPLY SKILL UPGRADE " + SourceSkill.Name);
         ApplyMods();
 
         // Stat Changes
@@ -80,12 +80,12 @@ public class SkillUpgrade : Upgrade
             }
             else if (upgradeMod.TargetType == UpgradeMod.UpgradeTargetType.GlobalSkillStat)
             {
-                Debug.Log("Global Skill Stat Upgrade");
+                //Debug.Log("Global Skill Stat Upgrade");
                 foreach (var skill in SourceSkill.Actor.SkillSystem.SkillList)
                 {
                     if (!upgradeMod.IsSkillValid(skill))
                     {
-                        Debug.Log(skill.Name + " is not valid");
+                        //Debug.Log(skill.Name + " is not valid");
                         continue;
                     }
 
@@ -98,9 +98,9 @@ public class SkillUpgrade : Upgrade
                     mod.Tags.Add(SourceSkill.Name);
                     stat.AddModifier(mod);
 
-                    Debug.Log("Doing global stat mod for " + skill.Name);
-                    Debug.Log(upgradeMod.SkillStatName.ToString());
-                    Debug.Log(mod.Value);
+                    //Debug.Log("Doing global stat mod for " + skill.Name);
+                    //Debug.Log(upgradeMod.SkillStatName.ToString());
+                    //Debug.Log(mod.Value);
                 }
             }
         }

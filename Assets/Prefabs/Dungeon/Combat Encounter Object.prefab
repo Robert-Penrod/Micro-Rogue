@@ -68,6 +68,12 @@ MonoBehaviour:
       Weight: 1
     - Item: {fileID: 4479769880321824826, guid: d95ebdd7215cf914aa5d2af06b8b2ada, type: 3}
       Weight: 1
+    - Item: {fileID: 5220816986196235954, guid: a5bfae3e6966fd0449edebb4fa44bb91, type: 3}
+      Weight: 1
+    - Item: {fileID: 4202965850808188155, guid: 16e0131b0ea88b9478b645bd54ab3912, type: 3}
+      Weight: 1
+    - Item: {fileID: 297830920537487737, guid: 3c7ff68153a509a4eb4c0677066d2ec0, type: 3}
+      Weight: 1
   _bossTable:
     Entries:
     - Item: {fileID: 4150598940216829819, guid: e5be1408652a401408dd8467d8de97b9, type: 3}

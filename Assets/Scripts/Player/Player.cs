@@ -67,8 +67,25 @@ public class Player : MonoBehaviour
                 OnGemChange?.Invoke(_gem - oldValue);
             }
         }
-        public static int _gem;
+        static int _gem;
         public static Action<int> OnGemChange;
+        
+        public static int Relics
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("Relics", 0);
+            }
+            set
+            {
+                var oldValue = _relic;
+                _relic = value;
+                PlayerPrefs.SetInt("Relics", _relic);
+                OnRelicChange?.Invoke(_relic - oldValue);
+            }
+        }
+        static int _relic;
+        public static Action<int> OnRelicChange;
 
         public static List<string> GetUnlockedSkillList()
         {

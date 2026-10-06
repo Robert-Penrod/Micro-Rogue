@@ -310,21 +310,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsConstant: 1
-  Mods:
-  - TargetType: 20
-    ActorStatName: 20
-    SkillStatName: 0
-    Slots: 
-    IsStr: 0
-    IsDex: 0
-    IsInt: 0
-    BalancePoints: 0.5
-  - TargetType: 20
-    ActorStatName: 30
-    SkillStatName: 0
-    Slots: 
-    IsStr: 0
-    IsDex: 0
-    IsInt: 0
-    BalancePoints: 0.5
-  SkillUpgrade: []
+  Mods: []
+  SkillUpgrade:
+  - _name: 
+    Rarity: 0
+    SourceSkill: {fileID: 0}
+    ModList:
+    - TargetType: 20
+      ActorStatName: 20
+      SkillStatName: 0
+      Slots: 
+      IsStr: 0
+      IsDex: 0
+      IsInt: 0
+      BalancePoints: 0.5
+    - TargetType: 20
+      ActorStatName: 30
+      SkillStatName: 0
+      Slots: 
+      IsStr: 0
+      IsDex: 0
+      IsInt: 0
+      BalancePoints: 0.5

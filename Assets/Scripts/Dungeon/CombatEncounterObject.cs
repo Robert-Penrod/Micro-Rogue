@@ -42,12 +42,15 @@ public class CombatEncounterObject : MonoBehaviour
         budget *= DungeonManager.I.Data.IsBoss ? 1.1f : 1f;
         budget *= DungeonManager.I.Data.IsFinalBoss ? 1.2f : 1f;
 
-        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 2f, 1f, 1.1f, false);
+        //budget *= DungeonManager.I.Data.RunLoop.Remap(1f, 2f, 1f, 1.1f, false);
+
         budget *= ((DungeonManager.I.Data.Coordinate.y - 1) % 10).Remap(0f, 9f, 1f, 1.1f);
 
         budget *= mult;
 
         budget += (DungeonManager.I.Data.EliteTier * 1f);
+        budget += 1f * (DungeonManager.I.Data.RunLoop - 1f);
+        budget += 0.25f * (DungeonManager.I.Data.RunTier - 1f);
 
         budget = budget.ClampMin(1);
 
@@ -73,6 +76,12 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Weight enemy Types
         var enemyTable = new WeightedList<Actor>();
+        int period = 4;
+        int floorNum = dungeonData.Coordinate.y;
+        int runTier = dungeonData.RunTier;
+        int biomeIndex = (int)dungeonData.Biome;
+        int roomTierBonus = period * ((runTier - 1) + (biomeIndex - 1));
+        int roomTier = floorNum + roomTierBonus;
         _enemyTable.Entries.ForEach(enemyEntry =>
         {
             float weight = enemyEntry.Weight;
@@ -89,8 +98,7 @@ public class CombatEncounterObject : MonoBehaviour
             weight *= biomeMult.Clamp01();
             weight *= enemyEntry.Item.RarityMult;
 
-            if (DungeonManager.I.Data.Coordinate.y < enemyEntry.Item.Tier * 4) weight = 0;
-
+            if (roomTier < (enemyEntry.Item.Tier * period)) weight = 0;
             enemyTable.Add(enemyEntry.Item, weight);
         });
         //
@@ -103,6 +111,7 @@ public class CombatEncounterObject : MonoBehaviour
         if (Random.value < 0.5f) typeCount++;
         if (typeCount == 1 && Random.value < 0.5f) typeCount++;
         if (Random.value < 0.25f) typeCount *= 2;
+        typeCount += DungeonManager.I.Data.RunTier - 1;
         for(int i = 0; i < typeCount && enemyTable.Entries.Count > 0; i++)
         {
             var selectedEntry = enemyTable.SelectAndRemoveEntry();
@@ -111,7 +120,7 @@ public class CombatEncounterObject : MonoBehaviour
         }
         //
         // Spawn Enemies
-        int max = (int)(2 + (budget / 2f)).ClampMin(1);
+        int max = (int)(2 + (budget / 3f)).ClampMin(1);
         //int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
         //if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
         //if (DungeonManager.I.Data.IsBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
@@ -123,8 +132,10 @@ public class CombatEncounterObject : MonoBehaviour
         if (data.IsFinalBoss) enemyCount = (int)(0.75f * enemyCount);
         if (data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
         enemyCount *= PlayerManager.I.PlayerList.Count;
-        enemyCount = enemyCount.ClampMin(1);
-        Debug.Log($"Enemy Count??? {enemyCount} / {max}");
+        //enemyCount = enemyCount.ClampMin(2);
+        if (Random.value < 0.5f) enemyCount += 1;
+        //if (data.IsBoss && Random.value < 0.5f) enemyCount += 1;
+        //Debug.Log($"Enemy Count??? {enemyCount} / {max}");
         for(float encounterCount = 0; encounterCount < enemyCount && budget >= 1f + 0.25f * encounterCount; encounterCount += 0)
         {
             var selectedTypeActor = typeTable.SelectItem();
@@ -132,6 +143,7 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 // Final Boss
                 selectedTypeActor = _bossTable.SelectItem();
+                Debug.Log("Selected Boss: " + selectedTypeActor.name);
             }
             else
             {
@@ -167,10 +179,13 @@ public class CombatEncounterObject : MonoBehaviour
             }
 
             // Brain Difficulty
-            var brain = actor.GetComponent<SimpleNPCBrain>();
-            if(brain != null)
             {
-                brain.DifficultyMult = 0.9f;
+                var brain = actor.GetComponent<SimpleNPCBrain>();
+                if (brain != null)
+                {
+                    brain.DifficultyMult = 0.9f;
+                    brain.DifficultyMult *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.25f);
+                }
             }
 
             // Base Upgrade
@@ -197,7 +212,7 @@ public class CombatEncounterObject : MonoBehaviour
                 var brain = enemy.GetComponent<SimpleNPCBrain>();
                 if (brain != null)
                 {
-                    brain.DifficultyMult = 1.2f;
+                    brain.DifficultyMult *= 1.25f;
                 }
             }
             _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
@@ -210,14 +225,14 @@ public class CombatEncounterObject : MonoBehaviour
             {
                 Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
                 var randVal = Random.value;
-                Debug.Log($"Enemy Budget Bonus? {randVal} < {budget} (budget) Floor {DungeonManager.I.Data.Coordinate.y}");
+                //Debug.Log($"Enemy Budget Bonus? {randVal} < {budget} (budget) Floor {DungeonManager.I.Data.Coordinate.y}");
                 if(!(randVal < budget))
                 {
                     break;
                 }
                 else
                 {
-                    Debug.Log($"!!! Enemy Upgrade Bonus!!!");
+                    //Debug.Log($"!!! Enemy Upgrade Bonus!!!");
                 }
             }
 
@@ -231,7 +246,7 @@ public class CombatEncounterObject : MonoBehaviour
             if (upgrades.Count > 0)
             {
                 if (upgrades[0].SourceSkill.Slot == Skill.SlotEnum.Item) upgradeCost = 0.5f;
-                Debug.Log("Applying Upgrade " + upgrades[0].GetTitle());
+                //Debug.Log("Applying Upgrade " + upgrades[0].GetTitle());
                 upgrades[0].ApplyUpgrade();
             }
 
@@ -307,6 +322,15 @@ public class CombatEncounterObject : MonoBehaviour
                     player.Actor.Rest();
                 });
             });
+
+            if(DungeonManager.I.Data.IsFinalBoss && !DungeonManager.I.GetHasCollectedRelic())
+            {
+                var biome = DungeonManager.I.Data.Biome;
+                var tier = DungeonManager.I.Data.RunTier;
+                DungeonManager.IncreaseMaxTier(biome);
+                DungeonManager.SetHasCollectedRelic(biome, tier);
+                Player.PlayerData.Relics += 1;
+            }
         }
     }
 }

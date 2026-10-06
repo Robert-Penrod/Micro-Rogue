@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -7,24 +8,36 @@ public class StartButton : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] Image _bg;
+    [SerializeField] SimpleMenu _startModal;
     Color _initBgColor;
 
     SimpleButton _simpleButton;
     float _submitTick;
+
+    public UnityEvent OnSubmitEvent;
 
     private void Awake()
     {
         _simpleButton = GetComponent<SimpleButton>();
         _simpleButton.OnSubmit += () =>
         {
+            if (_startModal.IsOpen) return;
+
             _submitTick += 0.5f;
             this.DelayedInvoke(0.375f, () =>
             {
-                DungeonManager.I.StartGame();
+                HandleSubmit();
             });
         };
 
         _initBgColor = _bg.color;
+    }
+
+    void HandleSubmit()
+    {
+        //DungeonManager.I.StartGame();
+        //_startModal.SetOpen(true);
+        OnSubmitEvent?.Invoke();
     }
 
     private void Update()

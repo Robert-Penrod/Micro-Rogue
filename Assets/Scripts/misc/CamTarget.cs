@@ -18,7 +18,7 @@ public class CamTarget : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (PlayerManager.I == null) return;
+        if (PlayerManager.I == null || _camManager == null) return;
 
         if(PlayerManager.I.AreAllPlayersDead())
         {
@@ -63,7 +63,7 @@ public class CamTarget : MonoBehaviour
         else
         {
             _targetPos = Vector2.zero;
-            if (!UpgradeMenu.I.IsOpen) _camManager.Zoom(0.9f, this);
+            if (!UpgradeMenu.I?.IsOpen ?? false) _camManager.Zoom(0.9f, this);
         }
         _targetPos *= Magnitude;
 

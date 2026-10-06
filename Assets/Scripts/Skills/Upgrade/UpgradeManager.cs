@@ -84,10 +84,11 @@ public class UpgradeManager : Singleton<UpgradeManager>
         int maxSkillCount = 3;
         if (DungeonManager.I?.Data == null) maxSkillCount = 1000;
         else maxSkillCount += (DungeonManager.I.Data.Coordinate.y / 5);
+        maxSkillCount += DungeonManager.I.Data.RunTier - 1;
 
         bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
 
-        Debug.Log("Innate Skills");
+        //Debug.Log("Innate Skills");
         // INNATE SKILL UPGRADES
         actorToUpgrade.InnateSkillList.ForEach(newSkill =>
         {
@@ -103,6 +104,9 @@ public class UpgradeManager : Singleton<UpgradeManager>
             // If no damage skills -> new skill must do damage
             bool hasDamageSkill = actorSkillList.Find(x => x.Stats.Damage.Value > 0) != null;
             if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
+            //
+            // Must be valid first skill
+            if (actorToUpgrade.SkillSystem.SkillList.Count == 0 && newSkill.IsInvalidFirstSkill) return;
             //
             // Actor cannot already have skill
             if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;
@@ -145,6 +149,9 @@ public class UpgradeManager : Singleton<UpgradeManager>
             //
             // If no damage skills -> new skill must do damage
             if (!hasDamageSkill && newSkill.Stats.Damage.Value <= 0f) return;
+            //
+            // Must be valid first skill
+            if (actorToUpgrade.SkillSystem.SkillList.Count == 0 && newSkill.IsInvalidFirstSkill) return;
             //
             // Actor cannot already have skill
             if (newSkill.Slot != Skill.SlotEnum.Item && skillSystem.HasSkill(newSkill)) return;

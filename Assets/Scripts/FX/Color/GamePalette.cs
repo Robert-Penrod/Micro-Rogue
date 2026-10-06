@@ -24,7 +24,7 @@ public class GamePalette : ScriptableObject
     {
         var actor = skill.Actor;
 
-        Color individualPlayerColor = EnemyColor; // Player vs enemy color
+        Color ActorColor = EnemyColor; // Player vs enemy color
         if (actor != null)
         {
             if (actor.IsPlayer())
@@ -32,26 +32,31 @@ public class GamePalette : ScriptableObject
                 var player = actor.GetComponentInParent<Player>();
                 if (player != null)
                 {
-                    individualPlayerColor = player.Data.Color;
-                    individualPlayerColor = individualPlayerColor.Lerp(PlayerColor, 0f);
+                    ActorColor = PlayerColor;
+                    ActorColor = ActorColor.Lerp(player.Data.Color, 0.5f);
+                    ActorColor = ActorColor.Lerp(PlayerColor, 0f);
                 }
                 else
                 {
-                    individualPlayerColor = actor._spriteRend.color;
+                    ActorColor = actor._spriteRend.color;
                 }
             }
             else if (actor.Faction == Actor.FactionType.Player)
             {
-                individualPlayerColor = PlayerColor;
+                ActorColor = PlayerColor;
             }
         }
         Color archetypeColor = GetArchetypeColor(skill.Stats.Str, skill.Stats.Dex, skill.Stats.Int).SetValue(1f);
 
-        Color color = Color.Lerp(individualPlayerColor, archetypeColor, 0.25f); // 0.25f
+        Color color = Color.Lerp(ActorColor, archetypeColor, 0.25f); // 0.25f
 
-        if(skill.Slot == Skill.SlotEnum.Passive)
+        if (skill.Slot == Skill.SlotEnum.Passive)
         {
             color = LerpTowardsPassive(color, actor);
+        }
+        else
+        {
+            color = color.SetValue(1f);
         }
 
         return color;

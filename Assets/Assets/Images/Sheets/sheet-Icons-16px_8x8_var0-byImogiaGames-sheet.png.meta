@@ -1,0 +1,1804 @@
+fileFormatVersion: 2
+guid: afbe88f3367bf354e81caad3aec908fd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1793674301548029558
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_0
+  - first:
+      213: 8731201197919030728
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_1
+  - first:
+      213: -4578522281853420017
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_2
+  - first:
+      213: -7475935391352569455
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_3
+  - first:
+      213: -7905374507553077350
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_4
+  - first:
+      213: -2492695554439547046
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_5
+  - first:
+      213: -1695997359739967419
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_6
+  - first:
+      213: -4386781004233871399
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_7
+  - first:
+      213: 256351788156247118
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_8
+  - first:
+      213: 1716931429812792791
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_9
+  - first:
+      213: 829790916028577914
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_10
+  - first:
+      213: -8907911606918140066
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_11
+  - first:
+      213: -2291247226410423545
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_12
+  - first:
+      213: -5035038097443256660
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_13
+  - first:
+      213: 5894388303709953317
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_14
+  - first:
+      213: -3507112123179084283
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_15
+  - first:
+      213: -5285744377733773112
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_16
+  - first:
+      213: -5084328720936472521
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_17
+  - first:
+      213: -2262605047309459762
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_18
+  - first:
+      213: -6071793230345167188
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_19
+  - first:
+      213: 5589123000787637192
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_20
+  - first:
+      213: 1235881440607571543
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_21
+  - first:
+      213: -2650396662036974680
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_22
+  - first:
+      213: 4756913177248567370
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_23
+  - first:
+      213: -6794510032286423059
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_24
+  - first:
+      213: -9076669477898026498
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_25
+  - first:
+      213: 9125651527492892605
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_26
+  - first:
+      213: -6106630462102613071
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_27
+  - first:
+      213: -5489306345209294724
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_28
+  - first:
+      213: 4010521299343744399
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_29
+  - first:
+      213: 6106553922867843800
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_30
+  - first:
+      213: 804079139198709422
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_31
+  - first:
+      213: -2975681423556148916
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_32
+  - first:
+      213: -4436818733098481737
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_33
+  - first:
+      213: -8163385464908620394
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_34
+  - first:
+      213: 1160267822676284988
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_35
+  - first:
+      213: -6360592854265071841
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_36
+  - first:
+      213: -2232693753666523619
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_37
+  - first:
+      213: -5702161860707909504
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_38
+  - first:
+      213: -2928415031367567109
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_39
+  - first:
+      213: 6480381248318254111
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_40
+  - first:
+      213: 1175201440333884076
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_41
+  - first:
+      213: -4220998136520934058
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_42
+  - first:
+      213: -5590445729746548595
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_43
+  - first:
+      213: 1256581773530187869
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_44
+  - first:
+      213: -2582610458034296524
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_45
+  - first:
+      213: -4247030632062987674
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_46
+  - first:
+      213: -8305461638079101237
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_47
+  - first:
+      213: 1410296790779741979
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_48
+  - first:
+      213: 1108228305928851080
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_49
+  - first:
+      213: -1412056280305097667
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_50
+  - first:
+      213: -7645838742379297195
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_51
+  - first:
+      213: 14884667648275366
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_52
+  - first:
+      213: -1586181661120274567
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_53
+  - first:
+      213: -915838610147583978
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_54
+  - first:
+      213: 5539944195768973151
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_55
+  - first:
+      213: 2007519277633968918
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_56
+  - first:
+      213: -7893500465714063545
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_57
+  - first:
+      213: 4551591581858656836
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_58
+  - first:
+      213: -3011277325409945856
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_59
+  - first:
+      213: 6682490054518076865
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_60
+  - first:
+      213: 3509386357552360647
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_61
+  - first:
+      213: -4806854144806629329
+    second: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a899b7dd9b69b17e0800000000000000
+      internalID: -1793674301548029558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdcd68ca357b2970800000000000000
+      internalID: 8731201197919030728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0e7ae12e32d570c0800000000000000
+      internalID: -4578522281853420017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 191c8aaee54204890800000000000000
+      internalID: -7475935391352569455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97ced415c77a4290800000000000000
+      internalID: -7905374507553077350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a577f60a99a286dd0800000000000000
+      internalID: -2492695554439547046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548e2b8136b9678e0800000000000000
+      internalID: -1695997359739967419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 120
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df65373be50f13c0800000000000000
+      internalID: -4386781004233871399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4cd696d79ebe8300800000000000000
+      internalID: 256351788156247118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dde1b9e904c3d710800000000000000
+      internalID: 1716931429812792791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a78bab31172048b00800000000000000
+      internalID: 829790916028577914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5fa013f69db06480800000000000000
+      internalID: -8907911606918140066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b253189cad330e0800000000000000
+      internalID: -2291247226410423545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca60653f683ff1ab0800000000000000
+      internalID: -5035038097443256660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d59d2bee21dc150800000000000000
+      internalID: 5894388303709953317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 103
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506d17efa1c345fc0800000000000000
+      internalID: -3507112123179084283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c809a75e7345a6b0800000000000000
+      internalID: -5285744377733773112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 730f34b57f5d079b0800000000000000
+      internalID: -5084328720936472521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece1d1082bc9990e0800000000000000
+      internalID: -2262605047309459762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cae97ab0a38acbba0800000000000000
+      internalID: -6071793230345167188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c399ebb1cd809d40800000000000000
+      internalID: 5589123000787637192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e89eb4f9bb62110800000000000000
+      internalID: 1235881440607571543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a3b76d3746e73bd0800000000000000
+      internalID: -2650396662036974680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 86
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a40964dd453f30240800000000000000
+      internalID: 4756913177248567370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de76dbedf1d05b1a0800000000000000
+      internalID: -6794510032286423059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef1024a3331390280800000000000000
+      internalID: -9076669477898026498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db7f638e6b3d4ae70800000000000000
+      internalID: 9125651527492892605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b35bc3f2f3e04ba0800000000000000
+      internalID: -6106630462102613071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70908e66f012d3b0800000000000000
+      internalID: -5489306345209294724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d95838fdb38a730800000000000000
+      internalID: 4010521299343744399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d25e4e5076deb450800000000000000
+      internalID: 6106553922867843800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 69
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaead3787b9a82b00800000000000000
+      internalID: 804079139198709422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c410538d28144b6d0800000000000000
+      internalID: -2975681423556148916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7cdd89ed04d62c0800000000000000
+      internalID: -4436818733098481737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69dd88fcb24d5be80800000000000000
+      internalID: -8163385464908620394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c369fe6ff691a1010800000000000000
+      internalID: 1160267822676284988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1774a8bf72aab7a0800000000000000
+      internalID: -6360592854265071841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1e29704cd0e301e0800000000000000
+      internalID: -2232693753666523619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08089b0cff9ddd0b0800000000000000
+      internalID: -5702161860707909504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_39
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 52
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8fb6c5b0e2c57d0800000000000000
+      internalID: -2928415031367567109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cac1b2960fee950800000000000000
+      internalID: 6480381248318254111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_41
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caae0a6cb772f4010800000000000000
+      internalID: 1175201440333884076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_42
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d75130f800c65c0800000000000000
+      internalID: -4220998136520934058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_43
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d888b5e6a3fba62b0800000000000000
+      internalID: -5590445729746548595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_44
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d584f722776407110800000000000000
+      internalID: 1256581773530187869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_45
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43928afb879b82cd0800000000000000
+      internalID: -2582610458034296524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_46
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 662dea154248f05c0800000000000000
+      internalID: -4247030632062987674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_47
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 35
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc649a6f4a21dbc80800000000000000
+      internalID: -8305461638079101237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_48
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17cc4a8571629310800000000000000
+      internalID: 1410296790779741979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_49
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e0ce8c5c7316f00800000000000000
+      internalID: 1108228305928851080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_50
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d342e816b4e576ce0800000000000000
+      internalID: -1412056280305097667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_51
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55600965c2684e590800000000000000
+      internalID: -7645838742379297195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_52
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a376cfb681e43000800000000000000
+      internalID: 14884667648275366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_53
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fdfa3ee20ccf9e0800000000000000
+      internalID: -1586181661120274567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_54
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618d09ae2a94a43f0800000000000000
+      internalID: -915838610147583978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_55
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57fb48e4e5d1ec40800000000000000
+      internalID: 5539944195768973151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_56
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61b1f1f85242cdb10800000000000000
+      internalID: 2007519277633968918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_57
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7479bb2e527a47290800000000000000
+      internalID: -7893500465714063545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_58
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 442f757ad608a2f30800000000000000
+      internalID: 4551591581858656836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_59
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00770ca1a3bc536d0800000000000000
+      internalID: -3011277325409945856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_60
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c571aa9c49fcbc50800000000000000
+      internalID: 6682490054518076865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_61
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cca2857c48d3b030800000000000000
+      internalID: 3509386357552360647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_62
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f20dfa38f9f9a4db0800000000000000
+      internalID: -4806854144806629329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_63
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 1
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f85177bf3bebf247af54e2283cf03bb
+      internalID: 2028631526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f360520e3ecf31e4085bbf1189f42d0b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_0: -1793674301548029558
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_1: 8731201197919030728
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_10: 829790916028577914
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_11: -8907911606918140066
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_12: -2291247226410423545
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_13: -5035038097443256660
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_14: 5894388303709953317
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_15: -3507112123179084283
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_16: -5285744377733773112
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_17: -5084328720936472521
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_18: -2262605047309459762
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_19: -6071793230345167188
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_2: -4578522281853420017
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_20: 5589123000787637192
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_21: 1235881440607571543
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_22: -2650396662036974680
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_23: 4756913177248567370
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_24: -6794510032286423059
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_25: -9076669477898026498
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_26: 9125651527492892605
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_27: -6106630462102613071
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_28: -5489306345209294724
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_29: 4010521299343744399
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_3: -7475935391352569455
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_30: 6106553922867843800
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_31: 804079139198709422
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_32: -2975681423556148916
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_33: -4436818733098481737
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_34: -8163385464908620394
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_35: 1160267822676284988
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_36: -6360592854265071841
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_37: -2232693753666523619
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_38: -5702161860707909504
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_39: -2928415031367567109
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_4: -7905374507553077350
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_40: 6480381248318254111
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_41: 1175201440333884076
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_42: -4220998136520934058
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_43: -5590445729746548595
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_44: 1256581773530187869
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_45: -2582610458034296524
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_46: -4247030632062987674
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_47: -8305461638079101237
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_48: 1410296790779741979
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_49: 1108228305928851080
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_5: -2492695554439547046
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_50: -1412056280305097667
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_51: -7645838742379297195
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_52: 14884667648275366
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_53: -1586181661120274567
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_54: -915838610147583978
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_55: 5539944195768973151
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_56: 2007519277633968918
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_57: -7893500465714063545
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_58: 4551591581858656836
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_59: -3011277325409945856
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_6: -1695997359739967419
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_60: 6682490054518076865
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_61: 3509386357552360647
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_62: -4806854144806629329
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_63: 2028631526
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_7: -4386781004233871399
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_8: 256351788156247118
+      sheet-Icons-16px_8x8_var0-byImogiaGames-sheet_9: 1716931429812792791
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

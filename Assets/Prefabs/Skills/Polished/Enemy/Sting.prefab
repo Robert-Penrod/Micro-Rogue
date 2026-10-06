@@ -248,12 +248,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Stats.Duration.BaseValue
       value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Tags._entries.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: Stats.Knockback.BaseValue
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Tags._entries.Array.data[0].tag
@@ -264,12 +272,88 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0]._name
+      value: Sharpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1]._name
+      value: Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[2].Rarity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Tags._entries.Array.data[0].count
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: Tags._entries.Array.data[1].count
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0].SourceSkill
+      value: 
+      objectReference: {fileID: 8706378113905969453}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1].SourceSkill
+      value: 
+      objectReference: {fileID: 8706378113905969453}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[2].SourceSkill
+      value: 
+      objectReference: {fileID: 8706378113905969453}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].BalancePoints
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[0].SkillStatName
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].BalancePoints
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[0].ModList.Array.data[1].SkillStatName
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].BalancePoints
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[0].SkillStatName
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].BalancePoints
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[1].ModList.Array.data[1].SkillStatName
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].BalancePoints
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+      propertyPath: UpgradeList.Array.data[2].ModList.Array.data[0].SkillStatName
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8219908610659933637, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
       propertyPath: m_LocalScale.x
@@ -308,3 +392,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 800934841047020294, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
   m_PrefabInstance: {fileID: 1166126306733281733}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8706378113905969453 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7565393674382252264, guid: 5f16c3a9e0f896e4fb8b086288d6da1a, type: 3}
+  m_PrefabInstance: {fileID: 1166126306733281733}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f690437afbce4454cadb004767ad4b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

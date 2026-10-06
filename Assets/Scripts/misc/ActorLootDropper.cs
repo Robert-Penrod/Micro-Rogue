@@ -21,14 +21,16 @@ public class ActorLootDropper : MonoBehaviour
     void DropLoot()
     {
         float dropCount = 2f * _actor.GetLevel();
-        if (Random.value < 0.5f) dropCount++;
+        //if (Random.value < 0.5f) dropCount++;
 
         int lootingLevel = Player.GetUnlockedStringCount("Looting");
-        Debug.Log("Looting: " + lootingLevel);
+        //Debug.Log("Looting: " + lootingLevel);
         dropCount *= 1f + 0.1f * lootingLevel;
 
         if (DungeonManager.I.Data.IsBoss) dropCount *= 2f;
         dropCount *= DungeonManager.I.Data.EliteTier.Remap(0, 1, 1, 1.5f);
+
+        dropCount *= DungeonManager.I.GetLootMult();
 
         // Camp Upgrade
         //dropCount *= Player.CampUpgradeData.LootMultiplier;
@@ -59,7 +61,7 @@ public class ActorLootDropper : MonoBehaviour
         var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.5f) || (Random.value < 0.25f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
 
         int gemCuttingLevel = Player.GetUnlockedStringCount("Gem Cutting");
-        Debug.Log("Gem Cutting: " + gemCuttingLevel);
+        //Debug.Log("Gem Cutting: " + gemCuttingLevel);
         if(Random.value < gemCuttingLevel * 0.1f)
         {
             selectedItem = GemPrefab;

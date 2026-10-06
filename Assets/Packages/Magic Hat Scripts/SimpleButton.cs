@@ -31,6 +31,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     [Header("Reference")]
     Button _button;
     float _selectionTime;
+    public bool IsSubmitedOnPointerSelect = true;
     bool _wasSelectedThisFrame => _selectionTime == Time.unscaledTime;
     #endregion
 
@@ -43,7 +44,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 
     private void Update()
     {
-        if (_pressTick > 0f) _pressTick = (_pressTick - Time.deltaTime).ClampMin(0f);
+        if (_pressTick > 0f) _pressTick = (_pressTick - (_pressTick * Time.deltaTime)).ClampMin(0f);
     }
 
     public void SetActive(bool state)
@@ -56,8 +57,9 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     public void OnSelect(BaseEventData eventData)
     {
         IsSelected = true;
-        AudioSpawner.PlayAudioWithRandPitch(SelectSound, 0.2f, 1f, 0.75f);
+        PlayAudio(SelectSound, 0.75f);
         _selectionTime = Time.unscaledTime;
+        transform.SetSiblingIndex(transform.parent.childCount-1);
     }
     public void OnDeselect(BaseEventData eventData)
     {
@@ -74,7 +76,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     {
         if(!IsHovered)
         {
-            if(Time.time - _lastHoverTime >= 0.1f) AudioSpawner.PlayAudioWithRandPitch(HoverSound, 0.2f, 1f, 0.25f);
+            if(Time.time - _lastHoverTime >= 0.1f) PlayAudio(HoverSound, 0.25f);
             _lastHoverTime = Time.time;
         }
         IsHovered = true;
@@ -96,7 +98,7 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     }
     public void OnPointerDown(PointerEventData eventData)
     {
-        if(!_wasSelectedThisFrame)
+        if(IsSubmitedOnPointerSelect || !_wasSelectedThisFrame)
         {
             HandleSubmit();
         }
@@ -107,11 +109,18 @@ public class SimpleButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     }
     void HandleSubmit()
     {
+        Debug.Log("Button Submitting!!");
+
         if (!CanSubmit) return;
         _pressTick += _pressTime;
         OnSubmit?.Invoke();
         OnSubmitEvent?.Invoke();
-        AudioSpawner.PlayAudioWithRandPitch(SubmitSound, 0.2f, 1f, 1f);
+        PlayAudio(SubmitSound);
     }
     #endregion
+
+    void PlayAudio(AudioClip clip, float vol = 1f)
+    {
+        AudioSpawner.PlayAudioWithRandPitch(clip, 0.2f, 1f, vol);
+    }
 }

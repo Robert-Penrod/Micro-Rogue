@@ -93,7 +93,13 @@ public class CameraManager : Singleton<CameraManager>
             var selectedObj = EventSystem.current.currentSelectedGameObject;
             if (selectedObj == null) return;
 
-            Vector3 targetPos = -1.5f * Vector3.up + selectedObj.transform.position.SetZ(_camera.transform.localPosition.z);
+            Vector3 targetPos = Vector3.zero.SetZ(_camera.transform.localPosition.z);
+            if (selectedObj.CompareTag("NodeButton"))
+            {
+                targetPos = -1.5f * Vector3.up + selectedObj.transform.position.SetZ(_camera.transform.localPosition.z);
+            }
+
+            targetPos += (Vector3)CalculateOffset();
             _camera.transform.localPosition = _camera.transform.localPosition.Lerp(targetPos, lerpSpeed * Time.deltaTime);
         }
     }

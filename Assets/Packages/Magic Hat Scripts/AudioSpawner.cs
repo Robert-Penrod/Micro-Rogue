@@ -136,13 +136,19 @@ public static class AudioSpawner
         */
     }
 
-    public static AudioSource PlayAudioWithRandPitch(AudioClip audioClip, float pitchRange = 0.2f, float basePitch = 1f, float volume = 1f, Vector3? position = null, float delay = 0f) => PlayAudio(audioClip, volume, basePitch + UnityEngine.Random.Range(-1f, 1f) * pitchRange, position, delay: delay);
+    public static AudioSource PlayAudioWithRandPitch(AudioClip audioClip, float pitchRange = 0.2f, float basePitch = 1f, float volume = 1f, Vector3? position = null, float delay = 0f)
+    {
+        UnityEngine.Random.InitState(System.DateTime.Now.Ticks.GetHashCode());
+        return PlayAudio(audioClip, volume, basePitch + UnityEngine.Random.Range(-1f, 1f) * pitchRange, position, delay: delay);
+    }
 
     public static AudioSource PlayAudio(AudioData audioData) => PlayAudio(audioData.Clip, audioData.Volume, audioData.Pitch, null);
     public static AudioSource PlayAudio(AudioClip audioClip, float volume = 1f, float pitch = 1f) => PlayAudio(audioClip, volume, pitch, null);
     public static AudioSource PlayAudio(AudioData audioData, Vector3? position = null, float minDistance = DEFAULT_MIN_DIST, float maxDistance = DEFAULT_MAX_DIST) => PlayAudio(audioData.Clip, audioData.Volume, audioData.Pitch, position, minDistance, maxDistance);
     public static AudioSource PlayAudio(AudioClip audioClip, float volume, float pitch, Vector3? position = null, float minDistance = DEFAULT_MIN_DIST, float maxDistance = DEFAULT_MAX_DIST, float delay = 0f)
     {
+        if (audioClip == null) return null;
+
         // Get Audio Source
         AudioSource audioSource = GetAudioSource();
         //AudioSource audioSource = new GameObject().AddComponent<AudioSource>();
@@ -151,7 +157,7 @@ public static class AudioSpawner
         // Setup
         audioSource.volume = volume;
         audioSource.pitch = pitch;
-
+      
         // Spatial Audio
         if (position != null)
         {

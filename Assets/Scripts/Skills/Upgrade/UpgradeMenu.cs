@@ -114,7 +114,8 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
 
     public void SetMenuOpen(bool isOpen)
     {
-        CameraManager.I.Zoom(isOpen ? 1.1f : 1f, this);
+        DungeonManager.I.UpdateBiomeTextures();
+        if(CameraManager.I != null) CameraManager.I.Zoom(isOpen ? 1.1f : 1f, this);
         _canvasGroup.interactable = _canvasGroup.blocksRaycasts = isOpen;
         IsOpen = isOpen;
 

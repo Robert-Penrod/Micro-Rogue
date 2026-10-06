@@ -6,6 +6,7 @@ public class HitParticlesManager : PersistantSingleton<HitParticlesManager>
 
     public void SpawnHitParticles(Skill skill, Vector2 pos, Vector2 vel, float magnitude = 1f)
     {
+        magnitude = 1f;
         magnitude = magnitude.ClampMin(0.5f);
 
         var pSystem = Instantiate(_hitParticlePrefab).GetComponent<ParticleSystem>();

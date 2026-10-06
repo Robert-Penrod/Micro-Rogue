@@ -45,7 +45,7 @@ public class RoomObject : MonoBehaviour
         if (biomePropTable != null && biomePropTable.Entries.Count > 0)
         {
             float propCount = Random.Range(1, 5) + Random.Range(1, 5); // 2d4
-            propCount *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.25f);
+            propCount *= DungeonManager.I.Data.RunLoop.Remap(1f, 3f, 1f, 1.25f);
             propCount *= ((int)DungeonManager.I.Data.Biome).Remap(1f, 3f, 1f, 1.25f);
             for (int i = 0; i < propCount; i++)
             {

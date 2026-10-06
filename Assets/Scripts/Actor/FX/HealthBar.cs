@@ -53,7 +53,8 @@ public class HealthBar : MonoBehaviour
         float current = _fill.transform.localScale.y;
         float dist = target - current;
         float distLerpMult = 1f / (5f * dist.Abs());
-        float healthLerp = current.Lerp(target, distLerpMult * _lerpSpeed * Time.deltaTime);
+        float lowHealthLerpMult = _targetHealthPercent.RemapPercent(2f, 1f);
+        float healthLerp = current.Lerp(target, lowHealthLerpMult * distLerpMult * _lerpSpeed * Time.deltaTime);
         _fill.transform.localScale = new Vector3(1f, healthLerp, 1f);
         float delta = _targetHealthPercent.Clamp01() - healthLerp;
         float lerpDeltaMult = (healthLerp.Remap(0.9f, 1f, 0f, 1f)).RemapPercent(1f, 10f);

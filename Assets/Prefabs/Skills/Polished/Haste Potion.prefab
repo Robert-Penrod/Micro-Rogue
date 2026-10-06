@@ -198,7 +198,7 @@ MonoBehaviour:
     IsStr: 0
     IsDex: 0
     IsInt: 0
-    BalancePoints: 3.2
+    BalancePoints: 4
 --- !u!114 &920541008739864019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,7 +5144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}
       propertyPath: Description
-      value: Drink a potion every 8s to gain <color=#4DFF4D>+40% Rate</color> for
+      value: Drink a potion every 8s to gain <color=#4DFF4D>+50% Rate</color> for
         3s.
       objectReference: {fileID: 0}
     - target: {fileID: 5101933996537750155, guid: 333fa89c8e6e6454f894c3290f8cad38, type: 3}

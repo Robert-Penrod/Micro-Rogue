@@ -39,9 +39,20 @@ public class DungeonManager : Singleton<DungeonManager>
     public Sprite WildsIcon;
     public Sprite UndergroundIcon;
     public Sprite DungeonIcon;
-    [SerializeField] BiomeData _wildsData;
-    [SerializeField] BiomeData _undergroundData;
-    [SerializeField] BiomeData _dungeonData;
+    public BiomeData _wildsData;
+    public BiomeData _undergroundData;
+    public BiomeData _dungeonData;
+    public BiomeData GetBiomeData()
+    {
+        return Data.Biome switch
+        {
+            BiomeEnum.Forest => _wildsData,
+            BiomeEnum.Cave => _undergroundData,
+            BiomeEnum.Dungeon => _dungeonData,
+            _ => null
+        };
+    }
+
     public Sprite GetBiomeSprite(BiomeEnum biome)
     {
         Sprite sprite = biome switch
@@ -82,6 +93,28 @@ public class DungeonManager : Singleton<DungeonManager>
         return isTimerRunning;
     }
 
+    public float GetLootMult()
+    {
+        int biomeIndex = (int)Data.Biome;
+        int tier = Data.RunTier;
+        float lootMult = 1f;
+        lootMult *= biomeIndex.Remap(1f, 2f, 1f, 1.15f, false);
+        lootMult *= tier.Remap(1f, 2f, 1f, 1.1f, false);
+        return lootMult;
+    }
+
+    public int GetLoopRoomCount()
+    {
+        return Data.RunTier * 5;
+    }
+
+    public float GetLoopPercent()
+    {
+        int loopCount = GetLoopRoomCount();
+        float remainder = Data.Coordinate.y % loopCount;
+        return remainder == 0? 1f : (remainder / loopCount);
+    }
+
     public void SetBiomeWilds()
     {
         Data.Biome = BiomeEnum.Forest;
@@ -107,7 +140,9 @@ public class DungeonManager : Singleton<DungeonManager>
     [System.Serializable]
     public class DungeonData
     {
-        public int RunTier => 1 + ((Coordinate.y-1) / 10);
+        public int RunTier = 1;
+        int loopRoomCount = I.GetLoopRoomCount();
+        public int RunLoop => 1 + (loopRoomCount > 0? ((Coordinate.y-1) / loopRoomCount) : 0);
 
         public int Seed;
         public int RoomNumber => Coordinate.y;
@@ -130,7 +165,7 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(GetSeed());
 
             // Encounter Type Sampling
-            this.IsFinalBoss = this.Coordinate.y % 10 == 0;
+            this.IsFinalBoss = this.Coordinate.y % loopRoomCount == 0;
             this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
             if (eliteTier >= 0 && !IsFinalBoss && !IsBoss) this.EliteTier = eliteTier;
             else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
@@ -164,6 +199,30 @@ public class DungeonManager : Singleton<DungeonManager>
             }
         };
         //GenerateRandomizedRoom();
+    }
+
+    public static int GetMaxTier(BiomeEnum biomeType)
+    {
+        return PlayerPrefs.GetInt($"MaxTier_{biomeType}", 1);
+    }
+    public static void IncreaseMaxTier(BiomeEnum biomeType)
+    {
+        int maxTier = GetMaxTier(biomeType) + 1;
+        if (maxTier > 3) maxTier = 3;
+        PlayerPrefs.SetInt($"MaxTier_{biomeType}", maxTier);
+        PlayerPrefs.SetInt("SelectedTier", maxTier);
+    }
+    public static bool GetHasCollectedRelic(BiomeEnum biomeType, int tier)
+    {
+        return PlayerPrefs.GetInt($"Relic_{biomeType}_{tier}", 0) > 0;
+    }
+    public bool GetHasCollectedRelic()
+    {
+        return GetHasCollectedRelic(Data.Biome, Data.RunTier);
+    }
+    public static void SetHasCollectedRelic(BiomeEnum biomeType, int tier)
+    {
+        PlayerPrefs.SetInt($"Relic_{biomeType}_{tier}", 1);
     }
 
     public static BiomeEnum SampleBiome(int seed, Vector2Int coord, int runTier)
@@ -245,7 +304,8 @@ public class DungeonManager : Singleton<DungeonManager>
             BiomeEnum.Dungeon => _dungeonData
         };
 
-        int textureIndex = ((Data.Coordinate.y).ClampMin(0) / 5);
+        int textureIndex = (((5 * (Data.RunTier - 1).ClampMin(0)) + (Data.Coordinate.y).ClampMin(0)) / 5);
+        //Debug.Log("TEXTUREINDEX: " + textureIndex);
         int wallIndex = textureIndex % biomeData._textures.Count;
         int floorIndex = (textureIndex + 1) % biomeData._textures.Count;
         _wallMat.SetTexture("_Texture", biomeData._textures[wallIndex].texture);
@@ -370,6 +430,7 @@ public class DungeonManager : Singleton<DungeonManager>
             _portalTick += Time.deltaTime;
             if(_portalTick >= Constants.DungeonStats.PortalTime)
             {
+                Debug.Log("Walked Through Portal");
                 DoPortal();
             }
         }
@@ -439,8 +500,11 @@ public class DungeonManager : Singleton<DungeonManager>
                     if (Random.value < 0.2f) levelSkip++;
                 }
 
+                var newDungeonData = new DungeonData(Data.Seed, coordinate, runLevel: levelSkip, eliteTier: i);
+                newDungeonData.RunTier = Data.RunTier;
+
                 // Set Data
-                portal.SetData(new DungeonData(Data.Seed, coordinate, runLevel: levelSkip, eliteTier: i));
+                portal.SetData(newDungeonData);
             }
         }
     }
@@ -456,6 +520,8 @@ public class DungeonManager : Singleton<DungeonManager>
 
         this.DelayedInvoke(-1, () =>
         {
+            if (IsRunStarted) return;
+
             // Starting Gold
             PlayerManager.I.PlayerList.ForEach(player =>
             {
@@ -465,6 +531,7 @@ public class DungeonManager : Singleton<DungeonManager>
             Debug.Log("Starting Game");
             IsRunStarted = true;
 
+            Debug.Log("DM Used Portal");
             DoPortal();
 
             PlayerPrefs.SetInt("IsInvDirty", 1);

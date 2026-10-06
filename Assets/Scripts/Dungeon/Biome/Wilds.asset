@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4edbe19b6ee7414fa5157e1d5c9290e, type: 3}
   m_Name: Wilds
   m_EditorClassIdentifier: 
+  BiomeType: 1
   Icon: {fileID: -3405617218648237640, guid: ecfed98ba4829a54fa4055fac2ca8499, type: 3}
   Color: {r: 0.31005174, g: 1, b: 0.3, a: 1}
+  _ambience:
+  - {fileID: 8300000, guid: d1e67283a1ee7e64c9b00146f8c88bcf, type: 3}
+  - {fileID: 8300000, guid: acf7fbd4c4edda54ba3317c1b386599d, type: 3}
+  - {fileID: 8300000, guid: a4331df1ff522f8438bb981631e884ef, type: 3}
   _textures:
   - {fileID: 21300000, guid: ac63ce083c3dd4f4cb988430ce582211, type: 3}
   - {fileID: 21300000, guid: eecd112535ffe934b879a53b275fecbf, type: 3}

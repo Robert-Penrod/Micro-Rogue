@@ -31171,13 +31171,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02ccec735f1302342bd0d93959848fb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Tier: 0
   _lvl: 0
   StartingSkillCount: 0
   _skillSystem: {fileID: 2582964353104462975}
   RarityMult: 1
   Difficulty: 1
   EncounterCount: 1
-  MinLevel: 0
   UpgradeAffinity: 1
   NewSkillAffinity: 1
   BlacklistedTags: 
@@ -31210,6 +31210,9 @@ MonoBehaviour:
       BaseValue: 0
       statModifiers: []
     StaticResist:
+      BaseValue: 0
+      statModifiers: []
+    Damage:
       BaseValue: 0
       statModifiers: []
   Tags:

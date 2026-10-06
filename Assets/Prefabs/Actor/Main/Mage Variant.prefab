@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: WildsAffinity
-      value: 0.2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: DungeonAffinity
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: UndergroundAffinity
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.size
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: InnateSkillList.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: 'BlacklistedTags.Array.data[0]'
@@ -120,6 +120,10 @@ PrefabInstance:
       propertyPath: 'InnateSkillList.Array.data[8]'
       value: 
       objectReference: {fileID: 913206573210524748, guid: 8747687139d1a484eb6464d72475961f, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[9]'
+      value: 
+      objectReference: {fileID: 7810722921821588791, guid: c415e9fd580573047b354ada7a5be5eb, type: 3}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[1].tag
       value: 1

@@ -6,7 +6,7 @@ public class SE_Shield : SkillEffect
     [SerializeField] SpriteRenderer _bashEffect;
     [SerializeField] AudioClip BlockSound;
     int _charges;
-    float _bashRadius => 1f * _skill.Stats.Size.Value * _skill.Stats.Knockback.Value;
+    float _bashRadius => 2f * _skill.Stats.Size.Value * _skill.Stats.Knockback.Value;
 
     private void OnDrawGizmos()
     {
