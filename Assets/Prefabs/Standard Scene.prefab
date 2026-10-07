@@ -201,6 +201,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 394863905722829010, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: _levelUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 18316f7b2ceec7648bbfebdc4d4ecefb, type: 3}
+    - target: {fileID: 394863905722829010, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: _joinSceneNames.Array.size
       value: 2
       objectReference: {fileID: 0}

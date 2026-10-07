@@ -12,6 +12,13 @@ using Random = UnityEngine.Random;
 [RequireComponent(typeof(PlayerInputManager))]
 public class PlayerManager : PersistantSingleton<PlayerManager>
 {
+    [SerializeField] AudioClip _levelUpSound;
+    public void HandleLevelUp()
+    {
+        Player.PlayerData.Gems += 5 * (Player.PlayerData.Level - 1);
+        AudioSpawner.PlayAudio(_levelUpSound);
+    }
+
     [SerializeField] List<string> _joinSceneNames = new();
     public List<Player> PlayerList = new();
     [SerializeField] List<InputDevice> _inputDeviceList = new();

@@ -1,48 +1,41 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SimpleMenu))]
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] SimpleMenu _shopMenu;
+    static bool _notFirstOpen = false;
+
+    [SerializeField] List<SimpleMenu> _menusToOpen = new();
     SimpleMenu _thisMenu;
 
-    private void Awake()
+    void SkipMenu()
     {
-        _thisMenu = GetComponent<SimpleMenu>();
+        this.DelayedInvoke(-1, () =>
+        {
+            _thisMenu.SetOpen(false);
+            for(int i = 0; i < _menusToOpen.Count; i++)
+            {
+                _menusToOpen[i].SetOpen(true);
+            }
+
+            Debug.Log(EventSystem.current.currentSelectedGameObject);
+        });
     }
 
     private void Start()
     {
-        bool isRestarting = PlayerPrefs.GetInt("Restarting", 0) > 0;
-
-        if (isRestarting)
+        _thisMenu = GetComponent<SimpleMenu>();
+        if(_notFirstOpen)
         {
-            this.DelayedInvoke(-2, () =>
-            {
-                DungeonManager.I.StartGame();
-            });
-            _thisMenu.SetOpen(false);
-            this.DelayedInvoke(-1, () =>
-            {
-                PlayerPrefs.SetInt("Restarting", 0);
-            });
+            Debug.Log("Skippin");
+            SkipMenu();
         }
         else
         {
-            if(PlayerPrefs.GetInt("IsInvDirty", 1) > 0)
-            {
-                PlayerPrefs.SetInt("IsInvDirty", 0);
-                ActorSkillSystem.ClearAllSavedSkills();
-            }
-
-            /*
-            // Skip to shop
-            if (PlayerManager.I.PlayerList.Count > 0)
-            {
-                _thisMenu.SetOpen(false);
-                _shopMenu.SetOpen(true);
-            }
-            */
+            Debug.Log("First");
+            _notFirstOpen = true;
         }
     }
 }

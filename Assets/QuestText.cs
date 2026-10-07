@@ -34,8 +34,8 @@ public class QuestText : TMProSetter
 
         if (DungeonManager.I.IsRunStarted) minAlpha = 0.25f;
 
-        if (_upgradeGridMenu.IsOpen) targetAlpha = 1f;
-        else if (UpgradeMenu.I.IsOpen) targetAlpha = 1f;
+        //if (_upgradeGridMenu.IsOpen) targetAlpha = 1f;
+        if (UpgradeMenu.I.IsOpen) targetAlpha = 1f;
         else if(_questUpdateTick > 0)
         {
             targetAlpha = _questUpdateTick;

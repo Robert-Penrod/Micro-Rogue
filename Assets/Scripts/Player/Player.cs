@@ -80,12 +80,72 @@ public class Player : MonoBehaviour
             {
                 var oldValue = _relic;
                 _relic = value;
-                PlayerPrefs.SetInt("Relics", _relic);
+                PlayerPrefs.SetInt("Relics", value);
                 OnRelicChange?.Invoke(_relic - oldValue);
             }
         }
         static int _relic;
         public static Action<int> OnRelicChange;
+
+        public static int XP
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("XP", 0);
+            }
+            set
+            {
+                var newValue = value;
+                if(newValue >= XpPerLevel)
+                {
+                    // Level Up
+                    newValue -= XpPerLevel;
+                    Level++;
+                    LevelShard++;
+
+                    PlayerManager.I.HandleLevelUp();
+                }
+
+                var oldValue = XP;
+                PlayerPrefs.SetInt("XP", newValue);
+                OnXpChange?.Invoke(newValue - oldValue);
+            }
+        }
+        public static Action<int> OnXpChange;
+        public static float XpPercent => (float)XP / XpPerLevel;
+
+        public static int Level
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("Level", 1);
+            }
+            set
+            {
+                var oldValue = Level;
+                PlayerPrefs.SetInt("Level", value);
+                OnLevelChange?.Invoke(Level - oldValue);
+            }
+        }
+        public static Action<int> OnLevelChange;
+        public static int XpPerLevel => Level * 5;
+
+        public static int LevelShard
+        {
+            get
+            {
+                return PlayerPrefs.GetInt("LevelShard", 0);
+            }
+            set
+            {
+                var oldValue = _levelShard;
+                _levelShard = value;
+                PlayerPrefs.SetInt("LevelShard", value);
+                OnLevelShardChange?.Invoke(_levelShard - oldValue);
+            }
+        }
+        public static int _levelShard;
+        public static Action<int> OnLevelShardChange;
 
         public static List<string> GetUnlockedSkillList()
         {

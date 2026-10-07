@@ -9,6 +9,7 @@ public class ActorLootDropper : MonoBehaviour
     [SerializeField] float _angularForce = 1f;
     public WeightedList<GameObject> LootPrefabTable = new();
     public GameObject GemPrefab;
+    public GameObject XpPrefab;
 
     Actor _actor;
 
@@ -20,7 +21,8 @@ public class ActorLootDropper : MonoBehaviour
 
     void DropLoot()
     {
-        float dropCount = 2f * _actor.GetLevel();
+        int actorLevel = _actor.GetLevel();
+        float dropCount = 2f * actorLevel;
         //if (Random.value < 0.5f) dropCount++;
 
         int lootingLevel = Player.GetUnlockedStringCount("Looting");
@@ -51,14 +53,27 @@ public class ActorLootDropper : MonoBehaviour
         {
             DoSpawn();
         }
+        
+
+        for(int i = 0; i < actorLevel; i++)
+        {
+            DropXP();
+        }
 
         // Fractional drop count
         if(Random.value < (dropCount - (int)dropCount)) DoSpawn();
     }
 
+    void DropXP()
+    {
+        var spawnedXp = XpPrefab.PooledInstantiate(transform.position);
+        spawnedXp.gameObject.SetActive(true);
+        KickBody(spawnedXp.GetComponent<Rigidbody2D>());
+    }
+
     void DoSpawn()
     {
-        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.5f) || (Random.value < 0.25f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
+        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.4f) || (Random.value < 0.2f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
 
         int gemCuttingLevel = Player.GetUnlockedStringCount("Gem Cutting");
         //Debug.Log("Gem Cutting: " + gemCuttingLevel);
@@ -71,11 +86,15 @@ public class ActorLootDropper : MonoBehaviour
         var lootSpawn = selectedItem.PooledInstantiate(transform.position);
         lootSpawn.gameObject.SetActive(true);
 
-        var lootBody = lootSpawn.GetComponent<Rigidbody2D>();
-        if(lootBody != null)
+        KickBody(lootSpawn.GetComponent<Rigidbody2D>());
+    }
+
+    void KickBody(Rigidbody2D body)
+    {
+        if (body != null)
         {
-            lootBody.AddForce(Random.insideUnitCircle * _kickForce * lootBody.mass * lootBody.linearDamping, ForceMode2D.Impulse);
-            lootBody.AddTorque(Random.Range(01f, 1f) * _angularForce);
+            body.AddForce(Random.insideUnitCircle * _kickForce * body.mass * body.linearDamping, ForceMode2D.Impulse);
+            body.AddTorque(Random.Range(01f, 1f) * _angularForce);
         }
     }
 }

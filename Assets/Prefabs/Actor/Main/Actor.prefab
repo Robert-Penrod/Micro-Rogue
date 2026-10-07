@@ -31183,6 +31183,7 @@ MonoBehaviour:
   BlacklistedTags: 
   InnateSkillList: []
   Faction: 2
+  CanSeeThroughWalls: 0
   Stats:
     _health: 12
     Str: 0
@@ -31369,6 +31370,7 @@ MonoBehaviour:
     - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
       Weight: 0.25
   GemPrefab: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
+  XpPrefab: {fileID: 7512805904016728388, guid: 416502fbceb06c24f97e8ce9031de227, type: 3}
 --- !u!114 &-2264874766299332809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31410,6 +31412,7 @@ MonoBehaviour:
   NoticeMag: 0
   AttackMag: 0
   TrackingMag: 0
+  _lockTo2D: 0
 --- !u!1 &8092221797262269560
 GameObject:
   m_ObjectHideFlags: 0
