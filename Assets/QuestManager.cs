@@ -8,7 +8,7 @@ public class QuestManager : Singleton<QuestManager>
     [SerializeField] AudioClip _questCompleteAudio;
     [SerializeField] List<Actor> _enemyList;
     [SerializeField] List<Skill> _skillList;
-    float _targetValue = 10f;
+    float _targetValue = 10f; // 10
 
     public class QuestData
     {
@@ -72,6 +72,7 @@ public class QuestManager : Singleton<QuestManager>
     {
         Player.PlayerData.Gems += 5;
         AudioSpawner.PlayAudio(_questCompleteAudio);
+        SymbolPopup2DManager.I.NotificationPopup(PlayerManager.I.PlayerList[0].Actor.transform.position, "Quest Complete!\n(+5 Gems)");
     }
 
     public List<QuestData> GetKillQuests()

@@ -17,7 +17,7 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] SkillInstance _spawnOnHit;
     [SerializeField] float _spawnOnHitChance = 0f;
 
-    List<Actor> _enemyList => _skillInstance?.Skill?.Actor?.Senses.EnemyActors;
+    List<Actor> _enemyList => _skill?.Actor?.Senses.EnemyActors;
     Actor _targetEnemy => _cachedTargetEnemy != null ? _cachedTargetEnemy : ((_enemyList != null && _enemyList.Count > 0) ? _enemyList[0] : null);
     Actor _cachedTargetEnemy = null;
 
@@ -25,13 +25,15 @@ public class SIE_Projectile : SIE, IPoolable
     [SerializeField] AudioClip _wallHitClip;
 
     // Stats
-    float _speed => _skillInstance.Skill.Stats.Speed.Value;
+    float _speed => _skill.Stats.Speed.Value;
     float _hitboxDelay => Constants.SkillStats.HitboxDelay;
-    float _knockback => _knockbackMult * _skillInstance.Skill.Stats.Knockback.Value;
-    float _pierce => _skillInstance.Skill.Stats.Pierce.Value;
-    int _damage => (int)_skillInstance.Skill.Stats.Damage.Value;
-    float _lunge => _skillInstance.Skill.Stats.Lunge.Value;
+    float _knockback => _knockbackMult * _skill.Stats.Knockback.Value;
+    float _pierce => _skill.Stats.Pierce.Value;
+    int _damage => (int)_skill.Stats.Damage.Value;
+    float _lunge => _skill.Stats.Lunge.Value;
     float _piercePercent => _pierceCount.Remap(0f, _pierce, 0f, 1f);
+
+    Skill _skill;
 
     // References
     Rigidbody2D _rb;
@@ -51,12 +53,21 @@ public class SIE_Projectile : SIE, IPoolable
     {
         base.Awake();
         _rb = GetComponent<Rigidbody2D>();
-        _skillInstance.OnActivated += Launch;
-        _skillInstance.OnEnd += () =>
+        if (_skillInstance != null)
         {
-            _rb.linearVelocity = Vector2.zero;
-            _rb.angularVelocity = 0f;
-        };
+            _skillInstance.OnActivated += Launch;
+            _skillInstance.OnEnd += () =>
+            {
+                _rb.linearVelocity = Vector2.zero;
+                _rb.angularVelocity = 0f;
+            };
+
+            _skill = _skillInstance.Skill;
+        }
+        else
+        {
+            _skill = GetComponent<Skill>();
+        }
 
         _projPivot = GetComponentInChildren<Collider2D>().transform;
     }
@@ -78,7 +89,7 @@ public class SIE_Projectile : SIE, IPoolable
 
         Vector2 launchForce = _speed * transform.up;
 
-        var actor = _skillInstance.Skill.Actor;
+        var actor = _skill.Actor;
 
         // Speed Inheritance
         Rigidbody2D parentBody = _skillInstance.ParentBody ?? actor?.Body;
@@ -104,11 +115,11 @@ public class SIE_Projectile : SIE, IPoolable
         }
 
         // Add Force
-        float speed = 0.2f * 360f * _skillInstance.Skill.Stats.Speed.Value;
+        float speed = 0.2f * 360f * _skill.Stats.Speed.Value;
         _rb.AddForce(_launchMult * launchForce, ForceMode2D.Impulse);
         if (_angularVelMult.Abs() > 0)
         {
-            _rb.angularVelocity = -_angularVelMult * speed * _skillInstance.Skill.GetDirection(true);
+            _rb.angularVelocity = -_angularVelMult * speed * _skill.GetDirection(true);
         }
 
         // Lunge
@@ -117,13 +128,13 @@ public class SIE_Projectile : SIE, IPoolable
             Vector2 lungeForce = transform.up * _lunge;
             //parentBody.AddDampForce(lungeForce, ForceMode2D.Impulse); olf "bad physics" way
             parentBody.AddForce(5f * lungeForce, ForceMode2D.Impulse);
-            _skillInstance.Skill.Actor.MoveController.ApplyKnockback(1f * _lunge);
+            _skill.Actor.MoveController.ApplyKnockback(1f * _lunge);
         }
     }
 
     private void FixedUpdate()
     {
-        if(_skillInstance.Skill.Actor == null)
+        if(_skill.Actor == null)
         {
             _skillInstance.State = SkillInstance.SkillInstanceState.End;
         }
@@ -131,9 +142,9 @@ public class SIE_Projectile : SIE, IPoolable
         if (_attached && _rb != null)
         {
             Vector2 vel = Vector2.zero;
-            if(_skillInstance?.Skill?.Actor?.Body != null)
+            if(_skill?.Actor?.Body != null)
             {
-                vel = _skillInstance.Skill.Actor.Body.linearVelocity;
+                vel = _skill.Actor.Body.linearVelocity;
             }
             _rb.linearVelocity = vel;
         }
@@ -176,10 +187,10 @@ public class SIE_Projectile : SIE, IPoolable
         Vector2 particlePoint = collision != null ? collision.GetContact(0).point : (_projPivot != null? _projPivot.position : transform.position);
 
         // State
-        if (_skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
+        if (_skillInstance != null && _skillInstance.State != SkillInstance.SkillInstanceState.Activated) return;
         int damageDone = 0;
         bool didDodge = false;
-        float startupPierceMult = _skillInstance.ActivePercent < 0.02f? 0f : 1f;
+        float startupPierceMult = (_skillInstance?.ActivePercent ?? 1f) < 0.02f? 0f : 1f;
 
         // References
         var hitActor = col.GetComponentInParent<Actor>();
@@ -222,11 +233,11 @@ public class SIE_Projectile : SIE, IPoolable
         else if(hitActor)
         {
             // Disable friendly fire
-            if (!hitActor.IsEnemyOf(_skillInstance.Skill.Actor)) return;
+            if (!hitActor.IsEnemyOf(_skill.Actor)) return;
 
             // Damage
-            float damage = (int)(_damageMult * _skillInstance.Skill.Stats.CalculateDamageValue());
-            bool didCrit = _skillInstance.Skill.Stats.RollForCrit();
+            float damage = (int)(_damageMult * _skill.Stats.CalculateDamageValue());
+            bool didCrit = _skill.Stats.RollForCrit();
             if (didCrit) damage *= 1.5f;
             //damage *= _piercePercent.RemapPercent(1f, 0.75f);
             damageDone = hitActor.TakeDamage(damage, _skillInstance, null, isCrit: didCrit);
@@ -244,7 +255,7 @@ public class SIE_Projectile : SIE, IPoolable
                 // Audio
                 this.DelayedInvoke(0.02f, () =>
                 {
-                    PlayAudio(_hitClip, damageDone / _skillInstance.Skill.Stats.Damage.Value);
+                    PlayAudio(_hitClip, damageDone / _skill.Stats.Damage.Value);
                 });
 
                 particlePoint = particlePoint.Lerp(hitActor.transform.position, 0.75f);
@@ -253,9 +264,9 @@ public class SIE_Projectile : SIE, IPoolable
             }
 
             // Events
-            var skill = _skillInstance.Skill;
+            var skill = _skill;
             skill.OnHit?.Invoke(damageDone, hitActor, skill);
-            if (hitActor.Stats.Health < 0f) skill.OnKill?.Invoke(hitActor);
+            if (hitActor.Stats.Health <= 0f) skill.OnKill?.Invoke(hitActor);
 
             // Spawn on Hit
             if(!didDodge && _spawnOnHit != null && Random.value < _spawnOnHitChance)
@@ -297,7 +308,7 @@ public class SIE_Projectile : SIE, IPoolable
             screenShakeMult *= _knockback.Abs().Remap(0f, 2f, 0.25f, 1f);
             amp *= screenShakeMult;
             freq *= screenShakeMult;
-            Vector2 direction = (hitActor.transform.position - this.transform.position).normalized;
+            Vector2 direction = (hitBody.transform.position - this.transform.position).normalized;
             CamShaker.I.Shake(amp, freq, direction);
         }
 
@@ -311,12 +322,12 @@ public class SIE_Projectile : SIE, IPoolable
 
     void HandleParticles(Vector2 hitPos, Vector2 hitVel, float mult = 1f)
     {
-        HitParticlesManager.I.SpawnHitParticles(_skillInstance.Skill, hitPos, hitVel, mult);
+        HitParticlesManager.I.SpawnHitParticles(_skill, hitPos, hitVel, mult);
         /*
         var pSystem = Instantiate(_hitParticles).GetComponent<ParticleSystem>();
         pSystem.transform.position = (Vector3)hitPos + Vector3.forward * _hitParticles.transform.position.z;
         var main = pSystem.main;
-        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skillInstance.Skill).Lerp(Color.white, 0.1f).Alpha(0.5f * mult);
+        main.startColor = GamePaletteManager.I.Palette.GetActorSkillColor(_skill).Lerp(Color.white, 0.1f).Alpha(0.5f * mult);
 
         main.startSpeed = new ParticleSystem.MinMaxCurve(2.5f * mult, 5f * mult);
 

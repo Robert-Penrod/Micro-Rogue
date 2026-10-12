@@ -1705,6 +1705,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bee Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1609123983507279395, guid: 3e2c65e05c48bee47902e9298360e7dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1772,7 +1776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620445320507997368, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7939191153020568325, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
       propertyPath: Faction
@@ -2150,7 +2154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620445320507997368, guid: d809479f8fcf76c429f75879fdf1d47f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2301,7 +2305,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3469973697154441222, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2606,6 +2610,10 @@ PrefabInstance:
     - target: {fileID: 7901988983867986505, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
       propertyPath: m_Name
       value: Mage Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901988983867986505, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9145125537544028044, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3929,6 +3937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bee Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1609123983507279395, guid: 3e2c65e05c48bee47902e9298360e7dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2565334383941841310, guid: 3e2c65e05c48bee47902e9298360e7dd, type: 3}
       propertyPath: Faction
       value: 1
@@ -4224,7 +4236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3469973697154441222, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5425658655178536752, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
       propertyPath: m_Color.b
@@ -5001,6 +5013,10 @@ PrefabInstance:
     - target: {fileID: 7901988983867986505, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
       propertyPath: m_Name
       value: Mage Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901988983867986505, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9145125537544028044, guid: 17bb1f3768082eb43b161eca0b70e74c, type: 3}
       propertyPath: m_LocalPosition.x

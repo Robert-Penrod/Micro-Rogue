@@ -638,6 +638,7 @@ public class Actor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Tackle
         var hitActor = collision.gameObject.GetComponent<Actor>();
         if (hitActor == null) return;
         if(MoveController.IsDodging)

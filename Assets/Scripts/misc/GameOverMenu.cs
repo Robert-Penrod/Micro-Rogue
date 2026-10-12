@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class GameOverMenu : SimpleMenu
 {
-    [SerializeField] TextMeshProUGUI _costText;
+    [SerializeField] TextMeshProUGUI _infoLeft;
+    [SerializeField] TextMeshProUGUI _infoRight;
     bool _isGameOver;
 
     protected override void Update()
@@ -23,52 +24,72 @@ public class GameOverMenu : SimpleMenu
                     // Open Menu
                     SetOpen(true);
 
+                    UpdateInfo();
+
                     // Gold -> Gem Conversion
                     PlayerManager.I.PlayerList.ForEach(player =>
                     {
                         Player.PlayerData.Gems += player.Data.Gold / 20;
                         player.Data.Gold = 0;
                     });
-
-                    // Restart Cost
-                    var restartCost = GetRestartCost();
-                    _costText.transform.parent.gameObject.SetActive(restartCost > 0);
-                    if (restartCost > 0)
-                    {
-                        _costText.text = $"-{GetRestartCost()}";
-                    }
-
-                    // Shop Restock
-                    string shopRestockKey = "ShopRestockTick";
-                    int shopRestockTick = PlayerPrefs.GetInt(shopRestockKey, 0);
-                    shopRestockTick += DungeonManager.I.Data.Coordinate.y;
-                    int restockCount = shopRestockTick / 4;
-                    shopRestockTick -= restockCount * 4;
-                    PlayerPrefs.SetInt(shopRestockKey, shopRestockTick);
-                    var shopMenu = FindFirstObjectByType<ShopMenu>();
-                    //shopMenu.GenerateInventory(restockCount);
-
-                    //Debug.Log($"Restock Tick {shopRestockTick}");
-                    //Debug.Log($"Restock Count {restockCount}");
                 }
             });
         }
     }
 
-    int GetRestartCost()
+    void UpdateInfo()
     {
-        return DungeonManager.I.RunInfoData.GemsCollected;
-    }
+        // Init
+        string labelStrings = string.Empty;
+        string valueStrings = string.Empty;
 
-    public void ReturnToCamp()
-    {
-        PlayerPrefs.SetInt("Restarting", 0);
-        RestartScene();
+        // Get Info
+        int floor = DungeonManager.I.Data.Coordinate.y;
+        int gold = PlayerManager.I.PlayerList[0].Data.Gold;
+        int gems = DungeonManager.I.RunInfoData.GemsCollected;
+        float runTime = DungeonManager.I.RunInfoData.RunTime;
+        float damageDone = 0;
+        int killCount = 0;
+        PlayerManager.I.PlayerList.ForEach(player =>
+        {
+            player.Actor.SkillSystem.SkillList.ForEach(skill =>
+            {
+                killCount += skill.MetaSkillInfo.Kills;
+                damageDone += skill.MetaSkillInfo.DamageDone;
+            });
+        });
+
+        int score = (floor * gold.ClampMin(1) * gems.ClampMin(1));
+
+        // Strings
+        labelStrings += "Floor Reached:\n";
+        valueStrings += $"{floor}\n";
+
+        labelStrings += "Gold:\n";
+        valueStrings += $"{gold}\n";
+
+        labelStrings += "Gems:\n";
+        valueStrings += $"{gems}\n";
+
+        labelStrings += "Kills:\n";
+        valueStrings += $"{killCount}\n";
+
+        labelStrings += "Damage:\n";
+        valueStrings += $"{(int)damageDone}\n";
+
+        labelStrings += "Run Time:\n";
+        valueStrings += $"{runTime.SecondsToMonoTimeStringMinSec(_infoRight.fontSize)}\n";
+
+        labelStrings += "Score:";
+        valueStrings += $"{score}";
+
+        // Write
+        _infoLeft.text = labelStrings;
+        _infoRight.text = valueStrings;
     }
 
     public void Restart()
     {
-        Player.PlayerData.Gems -= GetRestartCost();
         PlayerPrefs.SetInt("Restarting", 1);
         RestartScene();
     }

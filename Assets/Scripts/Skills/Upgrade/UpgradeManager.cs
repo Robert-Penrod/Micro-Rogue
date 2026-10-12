@@ -174,9 +174,9 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
             // Weight
             float weightMult = 1f / 3f;// newSkill weight
-            weightMult *= 0.2f;
-                weightMult *= actorToUpgrade.NewSkillAffinity;
-                float weight = Constants.RarityToWeight(newSkill.Rarity) * weightMult;
+            weightMult /= 2f;
+            weightMult *= actorToUpgrade.NewSkillAffinity;
+            float weight = Constants.RarityToWeight(newSkill.Rarity) * weightMult;
 
             // Rarity Flip
             if (minRarity > 0)
@@ -187,11 +187,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
                 weightMult *= newSkillMult;
 
             // Tag Weight
+            /*
             weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(newSkill.Tags, tagAffinityMult);
                 if (newSkill.Tags.GetTagList().Count == 0)
                 {
                     weight *= 2f;
                 }
+            */
 
             //Debug.Log(newSkill.Name + " : " + weight);
 
@@ -210,13 +212,13 @@ public class UpgradeManager : Singleton<UpgradeManager>
 
             // Skill Upgrades Loop
             for (int i = 0; i < skillUpgradeList.Entries.Count; i++)
-                {
+            {
                 // Rarity Flip
                 if (minRarity > 0) skillUpgradeList.Entries[i].Weight = skillUpgradeList.Entries[i].Weight.Remap(0f, 1f, minRarity, 1f);
 
                 // Tag Weight
-                skillUpgradeList.Entries[i].Weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(skillUpgradeList.Entries[i].Item.SourceSkill.Tags, tagAffinityMult * 0.5f);
-                }
+                //skillUpgradeList.Entries[i].Weight *= actorToUpgrade.Tags.CalculateWeightMultiplier(skillUpgradeList.Entries[i].Item.SourceSkill.Tags, tagAffinityMult * 0.5f);
+            }
 
             // Add
             weightedUpgradeList.AddRange(skillUpgradeList);

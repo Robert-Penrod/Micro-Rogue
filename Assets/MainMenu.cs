@@ -5,13 +5,12 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(SimpleMenu))]
 public class MainMenu : MonoBehaviour
 {
-    static bool _notFirstOpen = false;
-
     [SerializeField] List<SimpleMenu> _menusToOpen = new();
     SimpleMenu _thisMenu;
 
     void SkipMenu()
     {
+        PlayerPrefs.SetInt("Restarting", 0);
         this.DelayedInvoke(-1, () =>
         {
             _thisMenu.SetOpen(false);
@@ -27,15 +26,8 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         _thisMenu = GetComponent<SimpleMenu>();
-        if(_notFirstOpen)
-        {
-            Debug.Log("Skippin");
-            SkipMenu();
-        }
-        else
-        {
-            Debug.Log("First");
-            _notFirstOpen = true;
-        }
+
+        bool doSkip = PlayerPrefs.GetInt("Restarting", 0) > 0;
+        if (doSkip) SkipMenu();
     }
 }

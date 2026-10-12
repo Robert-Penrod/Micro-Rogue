@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
             }
         }
         public static Action<int> OnLevelChange;
-        public static int XpPerLevel => Level * 5;
+        public static int XpPerLevel => Level * 5; // 5
 
         public static int LevelShard
         {

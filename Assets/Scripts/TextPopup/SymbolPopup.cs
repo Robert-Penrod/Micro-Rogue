@@ -9,7 +9,10 @@ public class SymbolPopup : MonoBehaviour, IPoolable
 {
     [HideInInspector] public TextMeshPro TextMesh;
     public SpriteRenderer SpriteRend;
-    TickTimer _lifeTimer = new TickTimer(1f); // 0.7
+    float _lifeTick = 0f;
+    public float LifeTime = 1f;
+    public float Scale = 1f;
+    float _lifePercent => _lifeTick / LifeTime;
     Rigidbody2D _rb;
     public Vector2 Velocity;
 
@@ -30,23 +33,24 @@ public class SymbolPopup : MonoBehaviour, IPoolable
     {
         if(TextMesh == null) TextMesh = GetComponent<TextMeshPro>();
         if (SpriteRend == null) SpriteRend = GetComponentInChildren<SpriteRenderer>();
-        _lifeTimer.Reset();
+        _lifeTick = 0f;
+        Scale = 1f;
+        LifeTime = 1f;
     }
 
     private void Update()
     {
         SpriteRend.enabled = SpriteRend.sprite != null;
 
-        _lifeTimer.Tick(Time.deltaTime);
-        float percent = _lifeTimer.GetPercent();
-        if(percent == 1f)
+        _lifeTick += Time.deltaTime;
+        if (_lifePercent >= 1f)
         {
             gameObject.DestroyOrRecycle();
             return;
         }
 
-        float sinPercent = Mathf.Sin(180f * percent * Mathf.Deg2Rad);
-        transform.localScale = Vector3.one * sinPercent;
+        float sinPercent = Mathf.Sin(180f * _lifePercent * Mathf.Deg2Rad);
+        transform.localScale = Scale * Vector3.one * sinPercent;
 
         transform.localPosition += 1.5f * sinPercent * Vector3.up * Time.deltaTime;
         transform.localPosition += (Vector3)Velocity * Time.deltaTime;

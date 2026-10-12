@@ -8,16 +8,24 @@ public class SymbolPopup2DManager : PersistantSingleton<SymbolPopup2DManager>
 {
     public GameObject TextPopup;
 
-    public SymbolPopup CreatePopup(Vector2 pos, string text = "", Sprite sprite = null, Color? c = null, Vector2? vel = null, Transform parent = null)
+    public SymbolPopup CreatePopup(Vector2 pos, string text = "", Sprite sprite = null, Color? c = null, Vector2? vel = null, Transform parent = null, float lifeTime = 1f, float scale = 1f)
     {
         SymbolPopup symbolPopup = TextPopup.PooledInstantiate().GetComponent<SymbolPopup>();
+        symbolPopup.gameObject.SetActive(true);
+        symbolPopup.Scale = scale;
+        symbolPopup.LifeTime = lifeTime;
         symbolPopup.Velocity = vel ?? Vector2.zero;
         symbolPopup.transform.SetParent(parent);
         symbolPopup.TextMesh.text = text;
         symbolPopup.SpriteRend.sprite = sprite;
-        if (c != null) symbolPopup.SpriteRend.color = c.Value;
+        if (c != null)
+        {
+            symbolPopup.SpriteRend.color = c.Value;
+            symbolPopup.TextMesh.color = c.Value;
+        }
         symbolPopup.transform.position = (Vector3)pos + Vector3.forward * TextPopup.transform.position.z;
-        symbolPopup.gameObject.SetActive(true);
         return symbolPopup;
     }
+
+    public SymbolPopup NotificationPopup(Vector2 pos, string text = "", Sprite sprite = null, Color? c = null, Transform parent = null) => CreatePopup(pos + 0.75f * Vector2.up, text, sprite, c, Vector2.up, parent, 2.25f, 0.675f);
 }

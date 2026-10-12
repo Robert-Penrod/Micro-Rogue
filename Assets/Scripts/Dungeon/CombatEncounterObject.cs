@@ -34,6 +34,9 @@ public class CombatEncounterObject : MonoBehaviour
         // CALCULATE BUDGET
         float budget = PlayerManager.I.PlayerList.Count * (DungeonManager.I.Data.RoomNumber).ClampMin(0);
 
+        // nerf
+        budget = (budget * 0.9f).ClampMin(1f);
+
         budget *= ((float)DungeonManager.I.Data.Biome).Remap(1f, 2f, 1f, 1.1f, false);
         //budget += ((float)dungeonData.Biome).Remap(1f, 3f, 1f, 2f, false);
 
@@ -76,12 +79,12 @@ public class CombatEncounterObject : MonoBehaviour
         //
         // Weight enemy Types
         var enemyTable = new WeightedList<Actor>();
-        int period = 4;
+        int period = 3;
         int floorNum = dungeonData.Coordinate.y;
         int runTier = dungeonData.RunTier;
         int biomeIndex = (int)dungeonData.Biome;
-        int roomTierBonus = period * ((runTier - 1) + (biomeIndex - 1));
-        int roomTier = floorNum + roomTierBonus;
+        int roomLevelBonus = period * ((runTier - 1) + (biomeIndex - 1));
+        int roomLevel = floorNum + roomLevelBonus;
         _enemyTable.Entries.ForEach(enemyEntry =>
         {
             float weight = enemyEntry.Weight;
@@ -93,12 +96,17 @@ public class CombatEncounterObject : MonoBehaviour
                 DungeonManager.BiomeEnum.Dungeon => enemyEntry.Item.DungeonAffinity,
                 _ => 1f
             };
-            float baseMinAffinity = 0.01f; // 0.2f
+            float baseMinAffinity = 0.25f;// 0.01f; // 0.2f
             biomeMult = biomeMult < 0? biomeMult.Remap(-1f, 0f, 0f, baseMinAffinity) : biomeMult.Remap(0f, 1f, baseMinAffinity, 1f);
             weight *= biomeMult.Clamp01();
             weight *= enemyEntry.Item.RarityMult;
 
-            if (roomTier < (enemyEntry.Item.Tier * period)) weight = 0;
+            int enemyTier = enemyEntry.Item.Tier;
+            int enemySpawnLevel = enemyTier * period;
+            if (roomLevel < enemySpawnLevel) weight = 0;
+
+            if (enemyTier < (runTier - 1)) weight *= 0.5f;
+            
             enemyTable.Add(enemyEntry.Item, weight);
         });
         //
@@ -143,7 +151,7 @@ public class CombatEncounterObject : MonoBehaviour
             if ((DungeonManager.I.Data.IsBoss || DungeonManager.I.Data.IsFinalBoss) && encounterCount == 0)
             {
                 // Final Boss
-                selectedTypeActor = _bossTable.SelectItem();
+                selectedTypeActor = _bossTable.Entries[((DungeonManager.I.Data.Coordinate.y-5) / 5) % _bossTable.Entries.Count].Item; // _bossTable.SelectItem();
                 Debug.Log("Selected Boss: " + selectedTypeActor.name);
             }
             else

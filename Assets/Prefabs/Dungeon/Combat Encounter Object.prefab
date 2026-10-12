@@ -70,15 +70,17 @@ MonoBehaviour:
       Weight: 1
     - Item: {fileID: 5220816986196235954, guid: a5bfae3e6966fd0449edebb4fa44bb91, type: 3}
       Weight: 1
-    - Item: {fileID: 4202965850808188155, guid: 16e0131b0ea88b9478b645bd54ab3912, type: 3}
-      Weight: 1
     - Item: {fileID: 297830920537487737, guid: 3c7ff68153a509a4eb4c0677066d2ec0, type: 3}
+      Weight: 1
+    - Item: {fileID: 7002331473359077765, guid: e423c5bcc8ec8614a86429e16d2bc1e4, type: 3}
+      Weight: 1
+    - Item: {fileID: 340429878755309284, guid: b8550543876d2fd4bbbdb5ee6d4d7efd, type: 3}
       Weight: 1
   _bossTable:
     Entries:
-    - Item: {fileID: 4150598940216829819, guid: e5be1408652a401408dd8467d8de97b9, type: 3}
-      Weight: 1
     - Item: {fileID: 6369399006026657268, guid: c0be0a1b48ea697448e8c3f7f06986cc, type: 3}
+      Weight: 1
+    - Item: {fileID: 4150598940216829819, guid: e5be1408652a401408dd8467d8de97b9, type: 3}
       Weight: 1
   _tagBiasDebug:
     _entries: []

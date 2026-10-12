@@ -73,7 +73,7 @@ public class ActorLootDropper : MonoBehaviour
 
     void DoSpawn()
     {
-        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.4f) || (Random.value < 0.2f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
+        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.2f) || (Random.value < 0.2f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
 
         int gemCuttingLevel = Player.GetUnlockedStringCount("Gem Cutting");
         //Debug.Log("Gem Cutting: " + gemCuttingLevel);

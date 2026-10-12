@@ -17,6 +17,7 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
     {
         Player.PlayerData.Gems += 5 * (Player.PlayerData.Level - 1);
         AudioSpawner.PlayAudio(_levelUpSound);
+        SymbolPopup2DManager.I.NotificationPopup(PlayerList[0].Actor.transform.position, "Level Up!\n(+5 Gems)", c: Color.green.SetSaturation(0.7f));
     }
 
     [SerializeField] List<string> _joinSceneNames = new();

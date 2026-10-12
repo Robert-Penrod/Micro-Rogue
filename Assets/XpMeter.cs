@@ -1,7 +1,9 @@
+using TMPro;
 using UnityEngine;
 
 public class XpMeter : MonoBehaviour
 {
+    [SerializeField] TextMeshProUGUI _text;
     [SerializeField] Transform _fill;
     [SerializeField] SimpleMenu _nodeMenu;
     CanvasGroup _canvasGroup;
@@ -14,8 +16,10 @@ public class XpMeter : MonoBehaviour
 
     private void Update()
     {
+        _text.text = $"Lvl {Player.PlayerData.Level}";
+
         float targetAlpha = 0f;
-        if (DungeonManager.I.IsRunStarted || _nodeMenu.IsOpen) targetAlpha = 1f;
+        if ((DungeonManager.I != null &&  DungeonManager.I.IsRunStarted) || (_nodeMenu != null && _nodeMenu.IsOpen)) targetAlpha = 1f;
         float lerpAlpha = _canvasGroup.alpha.Lerp(targetAlpha, 12f * Time.deltaTime);
         _canvasGroup.alpha = lerpAlpha;
 

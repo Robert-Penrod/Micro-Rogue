@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 8176092954707893517}
   - component: {fileID: 8970280336592199421}
   - component: {fileID: 7083401917376905610}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: -Base Skill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,6 +387,9 @@ MonoBehaviour:
     RandomDamage:
       BaseValue: 0
       statModifiers: []
+    CritChance:
+      BaseValue: 0
+      statModifiers: []
     Rate:
       BaseValue: 0.5
       statModifiers: []
@@ -430,9 +433,11 @@ MonoBehaviour:
   NeedsTargetForCooldown: 1
   AttackChase: 1
   PassiveDistMult: 1
-  IsActiveDurringLifetime: 0
+  BlockCooldownDurringLifetime: 0
   BlockCooldownDurringStart: 1
-  IsUsedByNPCs: 1
+  IsUsableByNPCs: 1
+  InstancesBlockCooldown: 0
+  IsInvalidFirstSkill: 0
   _dps: 2.5
   MetaSkillInfo:
     Kills: 0

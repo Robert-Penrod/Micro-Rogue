@@ -7,10 +7,10 @@ public class CloudScroller : MonoBehaviour
 
     private void Update()
     {
-        transform.position += (Vector3)Vector2.right * _scrollSpeed * Time.deltaTime;
-        if(transform.position.x > _scrollPeriod)
+        transform.localPosition += (Vector3)Vector2.right * _scrollSpeed * Time.deltaTime;
+        if(transform.localPosition.x > _scrollPeriod)
         {
-            transform.position = transform.position - (Vector3)Vector2.right * _scrollPeriod;
+            transform.localPosition = transform.localPosition - (Vector3)Vector2.right * _scrollPeriod;
         }
     }
 }
