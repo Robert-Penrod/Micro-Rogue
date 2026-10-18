@@ -8,8 +8,8 @@ public class BrushTrigger : MonoBehaviour
     public float Vol = 0.125f;
     public AudioClip Sound;
     public float LerpSpeed = 10f;
-    [Min(0f)] public float MinSpeed = 3f;
-    [Min(0f)] public float HitboxDelay = 0.25f;
+    public float MinSpeed = 3f;
+    public float HitboxDelay = 0.25f;
     float _hitboxTick = 0f;
     [Range(0f, 1f)] public float HitboxVariance = 0f;
     public float RotationAmp = 5f;

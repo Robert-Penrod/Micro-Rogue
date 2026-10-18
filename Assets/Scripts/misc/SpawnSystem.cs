@@ -33,8 +33,10 @@ public static class SpawnSystem
             pos = new Vector2(originX, originY) + GetRandomPoint();
             var prevTriggerHit = Physics2D.queriesHitTriggers;
             Physics2D.queriesHitTriggers = true;
-            Collider2D[] colArray = Physics2D.OverlapCircleAll(pos, emptyRadius, LayerMask.GetMask("Default"));
+            Collider2D[] colArray = Physics2D.OverlapCircleAll(pos, emptyRadius, LayerMask.GetMask("Default", "Actor"));
             Physics2D.queriesHitTriggers = prevTriggerHit;
+            if (colArray.Length > 0) isEmpty = false;
+            /*
             for (int i = 0; i < colArray.Length; i++)
             {
                 if (!colArray[i].isTrigger)
@@ -43,6 +45,7 @@ public static class SpawnSystem
                     break;
                 }
             }
+            */
         }
         if(!isEmpty)
         {

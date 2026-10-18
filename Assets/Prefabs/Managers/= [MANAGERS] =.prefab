@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4654979527040538880}
   - component: {fileID: 6781111536251701560}
+  - component: {fileID: 7758212624273715827}
   m_Layer: 0
   m_Name: = [MANAGERS] =
   m_TagString: Untagged
@@ -147,6 +148,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5a3d3197da37ef42989dfaee0fe3846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7758212624273715827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316824382257466514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bdc3a7edf4c9ae4799f6076d93dd575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1666345923715226317
@@ -531,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e4e59bbcaab49408d533b8a742a705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _questCompleteAudio: {fileID: 0}
   _enemyList:
   - {fileID: 2565334383941841310, guid: 3e2c65e05c48bee47902e9298360e7dd, type: 3}
   - {fileID: 5635966099129030817, guid: 85e8c10b674fa1540833cf333e85d24d, type: 3}

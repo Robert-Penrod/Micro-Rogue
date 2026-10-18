@@ -4,7 +4,7 @@ public class ActorStatusFX : MonoBehaviour
 {
     [SerializeField] AudioClip _statusSound;
     [SerializeField] float _maxAlpha = 1f;
-    public enum StatusTypeEnum { Pyro, Frost, Static };
+    public enum StatusTypeEnum { Pyro, Frost, Static, Webbed };
     public StatusTypeEnum StatusType;
 
     Actor _actor;
@@ -31,9 +31,10 @@ public class ActorStatusFX : MonoBehaviour
         float lerpSpeed = 12f;
         float effectMag = StatusType switch
         {
-            StatusTypeEnum.Pyro => _actor.PyroPercent.Remap(0.1f, 0.75f, 0f, 1f, false).Pow(2f),
+            StatusTypeEnum.Pyro => _actor.PyroPercent.Remap(0.1f, 0.75f, 0f, 1f, false).ClampMin(0).Pow(2f),
             StatusTypeEnum.Frost => _actor.FrostPercent.Remap(0.1f, 1f, 0f, 1f),
             StatusTypeEnum.Static => _actor.StaticPercent.Pow(3f).Remap(0.1f, 1f, 0f, 1f),
+            StatusTypeEnum.Webbed => _actor.WebbedPercent.Remap(0.1f, 1f, 0f, 1f),
             _ => 0f
         };
 

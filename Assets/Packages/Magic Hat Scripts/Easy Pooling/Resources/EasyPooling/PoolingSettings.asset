@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PoolingSettings
   m_EditorClassIdentifier: 
   ShowPoolsInHierarchy: 0
-  DefaultPoolSize: 100
-  ThinningCheckRate: 10
+  DefaultPoolSize: 10
+  ThinningCheckPeriod: 30
   MaxThinCount: 5

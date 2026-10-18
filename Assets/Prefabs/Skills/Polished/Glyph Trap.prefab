@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Stats.Elemental.BaseValue
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2598464483496659585, guid: 207638942e500f14e907d6d3a19927a8, type: 3}
       propertyPath: Tags._entries.Array.data[0].tag

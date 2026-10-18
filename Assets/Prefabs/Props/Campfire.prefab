@@ -337,6 +337,8 @@ GameObject:
   - component: {fileID: 7507402870774310649}
   - component: {fileID: 7542901364988076155}
   - component: {fileID: 8218209794615822032}
+  - component: {fileID: 3041422492480802972}
+  - component: {fileID: 5350102946445891530}
   m_Layer: 0
   m_Name: Campfire
   m_TagString: Untagged
@@ -451,6 +453,52 @@ MonoBehaviour:
   _health: -1
   _minSizeMult: 0.8
   _maxSizeMult: 1.2
+--- !u!50 &3041422492480802972
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890708118726979927}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 15
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
+--- !u!114 &5350102946445891530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890708118726979927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f74bb75f34c2aa4cbc4ef83a8925cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drag: 3
+  Follow: 3
+  ImuneActorNames: []
+  Pyro: 1
+  Frost: 0
+  Static: 0
+  Webbed: 0
 --- !u!1 &7195549201333363416
 GameObject:
   m_ObjectHideFlags: 0

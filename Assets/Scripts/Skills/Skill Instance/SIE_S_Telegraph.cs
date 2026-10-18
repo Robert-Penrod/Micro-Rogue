@@ -19,7 +19,7 @@ public class SIE_S_Telegraph : SIE, IPoolable
 
     protected override void Awake()
     {
-        _initScale = transform.localScale;
+        _initScale = transform.lossyScale;
         base.Awake();
         _colorController = GetComponentInParent<ColorController>();
 
@@ -94,8 +94,8 @@ public class SIE_S_Telegraph : SIE, IPoolable
         _colorController.SetAlpha(0.9f * Constants.SkillStats.BaseAlpha * alpha);
 
         // Scale
-        //transform.SetLossyScale(Vector3.one * _telegraphPercent.RemapPercent(0f, _size));
-        transform.localScale = _initScale * _skillInstance.StartPercent.RemapPercent(0f, _size);
+        transform.SetLossyScale(_initScale * _skillInstance.StartPercent.RemapPercent(0f, _size));
+        //transform.localScale = _initScale * _skillInstance.StartPercent.RemapPercent(0f, _size);
 
         // Next
         if (_skillInstance.StartPercent >= 1) _skillInstance.State++;

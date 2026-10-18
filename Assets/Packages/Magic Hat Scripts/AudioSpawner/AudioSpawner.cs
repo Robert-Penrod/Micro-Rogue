@@ -107,33 +107,6 @@ public static class AudioSpawner
         if (HIDE_AUDIO_IN_HEIRARCHY) audioSource.gameObject.hideFlags = HideFlags.HideInHierarchy;
         audioObject.AddComponent<AudioSourceAutoDestroy>();
         return audioSource;
-        /*
-        // Remove nulls
-        _audioSourcePool.RemoveAll(x => x == null);
-        _activeAudioSourceList.RemoveAll(x => x == null);
-
-        if(_audioSourcePool.Count > 0)
-        {
-            AudioSource audioSource = _audioSourcePool[0];
-            audioSource.Stop();
-            return audioSource;
-        }
-        else
-        {
-            // If we've hit the pool limit, stop and reuse an active audio source
-            if (_audioSourceCount >= MAX_POOL_COUNT)
-            {
-                AudioSource oldestPlayingAudioSource = _activeAudioSourceList[_activeAudioSourceList.Count - 1];
-                oldestPlayingAudioSource.Stop();
-                return oldestPlayingAudioSource;
-            }
-            // Otherwise just spawn a new pooled audio source
-            else
-            {
-                return CreateNewPooledAudioSource();
-            }
-        }
-        */
     }
 
     public static AudioSource PlayAudioWithRandPitch(AudioClip audioClip, float pitchRange = 0.2f, float basePitch = 1f, float volume = 1f, Vector3? position = null, float delay = 0f)
@@ -151,8 +124,6 @@ public static class AudioSpawner
 
         // Get Audio Source
         AudioSource audioSource = GetAudioSource();
-        //AudioSource audioSource = new GameObject().AddComponent<AudioSource>();
-        //audioSource.gameObject.AddComponent<DelayedDestroyer>().DestroyTime = 5f;
 
         // Setup
         audioSource.volume = volume;

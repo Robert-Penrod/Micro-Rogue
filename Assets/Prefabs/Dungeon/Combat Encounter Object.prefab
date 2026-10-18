@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b379e2291acc0649871a1453b493507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _finalBossWinAudio: {fileID: 8300000, guid: 14ef5c90dfbfbca4e87cb8d323bb8b0f, type: 3}
+  _bossWinAudio: {fileID: 8300000, guid: a0942f39a2fdc534a8a792fd71d75925, type: 3}
   _enemyTable:
     Entries:
     - Item: {fileID: 297830920537487737, guid: adc6bc1e322fd88439fce5b0384dd97e, type: 3}

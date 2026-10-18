@@ -128,12 +128,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: InnateSkillList.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: 'InnateSkillList.Array.data[0]'
       value: 
       objectReference: {fileID: 913206573210524748, guid: 8747687139d1a484eb6464d72475961f, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1695549151836658065, guid: 924f7e4e5afee3841ad16b6b191c9e28, type: 3}
     - target: {fileID: 7931514224636784519, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: m_Name
       value: Bee Variant

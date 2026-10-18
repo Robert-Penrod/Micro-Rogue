@@ -52,7 +52,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Web
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8977837303631968238, guid: d0d7d6b6cfb0c1a4091759d4b3ed7b3f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -103,6 +104,18 @@ PrefabInstance:
     - target: {fileID: 591538419394188466, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210151602627660519, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210151602627660519, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: m_LinearDamping
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2210151602627660519, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: m_AngularDamping
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4524372092899953610, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _useOwnColorHueSat

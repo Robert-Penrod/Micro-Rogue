@@ -288,11 +288,13 @@ public class DungeonManager : Singleton<DungeonManager>
     }
 
     #region GenerateLevel()
+    /*
     public void GenerateLevel()
     {
         if(_hub != null) _hub.gameObject.SetActive(false);
         StartCoroutine(GenerateLevel_Co());
     }
+    */
 
     public void UpdateBiomeTextures()
     {
@@ -330,15 +332,12 @@ public class DungeonManager : Singleton<DungeonManager>
         UpdateBiomeTextures();
 
         // Generator Instantiations
-        Random.InitState(seed + Data.GetSeed());
+        Random.InitState(Data.GetSeed());
         Instantiate(_roomGeneratorPrefab, DungeonTransform);
         yield return new WaitForFixedUpdate();
-        yield return new WaitForFixedUpdate();
+        //yield return new WaitForFixedUpdate();
 
-        Random.InitState(Data.GetSeed());
-        Instantiate(_encounterGeneratorPrefab, DungeonTransform);
-        yield return new WaitForFixedUpdate();
-        yield return new WaitForFixedUpdate();
+        //yield return new WaitForFixedUpdate();
         //SpawnPortals();
         //if (Random.value > 0.5) SpawnPortals();
 
@@ -450,7 +449,7 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(Data.Coordinate.GetHashCode());
             var portalList = new List<Portal>();
             int count = 1;
-            if (Random.value < 0.5f) count++;
+            if (Data.Coordinate.y >= 3 && Random.value < 0.5f) count++;
             int offset = count % 2 != 0 ? 0 : -Random.Range(0, 2);
             if ((Data.Coordinate.y + 1) % 5 == 0) count = 1; // Boss Portal
 
@@ -586,15 +585,15 @@ public class DungeonManager : Singleton<DungeonManager>
             yield return UpgradeManager.I.UpgradePlayers_Co(1 + Data.LevelSkip);
 
             // New Level
-            GenerateLevel();
-
-            yield return new WaitForFixedUpdate();
+            //GenerateLevel();
+            if (_hub != null) _hub.gameObject.SetActive(false);
+            yield return GenerateLevel_Co();
 
             // Teleport Players
             int seed = Data.GetSeed();
             //Debug.Log(seed);
             Random.InitState(seed);
-            Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos(0.25f);
+            Vector2 spawnPos = SpawnSystem.GetRandomEmptyPos();
             Debug.DrawLine(spawnPos, (Vector3)spawnPos + Vector3.up * 10f, Color.red, 10000f);
             foreach(var player in _playerManager.PlayerList)
             {
@@ -619,6 +618,11 @@ public class DungeonManager : Singleton<DungeonManager>
                 }
                 */
             }
+
+            // Generate Encounter
+            Random.InitState(Data.GetSeed());
+            Instantiate(_encounterGeneratorPrefab, DungeonTransform);
+            yield return new WaitForFixedUpdate();
 
             // Extra
             //Debug.Log("Portaled!");

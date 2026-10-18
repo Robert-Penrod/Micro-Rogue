@@ -131,7 +131,7 @@ public class UpgradeManager : Singleton<UpgradeManager>
         });
 
         // NEW SKILL UPGRADES
-        if (isPlayer || actorToUpgrade.InnateSkillList.Count == 0)
+        if (isPlayer/* || actorToUpgrade.InnateSkillList.Count == 0*/)
         {
             BaseSkillList.ForEach(newSkill =>
             {

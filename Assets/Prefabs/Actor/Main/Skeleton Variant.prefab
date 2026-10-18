@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: InnateSkillList.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: 'InnateSkillList.Array.data[0]'
@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: 'InnateSkillList.Array.data[3]'
       value: 
       objectReference: {fileID: 7391418805428206428, guid: 027b1a409858c1c4d9ba625765b8cc3c, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2884419041473229297, guid: 6df0ba05250f3354e80f8f54a0ef4c24, type: 3}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: 'InnateSkillList.Array.data[5]'
+      value: 
+      objectReference: {fileID: 7810722921821588791, guid: c415e9fd580573047b354ada7a5be5eb, type: 3}
     - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Tags._entries.Array.data[3].tag
       value: 20

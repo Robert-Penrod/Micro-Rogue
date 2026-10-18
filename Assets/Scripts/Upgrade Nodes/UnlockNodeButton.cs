@@ -280,6 +280,7 @@ public class UnlockNodeButton : MonoBehaviour
             damp *= _simpleButton.IsSelected ? 1f : 0.75f;
             damp *= _simpleButton.IsHovered ? 1f + hoverMult * 0.125f : 1f;
             damp *= _submitPulseLerp.RemapPercent(1f, 1.125f, false);
+            damp *= (NodeData.CanAfford() || IsUnlocked()) ? 1f : 0.675f;
             damp.Clamp01();
             targetColor = targetColor.SetSV(targetColor.GetSaturation() * damp, targetColor.GetValue() * damp);
             _icon.color = _icon.color.Lerp(targetColor, lerpSpeed * Time.deltaTime);
@@ -425,7 +426,7 @@ public class UnlockNodeButton : MonoBehaviour
             lineRend.startColor = Color.white.Lerp(_mainColor, 0.25f);// Color.white.Lerp(_mainColor, 0.25f);
             lineRend.endColor = Color.white.Lerp(childNode._mainColor, 0.25f); ;// Color.white.Lerp(childNode._mainColor, 0.25f);
 
-            lineRend.gameObject.SetActive(childNode.IsRevealed() || !Application.isPlaying);
+            lineRend.gameObject.SetActive((IsUnlocked() && childNode.IsRevealed()) || !Application.isPlaying);
         }
 
         // Remove excess lines

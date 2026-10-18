@@ -29,7 +29,7 @@ namespace ManaSprite.EasyPooling
         /// </summary>
         private void Start()
         {
-            InvokeRepeating("ThinningCheck", Random.Range(0f, 1f), _poolingSettings.ThinningCheckRate);
+            InvokeRepeating("ThinningCheck", Random.Range(0f, 1f), _poolingSettings.ThinningCheckPeriod);
         }
 
         /// <summary>

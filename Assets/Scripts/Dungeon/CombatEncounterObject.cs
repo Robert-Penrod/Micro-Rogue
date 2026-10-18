@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 public class CombatEncounterObject : MonoBehaviour
 {
+    [SerializeField] AudioClip _finalBossWinAudio;
+    [SerializeField] AudioClip _bossWinAudio;
+    bool _playedWinAudio = false;
     public bool IsEncounterOver { get; private set; }
     [SerializeField] WeightedList<Actor> _enemyTable = new();
     [SerializeField] WeightedList<Actor> _bossTable = new();
@@ -48,6 +51,9 @@ public class CombatEncounterObject : MonoBehaviour
         //budget *= DungeonManager.I.Data.RunLoop.Remap(1f, 2f, 1f, 1.1f, false);
 
         budget *= ((DungeonManager.I.Data.Coordinate.y - 1) % 10).Remap(0f, 9f, 1f, 1.1f);
+
+        budget *= DungeonManager.I.Data.RunLoop.Remap(1f, 2f, 1f, 1.1f, false).ClampMin(1f);
+        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 2f, 1f, 1.1f, false).ClampMin(1f);
 
         budget *= mult;
 
@@ -293,6 +299,8 @@ public class CombatEncounterObject : MonoBehaviour
 
     private void FixedUpdate()
     {
+        var dungeonData = DungeonManager.I.Data;
+
         // Wave Spawner
         if (!IsEncounterOver && _enemyList.Count > 0)
         {
@@ -339,6 +347,17 @@ public class CombatEncounterObject : MonoBehaviour
                 DungeonManager.IncreaseMaxTier(biome);
                 DungeonManager.SetHasCollectedRelic(biome, tier);
                 Player.PlayerData.Relics += 1;
+            }
+
+            if (!_playedWinAudio && (dungeonData.IsBoss || dungeonData.IsFinalBoss))
+            {
+                this.DelayedInvoke(0.375f, () =>
+                {
+                    var clip = _bossWinAudio;
+                    if (dungeonData.IsFinalBoss) clip = _finalBossWinAudio;
+                    AudioSpawner.PlayAudio(clip);
+                    _playedWinAudio = true;
+                });
             }
         }
     }

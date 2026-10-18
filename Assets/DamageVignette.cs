@@ -21,7 +21,7 @@ public class DamageVignette : MonoBehaviour
         float totalHitValue = 0f;
         _playerManager.PlayerList.ForEach(player =>
         {
-            totalHitValue += player.Actor.HitStop;
+            totalHitValue += player.Actor.IsAlive? player.Actor.HitStop : 0f;
         });
         totalHitValue = totalHitValue.Clamp01();
 

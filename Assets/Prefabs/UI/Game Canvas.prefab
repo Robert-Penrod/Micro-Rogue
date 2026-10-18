@@ -356,8 +356,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: -25}
-  m_SizeDelta: {x: 165, y: -50}
+  m_AnchoredPosition: {x: -40, y: -25}
+  m_SizeDelta: {x: 180, y: -50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &2830782794123581429
 CanvasRenderer:
@@ -387,7 +387,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: '- Quest 1 (15%)
+
+    - Quest 2 to do the thing (25%)
+
+    - Quest 3 is
+    really important (16%)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
   m_sharedMaterial: {fileID: -35519726058494776, guid: b018a834b9fe2594183b6fc7dad66d97, type: 2}
@@ -414,14 +419,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

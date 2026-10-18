@@ -263,6 +263,13 @@ public class Skill : MonoBehaviour
             cooldownMult = 0f;
         }
 
+        // Intro nerfing
+        int floor = DungeonManager.I.Data.Coordinate.y;
+        if(!Actor.IsPlayer() && floor <= 2)
+        {
+            cooldownMult *= floor.Remap(1f, 2f, 0.75f, 0.85f);
+        }
+
         // Cooldown
         if (CooldownPercent < 1f)
         {

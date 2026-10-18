@@ -14,7 +14,7 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
     public UnityEvent OnSubmitEvent;
 
     const float LERP_SPEED = 25f;
-    const float SUBMIT_TIME = 0.375f;
+    const float SUBMIT_TIME = 0.2f;
     const float SUBMIT_CHARGE_LERP_SPEED = 12f;
     const float SUBMIT_DECAY_SPEED = 4f;
 

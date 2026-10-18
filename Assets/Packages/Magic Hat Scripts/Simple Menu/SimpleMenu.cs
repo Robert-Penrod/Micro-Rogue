@@ -21,6 +21,7 @@ public class SimpleMenu : MonoBehaviour
 
     public UnityEvent OnGoBack;
     public Action<bool> OnOpenChanged;
+    public UnityEvent OnOpen;
 
     public void JoinPlayerByLastInput()
     {
@@ -89,6 +90,7 @@ public class SimpleMenu : MonoBehaviour
         if (isOpen)
         {
             this.gameObject.SetActive(true);
+            OnOpen?.Invoke();
         }
 
         bool didOpenChange = true;// this.IsOpen != isOpen;

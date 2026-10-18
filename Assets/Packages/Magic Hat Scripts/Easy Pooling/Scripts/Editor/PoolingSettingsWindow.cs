@@ -30,7 +30,6 @@ namespace ManaSprite.EasyPooling
             settings = PoolingSettingsAssetManager.GetOrCreateSettings();
         }
 
-        /*
         private void OnGUI()
         {
             if (settings == null)
@@ -66,7 +65,7 @@ namespace ManaSprite.EasyPooling
 
             GUILayout.BeginHorizontal();
             GUILayout.Space(margin);
-            settings.ThinningCheckRate = EditorGUILayout.FloatField(new GUIContent("Thinning Check Rate (seconds)", "Time interval in seconds at which the pool will check and adjust its size to free memory."), settings.ThinningCheckRate);
+            settings.ThinningCheckPeriod = EditorGUILayout.FloatField(new GUIContent("Thinning Check Rate (seconds)", "Time interval in seconds at which the pool will check and adjust its size to free memory."), settings.ThinningCheckPeriod);
             GUILayout.Space(margin);
             GUILayout.EndHorizontal();
 
@@ -101,6 +100,5 @@ namespace ManaSprite.EasyPooling
             StaticPooler.SetPoolsShown(settings.ShowPoolsInHierarchy);
             Repaint();
         }
-        */
     }
 }

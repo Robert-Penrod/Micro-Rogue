@@ -62,7 +62,7 @@ public class GameOverMenu : SimpleMenu
         int score = (floor * gold.ClampMin(1) * gems.ClampMin(1));
 
         // Strings
-        labelStrings += "Floor Reached:\n";
+        labelStrings += "Floor:\n";
         valueStrings += $"{floor}\n";
 
         labelStrings += "Gold:\n";

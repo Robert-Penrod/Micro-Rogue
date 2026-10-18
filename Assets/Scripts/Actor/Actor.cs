@@ -51,6 +51,8 @@ public class Actor : MonoBehaviour
     public float Static;
     public float StaticPercent => Static / 1f;
     public bool IsParalyzed => StaticPercent >= 1f;
+    public float Webbed;
+    public float WebbedPercent => Webbed / 1f;
 
     // References
     public GameObject DeathDrop;
@@ -293,11 +295,13 @@ public class Actor : MonoBehaviour
 
         //HandleMoveFixedUpdate();
 
+        float minElementMult = 0.01f;
+
         // Elemental Effects
         float elementalClearMult = 0.25f;
         if (Pyro > 0)
         {
-            Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+            Pyro -= (1f + Frost) * elementalClearMult * Time.fixedDeltaTime * Pyro.ClampMin(minElementMult) * Stats.PyroResist.Value.Remap(-1f, 1f, resistMin, resistMax);
             if(Pyro <= 0.1f)
             {
                 _pyroAttacks.Clear();
@@ -328,13 +332,15 @@ public class Actor : MonoBehaviour
         {
             _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
-        if (Frost > 0) Frost -= 1.75f * (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= 1.5f * elementalClearMult * Time.fixedDeltaTime * (Static > 1? Static.Pow(1.5f) : 1f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Frost > 0) Frost -= 1.75f * (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost.ClampMin(minElementMult) * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Static > 0) Static -= 1.75f * elementalClearMult * Time.fixedDeltaTime * (Static > 1? Static.Pow(1.5f).ClampMin(minElementMult) : 1f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Webbed > 0) Webbed -= 10f * elementalClearMult * Time.fixedDeltaTime;
 
         // Caps
         if (Pyro > 2f) Pyro = 2f;
         if (Frost > 2f) Frost = 2f;
         if (Static > 1.5f) Static = 1.5f;
+        if (Webbed > 1f) Webbed = 1f;
     }
 
     public int Heal(int heal, SkillInstance sourceSkillInstance, Actor sourceActor)

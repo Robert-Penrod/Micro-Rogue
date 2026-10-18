@@ -219,8 +219,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6013787954222140653}
-  - component: {fileID: 5558778049764213310}
   - component: {fileID: 3052886706190605826}
+  - component: {fileID: 5558778049764213310}
+  - component: {fileID: -2752483374061747617}
+  - component: {fileID: -8977837303631968238}
   m_Layer: 8
   m_Name: Web
   m_TagString: Untagged
@@ -247,22 +249,6 @@ Transform:
   - {fileID: 760751347850806558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5558778049764213310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6369551319281945880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f74bb75f34c2aa4cbc4ef83a8925cc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Drag: 16
-  ImunityTags: 
-  ImuneActorNames:
-  - spider
 --- !u!61 &3052886706190605826
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -309,6 +295,76 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 0.8}
   m_EdgeRadius: 0
+--- !u!114 &5558778049764213310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369551319281945880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f74bb75f34c2aa4cbc4ef83a8925cc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drag: 8
+  Follow: 1
+  ImuneActorNames:
+  - spider
+  Pyro: 0
+  Frost: 0
+  Static: 0
+  Webbed: 100
+--- !u!114 &-2752483374061747617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369551319281945880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89348ac62de3b50439ee97c02da54818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vol: 0.4
+  Sound: {fileID: 8300000, guid: 8fa3598f18f17b64282c2b1e8c27488d, type: 3}
+  LerpSpeed: 2.25
+  MinSpeed: 0.5
+  HitboxDelay: 1
+  HitboxVariance: 0.1
+  RotationAmp: 4.5
+  PosAmp: 0.0175
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!50 &-8977837303631968238
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6369551319281945880}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 15
+  m_AngularDamping: 25
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 1
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &6697622462799784367
 GameObject:
   m_ObjectHideFlags: 0
