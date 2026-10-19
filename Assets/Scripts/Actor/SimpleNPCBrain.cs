@@ -7,7 +7,8 @@ public class SimpleNPCBrain : ActorBrain
 {
     public string State;
 
-    public float DifficultyMult = 1f;
+    public float Difficulty = 1f;
+    float _diffMult => Difficulty * (_actor?.GetLevel().Remap(1, 3, 0.5f, 1f) ?? 1f);
 
     [Header("Dist")]
     [SerializeField] float _passiveDistMult = 1f;
@@ -144,9 +145,9 @@ public class SimpleNPCBrain : ActorBrain
         DebugDrawLine(_noiseVector, Color.white.Alpha(0.5f));
         //
         // Dodge
-        _dodgeEvadeCharge += DifficultyMult * _dodgeEvade * deltaTime;
+        _dodgeEvadeCharge += _diffMult * _dodgeEvade * deltaTime;
         if (_dodgeEvadeCharge > 1f) _dodgeEvadeCharge = 1f;
-        _dodgeSprintCharge += DifficultyMult * _dodgeSprint * deltaTime;
+        _dodgeSprintCharge += _diffMult * _dodgeSprint * deltaTime;
         if (_dodgeSprintCharge > 1f) _dodgeSprintCharge = 1f;
 
         // CHASE
@@ -352,7 +353,7 @@ public class SimpleNPCBrain : ActorBrain
             }
 
             // Apply Evasion
-            Vector2 skillAvoidanceVector = DifficultyMult * _evasion * avoidanceVector; //2.3f
+            Vector2 skillAvoidanceVector = _diffMult * _evasion * avoidanceVector; //2.3f
             DebugDrawLine(skillAvoidanceVector, Color.magenta);
             moveDir += skillAvoidanceVector;
         }

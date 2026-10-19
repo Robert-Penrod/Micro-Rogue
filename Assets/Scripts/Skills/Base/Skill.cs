@@ -265,9 +265,11 @@ public class Skill : MonoBehaviour
 
         // Intro nerfing
         int floor = DungeonManager.I.Data.Coordinate.y;
-        if(!Actor.IsPlayer() && floor <= 2)
+        int tier = DungeonManager.I.Data.RunTier;
+        var biome = DungeonManager.I.Data.Biome;
+        if (!Actor.IsPlayer() && floor <= 2 && tier == 1 && biome == DungeonManager.BiomeEnum.Forest)
         {
-            cooldownMult *= floor.Remap(1f, 2f, 0.75f, 0.85f);
+            cooldownMult *= floor.Remap(1f, 2f, 0.5f, 0.75f);
         }
 
         // Cooldown

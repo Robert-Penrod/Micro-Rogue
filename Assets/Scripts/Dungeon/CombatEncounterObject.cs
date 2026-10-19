@@ -198,8 +198,8 @@ public class CombatEncounterObject : MonoBehaviour
                 var brain = actor.GetComponent<SimpleNPCBrain>();
                 if (brain != null)
                 {
-                    brain.DifficultyMult = 0.9f;
-                    brain.DifficultyMult *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.25f);
+                    brain.Difficulty = 0.9f;
+                    brain.Difficulty *= DungeonManager.I.Data.RunTier.Remap(1f, 3f, 1f, 1.25f);
                 }
             }
 
@@ -227,7 +227,7 @@ public class CombatEncounterObject : MonoBehaviour
                 var brain = enemy.GetComponent<SimpleNPCBrain>();
                 if (brain != null)
                 {
-                    brain.DifficultyMult *= 1.25f;
+                    brain.Difficulty *= 1.25f;
                 }
             }
             _upgradeAffinityList.Add(enemy, affinityMult * enemy.UpgradeAffinity);
