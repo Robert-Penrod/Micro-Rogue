@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -11,10 +12,14 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
     [SerializeField] AudioClip _selectSound;
     [SerializeField] AudioClip _submitSound;
 
+    [SerializeField] Transform _content;
+
+    [SerializeField] List<Image> _submitChargeImages;
+
     public UnityEvent OnSubmitEvent;
 
-    const float LERP_SPEED = 25f;
-    const float SUBMIT_TIME = 0.2f;
+    const float LERP_SPEED = 12f;
+    const float SUBMIT_TIME = 0.01f;
     const float SUBMIT_CHARGE_LERP_SPEED = 12f;
     const float SUBMIT_DECAY_SPEED = 4f;
 
@@ -54,6 +59,20 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
         _wasSubmitting = false;
         _isSubmitValid = false;
         _submitTick = 0f;
+
+        _submitChargeImages.ForEach(image =>
+        {
+            image.fillAmount = 0f;
+        });
+    }
+
+    private void OnEnable()
+    {
+        _submitChargeImages.ForEach(image =>
+        {
+            if (image == null) return;
+            image.fillAmount = 0f;
+        });
     }
 
     #region UI events
@@ -107,7 +126,15 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
     private void Update()
     {
-        if (_canvasGroup != null && !_canvasGroup.interactable) return;
+        if (_canvasGroup != null && !_canvasGroup.interactable)
+        {
+            _submitChargeImages.ForEach(image =>
+            {
+                if (image == null) return;
+                image.fillAmount = 0f;
+            });
+            return;
+        }
 
         // Polled every frame from live input state (pointer flag or input-action state),
         // rather than a one-shot event, so "released" is always detectable.
@@ -137,7 +164,7 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
                 _submitTick += Time.deltaTime;
                 if (_submitTick >= SUBMIT_TIME)
                 {
-                    _submitTick = 0f;
+                    //_submitTick = 0f;
                     _isSubmitValid = false;
                     isSubmitting = false; // force a clean reset this frame so it doesn't immediately recharge while still held
                     _chargeSource.Stop();
@@ -160,6 +187,17 @@ public class SimpleButton_Old : MonoBehaviour, ISelectHandler, IDeselectHandler,
 
         float lerpScale = transform.localScale.x.Lerp(targetScale, LERP_SPEED * Time.deltaTime);
         transform.localScale = lerpScale * Vector3.one;
+
+        if(_submitChargeImages != null)
+        {
+            _submitChargeImages.ForEach(image =>
+            {
+                if (image == null) return;
+                image.fillAmount = image.fillAmount.Lerp(SubmitPercent.Remap(0f, 0.75f, -0.01f, 1.25f).ClampMin(0f), 0.75f * SUBMIT_CHARGE_LERP_SPEED * Time.deltaTime);
+            });
+        }
+
+        if(_content != null) _content.transform.localScale = Vector3.one * _content.transform.localScale.x.Lerp(SubmitPercent.Remap(0f, 1f, 1f, 1.05f), 0.75f * SUBMIT_CHARGE_LERP_SPEED * Time.deltaTime);
 
         _wasSubmitting = isSubmitting;
     }

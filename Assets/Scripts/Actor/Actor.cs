@@ -332,8 +332,8 @@ public class Actor : MonoBehaviour
         {
             _burnTick -= 0.125f * elementalClearMult * Time.fixedDeltaTime;
         }
-        if (Frost > 0) Frost -= 1.75f * (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost.ClampMin(minElementMult) * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
-        if (Static > 0) Static -= 1.75f * elementalClearMult * Time.fixedDeltaTime * (Static > 1? Static.Pow(1.5f).ClampMin(minElementMult) : 1f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Frost > 0) Frost -= 2f * (1f + Pyro) * elementalClearMult * Time.fixedDeltaTime * Frost.ClampMin(minElementMult) * Stats.FrostResist.Value.Remap(-1f, 1f, resistMin, resistMax);
+        if (Static > 0) Static -= 2f * elementalClearMult * Time.fixedDeltaTime * (Static > 1? Static.Pow(1.5f).ClampMin(minElementMult) : 1f) * Stats.StaticResist.Value.Remap(-1f, 1f, resistMin, resistMax);
         if (Webbed > 0) Webbed -= 10f * elementalClearMult * Time.fixedDeltaTime;
 
         // Caps

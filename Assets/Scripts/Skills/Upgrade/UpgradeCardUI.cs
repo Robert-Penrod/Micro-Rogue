@@ -9,6 +9,8 @@ public class UpgradeCardUI : MonoBehaviour
     [SerializeField] Image _iconGlow;
     [SerializeField] Image _frame;
     [SerializeField] Image _bg;
+    [SerializeField] Image _loadBg;
+    [SerializeField] Image _loadFrame;
     [SerializeField] TextMeshProUGUI _title;
     [SerializeField] TextMeshProUGUI _level;
     [SerializeField] TextMeshProUGUI _description;
@@ -29,6 +31,8 @@ public class UpgradeCardUI : MonoBehaviour
         // Card
         _frame.color = upgradeColor;
         _bg.color = upgradeColor.SetValue(_bg.color.GetValue());
+        if(_loadBg != null) _loadBg.color = _frame.color.Alpha(0.5f);
+        if(_loadFrame != null) _loadFrame.color = _frame.color.Lerp(Color.white, 0.5f).Alpha(0.5f);
 
         // Icon
         this._icon.sprite = upgrade.GetIcon();
