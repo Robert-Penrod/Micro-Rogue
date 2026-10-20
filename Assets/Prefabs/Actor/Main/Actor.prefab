@@ -31642,8 +31642,11 @@ MonoBehaviour:
       Weight: 0.5
     - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
       Weight: 0.25
+    - Item: {fileID: 7512805904016728388, guid: 2241b06666b756e478b76b10bdb3f607, type: 3}
+      Weight: 0.05
   GemPrefab: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
   XpPrefab: {fileID: 7512805904016728388, guid: 416502fbceb06c24f97e8ce9031de227, type: 3}
+  HealthPrefab: {fileID: 7512805904016728388, guid: 2241b06666b756e478b76b10bdb3f607, type: 3}
 --- !u!114 &-2264874766299332809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31672,7 +31675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   State: 
-  DifficultyMult: 1
+  Difficulty: 1
   _passiveDistMult: 1.75
   _attackDistMult: 0.5
   _openSpaceDesire: 1

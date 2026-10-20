@@ -651,8 +651,8 @@ public class Actor : MonoBehaviour
         {
             var vel = -collision.relativeVelocity.normalized;
             //hitActor.Body.AddDecayForce(vel, vel.magnitude);
-            hitActor.MoveController.ApplyKnockback(0.75f);
-            hitActor.Body.AddForce(vel, ForceMode2D.Impulse);
+            hitActor.MoveController.ApplyKnockback(1f);
+            hitActor.Body.AddForce(2f * vel, ForceMode2D.Impulse);
             MoveController.MoveDir *= 0.5f;
         }
     }

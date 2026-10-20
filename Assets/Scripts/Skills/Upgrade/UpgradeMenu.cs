@@ -21,6 +21,11 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
     public bool IsOpen { get; private set; }
     public Actor _actorToUpgrade;
 
+    public int GetUpgradeCost()
+    {
+        return 5 + DungeonManager.I.Data.Coordinate.y - 1;
+    }
+
     protected override void Awake()
     {
         base.Awake();
@@ -93,7 +98,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         if(_actorToUpgrade.IsPlayer())
         {
             var player = _actorToUpgrade.GetComponentInParent<Player>();
-            player.Data.Gold -= 5;
+            player.Data.Gold -= GetUpgradeCost();
         }
 
         RollUpgradeCards();
@@ -106,7 +111,7 @@ public class UpgradeMenu : Singleton<UpgradeMenu>
         if(actor.IsPlayer())
         {
             var player = actor.GetComponentInParent<Player>();
-            return player.Data.Gold >= 5;
+            return player.Data.Gold >= GetUpgradeCost();
         }
 
         return false;

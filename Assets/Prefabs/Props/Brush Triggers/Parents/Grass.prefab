@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: -3970410849353674439}
   - component: {fileID: 3086313946478182423}
   - component: {fileID: 2888628713913381243}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,8 +260,8 @@ MonoBehaviour:
   Sound: {fileID: 8300000, guid: 3f6416ca6da8bc341a2fcfa477d713e5, type: 3}
   LerpSpeed: 10
   MinSpeed: 3
-  HitboxDelay: 0.5
-  HitboxVariance: 0
+  HitboxDelay: 0.4
+  HitboxVariance: 0.25
   RotationAmp: 5
   PosAmp: 0.025
   OnTrigger:
@@ -279,6 +279,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  LootTable:
+    Entries:
+    - Item: {fileID: 7512805904016728388, guid: 94f9aeb1f28f98a42a2416f10c8efd7d, type: 3}
+      Weight: 0.5
+    - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
+      Weight: 1
+    - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
+      Weight: 0.25
+    - Item: {fileID: 7512805904016728388, guid: 2241b06666b756e478b76b10bdb3f607, type: 3}
+      Weight: 0.125
 --- !u!58 &3086313946478182423
 CircleCollider2D:
   m_ObjectHideFlags: 0

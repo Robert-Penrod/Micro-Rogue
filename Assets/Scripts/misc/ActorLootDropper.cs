@@ -10,6 +10,7 @@ public class ActorLootDropper : MonoBehaviour
     public WeightedList<GameObject> LootPrefabTable = new();
     public GameObject GemPrefab;
     public GameObject XpPrefab;
+    public GameObject HealthPrefab;
 
     Actor _actor;
 
@@ -22,15 +23,15 @@ public class ActorLootDropper : MonoBehaviour
     void DropLoot()
     {
         int actorLevel = _actor.GetLevel();
-        float dropCount = 2f * actorLevel;
+        float dropCount = 1f * actorLevel;
         //if (Random.value < 0.5f) dropCount++;
 
         int lootingLevel = Player.GetUnlockedStringCount("Looting");
         //Debug.Log("Looting: " + lootingLevel);
         dropCount *= 1f + 0.1f * lootingLevel;
 
-        if (DungeonManager.I.Data.IsBoss) dropCount *= 2f;
-        dropCount *= DungeonManager.I.Data.EliteTier.Remap(0, 1, 1, 1.5f);
+        if (DungeonManager.I.Data.IsBoss) dropCount *= 1.25f;
+        dropCount *= DungeonManager.I.Data.EliteTier.Remap(0, 1, 1, 1.125f);
 
         dropCount *= DungeonManager.I.GetLootMult();
 
@@ -57,23 +58,24 @@ public class ActorLootDropper : MonoBehaviour
 
         for(int i = 0; i < actorLevel; i++)
         {
-            DropXP();
+            LootDrop(XpPrefab);
+            //LootDrop(HealthPrefab);
         }
 
         // Fractional drop count
         if(Random.value < (dropCount - (int)dropCount)) DoSpawn();
     }
 
-    void DropXP()
+    void LootDrop(GameObject lootPrefab)
     {
-        var spawnedXp = XpPrefab.PooledInstantiate(transform.position);
-        spawnedXp.gameObject.SetActive(true);
-        KickBody(spawnedXp.GetComponent<Rigidbody2D>());
+        var spawnedLoot = lootPrefab.PooledInstantiate(transform.position);
+        spawnedLoot.gameObject.SetActive(true);
+        Loot.KickBody(spawnedLoot.GetComponent<Rigidbody2D>(), _kickForce, _angularForce);
     }
 
     void DoSpawn()
     {
-        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.2f) || (Random.value < 0.2f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
+        var selectedItem = ((DungeonManager.I.Data.IsBoss && Random.value < 0.2f) || (Random.value < 0.05f * DungeonManager.I.Data.EliteTier))? GemPrefab : LootPrefabTable.SelectItem();
 
         int gemCuttingLevel = Player.GetUnlockedStringCount("Gem Cutting");
         //Debug.Log("Gem Cutting: " + gemCuttingLevel);
@@ -86,15 +88,6 @@ public class ActorLootDropper : MonoBehaviour
         var lootSpawn = selectedItem.PooledInstantiate(transform.position);
         lootSpawn.gameObject.SetActive(true);
 
-        KickBody(lootSpawn.GetComponent<Rigidbody2D>());
-    }
-
-    void KickBody(Rigidbody2D body)
-    {
-        if (body != null)
-        {
-            body.AddForce(Random.insideUnitCircle * _kickForce * body.mass * body.linearDamping, ForceMode2D.Impulse);
-            body.AddTorque(Random.Range(01f, 1f) * _angularForce);
-        }
+       Loot.KickBody(lootSpawn.GetComponent<Rigidbody2D>(), _kickForce, _angularForce);
     }
 }

@@ -40,7 +40,6 @@ public class CombatEncounterObject : MonoBehaviour
         // nerf
         budget = (budget * 0.9f).ClampMin(1f);
 
-        budget *= ((float)DungeonManager.I.Data.Biome).Remap(1f, 2f, 1f, 1.1f, false);
         //budget += ((float)dungeonData.Biome).Remap(1f, 3f, 1f, 2f, false);
 
         budget *= DungeonManager.I.Data.EliteTier > 0 ? 1.1f : 1f;
@@ -52,8 +51,8 @@ public class CombatEncounterObject : MonoBehaviour
 
         budget *= ((DungeonManager.I.Data.Coordinate.y - 1) % 10).Remap(0f, 9f, 1f, 1.1f);
 
-        budget *= DungeonManager.I.Data.RunLoop.Remap(1f, 2f, 1f, 1.1f, false).ClampMin(1f);
-        budget *= DungeonManager.I.Data.RunTier.Remap(1f, 2f, 1f, 1.1f, false).ClampMin(1f);
+        budget *= DungeonManager.I.Data.RunLoop.Remap(1f, 2f, 1f, 1.15f, false).ClampMin(1f);
+        budget *= DungeonManager.I.GetLootMult();
 
         budget *= mult;
 

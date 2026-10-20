@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 492659583851813478}
   - component: {fileID: 1797746552707582277}
   - component: {fileID: 1727026771232789003}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,14 +171,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89348ac62de3b50439ee97c02da54818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vol: 0.125
+  Vol: 0.5
   Sound: {fileID: 8300000, guid: 10ee02f90d3788844bf174383573feec, type: 3}
   LerpSpeed: 10
   MinSpeed: 3
-  HitboxDelay: 0.75
-  HitboxVariance: 0
-  RotationAmp: 1
-  PosAmp: 0.025
+  HitboxDelay: 0.5
+  HitboxVariance: 0.25
+  RotationAmp: 2
+  PosAmp: 0.05
   OnTrigger:
     m_PersistentCalls:
       m_Calls:
@@ -194,6 +194,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  LootTable:
+    Entries:
+    - Item: {fileID: 7512805904016728388, guid: 94f9aeb1f28f98a42a2416f10c8efd7d, type: 3}
+      Weight: 0.5
+    - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
+      Weight: 1
+    - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
+      Weight: 0.25
+    - Item: {fileID: 7512805904016728388, guid: 2241b06666b756e478b76b10bdb3f607, type: 3}
+      Weight: 0.25
 --- !u!114 &1797746552707582277
 MonoBehaviour:
   m_ObjectHideFlags: 0

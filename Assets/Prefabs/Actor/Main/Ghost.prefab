@@ -88,6 +88,18 @@ PrefabInstance:
       propertyPath: Stats.MoveSpeed.BaseValue
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Stats.PyroResist.BaseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Stats.FrostResist.BaseValue
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6620082068588023866, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
+      propertyPath: Stats.StaticResist.BaseValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7563609088413985646, guid: 3482d6e696fb98043bb7df71caaa0216, type: 3}
       propertyPath: Frequency
       value: 0.1

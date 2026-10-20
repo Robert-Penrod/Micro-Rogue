@@ -332,12 +332,14 @@ MonoBehaviour:
   LerpSpeed: 2.25
   MinSpeed: 0.5
   HitboxDelay: 1
-  HitboxVariance: 0.1
+  HitboxVariance: 0.25
   RotationAmp: 4.5
   PosAmp: 0.0175
   OnTrigger:
     m_PersistentCalls:
       m_Calls: []
+  LootTable:
+    Entries: []
 --- !u!50 &-8977837303631968238
 Rigidbody2D:
   serializedVersion: 5

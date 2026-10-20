@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loot : Pickup, IPoolable
 {
-    public enum LootType { Coin = 0, Gem = 100, Relic = 200, XP = 300}
+    public enum LootType { Coin = 0, Gem = 100, Relic = 200, XP = 300, Health = 400}
     public LootType Type;
     public int Value = 1;
     [SerializeField] AudioClip _pickupSound;
@@ -113,14 +113,16 @@ public class Loot : Pickup, IPoolable
         });
     }
 
-    public override bool CanPickUp()
+    public override bool CanPickUp(ActorPickupSystem pickupSystem)
     {
+        if (Type == LootType.Health && pickupSystem.PickupActor.Stats.HealthPercent >= 1f) return false;
+
         return !_wasPickedUp && _spawnTick >= _spawnTime && (_lifeTick < LifeTime || LifeTime < 0);
     }
 
     public override bool DoPickup(ActorPickupSystem pickupSystem)
     {
-        if (!CanPickUp()) return false;
+        if (!CanPickUp(pickupSystem)) return false;
 
         var actor = pickupSystem.PickupActor;
         if (!actor.IsPlayer()) return false;
@@ -140,6 +142,9 @@ public class Loot : Pickup, IPoolable
                 break;
             case LootType.XP:
                 Player.PlayerData.XP += Value;
+                break;
+            case LootType.Health:
+                player.Actor.Heal(5 * Value, null, null);
                 break;
         }
 
@@ -170,6 +175,15 @@ public class Loot : Pickup, IPoolable
         else
         {
             _lifeTick = (_lifeTick - reverseAmount).ClampMin(0);
+        }
+    }
+
+    public static void KickBody(Rigidbody2D body, float kickForce, float angularForce)
+    {
+        if (body != null)
+        {
+            body.AddForce(Random.insideUnitCircle * kickForce * body.mass * body.linearDamping, ForceMode2D.Impulse);
+            body.AddTorque(Random.Range(-1f, 1f) * angularForce);
         }
     }
 }

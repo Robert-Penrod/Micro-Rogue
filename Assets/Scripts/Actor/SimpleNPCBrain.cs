@@ -8,7 +8,7 @@ public class SimpleNPCBrain : ActorBrain
     public string State;
 
     public float Difficulty = 1f;
-    float _diffMult => Difficulty * (_actor?.GetLevel().Remap(1, 3, 0.5f, 1f) ?? 1f);
+    float _diffMult => Difficulty * (_actor?.GetLevel().Remap(1, 3, 0.75f, 0.85f) ?? 1f);
 
     [Header("Dist")]
     [SerializeField] float _passiveDistMult = 1f;

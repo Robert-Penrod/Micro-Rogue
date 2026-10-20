@@ -29,7 +29,7 @@ public class ActorPickupSystem : MonoBehaviour
             var pickup = col.GetComponent<Pickup>();
             if (pickup == null) continue;
 
-            if (pickup.CanPickUp())
+            if (pickup.CanPickUp(this))
             {
                 var body = pickup.GetComponent<Rigidbody2D>();
                 if (body != null) Attract(body, pickup);

@@ -339,7 +339,7 @@ GameObject:
   - component: {fileID: 8218209794615822032}
   - component: {fileID: 3041422492480802972}
   - component: {fileID: 5350102946445891530}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Campfire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ MonoBehaviour:
   LerpSpeed: 6
   MinSpeed: 3
   HitboxDelay: 0.25
-  HitboxVariance: 0
+  HitboxVariance: 0.25
   RotationAmp: 2.5
   PosAmp: 0.025
   OnTrigger:
@@ -437,6 +437,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  LootTable:
+    Entries:
+    - Item: {fileID: 7512805904016728388, guid: 94f9aeb1f28f98a42a2416f10c8efd7d, type: 3}
+      Weight: 0.5
+    - Item: {fileID: 7096006697858048767, guid: 033e63694b1f9ce4a97ad96fcc5a3185, type: 3}
+      Weight: 1
+    - Item: {fileID: 5654145385359071539, guid: 9dbdb58c609812748a8b46be2b20a8cf, type: 3}
+      Weight: 0.25
+    - Item: {fileID: 7512805904016728388, guid: 2241b06666b756e478b76b10bdb3f607, type: 3}
+      Weight: 0.25
 --- !u!114 &8218209794615822032
 MonoBehaviour:
   m_ObjectHideFlags: 0

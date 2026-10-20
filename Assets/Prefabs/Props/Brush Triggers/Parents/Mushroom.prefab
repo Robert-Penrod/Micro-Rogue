@@ -96,8 +96,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3970410849353674439, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
+      propertyPath: Sound
+      value: 
+      objectReference: {fileID: 8300000, guid: bc3cbff44319bc14dbb5923af43ba3f0, type: 3}
+    - target: {fileID: -3970410849353674439, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
+      propertyPath: PosAmp
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -3970410849353674439, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
       propertyPath: RotationAmp
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -3970410849353674439, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
+      propertyPath: LootTable.Entries.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -3970410849353674439, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
+      propertyPath: LootTable.Entries.Array.data[3].Item
+      value: 
+      objectReference: {fileID: 7512805904016728388, guid: 2241b06666b756e478b76b10bdb3f607, type: 3}
+    - target: {fileID: -3970410849353674439, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
+      propertyPath: LootTable.Entries.Array.data[3].Weight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 247927268725174264, guid: 0e88fd0be19fcb4459d203388d046336, type: 3}
       propertyPath: m_LocalPosition.x

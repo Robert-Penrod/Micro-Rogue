@@ -21,7 +21,36 @@ public class BrushTrigger : MonoBehaviour
 
     public UnityEvent OnTrigger;
 
+    public WeightedList<GameObject> LootTable;
+    int LootCount;
+    float _lootTick;
+    string _seed;
 
+    float _velMult = 1f;
+
+    private void OnEnable()
+    {
+        Init();
+    }
+
+    void Init()
+    {
+        _seed = ((int)transform.position.x).ToString() + "," + ((int)transform.position.y).ToString();
+        //Random.InitState(_seed.GetHashCode());
+        LootCount = 0;
+        if (Random.value < 0.375f)
+        {
+            LootCount++;
+            if (Random.value < 0.375f)
+            {
+                LootCount++;
+                if (Random.value < 0.375f)
+                {
+                    LootCount++;
+                }
+            }
+        }
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -33,10 +62,12 @@ public class BrushTrigger : MonoBehaviour
         Rigidbody2D collidingBody = collision.GetComponent<Rigidbody2D>();
         if (collidingBody == null) return;
 
-        if (collidingBody.linearVelocity.magnitude > MinSpeed)
+        float speed = collidingBody.linearVelocity.magnitude;
+        if (speed > MinSpeed)
         {
-            Trigger();
+            Trigger(collision.gameObject);
         }
+        _velMult = speed.Remap(MinSpeed, 10f, 1f, 2f);
     }
 
     private void Awake()
@@ -51,6 +82,7 @@ public class BrushTrigger : MonoBehaviour
         {
             _hitboxTick -= Time.deltaTime;
         }
+
         Lerp();
     }
 
@@ -66,15 +98,44 @@ public class BrushTrigger : MonoBehaviour
         gfxHolder.localPosition = (Vector3)lerpPos + Vector3.forward * gfxHolder.localPosition.z;
     }
 
-    void Trigger()
+    int _rotDir = 1;
+
+    void Trigger(GameObject triggeringObject)
     {
         _hitboxTick = HitboxDelay + HitboxVariance * Random.Range(-1f, 1f) * HitboxDelay;
-        
-        AudioSpawner.PlayAudioWithRandPitch(Sound, 0.2f, 1f, 0.25f * Vol, (Vector2)transform.position).spatialBlend = 0.6f;
 
-        _targetRotationAngle = _initRotationAngle + Random.Range(-1f, 1f) * RotationAmp;
+        float vol = 0.25f; // 0.25f * Vol
+        AudioSpawner.PlayAudioWithRandPitch(Sound, 0.2f, 1f, vol, (Vector2)transform.position).spatialBlend = 0.6f;
+
+        _targetRotationAngle = _initRotationAngle + Random.value.RemapPercent(0.5f * RotationAmp, RotationAmp) * _rotDir;
+        _rotDir *= -1;
         _targetLocalPos = Random.insideUnitCircle * PosAmp * transform.localScale.x;
 
+        if (triggeringObject.CompareTag("Player"))
+        {
+            LootCheck();
+        }
+
         OnTrigger?.Invoke();
+    }
+
+    void LootCheck()
+    {
+        if (LootTable.Entries.Count <= 0) return;
+        if (LootCount <= 0) return;
+
+        _lootTick += Random.Range(0.375f, 1.5f);
+        while(_lootTick >= 1f && LootCount > 0)
+        {
+            _lootTick -= 1f;
+            SpawnLoot();
+        }
+    }
+
+    void SpawnLoot()
+    {
+        LootCount--;
+        var spawnedLoot = Instantiate(LootTable.SelectItem(), transform.position, Quaternion.identity);
+        Loot.KickBody(spawnedLoot.GetComponent<Rigidbody2D>(), 2f, 2f);
     }
 }
