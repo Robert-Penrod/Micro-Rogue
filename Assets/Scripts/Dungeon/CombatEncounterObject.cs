@@ -9,8 +9,8 @@ public class CombatEncounterObject : MonoBehaviour
     [SerializeField] AudioClip _bossWinAudio;
     bool _playedWinAudio = false;
     public bool IsEncounterOver { get; private set; }
-    [SerializeField] WeightedList<Actor> _enemyTable = new();
-    [SerializeField] WeightedList<Actor> _bossTable = new();
+    WeightedList<Actor> _enemyTable = new();
+    WeightedList<Actor> _bossTable = new();
     List<Actor> _enemyList = new();
     List<SimpleNPCBrain> _enemyBrainList = new();
     [SerializeField] TagCollection _tagBiasDebug = new();
@@ -44,8 +44,8 @@ public class CombatEncounterObject : MonoBehaviour
 
         budget *= DungeonManager.I.Data.EliteTier > 0 ? 1.1f : 1f;
 
-        budget *= DungeonManager.I.Data.IsBoss ? 1.1f : 1f;
-        budget *= DungeonManager.I.Data.IsFinalBoss ? 1.2f : 1f;
+        budget *= _isBoss ? 1.1f : 1f;
+        budget *= _isFinalBoss ? 1.2f : 1f;
 
         //budget *= DungeonManager.I.Data.RunLoop.Remap(1f, 2f, 1f, 1.1f, false);
 
@@ -136,14 +136,14 @@ public class CombatEncounterObject : MonoBehaviour
         int max = (int)(2 + (budget / 3f)).ClampMin(1);
         //int absoluteMax = (int)DungeonManager.I.Data.RoomNumber.Remap(0f, 10f, 3f, 4f, false) * PlayerManager.I.PlayerList.Count;
         //if (DungeonManager.I.Data.IsElite) absoluteMax = (int)(absoluteMax * 1.5f);
-        //if (DungeonManager.I.Data.IsBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
+        //if (_isBoss) absoluteMax = (absoluteMax / 2).ClampMin(1);
         //max = Mathf.Min((int)budget, absoluteMax);
         var data = DungeonManager.I.Data;
         int enemyCount = Random.Range(1, 1 + max);
         //if (enemyCount == 1) enemyCount = Random.Range(1, 1 + max);
         if (enemyCount == 1) enemyCount++;
-        if (data.IsFinalBoss) enemyCount = (int)(0.75f * enemyCount);
-        if (data.IsBoss) enemyCount = (int)(0.75f * enemyCount);
+        if (_isFinalBoss) enemyCount = (int)(0.75f * enemyCount);
+        if (_isBoss) enemyCount = (int)(0.75f * enemyCount);
         enemyCount *= PlayerManager.I.PlayerList.Count;
         //enemyCount = enemyCount.ClampMin(2);
         if (Random.value < 0.5f) enemyCount += 1;
@@ -153,7 +153,7 @@ public class CombatEncounterObject : MonoBehaviour
         for(float encounterCount = 0; encounterCount < enemyCount && budget >= 1f + 0.25f * encounterCount; encounterCount += 0)
         {
             var selectedTypeActor = typeTable.SelectItem();
-            if ((DungeonManager.I.Data.IsBoss || DungeonManager.I.Data.IsFinalBoss) && encounterCount == 0)
+            if ((_isBoss || _isFinalBoss) && encounterCount == 0)
             {
                 // Final Boss
                 selectedTypeActor = _bossTable.Entries[((DungeonManager.I.Data.Coordinate.y-5) / 5) % _bossTable.Entries.Count].Item; // _bossTable.SelectItem();
@@ -187,7 +187,7 @@ public class CombatEncounterObject : MonoBehaviour
             actor.Tags.AddTags(encounterTagBias);
 
             // Selected boss
-            if (DungeonManager.I.Data.IsFinalBoss && encounterCount == 0)
+            if (_isFinalBoss && encounterCount == 0)
             {
                 spawnedBossList.Add(actor);
             }
@@ -213,7 +213,7 @@ public class CombatEncounterObject : MonoBehaviour
         bool selectedBoss = _spawnNum > 1;
         newEnemiesList.ForEach(enemy =>
         {
-            bool isBoss = spawnedBossList.Contains(enemy) || (DungeonManager.I.Data.IsBoss && !selectedBoss);
+            bool isBoss = spawnedBossList.Contains(enemy) || (_isBoss && !selectedBoss);
             float affinityMult = isBoss ? 10f : 1f;
             if (isBoss && !selectedBoss)
             {
@@ -290,10 +290,35 @@ public class CombatEncounterObject : MonoBehaviour
     float _spawnTime = 30f;
     int _spawnNum = 0;
 
+    bool _isBoss;
+    bool _isFinalBoss;
+
     private void Start()
     {
+        int DungeonLength = DungeonManager.I.GetLoopRoomCount();
+        int prevY = DungeonManager.I.PreviousData.Coordinate.y;
+        int currY = DungeonManager.I.Data.Coordinate.y;
+        int normalizer = prevY / 5;
+        prevY -= 5 * normalizer;
+        currY -= 5 * normalizer;
+
+        Debug.Log($"prevY ({prevY}), currY ({currY})");
+
+        _isBoss = prevY < 5 && currY >= 5;
+        _isFinalBoss = prevY < DungeonLength && currY >= DungeonLength;
+        DungeonManager.I.Data.IsBoss = _isBoss;
+        DungeonManager.I.Data.IsFinalBoss = _isFinalBoss;
+        DungeonManager.I.OnDungeonDataChanged?.Invoke();
+
+        LoadTables();
         SpawnEncounter();
         DungeonManager.I.CombatEncounter = this;
+    }
+
+    void LoadTables()
+    {
+        _enemyTable.AddRange(Resources.LoadAll<Actor>("Actor/Enemy"), 1f);
+        _bossTable.AddRange(Resources.LoadAll<Actor>("Actor/Boss"), 1f);
     }
 
     private void FixedUpdate()
@@ -339,7 +364,7 @@ public class CombatEncounterObject : MonoBehaviour
                 });
             });
 
-            if(DungeonManager.I.Data.IsFinalBoss && !DungeonManager.I.GetHasCollectedRelic())
+            if(_isFinalBoss && !DungeonManager.I.GetHasCollectedRelic())
             {
                 var biome = DungeonManager.I.Data.Biome;
                 var tier = DungeonManager.I.Data.RunTier;
@@ -348,12 +373,12 @@ public class CombatEncounterObject : MonoBehaviour
                 Player.PlayerData.Relics += 1;
             }
 
-            if (!_playedWinAudio && (dungeonData.IsBoss || dungeonData.IsFinalBoss))
+            if (!_playedWinAudio && (_isBoss || _isFinalBoss))
             {
                 this.DelayedInvoke(0.375f, () =>
                 {
                     var clip = _bossWinAudio;
-                    if (dungeonData.IsFinalBoss) clip = _finalBossWinAudio;
+                    if (DungeonManager.I.Data.IsFinalBoss) clip = _finalBossWinAudio;
                     AudioSpawner.PlayAudio(clip);
                     _playedWinAudio = true;
                 });

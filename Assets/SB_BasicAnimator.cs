@@ -28,7 +28,7 @@ public class SB_BasicAnimator : MonoBehaviour
             targetScale *= _simpleButton.PressPercent.RemapPercent(1f, _baseSizeMult * _pressSizeMult, false);
             float lerp = _lerpSpeed;
             lerp *= targetScale > transform.localScale.x ? 2f : 1f;
-            transform.localScale = transform.localScale.Lerp(Vector3.one * targetScale, lerp * Time.deltaTime);
+            transform.localScale = transform.localScale.Lerp(Vector3.one * targetScale, lerp * Time.unscaledDeltaTime);
         }
     }
 }

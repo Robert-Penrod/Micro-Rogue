@@ -19,6 +19,8 @@ public class DungeonManager : Singleton<DungeonManager>
 
     public bool IsEncounterOver { get; private set; }
     public bool IsRunStarted { get; private set; }
+    public bool IsGameOver;
+    public bool IsRunActive => IsRunStarted && !IsGameOver;
     
     public Transform DungeonTransform { get; private set; }
     PlayerManager _playerManager;
@@ -150,14 +152,17 @@ public class DungeonManager : Singleton<DungeonManager>
         public BiomeEnum Biome = BiomeEnum.Forest;
         public TagCollection Tags;
         public int LevelSkip = 0;
+        public int UpgradeCount = 1;
 
         public int EliteTier = 0;
+
         public bool IsBoss;
         public bool IsFinalBoss;
 
         public DungeonData(int seed, Vector2Int coordinate, int runLevel = 1, int eliteTier = -1)
         {
             LevelSkip = runLevel;
+            UpgradeCount = 1 + LevelSkip;
 
             // Seeding
             this.Seed = seed;
@@ -165,13 +170,22 @@ public class DungeonManager : Singleton<DungeonManager>
             Random.InitState(GetSeed());
 
             // Encounter Type Sampling
-            this.IsFinalBoss = this.Coordinate.y % loopRoomCount == 0;
-            this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
-            if (eliteTier >= 0 && !IsFinalBoss && !IsBoss) this.EliteTier = eliteTier;
-            else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
+            //this.IsFinalBoss = this.Coordinate.y % loopRoomCount == 0;
+            //this.IsBoss = !IsFinalBoss && this.Coordinate.y % 5 == 0;
+            //if (eliteTier >= 0 && !IsFinalBoss && !IsBoss) this.EliteTier = eliteTier;
+            //else this.EliteTier = (!this.IsBoss && !this.IsFinalBoss && this.Coordinate.y > 1)? Random.Range(1, 3) : 0;
 
             // Biome Sampling
             this.Biome = DungeonManager.I?.Data?.Biome ?? BiomeEnum.Forest;// DungeonManager.SampleBiome(this.Seed, this.Coordinate, runLevel);
+        }
+
+        public DungeonData Clone()
+        {
+            var dungeonData = new DungeonData(this.Seed, this.Coordinate, LevelSkip);
+            dungeonData.IsBoss = this.IsBoss;
+            dungeonData.IsFinalBoss = this.IsFinalBoss;
+            dungeonData.EliteTier = this.EliteTier;
+            return dungeonData;
         }
 
         public int GetSeed()
@@ -482,7 +496,7 @@ public class DungeonManager : Singleton<DungeonManager>
                 // Dungeon Data
                 // - coordinate
                 Vector2Int coordinate = Data.Coordinate;
-                coordinate.y = Data.RoomNumber + 1;
+                Debug.Log($"Spawning Portal: {Data.Coordinate.x}, {Data.Coordinate.y}");
                 coordinate.x = Data.Coordinate.x + ((count / 2) - i);
                 if (count % 2 == 0) coordinate.x += offset;// On evens have random chance to sheft left to keep left right traversal balanced
 
@@ -502,8 +516,17 @@ public class DungeonManager : Singleton<DungeonManager>
                 var newDungeonData = new DungeonData(Data.Seed, coordinate, runLevel: levelSkip, eliteTier: i);
                 newDungeonData.RunTier = Data.RunTier;
 
+                /*
+                int roomNum = newDungeonData.RoomNumber + 1;
+                newDungeonData.IsFinalBoss = (roomNum % I.GetLoopRoomCount()) == 0;
+                newDungeonData.IsBoss = !newDungeonData.IsFinalBoss && ((roomNum % 5) == 0);
+                */
+
                 // Set Data
-                portal.SetData(newDungeonData);
+                this.DelayedInvoke(-1, () =>
+                {
+                    portal.SetData(newDungeonData);
+                });
             }
         }
     }
@@ -529,6 +552,7 @@ public class DungeonManager : Singleton<DungeonManager>
 
             Debug.Log("Starting Game");
             IsRunStarted = true;
+            IsGameOver = false;
 
             Debug.Log("DM Used Portal");
             DoPortal();
@@ -548,17 +572,25 @@ public class DungeonManager : Singleton<DungeonManager>
             SelectedPortal = GetPlayerVotePortal();
 
             // Step data
-            PreviousData = Data;
+            Debug.Log($"oldY: {Data.Coordinate.y}");
+            PreviousData = Data.Clone();
             if (SelectedPortal != null)
             {
                 Data = SelectedPortal.DungeonData;// new DungeonData(this.Data.Seed, SelectedPortal.DungeonData.Coordinate);
                 // Take Money?
                 Player.PlayerData.Gems -= SelectedPortal.GemCost;
             }
-            else
+
+            // Remove Prior Drops / Skill Instances
+            var lootList = FindObjectsByType<Loot>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            foreach(Loot loot in lootList)
             {
-                Data.Coordinate.y += 1 + Data.LevelSkip;
-                //Data.Biome = BiomeEnum.Wilds;
+                Destroy(loot.gameObject);
+            }
+            var skillInstanceList = FindObjectsByType<SkillInstance>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            foreach(SkillInstance skillInstance in skillInstanceList)
+            {
+                Destroy(skillInstance.gameObject);
             }
 
             // Starting run
@@ -581,8 +613,14 @@ public class DungeonManager : Singleton<DungeonManager>
                 Destroy(p.gameObject);
             }
 
-            // Upgrade
-            yield return UpgradeManager.I.UpgradePlayers_Co(1 + Data.LevelSkip);
+            // Floor/Upgrade
+            while (Data.UpgradeCount > 0)
+            {
+                yield return UpgradeManager.I.UpgradePlayers_Co();
+                Data.UpgradeCount--;
+                Data.Coordinate.y++;
+            }
+            Debug.Log($"newY: {Data.Coordinate.y}");
 
             // New Level
             //GenerateLevel();
@@ -620,6 +658,7 @@ public class DungeonManager : Singleton<DungeonManager>
             }
 
             // Generate Encounter
+            yield return new WaitForFixedUpdate();
             Random.InitState(Data.GetSeed());
             Instantiate(_encounterGeneratorPrefab, DungeonTransform);
             yield return new WaitForFixedUpdate();

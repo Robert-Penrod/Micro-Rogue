@@ -1017,11 +1017,6 @@
                     "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
-                },
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": true,
-                    "isOR": false
                 }
             ]
         },
@@ -1031,16 +1026,6 @@
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<Mouse>",
                     "isOptional": true,
                     "isOR": false
                 }

@@ -801,6 +801,14 @@ public static class TypeExtensions
     #endregion
 
     #region Transform Extensions
+
+    public static void DestroyChilden(this Transform t)
+    {
+        for (int i = t.childCount - 1; i >= 0; i--)
+        {
+            GameObject.Destroy(t.GetChild(i).gameObject);
+        }
+    }
     public static float GetAverageSize(this Transform t)
     {
         return (t.localScale.x + t.localScale.y + t.localScale.z) / 3f;

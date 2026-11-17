@@ -73,6 +73,7 @@ public class Portal : MonoBehaviour
         // Init
         this.DungeonData = data;
         this._textMesh.text = $"{DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}";
+        Debug.Log($"Setting Portal Data: {DungeonData.Coordinate.x}, {DungeonData.Coordinate.y}");
 
         // Biome
         if (_biomeIcon != null)
@@ -81,9 +82,6 @@ public class Portal : MonoBehaviour
             _biomeIcon.color = DungeonManager.I.GetBiomeColor(DungeonData.Biome).Alpha(_biomeIcon.color.a);
             _biomeIcon.gameObject.SetActive(_biomeIcon.sprite != null);
         }
-
-        // Level
-        DungeonData.Coordinate.y = DungeonManager.I.Data.Coordinate.y + 1 + DungeonData.LevelSkip;
 
         // Level Color
         Color lvlColor = Level switch
@@ -96,19 +94,22 @@ public class Portal : MonoBehaviour
 
         // Level Difficulty
         // boss
+        /*
         int bossPeriod = 5;
         int currentLevel = DungeonManager.I.Data.RoomNumber;
-        int nextLevel = DungeonData.Coordinate.y;
+        int nextLevel = DungeonManager.I.Data.RoomNumber + DungeonData.UpgradeCount;
         int levelstoBoss = bossPeriod - (currentLevel % bossPeriod);
         int levelsGained = nextLevel - currentLevel;
         if(levelsGained >= levelstoBoss)
         {
-            this.DungeonData.IsBoss = true;
+            //Debug.Log($"LevelGain({levelsGained}) >= levelsToBoss({levelstoBoss})");
+            //this.DungeonData.IsBoss = true;
         }
         if(Level > 1)
         {
             //this.DungeonData.EliteTier = 1;
         }
+        */
 
         // Level Text
         _lvlText.gameObject.SetActive(Level != 1 && IsEnterable);
@@ -144,7 +145,7 @@ public class Portal : MonoBehaviour
     {
         // Lock
         _lockIcon.gameObject.SetActive(!IsEnterable);
-        UpdateUI();
+        //UpdateUI();
 
         float scale = _baseScale;
         float targetRot = 0f;

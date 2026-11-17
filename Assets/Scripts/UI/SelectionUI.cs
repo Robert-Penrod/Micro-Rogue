@@ -53,6 +53,6 @@ public class SelectionUI : MonoBehaviour
     {
         //_image.color = _image.color.Alpha(_image.color.a.Lerp(_isActive? 1f : 0f, _lerpSpeed * Time.deltaTime));
         //transform.localScale = transform.localScale.x.Lerp(_isActive? 1f : 0.5f, _lerpSpeed * Time.deltaTime) * Vector3.one;
-        transform.localPosition = transform.localPosition.Lerp(Vector3.zero, _lerpSpeed * Time.deltaTime);
+        transform.localPosition = transform.localPosition.Lerp(Vector3.zero, _lerpSpeed * Time.unscaledDeltaTime);
     }
 }

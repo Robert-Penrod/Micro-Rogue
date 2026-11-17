@@ -125,6 +125,12 @@ public class DebugTools : MonoBehaviour
             Utils.SetFullTimeScale(_timeScaleArray[_timeScaleIndex]);
         }
 
+        // Level Skip
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            DungeonManager.I.Data.UpgradeCount++;
+        }
+
         // Kill
         if (Input.GetKeyDown(KeyCode.K))
         {

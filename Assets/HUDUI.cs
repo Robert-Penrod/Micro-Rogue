@@ -6,7 +6,7 @@ public class HUDUI : MonoBehaviour
     [SerializeField] CanvasGroup _mainGroup;
     [SerializeField] CanvasGroup _dungeonInfoGroup;
     bool _toggle = true;
-    bool _isInRun => (DungeonManager.I?.Data?.Coordinate.y ?? 0) > 0;
+    bool _isInRun => DungeonManager.I?.IsRunStarted ?? false;
     #endregion
 
     #region Init

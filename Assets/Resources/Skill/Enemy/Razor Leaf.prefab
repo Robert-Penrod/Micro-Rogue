@@ -125,6 +125,10 @@ PrefabInstance:
       propertyPath: m_Parameters.widthMultiplier
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5548848231718439703, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _activeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d32d65ae0406f7459a18e8d5dc75fb3, type: 3}
     - target: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Name
       value: skill projectile
@@ -141,6 +145,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d07e54ccca2d37642ba446615f4b6cbf, type: 3}
     - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: _angularVel
       value: 1

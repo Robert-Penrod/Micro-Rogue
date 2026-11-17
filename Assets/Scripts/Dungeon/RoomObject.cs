@@ -12,6 +12,8 @@ public class RoomObject : MonoBehaviour
     [SerializeField] WeightedList<GameObject> _undergroundProps = new();
     [SerializeField] WeightedList<GameObject> _dungeonProps = new();
 
+    Transform _propHolder;
+
     DungeonManager _dungeonManager;
 
     private void Start()
@@ -20,19 +22,39 @@ public class RoomObject : MonoBehaviour
         Generate();
     }
 
+    private void OnEnable()
+    {
+        _dungeonManager = DungeonManager.I;
+        if (_dungeonManager == null) return;
+        Generate();
+    }
+
     void Generate()
     {
+        if (_propHolder == null)
+        {
+            _propHolder = new GameObject("PropParent").transform;
+            _propHolder.name = "Props";
+            _propHolder.SetParent(transform);
+        }
+        else
+        {
+            _propHolder.DestroyChilden();
+        }
+
         // Random Init
-        Random.InitState(DungeonManager.I.Data.GetSeed());
+        int seed = _dungeonManager?.Data?.GetSeed() ?? System.DateTime.Now.Ticks.GetHashCode();
+        Random.InitState(seed);
+        Utils.RandomSeed();
 
         // Room Shape
-        var biome = _dungeonManager.Data.Biome;
+        var biome = _dungeonManager?.Data.Biome;
         _wildsRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Forest);
         _undergroundRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Cave);
         _dungeonRoomShapes.SetActive(biome == DungeonManager.BiomeEnum.Dungeon);
 
         // Scale
-        transform.localScale = Random.Range(0.9f, 1.1f) * DungeonManager.I.Data.Coordinate.y.Remap(1f, 15f, 1f, 1.125f) * Vector3.one;
+        transform.localScale = Random.Range(0.9f, 1.1f) * _dungeonManager.Data.Coordinate.y.Remap(1f, 15f, 1f, 1.125f) * Vector3.one;
 
         // Props
         WeightedList<GameObject> biomePropTable = biome switch
@@ -45,12 +67,12 @@ public class RoomObject : MonoBehaviour
         if (biomePropTable != null && biomePropTable.Entries.Count > 0)
         {
             float propCount = Random.Range(1, 5) + Random.Range(1, 5); // 2d4
-            propCount *= DungeonManager.I.Data.RunLoop.Remap(1f, 3f, 1f, 1.25f);
-            propCount *= ((int)DungeonManager.I.Data.Biome).Remap(1f, 3f, 1f, 1.25f);
+            propCount *= _dungeonManager.Data.RunLoop.Remap(1f, 3f, 1f, 1.25f);
+            propCount *= ((int)_dungeonManager.Data.Biome).Remap(1f, 3f, 1f, 1.25f);
             for (int i = 0; i < propCount; i++)
             {
                 var propPrefab = biomePropTable.SelectItem();
-                Instantiate(propPrefab, SpawnSystem.GetRandomEmptyPos(), Quaternion.identity, this.transform);
+                Instantiate(propPrefab, SpawnSystem.GetRandomEmptyPos(), Quaternion.identity, _propHolder);
             }
         }
     }

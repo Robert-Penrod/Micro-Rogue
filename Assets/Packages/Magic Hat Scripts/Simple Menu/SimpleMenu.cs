@@ -23,6 +23,19 @@ public class SimpleMenu : MonoBehaviour
     public Action<bool> OnOpenChanged;
     public UnityEvent OnOpen;
 
+    float _deltaTime => Time.unscaledDeltaTime;
+
+    public void ExitGame()
+    {
+        // If we are running in the Unity Editor
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            // If we are running in a standalone build
+            Application.Quit();
+#endif
+    }
+
     public void JoinPlayerByLastInput()
     {
         PlayerManager.I.JoinPlayerByLastInputDevice();
@@ -33,7 +46,7 @@ public class SimpleMenu : MonoBehaviour
         PlayerManager.I.UnjoinAllPlayers();
     }
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _canvasGroup = gameObject.GetOrAddComponent<CanvasGroup>();
     }
@@ -55,7 +68,7 @@ public class SimpleMenu : MonoBehaviour
 
     protected virtual void Update()
     {
-        _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * Time.deltaTime);
+        _canvasGroup.alpha = _canvasGroup.alpha.Lerp(IsOpen ? 1f : 0f, _lerpSpeed * _deltaTime);
         //if (!IsOpen && _canvasGroup.alpha < 0.001f) this.gameObject.SetActive(false); 
 
         if(IsOpen)

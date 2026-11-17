@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: _hub
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 209966341756596192, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
+      propertyPath: Data.UpgradeCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 394863905722829010, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: _levelUpSound
       value: 
@@ -327,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 3977344962747842183, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: _loadFrame
       value: 
-      objectReference: {fileID: 270134228697083035}
+      objectReference: {fileID: 0}
     - target: {fileID: 4654979527040538880, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -549,17 +553,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
---- !u!114 &270134228697083035 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3006638822378658593, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}
-  m_PrefabInstance: {fileID: 3028125058392307642}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &7683071167067401914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4654979527040538880, guid: 354961308e09ddb47b6419cbab8077d9, type: 3}

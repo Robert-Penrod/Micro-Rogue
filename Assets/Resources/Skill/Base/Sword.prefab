@@ -445,7 +445,7 @@ MonoBehaviour:
   _previousTargetsList: []
   Skill: {fileID: 0}
   _startClip: {fileID: 0}
-  _activeClip: {fileID: 8300000, guid: ad60b78feeee17b44a8e567a18549a10, type: 3}
+  _activeClip: {fileID: 8300000, guid: 64cd13c6b155bb04ca6501a2d4421a08, type: 3}
   _endClip: {fileID: 0}
   StartPercent: 0
   ActivePercent: 0
@@ -528,7 +528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75f6d683f2f6024fb52617a1b4d493b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _projPivot: {fileID: 3029096005703646196}
   _attached: 1
   _damageMult: 1
   _knockbackMult: 1
@@ -539,7 +538,7 @@ MonoBehaviour:
   _hitParticles: {fileID: 7850725256528138724, guid: bf8e70d1b41a7f64c9e5820cc01c1d4f, type: 3}
   _spawnOnHit: {fileID: 0}
   _spawnOnHitChance: 0
-  _hitClip: {fileID: 8300000, guid: a2dfef3fcd8b20c48ab3826ac81d4aab, type: 3}
+  _hitClip: {fileID: 8300000, guid: e210a1484b57d73468f9901f263edb23, type: 3}
   _wallHitClip: {fileID: 0}
 --- !u!114 &5391772451037885078
 MonoBehaviour:

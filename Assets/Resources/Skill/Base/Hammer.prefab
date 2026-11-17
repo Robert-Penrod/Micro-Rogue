@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165693079315193454, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+      propertyPath: _activeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cccf8ba99703dd149b8986b5798e30cc, type: 3}
     - target: {fileID: 260307485779450578, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: m_Name
       value: Hammer
@@ -356,6 +360,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 2497229969752659803, guid: 5c02085eb5a964142b2cc49962151119, type: 3}
+    - target: {fileID: 6256700476117044453, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
+      propertyPath: _hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a5c5c6ce838875f45a448df7e49331d2, type: 3}
     - target: {fileID: 6508734953673912106, guid: 6884a758511154b4d89f426fb7cae957, type: 3}
       propertyPath: m_LocalScale.x
       value: 1

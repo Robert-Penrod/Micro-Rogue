@@ -17,6 +17,7 @@ public class GameOverMenu : SimpleMenu
         if (!_isGameOver && PlayerManager.I.AreAllPlayersDead())
         {
             _isGameOver = true;
+            DungeonManager.I.IsGameOver = true;
             this.DelayedInvoke(1f, () =>
             {
                 if (!IsOpen)

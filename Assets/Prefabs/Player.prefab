@@ -61,7 +61,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
@@ -136,10 +136,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1449863812820039732, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2948772221135989850, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8949052877210960583, guid: b6c81786dd1d1584a8b6f836553ea71c, type: 3}

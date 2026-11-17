@@ -48,8 +48,6 @@ MonoBehaviour:
   _bossWinAudio: {fileID: 8300000, guid: a0942f39a2fdc534a8a792fd71d75925, type: 3}
   _enemyTable:
     Entries:
-    - Item: {fileID: 297830920537487737, guid: adc6bc1e322fd88439fce5b0384dd97e, type: 3}
-      Weight: 1
     - Item: {fileID: 426422539626438587, guid: 719e01867c6f1e84e920abcbadf0dd6a, type: 3}
       Weight: 1
     - Item: {fileID: 4180237215866368456, guid: a3ba0865ba77c8e4f905f7fa8abe7c23, type: 3}

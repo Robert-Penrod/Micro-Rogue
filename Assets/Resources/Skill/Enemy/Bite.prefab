@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4071984625771100024}
     m_Modifications:
+    - target: {fileID: 5548848231718439703, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _activeClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d0b533a1c3710b944bb7dcabc145ebd4, type: 3}
     - target: {fileID: 5551539076389133510, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Name
       value: skill projectile
@@ -20,6 +24,10 @@ PrefabInstance:
       propertyPath: _swingAngle
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7387337185668143039, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
+      propertyPath: _hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2659ca28bfb0f4146a3d6a6201c8b7aa, type: 3}
     - target: {fileID: 8191357747834812176, guid: 288e7d95cfd4d25458134519de329e84, type: 3}
       propertyPath: m_Size.x
       value: 0.85

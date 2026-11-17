@@ -5,13 +5,18 @@ using UnityEngine.EventSystems;
 
 public class UpgradeManager : Singleton<UpgradeManager>
 {
-    [Header("Data")]
-    [SerializeField] List<Skill> BaseSkillList = new();
+    List<Skill> BaseSkillList = new();
 
     public List<Skill> GetSkillList() => BaseSkillList;
 
     // State
     public bool IsUpgrading { get; private set; }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        BaseSkillList.AddRange(Resources.LoadAll<Skill>("Skill/Base"));
+    }
 
     public IEnumerator UpgradePlayers_Co(int upgradeLevels = 1)
     {

@@ -202,7 +202,7 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
         }
         OnPlayerJoin?.Invoke(player);
 
-        player.transform.position = Random.insideUnitCircle.normalized * Random.Range(0.5f, 1f);
+        player.transform.position = Vector2.down * 100f;
     }
 
     void OnPlayerLeft(PlayerInput playerInput)
@@ -238,7 +238,12 @@ public class PlayerManager : PersistantSingleton<PlayerManager>
     void UpdateCanJoin()
     {
         var sceneName = SceneManager.GetActiveScene().name;
-        if (_joinSceneNames.Contains(sceneName))
+        SetCanJoin(_joinSceneNames.Contains(sceneName));
+    }
+
+    public void SetCanJoin(bool canJoin)
+    {
+        if(canJoin)
         {
             _playerInputManager.EnableJoining();
         }

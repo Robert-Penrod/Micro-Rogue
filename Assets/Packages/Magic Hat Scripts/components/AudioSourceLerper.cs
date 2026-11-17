@@ -66,7 +66,7 @@ public class AudioSourceLerper : MonoBehaviour
 
         if(TrackList.Count > 0 && !AudioSource.isPlaying)
         {
-            var clipList = TrackList.FindAll(x => x != AudioSource.clip);
+            var clipList = TrackList.FindAll(x => x != AudioSource.clip && AudioSource.enabled);
             AudioSource.clip = clipList.GetRandomElement();
             AudioSource.volume = 0f;
             AudioSource.Play();

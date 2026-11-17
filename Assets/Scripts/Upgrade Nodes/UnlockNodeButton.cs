@@ -387,8 +387,8 @@ public class UnlockNodeButton : MonoBehaviour
         // Destroy Line Rends
         while(lineRends.Count > 0)
         {
-            Destroy(lineRends[0].gameObject);
-            DestroyImmediate(lineRends[0].gameObject);
+            if(Application.isPlaying) Destroy(lineRends[0].gameObject);
+            else DestroyImmediate(lineRends[0].gameObject);
             lineRends.RemoveAt(0);
         }
 

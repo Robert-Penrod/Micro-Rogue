@@ -58,6 +58,7 @@ public class MusicManager : MonoBehaviour
             x.Volume.LerpMult = 0.75f;
             x.Volume.Value = 0f;
             x.AudioSource.outputAudioMixerGroup = _musicMixer;
+            x.DoesPause = false;
         });
 
         _isMuted = PlayerPrefs.GetInt("MusicMuted", 0) > 0;
@@ -107,8 +108,13 @@ public class MusicManager : MonoBehaviour
         _upgradeMusic.Pitch.LerpMult = 1.5f;
         _gameOverMusic.Pitch.Target = allPlayersDead ? 1f : 1.15f;
 
+        // Paused
+        if(PauseMenu.IsPaused)
+        {
+            PlayAudio(_sneakMusic);
+        }
         // GameOver
-        if (allPlayersDead)
+        else if (allPlayersDead)
         {
             PlayAudio(_gameOverMusic);
         }

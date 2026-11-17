@@ -28,7 +28,7 @@ public class WeightedList<T> : IEnumerable<T>
         }
     }
 
-    public void AddRange(List<T> collection, float defaultWeight = 1f)
+    public void AddRange(ICollection<T> collection, float defaultWeight = 1f)
     {
         foreach (T item in collection)
         {
